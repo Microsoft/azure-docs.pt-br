@@ -2,18 +2,18 @@
 title: Executar Kubelet Virtual em um cluster AKS (Serviço de Kubernetes do Azure)
 description: Saiba como usar o Virtual Kubelet com o Serviço de Kubernetes do Azure (AKS) para executar contêineres do Linux e do Windows em Instâncias de Contêiner do Azure.
 services: container-service
-author: iainfoulds
+author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: cc0c3becf21cb54b97a88e9ba35b38308af81a85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: f18992be353d2d6cc739412d98ccd97d5e78d4c7
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475417"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613867"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Usar o Virtual Kubelet com o serviço de Kubernetes do Azure (AKS)
 
@@ -22,21 +22,21 @@ ACIs (Instâncias de Contêiner do Azure) fornecem um ambiente hospedado para ex
 Ao usar o provedor Kubelet Virtual para Instâncias de Contêiner do Azure, os contêineres do Linux e do Windows podem ser agendados em uma instância de contêiner, como se fosse um nó Kubernetes padrão. Essa configuração permite que você aproveite os recursos dos Kubernetes, além do valor de gerenciamento e a economia das instâncias de contêiner.
 
 > [!NOTE]
-> O AKS agora tem suporte interno para o agendamento de contêineres em ACI, chamado de *nós virtuais*. Esses nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Se precisar agendar instâncias de contêiner do Windows, continue usando o Virtual Kubelet. Caso contrário, você deve usar os nós virtuais, em vez das instruções do Virtual Kubelet manual observadas neste artigo. Você pode começar com os nós virtuais usando a [CLI do Azure][virtual-nodes-cli] ou o [portal do Azure][virtual-nodes-portal].
+> O AKS agora tem suporte interno para o agendamento de contêineres em ACI, chamado de *nós virtuais*. Esses nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Se precisar agendar instâncias de contêiner do Windows, continue usando o Virtual Kubelet. Caso contrário, você deve usar os nós virtuais, em vez das instruções do Virtual Kubelet manual observadas neste artigo. Você pode começar com os nós virtuais usando o [CLI do Azure][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
 >
-> Kubelet Virtual é um projeto experimental de software livre e deve ser usado como tal. Para contribuir, registrar problemas e ler mais sobre kubelet virtual, confira o [projeto Kubelet Virtual do GitHub][vk-github].
+> Kubelet Virtual é um projeto experimental de software livre e deve ser usado como tal. Para contribuir, problemas de arquivos e ler mais sobre o virtual kubelet, consulte o [projeto GitHub de Virtual Kubelet][vk-github].
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este documento presume que você tenha um cluster AKS. Se você precisar de um cluster AKS, consulte o [início rápido do AKS (Serviço de Kubernetes do Azure)][aks-quick-start].
+Este documento presume que você tenha um cluster AKS. Se você precisar um cluster do AKS, consulte o [início rápido do serviço de Kubernetes do Azure (AKS)][aks-quick-start].
 
 Você também precisa da versão da CLI do Azure **2.0.65** ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Para instalar o Virtual Kubelet, instale e configure [Helm] [ aks-helm] no cluster do AKS. Certifique-se de que o Tiller está [configurado para uso com o RBAC Kubernetes](#for-rbac-enabled-clusters), se necessário.
+Para instalar o Virtual Kubelet, instale e configure [Helm][aks-helm] no cluster do AKS. Certifique-se de que o Tiller está [configurado para uso com o RBAC Kubernetes](#for-rbac-enabled-clusters), se necessário.
 
 ### <a name="register-container-instances-feature-provider"></a>Registrar o provedor de recursos de instâncias de contêiner
 
-Se você não tiver usado o serviço de instância de contêiner do Azure (ACI), registre o provedor de serviço com sua assinatura. Você pode verificar o status do registro de provedor ACI usando o comando [lista de provedor az][az-provider-list], conforme mostrado no exemplo a seguir:
+Se você não tiver usado o serviço de instância de contêiner do Azure (ACI), registre o provedor de serviço com sua assinatura. Você pode verificar o status do ACI provedor registro usando o [lista de provedor az][az-provider-list] de comando, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -58,7 +58,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados para RBAC
 
-Se o cluster do AKS for habilitado para o RBAC, você deverá criar uma conta de serviço e a associação de função para uso com o Tiller. Para saber mais, confira [Controle de acesso baseado em função do Helm][helm-rbac]. Para criar uma conta de serviço e uma associação de função, crie um arquivo chamado *rbac-virtual-kubelet.yaml* e cole a seguinte definição:
+Se o cluster do AKS for habilitado para o RBAC, você deverá criar uma conta de serviço e a associação de função para uso com o Tiller. Para obter mais informações, consulte [controle de acesso baseado em função do Helm][helm-rbac]. Para criar uma conta de serviço e uma associação de função, crie um arquivo chamado *rbac-virtual-kubelet.yaml* e cole a seguinte definição:
 
 ```yaml
 apiVersion: v1
@@ -81,7 +81,7 @@ subjects:
     namespace: kube-system
 ```
 
-Aplique a conta de serviço e a associação com [kubectl apply][kubectl-apply] e especifique o arquivo *rbac-virtual-kubelet.yaml*, conforme mostrado no seguinte exemplo:
+Aplicam-se a conta de serviço e associação com [aplicar kubectl][kubectl-apply] e especifique seu *rbac virtual kubelet.yaml* de arquivos, conforme mostrado no exemplo a seguir:
 
 ```console
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -99,7 +99,7 @@ Agora, você pode continuar a instalar o Virtual Kubelet no cluster AKS.
 
 ## <a name="installation"></a>Instalação
 
-Use o comando [az aks install-conector][aks-install-connector] para instalar o Kubelet Virtual. O exemplo a seguir implanta o conector do Linux e do Windows.
+Use o [az aks install-conector][aks-install-connector] comando para instalar o Virtual Kubelet. O exemplo a seguir implanta o conector do Linux e do Windows.
 
 ```azurecli-interactive
 az aks install-connector \
@@ -109,7 +109,7 @@ az aks install-connector \
     --os-type Both
 ```
 
-Esses argumentos estão disponíveis para o [az aks install-connector] [ aks-install-connector] comando.
+Esses argumentos estão disponíveis para o [az aks install-conector][aks-install-connector] comando.
 
 | Argumento: | DESCRIÇÃO | Obrigatório |
 |---|---|:---:|
@@ -126,7 +126,7 @@ Esses argumentos estão disponíveis para o [az aks install-connector] [ aks-ins
 
 ## <a name="validate-virtual-kubelet"></a>Validar Kubelet Virtual
 
-Para validar que o Virtual Kubelet tenha sido instalado, retornar uma lista de nós de Kubernetes usando o [kubectl obter nós] [ kubectl-get] comando:
+Para validar que o Virtual Kubelet tenha sido instalado, retornar uma lista de nós de Kubernetes usando o [kubectl obter nós][kubectl-get] comando:
 
 ```console
 $ kubectl get nodes
@@ -139,7 +139,7 @@ virtual-kubelet-virtual-kubelet-windows-eastus   Ready    agent   37s   v1.13.1-
 
 ## <a name="run-linux-container"></a>Executar contêiner do Linux
 
-Crie um arquivo chamado `virtual-kubelet-linux.yaml` e copie no YAML a seguir. Observe que [nodeSelector][node-selector] e [toleration][toleration] estão sendo usados para agendar o contêiner no nó.
+Crie um arquivo chamado `virtual-kubelet-linux.yaml` e copie no YAML a seguir. Observe que um [nodeSelector][node-selector] and [toleration][toleration] estão sendo usados para agendar o contêiner no nó.
 
 ```yaml
 apiVersion: apps/v1
@@ -172,13 +172,13 @@ spec:
         effect: NoSchedule
 ```
 
-Execute o aplicativo com o comando [kubectl create][kubectl-create].
+Execute o aplicativo com o [kubectl criar][kubectl-create] comando.
 
 ```console
 kubectl create -f virtual-kubelet-linux.yaml
 ```
 
-Use o comando [kubectl get pods][kubectl-get] com o argumento `-o wide` para gerar uma lista dos pods com o nó agendado. Observe que o pod `aci-helloworld` foi agendado no nó `virtual-kubelet-virtual-kubelet-linux`.
+Use o [kubectl get pods][kubectl-get] com o `-o wide` argumento para gerar uma lista de pods com o nó agendado. Observe que o pod `aci-helloworld` foi agendado no nó `virtual-kubelet-virtual-kubelet-linux`.
 
 ```console
 $ kubectl get pods -o wide
@@ -189,7 +189,7 @@ aci-helloworld-7b9ffbf946-rx87g   1/1     Running   0          22s     52.224.14
 
 ## <a name="run-windows-container"></a>Executar contêiner do Windows
 
-Crie um arquivo chamado `virtual-kubelet-windows.yaml` e copie no YAML a seguir. Observe que [nodeSelector][node-selector] e [toleration][toleration] estão sendo usados para agendar o contêiner no nó.
+Crie um arquivo chamado `virtual-kubelet-windows.yaml` e copie no YAML a seguir. Observe que um [nodeSelector][node-selector] and [toleration][toleration] estão sendo usados para agendar o contêiner no nó.
 
 ```yaml
 apiVersion: apps/v1
@@ -222,13 +222,13 @@ spec:
         effect: NoSchedule
 ```
 
-Execute o aplicativo com o comando [kubectl create][kubectl-create].
+Execute o aplicativo com o [kubectl criar][kubectl-create] comando.
 
 ```console
 kubectl create -f virtual-kubelet-windows.yaml
 ```
 
-Use o comando [kubectl get pods][kubectl-get] com o argumento `-o wide` para gerar uma lista dos pods com o nó agendado. Observe que o pod `nanoserver-iis` foi agendado no nó `virtual-kubelet-virtual-kubelet-windows`.
+Use o [kubectl get pods][kubectl-get] com o `-o wide` argumento para gerar uma lista de pods com o nó agendado. Observe que o pod `nanoserver-iis` foi agendado no nó `virtual-kubelet-virtual-kubelet-windows`.
 
 ```console
 $ kubectl get pods -o wide
@@ -239,7 +239,7 @@ nanoserver-iis-5d999b87d7-6h8s9   1/1     Running   0          47s     52.224.14
 
 ## <a name="remove-virtual-kubelet"></a>Remover Kubelet Virtual
 
-Use o comando [az aks remove-conector][aks-remove-connector] para remover o Kubelet Virtual. Substitua os valores de argumento pelo nome do conector, o cluster AKS e o grupo de recursos do cluster AKS.
+Use o [az aks remover-conexão][aks-remove-connector] comando para remover o Virtual Kubelet. Substitua os valores de argumento pelo nome do conector, o cluster AKS e o grupo de recursos do cluster AKS.
 
 ```azurecli-interactive
 az aks remove-connector \
@@ -254,9 +254,9 @@ az aks remove-connector \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para possíveis problemas com o Kubelet Virtual, consulte o [Peculiaridades e soluções alternativas conhecidas][vk-troubleshooting]. Para relatar problemas com o Kubelet Virtual, [abra um problema do GitHub][vk-issues].
+Para possíveis problemas com o Virtual Kubelet, consulte o [conhecidos quirks e soluções alternativas][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
-Leia mais sobre o Virtual Kubelet no [projeto GitHub do Virtual Kubelet][vk-github].
+Leia mais sobre o Virtual Kubelet na [projeto GitHub de Virtual Kubelet][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

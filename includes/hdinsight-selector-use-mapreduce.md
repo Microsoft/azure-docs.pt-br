@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: f42705902257e0284a3b316f3b1572627aa27f7a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67078295"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172049"
 ---
 > [!div class="op_single_selector"]
 > * [Visão geral](../articles/hdinsight/hadoop/hdinsight-use-mapreduce.md)

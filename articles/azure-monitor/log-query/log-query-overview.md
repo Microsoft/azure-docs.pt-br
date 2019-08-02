@@ -1,101 +1,105 @@
 ---
-title: Analisar dados de log no Azure Monitor | Microsoft Docs
-description: Você precisa de uma consulta de log para recuperar dados de log do Azure Monitor.  Este artigo descreve como novas consultas de log são utilizadas no Azure Monitor e fornece conceitos necessários para serem compreendidos antes de criar uma.
+title: Visão geral do log de consultas no Azure Monitor | Microsoft Docs
+description: Respostas a perguntas comuns relacionadas ao fazer a consulta e permite começar a usá-los.
 services: log-analytics
 author: bwren
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7605bf36c41c5b1276d29076173efd52409afaa9
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65203607"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310334"
 ---
-# <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de log no Azure Monitor
+# <a name="overview-of-log-queries-in-azure-monitor"></a>Visão geral das consultas de log no Azure Monitor
+Log de consultas ajudam você a aproveitar totalmente o valor dos dados coletados no [Logs do Azure Monitor](../platform/data-platform-logs.md). Uma poderosa linguagem de consulta permite que você unir dados de várias tabelas, agregar grandes conjuntos de dados e executar operações complexas com o mínimo de código. Praticamente qualquer pergunta pode ser respondida e análise executadas desde que foram coletados dados de suporte, e você compreender como construir a consulta à direita.
 
-Os dados de log coletados pelo Monitor do Azure são armazenados em um espaço de trabalho do Log Analytics, que é baseado no [Azure Data Explorer](/azure/data-explorer). Ele coleta a telemetria de várias origens e usa a [linguagem de consulta Kusto](/azure/kusto/query) usada pelo Data Explorer para recuperar e analisar dados.
+Alguns recursos no Azure Monitor, como [insights](../insights/insights-overview.md) e [soluções](../insights/solutions-inventory.md) processar dados de log sem expor você às consultas subjacentes. Para aproveitar totalmente a outros recursos do Azure Monitor, você deve compreender como as consultas são construídas e como eles podem ser usados para analisar interativamente os dados em Logs do Azure Monitor.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+Use este artigo como um ponto de partida para saber mais sobre consultas de log no Azure Monitor. Ele responde a perguntas comuns e fornece links para documentação adicional que fornece mais detalhes e as lições.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## <a name="how-can-i-learn-how-to-write-queries"></a>Como posso saber como escrever consultas?
+Se desejar ir diretamente para as coisas, você pode começar com os tutoriais a seguir:
 
-## <a name="log-queries"></a>Consultas de logs
+- [Introdução ao Log Analytics no Azure Monitor](get-started-portal.md).
+- [Introdução às consultas de log no Azure Monitor](get-started-queries.md).
 
-Você precisa de uma consulta de log para recuperar quaisquer dados de log do Azure Monitor.  Se estiver [analisando dados no portal](portals.md), [configurando uma regra de alerta](../platform/alerts-metric.md) para ser notificado sobre uma condição específica ou recuperando dados usando a [API de Logs do Azure Monitor](https://dev.loganalytics.io/), você usará uma consulta para especificar os dados desejados.  Este artigo descreve como as consultas de logs são usadas no Azure Monitor e fornece conceitos que deverão ser compreendidos antes que elas sejam criadas.
+Quando você tiver as Noções básicas para baixo, percorra várias lições usando seus próprios dados ou dados de nosso ambiente de demonstração, iniciando com: 
 
-## <a name="where-log-queries-are-used"></a>Onde as consultas de logs são usadas
+- [Trabalhar com cadeias de caracteres em consultas de log do Azure Monitor](string-operations.md)
+ 
+## <a name="what-language-do-log-queries-use"></a>Qual idioma faça uso de consultas?
+Os Logs do Azure Monitor se baseia [Data Explorer do Azure](/azure/data-explorer), e consultas de log são gravadas usando a mesma linguagem de consulta do Kusto (KQL). Isso é uma linguagem avançada projetada para ser fácil de ler e autor e você poderá começar a usá-lo com orientação mínima.
 
-As diferentes maneiras que você usará consultas no Azure Monitor incluem o seguinte:
+Ver [documentação do Azure Data Explorer KQL](/azure/kusto/query) para a documentação completa sobre KQL e referência sobre as diferentes funções disponíveis.<br>
+Ver [Introdução às consultas de log no Azure Monitor](get-started-queries.md) para uma rápida explicação passo a passo da linguagem usando os dados de Logs do Azure Monitor.
+Ver [diferenças de linguagem de consulta de log do Azure Monitor](data-explorer-difference.md) para pequenas diferenças na versão do KQL usado pelo Azure Monitor.
 
-- **Portal.** Você pode executar análises interativas de dados de log no [portal do Azure](portals.md).  Isso permite que você edite sua consulta e analise os resultados em uma variedade de formatos e visualizações.  
+## <a name="what-data-is-available-to-log-queries"></a>Quais dados estão disponíveis para consultas de log?
+Todos os dados coletados nos Logs do Azure Monitor está disponível para recuperar e analisar em consultas de log. Fontes de dados diferentes gravará seus dados em tabelas diferentes, mas você pode incluir várias tabelas em uma única consulta para analisar dados de várias fontes. Quando você cria uma consulta, comece determinando quais tabelas têm os dados que você está procurando, portanto, você deve ter pelo menos um entendimento básico de como os dados em Logs do Azure Monitor estão estruturados.
+
+Ver [fontes de Logs do Azure Monitor](../platform/data-platform-logs.md#sources-of-azure-monitor-logs), para uma lista de dados de diferentes fontes que preencher os Logs do Azure Monitor.<br>
+Ver [estrutura de Logs do Azure Monitor](logs-structure.md) para obter uma explicação de como os dados são estruturados.
+
+## <a name="what-does-a-log-query-look-like"></a>O que é a aparência de uma consulta de log?
+Uma consulta pode ser tão simple quanto um nome de tabela simples para recuperar todos os registros da tabela:
+
+```Kusto
+Syslog
+```
+
+Ou pode filtrar os registros de determinado, resumi-los e visualizar os resultados em um gráfico:
+
+```
+SecurityEvent
+| where TimeGenerated > ago(7d)
+| where EventID == 4625
+| summarize count() by Computer, bin(TimeGenerated, 1h)
+| render timechart 
+```
+
+Para uma análise mais complexa, você pode recuperar dados de várias tabelas usando uma junção para analisar os resultados juntos.
+
+```Kusto
+app("ContosoRetailWeb").requests
+| summarize count() by bin(timestamp,1hr)
+| join kind= inner (Perf
+    | summarize avg(CounterValue) 
+      by bin(TimeGenerated,1hr))
+on $left.timestamp == $right.TimeGenerated
+```
+Mesmo se você não estiver familiarizado com KQL, você poderá descobrir pelo menos a lógica básica que está sendo usada por essas consultas. Eles começam com o nome de uma tabela e, em seguida, adicionar vários comandos para filtrar e processar os dados. Uma consulta pode usar qualquer número de comandos, e você pode escrever consultas mais complexas, como você se familiarizar com os diferentes comandos KQL.
+
+Ver [Introdução às consultas de log no Azure Monitor](get-started-queries.md) para obter um tutorial que apresenta o idioma e as funções comuns, em consultas de log.<br>
+
+
+## <a name="what-is-log-analytics"></a>O que é o Log Analytics?
+Log Analytics é a principal ferramenta no portal do Azure para escrever consultas de log e analisando interativamente seus resultados. Mesmo se uma consulta de log é usada em outro lugar no Azure Monitor, você normalmente escrever e testar a consulta usando o Log Analytics.
+
+Você pode iniciar o Log Analytics de diversos lugares no portal do Azure. O escopo dos dados disponíveis para o Log Analytics é determinado por como você iniciá-lo. Ver [escopo da consulta](scope.md) para obter mais detalhes.
+
+- Selecione **Logs** da **do Azure Monitor** menu ou **espaços de trabalho do Log Analytics** menu.
+- Selecione **Analytics** da **visão geral** página de um aplicativo de Application Insights.
+- Selecione **Logs** no menu de um recurso do Azure.
+
+![Log Analytics](media/log-query-overview/log-analytics.png)
+
+Ver [Introdução ao Log Analytics no Azure Monitor](get-started-portal.md) para uma tutorial passo a passo do Log Analytics que apresenta vários dos seus recursos.
+
+## <a name="where-else-are-log-queries-used"></a>Onde mais consultas de log são usadas?
+Além de trabalhar interativamente com consultas de log e seus resultados no Log Analytics, áreas no Azure Monitor onde você usará consultas incluem o seguinte:
+
 - **Regras de alerta** As [Regras de alerta](../platform/alerts-overview.md) identificam proativamente os problemas dos dados no workspace.  Cada regra de alerta é baseada em uma pesquisa de logs que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
-- **Painéis.** Você pode fixar os resultados da consulta em um [painel do Azure](../learn/tutorial-logs-dashboards.md), que permite visualizar os dados de log e de métrica em conjunto e, opcionalmente, compartilhar com outros usuários do Azure. 
+- **Painéis.** Você pode fixar os resultados da consulta em um [painel do Azure](../learn/tutorial-logs-dashboards.md), que permite visualizar os dados de log e de métrica em conjunto e, opcionalmente, compartilhar com outros usuários do Azure.
 - **Exibições.**  Você pode criar visualizações de dados a serem incluídas em painéis de usuários com [Designer de Exibição](../platform/view-designer.md).  As consultas de logs fornecem os dados usados por [blocos](../platform/view-designer-tiles.md) e [blocos de visualização](../platform/view-designer-parts.md) em cada exibição.  
-
 - **Exportação.**  Ao importar dados de log do Azure Monitor para o Excel ou o [Power BI](../platform/powerbi.md), você cria uma consulta de logs para definir os dados a serem exportados.
 - **PowerShell.** Você pode executar um script do PowerShell de uma linha de comando ou um runbook de automação do Azure que usa [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar dados de log do Azure Monitor.  Esse cmdlet requer uma consulta para determinar os dados a serem recuperados.
 - **API de Logs do Azure Monitor.**  A [API de Logs do Azure Monitor](../platform/alerts-overview.md) permite que qualquer cliente da API REST recupere dados de log do workspace.  A solicitação de API inclui uma consulta que é executada no Azure Monitor para determinar os dados a serem recuperados.
 
-![Pesquisas de log](media/log-query-overview/queries-overview.png)
-
-## <a name="write-a-query"></a>Escreva uma consulta
-O Azure Monitor usa [uma versão da linguagem de consulta Kusto](get-started-queries.md) para recuperar e analisar dados de registro de várias maneiras.  Normalmente, você começa com consultas básicas e, depois, progride para utilizar funções mais avançadas na medida em que seus requisitos se tornam mais complexos.
-
-A estrutura básica de uma consulta é uma tabela de origem seguida de uma série de operadores separados por um caractere de pipe `|`.  É possível encadear várias operadores para refinar os dados e executar funções avançadas.
-
-Por exemplo, suponha que você deseja localizar os dez melhores computadores com mais eventos de erro no último dia.
-
-```Kusto
-Event
-| where (EventLevelName == "Error")
-| where (TimeGenerated > ago(1days))
-| summarize ErrorCount = count() by Computer
-| top 10 by ErrorCount desc
-```
-
-Ou talvez você queira localizar computadores que não tiveram pulsação no último dia.
-
-```Kusto
-Heartbeat
-| where TimeGenerated > ago(7d)
-| summarize max(TimeGenerated) by Computer
-| where max_TimeGenerated < ago(1d)  
-```
-
-E quanto a um gráfico de linhas com a utilização do processador para cada computador da semana passada?
-
-```Kusto
-Perf
-| where ObjectName == "Processor" and CounterName == "% Processor Time"
-| where TimeGenerated  between (startofweek(ago(7d)) .. endofweek(ago(7d)) )
-| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 5min)
-| render timechart    
-```
-
-É possível consultar essas amostras rápidas que, independentemente do tipo de dados com o qual você está trabalhando, a estrutura da consulta é similar.  Você pode dividir em etapas distintas onde os dados resultantes de um comando são enviados através do pipeline para o próximo comando.
-
-Você também pode consultar dados em workspaces do Log Analytics dentro de sua assinatura.
-
-```Kusto
-union Update, workspace("contoso-workspace").Update
-| where TimeGenerated >= ago(1h)
-| summarize dcount(Computer) by Classification 
-```
-
-## <a name="how-azure-monitor-log-data-is-organized"></a>Como os dados de log do Azure Monitor são organizados
-Ao criar uma consulta, você começa determinando quais tabelas possuem os dados procurados. Diferentes tipos de dados são separados em tabelas dedicadas em cada [espaço de trabalho do Log Analytics](../learn/quick-create-workspace.md).  A documentação das diferentes fontes de dados inclui o nome do tipo de dados que ela cria e uma descrição de cada uma de suas propriedades.  Muitas consultas somente requerem dados de uma única tabela, mas outras pessoas podem usar uma variedade de opções para incluir dados de várias tabelas.
-
-Embora o [Application Insights](../app/app-insights-overview.md) armazene dados de aplicativo, como solicitações, exceções, rastreamentos e uso no Azure Monitor, esses dados são armazenados em uma partição diferente dos outros dados de log. Você usar a mesma linguagem de consulta para acessar esses dados, mas deve usar o [console do Application Insights](../app/analytics.md) ou [API REST do Application Insights](https://dev.applicationinsights.io/) para acessá-lo. Você pode usar [consultas entre recursos](../log-query/cross-workspace-query.md) para combinar dados do Application Insights com outros dados de log no Azure Monitor.
-
-
-![Tabelas](media/log-query-overview/queries-tables.png)
-
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre como usar [pesquisas de log do Log Analytics para criar e editar](../log-query/portals.md).
-- Confira um [tutorial sobre como escrever consultas](../log-query/get-started-queries.md) utilizando a nova linguagem de consulta.
+- Percorrer um [tutorial sobre como usar o Log Analytics no portal do Azure](get-started-portal.md).
+- Percorrer um [tutorial sobre como escrever consultas](get-started-queries.md).

@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: d1c10e056de1bc61b5365550bf2543d2cdf61229
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6ce9394f3d454bda5ead51f2c77a47db137a5136
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59783895"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606173"
 ---
 # <a name="opc-twin-architecture"></a>Arquitetura do OPC Twin
 
@@ -35,6 +35,6 @@ Os diagramas a seguir ilustram a arquitetura do OPC Twin.
 
    ![Como o OPC Twin funciona](media/overview-opc-twin-architecture/opc-twin3.png)
 
-1. A interface REST do serviço de gêmeo também pode ser usada para criar itens monitorados e assinaturas no OPC Publisher. O OPC Publisher permite enviar telemetria de sistemas de servidor da UA de OPC ao Hub IoT. Para obter mais informações sobre o OPC Publisher, veja o repositório [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) no GitHub.
+1. A interface REST do serviço de gêmeo também pode ser usada para criar itens monitorados e assinaturas no OPC Publisher. O OPC Publisher permite enviar telemetria de sistemas de servidor da UA de OPC ao Hub IoT. Para obter mais informações sobre o OPC Publisher, veja [O que é o OPC Publisher](overview-opc-publisher.md).
 
    ![Como o OPC Twin funciona](media/overview-opc-twin-architecture/opc-twin4.png)

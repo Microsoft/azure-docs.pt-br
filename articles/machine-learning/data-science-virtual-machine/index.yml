@@ -5,7 +5,7 @@ metadata:
   title: Documentação da Máquina Virtual de Ciência de Dados – Azure
   description: 'Saiba como usar a Máquina Virtual de Ciência de Dados, um ambiente experimental na nuvem do Azure criado especificamente para realizar a ciência de dados. Ela tem muitas ferramentas conhecidas de ciência de dados, entre outras, pré-instaladas e pré-configuradas que ajudam a começar a criar rapidamente aplicativos inteligentes para análise avançada.'
   services: machine-learning
-  author: gopitk
+  author: vijetajo
   manager: cgronlun
   ms.service: machine-learning
   ms.subservice: data-science-vm
@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: gokuma
+  ms.author: vijetaj
 abstract:
   description: 'As Máquinas Virtuais de Ciência de Dados e de Aprendizado Profundo são imagens personalizadas de VM no Azure, carregadas com ferramentas de ciência de dados usadas para criar aplicativos inteligentes para análises avançadas.'
 sections:

@@ -1,5 +1,5 @@
 ---
-title: Enviar consultas de imagem - API de Pesquisa de Imagem do Bing
+title: Personalizar e sugerir consultas de pesquisa de imagem - API de pesquisa de imagem do Bing
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como personalizar as consultas de pesquisa enviadas à API de Pesquisa de Imagem do Bing.
 services: cognitive-services
@@ -9,22 +9,20 @@ ms.assetid: C2862E98-8BCC-423B-9C4A-AC79A287BE38
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 32ced1d06a10f33e9d71ef09ba51d22e9e406f73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384396"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542752"
 ---
-# <a name="send-queries-to-the-bing-image-search-api"></a>Enviar consultas para a API de Pesquisa de Imagem do Bing
+# <a name="customize-and-suggest-image-search-queries"></a>Personalizar e sugerir consultas de pesquisa de imagem
 
-A API de Pesquisa de Imagem do Bing fornece uma experiência semelhante à Bing.com/Images. Você pode usar para enviar uma consulta de pesquisa ao Bing e obter uma lista de vídeos relevantes.
+Use este artigo para aprender a personalizar as consultas e sugerir os termos de pesquisa para enviar para a API de pesquisa de imagem do Bing.
 
-## <a name="use-and-suggest-search-terms"></a>Use e sugira termos de pesquisa
-
-Depois de um termo de pesquisa ser inserido, codifique em URL o termo antes de definir o parâmetro de consulta [**q**](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query). Por exemplo, se você inserir *sailing dinghies* (bote à vela), defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+## <a name="suggest-search-terms"></a>Sugerir os termos de pesquisa
 
 Se o aplicativo tiver uma caixa de pesquisa em que os termos de pesquisa são inseridos, use a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API pode exibir os termos de pesquisa sugeridos em tempo real. A API retorna cadeias de consulta sugeridas com base em termos de pesquisa parciais e nos serviços cognitivos do Azure.
 

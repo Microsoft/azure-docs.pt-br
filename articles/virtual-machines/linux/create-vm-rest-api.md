@@ -4,7 +4,7 @@ description: Saiba como criar uma máquina virtual do Linux no Azure que use Man
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7f624bc85d35048a8f9afa0f527ae592a24fbf1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391354"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667940"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
 
@@ -63,9 +63,9 @@ Para obter informações gerais sobre como trabalhar com solicitações da API R
 
 As definições comuns a seguir são usadas para criar um corpo de solicitação:
 
-| NOME                       | Obrigatório | Type                                                                                | DESCRIÇÃO  |
+| Nome                       | Obrigatório | Tipo                                                                                | DESCRIÇÃO  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | cadeia de caracteres                                                                              | Local do recurso. |
+| location                   | verdadeiro     | cadeia de caracteres                                                                              | Local do recurso. |
 | name                       |          | cadeia de caracteres                                                                              | Nome da máquina virtual. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | Especifica as configurações de hardware da máquina virtual. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | Especifica as configurações de armazenamento dos discos da máquina virtual. |
@@ -137,7 +137,7 @@ Para obter uma lista completa das definições de disponíveis no corpo da solic
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| NOME        | Type                                                                              | DESCRIÇÃO |
+| NOME        | Tipo                                                                              | DESCRIÇÃO |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

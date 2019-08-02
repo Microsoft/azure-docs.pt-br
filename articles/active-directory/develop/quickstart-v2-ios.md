@@ -3,7 +3,7 @@ title: Início rápido do iOS para a plataforma de identidade da Microsoft | Azu
 description: Saiba como conectar usuários e consultar o Microsoft Graph em um aplicativo do iOS.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: brandwe
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.author: brandwe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3802d8f92913e416cc6a80f899179fde80cec30
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: bfb136529c606cafa235a525fcbe6e03b1d583d0
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962582"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335602"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início Rápido: Conectar usuários e chamar a API do Microsoft Graph de um aplicativo iOS
 
@@ -90,8 +90,7 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
->
->    ```
+>    ``` 
 > 1. Clique com botão direito do mouse em **Info. plist** e selecione **Abrir como** > **Código-fonte**.
 > 1. No nó raiz dict, substitua pela sua ***Id do pacote***:
 >
@@ -108,6 +107,10 @@ Este início rápido contém um exemplo de código que demonstra como um aplicat
 > 
 >    ```
 > 1. Compile e execute o aplicativo. 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > Este início rápido dá suporte a Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 >
@@ -253,3 +256,8 @@ Experimente o tutorial do iOS para obter um guia passo a passo completo sobre a 
 > [Tutorial Chamar a API do Graph do iOS](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Ajude-nos a melhorar a plataforma de identidade da Microsoft. Deixe sua opinião respondendo a uma breve pesquisa de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

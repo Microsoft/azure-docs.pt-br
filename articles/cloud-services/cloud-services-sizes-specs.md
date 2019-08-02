@@ -3,23 +3,17 @@ title: Tamanhos de máquinas virtuais para serviços de Nuvem do Azure | Microso
 description: Lista os tamanhos diferentes da máquina virtual (e IDs) para funções Web e de trabalho do serviço de nuvem do Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: jpconnock
-editor: ''
-ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
+author: georgewallace
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: tbd
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 21fbfe22901de677209b55639cd8871ab408375b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 0df9ee859ae8e341537f5e832d9ff90e9736cb0c
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719027"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443009"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamanhos dos serviços de nuvem
 Este tópico descreve os tamanhos disponíveis e as opções para instâncias de função de Serviço de Nuvem (funções web e funções de trabalho). Ele também fornece considerações de implantação a serem observadas ao planejar o uso desses recursos. Cada tamanho tem uma ID que você coloca em seu [arquivo de definição de serviço](cloud-services-model-and-package.md#csdef). Os preços para cada tamanho estão disponíveis na página [Preços de Serviços de Nuvem](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -68,7 +62,6 @@ Criamos o conceito da ACU (Unidade de Computação do Azure) para fornecer uma m
 | [D v2](#dv2-series) |160 - 190* |
 | [D v3](#dv3-series) |160 - 190* |
 | [E v3](#ev3-series) |160 - 190* |
-| [F](#f-series) |210 - 250*|
 | [G](#g-series) |180 - 240* |
 | [H](#h-series) |290 – 300* |
 
@@ -87,7 +80,7 @@ As tabelas a seguir mostram os tamanhos e as capacidades oferecidas.
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
 | ExtraSmall      | 1         | 0,768        | 20                   | 1 / baixa |
 | Pequeno           | 1         | 1,75         | 225                  | 1 / moderada |
-| Média          | 2         | 3,5          | 490                  | 1 / moderada |
+| Médio          | 2         | 3.5          | 490                  | 1 / moderada |
 | Grande           | 4         | 7            | 1000                 | 2 / alta |
 | ExtraLarge      | 8         | 14           | 2040                 | 4 / alta |
 | A5              | 2         | 14           | 490                  | 1 / moderada |
@@ -122,7 +115,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 ## <a name="d-series"></a>Série D
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_D1     | 1         | 3,5          | 50                   | 1 / moderada |
+| Standard_D1     | 1         | 3.5          | 50                   | 1 / moderada |
 | Standard_D2     | 2         | 7            | 100                  | 2 / alta |
 | Standard_D3     | 4         | 14           | 200                  | 4 / alta |
 | Standard_D4     | 8         | 28           | 400                  | 8 / alta |
@@ -134,7 +127,7 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 ## <a name="dv2-series"></a>Série Dv2
 | Tamanho            | Núcleos de CPU | Memória: GiB  | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
 |---------------- | --------- | ------------ | -------------------- | ---------------------------- |
-| Standard_D1_v2  | 1         | 3,5          | 50                   | 1 / moderada |
+| Standard_D1_v2  | 1         | 3.5          | 50                   | 1 / moderada |
 | Standard_D2_v2  | 2         | 7            | 100                  | 2 / alta |
 | Standard_D3_v2  | 4         | 14           | 200                  | 4 / alta |
 | Standard_D4_v2  | 8         | 28           | 400                  | 8 / alta |
@@ -166,17 +159,6 @@ Para obter informações e considerações sobre o uso desses tamanhos, veja [Ta
 | Standard_E16_v3 | 16        | 128           | 400                  | 8 / extremamente alta |
 | Standard_E32_v3 | 32        | 256           | 800                  | 8 / extremamente alta |
 | Standard_E64_v3 | 64        | 432           | 1600                 | 8 / extremamente alta |
-
-## <a name="f-series"></a>Série F
-
-
-| Tamanho            | Núcleos de CPU | Memória: GiB   | Armazenamento temporário (SSD): GiB       | NICs máximas / largura de banda da rede |
-|---------------- | --------- | ------------- | -------------------- | ---------------------------- |
-| Standard_F1     | 1         | 2             | 16                   | 2 / 750  |
-| Standard_F2     | 2         | 4             | 32                   | 2 / 1500 |
-| Standard_F4     | 4         | 8             | 64                   | 4 / 3000 |
-| Standard_F8     | 8         | 16            | 128                  | 8 / 6000 |
-| Standard_F16    | 16        | 32            | 256                  | 8 / 12000|
 
 
 ## <a name="g-series"></a>Série G

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Load Balancer com pacotes TCP RST bidirecionais em tempo limite de ociosidade
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
-ms.author: kumud
-ms.openlocfilehash: 4a09492fcb8a7985fa27b6daae89aa5dec0fa6e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65413851"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274150"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Balanceador de Carga com Redefinição de TCP quando ocioso (Versão Prévia Pública)
 
@@ -27,7 +27,7 @@ Você pode usar o [Standard Load Balancer](load-balancer-standard-overview.md) p
 ![Redefinição de TCP do Balanceador de Carga](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
 >[!NOTE] 
->Balanceador de carga com redefinição na funcionalidade de tempo limite de ociosidade de TCP está disponível como visualização pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
+>Load Balancer com a funcionalidade de redefinição de TCP no tempo limite de ociosidade está disponível como visualização pública no momento. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Veja os [Termos de Uso Adicionais para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter detalhes.
  
 Alterar esse comportamento padrão e habilitar envio de Redefinições de TCP no tempo limite de ociosidade em regras NAT de entrada, regras de balanceamento de carga e [regras de saída](https://aka.ms/lboutboundrules).  Quando habilitado por regra, o Load Balancer enviará Redefinições de TCP (pacotes TCP RST) para os pontos de extremidade do cliente e do servidor no momento do tempo limite de ociosidade para todos os fluxos correspondentes.
 
@@ -74,7 +74,7 @@ Disponível em todas as regiões.
 ## <a name="limitations"></a>Limitações
 
 - O portal não pode ser usado para configurar ou exibir a Redefinição de TCP.  Em vez disso, use modelos, API REST, Az CLI 2.0 ou PowerShell.
-- TCP RST enviado somente durante a conexão TCP em estado de estabelecido.
+- TCP RST é enviado somente durante a conexão TCP no estado estabelecido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

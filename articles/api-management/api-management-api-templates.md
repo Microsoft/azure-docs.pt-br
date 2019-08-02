@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: a78c03537d7fb3db6afa0c4a4e84c4746146ca85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e8519bf436e1af19a22a840f48bf1bfccdae99b2
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60657766"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341266"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Modelos de API no Gerenciamento de API do Azure
 
@@ -44,7 +44,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
-##  <a name="APIList"></a> Lista de APIs  
+## <a name="APIList"></a> Lista de APIs  
  O modelo **Lista de APIs** possibilita personalizar o corpo da página de lista de APIs no portal do desenvolvedor.  
   
  ![Lista de APIs no portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "Modelo Lista de APIs no portal do desenvolvedor de APIM")  
@@ -112,7 +112,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-##  <a name="Product"></a> Operação  
+## <a name="Product"></a> Operação  
  O modelo **Operação** permite personalizar o corpo da página de operação no portal do desenvolvedor.  
   
  ![Página de operação do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Página de operação de modelos do portal do desenvolvedor de APIM")  
@@ -345,12 +345,12 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 |Propriedade|Type|DESCRIÇÃO|  
 |--------------|----------|-----------------|  
-|`apiId`|cadeia de caracteres|A ID da API atual.|  
-|`apiName`|cadeia de caracteres|O nome da API.|  
-|`apiDescription`|cadeia de caracteres|Uma descrição para a API.|  
+|`apiId`|string|A ID da API atual.|  
+|`apiName`|string|O nome da API.|  
+|`apiDescription`|string|Uma descrição para a API.|  
 |`api`|Entidade [Resumo da API](api-management-template-data-model-reference.md#APISummary).|A API atual.|  
 |`operation`|[Operação](api-management-template-data-model-reference.md#Operation)|A operação atualmente exibida.|  
-|`sampleUrl`|cadeia de caracteres|A URL para a operação atual.|  
+|`sampleUrl`|string|A URL para a operação atual.|  
 |`operationMenu`|[Menu de operação](api-management-template-data-model-reference.md#Menu)|Um menu de operações para esta API.|  
 |`consoleUrl`|URI|O URI para o botão **Experimente**.|  
 |`samples`|Coleção de entidades de [Exemplo de código](api-management-template-data-model-reference.md#Sample).|Os exemplos de código para a operação atual.|  
@@ -642,7 +642,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
 }  
 ```  
   
-##  <a name="CodeSamples"></a> Exemplos de código  
+## <a name="CodeSamples"></a> Exemplos de código  
  Os modelos a seguir permitem que você personalize o corpo dos exemplos de código individuais na página de operação.  
   
  ![Exemplos de código de modelos do portal do desenvolvedor](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "Exemplos de código de modelos do portal do desenvolvedor de APIM")  
@@ -663,7 +663,7 @@ Os modelos desta seção permitem personalizar o conteúdo das páginas de API n
   
 -   [Ruby](#Ruby)  
   
-###  <a name="Curl"></a> Curl  
+### <a name="Curl"></a> Curl  
  O modelo **DocumentationSamplesCurl** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
@@ -716,12 +716,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 }  
 ```  
   
-###  <a name="CSharp"></a> C#  
+### <a name="CSharp"></a> C#  
  O modelo **DocumentationSamplesCsharp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```csharp  
 using System;  
 using System.Net.Http.Headers;  
 using System.Text;  
@@ -895,12 +895,12 @@ namespace CSHttpClientSample
 }  
 ```  
   
-###  <a name="Stub"></a> Java  
+### <a name="Stub"></a> Java  
  O modelo **DocumentationSamplesJava** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -991,12 +991,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="JavaScript"></a> JavaScript  
+### <a name="JavaScript"></a> JavaScript  
  O modelo **DocumentationSamplesJs** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
@@ -1080,12 +1080,12 @@ public class JavaSample
 }  
 ```  
   
-###  <a name="ObjectiveC"></a> Objective C  
+### <a name="ObjectiveC"></a> Objective C  
  O modelo **DocumentationSamplesObjc** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1192,12 +1192,12 @@ int main(int argc, const char * argv[])
 }  
 ```  
   
-###  <a name="PHP"></a> PHP  
+### <a name="PHP"></a> PHP  
  O modelo **DocumentationSamplesPhp** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1282,12 +1282,12 @@ catch (HttpException $ex)
 }  
 ```  
   
-###  <a name="Python"></a> Python  
+### <a name="Python"></a> Python  
  O modelo **DocumentationSamplesPython** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1363,7 +1363,7 @@ except Exception as e:
     print("[Errno {0}] {1}".format(e.errno, e.strerror))  
   
 ####################################  
-```  
+```
   
 #### <a name="controls"></a>Controles  
  Os modelos de exemplo de código não permitem o uso de quaisquer [controles de página](api-management-page-controls.md).  
@@ -1400,12 +1400,12 @@ except Exception as e:
 }  
 ```  
   
-###  <a name="Ruby"></a> Ruby  
+### <a name="Ruby"></a> Ruby  
  O modelo **DocumentationSamplesRuby** permite que você personalize esse exemplo de código na seção de exemplos de código da página da operação.  
   
 #### <a name="default-template"></a>Modelo padrão  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

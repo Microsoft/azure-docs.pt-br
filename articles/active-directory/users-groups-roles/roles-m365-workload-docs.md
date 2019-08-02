@@ -1,6 +1,6 @@
 ---
-title: Conteúdo da função de administrador para cargas de trabalho do Microsoft 365 – Azure AD | Microsoft Docs
-description: Localizar conteúdo e as referências de API para funções de administrador para cargas de trabalho do Microsoft 365 no Azure Active Directory
+title: Conteúdo da função de administrador para serviços de Microsoft 365 – Azure AD | Microsoft Docs
+description: Encontre referências de conteúdo e API para funções de administrador para serviços de Microsoft 365 no Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,20 +15,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7460c3a7d957634d14186d313994c65d89fa4a32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 12ffa1d4f3e802b3419b31844ddd8133ceab5086
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468174"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304387"
 ---
-# <a name="administrator-roles-for-microsoft-365-workloads"></a>Funções de administrador para cargas de trabalho do Microsoft 365
+# <a name="administrator-roles-for-microsoft-365-services"></a>Funções de administrador para serviços Microsoft 365s
 
 Todos os produtos do Microsoft 365 podem ser gerenciados com funções administrativas no Azure AD. Alguns produtos também fornecem funções adicionais que são específicas a esse produto. Para obter informações sobre as funções compatíveis com cada produto, veja a tabela a seguir. Discussões gerais sobre problemas de delegação podem ser encontradas no [Planejamento de delegação de função no Azure Active Directory](roles-concept-delegation.md).
 
 ## <a name="where-to-find-content"></a>Onde encontrar conteúdo
 
-Carga de trabalho do Microsoft 365 | Conteúdo de função | Conteúdo de API
+Serviço de Microsoft 365 | Conteúdo de função | Conteúdo de API
 ---------------------- | ------------------ | -----------------
 Funções de administrador em planos de negócios do Office 365 e do Microsoft 365 | [Funções de administrador do Office 365](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Não disponível
 Azure AD (Azure Active Directory) e Azure AD Identity Protection| [Funções de administrador do Azure AD](directory-assign-admin-roles.md) | [API do Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Buscar atribuições de função](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

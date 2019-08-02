@@ -8,12 +8,12 @@ ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: c50271e28db104522c0e8811508fa882dc316eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8bc8b8d4e3585ea4c0505f2e36abc6d1da7f8eb
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235816"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797717"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Criar fluxos de trabalho com o conector da IoT Central no Microsoft Flow
 
@@ -31,7 +31,8 @@ Confira [estes modelos do Microsoft Flow](https://aka.ms/iotcentralflowtemplates
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Um aplicativo com pagamento conforme o uso
-- Uma conta pessoal da Microsoft ou uma conta corporativa ou de estudante para entrar no Flow ([saiba mais sobre os planos do Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Uma conta da Microsoft pessoal ou de trabalho ou escola usar o Microsoft Flow ([Saiba mais sobre os planos do Microsoft Flow](https://aka.ms/microsoftflowplans))
+- Uma conta corporativa ou de estudante para usar o conector do Azure IoT Central
 
 ## <a name="trigger-a-workflow"></a>Disparar um fluxo de trabalho
 
@@ -45,7 +46,12 @@ Esta seção mostra como disparar uma notificação móvel em que o aplicativo m
 
     ![Modelos disponíveis do Microsoft Flow](media/howto-add-microsoft-flow/flowtemplates1.png)
 
-1. Você será solicitado a entrar nos conectores no modelo que você escolheu. Depois que os conectores estiver conectados, você será levado no designer para criar seu fluxo de trabalho. O fluxo de trabalho tem um gatilho da IoT Central que contém seu aplicativo e a regra já preenchidos.
+1. Você será solicitado a entrar nos conectores no modelo que você escolheu. 
+
+    > [!NOTE]
+    > Para usar o conector do Azure IoT Central, você deve entrar usando uma conta do Azure Active Directory (conta corporativa ou de estudante). Uma conta pessoal, como abc@outlook.com ou abc@live.com não são compatíveis com o conector do Azure IoT Central.
+
+    Depois de entrar nos conectores, você será levado no designer para criar seu fluxo de trabalho. O fluxo de trabalho tem um gatilho da IoT Central que contém seu aplicativo e a regra já preenchidos.
 
 1. Você pode personalizar o fluxo de trabalho Personalizando as informações transmitidas para a ação e a adição de novas ações. Neste exemplo, a ação é **notificações - enviar-me uma notificação móvel**. Você pode incluir *conteúdo dinâmico* da regra da IoT Central, passando informações importantes como o nome do dispositivo e o carimbo de data/hora para a notificação.
 
@@ -149,7 +155,7 @@ Aqui está um fluxo de trabalho de exemplo que exclui um dispositivo apenas pres
 
    ![Fluxo de trabalho de exclusão de dispositivo do Flow](./media/howto-add-microsoft-flow/flowdeletedevice.png)
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você está tendo problemas ao criar uma conexão para o conector do Azure IoT Central, aqui estão algumas dicas para ajudá-lo.
 

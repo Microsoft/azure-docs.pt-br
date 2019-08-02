@@ -4,16 +4,16 @@ description: Autenticando e autorizando com Coleções de Workspaces do Power BI
 services: power-bi-workspace-collections
 author: rkarlin
 ms.author: rkarlin
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 5fbe08bb9ebc355074a790f7732c9de10eaad859
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 713c56904769c133272db4fb65f8b596ab66804b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707112"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672499"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Autenticando e autorizando com Coleções de Workspaces do Power BI
 
@@ -92,7 +92,7 @@ Ao usar os tokens de inserção, convém restringir o uso de recursos aos quais 
 
 A seguir estão os escopos disponíveis para as Coleções de Workspaces do Power BI.
 
-|Scope|DESCRIÇÃO|
+|Escopo|DESCRIÇÃO|
 |---|---|
 |Dataset.Read|Fornece permissão para ler o conjunto de dados especificado.|
 |Dataset.Write|Fornece permissão para gravar o conjunto de dados especificado.|
@@ -172,7 +172,7 @@ Após as **Coleções de Workspaces do Power BI** enviarem um relatório para o 
 
 ![Exemplo de relatório inserido no aplicativo](media/get-started-sample/sample-web-app.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Introdução ao exemplo de Coleções de Workspaces do Microsoft Power BI](get-started-sample.md)  

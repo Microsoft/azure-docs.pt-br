@@ -1,7 +1,7 @@
 ---
-title: Quais são as novidades - reconhecimento vocal
+title: O que há de novo Reconhecimento vocal (LUIS)
 titleSuffix: Azure Cognitive Services
-description: Este artigo contém notícias sobre compreensão de idioma.
+description: Este artigo contém notícias sobre Reconhecimento vocal.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -9,27 +9,31 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 515b40c9976ba901787182c249228f98f1938078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63a898bd807b168ae17ec90e442c6ee6c001c715
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431134"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559888"
 ---
-# <a name="whats-new-in-language-understanding"></a>O que há de novo no reconhecimento vocal
+# <a name="whats-new-in-language-understanding"></a>O que há de novo no Reconhecimento vocal
 
-Saiba o que há de novo no serviço. Esses itens podem notas de versão, vídeos, postagens de blog e outros tipos de informações. Marque esta página para manter atualizado com o serviço.  
+Saiba o que há de novo no serviço. Esses itens podem ser notas de versão, vídeos, Postagens de blog e outros tipos de informações. Marque esta página para manter-se atualizada com o serviço.  
 
 ## <a name="release-notes"></a>Notas de versão 
 
-### <a name="may-6-2019---build-conference"></a>6 de maio de 2019 - conferência //Build
+### <a name="june-24-2019"></a>24 de junho de 2019
+
+* [OrdinalV2 entidade predefinida](luis-reference-prebuilt-ordinal-v2.md) para dar suporte a pedidos como, por exemplo, avançar, anterior e último. Somente cultura em inglês.
+
+### <a name="may-6-2019---build-conference"></a>6 de maio, 2019-conferência//Build
 
 Os seguintes recursos foram lançados na conferência Build 2019:
 
-* [Visualização do guia de migração de API V3](luis-migration-api-v3.md)
-* [Dashboard de análises aprimoradas](luis-how-to-use-dashboard.md)
+* [Visualização do guia de migração da API v3](luis-migration-api-v3.md)
+* [Painel analítico aprimorado](luis-how-to-use-dashboard.md)
 * [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md) 
 * [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
@@ -38,12 +42,12 @@ Os seguintes recursos foram lançados na conferência Build 2019:
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>vídeos
+## <a name="videos"></a>Vídeos
 
-### <a name="2019-build-videos"></a>Vídeos de compilação de 2019
+### <a name="2019-build-videos"></a>vídeos de Build 2019
 
-[Como usar inteligência Artificial de conversação do Azure para dimensionar seus negócios para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+[Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="service-updates"></a>Atualizações de serviço
 
-[Avisos de atualização do Azure para os serviços Cognitivos](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Comunicados de atualização do Azure para serviços cognitivas](https://azure.microsoft.com/updates/?product=cognitive-services)

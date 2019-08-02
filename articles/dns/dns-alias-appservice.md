@@ -5,22 +5,22 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 11/3/2018
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: b08eae072c2fbe420401424baf97a25b4cbbe87b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d20ef750aa4556a73852982631423d3d08271f5
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60790735"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854103"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Hospedar aplicativos da web do Azure com carga balanceada no apex da zona
 
-O protocolo DNS impede a atribuição de algo diferente de um registro A ou AAAA no ápice da zona. Um vértice da zona de exemplo é contoso.com. Essa restrição apresenta um problema para os proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás do Gerenciador de Tráfego. Não é possível apontar para o perfil do Gerenciador de Tráfego no registro do ápice da zona. Como resultado, os proprietários do aplicativo devem usar uma solução alternativa. Um redirecionamento na camada de aplicativo deve redirecionar do ápice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com para www\.contoso.com. Esse arranjo apresenta um único ponto de falha para a função de redirecionamento.
+O protocolo DNS impede a atribuição de algo diferente de um registro A ou AAAA no ápice da zona. Um vértice da zona de exemplo é contoso.com. Essa restrição apresenta um problema para os proprietários de aplicativos que têm aplicativos com balanceamento de carga por trás do Gerenciador de Tráfego. Não é possível apontar para o perfil do Gerenciador de Tráfego no registro do ápice da zona. Como resultado, os proprietários do aplicativo devem usar uma solução alternativa. Um redirecionamento na camada de aplicativo deve redirecionar do ápice da zona para outro domínio. Um exemplo é um redirecionamento de contoso.com\.para www contoso.com. Esse arranjo apresenta um único ponto de falha para a função de redirecionamento.
 
 Com registros de alias, esse problema não existe mais. Agora, os proprietários do aplicativo podem apontar seu registro do ápice da zona para um perfil do Gerenciador de Tráfego que tenha nós de extremidade externos. Os proprietários de aplicativos podem apontar para o mesmo perfil do Gerenciador de tráfego que é usado para qualquer outro domínio em sua zona DNS.
 
-Por exemplo, contoso.com e www\.contoso.com pode apontar para o mesmo perfil do Gerenciador de tráfego. Esse é o caso, desde que o perfil do Gerenciador de Tráfego tenha apenas endpoints externos configurados.
+Por exemplo, contoso.com e www\.contoso.com podem apontar para o mesmo perfil do Gerenciador de tráfego. Esse é o caso, desde que o perfil do Gerenciador de Tráfego tenha apenas endpoints externos configurados.
 
 Neste artigo, você aprende a criar um registro de alias para o seu ápice de domínio e a configurar seu perfil de Gerenciador de Tráfego do Microsoft Azure para seus aplicativos da web.
 
@@ -43,9 +43,9 @@ Crie um grupo de recursos para armazenar todos os recursos usados neste artigo.
 Crie dois planos do Serviço de Aplicativo da Web em seu grupo de recursos usando a tabela a seguir para obter informações de configuração. Para obter mais informações sobre como criar um plano do Serviço de Aplicativo, consulte [Gerenciar um plano do Serviço de Aplicativo no Azure](../app-service/app-service-plan-manage.md).
 
 
-|NOME  |Sistema operacional  |Local padrão  |Camada de preços  |
+|Nome  |Sistema operacional  |Location  |Camada de preços  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|Leste dos EUA|Dev / Teste D1-Compartilhado|
+|ASP-01     |Windows|East US|Dev / Teste D1-Compartilhado|
 |ASP-02     |Windows|Centro dos EUA|Dev / Teste D1-Compartilhado|
 
 ## <a name="create-app-services"></a>Criar Serviços de Aplicativos
@@ -58,7 +58,7 @@ Crie dois aplicativos da web, um em cada plano do Serviço de Aplicativo.
 4. Clique em **Criar**.
 5. Aceite os padrões e use a tabela a seguir para configurar os dois aplicativos da Web:
 
-   |NOME<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Plano do serviço de aplicativo/localização
+   |Nome<br>(deve ser exclusivo dentro do. azurewebsites.net)|Grupo de recursos |Plano do serviço de aplicativo/localização
    |---------|---------|---------|
    |App-01|Uso existente<br>Selecione o grupo de recursos|ASP-01(East US)|
    |App-02|Uso existente<br>Selecione o grupo de recursos|ASP-02(Central US)|
@@ -76,7 +76,7 @@ Agora você precisa observar o endereço IP e o nome do host dos aplicativos.
 
 Crie um perfil do Gerenciador de Tráfego no seu grupo de recursos. Use os padrões e digite um nome exclusivo dentro do namespace trafficmanager.net.
 
-Para obter informações sobre como criar um perfil do Gerenciador de tráfego, consulte [guia de início rápido: Criar um perfil do Gerenciador de tráfego para um aplicativo web altamente disponível](../traffic-manager/quickstart-create-traffic-manager-profile.md).
+Para obter informações sobre como criar um perfil do Gerenciador [de tráfego, consulte início rápido: Crie um perfil do Gerenciador de tráfego para um aplicativo](../traffic-manager/quickstart-create-traffic-manager-profile.md)Web altamente disponível.
 
 ### <a name="create-endpoints"></a>Criar pontos de extremidade
 
@@ -84,17 +84,17 @@ Agora você pode criar os pontos de extremidade para os dois aplicativos web.
 
 1. Abra seu grupo de recursos e clique em seu perfil do Gerenciador de Tráfego do Microsoft Azure.
 2. Na coluna à esquerda, clique em **pontos de extremidade**.
-3. Clique em **Adicionar**.
+3. Clique em **Adicionar** .
 4. Use a tabela a seguir para configurar os terminais:
 
-   |Type  |NOME  |Destino  |Local padrão  |Configurações personalizadas de cabeçalho|
+   |Tipo  |NOME  |Destino  |Location  |Configurações personalizadas de cabeçalho|
    |---------|---------|---------|---------|---------|
-   |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|Leste dos EUA|host:\<a URL que você registrou para o aplicativo 01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
+   |Ponto de extremidade externo     |Final-01|Endereço IP que você registrou para o App-01|East US|host:\<a URL que você registrou para o aplicativo 01\><br>Exemplo: **: o aplicativo host-01.azurewebsites.net**|
    |Ponto de extremidade externo     |Final-02|Endereço IP que você registrou para o aplicativo-02|Centro dos EUA|host:\<a URL que você registrou para o aplicativo-02\><br>Exemplo: **: o aplicativo host-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Criar zona DNS
 
-Você pode usar uma zona DNS existente para teste ou criar uma nova zona. Para criar e delegar uma nova zona DNS no Azure, consulte [Tutorial: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
+Você pode usar uma zona DNS existente para teste ou criar uma nova zona. Para criar e delegar uma nova zona DNS no Azure, [consulte o tutorial: Hospede seu domínio no DNS do Azure](dns-delegate-domain-azure-dns.md).
 
 ### <a name="add-the-alias-record-set"></a>Adicione o conjunto de registros de alias
 
@@ -104,7 +104,7 @@ Quando sua zona DNS estiver pronta, você poderá adicionar um registro de alias
 2. Clique em **conjunto de registros**.
 3. Adicione o registro definido usando a tabela a seguir:
 
-   |NOME  |Type  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
+   |NOME  |Tipo  |Conjunto de registros de alias  |Tipo de alias  |Recursos do Azure|
    |---------|---------|---------|---------|-----|
    |@     |O|Sim|Recursos do Azure|Gerenciador de tráfego - seu perfil|
 
@@ -144,3 +144,5 @@ Para saber mais sobre registros de alias, consulte os seguintes artigos:
 - [Tutorial: Configurar um registro de alias para se referir a um endereço IP público do Azure](tutorial-alias-pip.md)
 - [Tutorial: Configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de Tráfego do Apex](tutorial-alias-tm.md)
 - [PERGUNTAS FREQUENTES SOBRE O DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
+
+Para saber como migrar um nome DNS ativo, consulte [migrar um nome DNS ativo para Azure app serviço](../app-service/manage-custom-dns-migrate-domain.md).

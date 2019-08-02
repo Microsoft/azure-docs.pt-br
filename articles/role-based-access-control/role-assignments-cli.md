@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1cc3d3eca4063a8120851a9d3de1a85292eacb11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc5deb614e2ac6e47ff3bf241943df92d97699b2
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60344556"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295167"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gerenciar o acesso aos recursos do Azure usando o RBAC e a CLI do Azure
 
@@ -192,7 +192,7 @@ Para listar as atribuições de função para um usuário específico, use a [li
 az role assignment list --assignee <assignee>
 ```
 
-Por padrão, somente as atribuições de escopo para a assinatura serão exibidas. Para exibir as atribuições de escopo por grupo ou recurso, use `--all`.
+Por padrão, apenas as atribuições diretas no escopo para a assinatura serão exibidas. Para exibir as atribuições de escopo por grupo ou recurso, use `--all` e para exibir asisgnments herdado, use `--include-inherited`.
 
 O exemplo a seguir lista as atribuições de função que são atribuídas diretamente para o *patlong\@contoso.com* usuário:
 

@@ -17,12 +17,12 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d26dffa005ac4bf8df0ecc0cee2c570960a38d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49a87346d76bbf1502a073f4bcb4d11eb659929d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66239957"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67358147"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Tutoriais para a integração de aplicativos SaaS ao Azure Active Directory
 
@@ -46,7 +46,7 @@ Para localizar mais tutoriais, use o sumário à esquerda.
 
 | Logotipo | Tutorial do aplicativo para logon único | Tutorial do aplicativo para provisionamento de usuário |
 | :--- | :--- | :--- |
-| ![Logotipo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Console do Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console - provisionamento da função](amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on) |
+| ![Logotipo](./media/tutorial-list/active-directory-saas-amazon-web-service-tutorial.png)| [Console do Amazon Web Services (AWS)](amazon-web-service-tutorial.md)| [Amazon Web Services (AWS) Console - provisionamento da função](amazon-web-service-tutorial.md#configure-azure-ad-sso) |
 | ![Logotipo](./media/tutorial-list/active-directory-saas-alibaba-tutorial.png)| [Serviço de nuvem Alibaba (bases de função SSO)](alibaba-cloud-service-role-based-sso-tutorial.md)| |
 | ![Logotipo](./media/tutorial-list/active-directory-saas-google-apps-tutorial.png)| [Plataforma de nuvem do Google](google-apps-tutorial.md)| [Plataforma de nuvem do Google - provisionamento de usuário](google-apps-provisioning-tutorial.md) |
 | ![Logotipo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)| [Salesforce – Provisionamento de Usuário](salesforce-provisioning-tutorial.md) |

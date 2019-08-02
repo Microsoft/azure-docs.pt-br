@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga público no Gerenciador de Recursos usando um modelo
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 7d8997b6c4ee68ae6857d2a1605277fc7d5f7a0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: a94c7d1b5d1ecd11dd213eccf2354e943a96cabd
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122222"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275289"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Criar um balanceador de carga público usando um modelo
 
@@ -43,7 +43,7 @@ O modelo de exemplo disponível no repositório público usa um arquivo de parâ
 Para implantar o modelo baixado usando o PowerShell, faça o seguinte.
 
 1. Se você nunca usou o Azure PowerShell, consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções até o fim para entrar no Azure e selecionar sua assinatura.
-2. Execute o **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
+2. Execute o cmdlet **New-AzResourceGroupDeployment** para criar um grupo de recursos usando o modelo.
 
     ```powershell
     New-AzResourceGroupDeployment -Name TestRG -Location uswest `

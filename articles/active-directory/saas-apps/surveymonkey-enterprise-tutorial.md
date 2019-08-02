@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f354d0413d023e7af6d1719d86e0fbff59cf2b2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 10d43de00c9daefdb86a92d92ebe2cfe39fd3248
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813313"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-surveymonkey-enterprise"></a>Tutorial: Integração do Azure Active Directory ao SurveyMonkey Enterprise
 
@@ -54,7 +54,7 @@ Para configurar a integração do SurveyMonkey Enterprise ao Azure AD, você pre
 
 **Para adicionar o SurveyMonkey Enterprise por meio da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o SurveyMonkey Enterprise, execut
 
     ![Informações de logon único de Domínio e URLs do SurveyMonkey Enterprise](common/both-signonurl.png)
 
-    Na caixa de texto **URL de Logon**, digite uma URL: ` https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
+    Na caixa de texto **URL de Logon**, digite uma URL: `https://www.surveymonkey.com/user/sign-in/sso/?ut_source=megamenu`
 
 6. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -196,4 +196,4 @@ Ao clicar no bloco do SurveyMonkey Enterprise no Painel de Acesso, você deverá
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

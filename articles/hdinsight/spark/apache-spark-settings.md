@@ -1,19 +1,19 @@
 ---
 title: Definir as configurações do Spark - Azure HDInsight
 description: Como configurar o Spark para um cluster Azure HDInsight.
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 77f4ec9cce5d02ea4cbcc4968d02773a13edfe5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/17/2019
+ms.openlocfilehash: eb948aa2b683f426831e1b0d34b44f814eab6b9f
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681294"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68441926"
 ---
 # <a name="configure-apache-spark-settings"></a>Definir configurações do Apache Spark
 
@@ -57,7 +57,7 @@ O exemplo mostrado acima substitui vários valores padrão para cinco parâmetro
 
 ## <a name="view-cluster-configuration-settings"></a>Exibir definições de configuração do cluster
 
-Verifique as definições de configuração de cluster HDInsight atuais antes de executar a otimização de desempenho no cluster. Iniciar o dashboard de HDInsight do portal do Azure clicando no link **Dashboard** no painel de cluster Spark. Faça logon com o nome de usuário e a senha do administrador do cluster.
+Verifique as definições de configuração de cluster HDInsight atuais antes de executar a otimização de desempenho no cluster. Iniciar o dashboard de HDInsight do portal do Azure clicando no link **Dashboard** no painel de cluster Spark. Entre com o nome de usuário e a senha do administrador de cluster.
 
 A interface da Web do Apache Ambari aparece, com uma visualização do painel de métricas de utilização de recursos do cluster principal.  O painel do Ambari mostra a configuração do Apache Spark e outros serviços que você instalou. O painel inclui uma guia do **histórico de configuração**, onde você pode exibir informações de configuração para todos os serviços instalados, incluindo o Spark.
 

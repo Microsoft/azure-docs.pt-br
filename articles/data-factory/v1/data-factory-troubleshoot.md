@@ -14,12 +14,12 @@ ms.author: gamal
 ms.reviewer: maghan
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 5f2627932eb2fd427d934eba322230222b5e6958
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc880885777cbca67d6fb39b90feadc889339f76
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002942"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836171"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Solucionar problemas do Data Factory
 > [!NOTE]
@@ -119,14 +119,14 @@ Consulte [Depurar um pipeline com atividade personalizada](data-factory-use-cust
 
 ## <a name="use-azure-portal-to-troubleshoot"></a>Usar o portal do Azure para solucionar o problema
 ### <a name="using-portal-blades"></a>Usando as folhas do portal
-Consulte [Monitorar pipeline](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) para obter as etapas.
+Consulte [Monitorar pipeline](data-factory-monitor-manage-pipelines.md) para obter as etapas.
 
 ### <a name="using-monitor-and-manage-app"></a>Usando o Aplicativo Monitorar e Gerenciar
 Consulte [Monitorar e gerenciar os pipelines do Data Factory usando o Aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md) para obter detalhes.
 
 ## <a name="use-azure-powershell-to-troubleshoot"></a>Usar o Azure PowerShell para solucionar o problema
 ### <a name="use-azure-powershell-to-troubleshoot-an-error"></a>Usar o Azure PowerShell para solucionar o erro
-Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md#monitor-pipeline) para obter detalhes.
+Consulte [Monitorar pipelines do Data Factory usando o Azure PowerShell](data-factory-monitor-manage-pipelines.md) para obter detalhes.
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [use-custom-activities]: data-factory-use-custom-activities.md

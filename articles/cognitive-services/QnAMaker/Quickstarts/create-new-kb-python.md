@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar base de dados de conhecimento – REST, Python – QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Este início rápido baseado em REST do Python orienta você pela criação programática de um exemplo de base de dados de conhecimento do QnA Maker, que será exibida no Painel do Azure de sua conta da API dos Serviços Cognitivos.
 services: cognitive-services
 author: diberry
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 01/24/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 9aa5b85a00de495478897ec70393f6c22ee20fc5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 43ae6e7100efd923c81a0f9b94867a9101549d9b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788744"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559850"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início Rápido: Criar uma base de dados de conhecimento no QnA Maker usando Python
 

@@ -1,22 +1,21 @@
 ---
-title: Solucionar problemas do SDK de Fala – Serviços de Fala
+title: Solucionar problemas do SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Este artigo traz informações para ajudar você a resolver possíveis problemas ao usar o SDK de Fala.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: wolfma
-ms.custom: seodec18
-ms.openlocfilehash: a3741cb351b11b8cfd7c5d38713bb71232cf010e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 3beda852b3e711ee969b7f80f8f326285cc2cad6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60515445"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558892"
 ---
 # <a name="troubleshoot-the-speech-sdk"></a>Solucionar Problemas do SDK de Fala
 

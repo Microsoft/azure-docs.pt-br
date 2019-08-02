@@ -2,7 +2,8 @@
 title: Início Rápido – Criar um perfil do Gerenciador de Tráfego para alta disponibilidade dos aplicativos usando o portal do Azure
 description: Este artigo de início rápido descreve como criar um perfil do Gerenciador de Tráfego para criar aplicativos Web altamente disponíveis.
 services: traffic-manager
-author: KumudD
+author: asudbring
+manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: kumud
-ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.author: allensu
+ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760657"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68224687"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Início Rápido: Criar um perfil do Gerenciador de Tráfego usando o portal do Azure
 
@@ -35,42 +36,25 @@ Entre no [Portal do Azure](https://portal.azure.com).
 Para esse início rápido, você precisará implantar duas instâncias de um aplicativo Web em duas regiões diferentes do Azure (*Leste dos EUA* e *Europa Ocidental*). Cada uma servirá como os pontos de extremidade primário e de failover do Gerenciador de Tráfego.
 
 1. No canto superior esquerdo da tela, selecione **Criar um recurso** > **Web** > **Aplicativo Web**.
-2. No **Aplicativo Web**, insira ou selecione estas configurações:
 
-    | Configuração | Valor |
-    | ------- | ----- |
-    | Nome do aplicativo | Insira um nome exclusivo para o aplicativo Web.  |
-    | Assinatura | Selecione a assinatura à qual você quer que o aplicativo Web se aplique. |
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroupTM1*. |
-    | SO | Selecione **Windows** como o sistema operacional. |
-    | Publicar | Selecione **Código** como o formato que você deseja publicar. |
+1. Em **Criar um Aplicativo Web**, insira ou selecione os seguintes valores na guia **Configurações básicas**:
 
-3. Selecione **Plano do Serviço de Aplicativo/Localização**.
-4. Em **Plano do Serviço de Aplicativo**, selecione **Criar novo**.
-5. Em **Novo Plano do Serviço de Aplicativo**, insira ou selecione estas configurações:
+   - **Assinatura** > **Grupo de Recursos**: Selecione **Criar novo** e, em seguida, digite **myResourceGroupTM1**.
+   - **Detalhes da Instância** > **Nome**: Digite *myWebAppEastUS*.
+   - **Detalhes da Instância** > **Publicar**: Selecione **Código**.
+   - **Detalhes da Instância** > **Pilha de tempo de execução**: Selecione **ASP.NET v4.7**
+   - **Detalhes da Instância** > **Sistema Operacional**: Selecione **Windows**.
+   - **Detalhes da instância** > **Região**:  Selecione **Leste dos EUA**.
+   - **Plano do Serviço de Aplicativo** > **Plano do Windows (Leste dos EUA)** : Selecione **Criar novo** e, em seguida, digite **myAppServicePlanEastUS**
+   - **Plano do Serviço de Aplicativo** > **SKU e tamanho:** Selecione **Standard S1**.
+   
+3. Selecione a guia **Monitoramento** ou selecione **Avançar: Monitoramento**.  Em **Monitoramento**, defina **Application Insights** > **Habilitar Application Insights** para **Não**.
 
-    | Configuração | Valor |
-    | ------- | ----- |
-    | Plano do Serviço de Aplicativo | Insira *myAppServicePlanEastUS*. |
-    | Local padrão | Leste dos EUA |
-    | Tipo de preço | S1 Standard |
+4. Selecione **Examinar e criar**
 
-6. Selecione **OK**.
+5. Examine as configurações e, em seguida, clique em **Criar**.  Quando o aplicativo Web é implantado com êxito, ele cria um site da Web padrão.
 
-7. Em **Aplicativo Web**, selecione **Criar**. Quando o aplicativo Web é implantado com êxito, ele cria um site da Web padrão.
-
-8. Para criar um segundo site em uma região diferente do Azure, repita as etapas de 1 a 7 com as seguintes configurações:
-
-    | Configuração | Valor |
-    | --------| ----- |
-    | NOME | Insira um nome exclusivo para o aplicativo Web. |
-    | Assinatura | Selecione a assinatura à qual você quer que o aplicativo Web se aplique. |
-    | Grupo de recursos | Selecione **Criar novo** e insira *myResourceGroupTM2*. |
-    | SO | Selecione **Windows** como o sistema operacional. |
-    | Publicar | Selecione **Código** como o formato que você deseja publicar. |
-    | Plano do Serviço de Aplicativo/Localização | Insira *myAppServicePlanWestEurope*. |
-    | Local padrão | Europa Ocidental |
-    | Tipo de preço | S1 Standard |
+6. Execute as etapas para criar um segundo aplicativo Web chamado *myWebAppWestEurope*, com o nome de **Grupo de Recursos** *myResourceGroupTM2*, uma **Região** *Oeste da Europa*, um **Plano do Serviço de Aplicativo** de **myAppServicePlanWestEurope** e todas as outras configurações iguais às usadas em *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Criar um perfil do Gerenciador de Tráfego
 
@@ -83,9 +67,9 @@ Crie um perfil do Gerenciador de Tráfego que direciona o tráfego de usuário c
     | --------| ----- |
     | NOME | Insira um nome exclusivo para seu perfil do Gerenciador de Tráfego.|
     | Método de roteamento | Selecione **Prioridade**.|
-    | Assinatura | Selecione a assinatura à qual você deseja que o perfil do Gerenciador de Tráfego seja aplicado. |
-    | Grupo de recursos | Selecione *myResourceGroupTM1*.|
-    | Local padrão |Essa configuração se refere ao local do grupo de recursos. Ela não tem efeito sobre o perfil do Gerenciador de Tráfego que será implantado globalmente.|
+    | Subscription | Selecione a assinatura à qual você deseja que o perfil do Gerenciador de Tráfego seja aplicado. |
+    | Resource group | Selecione *myResourceGroupTM1*.|
+    | Location |Essa configuração se refere ao local do grupo de recursos. Ela não tem efeito sobre o perfil do Gerenciador de Tráfego que será implantado globalmente.|
 
 3. Selecione **Criar**.
 

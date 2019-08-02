@@ -4,18 +4,18 @@ description: Fazer backup consistente de aplicativo da máquina virtual para o A
 services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhk
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 1d6c89e596fa976161ee28d62885e77b9400a1f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0e959647231fb87c023dcb5c4c48a205259de74
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799501"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705857"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Extensão Linux de janelas de VM instantânea para Azure Backup
 
@@ -64,7 +64,7 @@ O JSON a seguir mostra o esquema para a extensão de VM instantânea. A extensã
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | cadeia de caracteres |

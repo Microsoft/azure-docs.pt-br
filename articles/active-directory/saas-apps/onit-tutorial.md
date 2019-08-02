@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 56b3e42a65eb84ef6ee53b4ba16e5fafc4473405
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6fe9378a329c9de3b3204bf141d9e574a2ec308c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095946"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onit"></a>Tutorial: Integração do Azure Active Directory com o Onit
 
@@ -53,7 +53,7 @@ Para configurar a integração do Onit ao Azure AD, você precisará adicionar o
 
 **Para adicionar o Onit da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Onit, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do Onit](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Onit](https://www.onit.com/support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o Onit, execute as seguintes etap
     | ---------------| --------------- |
     | email | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -178,13 +178,13 @@ Para configurar o logon único do Azure AD com o Onit, execute as seguintes etap
 
     ![Logon Único](./media/onit-tutorial/IC791177.png "Logon Único")
 
-     a. Como **Estratégia de Autenticação**, selecione **Logn Único e Senha**.
+    a. Como **Estratégia de Autenticação**, selecione **Logn Único e Senha**.
     
     b. Na caixa de texto **URL de Destino de IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     c. Na caixa de texto **URL de logoff de IdP**, cole o valor da **URL de logoff** copiado do portal do Azure.
 
-    d. Na caixa de texto **Impressão Digital do Certificado IdP (SHA1)**, cole o valor da **Impressão Digital** do certificado copiado do Portal do Azure.
+    d. Na caixa de texto **Impressão Digital do Certificado IdP (SHA1)** , cole o valor da **Impressão Digital** do certificado copiado do Portal do Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -253,7 +253,7 @@ Para permitir que os usuários do AD do Azure façam logon no Onit, eles devem s
    
     ![Adicionar Usuário](./media/onit-tutorial/IC791181.png "Adicionar Usuário")
    
-     a. Digite o **Nome** e **Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite o **Nome** e **Endereço de Email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
 
     b. Clique em **Criar**.    
    
@@ -272,5 +272,5 @@ Ao clicar no bloco do Onit no Painel de Acesso, você será conectado automatica
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

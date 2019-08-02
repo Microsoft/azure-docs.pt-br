@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707144"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278332"
 ---
 # <a name="service-bus-faq"></a>Perguntas frequentes sobre o Barramento de Serviço
 
@@ -42,51 +42,51 @@ A ordenação não é garantida ao usar entidades particionadas. Se uma partiç�
 
  As entidades particionadas não são mais compatíveis com a camada [SKU Premium](service-bus-premium-messaging.md). 
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir o firewall? 
-Você pode usar os seguintes protocolos de barramento de serviço do Azure para enviar e receber mensagens:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
+Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
 - Advanced Message Queuing Protocol (AMQP)
 - Protocolo do sistema de mensagens do Barramento de Serviço (SBMP)
 - HTTP
 
-Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os Hubs de eventos do Azure. 
+Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
 | Protocol | Portas | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte [guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
 | SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP é necessário à lista de permissões?
-Para localizar os endereços IP corretos para a lista branca para suas conexões, siga estas etapas:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP retornado na `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que ele seria alterado é se você restaurar o namespace de logon em um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que seria alterado seria se você restaurasse o namespace em um cluster diferente.
 
-Se você usar a redundância de zona para seu namespace, você precisará seguir algumas etapas adicionais: 
+Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
 
-1. Primeiro, você execute nslookup no namespace.
+1. Primeiro, execute nslookup no namespace.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na **resposta não autoritativa** seção, que está em um dos seguintes formatos: 
+2. Anote o nome na seção de **resposta não autoritativa** , que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Execute nslookup para cada um deles com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade 
+3. Execute nslookup para cada um com sufixos S1, S2 e S3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
 
 ## <a name="best-practices"></a>Práticas recomendadas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas das práticas recomendadas do Barramento de Serviço do Azure?
-Consulte [Práticas recomendadas para melhorias de desempenho usando o Barramento de Serviço][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho ao trocar mensagens.
+Consulte [práticas recomendadas para melhorias de desempenho usando o barramento de serviço][Best practices for performance improvements using Service Bus] – este artigo descreve como otimizar o desempenho ao trocar mensagens.
 
 ### <a name="what-should-i-know-before-creating-entities"></a>O que devo saber antes de criar entidades?
 As propriedades de uma fila e tópico a seguir são imutáveis. Considere essa limitação ao provisionar suas entidades, já que essas propriedades não podem ser modificadas sem criar uma nova entidade de substituição.
@@ -114,27 +114,27 @@ Não, o Barramento de Serviço não cobra pelo armazenamento. No entanto, há um
 
 ## <a name="quotas"></a>Cotas
 
-Para obter uma lista de cotas e limites do Barramento de Serviço, veja [Visão geral sobre cotas do Barramento de Serviço][Quotas overview].
+Para obter uma lista de cotas e limites do barramento de serviço, consulte [visão geral][Quotas overview]das cotas do barramento de serviço.
 
 ### <a name="does-service-bus-have-any-usage-quotas"></a>O Barramento de Serviço tem cotas de uso?
 Por padrão, para qualquer serviço de nuvem, a Microsoft define uma cota de uso mensal agregado calculada entre todas as assinaturas de um cliente. Se precisar de mais do que esses limites, você poderá entrar em contato com o atendimento ao cliente em qualquer horário para que possamos entender suas necessidades e ajustar esses limites adequadamente. Para o Barramento de Serviço, a cota de uso agregado é de 5 bilhões de mensagens por mês.
 
 Embora a Microsoft se reserve o direito de desabilitar uma conta de cliente que tenha ultrapassado suas cotas de uso em determinado mês, notificações por email são enviadas e várias tentativas de contatar o cliente são feitas antes de realizarmos qualquer ação. Os clientes que excederem essas cotas ainda serão responsáveis por cobranças que excedam as cotas.
 
-Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. Você pode encontrar mais detalhes sobre essas cotas em [visão geral de cotas do Barramento de Serviço][Quotas overview].
+Como ocorre com outros serviços no Azure, o Barramento de Serviço aplica um conjunto de cotas específicas para garantir que haja um uso inteligente dos recursos. Você pode encontrar mais detalhes sobre essas cotas na [visão geral cotas do barramento de serviço][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Como lidar com mensagens com mais de 1 MB?
 Os serviços de mensagens do Barramento de Serviço (filas e tópicos/assinaturas) permitem que o aplicativo envie mensagens com até 256 KB (camada standard) ou 1 MB (camada premium). Se você estiver lidando com mensagens de tamanho maior do que 1 MB, use o padrão de verificação de declaração descrito [nesta postagem de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não eu consigo criar um namespace após excluí-lo de outra assinatura? 
 Quando você exclui um namespace de uma assinatura, aguarde até 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, a seguinte mensagem de erro será exibida: `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Quais são algumas das exceções geradas pelas APIs do Barramento de Serviço do Azure e suas ações sugeridas?
-Para obter uma lista de exceções possíveis do Barramento de Serviço, confira [Visão geral das exceções][Exceptions overview].
+Para obter uma lista de possíveis exceções do barramento de serviço, consulte [visão geral de exceções][Exceptions overview].
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>O que é uma Assinatura de Acesso Compartilhado e quais idiomas oferecem suporte para a geração de uma assinatura?
-Assinaturas de acesso compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter mais informações sobre como gerar suas próprias assinaturas no Node, PHP, Java e C\#, consulte o artigo [Assinaturas de Acesso Compartilhado][Shared Access Signatures].
+Assinaturas de acesso compartilhado são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Java, Python e C#, consulte o artigo [assinaturas de acesso compartilhado][Shared Access Signatures] .
 
 ## <a name="subscription-and-namespace-management"></a>Gerenciamento de assinaturas e de namespaces
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>Como posso migrar um namespace para outra assinatura do Azure?
@@ -143,7 +143,7 @@ Mova um namespace de uma assinatura do Azure para outra usando o [portal do Azur
 
 #### <a name="portal"></a>Portal
 
-Para usar o portal do Azure para migrar namespaces do Barramento de Serviço para outra assinatura, siga as instruções descritas [aqui](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Para usar o portal do Azure para migrar namespaces do Barramento de Serviço para outra assinatura, siga as instruções descritas [aqui](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 

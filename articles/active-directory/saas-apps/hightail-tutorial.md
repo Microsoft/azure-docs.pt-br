@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b57786aaf699f562743bfdd6cf5c2d8f1b41b0d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fbcf941293a30a48a17dfdf832ae8af551e834c7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276075"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100988"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Tutorial: integração do Azure Active Directory com o Hightail
 
@@ -54,7 +54,7 @@ Para configurar a integração do Hightail ao Azure AD, você precisará adicion
 
 **Para adicionar o Hightail da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o Hightail, execute as seguintes 
     | Email | user.mail |
     | UserIdentity | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -181,7 +181,7 @@ Para configurar o logon único do Azure AD com o Hightail, execute as seguintes 
 
     ![Configurar o logon único](./media/hightail-tutorial/configure3.png)
 
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Abra o Certificado codificado em base-64 no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado SAML**.
 
@@ -259,4 +259,4 @@ Ao clicar no bloco do Hightail no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

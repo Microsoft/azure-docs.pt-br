@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf054cb3a965e94f7f18e39065d744b4376b6527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904347"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102186"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Tutorial: Integração do Azure Active Directory ao Form.com
 
@@ -52,7 +52,7 @@ Para configurar a integração do Form.com com o Azure AD, você precisará adic
 
 **Para adicionar o Form.com por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Form.com, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Form.com](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<subdomain>.wa-form.com`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<subdomain>.wa-form.com`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.form.com`
 
@@ -118,7 +118,7 @@ Para configurar o logon único do Azure AD com o Form.com, execute as seguintes 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Cliente do Form.com](https://form.com/about/company/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **Certificado (Base64)**, clique no **ícone** Copiar para copiar a **URL de Metadados de Federação do Aplicativo** nas opções fornecidas de acordo com suas necessidades e salve-a no computador.
+5. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **Certificado (Base64)** , clique no **ícone** Copiar para copiar a **URL de Metadados de Federação do Aplicativo** nas opções fornecidas de acordo com suas necessidades e salve-a no computador.
 
     ![O link de download do Certificado](./media/formcom-tutorial/certificatebase64-url.png)
 
@@ -154,7 +154,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

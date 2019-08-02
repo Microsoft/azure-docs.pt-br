@@ -2,17 +2,17 @@
 title: Criar nós virtuais usando o portal no AKS (Serviços de Kubernetes do Azure)
 description: Saiba como usar o portal do Azure para criar um cluster do AKS (Serviços de Kubernetes do Azure) que usa nós virtuais para executar pods.
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a82d9e6e1d5ffa9b97bb0c1a4272375d4a71863c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66742806"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613837"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar nós virtuais no portal do Azure
 
@@ -24,7 +24,7 @@ Este artigo mostra como criar e configurar os recursos de rede virtual e um clus
 
 Nós virtuais permitem a comunicação de rede entre pods executados em ACI e o cluster do AKS. Para fornecer essa comunicação, uma sub-rede de rede virtual é criada e permissões delegadas são atribuídas. Nós virtuais só funcionam com clusters do AKS criados usando rede *avançada*. Por padrão, os clusters do AKS são criados com rede *básica*. Este artigo mostra como criar uma rede virtual e sub-redes para então implantar um cluster do AKS que usa rede avançada.
 
-Se você não tiver usado anteriormente ACI, registre o provedor de serviço com sua assinatura. Você pode verificar o status do registro de provedor ACI usando o comando [lista de provedor az][az-provider-list], conforme mostrado no exemplo a seguir:
+Se você não tiver usado anteriormente ACI, registre o provedor de serviço com sua assinatura. Você pode verificar o status do ACI provedor registro usando o [lista de provedor az][az-provider-list] de comando, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
@@ -106,7 +106,7 @@ O Azure Cloud Shell é um shell interativo grátis que pode ser usado para execu
 
 Para abrir o Cloud Shell, escolha **Experimentar** no canto superior direito de um bloco de código. Você também pode iniciar o Cloud Shell em uma guia separada do navegador indo até [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole o código no Cloud Shell e depois pressione Enter para executá-lo.
 
-Use o comando [az aks get-credentials][az-aks-get-credentials] para configurar `kubectl` e se conectar ao seu cluster do Kubernetes. O exemplo a seguir obtém as credenciais para o nome do cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup*:
+Use o [az aks get-credentials][az-aks-get-credentials] comando para configurar `kubectl` para se conectar ao cluster Kubernetes. O exemplo a seguir obtém as credenciais para o nome do cluster *myAKSCluster* no grupo de recursos chamado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Implantar um aplicativo de exemplo
 
-No Azure Cloud Shell, crie um arquivo chamado `virtual-node.yaml` e copie no YAML a seguir. Para agendar o contêiner no nó, define-se um [nodeSelector][node-selector] e um [toleration][toleration]. Essas configurações permitem que o pod seja agendado no nó virtual e confirmam se o recurso foi habilitado com êxito.
+No Azure Cloud Shell, crie um arquivo chamado `virtual-node.yaml` e copie no YAML a seguir. Para agendar o contêiner no nó, uma [nodeSelector][node-selector] and [toleration][toleration] são definidos. Essas configurações permitem que o pod seja agendado no nó virtual e confirmam se o recurso foi habilitado com êxito.
 
 ```yaml
 apiVersion: apps/v1
@@ -163,13 +163,13 @@ spec:
         effect: NoSchedule
 ```
 
-Execute o aplicativo com o comando [kubectl apply][kubectl-apply].
+Execute o aplicativo com o [kubectl aplicar][kubectl-apply] comando.
 
 ```azurecli-interactive
 kubectl apply -f virtual-node.yaml
 ```
 
-Use o comando [kubectl get pods][kubectl-get] com o argumento `-o wide` para gerar uma lista dos pods e do nó agendado. Observe que o pod `virtual-node-helloworld` foi agendado no nó `virtual-node-linux`.
+Use o [kubectl get pods][kubectl-get] com o `-o wide` argumento para gerar uma lista de pods e o nó agendado. Observe que o pod `virtual-node-helloworld` foi agendado no nó `virtual-node-linux`.
 
 ```
 $ kubectl get pods -o wide
@@ -181,7 +181,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 O pod é atribuído a um endereço IP interno da sub-rede da rede virtual do Azure delegada para uso com nós virtuais.
 
 > [!NOTE]
-> Se você usar imagens armazenadas no Registro de Contêiner do Azure, [configure e use um segredo do Kubernetes][acr-aks-secrets]. Uma limitação atual de nós virtuais é que você não pode usar o Azure integrado autenticação de entidade de serviço do AD. Se você não usar um segredo, pods agendados em nós virtuais falham ao iniciar e relatam o erro `HTTP response status code 400 error code "InaccessibleImage"`.
+> Se você usar imagens armazenadas no registro de contêiner do Azure [configurar e usar um segredo Kubernetes][acr-aks-secrets]. Uma limitação atual de nós virtuais é que você não pode usar o Azure integrado autenticação de entidade de serviço do AD. Se você não usar um segredo, pods agendados em nós virtuais falham ao iniciar e relatam o erro `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Testar o pod de nó virtual
 
@@ -219,12 +219,12 @@ Feche a sessão de terminal do pod de teste com `exit`. Quando a sessão for enc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, agendamos um pod no nó virtual e atribuímos a um endereço IP privado interno. Ao invés disso, você pode criar uma implantação de serviço e direcionar o tráfego para o pod por meio de um balanceador de carga ou controlador de entrada. Para obter mais informações, confira [Create a basic ingress controller in AKS][aks-basic-ingress] (Criar um controlador de entrada básico no AKS).
+Neste artigo, agendamos um pod no nó virtual e atribuímos a um endereço IP privado interno. Ao invés disso, você pode criar uma implantação de serviço e direcionar o tráfego para o pod por meio de um balanceador de carga ou controlador de entrada. Para obter mais informações, consulte [criar um controlador de entrada básico no AKS][aks-basic-ingress].
 
 Os nós virtuais são um componente de uma solução de dimensionamento no AKS. Para saber mais sobre essas soluções de dimensionamento, consulte os artigos a seguir:
 
-- [Usar o dimensionamento automático de pod horizontal do Kubernetes][aks-hpa]
-- [Usar o dimensionador automático de cluster do Kubernetes][aks-cluster-autoscaler]
+- [Usar o dimensionador automático horizontal de pods do Kubernetes][aks-hpa]
+- [Usar o dimensionador automático cluster do Kubernetes][aks-cluster-autoscaler]
 - [Confira o exemplo de dimensionamento automático para os nós virtuais][virtual-node-autoscale]
 - [Leia mais sobre a biblioteca de software livre Virtual Kubelet][virtual-kubelet-repo]
 

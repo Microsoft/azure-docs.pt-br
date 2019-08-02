@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b35deab4c4fb20c58e135c0de01a0aa05b1c33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce37aea9e700907ebfda9aa181b7f0eb638af35
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862659"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102722"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Tutorial: Integração do Azure Active Directory ao Fidelity NetBenefits
 
@@ -55,7 +55,7 @@ Para configurar a integração do Fidelity NetBenefits ao Azure AD, você precis
 
 **Para adicionar o Fidelity NetBenefits da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Fidelity NetBenefits, execute a
 
     ![Informações de logon único de Domínio e URLs do Fidelity NetBenefits](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     Para o ambiente de teste: `urn:sp:fidelity:geninbndnbparts20:uat:xq1`
 

@@ -1,6 +1,6 @@
 ---
-title: Bons exemplos de declarações
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Bom exemplo de declarações-LUIS
+titleSuffix: Azure Cognitive Services
 description: Enunciados são entradas do usuário que seu aplicativo precisa interpretar. Colete frases que você acredita que os usuários vão inserir. Inclua enunciados que tenham o mesmo significado, mas sejam construídos de modo diferente em termos de comprimento e posicionamento de palavras.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073148"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638318"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Reconheça quais são os enunciados ideais para o aplicativo LUIS
 
@@ -76,21 +76,21 @@ O LUIS constrói modelos eficazes com enunciados que são cuidadosamente selecio
 
 ## <a name="utterance-normalization"></a>Normalização de expressão
 
-Normalização de expressão é o processo de ignorar os efeitos de pontuação e sinais diacríticos durante o treinamento e previsão.
+A normalização de expressão é o processo de ignorar os efeitos de Pontuação e sinais diacríticos durante o treinamento e a previsão.
 
-## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalização de expressão para sinais diacríticos e pontuação
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalização de expressão para sinais diacríticos e Pontuação
 
-Normalização de expressão é definida quando você criar ou importar o aplicativo porque ele é uma configuração no arquivo JSON do aplicativo. As configurações de normalização de expressão são desativadas por padrão. 
+A normalização de expressão é definida quando você cria ou importa o aplicativo porque ele é uma configuração no arquivo JSON do aplicativo. As configurações de normalização de expressão são desativadas por padrão. 
 
-Sinais diacríticos são marcas ou sinais de dentro do texto, tais como: 
+Os sinais diacríticos são marcas ou sinais dentro do texto, como: 
 
 ```
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-Se seu aplicativo liga normalização, pontuações na **teste** painel, testes em lotes e consultas de ponto de extremidade serão alterado para todas as declarações usando diacríticos ou pontuação.
+Se o aplicativo ativar a normalização, as pontuações no painel de **teste** , nos testes de lote e nas consultas de ponto de extremidade serão alterados para todos os declarações usando sinais diacríticos ou pontuação.
 
-Ativar a normalização de expressão para sinais diacríticos ou pontuação para seu arquivo de aplicativo LUIS JSON no `settings` parâmetro.
+Ative a `settings` normalização de expressão para diacríticos ou pontuação em seu arquivo de aplicativo JSON Luis no parâmetro.
 
 ```JSON
 "settings": [
@@ -99,22 +99,26 @@ Ativar a normalização de expressão para sinais diacríticos ou pontuação pa
 ] 
 ```
 
-Normalizar **pontuação** significa que, antes de seus modelos podem ser treinados e antes de seu ponto de extremidade consultas obterem previstas, pontuação será removida do rotulasse. 
+A normalização da **Pontuação** significa que, antes que seus modelos sejam treinados e antes de suas consultas de ponto de extremidade serem previstas, a pontuação será removida do declarações. 
 
-Normalizar **diacríticos** substitui os caracteres com sinais diacríticos em declarações com caracteres normais. Por exemplo: `Je parle français` torna-se `Je parle francais`. 
+Normalizar **diacríticos** substitui os caracteres por sinais diacríticos em declarações por caracteres normais. Por exemplo: `Je parle français` torna `Je parle francais`-se. 
 
-Normalização não significa que você irá diacríticos em suas declarações de exemplo ou respostas de previsão e não o Consulte pontuação simplesmente que elas serão ignoradas durante o treinamento e previsão.
+A normalização não significa que você não verá Pontuação e sinais diacríticos em seu exemplo de declarações ou respostas de previsão, apenas que eles serão ignorados durante o treinamento e a previsão.
 
 
 ### <a name="punctuation-marks"></a>Marcas de pontuação
 
-Se a pontuação não é normalizada, LUIS não ignorar marcas de pontuação, por padrão, porque alguns aplicativos cliente podem impor significância nessas marcas. Verifique se suas declarações de exemplo usam pontuação e nenhuma pontuação para que os dois estilos retornem as mesmas pontuações relativas. 
+Pontuação é um token separado no LUIS. Um expressão que contém um ponto no final versus um expressão que não contém um ponto no final são dois declarações separados e pode obter duas previsões diferentes. 
 
-Se a pontuação não tem nenhum significado específico em seu aplicativo cliente, considere [ignorando pontuação](#utterance-normalization) pela normalização de pontuação. 
+Se a pontuação não for normalizada, o LUIS não ignorará as marcas de pontuação, por padrão, porque alguns aplicativos cliente podem inserir significância nessas marcas. Verifique se suas declarações de exemplo usam pontuação e nenhuma pontuação para que os dois estilos retornem as mesmas pontuações relativas. 
+
+Certifique-se de que o modelo manipule pontuação nos [exemplos de expressões](luis-concept-utterance.md) (com e sem pontuação) ou nos [padrões](luis-concept-patterns.md), onde é mais fácil ignorar a pontuação com a sintaxe especial: `I am applying for the {Job} position[.]`
+
+Se a pontuação não tiver um significado específico em seu aplicativo cliente, considere [ignorar a pontuação](#utterance-normalization) normalizando a pontuação. 
 
 ### <a name="ignoring-words-and-punctuation"></a>Ignorando palavras e pontuação
 
-Se você quiser ignorar palavras específicas ou pontuação em padrões, use uma [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe de colchetes, `[]`. 
+Se você quiser ignorar palavras específicas ou pontuação em padrões, use um [padrão](luis-concept-patterns.md#pattern-syntax) com a sintaxe de _ignorar_ entre colchetes, `[]`. 
 
 ## <a name="training-utterances"></a>Treinando enunciados
 

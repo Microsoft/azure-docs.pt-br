@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60363414"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68377218"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Testar resultados para replicação do Hyper-V para um site secundário
 
@@ -108,7 +108,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 | Servidor | RAM | Modelo | Processador | Número de processadores | NIC | Software |
 | --- | --- | --- | --- | --- | --- | --- |
-| Servidores Hyper-V no cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
+| Servidores Hyper-V no cluster: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25 tem 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2,20 GHz |4 |I Gbps x 4 |Windows Server Datacenter 2012 R2 (x64) + função Hyper-V |
 | Servidor VMM |2 | | |2 |1 Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
 
 ### <a name="secondary-site"></a>Site secundário
@@ -133,11 +133,11 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 
 | Carga de trabalho | Tamanho de E/S (KB) | % de acesso | % de leitura | E/Ss pendentes | Padrão de E/S |
 | --- | --- | --- | --- | --- | --- |
-| Servidor de arquivos |48163264 |60%20%5%5%10% |80%80%80%80%80% |88888 |Todos 100% aleatórios |
-| SQL Server (volume 1) SQL Server (volume 2) |864 |100%100% |70%0% |88 |100% aleatório 100% sequencial |
+| Servidor de arquivos |4<br />8<br />16<br />32<br />64 |60%<br />20%<br />5%<br />5%<br />10% |80%<br />80%<br />80%<br />80%<br />80% |8<br />8<br />8<br />8<br />8 |Todos 100% aleatórios |
+| SQL Server (volume 1)<br />SQL Server (volume 2) |8<br />64 |100%<br />100% |70%<br />0% |8<br />8 |100% aleatório<br />100% sequencial |
 | Exchange |32 |100% |67% |8 |100% aleatório |
-| Estação de trabalho/VDI |464 |66%34% |70%95% |11 |Ambos 100% aleatórios |
-| Servidor de arquivos da Web |4864 |33%34%33% |95%95%95% |888 |Todos 75% aleatórios |
+| Estação de trabalho/VDI |4<br />64 |66%<br />34% |70%<br />95% |1<br />1 |Ambos 100% aleatórios |
+| Servidor de arquivos da Web |4<br />8<br />64 |33%<br />34%<br />33% |95%<br />95%<br />95% |8<br />8<br />8 |Todos 75% aleatórios |
 
 ### <a name="vm-configuration"></a>Configuração da VM
 
@@ -145,7 +145,7 @@ Os resultados mostram claramente que o Site Recovery, junto com a Réplica do Hy
 * Todas as VMs com disco VHDX.
 * VMs executando cargas de trabalho resumidas na tabela. Todas foram criadas com modelos do VMM.
 
-| Carga de trabalho | Nº de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho de disco lógico (GB) por VM | IOPS máximo |
+| Carga de Trabalho | Nº de VMs | RAM mínima (GB) | RAM máxima (GB) | Tamanho de disco lógico (GB) por VM | IOPS máximo |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -175,10 +175,10 @@ A tabela resume as métricas e os contadores de desempenho medidos na implantaç
 | CPU |\Processador(_Total)\% Tempo do processador |
 | Memória disponível |\Memória\MBytes disponíveis |
 | IOPS |\Disco físico(_Total)\Transferências do disco/seg |
-| Operações de leitura da VM (IOPS)/seg |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
-| Operações de gravação da VM (IOPS)/seg |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write operações/S |
-| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Read Bytes/s |
-| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \Hyper-V (\<VHD >) \Write Bytes/s |
+| Operações de leitura da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento\<virtual (VHD >) \ operações/s |
+| Operações de gravação da VM (IOPS)/seg |\Dispositivo do dispositivo de armazenamento\<virtual (VHD >) \ operações/S |
+| Taxa de transferência de leitura da VM |Dispositivo de armazenamento virtual \dispositivo\<(VHD >) \ Bytes/s |
+| Taxa de transferência de gravação da VM |Dispositivo de armazenamento virtual \dispositivo\<(VHD >) \ Bytes/s |
 
 ## <a name="next-steps"></a>Próximas etapas
 

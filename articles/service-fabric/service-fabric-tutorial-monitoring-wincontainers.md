@@ -3,7 +3,7 @@ title: Monitoramento e diagnóstico dos contêineres do Windows no Service Fabri
 description: Neste tutorial, você configura logs do Azure Monitor para monitorar e diagnosticar os contêineres do Windows no Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/08/2018
-ms.author: aljo, dekapur
+ms.date: 07/22/2019
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 11d913264e5920b90ea08d2a29a3651ab101ee64
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 856e2859c778c9f23bc093c2283571a1440ef701
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663155"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68598777"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Monitorar os contêineres do Windows no Service Fabric usando logs do Azure Monitor
 
@@ -86,7 +86,7 @@ Faça as seguintes alterações no seu *template.json*:
     "omsSolution": "ServiceFabric"
     ```
 
-3. Adicione o Microsoft Monitoring Agent como uma extensão da máquina virtual. Encontre recursos de conjuntos de dimensionamento de máquinas virtuais: *recursos* > *"apiVersion": "[variables('vmssApiVersion')]"*. Em *propriedades* > *virtualMachineProfile* > *extensionProfile* > *extensões*, adicione a seguinte descrição de extensão na extensão *ServiceFabricNode*: 
+3. Adicione o Microsoft Monitoring Agent como uma extensão da máquina virtual. Encontre recursos de conjuntos de dimensionamento de máquinas virtuais: *recursos* >  *"apiVersion": "[variables('vmssApiVersion')]"* . Em *propriedades* > *virtualMachineProfile* > *extensionProfile* > *extensões*, adicione a seguinte descrição de extensão na extensão *ServiceFabricNode*: 
     
     ```json
     {

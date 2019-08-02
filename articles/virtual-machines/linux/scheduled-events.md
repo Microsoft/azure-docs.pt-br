@@ -4,7 +4,7 @@ description: Agendar eventos usando o Serviço de Metadados do Azure para nas m�
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7691bcd6f9f3137f48bdd52722c887c4777a32c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507918"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706546"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -55,7 +55,7 @@ Os eventos agendados fornecem eventos nos seguintes casos de uso:
 
   O Serviço de Metadados do Azure expõe informações sobre a execução de VMs usando um ponto de extremidade REST acessível de dentro da VM. As informações estão disponíveis por meio de um IP não roteável para que ele não seja exposto fora da VM.
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Escopo
 Os eventos agendados são entregues a:
 
 - Máquinas virtuais de autônomas.
@@ -75,11 +75,11 @@ Se a VM não for criada em uma Rede Virtual, os casos padrão para serviços de 
 ### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
 O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2017-11-01`.
 
-| Version | Tipo de Versão | Regiões | Notas de versão | 
+| Versão | Tipo de Versão | Regions | Notas de versão | 
 | - | - | - | - | 
 | 2017-11-01 | Disponibilidade geral | Todos | <li> Adicionado suporte para remoção de VMs de baixa prioridade EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
-| 2017-03-01 | Visualização | Todos | <li>Versão inicial
+| 2017-03-01 | Visualizar | Todos | <li>Versão inicial
 
 
 > [!NOTE] 

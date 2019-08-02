@@ -7,31 +7,31 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 00422209302bbcc2139be4f6b490f0bb2816c051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 892a79f898e2448096ad4b252a18e0713bb32e52
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539272"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485302"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolher um tipo de preço para o Azure Search
 
-Quando você cria um serviço de Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço ou SKU é fixo para o tempo de vida do serviço. Níveis incluem gratuito, Basic, Standard e armazenamento otimizado. Padrão e com otimização de armazenamento estão disponíveis com várias configurações e capacidades.
+Quando você cria um serviço de Azure Search, um [recurso é criado](search-create-service-portal.md) em um tipo de preço (ou SKU) que é fixo para o tempo de vida do serviço. Níveis incluem gratuito, Basic, Standard e armazenamento otimizado. Padrão e com otimização de armazenamento estão disponíveis com várias configurações e capacidades.
 
-A maioria dos clientes começar com a camada gratuita para que eles podem avaliar o serviço. Eles, em seguida, atualize para uma das camadas mais altas para implantações de desenvolvimento e produção. Você pode concluir todos os tutoriais e guias de início rápido usando a camada gratuita, incluindo aqueles para os muitos recursos de pesquisa cognitiva.
+A maioria dos clientes começar com a camada gratuita para que eles podem avaliar o serviço. Pós-avaliação, é comum para criar um segundo serviço em uma das camadas mais altas para implantações de desenvolvimento e produção. Você pode concluir todos os tutoriais e guias de início rápido usando a camada gratuita, incluindo aqueles para os muitos recursos de pesquisa cognitiva.
 
 > [!NOTE]
-> Atualmente, a Microsoft está fornecendo as camadas de serviço de armazenamento otimizado em uma visualização a um preço com desconto para teste e experimentação, com o objetivo de coletar comentários. Preço final será anunciado posteriormente quando essas camadas são geralmente disponíveis. É recomendável usar essas camadas para aplicativos de produção.
+> A partir de 1º de julho, todas as camadas estão geralmente disponíveis, incluindo a camada otimizada de armazenamento. Todos os preços podem ser encontrados na [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) página.
 
 As camadas refletem as características do hardware que hospeda o serviço (em vez dos recursos) e são diferenciadas pelo:
 
 + O número de índices, que você pode criar.
 + O tamanho e velocidade de partições (armazenamento físico).
 
-Embora todas as camadas, incluindo a camada gratuita, geralmente oferecem paridade de recursos, maiores cargas de trabalho podem ditar a necessidade de níveis mais altos. Por exemplo, [indexação de inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md) tem habilidades de longa execução que o tempo limite em um serviço gratuito, a menos que o conjunto de dados é pequeno.
+Embora todas as camadas, incluindo a camada gratuita, geralmente oferecem paridade de recursos, maiores cargas de trabalho podem ditar a necessidade de níveis mais altos. Por exemplo, [enriquecimento da inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md) tem habilidades de longa execução que o tempo limite em um serviço gratuito, a menos que o conjunto de dados é pequeno.
 
 > [!NOTE] 
 > A exceção a paridade de recursos é [indexadores](search-indexer-overview.md), que não estão disponível no S3 HD.
@@ -60,7 +60,11 @@ A tabela a seguir lista as camadas disponíveis. Você pode encontrar mais infor
 
 ## <a name="how-billing-works"></a>Como funciona a cobrança
 
-Há três maneiras de incorrer em custos no Azure Search, e há componentes fixas e variáveis. Esta seção descreve os três componentes de cobrança: core os custos de serviço, os encargos de saída de dados e IA sofisticados de indexação.
+Há três maneiras de incorrer em custos no Azure Search. Esta seção descreve os três componentes de cobrança: 
+
++ custo de serviço do núcleo
++ encargos de saída (ou largura de banda) de dados
++ Aprimoramentos de inteligência Artificial
 
 ### <a name="core-service-costs-fixed-and-variable"></a>Custos de serviço principais (fixos e variável)
 
@@ -98,9 +102,9 @@ Usando o [indexadores do Azure Search](search-indexer-overview.md) podem afetar 
 
 Encargos se aplicam para dados de saída, se os serviços estiverem em regiões diferentes. Esses encargos não são, na verdade, parte de sua conta de Azure Search. Eles são mencionados aqui porque se você estiver usando dados ou indexadores enriquecida com inteligência Artificial para extrair dados de diferentes regiões, você verá os custos refletidos na sua fatura geral.
 
-### <a name="ai-enriched-indexing-with-cognitive-services"></a>IA-indexação aprimorada com os serviços Cognitivos
+### <a name="ai-enrichments-with-cognitive-services"></a>Aprimoramentos de inteligência Artificial com os serviços Cognitivos
 
-Para [indexação de inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md), você deve planejar anexar a um recurso faturável de serviços Cognitivos do Azure, na mesma região do Azure Search na camada de preços para o processamento de pagamento conforme o uso S0. Não há nenhum custo fixo associado com a anexação de serviços Cognitivos. Você paga apenas pelo processamento que você precisa.
+Para [enriquecimento da inteligência Artificial com os serviços Cognitivos](cognitive-search-concept-intro.md), você deve planejar anexar a um recurso faturável de serviços Cognitivos do Azure, na mesma região do Azure Search na camada de preços para o processamento de pagamento conforme o uso S0. Não há nenhum custo fixo associado com a anexação de serviços Cognitivos. Você paga apenas pelo processamento que você precisa.
 
 Extração de imagem durante a decodificação de documentos é um encargo de Azure Search. Ele é cobrado de acordo com o número de imagens extraídos de seus documentos. A extração de texto atualmente é gratuita.
 

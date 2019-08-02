@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 10ebe796f5aed827a4934a94d568aedbef704503
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920623"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088224"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Azure Active Directory com o T&E Express
 
@@ -53,7 +53,7 @@ Para configurar a integração do T&E Express com o Azure AD, você precisa adic
 
 **Para adicionar o T&E Express da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o T&E Express, siga estas etapas:
 
     ![Informações de logon único de Domínio e URLs do T&E Express](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite o valor como URL usando o seguinte padrão: `https://<domain>.tyeexpress.com`
+    a. Na caixa de texto **Identificador**, digite o valor como URL usando o seguinte padrão: `https://<domain>.tyeexpress.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
@@ -225,5 +225,5 @@ Ao clicar no bloco do T&E Express no Painel de Acesso, você deverá entrar auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

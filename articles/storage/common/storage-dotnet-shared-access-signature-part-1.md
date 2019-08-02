@@ -9,12 +9,12 @@ ms.date: 04/18/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 8bee0426f171b0fdb7793d18c352649928fdb2e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3c2ed7f2914374ac94783511f2992ae5755967
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65907207"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302321"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Usando SAS (Assinaturas de Acesso Compartilhado)
 
@@ -23,7 +23,10 @@ Uma SAS (Assinatura de Acesso Compartilhado) fornece uma maneira de conceder ace
 Para exemplos de código adicionais usando SAS, além daqueles apresentados aqui, confira [Introdução ao Armazenamento de Blobs do Azure no.NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) e outros exemplos disponíveis na biblioteca de [Exemplos de Código do Azure](https://azure.microsoft.com/documentation/samples/?service=storage). Você pode baixar os aplicativos de exemplo e executá-los ou procurar o código no GitHub.
 
 ## <a name="what-is-a-shared-access-signature"></a>O que é uma assinatura de acesso compartilhado?
+
 Uma assinatura de acesso compartilhado fornece acesso delegado aos recursos da sua conta de armazenamento. Com uma SAS, você pode conceder aos clientes acesso aos recursos em sua conta de armazenamento, sem compartilhar as chaves de conta. Este é o ponto principal do uso de assinaturas de acesso compartilhado em seus aplicativos: uma SAS é uma maneira segura de compartilhar seus recursos de armazenamento sem comprometer as chaves da conta.
+
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
@@ -35,6 +38,7 @@ Uma SAS oferece um controle granular sobre que tipo de acesso você concede aos 
 * O protocolo pelo qual o Armazenamento do Azure aceitará a SAS. Você pode usar esse parâmetro opcional para restringir o acesso a clientes usando HTTPS.
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>Quando você deve usar uma assinatura de acesso compartilhado?
+
 Você pode usar uma SAS quando desejar fornecer acesso aos recursos da sua conta de armazenamento a um cliente que não possui as chaves de acesso da sua conta de armazenamento. As chaves da conta de armazenamento incluem uma chave de acesso primária e uma chave secundária, que concedem acesso administrativo à sua conta e a todos os recursos que ela contém. Expor qualquer uma dessas chaves torna sua conta vulnerável a um possível uso mal-intencionado ou negligente. As assinaturas de acesso compartilhado são uma alternativa segura que permite que os clientes leiam, gravem e excluam dados da sua conta de armazenamento de acordo com as permissões explicitamente concedidas por você e sem precisar de uma chave de conta.
 
 Um cenário comum em que uma SAS é útil é um serviço onde os usuários leem e gravam seus próprios dados na sua conta de armazenamento. Em um cenário em que uma conta de armazenamento armazena dados do usuário, há dois padrões de design comuns:
@@ -56,12 +60,14 @@ Além disso, você precisará usar uma SAS para autorizar acesso ao objeto de or
 * Quando você estiver copiando um blob em um arquivo, ou um arquivo em um blob, use uma SAS para autorizar acesso ao objeto de origem, mesmo se os objetos de origem e destino residirem dentro da mesma conta de armazenamento.
 
 ## <a name="types-of-shared-access-signatures"></a>Tipos de assinaturas de Acesso compartilhado.
+
 É possível criar dois tipos de assinaturas de acesso compartilhado:
 
 * **SAS de Serviço.** A SAS de serviço delega acesso a um recurso em apenas um dos serviços de armazenamento: o serviço Blob, Fila, Tabela ou Arquivo. Veja [Construindo uma SAS de serviço](https://msdn.microsoft.com/library/dn140255.aspx) e [Exemplos de SAS de serviço](https://msdn.microsoft.com/library/dn140256.aspx) para obter informações detalhadas sobre como construir o token SAS de serviço.
 * **SAS de Conta.** A SAS de conta delega acesso a recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis através de um serviço SAS também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS de conta, você pode delegar acesso a operações que se aplicam a um determinado serviço, como **Obter/Definir propriedades de serviço** e **Obter status do serviço**. Você também pode delegar acesso a operações de leitura, gravação e exclusão em contêineres de blob, tabelas, filas e compartilhamentos de arquivos que não são permitidos com um SAS de serviço. Consulte [Constructing an Account SAS](https://msdn.microsoft.com/library/mt584140.aspx) (Construindo uma SAS de conta) para obter informações detalhadas sobre como construir o token SAS de conta.
 
 ## <a name="how-a-shared-access-signature-works"></a>Como funciona uma assinatura de acesso compartilhado
+
 Uma assinatura de acesso compartilhado é um URI assinado que aponta para um ou mais recursos de armazenamento e inclui um token que contém um conjunto especial de parâmetros de consulta. O token indica como os recursos podem ser acessados pelo cliente. Um desses parâmetros de consulta, a assinatura, é construído a partir dos parâmetros SAS e assinado com a chave de conta. Esta assinatura é usada pelo armazenamento do Azure para autorizar o acesso ao recurso de armazenamento.
 
 Aqui está um exemplo de um URI SAS, mostrando o URI do recurso e o token SAS:
@@ -73,9 +79,11 @@ O token de SAS é uma cadeia de caracteres gerada no lado do *cliente* (consulte
 Quando um cliente fornece um URI SAS para o Armazenamento do Azure como parte de uma solicitação, o serviço confere os parâmetros SAS e a assinatura para verificar se ele é válido para autenticar a solicitação. Se o serviço verificar que a assinatura é válida, a solicitação será autorizada. Caso contrário, a solicitação será recusada com o código de erro 403 (proibido).
 
 ## <a name="shared-access-signature-parameters"></a>Parâmetros de assinatura de acesso compartilhado
+
 A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e também usam alguns parâmetros que são diferentes.
 
 ### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parâmetros comuns a tokens SAS de conta e SAS de serviço
+
 * **Versão da API** Um parâmetro opcional que especifica a versão do serviço de armazenamento a ser usada para executar a solicitação.
 * **Versão do serviço** Um parâmetro obrigatório que especifica a versão do serviço de armazenamento a ser usada para autorizar a solicitação.
 * **Hora de início.** É a hora em que a SAS torna-se válida. A hora de início de uma assinatura de acesso compartilhado é opcional. Se a hora de início for omitida, a SAS entrará em vigor imediatamente. A hora inicial deve ser expressa em UTC (Tempo Universal Coordenado), com um designador de UTC especial (“Z”), por exemplo `1994-11-05T13:15:30Z`.
@@ -86,6 +94,7 @@ A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e t
 * **Assinatura.** A assinatura é construída com os parâmetros especificados como parte do token e depois criptografada. A assinatura é usada para autorizar acesso a recursos de armazenamento específicos.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parâmetros para um token SAS de serviço
+
 * **Recurso de armazenamento.** Os recursos de armazenamento para os quais é possível delegar acesso com SAS de serviço incluem:
   * Contêineres e blobs
   * Compartilhamentos de arquivos e arquivos
@@ -93,6 +102,7 @@ A SAS de conta e os tokens SAS de serviço incluem alguns parâmetros comuns e t
   * Tabelas e intervalos de entidades de tabela.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parâmetros para um token SAS de conta
+
 * **Serviço ou serviços.** Uma SAS de conta pode delegar acesso a um ou mais serviços de armazenamento. Por exemplo, você pode criar uma SAS de conta que delegada acesso aos serviços de arquivo e Blob. Ou você pode criar uma SAS que delega acesso a todos os quatro serviços (Blob, fila, tabela e arquivo).
 * **Tipos de recurso de armazenamento.** Uma SAS de conta se aplica a uma ou mais classes de recursos de armazenamento, em vez de a um recurso específico. Você pode criar uma SAS de conta para delegar acesso a:
   * APIs de nível de serviço, que são chamadas em relação ao recurso da conta de armazenamento. Os exemplos incluem **Obter/Definir Propriedades do Serviço**, **Obter Estatísticas do Serviço** e **Listar Contêineres/Filas/Tabelas/Compartilhamentos**.
@@ -139,6 +149,7 @@ https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015
 Considerando que as permissões são restritas ao nível de serviço, as operações acessíveis com essa SAS são **Obter Propriedades do Serviço Blob** (leitura) e **Definir Propriedades do Serviço Blob** (gravação). Contudo, com um URI de recurso diferente, o mesmo token SAS pode também ser usado para delegar acesso a **Obter status do serviço Blob** (leitura).
 
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Controlando uma SAS com uma política de acesso armazenada
+
 Uma assinatura de acesso compartilhado pode assumir uma destas duas formas:
 
 * **SAS ad hoc:** Quando você cria uma SAS ad hoc, a hora de início, a hora de vencimento e as permissões para a SAS são especificadas no URI da SAS (ou implícitas, quando a hora de início é omitida). Esse tipo de SAS pode ser criada como uma SAS de conta ou de serviço.
@@ -158,12 +169,15 @@ A diferença entre as duas formas é importante para um cenário fundamental: re
 > Um URI de assinatura de acesso compartilhado é associado com a chave de conta usada para criar a assinatura e a política de acesso armazenado associada (se houver). Se nenhuma política de acesso armazenado for especificada, a única maneira de revogar uma assinatura de acesso compartilhado é alterar a chave da conta.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Autenticação de um aplicativo cliente com uma SAS
+
 Um cliente que tem uma SAS pode usar a SAS para autorizar uma solicitação em relação a uma conta de armazenamento para a qual ele não tem as chaves da conta. Uma SAS pode ser incluída em uma cadeia de conexão ou usada diretamente por meio do construtor ou método apropriado.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Usando uma SAS em uma cadeia de conexão
+
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Usar uma SAS em um construtor ou método
+
 Vários construtores de biblioteca de cliente do Armazenamento do Azure e sobrecargas de método oferecem um parâmetro de SAS, para que você possa autorizar uma solicitação de serviço com uma SAS.
 
 Por exemplo, aqui, um URI SAS é usado para criar uma referência para um blob de blocos. A SAS fornece as únicas credenciais necessárias para a solicitação. A referência de blob de blocos é usada para uma operação de gravação:
@@ -208,6 +222,7 @@ catch (StorageException e)
 ```
 
 ## <a name="best-practices-when-using-sas"></a>Práticas recomendadas ao usar SAS
+
 Ao usar assinaturas de acesso compartilhado nos seus aplicativos, você precisará estar ciente de dois riscos possíveis:
 
 * Se ocorrer perda de uma SAS, ela poderá ser usada por qualquer pessoa que a obtiver, o que poderá comprometer a sua conta de armazenamento.
@@ -227,6 +242,7 @@ As recomendações a seguir para usar assinaturas de acesso compartilhado podem 
 10. **Use a Análise de Armazenamento para monitorar seu aplicativo.** Você pode usar log e métricas para observar qualquer pico nas falhas de autenticação devido a uma interrupção no seu serviço de provedor de SAS ou à remoção acidental de uma política de acesso armazenada. Consulte o [Blog da Equipe de Armazenamento do Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) para obter informações adicionais.
 
 ## <a name="sas-examples"></a>Exemplos de SAS
+
 Abaixo estão alguns exemplos de ambos os tipos de assinatura de acesso compartilhado: SAS de conta e SAS de serviço.
 
 Para executar esses exemplos em C#, você precisa fazer referência aos seguintes pacotes NuGet em seu projeto:
@@ -237,6 +253,7 @@ Para executar esses exemplos em C#, você precisa fazer referência aos seguinte
 Para outros exemplos que mostram como criar e testar uma SAS, confira [Exemplos de Código do Azure para Armazenamento](https://azure.microsoft.com/documentation/samples/?service=storage).
 
 ### <a name="example-create-and-use-an-account-sas"></a>Exemplo: Criar e usar uma conta de SAS
+
 O exemplo de código a seguir cria uma SAS de conta que é válida para os serviços de arquivo e de blob e dá ao cliente permissões de leitura, gravação e listagem de permissões para acessar as APIs de nível de serviço. A SAS de conta restringe o protocolo para HTTPS, para que a solicitação deva ser feita com HTTPS.
 
 ```csharp
@@ -304,6 +321,7 @@ static void UseAccountSAS(string sasToken)
 ```
 
 ### <a name="example-create-a-stored-access-policy"></a>Exemplo: Criar uma política de acesso armazenada
+
 O código a seguir cria uma política de acesso armazenada em um contêiner. Você pode usar a política de acesso para especificar restrições para um serviço de SAS no contêiner ou seus blobs.
 
 ```csharp
@@ -330,6 +348,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Exemplo: Criar um serviço SAS em um contêiner
+
 O código a seguir cria uma SAS em um contêiner. Se o nome de uma política de acesso armazenada existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenado for fornecida, o código cria uma SAS ad hoc no contêiner.
 
 ```csharp
@@ -373,6 +392,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Exemplo: Criar um serviço SAS em um blob
+
 O código a seguir cria uma SAS em um blob. Se o nome de uma política de acesso armazenada existente for fornecido, essa política está associada com a SAS. Se nenhuma política de acesso armazenado for fornecida, o código cria uma SAS ad hoc no blob.
 
 ```csharp
@@ -419,9 +439,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Conclusão
+
 As assinaturas de acesso compartilhado são úteis para fornecer permissões limitadas para a sua conta de armazenamento aos clientes que não devem ter a chave de conta. Desse modo, elas são uma parte vital do modelo de segurança para qualquer aplicativo que utilize o Armazenamento do Azure. Se você seguir as práticas recomendadas listadas aqui, poderá usar a SAS para oferecer mais flexibilidade de acesso aos recursos da sua conta de armazenamento, sem comprometer a segurança do seu aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * [Gerenciar o acesso de leitura anônimo aos contêineres e blobs](../blobs/storage-manage-access-to-resources.md)
 * [Delegando acesso com uma assinatura de acesso compartilhado](https://msdn.microsoft.com/library/azure/ee395415.aspx)
 * [Introdução à Tabela e à Fila SAS](https://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

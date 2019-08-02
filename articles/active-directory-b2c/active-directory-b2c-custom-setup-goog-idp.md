@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 212243f38b153f75c08a9b4c58622d0444f0ac62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 498fe63964e44de8f9e1bc06c1740f1a9ef9b392
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510383"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654167"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada com uma conta do Google usando políticas personalizadas no Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Este artigo mostra como habilitar a entrada para usuários de uma conta do Googl
 
 ## <a name="register-the-application"></a>Registrar o aplicativo
 
-Para habilitar a entrada para usuários de uma conta do Google, você precisa criar um projeto de aplicativo do Google. 
+Para habilitar a entrada para usuários de uma conta do Google, você precisa criar um projeto de aplicativo do Google.
 
 1. Entre no [Console de Desenvolvedores do Google](https://console.developers.google.com/) com suas credenciais de conta.
 2. Insira um **Nome do Projeto**, clique em **Criar**e verifique se você está usando o novo projeto.
@@ -50,17 +50,17 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Verifique se que você estiver usando o diretório que contém o seu locatário do Azure AD B2C. Selecione o **filtro de diretório e assinatura** no menu superior e escolha o diretório que contém o seu locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-4. Na página Visão Geral, selecione **Identity Experience Framework – VERSÃO PRÉVIA**.
+4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
 6. Para **Opções**, escolha `Manual`.
-7. Insira um **Nome** para a chave de política. Por exemplo: `GoogleSecret`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
+7. Insira um **Nome** para a chave de política. Por exemplo, `GoogleSecret`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
 8. Em **Segredo**, insira o segredo do cliente que você registrou anteriormente.
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
 
-Se você quiser que os usuários entrem usando uma conta do Google, precisará definir a conta como um provedor de declarações que podem se comunicar com o Azure AD B2C por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado. 
+Se você quiser que os usuários entrem usando uma conta do Google, precisará definir a conta como um provedor de declarações que podem se comunicar com o Azure AD B2C por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta do Google como um provedor de declarações, adicionando-o ao elemento **ClaimsProviders** no arquivo de extensão da política.
 
@@ -129,7 +129,7 @@ Neste ponto, o provedor de identidade foi definido, mas não está disponível e
 2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
 3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
 4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo: `SignUpSignInGoogle`.
+5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInGoogle`.
 
 ### <a name="display-the-button"></a>Exibir o botão
 
@@ -152,8 +152,8 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
-    
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico que você criou anteriormente. Por exemplo: `Google-OAuth`.
+
+    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico que você criou anteriormente. Por exemplo, `Google-OAuth`.
 
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
@@ -174,7 +174,7 @@ A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cr
 Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
 
 1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o para *SignUpSignInGoogle.xml*.
-2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo: `SignUpSignInGoogle`.
+2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInGoogle`.
 3. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_google`
 4. Atualize o valor do atributo **ReferenceId** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignGoogle).
 5. Salve suas alterações, carregue o arquivo e, em seguida, selecione a nova política na lista.

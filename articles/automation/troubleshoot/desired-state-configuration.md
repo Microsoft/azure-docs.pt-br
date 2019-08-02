@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre solução de problemas de c
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7cb0d77a266dbe8afd331782965e7e9a44663671
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53fef426c927c690a3b697055f467f6cd35c532c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514457"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477517"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Solucionar problemas de configuração de estado desejado (DSC)
 
@@ -164,6 +164,24 @@ Esse erro normalmente ocorre quando o nó é atribuído um nome de configuraçã
 
 * Certifique-se de que você está atribuindo o nó com um nome de configuração de nó que corresponda exatamente ao nome no serviço.
 * Você pode optar por não incluir o nome de configuração de nó, que resultará na integração, o nó, mas não atribuir uma configuração de nó
+
+### <a name="failure-linux-temp-noexec"></a>Cenário: Aplicação de uma configuração no Linux, uma falha ocorre com um erro geral
+
+#### <a name="issue"></a>Problema
+
+Ao aplicar uma configuração no Linux, ocorre uma falha que contém o erro:
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>Causa
+
+Os clientes identificou que, se o local /tmp é definido como noexec, a versão atual do DSC falhará aplicar as configurações.
+
+#### <a name="resolution"></a>Resolução
+
+* Remova a opção noexec do local /tmp.
 
 ## <a name="next-steps"></a>Próximas etapas
 

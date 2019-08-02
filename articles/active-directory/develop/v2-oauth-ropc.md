@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da111311de7b873be6453862ffcbd56fe546ea7f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545119"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482374"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidade da Microsoft e a credencial de senha de proprietário de recurso do OAuth 2.0
 
@@ -39,7 +39,7 @@ Dá suporte à plataforma de identidade do Microsoft as [concessão de credencia
 
 O diagrama a seguir mostra o fluxo do ROPC.
 
-![Fluxo ROPC](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
+![Diagrama mostrando o proprietário do recurso de fluxo de credenciais de senha](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## <a name="authorization-request"></a>Solicitação de autorização
 
@@ -47,7 +47,7 @@ O fluxo ROPC é uma solicitação única &mdash;, envia a identificação do cli
 
 > [!TIP]
 > Tente executar a solicitação no Postman!
-> [![Executar no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![Tente executar essa solicitação no Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 
 ```
@@ -70,7 +70,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Obrigatório | Deve ser definido como `password`. |
 | `username` | Obrigatório | Endereço de email do usuário. |
 | `password` | Obrigatório | A senha do usuário. |
-| `scope` | Recomendadas | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve concordar com esses escopos antecipadamente. |
+| `scope` | Recomendado | Uma lista separada por espaço de [escopos](v2-permissions-and-consent.md) ou permissões que o aplicativo exige. Em um fluxo interativo, o administrador ou o usuário deve concordar com esses escopos antecipadamente. |
 
 ### <a name="successful-authentication-response"></a>Resposta de autenticação bem sucedida
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 61821caa2450096bdbdde3461316ad21a82f6f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304290"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305416"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Entenda os domínios de eventos para gerenciar tópicos do Event Grid
 
@@ -47,7 +47,7 @@ O RBAC em domínios de eventos funciona da mesma maneira que o [controle de aces
 
 ### <a name="built-in-roles"></a>Funções internas
 
-O Event Grid tem duas definições de função integradas para tornar o RBAC mais fácil para trabalhar com domínios de eventos. Essas funções são **EventGrid EventSubscription Contributor (Visualizar)** e **EventGrid EventSubscription Reader (Visualizar)** . Você atribui essas funções a usuários que precisam se inscrever em tópicos em seu domínio de evento. Definir o escopo de atribuição de função para apenas o que os usuários precisam para assinar o tópico.
+O Event Grid tem duas definições de função integradas para tornar o RBAC mais fácil para trabalhar com domínios de eventos. Essas funções são **EventGrid EventSubscription Contributor (Visualizar)** e **EventGrid EventSubscription Reader (Visualizar)** . Você atribui essas funções a usuários que precisam se inscrever em tópicos em seu domínio de evento. Você faz o escopo da atribuição de função apenas para o tópico que os usuários precisam assinar.
 
 Para obter informações sobre essas funções, consulte [Funções internas da grade de eventos](security-authentication.md#built-in-roles).
 
@@ -97,18 +97,18 @@ Por exemplo, publicar a matriz de eventos a seguir enviaria o evento com `"id": 
 Os domínios de eventos tratam da publicação de tópicos para você. Em vez de publicar eventos para cada tópico gerenciado individualmente, você pode publicar todos os seus eventos no endpoint do domínio. A Grade de Eventos garante que cada evento seja enviado para o tópico correto.
 
 ## <a name="limits-and-quotas"></a>Limites e cotas
-Aqui estão os limites e cotas relacionadas aos domínios de evento:
+Aqui estão os limites e as cotas relacionados aos domínios de evento:
 
-- tópicos de 100.000 por domínio de evento 
-- domínios de evento 100 por assinatura do Azure 
+- 100.000 tópicos por domínio de evento 
+- 100 domínios de evento por assinatura do Azure 
 - 500 assinaturas de evento por tópico em um domínio de eventos
 - 50 assinaturas de escopo de domínio 
-- 5\.000 eventos por segundo taxa de ingestão (em um domínio)
+- taxa de ingestão de eventos por segundo do 5.000 (em um domínio)
 
-Se esses limites não adequados a você, entre em contato a equipe de produto, abrindo um tíquete de suporte ou enviando um email para [ askgrid@microsoft.com ](mailto:askgrid.microsoft.com). 
+Se esses limites não forem adequados a você, acesse a equipe do produto abrindo um tíquete de suporte ou enviando um [askgrid@microsoft.com](mailto:askgrid@microsoft.com)email para. 
 
 ## <a name="pricing"></a>Preços
-Domínios de eventos usam o mesmo [operações de preços](https://azure.microsoft.com/pricing/details/event-grid/) que usam todos os outros recursos na grade de eventos.
+Os domínios de evento usam o mesmo [preço de operações](https://azure.microsoft.com/pricing/details/event-grid/) que todos os outros recursos na grade de eventos usam.
 
 As operações funcionam da mesma forma em domínios de eventos, como em tópicos personalizados. Cada entrada de um evento para um domínio de evento é uma operação e cada tentativa de entrega de um evento é uma operação.
 

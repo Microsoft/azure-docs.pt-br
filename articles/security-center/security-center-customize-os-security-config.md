@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: d9dc9f3a4ab964b66e3a2cb03f4aad442c5665e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7095992253fbbe5aafce1eab889965250f5d59a8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64573597"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551387"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personalizar as configurações de segurança do sistema operacional na Central de Segurança do Azure (versão prévia)
 
@@ -56,13 +56,11 @@ Para personalizar a configuração padrão de segurança do sistema operacional 
 
 1.  Abra o painel **Central de Segurança**.
 
-2.  No painel esquerdo, selecione **Política de segurança**.      
+2.  No painel esquerdo, selecione **preços & configurações**.
 
     ![Lista Política de Segurança](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Na linha da assinatura que você deseja personalizar, clique em **Editar configurações**.
-
-4. Selecione **Editar configurações de segurança**.  
+4. Selecione a assinatura aplicável e selecione **editar configurações de segurança**.  
 
     ![A janela “Editar configurações de segurança”](media/security-center-customize-os-security-config/blade.png)
 

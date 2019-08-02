@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 375b58f47454a7f5904bcdbd132b8318091e9ebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd498dc1c37ed6e9518fcefbdb237153504b5e98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095054"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Tutorial: Integração do Microsoft Azure Active Directory à Palo Alto Networks – Aperture
 
@@ -53,7 +53,7 @@ Para configurar a integração do Palo Alto Networks – Aperture com o Azure Ac
 
 **Para adicionar o Palo Alto Networks - Aperture da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Aperture
 
     ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Aperture](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Aperture
     
     ![Guia de autenticação](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
-     a. Marque **Habilitar Logon Único (os provedores SSP com suporte são Okta, One login)** do campo **Logon Único**.
+    a. Marque **Habilitar Logon Único (os provedores SSP com suporte são Okta, One login)** do campo **Logon Único**.
 
     b. Na caixa de texto **ID do Provedor de Identidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -227,5 +227,5 @@ Ao clicar no bloco do Palo Alto Networks – Aperture no Painel de Acesso, você
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

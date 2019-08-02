@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5c373505cd381108366206c21ff09f25516d7969
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 92124a53c871be7a83d7b276e31f000d7c674358
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884276"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698006"
 ---
 # <a name="quickstart-url-preview-with-nodejs"></a>Início Rápido: Visualização de URL com Node.js 
 
@@ -23,7 +23,7 @@ O exemplo de Node a seguir cria uma visualização de Url para o site SwiftKey: 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Cenário do código 
 

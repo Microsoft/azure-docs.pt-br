@@ -14,24 +14,22 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f5837e06f347a4f822ac007dfe54c99fc7457dbb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872988"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326521"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo .NET Framework com a Configuração de Aplicativo do Azure
 
-A Configuração de Aplicativo do Azure é um serviço de configuração gerenciada no Azure. É possível utilizá-lo para armazenar e gerenciar facilmente todas as configurações de aplicativo em um local separado do código. Este Início Rápido mostra como incorporar o serviço em um aplicativo de console da área de trabalho do Windows baseado no .NET Framework.
-
-![Início rápido local completo](./media/quickstarts/dotnet-fx-app-run.png)
+Neste guia de início rápido, você incorpora a Configuração de Aplicativos do Azure em um aplicativo com base em .NET Framework para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para este início rápido, instale o [Visual Studio 2019](https://visualstudio.microsoft.com/vs) e o [.NET Framework 4.7.1](https://dotnet.microsoft.com/download) ou posterior, caso ainda não tenha feito isso.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
+- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 

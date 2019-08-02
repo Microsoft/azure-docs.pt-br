@@ -20,12 +20,18 @@
       href: configure-oracle-golden-gate.md
 - name: Conceitos
   items:
+    - name: Arquiteturas de aplicativo do Oracle
+      href: oracle-oci-applications.md
     - name: Projetar um Oracle DB
       href: oracle-design.md
     - name: Estratégia de backup para o Oracle DB
       href: oracle-backup-recovery.md
     - name: Opções de recuperação de desastre do Oracle
       href: oracle-disaster-recovery.md
+- name: Guias de instruções
+  items:
+    - name: Interconectar o Azure e o OCI – Versão Prévia
+      href: configure-azure-oci-networking.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

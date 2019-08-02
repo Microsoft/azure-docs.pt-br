@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com Citrix Netscaler | Microsoft Docs'
-description: Saiba como configurar logon único entre Azure Active Directory e Citrix Netscaler.
+title: 'Tutorial: Integração do Azure Active Directory ao Citrix NetScaler | Microsoft Docs'
+description: Saiba como configurar logon único entre Azure Active Directory e Citrix NetScaler.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 64dd67680626857db7f39fa7fd721b28a02d1561
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863538"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276894"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integração do Azure Active Directory com Citrix Netscaler
+# <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integração do Azure Active Directory ao Citrix NetScaler
 
-Neste tutorial, você aprenderá como integrar o Citrix Netscaler com Azure AD (Azure Active Directory).
-A integração do Citrix Netscaler com Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá como integrar o Citrix NetScaler ao Azure AD (Azure Active Directory).
+A integração do Citrix NetScaler ao Azure AD oferece os seguintes benefícios:
 
-* No Azure AD, é possível controlar quem tem acesso ao Citrix Netscaler.
-* Você pode permitir que os usuários sejam conectados automaticamente ao Citrix Netscaler (Logon Único) com suas contas do Azure AD.
+* No Azure AD, é possível controlar quem tem acesso ao Citrix NetScaler.
+* Você pode permitir que os usuários sejam conectados automaticamente ao Citrix NetScaler (Logon Único) com suas contas do Azure AD.
 * Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,26 +36,26 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Citrix Netscaler, você precisará dos seguintes itens:
+Para configurar a integração do Azure AD com Citrix NetScaler, você precisará dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Citrix Netscaler
+* Assinatura habilitada para logon único do Citrix NetScaler
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
 
-* O Citrix Netscaler dá suporte ao SSO iniciado por **SP**
+* O Citrix NetScaler é compatível com SSO iniciado por **SP**
 
-* O Citrix Netscaler é compatível com o provisionamento de usuário **Just-In-Time**
+* O Citrix NetScaler é compatível com o provisionamento de usuário **Just-In-Time**
 
-## <a name="adding-citrix-netscaler-from-the-gallery"></a>Adicionar o Citrix Netscaler da galeria
+## <a name="adding-citrix-netscaler-from-the-gallery"></a>Adicionar o Citrix NetScaler da galeria
 
-Para configurar a integração do Citrix Netscaler com Azure AD, será necessário adicionar o Citrix Netscaler da galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Citrix NetScaler com o Azure AD, é preciso adicionar o Citrix NetScaler da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Citrix Netscaler da galeria, execute as seguinte etapas:**
+**Para adicionar o Citrix NetScaler da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -67,31 +67,31 @@ Para configurar a integração do Citrix Netscaler com Azure AD, será necessár
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Citrix Netscaler**, selecione **Citrix Netscaler** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Citrix NetScaler**, selecione **Citrix NetScaler** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
-     ![Citrix Netscaler na lista de resultados](common/search-new-app.png)
+     ![Citrix NetScaler na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Citrix Netscaler, com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Citrix Netscaler.
+Nesta seção, você configurará e testará o logon único do Azure AD com o Citrix NetScaler, com base em um usuário de teste chamado **Brenda Fernandes**.
+Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Citrix NetScaler.
 
-Para configurar e testar o logon único do Azure AD com o Citrix Netscaler, você precisa concluir os seguintes blocos de construção:
+Para configurar e testar o logon único do Azure AD com o Citrix NetScaler, você precisa concluir os seguintes blocos de construção:
 
 1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o Logon Único do Citrix Netscaler](#configure-citrix-netscaler-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
+2. **[Configurar o Logon Único do Citrix NetScaler](#configure-citrix-netscaler-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Citrix Netscaler](#create-citrix-netscaler-test-user)** – para ter um equivalente de Brenda Fernandes no Citrix Netscaler que esteja vinculado à representação de usuário no Azure AD.
+5. **[Criar um usuário de teste do Citrix NetScaler](#create-citrix-netscaler-test-user)** – para ter um equivalente de Brenda Fernandes no Citrix NetScaler que esteja vinculado à representação de usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
-Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguintes etapas:
+Para configurar logon único do Azure AD com Citrix NetScaler, execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Citrix Netscaler**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Citrix NetScaler**, selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -105,16 +105,16 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
 4. Na seção **Configuração básica de SAML**, realize as seguintes etapas:
 
-    ![Informações de logon único de Domínio e URLs do Citrix Netscaler](common/sp-identifier-reply.png)
+    ![Informações de logon único de Domínio e URLs do Citrix NetScaler](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<<Your FQDN>>`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<<Your FQDN>>`
 
     c. Na caixa de texto **URL de Resposta (URL do Serviço do Consumidor de Declaração)** digite uma URL usando o seguinte padrão: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Citrix Netscaler](https://www.citrix.com/contact/technical-support.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Citrix NetScaler](https://www.citrix.com/contact/technical-support.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
     > [!NOTE]
     > Para que o SSO funcione, essas URLs deverão ser acessíveis a partir de sites públicos. É necessário habilitar o firewall ou outras configurações de segurança do Netscaler para permitir que o Azure AD publique o token na URL de ACS configurado.
@@ -123,7 +123,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar Citrix Netscaler** copie as URLs apropriadas, conforme sua necessidade.
+6. Na seção **Configurar Citrix NetScaler**, copie as URLs apropriadas conforme sua necessidade.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -133,9 +133,9 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     c. URL de logoff
 
-### <a name="configure-citrix-netscaler-single-sign-on"></a>Configurar logon único do Citrix Netscaler
+### <a name="configure-citrix-netscaler-single-sign-on"></a>Configurar logon único do Citrix NetScaler
 
-1. Em uma janela diferente do navegador da Web, conecte o locatário do Citrix Netscaler como um administrador.
+1. Em uma janela diferente do navegador da Web, conecte o locatário do Citrix NetScaler como um administrador.
 
 2. Certifique-se de que a **Versão do Firmware do NetScaler = NS12.1: Build 48.13.nc**.
 
@@ -145,7 +145,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
      ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure02.png)
 
-     a. Defina as configurações do Gateway **Somente ICA** como **verdadeiro**.
+    a. Defina as configurações do Gateway **Somente ICA** como **verdadeiro**.
     
     b. Defina **Habilitar Autenticação** como **verdadeiro**.
     
@@ -161,7 +161,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
       ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure04.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do servidor.
+    a. Na caixa de texto **Nome**, digite o nome do servidor.
 
     b. Na caixa de texto **Redirecionar URL**, cole o valor da **URL de logon** que você copiou do portal do Azure.
 
@@ -187,7 +187,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure06.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do perfil de sessão.
+    a. Na caixa de texto **Nome**, digite o nome do perfil de sessão.
 
     b. Na guia **Experiência do Cliente**, faça as alterações conforme mostrado na captura de tela abaixo.
 
@@ -223,7 +223,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure14.png)
 
-     a. Selecione **Permitir Domínios**.
+    a. Selecione **Permitir Domínios**.
 
     b. Na caixa de texto **Nome de Domínio**, selecione o domínio.
 
@@ -237,7 +237,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure16.png)
 
-     a. Selecione **Nome de usuário e senha**.
+    a. Selecione **Nome de usuário e senha**.
 
     b. Selecione **Passagem do Gateway NetScaler**.
 
@@ -247,7 +247,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure17.png)
 
-     a. Selecione **somente domínios confiáveis**.
+    a. Selecione **somente domínios confiáveis**.
 
     b. Clique em **Adicionar** para adicionar o domínio na caixa de texto **Domínios confiáveis**.
 
@@ -261,7 +261,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure18.png)
 
-     a. Clique em **Adicionar** para adicionar os Gateways NetScaler na caixa de texto **Gateways NetScaler**.
+    a. Clique em **Adicionar** para adicionar os Gateways NetScaler na caixa de texto **Gateways NetScaler**.
 
     b. Clique em **fechar**
 
@@ -269,7 +269,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure19.png)
 
-     a. Na caixa de texto **Nome de exibição**, digite o nome do Gateway NetScaler.
+    a. Na caixa de texto **Nome de exibição**, digite o nome do Gateway NetScaler.
 
     b. Na caixa de texto **URL do Gateway NetScaler**, digite a URL do Gateway NetScaler.
 
@@ -281,7 +281,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure20.png)
 
-     a. Clique no botão **Adicionar**para adicionar as **URLs de Autoridade de Tíquete Seguro** na caixa de texto.
+    a. Clique no botão **Adicionar**para adicionar as **URLs de Autoridade de Tíquete Seguro** na caixa de texto.
 
     b. Selecione **Habilitar confiabilidade de sessão**.
 
@@ -291,7 +291,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure21.png)
 
-     a. Selecione a **Versão**.
+    a. Selecione a **Versão**.
 
     b. Selecione **Tipo de logon** como **Domínio**.
 
@@ -303,7 +303,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure22.png)
 
-     a. Selecione **Opção de implantação** como **Usar receptor para HTML5, se o receptor local estiver indisponível**.
+    a. Selecione **Opção de implantação** como **Usar receptor para HTML5, se o receptor local estiver indisponível**.
 
     b. Clique em **OK**.
 
@@ -311,7 +311,7 @@ Para configurar logon único do Azure AD com Citrix Netscaler, execute as seguin
 
     ![Configurar o logon único](./media/citrix-netscaler-tutorial/configure23.png)
 
-     a. Selecione o **Sinalizador interno** como **Usar a URL de serviço**.
+    a. Selecione o **Sinalizador interno** como **Usar a URL de serviço**.
 
     b. Clique em **Adicionar** para adicionar as URLs na caixa de texto **Sinalizadores externos**.
 
@@ -344,15 +344,15 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure, concedendo acesso ao Citrix Netscaler.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Citrix NetScaler.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, selecione **Citrix Netscaler**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, selecione **Citrix NetScaler**.
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Citrix Netscaler**.
+2. Na lista de aplicativos, selecione **Citrix NetScaler**.
 
-    ![O link do Citrix Netscaler na lista de Aplicativos](common/all-applications.png)
+    ![O link do Citrix NetScaler na lista de Aplicativos](common/all-applications.png)
 
 3. No menu à esquerda, selecione **Usuários e grupos**.
 
@@ -368,18 +368,18 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-citrix-netscaler-test-user"></a>Criar usuário de teste do Citrix Netscaler
+### <a name="create-citrix-netscaler-test-user"></a>Criar usuário de teste do Citrix NetScaler
 
-Nesta seção, um usuário chamado Brenda Fernandes é criado no Citrix Netscaler. O Citrix Netscaler dá suporte para provisionamento de usuário just-in-time, que é habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Citrix Netscaler, um novo será criado após a autenticação.
+Nesta seção, uma usuária chamada Brenda Fernandes é criada no Citrix NetScaler. O Citrix NetScaler é compatível com o provisionamento de usuário just-in-time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Citrix NetScaler, um novo será criado após a autenticação.
 
 >[!NOTE]
->Se for necessário criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Citrix Netscaler](https://www.citrix.com/contact/technical-support.html).
+>Se for necessário criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Citrix NetScaler](https://www.citrix.com/contact/technical-support.html).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco do Citrix Netscaler no Painel de Acesso, você deverá ser conectado automaticamente ao Citrix Netscaler para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Citrix NetScaler no Painel de Acesso, você deverá ser conectado automaticamente ao Citrix NetScaler para o qual configurou o SSO. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

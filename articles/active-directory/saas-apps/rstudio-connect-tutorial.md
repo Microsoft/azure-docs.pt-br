@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32aa7a531de2e236e3941bbe8afd84d845f80f99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9a9b49f75ad377a9377a2311ed16c17ca3d749e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726019"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092585"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rstudio-connect"></a>Tutorial: Integração do Azure Active Directory ao RStudio Connect
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o RStudio Connect, execute as seg
 
     ![Informações de logon único de Domínio e URLs do RStudio Connect](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<example.com>/__login__/saml`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<example.com>/__login__/saml`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<example.com>/__login__/saml/acs`
 

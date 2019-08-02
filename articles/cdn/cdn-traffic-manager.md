@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276fe9352d0c4ca7ec525b88d65689b56c0ba027
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955272"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593340"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar o failover em vários pontos de extremidade de CDN do Azure com o Gerenciador de Tráfego do Azure
 
@@ -81,7 +81,7 @@ Depois de configurar seus perfis do CDN e do Gerenciador de Tráfego, siga estas
 
     A CDN do Azure usa o subdomínio *cdnverify* para validar o mapeamento de DNS para concluir este processo de registro. Para obter mais informações, consulte [criar um registro DNS CNAME](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Esta etapa permite que a CDN do Azure reconheça o domínio personalizado para que ele possa responder a suas solicitações.
     
- > [!NOTE]
+    > [!NOTE]
     > Para habilitar o SSL em um **Azure CDN da Akamai** perfis, você deve diretamente cname do domínio personalizado para seu ponto de extremidade. ainda não há suporte para cdnverify para habilitar o SSL. 
     >
 

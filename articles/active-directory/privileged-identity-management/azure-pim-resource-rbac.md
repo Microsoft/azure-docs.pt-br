@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74607f6a746558238ead65036d708b515d370035
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 84bd491d992ed15df288d9226b58bfe832e0692a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60441292"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476507"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Exibir a atividade e o histórico de auditoria para funções de recurso do Azure no PIM
 
@@ -43,11 +43,11 @@ Para ver as ações que um usuário específico realizou em vários recursos, vo
 
     Você verá uma exibição gráfica das ações do usuário em recursos do Azure por data. Ele também mostra as ativações de função recentes nesse mesmo período.
 
-    ![Detalhes do usuário](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![Detalhes do usuário com ativações de função e o resumo de atividade de recurso](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Clique em uma ativação de função específica para ver detalhes e a atividade de recurso do Azure correspondente que ocorreu enquanto o usuário estava ativo.
 
-    ![Selecionar ativação de função](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Ativação da função selecionada e os detalhes da atividade exibidos por data](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## <a name="export-role-assignments-with-children"></a>Exportar as atribuições de função com filhos
 
@@ -63,11 +63,11 @@ Talvez você tenha um requisito de conformidade no qual precisa fornecer uma lis
 
 1. Clique em **Exportar** para abrir o painel Exportar associação.
 
-    ![Painel Exportar associação](media/azure-pim-resource-rbac/export-membership.png)
+    ![Painel de associação de exportação para exportar todos os membros](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Clique em **Exportar todos os membros** para exportar todas as atribuições de função em um arquivo CSV.
 
-    ![Exportar o arquivo CSV](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exportado atribuições de função no CSV fil conforme exibido no Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Exibir o histórico de auditoria de recursos
 
@@ -83,15 +83,15 @@ A auditoria de recursos fornece uma exibição de todas as atividades de funçã
 
 1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
 
-    ![Filtrar auditoria de recurso](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Lista de auditoria de recurso com filtros](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. Em **Tipo de auditoria**, selecione **Ativar (Atribuído + Ativado)** .
 
-    ![Detalhes da atividade](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Lista de auditoria de recursos que é filtrada pelo tipo de auditoria de ativar](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Em **Ação**, clique em **(atividade)** de um usuário para ver os detalhes da atividade desse usuário em recursos do Azure.
 
-    ![Detalhes da atividade do usuário](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![Detalhes da atividade de usuário para uma determinada ação](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## <a name="view-my-audit"></a>Exibir minha auditoria
 
@@ -107,7 +107,7 @@ A opção Minha auditoria permite que você exiba sua atividade de função pess
 
 1. Filtre o histórico usando uma data predefinida ou um intervalo personalizado.
 
-    ![Atividade de função pessoal](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Lista de auditoria para o usuário atual](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

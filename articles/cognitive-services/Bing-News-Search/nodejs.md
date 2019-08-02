@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Executar uma pesquisa de notícias com Node.js – API REST de Pesquisa de Notícias do Bing'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use este Início Rápido para enviar solicitações para a API REST de Pesquisa de Notícias do Bing usando .Node.js e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 86c00242d2d7dbb9441b09dc327e4ee8cbbd729b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 501ae6107232287011388bb67e64a1ae3fe5f7e3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099960"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423733"
 ---
 # <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando .Node.js e a API REST de Pesquisa de Notícias do Bing
 

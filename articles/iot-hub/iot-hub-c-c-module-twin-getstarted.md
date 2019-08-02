@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 2642d956d94a0a685d6586be1a7b0446e94f1042
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8de2e238383ad3319ab43e6ff06b631af48c8a72
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61327398"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68402590"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando back-end C e dispositivo C
 
@@ -32,10 +32,18 @@ No fim deste tutorial, você tem dois aplicativos de C:
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, você poderá criar uma [conta gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
-* Um Hub IoT.
+
 * O [SDK C do IoT do Azure](https://github.com/Azure/azure-iot-sdk-c) mais recente.
 
-Agora, você criou seu hub IoT e tem o nome de host e a cadeia de conexão de Hub IoT que precisa para concluir o restante deste tutorial.
+## <a name="create-an-iot-hub"></a>Crie um hub IoT
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Criar uma identidade do dispositivo e uma identidade do módulo no Hub IoT
 

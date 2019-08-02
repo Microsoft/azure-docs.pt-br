@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: c5cc39c2f2a7f2a79b8d6bc2bd95506ee5532a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86b41bb2554dbefeaeb724e746bcaf757463f8ae
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073972"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795912"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração de Gateway de aplicativo
 
@@ -268,7 +268,7 @@ O Gateway de aplicativo dá suporte a HTTP e HTTPS para rotear solicitações pa
 
 Essa configuração é combinado com HTTPS no oferece suporte ao ouvinte [SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Isso permite transmitir com segurança dados confidenciais criptografados para o back-end. Cada servidor de back-end no pool de back-end com SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir a comunicação segura.
 
-### <a name="port"></a>Port
+### <a name="port"></a>Porta
 
 Essa configuração especifica a porta em que os servidores de back-end escutam tráfego do gateway de aplicativo. Você pode configurar as portas que variam de 1 a 65535.
 
@@ -297,6 +297,7 @@ Essa configuração permite configurar um caminho de encaminhamento personalizad
   | / home/secondhome /          | /pathrule*      | /override/            | substituição/home/secondhome /   |
   | /pathrule/home/            | /pathrule/home* | /override/            | /override/                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | /override/            | / Substituir/secondhome /        |
+  | /pathrule/                 | /pathrule/      | /override/            | /override/                   |
 
 ### <a name="use-for-app-service"></a>Uso do serviço de aplicativo
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1668e0b3b155804496b190f2ba66d220ba0dd219
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966386"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381954"
 ---
 # <a name="aks-troubleshooting"></a>Solução de problemas do AKS
 
@@ -63,70 +63,70 @@ A maneira mais fácil de acessar seu serviço fora do cluster é executar `kubec
 
 Se você não vir o painel do Kubernetes, verifique se o pod `kube-proxy` está em execução no namespace `kube-system`. Se não estiver em estado de execução, exclua o pod e ele será reiniciado.
 
-## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter os logs, usando kubectl logs ou não é possível conectar-se ao servidor de API. Estou recebendo o "Erro do servidor: back-end de discagem de erro: discar tcp...". O que devo fazer?
+## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Não consigo obter os logs, usando kubectl logs ou não é possível conectar-se ao servidor de API. Estou recebendo "erro do servidor: erro ao discar back-end: discar TCP...". O que devo fazer?
 
-Certifique-se de que o grupo de segurança de rede padrão não é modificado e que a porta 22 é aberta para conexão ao servidor de API. Verifique se o `tunnelfront` pod está em execução no *kube-system* namespace usando o `kubectl get pods --namespace kube-system` comando. Se não estiver, force a exclusão do pod e ele será reiniciado.
+Verifique se o grupo de segurança de rede padrão não foi modificado e se a porta 22 e 9000 estão abertas para conexão com o servidor de API. Verifique se o `tunnelfront` Pod está em execução no namespace *Kube-System* usando o `kubectl get pods --namespace kube-system` comando. Se não estiver, force a exclusão do pod e ele será reiniciado.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Eu estou tentando atualizar ou dimensionar e estou recebendo erro "mensagem: Não é permitido alterar a propriedade 'imageReference'". Como faço para corrigir esse problema?
 
 Você pode estar recebendo este erro porque modificou as tags nos nós do agente dentro do cluster do AKS. Modificar e excluir tags e outras propriedades de recursos no grupo de recursos MC_ * pode levar a resultados inesperados. Modificar os recursos sob o grupo MC_ * no cluster do AKS quebra o objetivo de nível de serviço (SLO).
 
-## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou recebendo erros que meu cluster está em estado de falha e atualização ou escala não funcionará até que ele seja corrigido
+## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>Estou recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido
 
-*Essa assistência de solução de problemas é direcionada a partir de https://aka.ms/aks-cluster-failed*
+*Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-cluster-failed*
 
-Esse erro ocorre quando clusters entram em um estado com falha por vários motivos. Siga as etapas abaixo para resolver o estado do cluster falhado antes de tentar novamente a operação que falhou anteriormente:
+Esse erro ocorre quando os clusters entram em um estado de falha por vários motivos. Siga as etapas abaixo para resolver o estado de falha do cluster antes de repetir a operação que falhou anteriormente:
 
-1. Até que o cluster está fora do `failed` estado, `upgrade` e `scale` operações não obterá êxito. Problemas comuns de raiz e resoluções incluem:
-    * Dimensionamento com **cota insuficiente computação (CRP)** . Para resolver, primeiro dimensione o cluster para um estado estável meta dentro da cota. Em seguida, siga estas [etapas para solicitar uma cota de computação aumentam](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente os limites de cota inicial além dele.
-    * Dimensionar um cluster com rede avançada e **recursos de sub-rede insuficiente (rede)** . Para resolver, primeiro dimensione o cluster para um estado estável meta dentro da cota. Em seguida, siga [estas etapas para solicitar uma cota de recursos aumentam](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente os limites de cota inicial além dele.
-2. Quando a causa de falha de atualização for resolvida, o cluster deve estar em um estado de êxito. Depois que um estado de êxito for verificado, repita a operação original.
+1. Até que o cluster esteja fora `failed` do `upgrade` estado e `scale` as operações não tenham sucesso. As resoluções e problemas de raiz comuns incluem:
+    * Dimensionamento com **cota de computação insuficiente (CRP)** . Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga estas [etapas para solicitar um aumento de cota de computação](../azure-supportability/resource-manager-core-quotas-request.md) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
+    * Dimensionamento de um cluster com rede avançada e **recursos de sub-rede (rede)** insuficientes. Para resolver, primeiro dimensione o cluster de volta para um estado de meta estável dentro da cota. Em seguida, siga [estas etapas para solicitar um aumento de cota de recursos](../azure-resource-manager/resource-manager-quota-errors.md#solution) antes de tentar escalar verticalmente novamente além dos limites de cota iniciais.
+2. Depois que a causa subjacente da falha de atualização for resolvida, o cluster deverá estar em um estado com êxito. Quando um estado bem-sucedido for verificado, repita a operação original.
 
-## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou escala esse estado meu cluster está atualmente sendo sendo atualizado ou falha na atualização
+## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>Estou recebendo erros ao tentar atualizar ou dimensionar o estado em que meu cluster está sendo atualizado no momento ou com falha na atualização
 
-*Essa assistência de solução de problemas é direcionada a partir de https://aka.ms/aks-pending-upgrade*
+*Esta assistência para solução de problemas é direcionada de https://aka.ms/aks-pending-upgrade*
 
-As operações de cluster são limitadas quando operações de atualização ativas estão ocorrendo ou uma atualização foi tentada, mas falha posteriormente. Para diagnosticar o problema, executar `az aks show -g myResourceGroup -n myAKSCluster -o table` para recuperar o status detalhado no seu cluster. Com base no resultado:
+As operações de cluster são limitadas quando as operações de atualização ativa estão ocorrendo ou uma tentativa de atualização foi tentada, mas subsequentemente falhou. Para diagnosticar a execução `az aks show -g myResourceGroup -n myAKSCluster -o table` do problema para recuperar o status detalhado no cluster. Com base no resultado:
 
-* Se o cluster está atualizando ativamente, aguarde até que a operação termina. Se tiver êxito, repita a operação falhou anteriormente.
-* Se o cluster falha na atualização, siga as etapas descritas acima
+* Se o cluster estiver sendo atualizado ativamente, aguarde até que a operação seja encerrada. Se tiver êxito, tente a operação anteriormente com falha novamente.
+* Se o cluster tiver falhado na atualização, siga as etapas descritas acima
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover meu cluster para uma assinatura diferente ou minha assinatura com meu cluster para um novo locatário?
 
-Se você moveu o cluster do AKS para uma assinatura diferente ou o cluster possui a assinatura para um novo locatário, o cluster perderá a funcionalidade devido a perdedora atribuições de função e direitos de entidades de serviço. **AKS não oferece suporte a clusters de movimentação entre assinaturas ou locatários** devido a essa restrição.
+Se você moveu o cluster AKS para uma assinatura diferente ou o cluster que possui a assinatura para um novo locatário, o cluster perderá a funcionalidade devido à perda de atribuições de função e aos direitos de entidades de serviço. **AKs não dá suporte à movimentação de clusters entre assinaturas ou locatários** devido a essa restrição.
 
-## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou recebendo erros ao tentar usar recursos que exijam conjuntos de dimensionamento de máquina virtual
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou recebendo erros ao tentar usar recursos que exigem conjuntos de dimensionamento de máquinas virtuais
 
-*Essa assistência de solução de problemas é direcionada de aka.ms/aks-vmss-habilitação*
+*Esta assistência para solução de problemas é direcionada do aka.ms/aks-vmss-enablement*
 
-Você poderá receber erros que indicam o que cluster do AKS não está em um conjunto de escala de máquina virtual, como o exemplo a seguir:
+Você pode receber erros que indicam que o cluster AKS não está em um conjunto de dimensionamento de máquinas virtuais, como o exemplo a seguir:
 
-**AgentPool 'agentpool' foi definido como habilitado o dimensionamento automático, mas não está em conjuntos de dimensionamento de máquina Virtual**
+**O AgentPool ' AgentPool ' definiu o dimensionamento automático como habilitado, mas não está em conjuntos de dimensionamento de máquinas virtuais**
 
-Usar recursos como o dimensionador automático de cluster ou nó de vários pools, clusters AKS devem ser criados que usam conjuntos de dimensionamento de máquina virtual. Erros são retornados se você tentar usar os recursos que dependem de conjuntos de dimensionamento de máquina virtual e um cluster do AKS conjunto regular de dimensionamento de máquina não virtual de destino. Suporte do conjunto de dimensionamento de máquina virtual está atualmente em visualização no AKS.
+Para usar recursos como os pools de dimensionamento de vários nós ou do cluster, os clusters AKS devem ser criados para usar conjuntos de dimensionamento de máquinas virtuais. Os erros são retornados se você tentar usar recursos que dependem de conjuntos de dimensionamento de máquinas virtuais e você tiver como alvo um cluster AKS de conjunto de dimensionamento de máquinas não virtuais regular. O suporte ao conjunto de dimensionamento de máquinas virtuais está atualmente em visualização no AKS.
 
-Siga as *antes de começar* etapas no documento apropriado para registrar corretamente para recurso do conjunto de dimensionamento de máquinas virtuais de visualização e criar um cluster AKS:
+Siga as etapas *antes de começar* no documento apropriado para se registrar corretamente na visualização do recurso do conjunto de dimensionamento de máquinas virtuais e criar um cluster AKs:
 
-* [Usar o dimensionador automático de cluster](cluster-autoscaler.md)
-* [Criar e usar vários pools de nó](use-multiple-node-pools.md)
+* [Usar o dimensionamento de cluster](cluster-autoscaler.md)
+* [Criar e usar vários pools de nós](use-multiple-node-pools.md)
  
-## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>As restrições de nomenclatura são impostas para os parâmetros e os recursos do AKS?
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Quais restrições de nomenclatura são impostas para recursos e parâmetros AKS?
 
-*Essa assistência de solução de problemas é direcionada de aka.ms/aks--regras de nomenclatura*
+*Esta assistência para solução de problemas é direcionada do aka.ms/aks-naming-rules*
 
-Restrições de nomenclatura são implementadas com a plataforma Azure e o AKS. Se um parâmetro ou o nome do recurso interrompe uma destas restrições, é retornado um erro que solicita que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
+As restrições de nomenclatura são implementadas pela plataforma do Azure e AKS. Se um nome de recurso ou parâmetro quebrar uma dessas restrições, será retornado um erro solicitando que você forneça uma entrada diferente. As seguintes diretrizes de nomenclatura comuns se aplicam:
 
-* O AKS *MC_* nome do grupo de recursos combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerado automaticamente do `MC_resourceGroupName_resourceName_AzureRegion` deve ter mais do que 80 caracteres. Se necessário, reduza o tamanho do seu nome de grupo de recursos ou o nome do cluster AKS.
-* O *Prefixodedns* deve começar e terminar com valores alfanuméricos. Caracteres válidos incluem valores alfanuméricos e hifens (-). O *Prefixodedns* não pode incluir caracteres especiais, como um ponto (.).
+* O nome do grupo de recursos AKS *MC_* combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerada automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` não deve ser maior que 80 caracteres. Se necessário, reduza o tamanho do nome do grupo de recursos ou do nome do cluster AKS.
+* O *dnsPrefix* deve começar e terminar com valores alfanuméricos. Os caracteres válidos incluem valores alfanuméricos e hifens (-). O *dnsPrefix* não pode incluir caracteres especiais, como um ponto (.).
 
-## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster, essa operação não é permitida, pois outra operação está em andamento.
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou recebendo erros ao tentar criar, atualizar, dimensionar, excluir ou atualizar o cluster. essa operação não é permitida porque outra operação está em andamento.
 
-*Essa assistência de solução de problemas é direcionada aka.ms/aks-pendentes-operação*
+*Esta assistência para solução de problemas é direcionada do aka.ms/aks-pending-operation*
 
-As operações de cluster são limitadas quando uma operação anterior ainda está em andamento. Para recuperar um status detalhado do seu cluster, use o `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Use seu próprio grupo de recursos e o nome do cluster AKS, conforme necessário.
+As operações de cluster são limitadas quando uma operação anterior ainda está em andamento. Para recuperar um status detalhado do cluster, use o `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Use seu próprio grupo de recursos e o nome do cluster AKS, conforme necessário.
 
 Com base na saída do status do cluster:
 
-* Se o cluster for diferente de em qualquer estado de provisionamento *bem-sucedido* ou *Failed*, aguarde até que a operação (*atualizando / atualização / criação / dimensionamento / excluindo / migrar*) é encerrado. Quando a operação anterior for concluída, tente novamente a operação mais recente do cluster.
+* Se o cluster estiver em qualquer estado de provisionamento diferente de *êxito* ou *falha*, aguarde até que a operação (*atualização/atualização/criação/dimensionamento/exclusão/migração*) seja encerrada. Quando a operação anterior for concluída, tente novamente a operação de cluster mais recente.
 
-* Se o cluster tem uma atualização com falha, siga as etapas descritas [estou recebendo erros meu cluster está em estado de falha e atualização ou o dimensionamento não funcionará até que ele seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
+* Se o cluster tiver uma falha de atualização, siga as etapas descritas estou [recebendo erros de que meu cluster está em estado de falha e a atualização ou o dimensionamento não funcionará até que seja corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

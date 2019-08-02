@@ -1,19 +1,18 @@
 ---
 title: Backup do Azure para cargas de trabalho do SQL Server usando o Servidor de Backup do Azure
 description: Uma introdução ao backup de bancos de dados do SQL Server usando o Servidor de Backup do Azure
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
-ms.openlocfilehash: 72b2368979f0c9e546e1c7ef7fc462bf1d64c947
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0aff75e37ec8184b6c23ff00cbf61e5cbe045b5f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782048"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465445"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Fazer backup do SQL Server no Azure com o Servidor de Backup do Azure
 Este artigo guia você pelas etapas de configuração de backup de bancos de dados do SQL Server usando o MABS (Servidor de Backup do Microsoft Azure).
@@ -24,7 +23,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 2. Criar cópias de backup sob demanda no Azure.
 3. Recuperar o banco de dados do Azure.
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 Antes de começar, verifique se você [instalou e preparou o Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md).
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Criar política de backup para proteger bancos de dados SQL Server no Azure

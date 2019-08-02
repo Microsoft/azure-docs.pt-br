@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d36b81530989517167e3c9ae5baa125f2d09bbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3405de31de48073e45e0c907ee918c2afd1e5b96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862048"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dynamic-signal"></a>Tutorial: Integração do Azure Active Directory ao Dynamic Signal
 
@@ -55,7 +55,7 @@ Para configurar a integração do Dynamic Signal ao Microsoft Azure Active Direc
 
 **Para adicionar o Dynamic Signal da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Dynamic Signal, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Dynamic Signal](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<subdomain>.voicestorm.com`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<subdomain>.voicestorm.com`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.voicestorm.com`
 
@@ -204,5 +204,5 @@ Ao clicar no bloco do Dynamic Signal no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

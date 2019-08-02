@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b649c77b34837ba2220d04b36d4a46598c321fdf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 47f3885d9bd71abeb2a1bffe27b3ca1b2aa611ae
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100017"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integração do Azure Active Directory com o Insignia SAML SSO
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML do Insignia, execut
 
     ![Informações de logon único em Domínio e URLs do Insignia SAML SSO](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -204,4 +204,4 @@ Ao clicar no bloco do SSO de SAML do Insignia no Painel de Acesso, você deverá
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

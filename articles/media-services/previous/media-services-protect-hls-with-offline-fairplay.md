@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: willzhan, dwgeo
-ms.openlocfilehash: bc939011f87f03ef1de7e728fc52fc0c9887dd31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: willzhan
+ms.reviewer: dwgeo
+ms.openlocfilehash: 228b00a19bac9c773fce8e502d302314821fbf39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935399"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871649"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>Streaming de FairPlay Offline para iOS 
 
@@ -28,7 +29,7 @@ ms.locfileid: "64935399"
 > * [Versão 2](media-services-protect-hls-with-offline-fairplay.md)
 
 > [!NOTE]
-> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte também [diretrizes de migração da v2 para v3](../latest/migrate-from-v2-to-v3.md)
+> Não estão sendo adicionados novos recursos ou funcionalidades aos Serviços de Mídia v2. <br/>Confira a versão mais recente, [Serviços de Mídia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, consulte [diretrizes de migração de v2 para v3](../latest/migrate-from-v2-to-v3.md)
 
 Os Serviços de Mídia do Azure fornecem um conjunto de [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) bem projetados, que abrangem:
 
@@ -42,8 +43,8 @@ A criptografia de gerenciamento de direitos digitais (DRM)/AES do conteúdo é e
 Além de proteger o conteúdo de streaming online por meio de vários protocolos de streaming, o modo offline para conteúdo protegido também é um recurso que normalmente é solicitado. O suporte ao modo offline é necessário para os seguintes cenários:
 
 * Reprodução quando a conexão de Internet não estiver disponível, como durante viagens.
-* Alguns provedores de conteúdo podem não permitir a entrega de licença do DRM além das fronteiras de um país/região. Se os usuários desejarem inspecionar o conteúdo quando estiverem viajando fora do país/região, é necessário baixá-lo offline.
-* Em alguns países ou regiões, disponibilidade de internet e/ou largura de banda ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
+* Alguns provedores de conteúdo podem impedir a entrega de licença do DRM além da borda de um país/região. Se os usuários desejarem assistir ao conteúdo durante a viagem fora do país/região, o download offline será necessário.
+* Em alguns países/regiões, a disponibilidade e/ou a largura de banda da Internet ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
 
 Este artigo aborda o suporte ao modo offline de Streaming de FairPlay (FPS), focando em dispositivos que executam o iOS 10 ou posterior. Não há suporte para esse recurso para outras plataformas da Apple, como watchOS, tvOS ou Safari no macOS.
 
@@ -200,7 +201,7 @@ Três exemplos de teste nos Serviços de Mídia abrangem os três cenários a se
 Você pode encontrar esses exemplos [neste site de demonstração](https://aka.ms/poc#22), com o certificado correspondente do aplicativo hospedado em um aplicativo Web do Azure.
 Observamos que com o exemplo da versão 3 ou versão 4 de SDK do Servidor de FPS, se uma lista de reprodução mestre contiver áudio alternativo, durante o modo offline, ela toca somente o áudio. Portanto, você precisa da faixa de áudio alternativo. Em outras palavras, o segundo e terceiro exemplos listados anteriormente trabalham nos modos online e offline. O exemplo listado reproduz primeiro somente o áudio durante o modo offline, enquanto o streaming online funciona sem problemas.
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 As perguntas frequentes a seguir fornecem assistência com a solução de problemas:
 
 - **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando a faixa de áudio alternativo está presente (que é o caso para HLS) durante o modo offline, tanto iOS 10 e iOS 11 apresentarão por padrão uma faixa de áudio alternativo. Para compensar esse comportamento para o modo offline de FPS, é preciso remover a faixa de áudio alternativo da transmissão. Para fazer isso nos Serviços de Mídia, adicione o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS termina com .ism/manifest(format=m3u8-aapl,audio-only=false). 

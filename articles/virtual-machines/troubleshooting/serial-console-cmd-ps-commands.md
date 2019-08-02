@@ -4,7 +4,7 @@ description: Como usar comandos CMD e do PowerShell no SAC em VMs do Windows do 
 services: virtual-machines-windows
 documentationcenter: ''
 author: alsin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f286881341e527d3f01e57768cd48405c85a9a69
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306876"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710604"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandos do Windows – CMD e PowerShell
 
@@ -71,13 +71,13 @@ Um espaço é necessário após o sinal de igual.
 ### <a name="start-service"></a>Iniciar serviço
 `net start termservice`
 
-ou o
+ou
 
 `sc start termservice`
 ### <a name="stop-service"></a>Parar serviço
 `net stop termservice`
 
-ou o
+ou
 
 `sc stop termservice`
 ## <a name="manage-networking-features"></a>Gerenciar recursos de Rede
@@ -211,11 +211,11 @@ O caminho ao utilizar `/restore` precisa ser a pasta pai da pasta que você espe
 ### <a name="show-os-version"></a>Exibir versão do SO
 `ver`
 
-ou o 
+ou 
 
 `wmic os get caption,version,buildnumber /format:list`
 
-ou o 
+ou 
 
 `systeminfo  find /i "os name"`
 
@@ -223,7 +223,7 @@ ou o
 ### <a name="view-os-install-date"></a>Exibir data de instalação do SO
 `systeminfo | find /i "original"`
 
-ou o 
+ou 
 
 `wmic os get installdate`
 ### <a name="view-last-boot-time"></a>Exibir última hora de inicialização
@@ -231,7 +231,7 @@ ou o
 ### <a name="view-time-zone"></a>Exibir fuso horário
 `systeminfo | find /i "time zone"`
 
-ou o
+ou
 
 `wmic timezone get caption,standardname /format:list`
 ### <a name="restart-windows"></a>Reiniciar o Windows
@@ -296,7 +296,7 @@ Ao usar uma conta de serviço diferente de `NT AUTHORITY\LocalService`, `NT AUTH
 ### <a name="show-nic-properties"></a>Mostrar propriedades NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} |  format-list status,name,ifdesc,macadDresS,driverversion,MediaConNectState,MediaDuplexState`
 
-ou o 
+ou 
 
 `get-wmiobject win32_networkadapter -filter "servicename='netvsc'" |  format-list netenabled,name,macaddress`
 
@@ -306,7 +306,7 @@ ou o
 ### <a name="enable-nic"></a>Habilitar NIC
 `get-netadapter | where {$_.ifdesc.startswith('Microsoft Hyper-V Network Adapter')} | enable-netadapter`
 
-ou o
+ou
 
 `(get-wmiobject win32_networkadapter -filter "servicename='netvsc'").enable()`
 
@@ -320,7 +320,7 @@ ou o
 ### <a name="ping"></a>Ping
 `test-netconnection`
 
-ou o
+ou
 
 `get-wmiobject Win32_PingStatus -Filter 'Address="8.8.8.8"' | format-table -autosize IPV4Address,ReplySize,ResponseTime`
 
@@ -328,7 +328,7 @@ ou o
 ### <a name="port-ping"></a>Ping de porta
 `test-netconnection -ComputerName bing.com -Port 80`
 
-ou o
+ou
 
 `(new-object Net.Sockets.TcpClient).BeginConnect('bing.com','80',$null,$null).AsyncWaitHandle.WaitOne(300)`
 
@@ -336,7 +336,7 @@ ou o
 ### <a name="test-dns-name-resolution"></a>Testar a resolução de nomes DNS
 `resolve-dnsname bing.com` 
 
-ou o 
+ou 
 
 `[System.Net.Dns]::GetHostAddresses('bing.com')`
 
@@ -346,7 +346,7 @@ ou o
 ### <a name="show-windows-firewall-rule-by-port"></a>Mostrar regra de firewall do Windows por porta
 `get-netfirewallportfilter | where {$_.localport -eq 3389} | foreach {Get-NetFirewallRule -Name $_.InstanceId} | format-list Name,Enabled,Profile,Direction,Action`
 
-ou o
+ou
 
 `(new-object -ComObject hnetcfg.fwpolicy2).rules | where {$_.localports -eq 3389 -and $_.direction -eq 1} | format-table Name,Enabled`
 
@@ -361,7 +361,7 @@ ou o
 ### <a name="verify-user-account-is-enabled"></a>Verificar se a conta do usuário está habilitada
 `(get-localuser | where {$_.SID -like "S-1-5-21-*-500"}).Enabled`
 
-ou o 
+ou 
 
 `(get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'").Disabled`
 
@@ -375,7 +375,7 @@ Esse exemplo mostra a conta de administrador local interna, que sempre tem o SID
 ### <a name="view-user-account-properties"></a>Exibir propriedades da conta de usuário
 `get-localuser | where {$_.SID -like "S-1-5-21-*-500"} | format-list *`
 
-ou o 
+ou 
 
 `get-wmiobject Win32_UserAccount -Namespace "root\cimv2" -Filter "SID like 'S-1-5-%-500'" |  format-list Name,Disabled,Status,Lockout,Description,SID`
 

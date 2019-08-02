@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c97729cf7d88ebdeefb44c83eb571bb6d7ebd0ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbc5c356ea5a542fdc12b11aff236c56b146b3d5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825590"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477249"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Trabalho com aplicativos com reconhecimento de declarações no Proxy de Aplicativo
 Os [aplicativos com reconhecimento de declarações](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) executam um redirecionamento para o STS (Serviço de Token de Segurança). O STS solicita as credenciais do usuário em troca de um token e, em seguida, redireciona o usuário para o aplicativo. Há algumas maneiras de habilitar o Proxy de Aplicativo para que ele funcione com esses redirecionamentos. Use este artigo para configurar sua implantação de aplicativos com reconhecimento de declarações. 
@@ -42,7 +42,7 @@ Você pode configurar o ADFS para aplicativos com reconhecimento de declaraçõe
 
 Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmente qualificados (FQDNs), você poderá configurar [domínios personalizados](application-proxy-configure-custom-domain.md) para seus aplicativos. Use os domínios personalizados para criar URLs externas que são iguais às URLs internas. Quando suas URLs externas corresponderem às URLs internas, os redirecionamentos de STS funcionarão se os usuários estiverem no local ou remotos. 
 
-### <a name="option-2-ws-federation"></a>Opção 2: O certificado do provedor de identidade do Web Services Federation
+### <a name="option-2-ws-federation"></a>Opção 2: Web Services Federation
 
 1. Abra o Gerenciamento de ADFS.
 2. Acesse **Terceiras Partes Confiáveis**, clique com o botão direito do mouse no aplicativo que você está publicando com o Proxy de Aplicativo e escolha **Propriedades**.  
@@ -55,7 +55,7 @@ Se todas as URLs internas para seus aplicativos forem nomes de domínio totalmen
    ![Adicionar um ponto de extremidade - definir valor de URL Confiável - captura de tela](./media/application-proxy-configure-for-claims-aware-applications/appproxyendpointtrustedurl.png)  
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Habilitar logon único](configure-single-sign-on-portal.md) para aplicativos sem reconhecimento de declarações
+* [Habilitar logon único](configure-single-sign-on-non-gallery-applications.md) para aplicativos sem reconhecimento de declarações
 * [Habilitar aplicativos clientes nativos para interagir com aplicativos de proxy](application-proxy-configure-native-client-application.md)
 
 

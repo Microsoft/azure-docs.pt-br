@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 256435dfd016ebbd86dbbe49f4abbb346fb1cd19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37ec8a611f94b869c8277c135f8e6dc5d2108392
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736659"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442892"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Perguntas frequentes sobre o serviço de porta da frente do Azure
 
@@ -75,29 +75,38 @@ Serviço de porta da frente do Azure tem a mesma lista de locais POP (ponto de p
 
 ### <a name="is-azure-front-door-service-a-dedicated-deployment-for-my-application-or-is-it-shared-across-customers"></a>É o serviço do Azure da frente uma implantação dedicada para o meu aplicativo ou é compartilhado entre os clientes?
 
-Serviço de porta da frente do Azure é um serviço multilocatário distribuído globalmente. Portanto, a infraestrutura para a porta da frente é compartilhada entre todos os seus clientes. No entanto, com a criação de uma porta da frente, você define a configuração específica necessária para seu aplicativo e 
+Serviço de porta da frente do Azure é um serviço multilocatário distribuído globalmente. Portanto, a infraestrutura para a porta da frente é compartilhada entre todos os seus clientes. No entanto, ao criar um perfil de porta da frente, você define a configuração específica necessária para seu aplicativo e nenhuma alteração feita à sua frente afeta outras configurações de porta da frente.
 
 ### <a name="is-http-https-redirection-supported"></a>O redirecionamento HTTP-> HTTPS é suportado?
 
-Porta da frente atualmente não dá suporte a redirecionamento de URL.
+Sim. Na verdade, o serviço de porta da frente do Azure dá suporte a host, caminho e o redirecionamento de cadeia de caracteres de consulta, bem como parte do redirecionamento de URL. Saiba mais sobre [redirecionamento de URL](front-door-url-redirect.md). 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Em que ordem as regras de roteamento são processadas?
 
 As rotas para a porta de entrada não são ordenadas e uma rota específica é selecionada com base na melhor correspondência. Saiba mais sobre [como porta de entrada corresponde a solicitação para uma regra de roteamento](front-door-route-matching.md).
 
-### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door-service"></a>Como bloquear o acesso ao meu back-end apenas serviço de porta da frente do Azure?
+### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Como bloquear o acesso ao meu back-end para somente do Azure da frente?
 
-Você pode configurar IP listagem na ACL para seu back-ends para aceitar o tráfego do serviço de porta da frente do Azure. Você pode restringir seu aplicativo para aceitar conexões de entrada apenas do espaço IP de back-end do serviço de porta da frente do Azure. Estamos trabalhando para integrar [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) mas, por agora, você pode consultar os intervalos de IP, conforme mostrado a seguir:
+Para bloquear o aplicativo para aceitar o tráfego somente da porta específica, você precisará configurar ACLs de IP para o back-end e, em seguida, restringir o conjunto de valores aceitos para o cabeçalho 'X-Forwarded-Host' enviado pela frente do Azure. Essas etapas são detalhadas, conforme mostrado abaixo:
+
+- Configure o IP listagem na ACL para seu back-ends para aceitar o tráfego do Azure da frente do espaço de endereço IP de back-end e os serviços de infraestrutura do Azure apenas. Estamos trabalhando para integrar [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) mas, por agora, você pode consultar os intervalos de IP, conforme mostrado a seguir:
  
-- **IPv4** - `147.243.0.0/16`
-- **IPv6** - `2a01:111:2050::/44`
+    - Do porta da frente **IPv4** espaço IP de back-end: `147.243.0.0/16`
+    - Do porta da frente **IPv6** espaço IP de back-end: `2a01:111:2050::/44`
+    - Do Azure [serviços de infraestrutura básica](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) por meio de endereços IP do host virtualizado: `168.63.129.16` e `169.254.169.254`
 
-> [!WARNING]
-> Nosso espaço IP de back-end pode ser alteradas posteriormente, no entanto, podemos irá assegurar que antes que isso ocorra, o que seria integramos com [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519). É recomendável que você tenha uma assinatura [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações. 
+    > [!WARNING]
+    > Espaço IP de back-end do porta da frente pode ser alteradas posteriormente, no entanto, podemos irá assegurar que antes que isso ocorra, o que seria integramos com [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519). É recomendável que você tenha uma assinatura [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
+
+-   Filtro nos valores para o cabeçalho de entrada '**X-Forwarded-Host**' enviados pela porta da frente. Os únicos valores permitidos para o cabeçalho devem ser todos os hosts de front-end, conforme definido em sua configuração de porta da frente. Na verdade até mesmo mais especificamente, apenas os nomes de host para o qual você deseja aceitar o tráfego, nesse back-end específico do seu.
+    - Exemplo – vamos dizer que sua configuração de porta de entrada tem os seguintes hosts de front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C), e _`notifications.contoso.com`_ (D). Vamos supor que você tenha dois back-ends de X e Y. 
+    - X de back-end deve levar apenas o tráfego de nomes de host A e B. Y de back-end podem levar tráfego de A, C e D.
+    - Portanto, no back-end X você deverá aceitar somente o tráfego que tem o cabeçalho '**X-Forwarded-Host**' definido como _`contoso.azurefd.net`_ ou _`www.contoso.com`_ . Para todo o resto, back-end X deve rejeitar o tráfego.
+    - Da mesma forma, no back-end Y você deverá aceitar somente o tráfego que tem o cabeçalho "**X-Forwarded-Host**" definido como _`contoso.azurefd.net`_ , _`api.contoso.com`_ ou  _`notifications.contoso.com`_ . Para todo o resto, back-end Y deve rejeitar o tráfego.
 
 ### <a name="can-the-anycast-ip-change-over-the-lifetime-of-my-front-door"></a>O IP anycast pode mudar ao longo do tempo de vida de minha frente?
 
-O IP anycast de front-end para a porta da frente normalmente não deve ser alterada e pode permanecer estático durante a vida útil da frente. No entanto, há **nenhuma garantia** para o mesmo. Gentilmente não têm dependências diretas no IP.  
+O IP anycast de front-end para a porta da frente normalmente não deve ser alterada e pode permanecer estático durante a vida útil da frente. No entanto, há **nenhuma garantia** para o mesmo. Gentilmente não têm dependências diretas no IP.
 
 ### <a name="does-azure-front-door-service-support-static-or-dedicated-ips"></a>O serviço de porta da frente do Azure dá suporte a IPs estáticos ou dedicado?
 
@@ -142,6 +151,11 @@ Porta da frente dá suporte a TLS versões 1.0, 1.1 e 1.2. Ainda não há suport
 Para habilitar o protocolo HTTPS para o fornecimento seguro de conteúdo em um domínio personalizado da porta da frente, você pode optar por usar um certificado que é gerenciado pelo serviço de porta da frente do Azure ou usar seu próprio certificado.
 A porta de entrada gerenciado provisões de opção um certificado SSL padrão por meio do Digicert e armazenados na frente Key Vault da porta do. Se você optar por usar seu próprio certificado e, em seguida, você pode integrar um certificado de uma autoridade de certificação com suporte e pode ser um SSL padrão, o certificado de validação estendida ou até mesmo um certificado curinga. Os certificados autoassinados não são suportados. Saiba mais [como habilitar HTTPS para um domínio personalizado](https://aka.ms/FrontDoorCustomDomainHTTPS).
 
+### <a name="does-front-door-support-autorotation-of-certificates"></a>Porta da frente dá suporte à definição de auto-rotação de certificados?
+
+Para a opção de certificado de porta de entrada gerenciado, os certificados são autorotated pela frente. Se você estiver usando um certificado gerenciado da porta da frente e ver que a data de expiração do certificado é menor que 60 dias, um tíquete de suporte do arquivo.
+</br>Para seu próprio certificado SSL personalizado, a definição de auto-rotação não é compatível. Semelhante a como ele foi definido na primeira vez para um determinado domínio personalizado, você precisará para frente do ponto a versão de certificado correta em seu Cofre de chaves e certifique-se de que a entidade de serviço para a porta da frente ainda tem acesso ao Cofre de chave. Esta operação de distribuição de certificado atualizado pela porta da frente é atômica e não cause qualquer impacto na produção fornecido o nome da entidade ou SAN para o certificado não é alterado.
+
 ### <a name="what-are-the-current-cipher-suites-supported-by-azure-front-door-service"></a>Quais são os conjuntos de criptografia atuais com suporte pelo serviço de porta da frente do Azure?
 
 Estes são os conjuntos de criptografia atuais com suporte pelo serviço de porta da frente do Azure:
@@ -171,7 +185,7 @@ Sim, o serviço de porta da frente do Azure dá suporte a descarregamento SSL e 
 
 ### <a name="can-i-configure-ssl-policy-to-control-ssl-protocol-versions"></a>Posso configurar a política SSL para controlar as versões do Protocolo SSL?
 
-Não, atualmente não dá suporte para negar a versões específicas do TLS a porta da frente nem pode definir as versões mínimas do TLS. 
+Não, atualmente não dá suporte para negar a versões específicas do TLS a porta da frente nem pode definir a versão mínima do TLS. 
 
 ### <a name="can-i-configure-front-door-to-only-support-specific-cipher-suites"></a>Posso configurar a porta da frente para só oferecem suporte a conjuntos de codificação específico?
 

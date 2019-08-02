@@ -5,14 +5,12 @@ metadata:
   title: Documentação das Instâncias de Contêiner do Azure - Tutoriais | Microsoft Docs
   description: 'As Instâncias de contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais e adotar um serviço de nível superior.'
   services: container-instances
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-instances
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais nem adotar um serviço de nível superior. Aprenda a criar e gerenciar instâncias de contêiner com nossos guias de início rápido, tutoriais e exemplos.<p>Se você precisar de uma solução de orquestração de contêiner completa, consulte a <a href="/azure/aks/">documentação do Serviço de Kubernetes do Azure (AKS)</a>.</p>'
 sections:

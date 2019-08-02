@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bbb5cf9a043f8f4ab4202b6113d1c1b915f3b8a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: aade8552e7fd39a61334c1c6c7c9ca62085961be
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312762"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603266"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e Node.js
 
 Neste início rápido, você usará a API REST de Detecção Facial do Azure com Node.js para detectar faces humanas em uma imagem.
 
@@ -98,7 +98,7 @@ Depois de fazer as alterações, abra um prompt de comando e execute o arquivo c
 node facedetection.js
 ```
 
-Você verá as informações faciais exibidas como dados JSON na janela do console. Por exemplo: 
+Você verá as informações faciais exibidas como dados JSON na janela do console. Por exemplo:
 
 ```json
 [

@@ -9,39 +9,39 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 72a72e385217178cb6afee237cc3a3e5c5d1248b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 112d3b18df8205aac173eafb8f8e30ed6c32e048
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751645"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249087"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controle de acesso no Azure Data Lake Storage Gen2
 
-Azure Data Lake armazenamento Gen2 implementa um modelo de controle de acesso que oferece suporte a controle de acesso baseado em função do Azure (RBAC) e listas de controle de acesso POSIX (ACLs). Este artigo resume as noções básicas do modelo de controle de acesso para o Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implementa um modelo de controle de acesso que dá suporte ao RBAC (controle de acesso baseado em função) do Azure e às ACLs (listas de controle de acesso) semelhantes a POSIX. Este artigo resume as noções básicas do modelo de controle de acesso para o Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac" />
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 
-RBAC usa atribuições de função para efetivamente aplicar conjuntos de permissões para *as entidades de segurança*. Um *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou uma identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
+O RBAC usa atribuições de função para aplicar efetivamente conjuntos de permissões a *entidades de segurança*. Uma *entidade de segurança* é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD) que está solicitando acesso aos recursos do Azure.
 
-Normalmente, esses recursos do Azure são restritos a recursos de nível superior (por exemplo: Contas de armazenamento do Azure). No caso do armazenamento do Azure e, consequentemente, o armazenamento do Azure Data Lake Gen2, esse mecanismo foi estendido para o recurso de contêiner (sistema de arquivos).
+Normalmente, esses recursos do Azure são restritos a recursos de nível superior (por exemplo: Contas de armazenamento do Azure). No caso do armazenamento do Azure e, consequentemente, Azure Data Lake Storage Gen2, esse mecanismo foi estendido para o recurso de contêiner (sistema de arquivos).
 
-Para saber como atribuir funções a entidades de segurança no escopo de sua conta de armazenamento, consulte [conceder acesso a dados do Azure blob e fila com o RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para saber como atribuir funções a entidades de segurança no escopo da sua conta de armazenamento, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto de atribuições de função em listas de controle de acesso no nível de arquivo e diretório
+### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto das atribuições de função em listas de controle de acesso de nível de arquivo e diretório
 
-Enquanto usar atribuições de função RBAC é um mecanismo poderoso para controlar permissões de acesso, ele é um mecanismo muito grosseira em relação ao ACLs. A granularidade menor para o RBAC está no nível de sistema de arquivos e isso será avaliado em uma prioridade mais alta que as ACLs. Portanto, se você atribuir uma função a uma entidade de segurança no escopo de um sistema de arquivos, essa entidade de segurança tem o nível de autorização associado a essa função para todos os arquivos e diretórios no sistema de arquivos, independentemente das atribuições de ACL.
+Embora o uso de atribuições de função RBAC seja um mecanismo poderoso para controlar as permissões de acesso, trata-se de um mecanismo muito mais esparso em relação às ACLs. A granularidade menor para o RBAC está no nível de sistema de arquivos e isso será avaliado em uma prioridade mais alta que as ACLs. Portanto, se você atribuir uma função a uma entidade de segurança no escopo de um sistema de arquivos, essa entidade de segurança terá o nível de autorização associado a essa função para todos os diretórios e arquivos nesse sistema de arquivos, independentemente das atribuições de ACL.
 
-Quando uma entidade de segurança tem as permissões RBAC dados por meio de um [função interna](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou por meio de uma função personalizada, essas permissões são avaliadas pela primeira vez após a autorização de uma solicitação. Se a operação solicitada é autorizada por atribuições de RBAC da entidade de segurança e em seguida, a autorização é resolvida imediatamente e não adicionais serão executadas verificações ACL. Como alternativa, se a entidade de segurança não tem uma atribuição de RBAC ou operação da solicitação não coincide com a permissão atribuída, verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
+Quando uma entidade de segurança recebe permissões de dados RBAC por meio de uma [função interna](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)ou por meio de uma função personalizada, essas permissões são avaliadas primeiro após a autorização de uma solicitação. Se a operação solicitada for autorizada pelas atribuições de RBAC da entidade de segurança, a autorização será imediatamente resolvida e nenhuma verificação de ACL adicional será executada. Como alternativa, se a entidade de segurança não tiver uma atribuição de RBAC ou se a operação da solicitação não corresponder à permissão atribuída, as verificações de ACL serão executadas para determinar se a entidade de segurança está autorizada a executar a operação solicitada.
 
 > [!NOTE]
-> Se a entidade de segurança recebeu a atribuição de função interna de proprietário de dados de Blob de armazenamento, a entidade de segurança é considerada um *superusuário* e terão acesso completo a todas as operações de mutação, incluindo a configuração de proprietário de um diretório ou arquivo, bem como as ACLs para diretórios e arquivos para os quais eles não forem o proprietário. O acesso de superusuário é a única maneira autorizada para alterar o proprietário de um recurso.
+> Se a entidade de segurança tiver sido atribuída a atribuição de função interna do proprietário de dados do blob de armazenamento, a entidade de  segurança será considerada um superusuário e terá acesso completo a todas as operações de mutação, incluindo a definição do proprietário de um diretório ou arquivo, bem como ACLs para diretórios e arquivos para os quais eles não são o proprietário. O acesso de superusuário é a única maneira autorizada para alterar o proprietário de um recurso.
 
-## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticação de chave compartilhada e assinatura de acesso compartilhado (SAS)
+## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticação de chave compartilhada e SAS (assinatura de acesso compartilhado)
 
-Azure Data Lake armazenamento Gen2 dá suporte a métodos de chave compartilhada e a SAS para autenticação. Uma característica esses métodos de autenticação é que nenhuma identidade é associada ao chamador e, portanto, a autorização baseada em permissão de entidade de segurança não pode ser executada.
+O Azure Data Lake Storage Gen2 dá suporte a métodos de chave compartilhada e SAS para autenticação. Uma característica desses métodos de autenticação é que nenhuma identidade está associada ao chamador e, portanto, a autorização baseada em permissão de entidade de segurança não pode ser executada.
 
 No caso de chave compartilhada, o chamador efetivamente obtém acesso de “superusuário”, o que significa acesso completo a todas as operações em todos os recursos, incluindo a definição de proprietário e alterando ACLs.
 
@@ -49,23 +49,23 @@ Os tokens SAS incluem permissões permitidas como parte do token. As permissões
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Listas de controle de acesso em arquivos e diretórios
 
-Você pode associar uma entidade de segurança com um nível de acesso para arquivos e diretórios. Essas associações são capturadas em um *lista de controle de acesso (ACL)* . Cada arquivo e diretório em sua conta de armazenamento tem uma lista de controle de acesso.
+Você pode associar uma entidade de segurança a um nível de acesso para arquivos e diretórios. Essas associações são capturadas em uma *ACL (lista de controle de acesso)* . Cada arquivo e diretório na sua conta de armazenamento tem uma lista de controle de acesso.
 
-Se você atribuiu uma função para uma entidade de segurança no nível de conta de armazenamento, você pode usar listas de controle de acesso para conceder a que essa entidade de segurança o acesso elevado para diretórios e arquivos específicos.
+Se você atribuiu uma função a uma entidade de segurança no nível da conta de armazenamento, poderá usar listas de controle de acesso para conceder a essa entidade de segurança acesso elevado a arquivos e diretórios específicos.
 
-Você não pode usar listas de controle de acesso para fornecer um nível de acesso que é menor do que um nível concedido por uma atribuição de função. Por exemplo, se você atribuir a [Colaborador de dados de Blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) listas de funções para uma entidade, será possível usar o controle de acesso de segurança para impedir que essa entidade de segurança grave em um diretório.
+Você não pode usar listas de controle de acesso para fornecer um nível de acesso inferior a um nível concedido por uma atribuição de função. Por exemplo, se você atribuir a função de [colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) a uma entidade de segurança, não poderá usar listas de controle de acesso para impedir que a entidade de segurança grave em um diretório.
 
-### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Conjunto de arquivos e diretórios permissões de nível usando listas de controle de acesso
+### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>Definir permissões de nível de arquivo e diretório usando listas de controle de acesso
 
-Para definir permissões de nível de arquivo e diretório, consulte um dos artigos a seguir:
+Para definir permissões de nível de arquivo e diretório, consulte qualquer um dos seguintes artigos:
 
 |Se você quiser usar essa ferramenta:    |Consulte este artigo:    |
 |--------|-----------|
 |Gerenciador de Armazenamento do Azure    |[Definir permissões no nível do arquivo e do diretório usando o Gerenciador de Armazenamento do Azure com o Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|API REST    |[Caminho - atualização](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|API REST    |[Caminho-atualizar](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> Se a entidade de segurança é uma *serviço* principal, é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço abra a CLI do Azure e, em seguida, use este comando: `az ad sp show --id <Your App ID> --query objectId`. Certifique-se de substituir o `<Your App ID>` espaço reservado com a ID do aplicativo de registro do seu aplicativo.
+> Se a entidade de segurança for uma entidade de *serviço* , é importante usar a ID de objeto da entidade de serviço e não a ID de objeto do registro do aplicativo relacionado. Para obter a ID de objeto da entidade de serviço, abra o CLI do Azure e, em seguida, `az ad sp show --id <Your App ID> --query objectId`Use este comando:. Certifique-se de substituir `<Your App ID>` o espaço reservado pela ID do aplicativo do registro do aplicativo.
 
 ### <a name="types-of-access-control-lists"></a>Tipos de listas de controle de acesso
 
@@ -73,7 +73,7 @@ Há dois tipos de listas de controle de acesso: *ACLs de acesso* e *ACLs padrão
 
 ACLs de acesso controlam o acesso a um objeto. Arquivos e diretórios têm ambos ACLs de acesso.
 
-ACLs padrão são modelos de ACLs associadas com um diretório que determinam o acesso de ACLs para todos os itens filhos criados nesse diretório. Arquivos não têm ACLs padrão.
+As ACLs padrão são modelos de ACLs associadas a um diretório que determinam as ACLs de acesso para qualquer item filho que são criados nesse diretório. Arquivos não têm ACLs padrão.
 
 As ACLs de Acesso e as ACLs Padrão têm a mesma estrutura.
 
@@ -91,7 +91,7 @@ As permissões em um objeto do sistema de arquivos são **Ler**, **Gravar** e **
 | **Executar (X)** | Não significa nada no contexto do Azure Data Lake Storage Gen2 | Necessário para percorrer os itens filhos de um diretório |
 
 > [!NOTE]
-> Se você estiver concedendo permissões usando apenas ACLs (nenhum RBAC), para conceder a um serviço principal acesso de leitura ou gravação em um arquivo, você precisa dar à entidade de serviço **Execute** permissões para o sistema de arquivos e cada pasta no hierarquia de pastas que levam ao arquivo.
+> Se você estiver concedendo permissões usando somente ACLs (sem RBAC), para conceder a uma entidade de serviço acesso de leitura ou gravação a um arquivo, você precisará conceder permissões de **execução** da entidade de serviço ao sistema de arquivos e a cada pasta na hierarquia de pastas que levar ao arquivo.
 
 #### <a name="short-forms-for-permissions"></a>Formatos abreviados para permissões
 
@@ -134,10 +134,10 @@ Todos os arquivos e diretórios têm permissões diferentes para estas identidad
 - Usuários nomeados
 - Grupos nomeados
 - Todas as entidades de serviço
-- Chamado identidades gerenciadas
+- Identidades gerenciadas nomeadas
 - Todos os outros usuários
 
-As identidades dos usuários e grupos são identidades do Azure AD (Azure Active Directory). Portanto, a menos que indicado o contrário, uma *usuário*, no contexto do Data Lake armazenamento Gen2, pode se referir a um usuário do AD do Azure, do serviço gerenciado de identidade principal ou grupo de segurança.
+As identidades dos usuários e grupos são identidades do Azure AD (Azure Active Directory). Então, salvo indicação em contrário, um *usuário*, no contexto de data Lake Storage Gen2, pode se referir a um usuário do Azure AD, entidade de serviço, identidade gerenciada ou grupo de segurança.
 
 #### <a name="the-owning-user"></a>O usuário proprietário
 
@@ -151,11 +151,11 @@ O usuário que criou o item é automaticamente o usuário proprietário do item.
 
 #### <a name="the-owning-group"></a>O grupo proprietário
 
-Nas ACLs do POSIX, cada usuário está associado a um *grupo primário*. Por exemplo, o usuário "Alice" pode pertencer ao grupo "Finanças". Alice pode pertencer também a vários grupos, mas um grupo será sempre designado como o seu grupo primário. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
+Nas ACLs do POSIX, cada usuário está associado a um *grupo primário*. Por exemplo, o usuário "Alice" pode pertencer ao grupo "Finance". Alice também pode pertencer a vários grupos, mas um grupo é sempre designado como seu grupo primário. No POSIX, quando Alice cria um arquivo, o grupo proprietário desse arquivo é definido como o grupo primário que, nesse caso, é "finanças". De modo contrário, o grupo proprietário se comporta de modo semelhante às permissões atribuídas para outros usuários/grupos.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuindo o grupo proprietário de um novo arquivo ou diretório
 
-* **Caso 1**: Diretório Raiz "/". Esse diretório é criado quando um sistema de arquivos do Azure Data Lake Storage Gen2. Nesse caso, o grupo proprietário é definido para o usuário que criou o sistema de arquivo se tivesse sido feito usando o OAuth. Se o sistema de arquivos é criado usando a chave compartilhada, uma SAS de conta ou uma SAS de serviço, o proprietário e o grupo proprietário estiverem definidos como **$superuser**.
+* **Caso 1**: Diretório Raiz "/". Esse diretório é criado quando um sistema de arquivos do Azure Data Lake Storage Gen2. Nesse caso, o grupo proprietário é definido para o usuário que criou o sistema de arquivo se tivesse sido feito usando o OAuth. Se o sistema de arquivos for criado usando chave compartilhada, uma SAS de conta ou uma SAS de serviço, o proprietário e o grupo proprietário serão definidos como **$superuser**.
 * **Caso 2** (Todos os outros casos): Quando um novo item é criado, o grupo proprietário é copiado da pasta pai.
 
 ##### <a name="changing-the-owning-group"></a>Alterando o grupo proprietário
@@ -165,7 +165,7 @@ O grupo proprietário pode ser alterado por:
 * O usuário proprietário, se o usuário proprietário também for membro do grupo de destino.
 
 > [!NOTE]
-> O usuário proprietário não pode alterar as ACLs de um arquivo ou um diretório.  Enquanto o grupo proprietário é definido como o usuário que criou a conta no caso do diretório raiz, **caso 1** acima, uma única conta de usuário não é válida para fornecer permissões através do grupo proprietário. Você pode atribuir essa permissão a um grupo de usuários válido, se for aplicável.
+> O usuário proprietário não pode alterar as ACLs de um arquivo ou um diretório.  Embora o grupo proprietário esteja definido como o usuário que criou a conta no caso do diretório raiz, **caso 1** acima, uma única conta de usuário não é válida para fornecer permissões por meio do grupo proprietário. Você pode atribuir essa permissão a um grupo de usuários válido, se for aplicável.
 
 ### <a name="access-check-algorithm"></a>Algoritmo de verificação de acesso
 
@@ -225,7 +225,7 @@ Conforme ilustrado no algoritmo de verificação de acesso, a máscara limita o 
 
 O sticky bit é um recurso mais avançado de um sistema de arquivos POSIX. No contexto do Azure Data Lake Storage Gen2, é improvável que o sticky bit seja necessário. Em resumo, se o sticky bit estiver habilitado em um diretório, um item filho apenas poderá ser excluído ou renomeado pelo usuário proprietário do item filho.
 
-O sticky bit não é mostrado no portal do Azure.
+O bit adesivo não é mostrado na portal do Azure.
 
 ### <a name="default-permissions-on-new-files-and-directories"></a>Permissões padrão em novos arquivos e diretórios
 
@@ -270,7 +270,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário habilitar o suporte para ACLs?
 
-Não. Controle de acesso via ACLs está habilitado para uma conta de armazenamento, desde que o Namespace hierárquico (HNS) é recurso ativadas.
+Nº O controle de acesso por meio de ACLs é habilitado para uma conta de armazenamento, desde que o recurso de namespace hierárquico (HNS) esteja ativado.
 
 Se HNS estiver desativado, as regras de autorização do RBAC do Azure ainda se aplicam.
 
@@ -306,16 +306,18 @@ O usuário proprietário pode alterar as permissões do arquivo para atribuir a 
 
 Um GUID será mostrado se a entrada representa um usuário e esse usuário não existir mais no Microsoft Azure Active Directory. Geralmente isso acontece se o usuário tiver deixado a empresa ou se sua conta tiver sido excluída no Azure AD. Além disso, as entidades de serviço e grupos de segurança não tem um nome Principal de Usuário (UPN) para identificá-lo e então, são representados por seu atributo de identificação de objeto (um guid).
 
-### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Como posso definir ACLs corretamente para um serviço principal?
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Como fazer definir ACLs corretamente para uma entidade de serviço?
 
-Quando você define ACLs para entidades de serviço, é importante usar a ID de objeto (OID) do *entidade de serviço* para o registro do aplicativo que você criou. É importante observar que os aplicativos registrados tem uma entidade de serviço separado no específicos do locatário do Azure AD. Aplicativos registrados têm um OID que está visível no portal do Azure, mas o *entidade de serviço* tem outro OID (diferente).
+Quando você define ACLs para entidades de serviço, é importante usar a OID (ID de objeto) da entidade de *serviço* para o registro do aplicativo que você criou. É importante observar que os aplicativos registrados têm uma entidade de serviço separada no locatário específico do Azure AD. Os aplicativos registrados têm um OID que é visível no portal do Azure, mas a *entidade de serviço* tem outro OID (diferente).
 
-Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode usar o `az ad sp show` comando. Especifique a ID do aplicativo como o parâmetro. Aqui está um exemplo sobre como obter o OID da entidade de serviço que corresponde a um registro de aplicativo com a ID do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
+Para obter o OID para a entidade de serviço que corresponde a um registro de aplicativo, você pode `az ad sp show` usar o comando. Especifique a ID do aplicativo como o parâmetro. Veja um exemplo de como obter o OID para a entidade de serviço que corresponde a um registro de aplicativo com ID do aplicativo = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Execute o seguinte comando na CLI do Azure:
 
-`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
-<<OID will be displayed>>`
+```
+$ az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>
+```
 
-Quando você tiver o OID correto para a entidade de serviço, vá para o Gerenciador de armazenamento **gerenciar o acesso** página para adicionar o OID e atribuir as permissões apropriadas para o OID. Verifique se você selecionou **salvar**.
+Quando você tiver o OID correto para a entidade de serviço, vá para a página Gerenciador de Armazenamento **gerenciar acesso** para adicionar o OID e atribuir as permissões apropriadas para o OID. Certifique-se de selecionar **salvar**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Azure Data Lake Storage Gen2 dá suporte à herança de ACLs?
 

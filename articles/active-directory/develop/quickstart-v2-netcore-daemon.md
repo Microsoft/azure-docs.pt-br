@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3851e53bb648811b46ec69d9c4fc91b920ce80fb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4ac39b741ba6e070c056a10f30d6e27882be64fa
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784951"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68592257"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo de console usando a identidade do aplicativo
 
@@ -96,6 +96,10 @@ Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/down
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [Gerar um novo segredo do cliente]()
     
+    > [!div class="sxs-lookup" renderon="portal"]
+    > > [!NOTE]
+    > > Este guia de início rápido oferece suporte a Enter_the_Supported_Account_Info_Here.
+    
     > [!div renderon="docs"]
     >> Em que:
     >> * `Enter_the_Application_Id_Here` - é a **ID do aplicativo (cliente)** que você registrou.
@@ -104,7 +108,7 @@ Este início rápido requer o [.NET Core 2.2](https://www.microsoft.com/net/down
 
     > [!div renderon="docs"]
     > > [!TIP]
-    > > Para encontrar os valores de **ID do aplicativo (cliente)**, **ID de diretório (locatário)**, acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
+    > > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** , acesse a página **Visão Geral** do aplicativo no portal do Azure. Para gerar uma nova chave, acesse a página **Certificados e segredos**.
     
 #### <a name="step-4-admin-consent"></a>Etapa 4: Consentimento do administrador
 
@@ -122,7 +126,7 @@ Se você tentar executar o aplicativo neste ponto, receberá o erro *HTTP 403 �
 
 ##### <a name="standard-user"></a>Usuário padrão
 
-Se você for usuário padrão do seu locatário, precisará pedir consentimento do administrador ao administrador global do seu aplicativo. Para fazer isso, dê a seguinte URL ao administrador:
+Se você for usuário padrão do seu locatário, precisará pedir que o administrador global dê consentimento do administrador para seu aplicativo. Para fazer isso, dê a seguinte URL ao administrador:
 
 ```url
 https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
@@ -138,7 +142,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### <a name="step-5-run-the-application"></a>Etapa 5: Executar o aplicativo
 
-Se você estiver usando o Visual Studio, pressione **F5** para executar o aplicativo; caso contrário, execute o aplicativo por meio do prompt de comando ou console:
+Se você estiver usando o Visual Studio, pressione **F5** para executar o aplicativo. Caso contrário, execute o aplicativo por meio do prompt de comando ou console:
 
 ```console
 cd {ProjectFolder}\daemon-console
@@ -157,7 +161,7 @@ Você deverá ver uma lista de usuários em seu diretório do Azure AD como resu
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft. Conforme descrito, este início rápido solicita tokens usando a identidade do próprio aplicativo, em vez de permissões delegadas. O fluxo de autenticação usado nesse caso é conhecido como *[fluxo OAuth de credenciais do cliente](v2-oauth2-client-creds-grant-flow.md)*. Para saber mais sobre como usar MSAL.NET com fluxo de credenciais de cliente, confira [este artigo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) é a biblioteca usada para conectar usuários e solicitar tokens usados para acessar uma API protegida pela plataforma de identidade da Microsoft. Conforme descrito, este início rápido solicita tokens usando a identidade do próprio aplicativo, em vez de permissões delegadas. O fluxo de autenticação usado nesse caso é conhecido como *[fluxo OAuth de credenciais do cliente](v2-oauth2-client-creds-grant-flow.md)* . Para saber mais sobre como usar MSAL.NET com fluxo de credenciais de cliente, confira [este artigo](https://aka.ms/msal-net-client-credentials).
 
  Você pode instalar o MSAL.NET executando o comando abaixo no **Console do Gerenciador de Pacotes** do Visual Studio:
 
@@ -211,7 +215,7 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | Contém os escopos solicitados. Para clientes confidenciais, ele deve usar um formato semelhante a `{Application ID URI}/.default` para indicar que os escopos solicitados são os estaticamente definidos no objeto de aplicativo definido no portal do Azure (no caso do Microsoft Graph, `{Application ID URI}` aponta para `https://graph.microsoft.com`). Para APIs da Web personalizadas, o `{Application ID URI}` é definido na seção **Expor uma API** no Registro de Aplicativo do portal do Azure (versão prévia). |
 
-Para saber mais, confira a [documentação de referência do `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+Para saber mais, confira a [documentação de referência do `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
@@ -232,3 +236,8 @@ Para saber mais sobre o fluxo de autenticação para este cenário, consulte o f
 
 > [!div class="nextstepaction"]
 > [Fluxos de credencial de cliente com MSAL.NET](https://aka.ms/msal-net-client-credentials)
+
+Ajude-nos a melhorar a plataforma de identidade da Microsoft. Deixe sua opinião respondendo a uma breve pesquisa de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

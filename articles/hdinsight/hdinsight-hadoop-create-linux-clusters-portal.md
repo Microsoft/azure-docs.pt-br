@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4593cd3602c5324e9cffd5eff8564c09aceaf46
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393988"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406285"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -69,7 +69,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
     * Selecione **Próximo** para ir para a próxima página.
 
-4. Em **2 Segurança + rede**, é possível conectar o cluster a uma rede virtual, usando o menu suspenso fornecido. Selecione uma rede virtual do Azure e a sub-rede se você desejar colocar o cluster em uma rede virtual. Para obter informações sobre como usar o HDInsight com uma rede virtual, consulte [Estender as funcionalidades do HDInsight usando uma Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md). O artigo inclui requisitos de configuração específicos para a rede virtual. 
+4. Em **2 Segurança + rede**, é possível conectar o cluster a uma rede virtual, usando o menu suspenso fornecido. Selecione uma rede virtual do Azure e a sub-rede se você desejar colocar o cluster em uma rede virtual. Para obter informações sobre como usar o HDInsight com uma rede virtual, consulte [planejar uma implantação de rede virtual para clusters do Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). O artigo inclui requisitos de configuração específicos para a rede virtual. 
 
     Se você quiser usar o **Enterprise Security Package**, siga estas instruções: [Configurar um cluster HDInsight com o Enterprise Security Package usando o Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
@@ -80,9 +80,9 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
      ![Definir configurações de armazenamento](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Criar um novo cluster no portal do Azure")
 
-     | Armazenamento                                      | DESCRIÇÃO |
+     | Armazenamento                                      | Descrição |
      |----------------------------------------------|-------------|
-     | **Blobs de Armazenamento do Azure como o armazenamento padrão**   | <ul><li>Para o **tipo de armazenamento primário**, selecione **Armazenamento do Azure**. Para **Método de seleção**, escolha **Minhas assinaturas**, se você quiser especificar uma conta de armazenamento que faz parte da sua assinatura do Azure. Em seguida, selecione a conta de armazenamento. Caso contrário, selecione **Chave de acesso**. Em seguida, forneça as informações da conta de armazenamento que você quer escolher fora da sua assinatura do Azure.</li><li>Para **Contêiner padrão**, escolha o nome do contêiner padrão sugerido pelo portal ou especifique o seu próprio.</li><li>Se o Armazenamento de Blobs do Azure for o armazenamento padrão, também será possível selecionar **Contas de Armazenamento Adicionais** para especificar contas de armazenamento adicionais para associar ao cluster. Para **Chaves de Armazenamento do Azure**, selecione **Adicionar uma chave de armazenamento**. Em seguida, você poderá fornecer uma conta de armazenamento a partir das suas assinaturas do Azure, ou de outras assinaturas. Forneça a chave de acesso à conta de armazenamento.</li><li>Se o armazenamento de Blobs for o armazenamento padrão, também será possível selecionar **Acesso ao Data Lake Storage** para especificar o Azure Data Lake Storage como armazenamento adicional. Para saber mais, confira [Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+     | **Blobs de Armazenamento do Azure como o armazenamento padrão**   | <ul><li>Para o **tipo de armazenamento primário**, selecione **Armazenamento do Azure**. Para **Método de seleção**, escolha **Minhas assinaturas**, se você quiser especificar uma conta de armazenamento que faz parte da sua assinatura do Azure. Em seguida, selecione a conta de armazenamento. Caso contrário, selecione **Chave de acesso**. Em seguida, forneça as informações da conta de armazenamento que você quer escolher fora da sua assinatura do Azure.</li><li>Para **Contêiner padrão**, escolha o nome do contêiner padrão sugerido pelo portal ou especifique o seu próprio.</li><li>Se o Armazenamento de Blobs do Azure for o armazenamento padrão, também será possível selecionar **Contas de Armazenamento Adicionais** para especificar contas de armazenamento adicionais para associar ao cluster. Para **Chaves de Armazenamento do Azure**, selecione **Adicionar uma chave de armazenamento**. Em seguida, você poderá fornecer uma conta de armazenamento a partir das suas assinaturas do Azure, ou de outras assinaturas. Forneça a chave de acesso à conta de armazenamento.</li><li>Se o armazenamento de Blobs for o armazenamento padrão, também será possível selecionar **Acesso ao Data Lake Storage** para especificar o Azure Data Lake Storage como armazenamento adicional. Para obter mais informações, confira [Início Rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
      | **Azure Data Lake Storage como o armazenamento padrão** | Para **Tipo de armazenamento primário**, selecione **Azure Data Lake Storage Gen1** ou **Azure Data Lake Storage Gen2**. Em seguida, consulte o artigo [Início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para saber mais. |
      | **Metastores externas**                      | Como opção, especifique um banco de dados SQL para salvar metadados do Apache Hive e do Apache Oozie associados ao cluster. Para **Selecionar um banco de dados SQL para Hive**, selecione um banco de dados SQL. Em seguida, forneça o nome de usuário e a senha para o banco de dados. Repita essas etapas para metadados do Oozie.<br><br>Algumas considerações sobre o uso do banco de dados SQL do Azure para metastores são as seguintes: <ul><li>O banco de dados SQL do Azure usado para o metastore deve permitir conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No lado direito do painel do banco de dados SQL do Azure, selecione o nome do servidor. Esse servidor é aquele no qual a instância do banco de dados SQL é executada. Após exibir o servidor, selecione **Configurar**. Em seguida, para **Serviços do Azure**, selecione **Sim**. Em seguida, selecione **Salvar**.</li><li>Ao criar um metastore, não use traços nem hifens para nomear um banco de dados. Esses caracteres podem causar falha no processo de criação do cluster.</li></ul> |
 

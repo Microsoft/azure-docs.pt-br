@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: bea7106bd0c3317fe71de201f219c151471e8208
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 27fa0567eefbb50907c0ed6952333230e874c21d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704903"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099033"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-confluence"></a>Tutorial: Integração do Azure Active Directory com o SSO do Kantega para o Confluence
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o Confluenc
 
     ![Informações de logon único de URLs e domínio de logon único do Kantega para o Confluence](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -180,7 +180,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o Confluenc
 
     ![Configurar o logon único](./media/kantegassoforconfluence-tutorial/addon6.png)
 
-     a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
+    a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
 
     b. Clique em **Próximo**.
 
@@ -188,7 +188,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o Confluenc
 
     ![Configurar o logon único](./media/kantegassoforconfluence-tutorial/addon7.png)
 
-     a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
+    a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
     b. Clique em **Próximo**.
 
@@ -196,7 +196,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o Confluenc
 
     ![Configurar o logon único](./media/kantegassoforconfluence-tutorial/addon8.png)
 
-     a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
+    a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
     b. Clique em **Próximo**.
 
@@ -208,7 +208,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o Confluenc
 
     ![Configurar o logon único](./media/kantegassoforconfluence-tutorial/addon10.png)
 
-     a. Selecione **Criar usuários no Diretório interno do Confluence, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
+    a. Selecione **Criar usuários no Diretório interno do Confluence, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
     b. Clique em **Próximo**.
 
@@ -220,7 +220,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o Confluenc
 
     ![Configurar o logon único](./media/kantegassoforconfluence-tutorial/addon12.png)
 
-     a. Selecione **Domínios conhecidos** no painel esquerdo da página.
+    a. Selecione **Domínios conhecidos** no painel esquerdo da página.
 
     b. Insira o nome de domínio na caixa de texto **Domínios conhecidos**.
 
@@ -293,7 +293,7 @@ Para permitir que os usuários do Azure AD façam logon no Confluence, eles deve
 
     ![Adicionar Funcionário](./media/kantegassoforconfluence-tutorial/user2.png)
 
-     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome completo**, digite o nome completo do usuário, como Brenda Fernandes.
 

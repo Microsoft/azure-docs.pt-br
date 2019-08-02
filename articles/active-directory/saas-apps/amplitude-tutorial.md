@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af8bba46bba103eae49ea26ffc0c653c2ccc8309
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5eba2aad0c758aeff189ba8638d92c46ed0902c1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860451"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107097"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Tutorial: Integração do Azure Active Directory com o Amplitude
 
@@ -54,7 +54,7 @@ Para configurar a integração do Amplitude ao Microsoft Azure AD, você precisa
 
 **Para adicionar o Amplitude a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Microsoft Azure AD com o Amplitude, execute as
 
     ![Informações de logon único de Domínio e URLs do Amplitude](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite a URL `https://amplitude.com/saml/sso/metadata`
+    a. Na caixa de texto **Identificador**, digite a URL `https://amplitude.com/saml/sso/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Microsoft Azure AD com o Amplitude, execute as
 
     ![Configurar o logon único](./media/amplitude-tutorial/configure3.png)
 
-     a. Abra o **XML de Metadados** baixado do Portal do Azure no bloco de notas, cole o conteúdo na caixa de texto **Metadados do Microsoft Azure Active Directory**.
+    a. Abra o **XML de Metadados** baixado do Portal do Azure no bloco de notas, cole o conteúdo na caixa de texto **Metadados do Microsoft Azure Active Directory**.
 
     b. Copie o valor da **URL de Resposta (ACS)** e cole-o na caixa de texto **URL de Resposta** da **Configuração de SAML Básico** no Portal do Azure.
 
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -225,4 +225,4 @@ Ao clicar no bloco do Amplitude no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

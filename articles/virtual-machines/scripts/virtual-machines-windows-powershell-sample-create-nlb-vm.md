@@ -4,7 +4,7 @@ description: Amostra de script do Azure PowerShell – Criar uma VM NBL Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 18bf494ceb212de07b3e7ee1e0fa0e4de89cb07f
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7c345d95af1167d0f6c99fdb3d438962a13242d6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976740"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696040"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Como balancear a carga de tráfego entre máquinas virtuais altamente disponíveis
 
@@ -31,7 +31,7 @@ Este exemplo de script cria todos os componentes necessários para executar vár
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>Script de exemplo
 
@@ -68,6 +68,16 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Cria uma configuração de VM. Essa configuração inclui informações como nome da VM, sistema operacional e credenciais administrativas. A configuração é usada durante a criação da VM. |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Crie uma máquina virtual. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Remove um grupo de recursos e todos os recursos contidos nele. |
+
+Você também pode criar VMs usando sua própria imagem gerenciada personalizada. Na configuração da VM, para `Set-AzVMSourceImage` use os parâmetros `-Id` e `-VM` em vez de `-PublisherName`, `-Offer`, `-Skus` e `-Version`.
+
+Por exemplo, criar a configuração da VM seria:
+
+```powershell
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `
+  Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | `
+  Set-AzVMSourceImage -Id <Image.ID of the custom managed image> | Add-AzVMNetworkInterface -Id $nicVM3.Id
+ ```
 
 ## <a name="next-steps"></a>Próximas etapas
 

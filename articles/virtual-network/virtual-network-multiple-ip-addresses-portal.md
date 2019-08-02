@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
-ms.author: annahar
-ms.openlocfilehash: b1873b770a6b4280b7098c68ecb75cc1411fe453
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: anavin
+ms.openlocfilehash: fcb9cc817128bce9498312d3fb016761b6382634
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746959"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612750"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Atribuir vários endereços IP a máquinas virtuais usando o Portal do Azure
 
@@ -55,7 +55,7 @@ Conclua as etapas em uma das seções a seguir com base no tipo de endereço IP 
 Conclua as etapas a seguir para adicionar um novo endereço IP privado:
 
 1. Conclua as etapas na seção [Principais etapas](#coreadd) deste artigo.
-2. Clique em **Adicionar**. No painel **Adicionar configuração de IP** que é exibido, crie uma configuração de IP denominada *IPConfig-4* com *10.0.0.7* como um endereço IP privado *Estático* e clique em **OK**.
+2. Clique em **Adicionar** . No painel **Adicionar configuração de IP** que é exibido, crie uma configuração de IP denominada *IPConfig-4* com *10.0.0.7* como um endereço IP privado *Estático* e clique em **OK**.
 
     > [!NOTE]
     > Ao adicionar um endereço IP estático, você deve especificar um endereço válido, não utilizado, na sub-rede a qual a NIC está conectada. Se o endereço selecionado não estiver disponível, o portal mostrará um X para o endereço IP, e você deverá selecionar outro.
@@ -87,7 +87,7 @@ Um endereço IP público é uma configuração para um recurso de endereço IP p
 #### <a name="associate-the-public-ip-address-resource-to-a-new-ip-configuration"></a>Associar o recurso de endereço IP público a uma nova configuração de IP
 
 1. Conclua as etapas na seção [Principais etapas](#coreadd) deste artigo.
-2. Clique em **Adicionar**. No painel **Adicionar configuração de IP** que é exibido, crie uma configuração de IP denominada *IPConfig-4*. Habilite o **Endereço IP público** e selecione um recurso de endereço IP público existente e disponível no painel **Escolher endereço IP público** que é exibido.
+2. Clique em **Adicionar** . No painel **Adicionar configuração de IP** que é exibido, crie uma configuração de IP denominada *IPConfig-4*. Habilite o **Endereço IP público** e selecione um recurso de endereço IP público existente e disponível no painel **Escolher endereço IP público** que é exibido.
 
     Depois de selecionar o recurso de endereço IP público, clique em **OK** e o painel será fechado. Se você não tiver um endereço IP público existente, crie um usando as etapas na seção [Criar um recurso de endereço IP público](#create-public-ip) deste artigo. 
 

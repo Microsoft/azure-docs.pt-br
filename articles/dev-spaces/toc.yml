@@ -9,14 +9,18 @@
       items:
         - name: Desenvolvimento da equipe
           href: quickstart-team-development.md
-        - name: Java (VS Code e CLI)
+        - name: Executar um aplicativo
+          href: quickstart-cli.md
+        - name: Executar um aplicativo com um Dockerfile
+          href: quickstart-cli-dockerfile.md
+        - name: Executar e depurar Java com o VS Code
           href: quickstart-java.md
-        - name: .NET Core (VS Code e CLI)
+        - name: Executar e depurar .NET Core com o VS Code
           href: quickstart-netcore.md
-        - name: .NET Core (Visual Studio)
-          href: quickstart-netcore-visualstudio.md
-        - name: Node.js (VS Code e CLI)
+        - name: Executar e depurar Node.js com o VS Code
           href: quickstart-nodejs.md
+        - name: Executar e depurar .NET Core com o Visual Studio
+          href: quickstart-netcore-visualstudio.md
     - name: Tutoriais
       items:
         - name: Java (VS Code e CLI)
@@ -55,8 +59,12 @@
       items:
         - name: Como o Dev Spaces funciona
           href: how-dev-spaces-works.md
+        - name: Como o VS Code funciona com o Dev Spaces
+          href: how-vs-code-works-with-dev-spaces.md
     - name: Como
       items:
+        - name: Instalar o Azure Dev Spaces
+          href: how-to/install-dev-spaces.md
         - name: Criar um cluster do Kubernetes usando o Azure Cloud Shell
           href: how-to/create-cluster-cloud-shell.md
         - name: Compartilhar Azure Dev Spaces
@@ -71,7 +79,11 @@
           href: how-to/upgrade-tools.md
         - name: Usar CI/CD com o Azure Dev Spaces
           href: how-to/setup-cicd.md
+        - name: Usar o plug-in Azure Dev Spaces para Jenkins
+          href: ../jenkins/tutorial-jenkins-dev-spaces.md
         - name: Continuidade dos negócios e recuperação de desastres para o Azure Dev Spaces
           href: how-to/dev-spaces-business-continuity.md
+        - name: Interagir com contêineres do Windows
+          href: how-to/run-dev-spaces-windows-containers.md
     - name: solução de problemas
       href: troubleshooting.md

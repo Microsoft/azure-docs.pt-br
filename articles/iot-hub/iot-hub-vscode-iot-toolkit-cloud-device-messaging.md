@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 5b74524a05317cf22160561a4a001e88f9215953
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1289e9c8f8cfc9360c9b2325507b43bab3a69028
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440057"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838503"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Use as Ferramentas do Azure IoT para Visual Studio Code para enviar e receber mensagens entre o seu dispositivo e o Hub IoT
 
@@ -56,17 +56,17 @@ Você aprende a usar as Ferramentas do Azure IoT para Visual Studio Code para mo
 5. A lista de dispositivos será mostrada na guia **Dispositivos do Hub IoT do Azure** em poucos segundos.
 
    > [!Note]
-   > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Insira a cadeia de conexão para o hub IoT ao qual seu dispositivo IoT se conecta na janela pop-up.
+   > Você também pode concluir a configuração escolhendo **Definir cadeia de conexão do Hub IoT**. Insira o **iothubowner** cadeia de conexão da política do hub IoT que seu dispositivo IoT se conecta na janela pop-up.
 
 ## <a name="monitor-device-to-cloud-messages"></a>Monitorar mensagens do dispositivo para a nuvem
 
 Para monitorar as mensagens enviadas do seu dispositivo ao seu Hub IoT, siga estas etapas:
 
-1. Clique com o botão direito do mouse no seu dispositivo e selecione **Iniciar Monitoramento de Mensagem de D2C**.
+1. Seu dispositivo com o botão direito e selecione **Iniciar monitoramento de evento de ponto de extremidade interno**.
 
 2. As mensagens monitoradas serão mostradas na exibição **SAÍDA** > **Kit de Ferramentas do Hub IoT do Azure**.
 
-3. Para interromper o monitoramento, clique com botão direito do mouse na exibição **SAÍDA** e selecione **Parar Monitoramento de Mensagem de D2C**.
+3. Para interromper o monitoramento, clique com botão direito do **saída** exibir e selecione **parar monitoramento de evento de ponto de extremidade interno**.
 
 ## <a name="send-cloud-to-device-messages"></a>Envie mensagens da nuvem para o dispositivo
 

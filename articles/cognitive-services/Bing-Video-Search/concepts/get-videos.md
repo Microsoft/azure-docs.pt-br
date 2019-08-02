@@ -1,6 +1,6 @@
 ---
 title: Enviar solicitações de pesquisa para a API de Pesquisa de Vídeo do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como enviar consultas de pesquisa para a API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 2eaefcf9af6188867bfd692fad891a70fcadb076
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: f1d433dd7d919aa5d11f2f59b74a5e3f2dca0b59
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66386516"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500297"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisar vídeos com a API de Pesquisa de Vídeo do Bing
 
@@ -98,7 +98,7 @@ A resposta contém uma resposta de [Vídeos](https://docs.microsoft.com/rest/api
 
 ## <a name="video-thumbnails"></a>Miniaturas de vídeo
 
-Você pode exibir todas as miniaturas de vídeo, ou um subconjunto delas, retornadas pela API de Pesquisa de Vídeo do Bing. Se você exibir um subconjunto, forneça ao usuário a opção para exibir os vídeos restantes. Como parte dos [requisitos de uso e exibição](../UseAndDisplayRequirements.md) da API do Bing, você precisa exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, consulte [Redimensionando e cortando miniaturas](../resize-and-crop-thumbnails.md). 
+Você pode exibir todas as miniaturas de vídeo, ou um subconjunto delas, retornadas pela API de Pesquisa de Vídeo do Bing. Se você exibir um subconjunto, forneça ao usuário a opção para exibir os vídeos restantes. Como parte dos [requisitos de uso e exibição](../UseAndDisplayRequirements.md) da API do Bing, você precisa exibir os vídeos na ordem fornecida na resposta. Para obter informações sobre o redimensionamento da miniatura, consulte [Redimensionando e cortando miniaturas](../../bing-web-search/resize-and-crop-thumbnails.md). 
 
 À medida que o usuário passa o mouse sobre a miniatura, é possível usar [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) para reproduzir uma versão em miniatura do vídeo. Atribua a miniatura de movimento ao exibi-la.
 

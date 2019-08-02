@@ -12,15 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: shlo
-ms.openlocfilehash: 7edaa4c673c2cb94dc5bd0245ce66c9fe6a7dd3c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f6153bf1162eaa1c7eab2c358977d754695b64fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60764281"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325384"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
 A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade.
+
+> [!NOTE]
+> A atividade da Web pode chamar apenas URLs expostas publicamente. Não há suporte para URLs que são hospedadas em uma rede virtual privada.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -86,7 +89,7 @@ A tabela a seguir mostra os requisitos para o conteúdo JSON:
 | Tipo não-JSON | Sem suporte | Sem suporte |
 ||||
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 ### <a name="none"></a>Nenhum
 Se a autenticação não for necessária, não inclua a propriedade "authentication".

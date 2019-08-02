@@ -3,16 +3,17 @@ title: Executar comandos em contêineres em execução em Instâncias de Contêi
 description: Saiba como executar um comando em um contêiner que está sendo executado em Instâncias de Contêiner do Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: danlep
-ms.openlocfilehash: 577e2386c352798bc21a2c78b22726128ac7cf0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60579739"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325992"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>Executar um comando em uma Instância de Contêiner do Azure
 
@@ -20,7 +21,7 @@ As Instâncias de Contêiner do Azure oferecem suporte à execução de um coman
 
 ## <a name="run-a-command-with-azure-cli"></a>Executar um comando com a CLI do Azure
 
-Executar um comando em um contêiner em execução com [az container exec][az-container-exec] na [CLI do Azure][azure-cli]:
+Execute um comando em um contêiner em execução com [AZ container exec][az-container-exec] in the [Azure CLI][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -84,7 +85,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>Restrições
 
-Instâncias de Contêiner do Azure atualmente oferecem suporte à inicialização de um único processo com [az container exec][az-container-exec] e você não pode passar argumentos de comando. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
+Atualmente, as instâncias de contêiner do Azure dão suporte à inicialização de um único processo com [AZ container exec][az-container-exec], e você não pode passar argumentos de comando. Por exemplo, não é possível encadear comandos, como em `sh -c "echo FOO && echo BAR"`, ou executar `echo FOO`.
 
 ## <a name="next-steps"></a>Próximas etapas
 

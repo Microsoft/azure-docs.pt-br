@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e24c1e9a61eb7ea73a949e17ffbf8c5b768f05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aad6f237a37ce4782e2c103a7a14e0a3951093de
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61479573"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612359"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Fazer a rotação de credenciais de logon para entradas e saídas de um trabalho do Stream Analytics
 
@@ -48,7 +48,7 @@ Nesta seção, vamos orientar você a regenerar as credenciais para o armazename
 7. Um teste de conexão será automaticamente iniciado quando você salvar as alterações, verifique se ele é aprovado.    
 8. Vá para a seção [iniciar o trabalho a partir da hora da última interrupção](#start-your-job-from-the-last-stopped-time).
 
-### <a name="sql-database"></a>Banco de dados SQL
+### <a name="sql-database"></a>Banco de Dados SQL
 
 Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de logon de um usuário existente. Você pode atualizar as credenciais usando o portal do Azure ou uma ferramenta do cliente, como o SQL Server Management Studio. Esta seção demonstra o processo de atualização de credenciais usando o portal do Azure.
 
@@ -85,5 +85,5 @@ Você precisa se conectar ao banco de dados SQL para atualizar as credenciais de
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

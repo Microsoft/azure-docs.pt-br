@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: a946443e1d1e66a1ae8f70671ff328cdf47ff009
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 315f8d30b7c7559947c599edd0e18eaa5a99ac22
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65992008"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513628"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Início Rápido: Usar o portal do Azure para criar uma fila do Barramento de Serviço
 Este início rápido descreve como enviar e receber mensagens de e para uma fila do Barramento de Serviço, usando o [portal do Azure][Azure portal] para criar uma fila e um namespace de mensagens nesse namespace e obter as credenciais de autorização nesse namespace. O procedimento mostra como enviar e receber mensagens dessa fila usando a [	Biblioteca do .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
@@ -35,7 +35,7 @@ Para concluir este tutorial, verifique se você tem o seguinte instalado:
 
 ## <a name="send-and-receive-messages"></a>Enviar e receber mensagens
 
-Depois que o namespace e a fila forem provisionados e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+Depois que o namespace e a fila forem provisionados e você tiver as credenciais necessárias, estará pronto para enviar e receber mensagens. É possível examinar o código [nesta pasta de exemplo do GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TopicFilters).
 
 Para executar o código, faça o seguinte:
 

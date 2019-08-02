@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: 15b2408113d8bd19d2e988643442ac5e3b305237
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149220"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67055291"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificar um arquivo remoto baseado em URL e transmitir o vídeo – REST
 
@@ -236,7 +236,7 @@ Após a conclusão da tarefa de codificação, a próxima etapa é disponibiliza
 
 O processo de criação de um **Localizador de Streaming** é chamado de publicação. Por padrão, o **Localizador de Streaming** é válido imediatamente após você fazer as chamadas à API e dura até ser excluído, a menos que você configure os horários de início e término opcionais. 
 
-Ao criar um [Localizador de Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar os detalhes desejados **StreamingPolicyName**. Neste exemplo, você transmitirá conteúdo em criptografado (ou não criptografado), portanto, a política de streaming predefinida clara **PredefinedStreamingPolicy.ClearStreamingOnly** é utilizada.
+Ao criar um [Localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisará especificar o **StreamingPolicyName** desejado. Neste exemplo, você fará o streaming de conteúdo limpo (ou não criptografado), de modo que a política de streaming clara predefinida "Predefined_ClearStreamingOnly" seja utilizada.
 
 > [!IMPORTANT]
 > Ao usar a [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, você deve criar um conjunto limitado de tais políticas para sua conta de serviço de mídia e reutilizá-los para o seu StreamingLocators, sempre que a mesmo opção de criptografia e protocolos sejam necessários. 
@@ -343,7 +343,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 Para testar o streaming, este artigo usa o Player de Mídia do Azure. 
 
 1. Abra um navegador da Web e navegue até [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Na caixa **URL:**, cole a URL que você compilou. 
+2. Na caixa **URL:** , cole a URL que você compilou. 
 3. Pressione **Atualizar Player**.
 
 O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado em um ambiente de produção. 

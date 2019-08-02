@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.date: 06/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9961129805d133c4512e40e4c8be80185316a1ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 67263df319063cdf21dadea257dcab05ba0d5f7b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074915"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839996"
 ---
 # <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Treinar e registrar os modelos de TensorFlow em escala com serviço de Azure Machine Learning
 
@@ -23,16 +23,24 @@ Este artigo mostra como treinar e registrar um modelo do TensorFlow usando o ser
 
 TensorFlow é uma estrutura de código-fonte aberto computacional comumente usada para criar redes neurais profundas (DNN). Com o serviço de Azure Machine Learning, você pode expandir rapidamente os trabalhos de treinamento do código-fonte aberto usando recursos de computação de nuvem elásticos. Você também pode acompanhar suas execuções de treinamento, modelos de versão, implante modelos e muito mais.
 
-Se você estiver desenvolvendo um modelo do TensorFlow desde o início ou está trazendo um modelo existente para a nuvem, o serviço Azure Machine Learning pode ajudá-lo a criar modelos prontos para produção.
+Se você estiver desenvolvendo um modelo do TensorFlow desde o início ou está trazendo uma [modelo existente](how-to-deploy-existing-model.md) para a nuvem, serviço de Azure Machine Learning pode ajudá-lo a criar modelos prontos para produção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura do Azure. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
-- [Instalar o Azure Machine Learning do SDK para Python](setup-create-workspace.md#sdk)
-- [Criar um arquivo de configuração do espaço de trabalho](setup-create-workspace.md#write-a-configuration-file)
-- [Baixar os arquivos de script de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` e `utils.py`
+Execute esse código em qualquer um desses ambientes:
 
-Você também pode encontrar um concluídos [versão do bloco de anotações do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) deste guia, na página de amostras do GitHub. O bloco de anotações inclui expandidas seções que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e os widgets bloco de anotações.
+ - Azure Machine Learning Notebook VM - nenhuma downloads ou a necessidade de instalar
+
+     - Conclua o [início rápido do notebook com base em nuvem](quickstart-run-cloud-notebook.md) para criar um servidor de notebook dedicado pré-carregado com o SDK e o repositório de exemplo.
+    - Na pasta exemplos no servidor de notebook, encontrar um bloco de anotações concluído e expandido navegando para este diretório: **how-to-use-azureml > Treinamento com aprendizado profundo > train-hyperparameter-tune-deploy-with-tensorflow**pasta. 
+ 
+ - Seu próprio servidor Jupyter Notebook
+
+     - [Instalar o Azure Machine Learning do SDK para Python](setup-create-workspace.md#sdk)
+    - [Criar um arquivo de configuração do espaço de trabalho](setup-create-workspace.md#write-a-configuration-file)
+    - [Baixar os arquivos de script de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` e `utils.py`
+     
+    Você também pode encontrar um concluídos [versão do bloco de anotações do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) deste guia, na página de exemplos do GitHub. O bloco de anotações inclui expandidas seções que abrangem o ajuste de hiperparâmetro inteligente, implantação de modelo e os widgets bloco de anotações.
 
 ## <a name="set-up-the-experiment"></a>Configure o experimento
 
@@ -282,7 +290,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você treinado e registrou um modelo do TensorFlow no serviço do Azure Machine Learning. Para saber como implantar um modelo, continue com o nosso artigo de implantação de modelo.
+Neste artigo, você treinado e registrou um modelo do TensorFlow. Para saber como implantar um modelo em um cluster habilitado para GPU, continue com o nosso artigo de implantação de modelo GPU.
 
-> [!div class="nextstepaction"]
-> [Como e onde implantar modelos](how-to-deploy-and-where.md)
+[Como implantar para inferência com GPUs](how-to-deploy-inferencing-gpus.md)
+[como monitorar com Tensorboard](how-to-monitor-tensorboard.md)

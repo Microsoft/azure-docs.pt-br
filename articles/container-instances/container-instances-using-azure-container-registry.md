@@ -3,17 +3,18 @@ title: Implantar nas Instâncias de Contêiner do Azure por meio do Registro de 
 description: Saiba como implantar contêineres em Instâncias de Contêiner do Azure usando imagens de contêiner em um Registro de Contêiner do Azure.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 515dc8ed4a2fc9b3d2973d393c6894d8c7cef8f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729391"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325552"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Implantar nas Instâncias de Contêiner do Azure por meio do Registro de Contêiner do Azure
 
@@ -23,7 +24,7 @@ O [Registro de Contêiner do Azure](../container-registry/container-registry-int
 
 **Registro de contêiner do Azure**: você precisa de um registro de contêiner do Azure – e de pelo menos uma imagem de contêiner no registro – para concluir as etapas deste artigo. Se você precisar de um registro, consulte [Criar um registro de contêiner usando a CLI do Azure](../container-registry/container-registry-get-started-azure-cli.md).
 
-**CLI do Azure**: os exemplos de linha de comando neste artigo usam a [CLI do Azure](/cli/azure/) e são formatados para o shell de Bash. Você pode [instalar a CLI do Azure](/cli/azure/install-azure-cli) localmente ou usar o [Azure Cloud Shell][cloud-shell-bash].
+**CLI do Azure**: os exemplos de linha de comando neste artigo usam a [CLI do Azure](/cli/azure/) e são formatados para o shell de Bash. Você pode [instalar o CLI do Azure](/cli/azure/install-azure-cli) localmente ou usar o [Azure cloud Shell][cloud-shell-bash].
 
 ## <a name="configure-registry-authentication"></a>Configurar a autenticação do registro
 
@@ -49,7 +50,7 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 Agora, é necessário criar uma entidade de serviço e armazenar as credenciais no cofre de chaves.
 
-O comando a seguir usa [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar a entidade de serviço e [az keyvault secret set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre.
+O comando a seguir usa [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] to create the service principal, and [az keyvault secret set][az-keyvault-secret-set] para armazenar a **senha** da entidade de serviço no cofre.
 
 ```azurecli
 # Create service principal, store its password in AKV (the registry *password*)
@@ -87,13 +88,13 @@ Agora, é possível referenciar esses segredos pelo nome quando você ou os apli
 
 Agora que as credenciais da entidade de serviço estão armazenadas nos segredos do Azure Key Vault, os aplicativos e serviços podem utilizá-las para acessar o registro privado.
 
-Primeiro, obtenha o nome do servidor de logon do registro usando o comando [az acr show][az-acr-show]. O nome do servidor de logon é composto por letras minúsculas e é semelhante a `myregistry.azurecr.io`.
+Primeiro, obtenha o nome do servidor de logon do registro usando o comando [AZ ACR show][az-acr-show] . O nome do servidor de logon é composto por letras minúsculas e é semelhante a `myregistry.azurecr.io`.
 
 ```azurecli
 ACR_LOGIN_SERVER=$(az acr show --name $ACR_NAME --resource-group $RES_GROUP --query "loginServer" --output tsv)
 ```
 
-Execute o seguinte comando [az container create][az-container-create] para implantar uma instância de contêiner. O comando usa as credenciais da entidade de serviço armazenadas no Azure Key Vault para autenticar no registro de contêiner e assume que você efetuou push da imagem [aci-helloworld](container-instances-quickstart.md) anteriormente para o registro. Atualize o valor `--image` se você quiser usar uma imagem diferente do registro.
+Execute o comando [AZ container Create][az-container-create] a seguir para implantar uma instância de contêiner. O comando usa as credenciais da entidade de serviço armazenadas no Azure Key Vault para autenticar no registro de contêiner e assume que você efetuou push da imagem [aci-helloworld](container-instances-quickstart.md) anteriormente para o registro. Atualize o valor `--image` se você quiser usar uma imagem diferente do registro.
 
 ```azurecli
 az container create \

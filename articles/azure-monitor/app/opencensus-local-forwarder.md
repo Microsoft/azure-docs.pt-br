@@ -1,5 +1,5 @@
 ---
-title: OpenCensus de Insights de aplicativo do Azure distribuída rastreamento encaminhador local (versão prévia) | Docs do Microsoft
+title: Encaminhador local de rastreamento distribuído do Aplicativo Azure insights OpenCensus (visualização) | Microsoft docs
 description: Encaminhe períodos e rastreamento distribuído OpenCensus em linguagens como Python e Go para o Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: a7efe663a75fa29a31e7157c5eab24c2973a3758
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699286"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348159"
 ---
-# <a name="local-forwarder-preview"></a>Encaminhador de local (versão prévia)
+# <a name="local-forwarder-preview"></a>Encaminhador local (visualização)
 
 O encaminhador local é um agente que coleta telemetria do Application Insights ou do [OpenCensus](https://opencensus.io/) de vários SDKs e a encaminha ao Application Insights. Ele pode ser executado em Windows e Linux. Também é possível executá-lo em macOS, mas ele não tem suporte oficial no momento.
 
@@ -154,7 +154,7 @@ O encaminhador local pode funcionar com o macOS, mas ele não tem suporte oficia
 ### <a name="self-hosting"></a>Hospedagem interna
 O encaminhador local também é distribuído como um pacote do NuGet do .NET Standard, permitindo que você o hospede em seu aplicativo .NET.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

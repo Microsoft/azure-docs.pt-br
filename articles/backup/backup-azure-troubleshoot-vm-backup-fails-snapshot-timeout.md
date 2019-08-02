@@ -1,20 +1,19 @@
 ---
 title: 'Solucionar problemas de falha de Backup do Azure: Status do agente convidado indisponível'
 description: Sintomas, causas e resoluções para falhas do Backup do Azure relacionados a agente, extensão e discos.
-services: backup
-author: genlin
-manager: cshepard
+author: saurabhsensharma
+manager: saurabhsensharma
 keywords: Backup do Azure; agente da VM; conectividade de rede;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
-ms.author: genli
-ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/05/2019
+ms.author: saurse
+ms.openlocfilehash: e4337c9c89ca239bb664cbb7fb953ab9eedd3ac5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64914939"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465327"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solucionar problemas de falha de Backup do Azure: Problemas com o agente ou extensão
 
@@ -51,7 +50,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Erro de código**: UserErrorRpCollectionLimitReached <br>
 **Mensagem de erro**: O limite máximo da coleção do Ponto de Restauração foi atingido. <br>
 * Esse problema pode ocorrer se há um bloqueio no grupo de recursos de ponto de recuperação evitando a limpeza automática de um ponto de recuperação.
-* Esse problema também pode ocorrer se vários backups são disparados por dia. No momento, é recomendável apenas um backup por dia, como os pontos de restauração instantânea são retidos por 1 a 5 dias, de acordo com a retenção de instantâneo configurado e apenas 18 RPs instantânea pode ser associado uma VM em um determinado momento. <br>
+* Esse problema também pode ocorrer se vários backups são disparados por dia. Atualmente, é recomendável apenas um backup por dia, pois os pontos de restauração instantâneas são mantidos por 1-5 dias de acordo com a retenção de instantâneo configurada e somente 18 RPs podem ser associados a uma VM em um determinado momento. <br>
 
 Ação recomendada:<br>
 Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repita a operação para disparar a limpeza.
@@ -66,7 +65,7 @@ Para resolver esse problema, remova o bloqueio do grupo de recursos da VM e repi
 **Erro de código**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Mensagem de erro**: O backup não tem permissões suficientes para o cofre de chaves para fazer backup de VMs criptografadas. <br>
 
-Para que a operação de backup tenha êxito em VMs criptografadas, é necessário ter permissões para acessar o cofre de chaves. Isso pode ser feito usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou por meio das [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
+Para que a operação de backup tenha êxito em VMs criptografadas, é necessário ter permissões para acessar o cofre de chaves. Isso pode ser feito usando o [portal do Azure](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption) ou por meio do [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection).
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork – falha na operação de instantâneo por falta de conectividade à rede na máquina virtual
 
@@ -102,12 +101,12 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 **Causa 5: O serviço de backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos** <br>
 **Causa 6: [A VM não tem acesso à internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - Backup do Azure atualmente não dá suporte a tamanhos de disco maiores que 4095GB
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize-o backup do Azure no momento não dá suporte a tamanhos de disco maiores que 4095 GB
 
 **Erro de código**: UserErrorUnsupportedDiskSize <br>
-**Mensagem de erro**: Atualmente o Backup do Azure não dá suporte a tamanhos de disco maiores que 4095GB <br>
+**Mensagem de erro**: Atualmente, o backup do Azure não dá suporte a tamanhos de disco maiores que 4095 GB <br>
 
-A operação de backup pode falhar ao fazer backup de VM com tamanho de disco maior que 4095GB. Suporte para discos grandes em breve.  
+Sua operação de backup pode falhar ao fazer backup de VM com tamanho de disco maior que 4095 GB. O suporte para discos grandes estará disponível em breve.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress – não é possível iniciar o backup porque outra operação de backup já está em andamento
 
@@ -193,7 +192,7 @@ As seguintes condições podem causar falha na tarefa de instantâneo:
 | Causa | Solução |
 | --- | --- |
 | O status da VM foi informado incorretamente porque a VM foi desligada no protocolo RDP. | Se você desligar a VM no RDP, verifique o portal para determinar se o status da VM está correto. Se não estiver correto, desligue a VM no portal usando a opção de **Desligar** no painel de VM. |
-| A VM não pode obter o endereço do host ou da malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione. Se a VM não puder obter o endereço do host ou da malha por meio da resposta 245 do DHCP, ela não poderá baixar ou executar nenhuma extensão. Se você precisar de um endereço IP privado estático, você deve configurá-lo por meio de **portal do Azure** ou **PowerShell** e verifique se a opção DHCP na VM está habilitada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
+| A VM não pode obter o endereço do host ou da malha do DHCP. | O DHCP deve estar habilitado no convidado para que o backup da VM IaaS funcione. Se a VM não puder obter o endereço do host ou da malha por meio da resposta 245 do DHCP, ela não poderá baixar ou executar nenhuma extensão. Se você precisar de um IP privado estático, deverá configurá-lo por meio do **portal do Azure** ou do **PowerShell** e certificar-se de que a opção DHCP dentro da VM esteja habilitada. [Saiba mais](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sobre como configurar um endereço IP estático com o PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>A extensão de backup não pode ser atualizada ou carregada
 Se as extensões não puderem ser carregadas, o backup falhará porque não é possível obter um instantâneo.
@@ -224,14 +223,14 @@ A realização dessas etapas faz com que a extensão seja reinstalada durante o 
 
 ### <a name="clean_up_restore_point_collection"></a> Limpar a coleção de pontos de restauração
 Depois de remover o bloqueio, os pontos de restauração precisam ser limpos. Para limpar os pontos de restauração, siga qualquer um dos seguintes métodos:<br>
-* [Limpar a restauração de ponto coleção executando backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
+* [Limpar a coleção de pontos de restauração executando backup ad hoc](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 * [Limpar a coleção de pontos de restauração do portal do Azure](#clean-up-restore-point-collection-from-azure-portal)<br>
 
-#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a restauração de ponto coleção executando backup ad hoc
-Depois de remover o bloqueio, dispare um backup do ad hoc/manual. Isso garantirá que os pontos de restauração sejam limpos automaticamente. Esperar ad hoc/manual a falha da operação primeira vez; No entanto, ele garantirá que a limpeza automática, em vez de exclusão manual dos pontos de restauração. Após a limpeza, o próximo backup agendado deverá ser bem-sucedido.
+#### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Limpar a coleção de pontos de restauração executando backup ad hoc
+Após a remoção do bloqueio, dispare um backup ad hoc/manual. Isso garantirá que os pontos de restauração sejam limpos automaticamente. Esperar que essa operação ad hoc/manual falhe pela primeira vez; no entanto, ele garantirá a limpeza automática em vez da exclusão manual de pontos de restauração. Após a limpeza, o próximo backup agendado deverá ser bem-sucedido.
 
 > [!NOTE]
-> A limpeza automática ocorrerá após algumas horas de disparar o backup do ad hoc/manual. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
+> A limpeza automática ocorrerá após algumas horas de acionamento do backup ad hoc/manual. Se o backup agendado ainda falhar, tente excluir manualmente a coleção de pontos de restauração usando as etapas listadas [aqui](#clean-up-restore-point-collection-from-azure-portal).
 
 #### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Limpar coleção de pontos de restauração do portal do Azure <br>
 

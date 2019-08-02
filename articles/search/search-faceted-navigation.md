@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fc1e1aaaa3b2489dd4083f56d45ab0abc2b6892
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793632"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165964"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação facetada no Azure Search
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada autodirigida em aplicativos de pesquisa. O termo 'navegação facetada' pode não ser familiar, mas provavelmente você já a usou antes. Como mostra o exemplo a seguir, a navegação facetada é nada mais do que as categorias usadas para filtrar resultados.
@@ -401,5 +401,5 @@ Assista [Aprofundamento no Azure Search](https://channel9.msdn.com/Events/TechEd
 Para obter mais informações sobre princípios de design para navegação facetada, recomendamos os seguintes links:
 
 * [Padrões de design: Faceted Navigation](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Preocupações de Front-End ao implementar uma pesquisa facetada – parte 1 ](https://articles.uie.com/faceted_search2/)
+* [Preocupações de Front-End ao implementar uma pesquisa facetada – parte 1](https://articles.uie.com/faceted_search2/)
 

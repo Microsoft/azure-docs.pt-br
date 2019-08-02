@@ -1,58 +1,56 @@
 ---
-title: Solucionando problemas do Gateway de aplicativo do Azure com o serviço de aplicativo – redirecionamento de URL do serviço de aplicativo
-description: Este artigo fornece informações sobre como solucionar o problema de redirecionamento ao Gateway de aplicativo do Azure é usado com o serviço de aplicativo do Azure
+title: Solução de problemas de gateway Aplicativo Azure com o serviço de aplicativo – redirecionamento para a URL do serviço de aplicativo
+description: Este artigo fornece informações sobre como solucionar o problema de redirecionamento quando Aplicativo Azure gateway é usado com o serviço Azure App
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 07/19/2019
 ms.author: absha
-ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7baadfb549b19bb12757c82d723578202b5cf8ad
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715158"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347889"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service"></a>Solucionar problemas do Gateway de aplicativo com o serviço de aplicativo
+# <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Solucionar problemas do serviço de aplicativo no gateway de aplicativo
 
-Saiba como diagnosticar e resolver problemas encontrados com o Gateway de aplicativo e serviço de aplicativo como o servidor de back-end.
+Saiba como diagnosticar e resolver problemas encontrados quando o servidor de aplicativos é usado como destino de back-end com o gateway de aplicativo
 
 ## <a name="overview"></a>Visão geral
 
-Neste artigo, você aprenderá como solucionar os problemas a seguir:
+Neste artigo, você aprenderá a solucionar os seguintes problemas:
 
 > [!div class="checklist"]
-> * URL do serviço de aplicativo obtendo exposto no navegador quando há um redirecionamento
-> * Domínio do ARRAffinity Cookie do serviço de aplicativo definido como o nome de serviço de aplicativo host (example.azurewebsites.net) em vez de host original
+> * A URL do serviço de aplicativo está sendo exposta no navegador quando há um redirecionamento
+> * O domínio do cookie ARRAffinity do serviço de aplicativo foi definido para o nome de host do serviço de aplicativo (example.azurewebsites.net) em vez do host original
 
-Quando você configura um público voltado para o serviço de aplicativo no pool de back-end do Gateway de aplicativo e se você tiver um redirecionamento configurado no código do aplicativo, você pode ver que quando você acessar o Gateway de aplicativo, você será redirecionado pelo navegador diretamente para o aplicativo URL do serviço.
+Quando um aplicativo de back-end envia uma resposta de redirecionamento, talvez você queira redirecionar o cliente para uma URL diferente daquela especificada pelo aplicativo de back-end. Por exemplo, talvez você queira fazer isso quando um serviço de aplicativo é hospedado atrás de um gateway de aplicativo e requer que o cliente faça um redirecionamento para seu caminho relativo. (Por exemplo, um redirecionamento de contoso.azurewebsites.net/path1 para contoso.azurewebsites.net/path2.) Quando o serviço de aplicativo envia uma resposta de redirecionamento, ele usa o mesmo nome de host no cabeçalho de local de sua resposta como aquele na solicitação que recebe do gateway de aplicativo. Portanto, o cliente fará a solicitação diretamente para contoso.azurewebsites.net/path2 em vez de passar pelo gateway de aplicativo (contoso.com/path2). Ignorar o gateway de aplicativo não é desejável.
 
-Esse problema pode ocorrer pelos seguintes motivos principais:
+Esse problema pode ocorrer devido aos seguintes motivos principais:
 
-- Você tem um redirecionamento configurado no seu serviço de aplicativo. Redirecionamento pode ser tão simple quanto adicionar uma barra à direita para a solicitação.
-- Você tem a autenticação do Azure AD que faz com que o redirecionamento.
-- Você habilitou a opção "Escolher a nome de Host do endereço de back-end" nas configurações de HTTP do Gateway de aplicativo.
-- Você não tem o seu domínio personalizado registrado com o serviço de aplicativo.
+- Você tem o redirecionamento configurado em seu serviço de aplicativo. O redirecionamento pode ser tão simples quanto adicionar uma barra à direita à solicitação.
+- Você tem a autenticação do Azure AD que causa o redirecionamento.
 
-Além disso, quando você estiver usando serviços de aplicativos por trás do Gateway de aplicativo e você estiver usando um domínio personalizado para acessar o Gateway de aplicativo, você poderá ver o valor de domínio para o cookie ARRAffinity definido pelo serviço de aplicativo trará o nome de domínio "example.azurewebsites.net". Se você quiser que seu nome de host original seja o domínio do cookie, execute a solução neste artigo.
+Além disso, quando você estiver usando os serviços de aplicativo por trás do gateway de aplicativo, o nome de domínio associado ao gateway de aplicativo (example.com) será diferente do nome de domínio do serviço de aplicativo (digamos, example.azurewebsites.net) por meio do qual você observará que o valor de domínio para o cookie ARRAffinity definido pelo serviço de aplicativo terá o nome de domínio "example.azurewebsites.net" que não é desejável. O nome de host original (example.com) deve ser o valor de domínio no cookie.
 
 ## <a name="sample-configuration"></a>Exemplo de configuração
 
-- Ouvinte de HTTP: Básica ou multissite
+- Ouvinte HTTP: Básico ou multissite
 - Pool de endereços de back-end: Serviço de Aplicativo
-- Configurações de HTTP: "Escolher nome de host do endereço de back-end" habilitada
-- Investigação: "Escolher nome de host nas configurações de HTTP de" habilitado
+- Configurações de HTTP: "Escolher nome do host do endereço de back-end" habilitado
+- Provas "Escolher nome do host de configurações HTTP" habilitado
 
 ## <a name="cause"></a>Causa
 
-Um serviço de aplicativo só pode ser acessado com os nomes de host configurado nas configurações de domínio personalizado, por padrão, é "example.azurewebsites.net" e se você deseja acessar o serviço de aplicativo usando o Gateway de aplicativo com um nome de host não registrado no serviço de aplicativo ou com Gateway de aplicativo FQDN, você precisa substituir o nome do host na solicitação original para o nome de host do serviço de aplicativo.
+Como o serviço de aplicativo é um serviço multilocatário, ele usa o cabeçalho de host na solicitação para rotear a solicitação para o ponto de extremidade correto. No entanto, o nome de domínio padrão dos serviços de aplicativos, *. azurewebsites.net (digamos, contoso.azurewebsites.net), é diferente do nome de domínio do gateway de aplicativo (digamos, contoso.com). Uma vez que a solicitação original do cliente tem o contoso.com (nome de domínio do gateway de aplicativo) como o nome do host, você precisa configurar o gateway de aplicativo para alterar o nome do host na solicitação original para o nome de host dos serviços de aplicativo quando ele roteia a solicitação para o back-end do serviço de aplicativo.  Você consegue fazer isso usando a opção "escolher nome do host do endereço de back-end" na configuração de HTTP do gateway de aplicativo e a opção "escolher nome do host de configurações de HTTP de back-end" na configuração de investigação de integridade.
 
-Para fazer isso com o Gateway de aplicativo, podemos usar a opção "Selecionar nome do host do endereço de back-end" nas configurações de HTTP e para a investigação para trabalhar, usamos "Escolher o nome do host de configurações de HTTP do back-end" na configuração da investigação.
+
 
 ![appservice-1](./media/troubleshoot-app-service-redirection-app-service-url/appservice-1.png)
 
-Devido a isso, quando o serviço de aplicativo faz um redirecionamento, ele usa o nome do host "example.azurewebsites.net" no cabeçalho de local, em vez do nome do host original, a menos que configurado de outra forma. Você pode verificar as solicitação e resposta cabeçalhos de exemplo abaixo.
+Devido a isso, quando o serviço de aplicativo faz um redirecionamento, ele usa o nome de host substituído "contoso.azurewebsites.net" no cabeçalho de local, em vez do nome de host original "contoso.com", a menos que seja configurado de outra forma. Você pode verificar os cabeçalhos de solicitação e resposta de exemplo abaixo.
 ```
 ## Request headers to Application Gateway:
 
@@ -66,44 +64,51 @@ Host: www.contoso.com
 
 Status Code: 301 Moved Permanently
 
-Location: http://example.azurewebsites.net/path/
+Location: http://contoso.azurewebsites.net/path/
 
 Server: Microsoft-IIS/10.0
 
-Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=example.azurewebsites.net
+Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619700e4010;Path=/;HttpOnly;Domain=contoso.azurewebsites.net
 
 X-Powered-By: ASP.NET
 ```
-No exemplo acima, você pode notar que o cabeçalho de resposta tem um código de status de 301 para redirecionamento e o cabeçalho de local tem o nome de host do serviço de aplicativo em vez do nome do host original "www.contoso.com".
+No exemplo acima, você pode observar que o cabeçalho de resposta tem um código de status de 301 para redirecionamento e o cabeçalho de local tem o nome de host do serviço de aplicativo em vez do nome de host original "www.contoso.com".
 
-## <a name="solution"></a>Solução
+## <a name="solution-rewrite-the-location-header"></a>Solução: Reescrever o cabeçalho de local
 
-Esse problema pode ser resolvido por não ter um redirecionamento no lado do aplicativo, no entanto, se isso não for possível, que podemos deve passar o mesmo cabeçalho de host que recebe do Gateway de aplicativo para o serviço de aplicativo em vez de fazer uma substituição de host também.
+Você precisará definir o nome do host no cabeçalho de local para o domínio do gateway de aplicativo. Para fazer isso, crie uma [regra](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) de reescrita com uma condição que seja avaliada se o cabeçalho de local na resposta contiver azurewebsites.net e executar uma ação para regravar o cabeçalho de local para ter o nome de host do gateway de aplicativo.  Consulte as instruções sobre [como reescrever o cabeçalho de local](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
 
-Depois de fazer isso, o serviço de aplicativo fará o redirecionamento (se houver) no mesmo host cabeçalho original que aponta para o Gateway de aplicativo e não seu próprio.
+> [!NOTE]
+> O suporte à reescrita do cabeçalho HTTP só está disponível para o [SKU Standard_V2 e WAF_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) do gateway de aplicativo. Caso você esteja usando a SKU v1, é altamente recomendável [migrar de v1 para v2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2) para poder usar a reescrita e outros [recursos avançados](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponíveis com o SKU v2.
 
-Para fazer isso, você deve possuir um domínio personalizado e siga o processo mencionado a seguir.
+## <a name="alternate-solution-use-app-services-custom-domain-instead-of-default-domain-name"></a>Solução alternativa: Usar o domínio personalizado do serviço de aplicativo em vez do nome de domínio padrão
 
-- Registre o domínio para a lista de domínios personalizados do serviço de aplicativo. Para isso, você deve ter um CNAME no seu domínio personalizado apontando para o FQDN do serviço de aplicativo. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o serviço de aplicativo do Azure](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+Se estiver usando a SKU v1, você não poderá reescrever o cabeçalho de local, pois esse recurso só estará disponível para a SKU v2. Portanto, para resolver o problema de redirecionamento, você precisará passar o mesmo nome de host que o gateway de aplicativo recebe para o serviço de aplicativo também, em vez de fazer uma substituição do host.
+
+Depois de fazer isso, o serviço de aplicativo fará o redirecionamento (se houver) no mesmo cabeçalho de host original que aponta para o gateway de aplicativo e não seu próprio.
+
+Para conseguir isso, você deve possuir um domínio personalizado e seguir o processo mencionado abaixo.
+
+- Registre o domínio na lista de domínios personalizados do serviço de aplicativo. Para isso, você deve ter um CNAME em seu domínio personalizado apontando para o FQDN do serviço de aplicativo. Para obter mais informações, consulte [mapear um nome DNS personalizado existente para o serviço de Azure app](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
 
 ![appservice-2](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- Depois disso, o serviço de aplicativo está pronto para aceitar o nome do host "www.contoso.com". Agora, altere sua entrada CNAME no DNS para apontá-lo de volta para o FQDN do Gateway de aplicativo. Por exemplo, "appgw.eastus.cloudapp.azure.com".
+- Quando isso for feito, seu serviço de aplicativo estará pronto para aceitar o nome do host "www.contoso.com". Agora, altere sua entrada CNAME no DNS para apontar de volta para o FQDN do gateway de aplicativo. Por exemplo, "appgw.eastus.cloudapp.azure.com".
 
-- Certifique-se de que seu domínio "www.contoso.com" seja resolvido para o FQDN do Gateway de aplicativo quando você fizer uma consulta DNS.
+- Certifique-se de que seu domínio "www.contoso.com" seja resolvido para o FQDN do gateway de aplicativo quando você fizer uma consulta DNS.
 
-- Defina sua investigação personalizada para desabilitar "Escolher o nome do host de configurações de HTTP do back-end". Isso pode ser feito no portal, desmarcando a caixa de seleção nas configurações de teste e no PowerShell usando não - PickHostNameFromBackendHttpSettings mude no comando Set-AzApplicationGatewayProbeConfig. No campo nome do host do teste, insira seu FQDN do serviço de aplicativo "example.azurewebsites.net", conforme as solicitações de investigação enviadas do Gateway de aplicativo executar isso no cabeçalho do host.
+- Defina sua investigação personalizada para desabilitar "escolher nome do host das configurações de HTTP de back-end". Isso pode ser feito no portal desmarcando a caixa de seleção nas configurações de investigação e no PowerShell não usando a opção-PickHostNameFromBackendHttpSettings no comando Set-AzApplicationGatewayProbeConfig. No campo HostName da investigação, insira o FQDN do serviço de aplicativo "example.azurewebsites.net", uma vez que as solicitações de investigação enviadas do gateway de aplicativo terão isso no cabeçalho do host.
 
   > [!NOTE]
-  > Enquanto faz a próxima etapa, verifique se que sua investigação personalizada não está associada a suas configurações de HTTP de back-end porque os ainda de configurações de HTTP tem a opção "Selecionar nome do host do endereço de back-end" habilitada neste momento.
+  > Ao fazer a próxima etapa, verifique se sua investigação personalizada não está associada às suas configurações de HTTP de back-end porque as configurações de HTTP ainda têm a opção "escolher nome do host do endereço de back-end" habilitada neste ponto.
 
-- Defina configurações de HTTP do Gateway de aplicativo para desabilitar o "Nome do host de escolha do endereço de back-end". Isso pode ser feito no portal, desmarcando a caixa de seleção e no PowerShell por meio de não - PickHostNameFromBackendAddress mude no comando Set-AzApplicationGatewayBackendHttpSettings.
+- Defina as configurações de HTTP do gateway de aplicativo para desabilitar "escolher nome do host do endereço de back-end". Isso pode ser feito no portal desmarcando a caixa de seleção e no PowerShell não usando a opção-PickHostNameFromBackendAddress no comando Set-AzApplicationGatewayBackendHttpSettings.
 
-- Associe a investigação personalizada para as configurações de HTTP de back-end e verificar a integridade de back-end se ele estiver íntegro.
+- Associe a investigação personalizada de volta às configurações de HTTP de back-end e verifique a integridade do back-end se ela estiver íntegra.
 
-- Depois que isso for feito, o Gateway de aplicativo agora deve encaminhar o mesmo nome de host "www.contoso.com" para o serviço de aplicativo e o redirecionamento acontecerá mesmo nome de host. Você pode verificar as solicitação e resposta cabeçalhos de exemplo abaixo.
+- Quando isso for feito, o gateway de aplicativo agora deve encaminhar o mesmo nome de host "www.contoso.com" para o serviço de aplicativo e o redirecionamento ocorrerá no mesmo nome do host. Você pode verificar os cabeçalhos de solicitação e resposta de exemplo abaixo.
 
-Para implementar as etapas mencionadas acima usando o PowerShell para uma configuração existente, execute o script do PowerShell de exemplo abaixo. Observe como não usamos as opções - PickHostname na configuração de investigação e as configurações de HTTP.
+Para implementar as etapas mencionadas acima usando o PowerShell para uma instalação existente, siga o exemplo de script do PowerShell abaixo. Observe como não usamos os comutadores-PickHostname na configuração de investigação e configurações de HTTP.
 
 ```azurepowershell-interactive
 $gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG

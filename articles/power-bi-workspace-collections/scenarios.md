@@ -2,18 +2,18 @@
 title: Cenários comuns da Coleção de Workspaces do Microsoft Power BI
 description: Cenários comuns do Microsoft Power BI Embedded
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: cc298eb8757ec4b3aa968c0790b72e24cc3d1143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8339e35af80d6c5a7af34e270704b100ffcad98b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699529"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672392"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>Cenários comuns da Coleção de Workspaces do Power BI
 
@@ -28,7 +28,7 @@ Aqui estão alguns cenários para uso das **Coleções de Workspaces do Power BI
 * Clientes e fornecedores de software independentes compilando aplicativos voltados ao cliente podem usar o serviço de **Coleção de Workspaces do Power BI** e o SDK do Power BI para inserir relatórios interativos. Para saber como, consulte [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md).
 * Como desenvolvedor, você pode usar a estrutura de visualização do Power BI para compilar visualizações personalizadas que podem ser usadas em seu próprio aplicativo. Consulte [Estender o Power BI com elementos visuais personalizados](https://powerbi.microsoft.com/custom-visuals/).
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Consulte também
 
 * [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)
 * [Amostra de introdução](get-started-sample.md)

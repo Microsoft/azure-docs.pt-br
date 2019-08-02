@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fa6b4d6d0db09f8c4955430d6dc227356416d915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b105fb14608d53c5c2ef469ab44e211ccdf4d3c8
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735943"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812441"
 ---
 A tabela a seguir relaciona as cotas e limites específicos para os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Para saber mais sobre os preços dos Hubs de Eventos, veja os [preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
-| Limite | Scope | Observações | Value |
+| Limite | Escopo | Observações | Valor |
 | --- | --- | --- | --- |
 | Número de namespaces de Hubs de Eventos do Azure por assinatura |Assinatura |- |100 |
 | Número de hubs de eventos por namespace |Namespace |Solicitações subsequentes para a criação de um novo hub de eventos são rejeitadas. |10 |
@@ -31,6 +31,7 @@ A tabela a seguir relaciona as cotas e limites específicos para os [Hubs de Eve
 | Unidades de produtividade máxima |Namespace |Exceder o limite de unidade de produtividade faz com que seus dados para ser limitadas e gera uma [exceção de servidor ocupado](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception). Para solicitar um número maior de unidades de taxa de transferência para uma camada Standard, arquivo de um [solicitação de suporte](/azure/azure-supportability/how-to-create-azure-support-request). As [unidades de produtividade adicionais](../articles/event-hubs/event-hubs-auto-inflate.md) estão disponíveis em blocos de 20, em uma base de compra garantida. |20 |
 | Número de regras de autorização por namespace |Namespace|Solicitações subsequentes de criação de regra de autorização são rejeitadas.|12 |
 | Número de chamadas para o método GetRuntimeInformation | Entidade | - | 50 por segundo | 
+| Número de regras de configuração de IP e a rede virtual (VNet) | Entidade | - | 128 | 
 
 ### <a name="event-hubs-dedicated---quotas-and-limits"></a>Dedicada dos Hubs de eventos - cotas e limites
 A oferta de Hubs de eventos dedicados é cobrada por um preço mensal fixo, com um mínimo de 4 horas de uso. A camada dedicada oferece todos os recursos do plano Standard, mas com limites e capacidade em escala empresarial para clientes com cargas de trabalho exigentes. 
@@ -44,6 +45,6 @@ A oferta de Hubs de eventos dedicados é cobrada por um preço mensal fixo, com 
 | Tamanho da mensagem | 1 milhão de Bytes |
 | Partições | 2000 por CU |
 | Grupos de consumidores | Nenhum limite por CU, 1000 por hub de eventos |
-| Conexões orientadas | 100\.000 incluídos |
+| Conexões orientadas | 100.000 incluídos |
 | Retenção de mensagem | Backup (retenção de 90 dias em breve), de 7 dias, 10 TB incluído por CU |
 | Captura | Incluso |

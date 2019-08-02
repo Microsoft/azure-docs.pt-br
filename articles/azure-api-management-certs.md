@@ -3,23 +3,19 @@ title: Carregar um Certificado de Gerenciamento de Serviços do Azure | Microsof
 description: Saiba como carregar o certificado de Gerenciamento de Serviços para o portal do Azure.
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
+author: georgewallace
+manager: carmonm
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 014a26c2500959502eeb1c50d3f311584c1ad84e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 5ce96796cbfdcefbaf5568ff199cba6a87f65e05
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60742898"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359882"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>Carregar um Certificado de Gerenciamento de Serviços do Azure
 Os certificados de gerenciamento permitem que você autentique com o modelo de implantação clássico fornecido pelo Azure. Muitos programas e ferramentas (como o Visual Studio ou o SDK do Azure) usam esses certificados para automatizar a configuração e a implantação de diversos serviços do Azure. 
@@ -33,7 +29,7 @@ Se você quiser obter mais informações sobre certificados do Azure (incluindo 
 
 Você também pode usar o [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para autenticar o código cliente, para fins de automação.
 
-**Observação:** Você deve ser um coadministrador na assinatura para realizar operações em certificados de gerenciamento. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como Adicionar ou Remover Coadministradores no novo Portal do Azure 
+**Observação:** Você deve ser um coadministrador na assinatura para executar qualquer operação em certificados de gerenciamento. [Saiba mais](https://go.microsoft.com/fwlink/?linkid=849300) sobre como Adicionar ou Remover Coadministradores no novo Portal do Azure 
 
 ## <a name="upload-a-management-certificate"></a>Carregar um certificado de gerenciamento
 Após criar um certificado de gerenciamento (arquivo .cer somente com a chave pública), você poderá carregá-lo no portal. Quando o certificado estiver disponível no portal, qualquer pessoa com um certificado correspondente (chave privada) pode conectar-se por meio da API de Gerenciamento e acessar os recursos para a assinatura associada.

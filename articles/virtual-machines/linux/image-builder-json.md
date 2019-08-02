@@ -1,24 +1,24 @@
 ---
 title: Criar um modelo do construtor de imagens do Azure (visualização)
-description: Saiba como criar um modelo a ser usado com o construtor de imagens do Azure.
+description: Saiba como criar um modelo para usar com o construtor de imagem do Azure.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: 065962614d0b85c4c50f86bef0b610c9b3577e07
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65538289"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248146"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do construtor de imagens do Azure 
 
-Construtor de imagens do Azure usa um arquivo. JSON para passar informações para o serviço do Image Builder. Neste artigo examinaremos as seções do arquivo json, para que você possa criar seus próprios. Para ver exemplos de arquivos. JSON completo, consulte o [Azure imagem construtor GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+O construtor de imagens do Azure usa um arquivo. JSON para passar informações para o serviço do construtor de imagem. Neste artigo, vamos abordar as seções do arquivo JSON, para que você possa criar o seu próprio. Para ver exemplos de arquivos. JSON completos, consulte o [GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
 
-Este é o formato do modelo básico:
+Este é o formato de modelo básico:
 
 ```json
  { 
@@ -42,22 +42,22 @@ Este é o formato do modelo básico:
 
 
 
-## <a name="type-and-api-version"></a>Versão de API e tipo
+## <a name="type-and-api-version"></a>Tipo e versão da API
 
-O `type` é o tipo de recurso, que deve ser `"Microsoft.VirtualMachineImages/imageTemplates"`. O `apiVersion` será alterado ao longo do tempo, como as alterações de API, mas deve ser `"2019-05-01-preview"` para visualização.
+O `type` é o tipo de recurso, que deve `"Microsoft.VirtualMachineImages/imageTemplates"`ser. O `apiVersion` será alterado ao longo do tempo conforme a API é alterada, `"2019-05-01-preview"` mas deve ser para visualização.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
     "apiVersion": "2019-05-01-preview",
 ```
 
-## <a name="location"></a>Local padrão
+## <a name="location"></a>Location
 
-O local é a região onde a imagem personalizada será criada. Para a visualização do construtor de imagens, há suporte para as regiões a seguir:
+O local é a região em que a imagem personalizada será criada. Para a visualização do Image Builder, há suporte para as seguintes regiões:
 
-- Leste dos EUA
+- East US
 - Leste dos EUA 2
-- Centro-Oeste dos EUA
+- Centro-oeste dos EUA
 - Oeste dos EUA
 - Oeste dos EUA 2
 
@@ -66,7 +66,7 @@ O local é a região onde a imagem personalizada será criada. Para a visualiza�
     "location": "<region>",
 ```
     
-## <a name="depends-on-optional"></a>Depende (opcional)
+## <a name="depends-on-optional"></a>Depende de (opcional)
 
 Essa seção opcional pode ser usada para garantir que as dependências sejam concluídas antes de continuar. 
 
@@ -74,12 +74,12 @@ Essa seção opcional pode ser usada para garantir que as dependências sejam co
     "dependsOn": [],
 ```
 
-Para obter mais informações, consulte [definir as dependências de recurso](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+Para obter mais informações, consulte [definir dependências de recurso](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
 ## <a name="identity"></a>Identidade
-Por padrão, dá suporte do Image Builder usando scripts ou copiar arquivos de vários locais, como o armazenamento do GitHub e o Azure. Para usá-los, eles devem ser acessíveis publicamente.
+Por padrão, o Image Builder dá suporte ao uso de scripts ou à cópia de arquivos de vários locais, como o GitHub e o armazenamento do Azure. Para usá-los, eles devem ser acessíveis publicamente.
 
-Você também pode usar uma identidade gerenciada de Azure User-Assigned, definido por você, para permitir o acesso ao construtor de imagem de armazenamento do Azure, desde que a identidade recebeu um mínimo de 'Leitor de dados do armazenamento de Blob' na conta de armazenamento do Azure. Isso significa que você não precisa tornar a blobs de armazenamento acessíveis externamente ou Tokens de SAS do programa de instalação.
+Você também pode usar uma identidade gerenciada atribuída pelo usuário do Azure, definida por você, para permitir que o construtor de imagens acesse o armazenamento do Azure, desde que a identidade tenha recebido um mínimo de ' leitor de dados de blob de armazenamento ' na conta de armazenamento do Azure. Isso significa que você não precisa tornar os blobs de armazenamento acessíveis externamente ou configurar tokens SAS.
 
 
 ```json
@@ -91,28 +91,28 @@ Você também pode usar uma identidade gerenciada de Azure User-Assigned, defini
         },
 ```
 
-Para obter um exemplo completo, consulte [ usar uma identidade gerenciada de Azure User-Assigned para acessar arquivos no armazenamento do Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+Para obter um exemplo completo, consulte [usar uma identidade gerenciada atribuída pelo usuário do Azure para acessar arquivos no armazenamento do Azure](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
-Suporte de construtor para uma identidade atribuída pelo usuário da imagem: • dá suporte a uma única identidade somente • não oferece suporte a nomes de domínio personalizado
+Suporte ao construtor de imagem para uma identidade atribuída pelo usuário: • dá suporte apenas a uma única identidade • não dá suporte a nomes de domínio personalizados
 
-Para obter mais informações, consulte [What ' s identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-Para obter mais informações sobre como implantar esse recurso, consulte [configurar gerenciadas identidades para recursos do Azure em uma VM do Azure usando a CLI do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Para saber mais, confira [o que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+Para obter mais informações sobre como implantar esse recurso, consulte [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
-## <a name="properties-source"></a>Propriedades: código-fonte
+## <a name="properties-source"></a>Propriedades: origem
 
-O `source` seção contém informações sobre a imagem de origem que será usada pelo construtor de imagens.
+A `source` seção contém informações sobre a imagem de origem que será usada pelo Image Builder.
 
-A API requer um 'SourceType' que define a origem para o build de imagem, no momento, há três tipos:
-- ISO - use essa opção quando a fonte for uma ISO RHEL.
-- PlatformImage - indicado que a imagem de origem é uma imagem do Marketplace.
-- ManagedImage - use essa opção quando a partir de uma imagem gerenciada normal.
-- SharedImageVersion - isso é usado quando você estiver usando uma versão de imagem em uma galeria de imagem compartilhada como a origem.
+A API requer um ' SourceType ' que define a origem para a compilação da imagem, atualmente há três tipos:
+- ISO – Use quando a origem for um RHEL ISO.
+- PlatformImage-indica que a imagem de origem é uma imagem do Marketplace.
+- ManagedImage-use isso ao iniciar em uma imagem gerenciada normal.
+- SharedImageVersion-isso é usado quando você está usando uma versão de imagem em uma galeria de imagens compartilhada como a origem.
 
-### <a name="iso-source"></a>Fonte da ISO
+### <a name="iso-source"></a>Origem ISO
 
-Construtor de imagens do Azure dá suporte somente a publicado Red Hat Enterprise Linux 7.x binário DVD ISOs, para visualização. Construtor de imagens dá suporte a:
+O construtor de imagens do Azure dá suporte apenas ao uso publicado Red Hat Enterprise Linux 7. x Binary DVD ISOs, para visualização. O Image Builder dá suporte a:
 - RHEL 7.3 
-- RHEL 7.4 
+- RHEL 7,4 
 - RHEL 7.5 
  
 ```json
@@ -123,19 +123,19 @@ Construtor de imagens do Azure dá suporte somente a publicado Red Hat Enterpris
 }
 ```
 
-Para obter o `sourceURI` e `sha256Checksum` valores, acesse `https://access.redhat.com/downloads` , em seguida, selecione o produto **Red Hat Enterprise Linux**e uma versão com suporte. 
+Para obter os `sourceURI` valores `sha256Checksum` e, vá para `https://access.redhat.com/downloads` selecionar o produto **Red Hat Enterprise Linux**e uma versão com suporte. 
 
-Na lista de **instaladores e imagens para Red Hat Enterprise Linux Server**, você precisa copiar o link para o Red Hat Enterprise Linux 7.x binário DVD e a soma de verificação.
+Na lista de **instaladores e imagens do Red Hat Enterprise Linux Server**, você precisa copiar o link para o DVD binário Red Hat Enterprise Linux 7. x e a soma de verificação.
 
 > [!NOTE]
-> Os tokens de acesso dos links são atualizados em intervalos frequentes, portanto, sempre que você deseja enviar um modelo, você deve verificar se o RH vincular o endereço foi alterado.
+> Os tokens de acesso dos links são atualizados em intervalos frequentes, portanto, sempre que você quiser enviar um modelo, deverá verificar se o endereço do link do RH foi alterado.
  
-### <a name="platformimage-source"></a>Origem PlatformImage 
-Construtor de imagens do Azure dá suporte a imagens do Azure Marketplace a seguir:
+### <a name="platformimage-source"></a>Origem do PlatformImage 
+O construtor de imagens do Azure dá suporte às seguintes imagens do Azure Marketplace:
 * Ubuntu 18.04
 * Ubuntu 16.04
-* RHEL 7.6
-* CentOS 7.6
+* RHEL 7,6
+* CentOS 7,6
 * Windows 2016
 * Windows 2019
 
@@ -150,18 +150,18 @@ Construtor de imagens do Azure dá suporte a imagens do Azure Marketplace a segu
 ```
 
 
-As propriedades aqui são as mesmas que são usados para criar a VM, usando a CLI AZ, execute o abaixo para obter as propriedades: 
+As propriedades aqui são as mesmas usadas para criar VMs, usando AZ CLI, execute o seguinte para obter as propriedades: 
  
 ```azurecli-interactive
 az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
 ```
 
 > [!NOTE]
-> Versão não pode ser 'latest', você deve usar o comando acima para obter um número de versão. 
+> A versão não pode ser ' mais recente ', você deve usar o comando acima para obter um número de versão. 
 
-### <a name="managedimage-source"></a>Origem ManagedImage
+### <a name="managedimage-source"></a>Origem do ManagedImage
 
-Define a imagem de origem como uma imagem gerenciada existente de uma VM ou VHD generalizado. A imagem gerenciada de origem deve ser de um sistema operacional compatível e estar na mesma região que seu modelo do construtor de imagens do Azure. 
+Define a imagem de origem como uma imagem gerenciada existente de um VHD ou VM generalizado. A imagem gerenciada de origem deve ser de um sistema operacional com suporte e estar na mesma região que o seu modelo do Azure Image Builder. 
 
 ```json
         "source": { 
@@ -170,11 +170,11 @@ Define a imagem de origem como uma imagem gerenciada existente de uma VM ou VHD 
         }
 ```
 
-O `imageId` deve ser o ResourceId da imagem gerenciada. Use `az image list` para listar as imagens disponíveis.
+O `imageId` deve ser o ResourceId da imagem gerenciada. Use `az image list` para listar imagens disponíveis.
 
 
-### <a name="sharedimageversion-source"></a>Origem SharedImageVersion
-Define a imagem de origem uma versão de imagem existente em uma galeria de imagens compartilhadas. A versão da imagem deve ser de um sistema operacional com suporte, e a imagem deve ser replicada para a mesma região que seu modelo do construtor de imagens do Azure. 
+### <a name="sharedimageversion-source"></a>Origem do SharedImageVersion
+Define a imagem de origem como uma versão de imagem existente em uma galeria de imagens compartilhada. A versão da imagem deve ser de um sistema operacional com suporte e a imagem deve ser replicada na mesma região que o seu modelo do construtor de imagem do Azure. 
 
 ```json
         "source": { 
@@ -183,21 +183,21 @@ Define a imagem de origem uma versão de imagem existente em uma galeria de imag
    } 
 ```
 
-O `imageVersionId` deve ser o ResourceId da versão da imagem. Use [lista de versão da imagem do az sig](/cli/azure/sig/image-version#az-sig-image-version-list) para listar versões da imagem.
+O `imageVersionId` deve ser o ResourceId da versão da imagem. Use a [lista de versão de imagem AZ SIG](/cli/azure/sig/image-version#az-sig-image-version-list) para listar versões de imagem.
 
-## <a name="properties-customize"></a>Propriedades: Personalizar
+## <a name="properties-customize"></a>Propriedades: personalizar
 
 
-Construtor de imagens dá suporte a vários 'personalizadores'. Personalizadores são funções que são usadas para personalizar a imagem, como execução de scripts ou reinicialização de servidores. 
+O Image Builder dá suporte a vários ' customers '. Os personalizadores são funções que são usadas para personalizar a imagem, como a execução de scripts ou a reinicialização de servidores. 
 
 Ao usar `customize`: 
-- Você pode usar vários personalizadores, mas eles devem ter um único `name`.
-- Executam personalizadores na ordem especificada no modelo.
-- Se um personalizador falhar, o componente de personalização inteiro falhará e relatar um erro.
-- Considere quanto tempo o build de imagem exigem e ajustar a propriedade 'buildTimeoutInMinutes' para permitir tempo suficiente para concluir o construtor de imagens.
-- É altamente recomendável que testar o script detalhadamente antes de usá-lo em um modelo. Depurar o script em sua própria VM será mais fácil.
+- Você pode usar vários personalizadores, mas eles devem ter um exclusivo `name`.
+- Os personalizadores são executados na ordem especificada no modelo.
+- Se um personalizador falhar, o componente de personalização inteiro falhará e relatará um erro.
+- Considere a quantidade de tempo que a criação de imagem exigirá e ajuste a propriedade ' buildTimeoutInMinutes ' para permitir que o construtor de imagem seja concluído o tempo suficiente.
+- É altamente recomendável que você teste o script cuidadosamente antes de usá-lo em um modelo. A depuração do script em sua própria VM será mais fácil.
 - Não coloque dados confidenciais nos scripts. 
-- Os locais de script precisam ser acessível publicamente, a menos que você estiver usando [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- Os locais de script precisam ser acessíveis publicamente, a menos que você esteja usando o [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ```json
         "customize": [
@@ -218,12 +218,12 @@ Ao usar `customize`:
 ```     
 
  
-A seção personalizar é uma matriz. Construtor de imagens do Azure será executado por meio dos personalizadores em ordem sequencial. Qualquer falha em qualquer personalizador falhará o processo de compilação. 
+A seção Personalizar é uma matriz. O construtor de imagens do Azure será executado por meio dos personalizadores em ordem sequencial. Qualquer falha em qualquer personalizador irá falhar o processo de compilação. 
  
  
-### <a name="shell-customizer"></a>Personalizador do shell
+### <a name="shell-customizer"></a>Personalizador de Shell
 
-O shell personalizador dá suporte à execução de scripts de shell, eles devem ser publicamente acessíveis para o IB para acessá-los.
+O personalizador de shell dá suporte a scripts de Shell em execução, eles devem ser acessíveis publicamente para que o IB possa acessá-los.
 
 ```json
     "customize": [ 
@@ -242,20 +242,20 @@ O shell personalizador dá suporte à execução de scripts de shell, eles devem
     ], 
 ```
 
-Suporte a SO: Linux 
+Suporte do so: Linux 
  
-Personalize as propriedades:
+Personalizar propriedades:
 
 - **tipo** – Shell 
-- **nome** - nome para a personalização de acompanhamento 
+- **nome** -nome para acompanhar a personalização 
 - **scriptUri** -URI para o local do arquivo 
-- **embutido** -matriz de comandos do shell, separados por vírgulas.
+- matriz embutida de comandos do Shell, separados por vírgulas.
  
 > [!NOTE]
-> Ao executar personalizador do shell com código-fonte do RHEL ISO, você precisa garantir que seus identificadores de shell personalização primeiro registrar com um servidor de autorização do Red Hat antes que ocorra qualquer personalização. Depois que a personalização for concluída, o script deve cancelar o registro com o servidor de autorização.
+> Ao executar o personalizador de shell com a fonte ISO do RHEL, você precisa garantir que seu primeiro Shell de personalização manipule o registro com um servidor de direitos do Red Hat antes que ocorra qualquer personalização. Depois que a personalização for concluída, o script deverá cancelar o registro com o servidor de direitos.
 
-### <a name="windows-restart-customizer"></a>Reinicie o Windows Personalizador 
-O Restart personalizador permite que você reiniciar uma VM do Windows e aguarde até que ele volte a ficar online, isso permite que você instale o software que requer uma reinicialização.  
+### <a name="windows-restart-customizer"></a>Personalizador de reinicialização do Windows 
+O personalizador de reinicialização permite reiniciar uma VM do Windows e aguardar que ela volte a ficar online, permitindo que você instale o software que exige uma reinicialização.  
 
 ```json 
      "customize": [ 
@@ -266,17 +266,17 @@ O Restart personalizador permite que você reiniciar uma VM do Windows e aguarde
          }],
 ```
 
-Suporte a SO:  Windows
+Suporte do so: Windows
  
-Personalize as propriedades:
+Personalizar propriedades:
 - **Tipo**: WindowsRestart
 - **restartCommand** -comando para executar a reinicialização (opcional). O padrão é `'shutdown /r /f /t 0 /c \"packer restart\"'`.
-- **restartCheckCommand** – comando para verificar se a reinicialização bem-sucedida (opcional). 
-- **restartTimeout** -reiniciar o tempo limite especificado como uma cadeia de caracteres de magnitude e a unidade. Por exemplo, `5m` (5 minutos) ou `2h` (2 horas). O padrão é: '5m'
+- **restartCheckCommand** – comando para verificar se a reinicialização foi bem-sucedida (opcional). 
+- **restartTimeout** -tempo limite de reinicialização especificado como uma cadeia de magnitude e unidade. Por exemplo, `5m` (5 minutos) ou `2h` (2 horas). O padrão é: '5m'
 
 
 ### <a name="powershell-customizer"></a>Personalizador do PowerShell 
-O shell personalizador dá suporte à execução em linha comando e scripts do PowerShell, os scripts devem ser publicamente acessíveis para o IB para acessá-los.
+O personalizador de shell dá suporte à execução de scripts do PowerShell e ao comando embutido, os scripts devem ser publicamente acessíveis para que o IB possa acessá-los.
 
 ```json 
      "customize": [
@@ -294,18 +294,18 @@ O shell personalizador dá suporte à execução em linha comando e scripts do P
     ], 
 ```
 
-Suporte a SO: Windows e Linux
+Suporte do so: Windows e Linux
 
-Personalize as propriedades:
+Personalizar propriedades:
 
 - **tipo** – PowerShell.
 - **scriptUri** -URI para o local do arquivo de script do PowerShell. 
-- **embutido** – comandos embutida a ser executado, separados por vírgulas.
-- **valid_exit_codes** – opcional de códigos válidos que podem ser retornados da script/linha de comando, isso evitará uma falha relatada do comando de script/embutido.
+- **embutido** – comandos embutidos a serem executados, separados por vírgulas.
+- **valid_exit_codes** – códigos opcionais válidos que podem ser retornados do comando de script/embutido, isso evitará a falha relatada do comando script/embutido.
 
-### <a name="file-customizer"></a>Personalizador do arquivo
+### <a name="file-customizer"></a>Personalizador de arquivo
 
-Personalizador do arquivo permite que o construtor de imagens baixar um arquivo do GitHub ou do armazenamento do Azure. Se você tiver um pipeline de build de imagem que se baseia em artefatos de compilação, pode, em seguida, defina personalizador do arquivo para fazer o download do compartilhamento de compilação e mover os artefatos para a imagem.  
+O personalizador de arquivo permite que o construtor de imagens Baixe um arquivo de um GitHub ou armazenamento do Azure. Se você tiver um pipeline de compilação de imagem que se baseia em artefatos de compilação, você pode definir o personalizador de arquivo para baixar do compartilhamento de compilação e mover os artefatos para a imagem.  
 
 ```json
      "customize": [ 
@@ -318,33 +318,35 @@ Personalizador do arquivo permite que o construtor de imagens baixar um arquivo 
      ]
 ```
 
-Suporte a SO: Linux e Windows 
+Suporte do so: Linux e Windows 
 
-Propriedades de personalizador do arquivo:
+Propriedades do personalizador de arquivo:
 
-- **sourceUri** -um ponto de extremidade de armazenamento acessíveis, isso pode ser o armazenamento do Azure ou do GitHub. Você só pode baixar um arquivo, não um diretório inteiro. Se você precisar baixar um diretório, use um arquivo compactado, em seguida, descompacte-o usando os personalizadores Shell ou o PowerShell. 
-- **destino** – esse é o nome de arquivo e caminho completo do destino. Qualquer caminho de referência e subdiretórios deve existir, use os personalizadores Shell ou o PowerShell para configurá-los com antecedência. Você pode usar os personalizadores de script para criar o caminho. 
+- **SourceUri** – um ponto de extremidade de armazenamento acessível, que pode ser o GitHub ou o armazenamento do Azure. Você só pode baixar um arquivo, não um diretório inteiro. Se você precisar baixar um diretório, use um arquivo compactado e descompacte-o usando os personalizadores do Shell ou do PowerShell. 
+- **destino** – este é o caminho de destino completo e o nome do arquivo. Qualquer caminho e subdiretórios referenciados devem existir, use os personalizados do Shell ou do PowerShell para configurá-los com antecedência. Você pode usar os personalizadores de script para criar o caminho. 
 
-Isso é compatível com diretórios do Windows e caminhos de Linux, mas há algumas diferenças: 
-- Sistema operacional Linux – somente imagem construtor pode gravar o caminho é /tmp.
-- Windows – sem restrição de caminho, mas o caminho devem existir.
+Isso é suportado por diretórios do Windows e caminhos do Linux, mas há algumas diferenças: 
+- SO Linux – o único criador de imagem de caminho pode gravar em é/tmp.
+- Windows – nenhuma restrição de caminho, mas o caminho deve existir.
  
  
-Se houver um erro tentando baixar o arquivo ou colocá-lo em um diretório especificado, a etapa de personalizar falhará e isso terá o customization.log.
+Se houver um erro ao tentar baixar o arquivo, ou colocá-lo em um diretório especificado, a etapa de personalização falhará e isso estará no arquivo customization. log.
 
-Arquivos no personalizador do arquivo podem ser baixados do armazenamento do Azure usando o [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+>> Anotações! O personalizador de arquivos é adequado apenas para downloads de arquivos pequenos, < 20 MB. Para downloads de arquivos maiores, use um script ou comando embutido, o código de uso para baixar arquivos, `wget` como `curl`Linux ou, `Invoke-WebRequest`Windows,.
+
+Os arquivos no Personalizador de arquivo podem ser baixados do armazenamento do Azure usando o [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 ### <a name="generalize"></a>Generalizar 
-Por padrão, o construtor de imagens do Azure também executará 'Cancelar ' o provisionamento de código no final de cada fase de personalização de imagem, para generalizar a imagem. Generalizando é um processo em que a imagem é configurada para que ele possa ser reutilizado para criar várias VMs. Para VMs do Windows, o construtor de imagens do Azure usa o Sysprep. Para o Linux, o construtor de imagens do Azure é executado ' waagent-deprovision'. 
+Por padrão, o construtor de imagens do Azure também executará o código de ' desprovisionamento ' no final de cada fase de personalização de imagem, para ' generalizar ' a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar várias VMs. Para VMs do Windows, o construtor de imagem do Azure usa Sysprep. Para o Linux, o Azure Image Builder executa ' waagent-deprovision '. 
 
-Os comandos que os usuários do construtor de imagens para generalizar podem não ser adequados para cada situação, portanto, o construtor de imagens do Azure permitirá que você personalize esse comando, se necessário. 
+Os comandos que os usuários do construtor de imagens para generalizar podem não ser adequados para todas as situações, portanto, o construtor de imagens do Azure permitirá que você personalize esse comando, se necessário. 
 
-Se você estiver migrando uma personalização existente e você estiver usando comandos de Sysprep/waagent diferentes, você pode usar os comandos genéricos do Image Builder e se a criação da VM falhar, use seus próprios comandos de Sysprep ou waagent.
+Se você estiver migrando a personalização existente e estiver usando diferentes comandos Sysprep/waagent, poderá usar os comandos genéricos do Image Builder e, se a criação da VM falhar, use seus próprios comandos Sysprep ou waagent.
 
-Se o construtor de imagens do Azure cria uma imagem personalizada do Windows com êxito, e você cria uma VM de, em seguida, ele localizar que a criação da VM falha ou não for concluída com êxito, você precisará examinar a documentação do Windows Server Sysprep ou envie uma solicitação de suporte com o Equipe de suporte de serviços de cliente do Windows Server Sysprep, quem pode solucionar problemas e informar sobre o uso correto do Sysprep.
+Se o construtor de imagem do Azure criar uma imagem personalizada do Windows com êxito e você criar uma VM a partir dela, descubra que a criação da VM falha ou não é concluída com êxito, você precisará examinar a documentação do Sysprep do Windows Server ou gerar uma solicitação de suporte com o Equipe de suporte do Windows Server Sysprep Customer Services, que pode solucionar problemas e avisar sobre o uso correto do Sysprep.
 
 
-#### <a name="default-sysprep-command"></a>Padrão de comando do Sysprep
+#### <a name="default-sysprep-command"></a>Comando Sysprep padrão
 ```powershell
 echo '>>> Waiting for GA to start ...'
 while ((Get-Service RdAgent).Status -ne 'Running') { Start-Sleep -s 5 }
@@ -354,35 +356,35 @@ echo '>>> Sysprepping VM ...'
 if( Test-Path $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml ){ rm $Env:SystemRoot\\windows\\system32\\Sysprep\\unattend.xml -Force} & $Env:SystemRoot\\System32\\Sysprep\\Sysprep.exe /oobe /generalize /quiet /quit
 while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Setup\\State | Select ImageState; if($imageState.ImageState -ne 'IMAGE_STATE_GENERALIZE_RESEAL_TO_OOBE') { Write-Output $imageState.ImageState; Start-Sleep -s 5  } else { break } }
 ```
-#### <a name="default-linux-deprovision-command"></a>Comando de desprovisionamento de Linux padrão
+#### <a name="default-linux-deprovision-command"></a>Comando padrão de desprovisionamento do Linux
 
 ```bash
 /usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
 ```
 
 #### <a name="overriding-the-commands"></a>Substituindo os comandos
-Para substituir os comandos, use os provisionadores de script do PowerShell ou o Shell para criar os arquivos de comando com o nome exato do arquivo e colocá-los nos diretórios corretos:
+Para substituir os comandos, use os provisionadores do script PowerShell ou Shell para criar os arquivos de comando com o nome exato do arquivo e coloque-os nos diretórios corretos:
 
 * Windows: c:\DeprovisioningScript.ps1
 * Linux: /tmp/DeprovisioningScript.sh
 
-Image Builder lerá esses comandos, eles são gravados nos logs de AIB, 'customization.log'. Ver [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) sobre como coletar logs.
+O Image Builder lerá esses comandos, eles serão gravados nos logs do AIB, ' customization. log '. Consulte [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) de como coletar logs.
  
 ## <a name="properties-distribute"></a>Propriedades: distribuir
 
-Construtor de imagens do Azure dá suporte a três destinos de distribuição: 
+O construtor de imagem do Azure dá suporte a três destinos de distribuição: 
 
-- **managedImage** – gerenciado imagem.
-- **sharedImage** -Galeria de imagens compartilhadas.
+- **managedImage** -imagem gerenciada.
+- **sharedImage** -Galeria de imagens compartilhada.
 - **VHD** -VHD em uma conta de armazenamento.
 
 Você pode distribuir uma imagem para ambos os tipos de destino na mesma configuração, consulte [exemplos](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Como você pode ter mais de um destino para os quais distribuir, Image Builder mantém um estado para cada destino de distribuição que pode ser acessado por meio de consulta a `runOutputName`.  O `runOutputName` é um objeto que você pode consultar lançar a distribuição para obter informações sobre essa distribuição. Por exemplo, você pode consultar o local do VHD ou regiões em que a versão da imagem foram replicada para o. Esta é uma propriedade de cada destino de distribuição. O `runOutputName` deve ser exclusivo para cada destino de distribuição.
+Como você pode ter mais de um destino para distribuir, o Image Builder mantém um estado para cada destino de distribuição que pode ser acessado consultando o `runOutputName`.  O `runOutputName` é um objeto que você pode consultar após a distribuição para obter informações sobre essa distribuição. Por exemplo, você pode consultar o local do VHD ou regiões em que a versão da imagem foi replicada. Essa é uma propriedade de cada destino de distribuição. O `runOutputName` deve ser exclusivo para cada destino de distribuição.
  
-### <a name="distribute-managedimage"></a>Distribute: managedImage
+### <a name="distribute-managedimage"></a>Distribuir: managedImage
 
-A saída de imagem será um recurso de imagem gerenciada.
+A saída da imagem será um recurso de imagem gerenciada.
 
 ```json
 "distribute": [
@@ -398,28 +400,28 @@ A saída de imagem será um recurso de imagem gerenciada.
          }]
 ```
  
-Distribua as propriedades:
+Distribuir Propriedades:
 - **tipo** – managedImage 
-- **imageId** – a ID de recurso da imagem de destino, esperado um formato: /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
-- **local** -localização da imagem gerenciada.  
-- **runOutputName** – exclusivo nome para identificar a distribuição.  
-- **artifactTags** -marcas do par de valor de chave especificado pelo usuário opcional.
+- **imageid** – ID de recurso da imagem de destino, formato esperado:\</subscriptions/SubscriptionId >\</resourceGroups/destinationResourceGroupName >\< /Providers/Microsoft.Compute/images/ imageName >
+- **local** -local da imagem gerenciada.  
+- **runOutputName** – nome exclusivo para identificar a distribuição.  
+- **artifactTags** -marcas de par de valor de chave especificado pelo usuário opcional.
  
  
 > [!NOTE]
 > O grupo de recursos de destino deve existir.
-> Se você deseja que a imagem distribuída para uma região diferente, ele aumentará o tempo de implantação. 
+> Se você quiser que a imagem seja distribuída para uma região diferente, ela aumentará o tempo de implantação. 
 
 ### <a name="distribute-sharedimage"></a>Distribute: sharedImage 
-Galeria de imagens do Azure compartilhado é um novo serviço de gerenciamento de imagens que permite o gerenciamento de replicação da região de imagem, controle de versão e o compartilhamento de imagens personalizadas. Construtor de imagens do Azure dá suporte à distribuição com esse serviço, portanto, você pode distribuir imagens para regiões com suporte pelo galerias de imagens compartilhadas. 
+A Galeria de imagens compartilhadas do Azure é um novo serviço de gerenciamento de imagens que permite o gerenciamento de replicação de região de imagem, controle de versão e compartilhamento de imagens personalizadas. O construtor de imagens do Azure dá suporte à distribuição com esse serviço, para que você possa distribuir imagens para regiões com suporte pelas galerias de imagens compartilhadas. 
  
-Uma galeria de imagens compartilhadas é composta de: 
+Uma galeria de imagens compartilhada é composta de: 
  
-- Galeria – contêiner para várias imagens compartilhadas. Uma galeria é implantada em uma região.
+- Galeria-contêiner para várias imagens compartilhadas. Uma galeria é implantada em uma região.
 - Definições de imagem – um agrupamento conceitual para imagens. 
-- Versões de imagem – Isso é um tipo de imagem usado para implantar um conjunto de escala ou de VM. Versões de imagem podem ser replicadas para outras regiões onde as VMs precisam ser implantados.
+- Versões de imagem-esse é um tipo de imagem usado para implantar uma VM ou um conjunto de dimensionamento. As versões de imagem podem ser replicadas para outras regiões em que as VMs precisam ser implantadas.
  
-Antes de distribuir para a Galeria de imagens, você deve criar uma galeria e uma definição de imagem, consulte [compartilhado imagens](shared-images.md). 
+Antes de distribuir para a Galeria de imagens, você deve criar uma galeria e uma definição de imagem, ver [imagens](shared-images.md)compartilhadas. 
 
 ```json
 {
@@ -436,19 +438,19 @@ Antes de distribuir para a Galeria de imagens, você deve criar uma galeria e um
     ]}
 ``` 
 
-Distribua as propriedades para galerias de imagens compartilhadas:
+Distribuir Propriedades para galerias de imagens compartilhadas:
 
-- **type** - sharedImage  
-- **galleryImageId** – ID da Galeria de imagens compartilhadas. É o formato: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
-- **runOutputName** – exclusivo nome para identificar a distribuição.  
-- **artifactTags** -marcas do par de valor de chave especificado pelo usuário opcional.
-- **replicationRegions** -matriz de regiões para replicação. Uma das regiões deve ser a região em que a Galeria é implantada.
+- **tipo** -sharedImage  
+- **galleryImageId** – ID da Galeria de imagens compartilhada. O formato é:/subscriptions/\<SubscriptionId >/resourceGroups/\<resourceGroupName >/Providers/Microsoft.Compute/Galleries/\<sharedImageGalleryName >/images/\< > imageGalleryName.
+- **runOutputName** – nome exclusivo para identificar a distribuição.  
+- **artifactTags** -marcas de par de valor de chave especificado pelo usuário opcional.
+- **replicationRegions** -matriz de regiões para replicação. Uma das regiões deve ser a região onde a galeria é implantada.
  
 > [!NOTE]
-> Você pode usar o construtor de imagens do Azure em uma região diferente para a Galeria, mas o serviço Azure Image Builder será necessário transferir a imagem entre os data centers e levará mais tempo. Image Builder será automaticamente versão a imagem, com base em um inteiro monotônico, não é possível especificá-lo no momento. 
+> Você pode usar o construtor de imagem do Azure em uma região diferente para a Galeria, mas o serviço do construtor de imagens do Azure precisará transferir a imagem entre os datacenters e isso levará mais tempo. O Image Builder fará a versão da imagem automaticamente, com base em um inteiro monotônico, você não poderá especificá-la no momento. 
 
-### <a name="distribute-vhd"></a>Distribua: VHD  
-Você pode dar saída a um VHD. Você pode, em seguida, copie o VHD e usá-lo para publicar no Azure MarketPlace ou usar com o Azure Stack.  
+### <a name="distribute-vhd"></a>Fornecer VHD  
+Você pode gerar uma saída para um VHD. Em seguida, você pode copiar o VHD e usá-lo para publicar no Azure MarketPlace ou usar com Azure Stack.  
 
 ```json
  { 
@@ -461,15 +463,15 @@ Você pode dar saída a um VHD. Você pode, em seguida, copie o VHD e usá-lo pa
  }
 ```
  
-Suporte a SO: Windows e Linux
+Suporte do so: Windows e Linux
 
-Distribua os parâmetros VHD:
+Distribuir parâmetros de VHD:
 
 - **tipo** -VHD.
-- **runOutputName** – exclusivo nome para identificar a distribuição.  
-- **marcas** -marcas do par de valor de chave especificado pelo usuário opcional.
+- **runOutputName** – nome exclusivo para identificar a distribuição.  
+- **marcas** – marcas de par de valor de chave especificado pelo usuário opcional.
  
-Construtor de imagens do Azure não permite ao usuário especificar um local de conta de armazenamento, mas você pode consultar o status do `runOutputs` para obter o local.  
+O construtor de imagens do Azure não permite que o usuário especifique um local de conta de armazenamento, mas você pode consultar `runOutputs` o status do para obter o local.  
 
 ```azurecli-interactive
 az resource show \
@@ -477,11 +479,11 @@ az resource show \
 ```
 
 > [!NOTE]
-> Depois que o VHD foi criado, copie-o para um local diferente, assim que possível. O VHD está armazenado em uma conta de armazenamento no grupo de recursos temporário criado quando o modelo de imagem é enviado para o serviço de construtor de imagens do Azure. Se você excluir o modelo de imagem, você perderá o VHD. 
+> Depois que o VHD tiver sido criado, copie-o para um local diferente, assim que possível. O VHD é armazenado em uma conta de armazenamento no grupo de recursos temporário criado quando o modelo de imagem é enviado para o serviço do construtor de imagem do Azure. Se você excluir o modelo de imagem, o VHD será perdido. 
  
 ## <a name="next-steps"></a>Próximas etapas
 
-Há arquivos. JSON de exemplo para diferentes cenários na [Azure imagem construtor GitHub](https://github.com/danielsollondon/azvmimagebuilder).
+Há arquivos. JSON de exemplo para diferentes cenários no [GitHub do Azure Image Builder](https://github.com/danielsollondon/azvmimagebuilder).
  
  
  

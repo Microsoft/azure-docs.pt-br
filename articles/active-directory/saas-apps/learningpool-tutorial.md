@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfc1f0b2d49510926cfbc306dacf6715225c5c1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 104c208c1e651f67679327fa8c7a56b65c33fd24
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897825"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>Tutorial: Integração do Azure Active Directory com o Learningpool Act
 
@@ -53,7 +53,7 @@ Para configurar a integração do Learningpool Act ao Azure AD, você precisará
 
 **Para adicionar o Learningpool Act por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Learningpool Act, execute as se
 
     ![Informações de logon único de Domínio e URLs do Learningpool Act](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://parliament.preview.Learningpool.com/auth/shibboleth/index.php`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o Learningpool Act, execute as se
     | urn: oid:2.5.4.4 | user.surname |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -241,5 +241,5 @@ Ao clicar no bloco do Learningpool Act no Painel de Acesso, você deverá entrar
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

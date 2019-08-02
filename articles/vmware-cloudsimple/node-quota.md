@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 26a5876971749a1a63447ef813219dad8485781c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd1416befb74a7299136ea497eccc8a06b7f0f6a
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160164"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164859"
 ---
 # <a name="cloudsimple-node-quota-limits"></a>Limites de cota de nó CloudSimple
 
-Quatro nós é a quantidade padrão disponível para compra, quando sua assinatura está habilitada para o serviço CloudSimple.  Você pode comprar qualquer [tipo de nó](cloudsimple-node.md) do portal do Azure.  Um mínimo de três nós da mesma SKU são necessários para criar uma nuvem privada.  Se você comprou os nós, você verá um erro ao tentar adquirir nós adicionais.
+Quatro nós é a quantidade de padrão disponível para provisionamento, quando sua assinatura está habilitada para o serviço CloudSimple.  Você pode provisionar qualquer [tipo de nó](cloudsimple-node.md) do portal do Azure.  Um mínimo de três nós da mesma SKU são necessários para criar uma nuvem privada.  Se você tiver provisionado os nós, você verá um erro ao tentar provisionar nós adicionais.
 
 ## <a name="quota-increase"></a>Aumento de cota
 
@@ -40,5 +40,5 @@ Você também pode contatar seu representante de conta da Microsoft em [ azurevm
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Nós de compra](create-nodes.md)
+* [Provisionar nós](create-nodes.md)
 * [Visão geral de nós CloudSimple](cloudsimple-node.md)

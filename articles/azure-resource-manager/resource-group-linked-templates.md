@@ -1,25 +1,17 @@
 ---
 title: Vincular modelos para implantação do Azure | Microsoft Docs
 description: Descreve como usar modelos vinculados em um modelo do Gerenciador de Recursos do Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 95044373800441bdcc04bdb84e8485dce29f11e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c79429d1a39e975c6bcc7fce191846a6205f9a86
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357413"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311699"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -91,14 +83,14 @@ Para aninhar o modelo no modelo principal, use a propriedade **modelo** e especi
 > [!NOTE]
 > Para modelos aninhados, você não pode usar parâmetros ou variáveis que são definidas no modelo aninhado. Você pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor de modelo principal, não o modelo aninhado. Essa restrição não se aplica a modelos externos.
 >
-> Para dois recursos definidos dentro de um modelo aninhado e um único recurso depende de outro, o valor da dependência é simplesmente o nome do recurso dependente:
+> Para dois recursos definidos dentro de um modelo aninhado e um recurso depende do outro, o valor da dependência é simplesmente o nome do recurso dependente:
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"
 > ],
 > ```
 >
-> Não é possível usar a função `reference` na seção de saídas de um modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
+> Você não pode usar `reference` a função na seção de saídas de um modelo aninhado para um recurso que você implantou no modelo aninhado. Para retornar os valores de um recurso implantado em um modelo aninhado, converta seu modelo aninhado em um modelo vinculado.
 
 O modelo aninhado requer as [mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
@@ -157,9 +149,9 @@ Para passar um valor do modelo principal para o modelo vinculado, use **parâmet
 
 ## <a name="using-copy"></a>Usando a cópia
 
-Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento de cópia no nível do **Resources/deployments** recursos.
+Para criar várias instâncias de um recurso com um modelo aninhado, adicione o elemento Copy no nível do recurso **Microsoft. Resources/** Implantations.
 
-O modelo de exemplo a seguir mostra como usar a cópia com um modelo aninhado.
+O modelo de exemplo a seguir mostra como usar Copy com um modelo aninhado.
 
 ```json
 "resources": [

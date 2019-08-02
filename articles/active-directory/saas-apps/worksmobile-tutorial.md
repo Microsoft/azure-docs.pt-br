@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f0ead46bf93815644cb766c24fc9d894c2b4983
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7e1dfe10cdf80f750efbb7f08d001c7ce25fe068
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905283"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Tutorial: Integração do Azure Active Directory com LINE WORKS
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o LINE WORKS, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do LINE WORKS](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://auth.worksmobile.com/d/login/<domain>/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://auth.worksmobile.com/d/login/<domain>/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `worksmobile.com`
 
@@ -201,4 +201,4 @@ Ao clicar no bloco do LINE WORKS no Painel de Acesso, você deverá entrar autom
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

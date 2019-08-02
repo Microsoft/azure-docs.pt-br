@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 17cea353df0337b062b89cd440f79f7869450f8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370543"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113215"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Tutorial: Usar eventos de risco para disparar a Autenticação Multifator e alterações de senha
 
@@ -59,7 +59,7 @@ O Azure AD Identity Protection inclui uma política padrão que pode ajudá-lo a
 1. Clique em **Registro de MFA**.
 1. Definir Impor Política como **Ativo**.
    1. A definição dessa política exigirá que todos os seus usuários registrem métodos como preparação para usar a Autenticação Multifator.
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
    ![Exigir que os usuários se registrem para MFA ao entrar](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 

@@ -1,28 +1,28 @@
 ---
 title: Migrar para V3 - API de Tradução de Texto
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como migrar da V2 para a V3 da API de Tradução de Texto.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: 81b2e5c9c659a3811d7417d87b811a86f4350a52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66382930"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595234"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migração da API de Tradução de Texto V2 para V3
 
 > [!NOTE]
-> V2 foi preterida em 30 de abril de 2018. Migre seus aplicativos para a V3 para tirar proveito da nova funcionalidade disponível exclusivamente no V3.
+> O v2 foi preterido em 30 de abril de 2018. Migre seus aplicativos para v3 a fim de aproveitar as novas funcionalidades disponíveis exclusivamente na v3.
 > 
-> O Microsoft Translator Hub será desativado em 17 de maio de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).  
+> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).  
 
 A equipe do Microsoft Translator lançou a versão 3 (V3) da API de Tradução de Texto. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar e receber dados do Serviço do Microsoft Translator. Este documento apresenta informações sobre como alterar os aplicativos para usar a V3. 
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> O Microsoft Translator Hub será desativado em 17 de maio de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).   
+> O Hub do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).   
 
 Por padrão, o Microsoft Translator V3 usa tradução automática neural. Como tal, não pode ser utilizado com o Hub do Microsoft Translator. O Hub do Translator dá suporte somente para tradução automática de estatística herdada. A personalização para tradução neural agora está disponível usando o Tradutor Personalizado. [Saiba mais sobre como personalizar a tradução automática neural](custom-translator/overview.md)
 

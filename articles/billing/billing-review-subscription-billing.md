@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 0a73462b7fdbaf6386a3051a72da755f31ff8dd2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: banders
+ms.openlocfilehash: 8cfa429b18fb282f5c1f85d2fd1637704653b855
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192121"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443041"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Revise o faturamento de assinatura usando APIs REST
 
@@ -45,12 +45,12 @@ Os parâmetros `${startDate}` e `${endDate}` são obrigatórios para este exempl
 
 Os cabeçalhos a seguir são necessários:
 
-|Cabeçalho da solicitação|DESCRIÇÃO|
+|Cabeçalho da solicitação|Descrição|
 |--------------------|-----------------|
-|*Content-Type:*|Obrigatório. Defina como `application/json`.|
-|*Authorization:*|Obrigatório. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
+|*Content-Type:*|Obrigatória. Defina como `application/json`.|
+|*Authorization:*|Obrigatória. Defina como um `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) válido. |
 
-## <a name="response"></a>Response
+## <a name="response"></a>Resposta
 
 O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que contém uma lista de custos detalhados para sua conta.
 
@@ -81,7 +81,7 @@ O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que co
 
 Cada item no **valor** representa detalhes sobre o uso de um serviço:
 
-|Propriedade de resposta|DESCRIÇÃO|
+|Propriedade de resposta|Descrição|
 |----------------|----------|
 |**subscriptionGuid** | ID exclusivo global da assinatura. |
 |**startDate** | Data em que o uso foi iniciado. |

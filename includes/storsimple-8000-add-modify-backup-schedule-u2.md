@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172187"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172111"
 ---
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Para adicionar ou modificar uma agenda de backup do StorSimple
 

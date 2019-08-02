@@ -4,7 +4,7 @@ description: Saiba como dimensionar aplicativos de HPC em VMs do Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: e2e2476449f956361639e42e7c398e53e42d44ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00d5b86c8cae01d342d55b7ad20ec59c3f7530bd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810106"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707830"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos de HPC
 
@@ -53,7 +53,7 @@ $ gfortran [gFortran flags]
 ```
    
 ### <a name="pgi-compiler"></a>Compilador PGI
-Comunidade PGI ver Edition. 17 é confirmada para trabalhar com EPYC AMD. Uma versão de compilação PGI do fluxo de entregar a largura de banda de memória total da plataforma. 18\.10 de edição de comunidade mais recentes (novembro de 2018) da mesma forma deve funcionar bem. Abaixo está o exemplo de CLI para o compilador de maneira ideal com o compilador Intel:
+Comunidade PGI ver Edition. 17 é confirmada para trabalhar com EPYC AMD. Uma versão de compilação PGI do fluxo de entregar a largura de banda de memória total da plataforma. 18.10 de edição de comunidade mais recentes (novembro de 2018) da mesma forma deve funcionar bem. Abaixo está o exemplo de CLI para o compilador de maneira ideal com o compilador Intel:
 
 ```bash
 pgcc $(OPTIMIZATIONS_PGI) $(STACK) -DSTREAM_ARRAY_SIZE=800000000 stream.c -o stream.pgi

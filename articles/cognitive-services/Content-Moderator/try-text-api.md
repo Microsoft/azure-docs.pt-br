@@ -1,24 +1,25 @@
 ---
 title: Modere textos usando a API de Moderação de Texto – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Moderação de texto baseada em teste usando a API de Moderação de Texto no console online.
 services: cognitive-services
 author: sanjeev3
+ms.author: sajagtap
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 21209548d1cfe7b6eebb1757e817a12c797e78a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688844"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561179"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderar texto no console da API
 
-Use o [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Azure Content Moderator para verificar seu conteúdo de texto conteúdo ofensivo e compará-lo em relação a listas personalizadas e compartilhadas.
+Use a [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) de moderação de texto no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
 
 ## <a name="get-your-api-key"></a>Obter sua chave de API
 
@@ -40,7 +41,7 @@ Para **Abrir o console de teste da API**, selecione a região que melhor descrev
 
 ## <a name="select-the-inputs"></a>Selecionar entradas
 
-### <a name="parameters"></a>parâmetros
+### <a name="parameters"></a>Parâmetros
 
 Selecione os parâmetros de consulta que você deseja usar em sua tela de texto. Para este exemplo, use o valor padrão para **idioma**. Você também pode deixar em branco porque a operação detectará automaticamente o idioma provável como parte de sua execução.
 
@@ -72,7 +73,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>Analisar a resposta
 
-A resposta a seguir mostra as várias informações da API. Ele contém possíveis palavrões, os dados pessoais, classificação (visualização) e a versão corrigidas automaticamente.
+A resposta a seguir mostra as várias informações da API. Ele contém possíveis obscenidades, dados pessoais, classificação (visualização) e a versão corrigida automaticamente.
 
 > [!NOTE]
 > O recurso “Classificação” assistido por computador está na visualização e suporta apenas o inglês.
@@ -171,8 +172,8 @@ A resposta a seguir mostra as várias informações da API. Ele contém possíve
 }
 ```
 
-Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o [moderação de texto](text-moderation-api.md) guia conceitual.
+Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de moderação de [texto](text-moderation-api.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Usar a API REST no seu código ou começar com o [início rápido do .NET de moderação de texto](text-moderation-quickstart-dotnet.md) para integrar seu aplicativo.
+Use a API REST em seu código ou comece com o guia de [início rápido do .net](text-moderation-quickstart-dotnet.md) de moderação de texto para integrar com seu aplicativo.

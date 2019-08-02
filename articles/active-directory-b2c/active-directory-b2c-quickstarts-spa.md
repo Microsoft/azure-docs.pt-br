@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dff1716e8886d1ef72f4d2ad4fbca4bcab86a348
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 47df2cbdf0b083cf672353471d1ef51e03507475
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509788"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835347"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo de página única usando o Azure Active Directory B2C
 
@@ -36,7 +36,7 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
-1. Inicie o servidor executando os seguintes comandos no prompt de comando do Node.js: 
+1. Inicie o servidor executando os seguintes comandos no prompt de comando do Node.js:
 
     ```
     cd active-directory-b2c-javascript-msal-singlepageapp
@@ -56,23 +56,23 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 1. Clique em **Logon** para iniciar o fluxo de trabalho.
 
-    ![Aplicativo de exemplo no navegador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
+    ![Exemplo de aplicativo de página única mostrado no navegador](media/active-directory-b2c-quickstarts-spa/sample-app-spa.png)
 
-    O exemplo dá suporte a várias opções de inscrição, incluindo o uso de um provedor de identidade social ou a criação de uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter. 
+    O exemplo dá suporte a várias opções de inscrição, incluindo o uso de um provedor de identidade social ou a criação de uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter.
 
 2. O Azure AD B2C apresenta uma página de logon personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade que você deseja usar.
 
-    ![Provedor de criar conta ou entrar](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
+    ![Página de entrada ou inscrição mostrando os botões do provedor de identidade](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Você se autentica (entra) usando as credenciais de sua conta social e autoriza o aplicativo a ler as informações da sua conta social. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade. 
+    Você se autentica (entra) usando as credenciais de sua conta social e autoriza o aplicativo a ler as informações da sua conta social. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade.
 
 3. Conclua o processo de entrada para o provedor de identidade.
 
 ## <a name="access-a-protected-api-resource"></a>Acessar um recurso de API protegido
 
-Clique em **Chamar API Web** para que seu nome de exibição seja retornado na chamada à API Web como um objeto JSON. 
+Clique em **Chamar API Web** para que seu nome de exibição seja retornado na chamada à API Web como um objeto JSON.
 
-![Resposta da API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
+![Aplicativo de exemplo no navegador mostrando a resposta da API Web](media/active-directory-b2c-quickstarts-spa/call-api-spa.png)
 
 O aplicativo de página única inclui um token de acesso na solicitação para o recurso da API Web protegida.
 

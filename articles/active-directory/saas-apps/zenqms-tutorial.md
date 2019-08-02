@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 72158b86e81fa90cb21c5af003fad05be69b470c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2104768f8842910bf83239e86106d288d7ad9baf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zenqms"></a>Tutorial: Integração do Azure Active Directory com o ZenQMS
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o ZenQMS,
 
     ![Informações de logon único de Domínio e URLs do ZenQMS](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:zenqms:<INSTANCE>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:zenqms:<INSTANCE>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<INSTANCE>.zenqms.com/SAML/AssertionConsumerService`
 
@@ -198,5 +198,5 @@ Ao clicar no bloco ZenQMS no Painel de Acesso, você deve ser conectado automati
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

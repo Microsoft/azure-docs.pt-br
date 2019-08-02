@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4ff7f92d1d13966be5d17f37210bef961f64faf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51fae63b6db99f28a5b3bed056dadc0c2513ff0f
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61462372"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839925"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para o Oracle local usando o Azure Data Factory
 
@@ -83,7 +83,7 @@ Você pode criar um pipeline com uma atividade de cópia. O pipeline move dados 
 
 A maneira mais fácil de criar um pipeline é usar o assistente de Cópia. Consulte [Tutorial: Criar um pipeline usando o assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para instruções passo a passo rápidas sobre como criar um pipeline usando o assistente Copiar Dados.
 
-Você também pode usar uma das seguintes ferramentas para criar um pipeline: o **portal do Azure**, **Visual Studio**, **Azure PowerShell**, um **modelo do Azure Resource Manager**, **API .NET** ou **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
+Você também pode usar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, uma **modelo do Resource Manager**, o **.NET API**, ou o **API REST**. Consulte o [tutorial Atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, conclua as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -187,7 +187,7 @@ Na Atividade de Cópia, quando a fonte é do tipo **OracleSource**, as seguintes
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos JSON para copiar de dados de e para o Oracle Database
 
-Os exemplos a seguir fornecem amostras de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para um Oracle Database e para ou do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores listados em [Formatos e armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+Os exemplos a seguir fornecem as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Os exemplos mostram como copiar dados de ou para um Oracle Database e para ou do Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores listados em [Formatos e armazenamentos de dados com suporte](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 **Exemplo: Copiar dados do Oracle para o Armazenamento de Blobs do Azure**
 
@@ -601,7 +601,7 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | BLOB |Byte[]<br/>(só tem suporte no Oracle 10g e versões posteriores quando você usa um driver da Microsoft) |
 | CHAR |String |
 | CLOB |String |
-| DATE |Datetime |
+| DATE |DateTime |
 | FLOAT |Decimal, String (se precisão > 28) |
 | INTEGER |Decimal, String (se precisão > 28) |
 | INTERVAL YEAR TO MONTH |Int32 |
@@ -614,12 +614,12 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMESTAMP WITH LOCAL TIME ZONE |DateTime |
 | TIMESTAMP WITH TIME ZONE |DateTime |
 | UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
-| XML |Cadeia de caracteres |
+| XML |string |
 
 > [!NOTE]
 > Tipos de dados **INTERVAL YEAR TO MONTH** e **INTERVAL DAY TO SECOND** não têm suporte quando você usa um driver da Microsoft.

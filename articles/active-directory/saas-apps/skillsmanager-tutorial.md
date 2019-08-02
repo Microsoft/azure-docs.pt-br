@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: b599eaf36eed69cd693e0dc4e20ef2123e42e60b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03cc443197746909eb37efa699cebd8cfd460ac0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867060"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090416"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-manager"></a>Tutorial: Integração do Azure Active Directory com o Skills Manager
 
@@ -53,7 +53,7 @@ Para configurar a integração do Skills Manager ao Azure AD, você precisará a
 
 **Para adicionar o Skills Manager, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Skills Manager, execute as segu
 
     ![Informações de logon único em Domínio e URLs do Skills Manager](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.skills-manager.com/kennametal`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.skills-manager.com/kennametal`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.skills-manager.com/public/SamlLogin2.aspx`
 

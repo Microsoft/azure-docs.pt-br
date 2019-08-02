@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3b1872699b8b3ac72424f00cd74bb90b8b7be87f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ce71c64aff66ea94282a82c1f1b1ee564e74f192
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873168"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403899"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Introdução à identidade do módulo e ao módulo gêmeo do Hub IoT usando o portal e o dispositivo .NET
 
@@ -26,7 +26,7 @@ Neste tutorial, você irá aprender:
 
 1. Como criar uma identidade de módulo no portal.
 
-2. Como usar uma atualização SDK do .NET dispositivo gêmeo do módulo do seu dispositivo.
+2. Como usar um SDK de dispositivo .NET atualize o módulo de atualização do seu dispositivo.
 
 > [!NOTE]
 > Para obter informações sobre os SDKs de IoT do Azure que você pode usar para criar aplicativos executados em dispositivos e no back-end da solução, veja [SDKs de IoT do Azure](iot-hub-devguide-sdks.md).
@@ -41,10 +41,6 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
@@ -53,11 +49,11 @@ Para concluir este tutorial, você precisará do seguinte:
 
 Em uma identidade de dispositivo, você pode criar até 20 identidades de módulo. Clique no botão **Adicionar Identidade de Módulo** na parte superior para criar sua primeira identidade de módulo chamada **myFirstModule**.
 
-  ![Detalhes do Dispositivo](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
+  ![Detalhes do dispositivo](./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.png)
 
 Salve e clique na identidade do módulo que você acabou de criar. Você pode ver os detalhes de identidade do módulo. Salve a cadeia de conexão - chave primária. Ele será usado na próxima seção, na qual você configurará seu módulo no dispositivo.
 
-  ![Detalhes do Dispositivo](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
+  ![Detalhes do dispositivo](./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.png)
 
 ## <a name="update-the-module-twin-using-net-device-sdk"></a>Atualizar o módulo gêmeo usando o SDK do dispositivo .NET
 
@@ -71,13 +67,13 @@ No Visual Studio, adicione um projeto da Área de Trabalho Clássica do Windows 
 
 ## <a name="install-the-latest-azure-iot-hub-net-device-sdk"></a>Instalar o SDK do dispositivo .NET do Hub IoT do Azure
 
-A identidade do módulo e o módulo gêmeo estão em versão prévia pública. Ele só está disponível no dispositivo de pré-lançamento SDKs do IoT Hub. No Visual Studio, abra ferramentas > gerenciamento de pacotes Nuget > gerenciar pacotes Nuget para solução. Pesquise Microsoft.Azure.Devices.Client. Verifique se você tiver verificado incluem a caixa de seleção de pré-lançamento. Selecione a versão mais recente e instale. Agora você tem acesso a todos os recursos do módulo.
+A identidade do módulo e o módulo gêmeo estão em versão prévia pública. Ele só está disponível nos SDKs do dispositivo de pré-lançamento do Hub IoT. No Visual Studio, abra ferramentas > gerenciamento de pacotes Nuget > gerenciar pacotes Nuget para solução. Pesquise Microsoft.Azure.Devices.Client. Verifique se você marcou a caixa de seleção incluir pré-lançamento. Selecione a versão mais recente e instale. Agora você tem acesso a todos os recursos do módulo.
 
   ![Instalar o SDK V1.16.0-preview-005 do serviço .NET do Hub IoT](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
 ## <a name="get-your-module-connection-string"></a>Obter a cadeia de conexão do módulo
 
-Faça logon no [portal do Azure](https://portal.azure.com/). Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
+Entre no [Portal do Azure](https://portal.azure.com/). Navegue até seu Hub IoT e clique em Dispositivos IoT. Localize myFirstDevice e abra-o. Você verá que myFirstModule foi criado com êxito. Copie a cadeia de conexão do módulo. Ela será necessária na próxima etapa.
 
   ![Detalhes do módulo do Portal do Azure](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
@@ -165,6 +161,6 @@ Agora você está pronto para executar os aplicativos. No Visual Studio, no Gere
 
 Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, confira:
 
-* [Introdução ao IoT Hub identidade e o módulo gêmeo do módulo usando o backup do .NET e o dispositivo do .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
+* [Introdução à identidade do módulo do Hub IoT e ao módulo "cópia" usando o backup do .NET e o dispositivo .NET](iot-hub-csharp-csharp-module-twin-getstarted.md)
 
 * [Introdução ao IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

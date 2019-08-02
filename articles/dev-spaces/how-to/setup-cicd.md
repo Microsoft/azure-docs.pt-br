@@ -7,15 +7,15 @@ author: DrEsteban
 ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: conceptual
-manager: yuvalm
+manager: gwallace
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Contêiner do Azure, contêineres
-ms.openlocfilehash: 983af0dd75e6ae62630c85d04ac3819c7e260439
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60687241"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704075"
 ---
 # <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com o Azure Dev Spaces
 
@@ -79,7 +79,7 @@ Para criar um pipeline desse arquivo:
 1. Selecione a opção para criar uma **New** compilar o pipeline.
 1. Selecione **GitHub** como a origem, autorizar com sua conta do GitHub se necessário e selecione o _azds_updates_ branch da versão bifurcado do repositório sampleapp espaços de desenvolvimento.
 1. Selecione **configuração como código**, ou **YAML**, como o seu modelo.
-1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o **...**  botão. Por exemplo: `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Você agora verá uma página de configuração para o pipeline de build. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o **...**  botão. Por exemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
 1. Vá para o **variáveis** guia.
 1. Adicione manualmente _dockerId_ como uma variável, que é o nome de usuário de sua [conta de administrador do Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). (Mencionado nos pré-requisitos do artigo)
 1. Adicione manualmente _dockerPassword_ como uma variável, que é a senha da sua conta do administrador do [Registro de Contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). Certifique-se de especificar _dockerPassword_ como um Segredo (selecionando o ícone de bloqueio) para fins de segurança.
@@ -101,7 +101,7 @@ Agora você tem uma solução de IC que irá criar automaticamente os itens *myw
 1. Para o **versão padrão**, escolha **mais recente da ramificação de padrão de pipeline de compilação com marcas**.
 1. Deixe **marcas** vazio.
 1. Defina o **Alias de Origem** como `drop`. O **alias de origem** valor é usado pelas tarefas de liberação predefinidas, portanto, ele deve ser definido.
-1. Clique em **Adicionar**.
+1. Clique em **Adicionar** .
 1. Agora clique no ícone de raio na origem de artefatos `drop` recém-criada, conforme mostrado abaixo:
 
     ![Configuração da implantação contínua de artefato de versão](../media/common/release-artifact-cd-setup.png)
@@ -148,7 +148,7 @@ Uri                                           Status
 http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
-## <a name="deploying-to-production"></a>Implantação em Produção
+## <a name="deploying-to-production"></a>Implantação para produção
 
 Para promover manualmente uma versão específica para _prod_ usando o sistema CI/CD criado neste tutorial:
 1. Navegue até a **Releases** seção sob **Pipelines**.

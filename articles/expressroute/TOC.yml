@@ -58,6 +58,12 @@
       href: cross-network-connectivity.md
     - name: Atributos de segurança comuns do Azure
       href: expressroute-security-attributes.md
+    - name: Projetar para alta disponibilidade
+      href: designing-for-high-availability-with-expressroute.md
+    - name: Projetar para recuperação de desastre
+      items:
+        - name: Emparelhamento privado
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: Guias de instruções
   items:
     - name: Criar e modificar um circuito
@@ -68,6 +74,9 @@
           href: expressroute-howto-circuit-arm.md
         - name: CLI do Azure
           href: howto-circuit-cli.md
+        - name: Modelo do Azure Resource Manager
+          displayName: 'ARM,resource manager template'
+          href: expressroute-howto-circuit-resource-manager-template.md
     - name: Criar e modificar a configuração de emparelhamento
       items:
         - name: Portal do Azure
@@ -184,6 +193,9 @@
       href: 'https://msdn.microsoft.com/library/azure/mt586720'
     - name: REST (clássico)
       href: 'https://msdn.microsoft.com/library/azure/dn606310'
+    - name: Modelo do Resource Manager
+      displayName: 'ARM,resource manager template'
+      href: /azure/templates/microsoft.network/expressroutecircuits
 - name: Recursos
   items:
     - name: Perguntas Frequentes sobre ExpressRoute

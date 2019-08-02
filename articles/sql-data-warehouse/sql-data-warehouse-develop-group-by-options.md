@@ -2,7 +2,7 @@
 title: Usando o grupo por opções no SQL Data Warehouse do Azure | Microsoft Docs
 description: Dicas para implementar o agrupamento por opções no SQL Data Warehouse do Azure para desenvolver soluções.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: b158048929d3db8672d76027666331448a91a0a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65861798"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479649"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Agrupar por opções de SQL Data Warehouse
 Dicas para implementar o agrupamento por opções no SQL Data Warehouse do Azure para desenvolver soluções.
@@ -50,7 +50,7 @@ GROUP BY ROLLUP (
 Usando ROLLUP, o exemplo anterior solicita as agregações a seguir:
 
 * país e região
-* País/Região
+* País
 * Grande Total
 
 Para substituir o ROLLUP e retornar os mesmos resultados, você pode usar UNION ALL e especificar explicitamente as agregações necessárias:

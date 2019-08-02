@@ -1,0 +1,31 @@
+- name: Documentação da Leitura Avançada
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é a Leitura Avançada?
+      href: Overview.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: 'Usando C#'
+      href: Quickstart.md
+- name: Tutoriais
+  items:
+    - name: Iniciar a Leitura Avançada (Node.js)
+      href: tutorial.md
+- name: Instruções
+  items:
+    - name: Autenticação do Azure Active Directory
+      href: azure-active-directory-authentication.md
+- name: Referência
+  items:
+    - name: Referência do SDK
+      href: reference.md
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+    - name: Suporte ao idioma
+      href: 'https://aka.ms/ltlangsupport'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'

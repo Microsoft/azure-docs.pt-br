@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a3d0a8151610658d8302d90f9a3cb3159a877925
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900269"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Azure Active Directory ao AppDynamics
 
@@ -55,7 +55,7 @@ Para configurar a integração do AppDynamics ao Azure AD, você precisa adicion
 
 **Para adicionar o AppDynamics por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o AppDynamics, realize as seguint
 
     ![Informações de logon único de Domínio e URLs do AppDynamics](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.saas.appdynamics.com/controller`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.saas.appdynamics.com/controller`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do AppDynamics](https://www.appdynamics.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o AppDynamics, realize as seguint
 
    ![Configuração SAML](./media/appdynamics-tutorial/ic790225.png "configuração SAML")
 
-    a. Como **Provedor de Autenticação**, selecione **SAML**.
+   a. Como **Provedor de Autenticação**, selecione **SAML**.
 
    b. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -224,5 +224,5 @@ Ao clicar no bloco do AppDynamics no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

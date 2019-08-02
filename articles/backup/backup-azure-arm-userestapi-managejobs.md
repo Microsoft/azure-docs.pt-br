@@ -1,7 +1,6 @@
 ---
-title: 'Serviço de Backup do Azure: Gerenciar trabalhos de Backup usando a API REST'
+title: 'Serviço de Backup do Azure: Gerenciar trabalhos de backup usando a API REST'
 description: gerenciar tarefas de backup e restauração do Backup do Azure usando a API REST
-services: backup
 author: pvrk
 manager: shivamg
 keywords: API REST; Backup de VM do Azure; Restauração de VM do Azure;
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: pullabhk
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: eb8b7dc77d180eb56c2585e93e60a36742f6c84c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d497fc714e0ad5f61873d4c1f95ab35837532646
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60646615"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466769"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Acompanhe as tarefas de backup e restauração usando a API REST
 
@@ -23,7 +22,7 @@ O serviço de Backup do Azure aciona tarefas executadas em segundo plano em vár
 
 ## <a name="fetch-job-information-from-operations"></a>Buscar informações de trabalho de operações
 
-Uma operação como o acionamento de backup sempre retornará um jobID. Para por exemplo: A resposta final de uma [disparar a operação de API REST de backup](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é da seguinte maneira:
+Uma operação como o acionamento de backup sempre retornará um jobID. Por exemplo: A resposta final de uma [operação de API REST de backup de gatilho](backup-azure-arm-userestapi-backupazurevms.md#example-responses-3) é a seguinte:
 
 ```http
 {
@@ -49,9 +48,9 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 O `{jobName}` é "jobId" mencionado acima. A resposta é sempre 200 OK com o campo "status" indicando o status atual do trabalho. Uma vez que é "Completed" ou "CompletedWithWarnings", a seção "extendedInfo" revela mais detalhes sobre o trabalho.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Resposta
 
-|NOME  |Type  |DESCRIÇÃO  |
+|Nome  |Tipo  |Descrição  |
 |---------|---------|---------|
 |200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | OK        |
 

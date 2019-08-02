@@ -9,11 +9,11 @@ ms.date: 12/21/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: bca78e2963f19b60071b1b27c8dc65c76818e10e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166107"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171932"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>Visão geral do SSH e das chaves
 

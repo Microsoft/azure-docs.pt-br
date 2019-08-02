@@ -4,7 +4,7 @@ description: Guia de alta disponibilidade do SAP NetWeaver em máquinas virtuais
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb468a735a9e1f5cca899090df0125013b9b8d4c
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204932"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709313"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -159,7 +159,7 @@ As Máquinas Virtuais do Azure são a solução para as organizações que preci
 
 Neste artigo, abordaremos as etapas que você pode tomar para implantar sistemas SAP de alta disponibilidade no Azure usando o modelo de implantação do Azure Resource Manager. Vamos percorrer estas tarefas principais:
 
-* Encontrar os guias de instalação e Notas de SAP corretos, listados na seção [Recursos][sap-ha-guide-2]. Este artigo complementa a documentação de instalação do SAP e as Notas do SAP, que são os principais recursos para ajudar a instalar e a implantar o software SAP em plataformas específicas.
+* Encontrar as notas de SAP corretos e guias de instalação, listados na [recursos][sap-ha-guide-2] seção. Este artigo complementa a documentação de instalação do SAP e as Notas do SAP, que são os principais recursos para ajudar a instalar e a implantar o software SAP em plataformas específicas.
 * Descubra as diferenças entre o modelo de implantação do Azure Resource Manager e o modelo de implantação clássico do Azure.
 * Aprenda sobre os modos de quorum do Clustering de Failover do Windows Server para que você possa escolher o modelo certo para sua implantação do Azure.
 * Aprenda sobre o armazenamento compartilhado do Windows Server Failover Clustering nos serviços Azure.
@@ -170,7 +170,7 @@ Neste artigo, abordaremos as etapas que você pode tomar para implantar sistemas
 Para simplificar a implantação e a configuração, estamos usando os modelos de três camadas SAP do Resource Manager de alta disponibilidade neste artigo. Os modelos automatizam a implantação de toda a infraestrutura de que você precisa para um sistema SAP de alta disponibilidade. A infraestrutura também dá suporte ao dimensionamento SAPS (SAP Application Performance Standard) do seu sistema SAP.
 
 ## <a name="217c5479-5595-4cd8-870d-15ab00d4f84c"></a> Pré-requisitos
-Antes de começar, verifique se os pré-requisitos descritos nos capítulos a seguir são atendidos. Além disso, não deixe de verificar todos os recursos listados na seção [Recursos][sap-ha-guide-2].
+Antes de começar, verifique se os pré-requisitos descritos nos capítulos a seguir são atendidos. Além disso, certifique-se de verificar todos os recursos listados na [recursos][sap-ha-guide-2] seção.
 
 Neste artigo, podemos usar modelos do Azure Resource Manager para [SAP NetWeaver de três camadas usando Managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-md/). Para uma visão geral dos modelos, confira [Modelos do Azure Resource Manager para SAP](https://blogs.msdn.microsoft.com/saponsqlserver/2016/05/16/azure-quickstart-templates-for-sap/).
 
@@ -179,17 +179,17 @@ Esses artigos abordam implantações SAP no Azure:
 
 * [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver][planning-guide]
 * [Implantação de Máquinas Virtuais do Azure para SAP NetWeaver][deployment-guide]
-* [Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver][dbms-guide]
-* [Alta disponibilidade de Máquinas Virtuais do Azure para SAP NetWeaver (este guia)][sap-ha-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP NetWeaver][dbms-guide]
+* [Máquinas virtuais alta disponibilidade do Azure para SAP NetWeaver (Este guia)][sap-ha-guide]
 
 > [!NOTE]
-> Sempre que possível, daremos a você um link para o guia de instalação do SAP de referência (confira os [guias de instalação de SAP][sap-installation-guides]). Para pré-requisitos e informações sobre o processo de instalação, é recomendável que você leia os guias de instalação do SAP NetWeaver cuidadosamente. Este artigo aborda apenas as tarefas específicas para sistemas baseados no SAP NetWeaver que você pode usar com as Máquinas Virtuais do Azure.
+> Sempre que possível, daremos a você um link para o guia de instalação do SAP (consulte a [guias de instalação SAP][sap-installation-guides]). Para pré-requisitos e informações sobre o processo de instalação, é recomendável que você leia os guias de instalação do SAP NetWeaver cuidadosamente. Este artigo aborda apenas as tarefas específicas para sistemas baseados no SAP NetWeaver que você pode usar com as Máquinas Virtuais do Azure.
 >
 >
 
 As seguintes Notas do SAP são relacionadas ao tópico do SAP no Azure:
 
-| Número da observação | Title |
+| Número da observação | Título |
 | --- | --- |
 | [1928533] |Aplicativos SAP no Azure: Produtos com suporte e dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -198,7 +198,7 @@ As seguintes Notas do SAP são relacionadas ao tópico do SAP no Azure:
 | [1999351] |Virtualização no Windows: Monitoramento Avançado |
 | [2243692] |Usar o Armazenamento SSD Premium do Azure para instância do SAP DBMS |
 
-Saiba mais sobre as [limitações das assinaturas do Azure][azure-subscription-service-limits-subscription], incluindo limitações máximas e gerais padrão.
+Saiba mais sobre o [das assinaturas do Azure][azure-subscription-service-limits-subscription], incluindo as limitações gerais padrão e máximo.
 
 ## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>SAP de alta disponibilidade com o Azure Resource Manager versus o modelo de implantação clássico do Azure
 Os modelos de implantação clássico do Azure e do Azure Resource Manager são diferentes nos seguintes aspectos:
@@ -223,7 +223,7 @@ No Azure Resource Manager, você pode instalar várias instâncias ASCS/SCS do S
 Para usar o modelo de implantação clássico do Azure, siga os procedimentos descritos em [SAP NetWeaver no Azure: Clustering de instâncias SAP ASCS/SCS usando o Clustering de Failover do Windows Server no Azure com SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056).
 
 > [!IMPORTANT]
-> Recomendamos fortemente que você use o modelo de implantação do Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implantação clássico. Saiba mais sobre os [modelos de implantação do Azure][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
+> Recomendamos fortemente que você use o modelo de implantação do Azure Resource Manager para as instalações do SAP. Ele oferece muitos benefícios que não estão disponíveis no modelo de implantação clássico. Saiba mais sobre os [modelos de implantação][virtual-machines-azure-resource-manager-architecture-benefits-arm] do Azure.   
 >
 >
 
@@ -307,7 +307,7 @@ Para obter a alta disponibilidade do SAP, como no caso de componentes de softwar
 * Instância ASCS/SCS SAP
 * Servidor DBMS
 
-Para obter mais informações sobre como proteger os componentes SAP em cenários de alta disponibilidade, consulte [Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver][planning-guide-11].
+Para obter mais informações sobre como proteger os componentes SAP em cenários de alta disponibilidade, consulte [Azure Virtual Machines planning and implementation for SAP NetWeaver (Planejamento e implementação de Máquinas Virtuais do Azure para SAP NetWeaver)][planning-guide-11].
 
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> Servidor de Aplicativos SAP de Alta Disponibilidade
 Normalmente, não é necessária uma solução específica de alta disponibilidade para Servidor de Aplicativos SAP e instâncias de diálogo. Você atinge alta disponibilidade por redundância e configura várias instâncias de caixa de diálogo em diferentes Máquinas Virtuais do Azure. Você deve ter pelo menos duas instâncias do aplicativo SAP instaladas em duas Máquinas Virtuais do Azure.
@@ -321,7 +321,7 @@ Você deve colocar todas as máquinas virtuais que hospedam instâncias do Servi
 * Todas as máquinas virtuais são parte do mesmo domínio de atualização. Por exemplo, um domínio de atualização faz com que as máquinas virtuais não sejam atualizadas ao mesmo tempo durante o tempo de inatividade de manutenção planejada.
 * Todas as máquinas virtuais são parte do mesmo domínio de falha. Por exemplo, um domínio de falha faz com que as máquinas virtuais sejam implantadas de forma que nenhum ponto único de falha afete a disponibilidade de todas as máquinas virtuais.
 
-Saiba mais sobre como [gerenciar a disponibilidade de máquinas virtuais][virtual-machines-manage-availability].
+Saiba mais sobre como [gerenciar a disponibilidade das máquinas virtuais][virtual-machines-manage-availability].
 
 Somente discos não gerenciados: Como a conta de armazenamento do Azure é um possível ponto único de falha, é importante ter pelo menos duas contas de armazenamento do Azure, nas quais pelo menos duas máquinas virtuais estejam distribuídas. Em uma configuração ideal, os discos de cada máquina virtual que está executando uma instância de diálogo SAP deveria ser implantada em uma conta de armazenamento diferente.
 
@@ -444,7 +444,7 @@ _**Figura 11:** Definir os parâmetros de SAP de alta disponibilidade do Azure R
 >
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Implantar máquinas virtuais com conectividade de rede corporativa (entre locais) para uso na produção
-Para sistemas SAP de produção, implante máquinas virtuais do Azure com [conectividade de rede corporativa (entre instalações)][planning-guide-2.2] usando o VPN Site a Site ou o ExpressRoute do Azure.
+Para sistemas SAP de produção, implante máquinas virtuais do Azure com [conectividade de rede corporativa (entre instalações)][planning-guide-2.2] usando VPN Site a Site do Azure ou Azure ExpressRoute.
 
 > [!NOTE]
 > Você pode usar a instância da Rede Virtual do Azure. A rede virtual e a sub-rede já foram criadas e preparadas.
@@ -499,7 +499,7 @@ Aqui é onde você pode obter os modelos do Azure Resource Manager para esse cen
 
 ### <a name="prepare-the-infrastructure-for-architectural-template-3"></a>Preparar a infraestrutura para o Modelo Arquitetônico 3
 
-Você pode preparar a infraestrutura e configurar SAP para **vários SID**. Por exemplo, você pode adicionar uma instância SAP ASCS/SCS adicional em uma configuração de cluster *existente*. Para obter mais informações, consulte [Configurar uma instância adicional do SAP ASCS/SCS em uma configuração de cluster existente para criar uma configuração de vários SID de SAP no Azure Resource Manager][sap-ha-multi-sid-guide].
+Você pode preparar a infraestrutura e configurar SAP para **vários SID**. Por exemplo, você pode adicionar uma instância SAP ASCS/SCS adicional em uma configuração de cluster *existente*. Para obter mais informações, consulte [configurar uma instância do SAP ASCS/SCS adicional em uma configuração de cluster existente para criar uma configuração de multi-SID do SAP no Azure Resource Manager][sap-ha-multi-sid-guide].
 
 Se você quiser criar um novo cluster com múltiplos SID, use os [modelos de início rápido de vários SID no GitHub](https://github.com/Azure/azure-quickstart-templates).
 Para criar um novo cluster de vários SID, você precisa implantar os três modelos a seguir:
@@ -514,7 +514,7 @@ As seções a seguir têm mais detalhes sobre os modelos e os parâmetros que vo
 
 O modelo de ASCS/SCS implanta duas máquinas virtuais que podem ser usadas para criar um cluster de failover do Windows Server que hospeda várias instâncias de ASCS/SCS.
 
-Para configurar o modelo de vários SID de ASCS/SCS, no [modelo de vários SID de ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] ou [modelo de vários SID de ASCS/SCS usando Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], insira valores para os seguintes parâmetros:
+Para configurar o modelo de vários SID de ASCS/SCS, nos [modelo de vários SID de ASCS/SCS][sap-templates-3-tier-multisid-xscs-marketplace-image] or [ASCS/SCS multi-SID template using Managed Disks][sap-templates-3-tier-multisid-xscs-marketplace-image-md], insira valores para os seguintes parâmetros:
 
   - **Prefixo de Recursos**.  Defina o prefixo do recurso, que é usado para prefixar todos os recursos que são criados durante a implantação. Como os recursos não pertencem apenas a um sistema SAP, o prefixo do recurso não é o SID de um sistema SAP.  O prefixo deve ter entre **três e seis caracteres**.
   - **Tipo de Pilha**. Selecione o tipo de pilha do sistema SAP. Dependendo do tipo de pilha, o Azure Load Balancer tem um (ABAP ou Java apenas) ou dois (ABAP+Java) endereços IP privados por sistema de SAP.
@@ -549,7 +549,7 @@ O balanceador de carga será configurado para usar as seguintes portas de invest
 
 O modelo de banco de dados implanta uma ou duas máquinas virtuais que você pode usar para instalar o RDBMS (sistema de gerenciamento de banco de dados relacional) para um sistema SAP. Se, por exemplo, você implantou um modelo ASCS/SCS para cinco sistemas SAP, precisará implantar esse modelo cinco vezes.
 
-Para configurar o modelo de vários SID de banco de dados, no [modelo de vários SID de banco de dados][sap-templates-3-tier-multisid-db-marketplace-image] ou [modelo de vários SID de banco de dados usando Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], insira valores para os seguintes parâmetros:
+Para configurar o modelo de vários SID de banco de dados, além de [modelo de vários SID de banco de dados][sap-templates-3-tier-multisid-db-marketplace-image] or [database multi-SID template using Managed Disks][sap-templates-3-tier-multisid-db-marketplace-image-md], insira valores para os seguintes parâmetros:
 
 - **ID do sistema SAP**. Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
 - **Tipo de sistema operacional**. Selecione o sistema operacional das máquinas virtuais.
@@ -566,7 +566,7 @@ Para configurar o modelo de vários SID de banco de dados, no [modelo de vários
 
 O modelo de servidores de aplicativo implanta duas ou mais máquinas virtuais que podem ser usadas como instâncias do Servidor de Aplicativos SAP para um sistema SAP. Se, por exemplo, você implantou um modelo ASCS/SCS para cinco sistemas SAP, precisará implantar esse modelo cinco vezes.
 
-Para configurar o modelo de vários SID de servidores de aplicativos, no [modelo de vários SID de servidores de aplicativos][sap-templates-3-tier-multisid-apps-marketplace-image] ou [modelo de vários SID de servidores de aplicativos usando Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], insira valores para os seguintes parâmetros:
+Para configurar o modelo de vários SID de servidores de aplicativos, além de [modelo de multi-SID de servidores de aplicativos][sap-templates-3-tier-multisid-apps-marketplace-image] or [application servers multi-SID template using Managed Disks][sap-templates-3-tier-multisid-apps-marketplace-image-md], insira valores para os seguintes parâmetros:
 
   -  **ID do sistema SAP**. Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
   -  **Tipo de sistema operacional**. Selecione o sistema operacional das máquinas virtuais.
@@ -589,7 +589,7 @@ Em nosso exemplo, o espaço de endereço da rede virtual do Azure é 10.0.0.0/16
 Para definir os endereços IP de DNS necessários, execute as seguintes etapas.
 
 1. No Portal do Azure, na folha de **Servidores DNS**, verifique se sua opção de rede virtual **Servidores DNS** está definida para **DNS Personalizado**.
-2. Selecione suas configurações com base no seu tipo de rede. Para saber mais, consulte os recursos a seguir:
+2. Selecione suas configurações com base no seu tipo de rede. Para obter mais informações, consulte os seguintes recursos:
    * [Conectividade de rede corporativa (entre instalações)][planning-guide-2.2]: adicione os endereços IP dos servidores DNS locais.  
    Você pode estender os servidores DNS locais às máquinas virtuais que estão em execução no Azure. Nesse cenário, você pode adicionar os endereços IP das máquinas virtuais do Azure nos quais executa o serviço DNS.
    * Para implantações de VM isoladas no Azure: implantar uma máquina virtual adicional na mesma instância de Rede Virtual que serve como servidor DNS. Adicione os endereços IP das máquinas virtuais do Azure que você configurou para executar o serviço DNS.
@@ -620,9 +620,9 @@ Para implantação local, você precisa destes endereços IP e nomes de host res
 | Nome de host virtual da instância do SAP ASCS/SCS |pr1-ascs-sap |10.0.0.43 |
 | Nome de host virtual do segundo cluster SAP DBMS (gerenciamento de cluster) |pr1-dbms-vir |10.0.0.32 |
 
-Quando você criar o cluster, crie os nomes de host virtual **pr1-ascs-vir** e **pr1-dbms- vir** e os endereços IP associados que gerenciam o cluster. Para obter informações sobre como fazer isso, consulte [Coletar nós de cluster em uma configuração de cluster][sap-ha-guide-8.12.1].
+Quando você criar o cluster, crie os nomes de host virtual **pr1-ascs-vir** e **pr1-dbms- vir** e os endereços IP associados que gerenciam o cluster. Para obter informações sobre como fazer isso, consulte [coletar nós de cluster em uma configuração de cluster][sap-ha-guide-8.12.1].
 
-Você pode criar manualmente os outros dois nomes de host virtuais, **pr1-ascs-sap** e **pr1-dbms-sap**, e os endereços IP associados no servidor DNS. A instância clusterizada da instância SAP ASCS/SCS e a instância clusterizada do DBMS usam esses recursos. Para obter informações sobre como fazer isso, consulte [Criar um nome de host virtual para uma instância SAP ASCS/SCS clusterizada][sap-ha-guide-9.1.1].
+Você pode criar manualmente os outros dois nomes de host virtuais, **pr1-ascs-sap** e **pr1-dbms-sap**, e os endereços IP associados no servidor DNS. A instância clusterizada da instância SAP ASCS/SCS e a instância clusterizada do DBMS usam esses recursos. Para obter informações sobre como fazer isso, consulte [criar um nome de host virtual para uma instância clusterizada do SAP ASCS/SCS][sap-ha-guide-9.1.1].
 
 ### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Definir endereços IP estáticos para as máquinas virtuais de SAP
 Depois de implantar as máquinas virtuais para usar no seu cluster, você precisará definir endereços IP estáticos para todas as máquinas virtuais. Faça isso na configuração da Rede Virtual do Azure e não no sistema operacional convidado.
@@ -741,8 +741,8 @@ Se você quiser usar números diferentes para as instâncias SAP ASCS ou SCS, pr
 1. No portal do Azure, selecione **<*SID*>-lb-ascs load balancer** > **Regras de Balanceamento de Carga**.
 2. Para todas as regras de balanceamento de carga que pertencem à instância do SAP ASCS ou SCS, altere estes valores:
 
-   * NOME
-   * Port
+   * Nome
+   * Porta
    * Porta de back-end
 
    Por exemplo, se você quer alterar o número de instância do ASCS padrão de 00 para 31, precisa fazer as alterações em todas as portas listadas na Tabela 1.
@@ -767,22 +767,22 @@ O Azure Load Balancer tem um balanceador de carga interno que fecha conexões qu
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância SAP ASCS/SCS, primeiro adicione essas entradas de Registro do Windows a ambos os nós de cluster do Windows para SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Value |120000 |
+| Valor |120000 |
 | Vincular à documentação |[https://technet.microsoft.com/library/cc957549.aspx](https://technet.microsoft.com/library/cc957549.aspx) |
 
 _**Tabela 3:** Alterar o primeiro parâmetro de TCP/IP_
 
 Em seguida, adicione as seguintes entradas de Registro em nós de cluster do Windows para SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
-| Value |120000 |
+| Valor |120000 |
 | Vincular à documentação |[https://technet.microsoft.com/library/cc957548.aspx](https://technet.microsoft.com/library/cc957548.aspx) |
 
 _**Tabela 4:** Alterar o segundo parâmetro de TCP/IP_
@@ -868,7 +868,7 @@ Configurar um cluster do Clustering de Failover do Windows Server para uma inst�
 
    _**Figura 28:** **Não** marque a caixa de seleção_
 
-   Você pode ignorar os avisos sobre quorum e discos. Você configurará o quorum e compartilhará o disco mais tarde, conforme descrito em [Instalando o SIOS DataKeeper Cluster Edition para o disco compartilhado de cluster do SAP ASCS/SCS][sap-ha-guide-8.12.3].
+   Você pode ignorar os avisos sobre quorum e discos. Você configurará o quorum e compartilhará o disco mais tarde, conforme descrito em [instalando o SIOS DataKeeper Cluster Edition para disco de compartilhamento de cluster SAP ASCS/SCS][sap-ha-guide-8.12.3].
 
    ![Figura 29: Ignorar os avisos sobre o quorum de disco][sap-ha-guide-figure-3018]
 
@@ -1158,7 +1158,7 @@ Instalar o SAP com uma instância ASCS/SCS de alta disponibilidade envolve as se
    * **Sistema Java**: **SCS** com número de instância **01**
    * **Sistema ABAP+Java**: **ASCS** com número de instância **00** e **SCS** com número de instância **01**
 
-   Para usar números de instância além de 00 para a instância do ASCS ABAP e 01 para a instância do SCS Java, primeiramente será preciso alterar as regras padrão de balanceamento de carga do Azure Internal Load Balancer, conforme descrito em [Alterar as regras do balanceamento de carga padrão do ASCS/SCS para o Azure Internal Load Balancer][sap-ha-guide-8.9].
+   Para usar números de instância diferente de 00 para a instância do ASCS ABAP e 01 para a instância do SCS Java, primeiro você precisa alterar a carga interno do Azure balanceador balanceamento de carga padrão regras, descritas na [alterar a regras para de balanceamento de carga do ASCS/SCS padrão o balanceador de carga interno do Azure][sap-ha-guide-8.9].
 
 As próximas tarefas não são descritas na documentação de instalação padrão do SAP.
 
@@ -1169,7 +1169,7 @@ As próximas tarefas não são descritas na documentação de instalação padr�
 
 #### <a name="e4caaab2-e90f-4f2c-bc84-2cd2e12a9556"></a> Modificar o perfil SAP da instância do ASCS/SCS
 
-Você precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil impede conexões entre os processos de trabalho do SAP e o servidor de enfileiramento de fechar quando estão ociosas por muito tempo. Mencionamos o cenário de problema em [Adicionar entradas do Registro a ambos os nós de cluster da instância SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa seção, também apresentamos duas alterações para alguns parâmetros básicos de conexão TCP/IP. Na segunda etapa, você precisará configurar o servidor de enfileiramento para enviar um sinal `keep_alive` para que as conexões não atinjam o limite de ociosidade do balanceador interno de carga do Azure.
+Você precisa adicionar um novo parâmetro de perfil. O parâmetro de perfil impede conexões entre os processos de trabalho do SAP e o servidor de enfileiramento de fechar quando estão ociosas por muito tempo. Mencionamos o cenário de problema em [adicionar entradas de registro em ambos os nós de cluster da instância SAP ASCS/SCS][sap-ha-guide-8.11]. Nessa seção, também apresentamos duas alterações para alguns parâmetros básicos de conexão TCP/IP. Na segunda etapa, você precisará configurar o servidor de enfileiramento para enviar um sinal `keep_alive` para que as conexões não atinjam o limite de ociosidade do balanceador interno de carga do Azure.
 
 Para modificar o perfil SAP da instância do ASCS/SCS:
 

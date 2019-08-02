@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 086ec95531b01477be56d4b1a19d189f167a020f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65772810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Azure Active Directory com o Workspot Control
 
@@ -248,4 +248,4 @@ Ao clicar no bloco **Workspot Control** no Painel de Acesso, você deverá ser c
 
 - [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

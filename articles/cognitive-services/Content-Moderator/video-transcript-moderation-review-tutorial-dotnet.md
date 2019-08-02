@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: moderar vídeos e transcrições no .NET – Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Este tutorial ajuda a entender como criar uma solução completa de moderação de vídeo e transcrição com moderação assistida por computador e criação de análise com interação humana.
 services: cognitive-services
 author: PatrickFarley
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4a28e9f1f911e274f9a53275afa577024405b336
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: e1c3d3d95261b959a7540aab73faf12f92801d4c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66474691"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564270"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: moderação de vídeos e transcrições
 
@@ -37,7 +37,7 @@ Este tutorial mostra como:
 - Inscreva-se no site da [ferramenta de Análise do Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e crie marcas personalizadas. Confira [Usar marcas](Review-Tool-User-Guide/tags.md) se precisar de ajuda com esta etapa.
 
     ![captura de tela das marcas personalizadas da Moderação de vídeo](images/video-tutorial-custom-tags.png)
-- Para executar o aplicativo de exemplo, você precisará de uma conta do Azure, um recurso dos Serviços de Mídia do Azure, um recurso do Azure Content Moderator e credenciais do Azure Active Directory. Para obter instruções sobre como obtê-los, confira o guia da [API de Moderação de Vídeo](video-moderation-api.md).
+- Para executar o aplicativo de exemplo, você precisará de uma conta do Azure, um recurso dos Serviços de Mídia do Azure, um recurso do Azure Content Moderator e credenciais do Azure Active Directory. Para obter instruções sobre como obter esses recursos, confira o guia da [API de Moderação de Vídeo](video-moderation-api.md).
 - Baixe o [aplicativo de console de Análise de vídeo](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) no GitHub.
 
 ## <a name="enter-credentials"></a>Inserir as credenciais
@@ -225,7 +225,7 @@ Uma transcrição do áudio do vídeo também é produzida quando o sinalizador 
 > [!NOTE]
 > O aplicativo de console usa a [API do Azure Media Indexer](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) para gerar transcrições da faixa de áudio do vídeo carregado. Os resultados são fornecidos no formato WebVTT. Para obter mais informações sobre esse formato, consulte [Formato de faixas de texto de vídeo na Web](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
-## <a name="create-a-the-human-in-the-loop-review"></a>Criar uma análise com interação humana
+## <a name="create-a-human-review"></a>Criar uma análise humana
 
 O processo de moderação retorna uma lista de quadros chave do vídeo, juntamente com uma transcrição das faixas de áudio. A próxima etapa é criar uma análise na ferramenta de análise do Content Moderator para moderadores humanos. Voltando ao método `ProcessVideo()` em `Program.cs`, você verá a chamada para o método `CreateVideoReviewInContentModerator()`. Este método está na classe `videoReviewApi`, que está em `VideoReviewAPI.cs`, e é mostrado aqui.
 

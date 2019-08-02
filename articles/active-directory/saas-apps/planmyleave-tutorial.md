@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8581b7f940aceca4e3ab85e44f83bf0bebb1b6f5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d1192d3606dfbbf54a8177c2369a9cae8871d92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904039"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094390"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Tutorial: Integração do Azure Active Directory com o PlanMyLeave
 
@@ -55,7 +55,7 @@ Para configurar a integração do PlanMyLeave ao Azure AD, você precisará adic
 
 **Para adicionar o PlanMyLeave por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o PlanMyLeave, siga estas etapas:
 
     ![Informações de logon único de Domínio e URLs do PlanMyLeave](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com/Login.aspx`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<company-name>.planmyleave.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Para obter esses valores, entre em contato com a [equipe de suporte do Cliente PlanMyLeave](mailto:support@planmyleave.com). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o PlanMyLeave, siga estas etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-     a.  Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
+    a.  Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
 
     b.  Abra os metadados baixados, copie o valor **X509Certificate** e, em seguida, cole-o na caixa de texto **Certificado**.
 

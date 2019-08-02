@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: b6ca4810d86bb3c8413f0a740ac4483a848b8e10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d870690416f96a2e1c24e6de16bdc8faa060f6bd
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726248"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225138"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
 > [!div class="op_single_selector"]
@@ -34,11 +34,11 @@ Antes de iniciar, assegure-se de que você tenha o ambiente de desenvolvimento d
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Criar um novo projeto no Visual Studio
 
-Inicie o Visual Studio 2015, ou posterior, como um administrador e, em seguida, crie um novo projeto de **Aplicativo do Service Fabric**:
+Inicie o Visual Studio 2019 ou posterior como administrador e, em seguida, crie um novo projeto de **aplicativo Service Fabric** :
 
 ![Ferramentas do Service Fabric para Visual Studio – novo projeto][1]
 
-Na caixa de diálogo seguinte, escolha **serviço de ator** sob **.NET Core 2.0** e insira um nome para o serviço.
+Na próxima caixa de diálogo, escolha **serviço de ator** em **.NET Core 2,0** e insira um nome para o serviço.
 
 ![Modelos de projeto do Service Fabric][5]
 

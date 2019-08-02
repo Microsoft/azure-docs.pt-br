@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 83a5d4c1d9c0475609a506fbfe6ae23bd9e236fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 837ba4043fe27c15f75c4d401878dfdb3328b82f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-versal"></a>Tutorial: Integração do Azure Active Directory ao Versal
 
@@ -53,7 +53,7 @@ Para configurar a integração do Versal ao Azure AD, você precisa adicionar o 
 
 **Para adicionar o Versal da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Versal, execute seguintes etapa
 
     ![Informações de logon único de Domínio e URLs do Versal](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `VERSAL`
+    a. Na caixa de texto **Identificador**, digite uma URL: `VERSAL`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://versal.com/sso/saml/orgs/<organization_id>`
 
@@ -201,5 +201,5 @@ Você precisará criar um curso, compartilhá-lo com sua organização e public�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,5 +1,6 @@
 ---
 title: Moderação de texto – Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Use a moderação de texto para possíveis textos indesejados, PII e listas de termos personalizada.
 services: cognitive-services
 author: sanjeev3
@@ -9,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60607120"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564378"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprender os conceitos de moderação de texto
 
@@ -29,7 +30,7 @@ A resposta de serviço inclui as informações a seguir:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Linguagem
+- Idioma
 
 ## <a name="profanity"></a>Conteúdo ofensivo
 
@@ -48,7 +49,7 @@ Se a API detectar termos ofensivos em qualquer um dos [idiomas com suporte](Text
 >
 > Para a detecção de **termos obscenos**, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe vazio.
 
-## <a name="classification"></a>classificação
+## <a name="classification"></a>Classificação
 
 O **recurso de classificação de texto** assistido por computador do Content Moderator dá suporte **somente em inglês** e ajuda a detectar conteúdo potencialmente indesejado. O conteúdo sinalizado pode ser avaliado como inadequado, dependendo do contexto. Ele transmite a probabilidade de cada categoria e pode recomendar uma análise humana. O recurso utiliza um modelo treinado para identificar uma possível linguagem abusiva, depreciativa ou discriminatória. Isso inclui gírias, palavras abreviadas, palavras ofensivas e intencionalmente incorretas para análise. 
 

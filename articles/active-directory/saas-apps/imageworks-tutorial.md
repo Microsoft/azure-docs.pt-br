@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cde9d4efd3d6eb5bc987a4bf7eb423447ceddc2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: cee7757a0d590c35b0994f912e39adc80ad8606f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898063"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100528"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-works"></a>Tutorial: Integração do Azure Active Directory com o IMAGE WORKS
 
@@ -53,7 +53,7 @@ Para configurar a integração do IMAGE WORKS ao Microsoft Azure AD, você preci
 
 **Para adicionar o IMAGE WORKS da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Microsoft Azure AD com o IMAGE WORKS, execute 
 
     ![Informações de logon único de Domínio e URLs do IMAGE WORKS](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://i-imageworks.jp/iw/<tenantName>/sso/Login.do`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://sp.i-imageworks.jp/iw/<tenantName>/postResponse`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [Equipe de suporte do cliente do IMAGE WORKS](mailto:iw-sd-support@fujifilm.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -197,4 +197,4 @@ Ao clicar no bloco do IMAGE WORKS no Painel de Acesso, você deverá entrar auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

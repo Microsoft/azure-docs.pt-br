@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6aaa98bea5e6cf1bdffc3dbe28e42e9545a626ea
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843667"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593618"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>O que é uma rede de distribuição de conteúdo no Azure?
 Uma CDN (rede de distribuição de conteúdo) é uma rede distribuída de servidores que pode fornecer conteúdo da Web para os usuários com eficiência. As CDNs armazenam conteúdo armazenado em cache em servidores de borda em localizações de ponto de presença (POP) que estão próximas aos usuários finais, para minimizar a latência. 
@@ -38,7 +38,7 @@ Para ver uma lista de locais de nó CDN atuais, confira [Locais POP de CDN do Az
 ## <a name="how-it-works"></a>Como ele funciona
 ![Visão geral da CDN](./media/cdn-overview/cdn-overview.png)
 
-1. Uma usuária (Brenda) solicita um arquivo (também chamado de ativo) usando uma URL com um nome de domínio especial, como _&lt;nome do ponto de extremidade&gt;_.azureedge.net. Esse nome pode ser um nome de host do ponto de extremidade ou um domínio personalizado. O DNS encaminha a solicitação para o local POP com o melhor desempenho, que é geralmente o POP geograficamente mais próximo ao usuário.
+1. Uma usuária (Brenda) solicita um arquivo (também chamado de ativo) usando uma URL com um nome de domínio especial, como _&lt;nome do ponto de extremidade&gt;_ .azureedge.net. Esse nome pode ser um nome de host do ponto de extremidade ou um domínio personalizado. O DNS encaminha a solicitação para o local POP com o melhor desempenho, que é geralmente o POP geograficamente mais próximo ao usuário.
     
 2. Se os servidores de borda no POP não tiverem o arquivo em seu cache, as solicitações de POP solicitarão o arquivo do servidor de origem. O servidor de origem pode ser um Aplicativo Web do Azure, o Serviço de Nuvem do Azure, a conta de Armazenamento do Azure ou qualquer servidor Web acessível publicamente.
    

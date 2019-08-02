@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: db88a166cd59e96b459f8d4dcaa6a6d2b8c4ff99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66110539"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171634"
 ---
 ## <a name="set-properties"></a>Definir propriedades
 

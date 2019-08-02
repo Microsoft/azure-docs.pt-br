@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: b7dbc7dbc0b670de81a3f4603b0d52bce7559af8
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: f31e014cf242675577bedd29a3a79332ede32bf5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428326"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304232"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Responder a eventos do Barramento de Serviço do Azure recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure
 Neste tutorial, você aprenderá a responder a eventos do Barramento de Serviço do Azure que são recebidos por meio da Grade de Eventos do Azure usando o Azure Functions e os Aplicativos Lógicos do Azure. Siga as seguintes etapas:
@@ -235,7 +235,7 @@ Nesta seção, você aprenderá como receber e processar mensagens depois de rec
         ![Obter o perfil de publicação para a função](./media/service-bus-to-event-grid-integration-example/function-download-publish-profile.png)
     4. Salve o arquivo na pasta do projeto. 
 4. No Visual Studio, clique com o botão direito do mouse em **SBEventGridIntegration** e, em seguida, selecione **Publicar**. 
-5. Selecione *Iniciar** na página **Publicar**. 
+5. Selecione **Iniciar** na página **Publicar**. 
 6. Na página **Escolher um destino de publicação**, siga as etapas a seguir e selecione **Importar perfil**. 
 
     ![Visual Studio – botão Importar perfil](./media/service-bus-to-event-grid-integration-example/visual-studio-import-profile-button.png)

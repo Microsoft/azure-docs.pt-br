@@ -10,11 +10,11 @@ ms.date: 03/15/2018
 ms.author: alehall
 ms.custom: mvc
 ms.openlocfilehash: ddaff590fd493b430a72c30dd35cb1b891b80d84
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62104930"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205344"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Executar trabalhos do Apache Spark no AKS
 

@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22f3e4cde892a70ec331523524508a50008a4073
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962866"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483015"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar para a plataforma de identidade da Microsoft (v2.0)?
 
@@ -46,7 +46,7 @@ Ponto de extremidade de plataforma do Microsoft identity, você pode usar a bibl
 
 Os aplicativos que usam o endpoint do Azure AD v1.0 precisam especificar suas permissões necessárias do OAuth 2.0 antecipadamente, por exemplo:
 
-![Interface do usuário do registro de permissões](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![Exemplo que mostra a interface do usuário permissões de registro](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 As permissões definidas diretamente no registro do aplicativo são **static**. Embora as permissões estáticas do aplicativo definidas no portal do Azure mantivessem o código simples e agradável, ele apresenta alguns problemas para os desenvolvedores:
 

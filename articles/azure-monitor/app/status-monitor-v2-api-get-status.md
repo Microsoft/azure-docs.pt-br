@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do v2 de Monitor de Status do Azure: Obter status | Microsoft Docs'
-description: Referência de API v2 de Monitor de status. Get-ApplicationInsightsMonitoringStatus. Monitorar o desempenho do site sem reimplantar o site. Funciona com aplicativos web ASP.NET hospedado no local, em máquinas virtuais ou no Azure.
+title: 'Referência da API do Azure Status Monitor v2: Obter status | Microsoft Docs'
+description: Referência da API do Status Monitor v2. Get-ApplicationInsightsMonitoringStatus. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos web ASP.NET hospedado no local, em máquinas virtuais ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,43 +12,83 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 860226320fe1a546798cc462e4e5c06d4b9228cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50703ede205b42032e9618c1b16b0de2bd7f3a23
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514302"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424134"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>API de v2 do Monitor de status: Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API Status Monitor v2: Get-ApplicationInsightsMonitoringStatus
 
-Este artigo descreve um cmdlet que é um membro do [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
-> [!IMPORTANT]
-> Status Monitor v2 está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço, e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="description"></a>Descrição
 
-## <a name="description"></a>DESCRIÇÃO
-
-Habilita a solução de problemas do módulo do PowerShell que está sendo usado.
-Esse cmdlet irá relatar informações de versão e informações sobre arquivos de chave necessários para o monitoramento.
-Parâmetros adicionais fornecem relatórios extras sobre o status de monitoramento.
+Este cmdlet fornece informações de solução de problemas sobre Status Monitor.
+Use este cmdlet para investigar o status de monitoramento, a versão do módulo do PowerShell e para inspecionar o processo em execução.
+Esse cmdlet relatará informações de versão e informações sobre os arquivos de chave necessários para o monitoramento.
 
 > [!IMPORTANT] 
-> Esse cmdlet requer uma sessão do PowerShell com permissões de administrador.
+> Este cmdlet requer uma sessão do PowerShell com permissões de administrador.
 
 ## <a name="examples"></a>Exemplos
 
+### <a name="example-application-status"></a>Exemplo: Status do aplicativo
 
-### <a name="example-basic-information"></a>Exemplo: Informações básicas
-
-Executar `Get-ApplicationInsightsMonitoringStatus` para exibir informações sobre o módulo atual:
+Execute o comando `Get-ApplicationInsightsMonitoringStatus` para exibir o status de monitoramento dos sites.
 
 ```
-PS C:\> Get-ApplicationInsightsMonitoringStatus
+PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
+Machine Identifier:
+811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
+
+IIS Websites:
+
+SiteName               : Default Web Site
+ApplicationPoolName    : DefaultAppPool
+SiteId                 : 1
+SiteState              : Stopped
+
+SiteName               : DemoWebApp111
+ApplicationPoolName    : DemoWebApp111
+SiteId                 : 2
+SiteState              : Started
+ProcessId              : not found
+
+SiteName               : DemoWebApp222
+ApplicationPoolName    : DemoWebApp222
+SiteId                 : 3
+SiteState              : Started
+ProcessId              : 2024
+Instrumented           : true
+InstrumentationKey     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123
+
+SiteName               : DemoWebApp333
+ApplicationPoolName    : DemoWebApp333
+SiteId                 : 4
+SiteState              : Started
+ProcessId              : 5184
+AppAlreadyInstrumented : true
+```
+
+Neste exemplo;
+- O **identificador da máquina** é uma ID anônima usada para identificar exclusivamente o servidor. Se você criar uma solicitação de suporte, precisaremos dessa ID para localizar os logs do seu servidor.
+- O **site padrão** é interrompido no IIS
+- O **DemoWebApp111** foi iniciado no IIS, mas não recebeu nenhuma solicitação. Este relatório mostra que não há nenhum processo em execução (ProcessId: não encontrado).
+- **DemoWebApp222** está sendo executado e está sendo monitorado (instrumentado: true). Com base na configuração do usuário, a chave de instrumentação xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 foi correspondida para este site.
+- O **DemoWebApp333** foi instrumentado manualmente usando o SDK do Application insights. Status Monitor detectou o SDK e não monitorará este site.
+
+
+### <a name="example-powershell-module-information"></a>Exemplo: Informações do módulo do PowerShell
+
+Execute o comando `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` para exibir informações sobre o módulo atual:
+
+```
+PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
 
 PowerShell Module version:
-0.2.2-alpha
+0.4.0-alpha
 
 Application Insights SDK version:
 2.9.0.3872
@@ -60,26 +100,43 @@ PowerShell Module Directory:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\PowerShell
 
 Runtime Paths:
-ParentDirectory: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content Exists: False
-ConfigurationPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\applicationInsights.ikey.config Exists: True
-ManagedHttpModuleHelperPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll Exists: True
-RedfieldIISModulePath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll Exists: True
-InstrumentationEngine86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll Exists: True
-InstrumentationEngine64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll Exists: True
-InstrumentationEngineExtensionHost86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll Exists: True
-InstrumentationEngineExtensionHost64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll Exists: True
-InstrumentationEngineExtensionConfig86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
+ParentDirectory (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content
 
+ConfigurationPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 
-Machine Identifier:
-0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+ManagedHttpModuleHelperPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll
+
+RedfieldIISModulePath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
+
+InstrumentationEngine86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll
+
+InstrumentationEngine64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll
+
+InstrumentationEngineExtensionHost86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll
+
+InstrumentationEngineExtensionHost64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
+
+InstrumentationEngineExtensionConfig86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config
+
+InstrumentationEngineExtensionConfig64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config
+
+ApplicationInsightsSdkPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Exemplo: Status de tempo de execução
+### <a name="example-runtime-status"></a>Exemplo: Status do tempo de execução
 
-Você pode inspecionar o processo no computador instrumentado para ver se todas as DLLs são carregadas. Se o monitoramento está funcionando, pelo menos 12 DLLs devem ser carregados.
+Você pode inspecionar o processo no computador instrumentado para ver se todas as DLLs estão carregadas. Se o monitoramento estiver funcionando, pelo menos 12 DLLs deverão ser carregadas.
 
 Execute o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
@@ -115,33 +172,37 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 ### <a name="no-parameters"></a>(Sem parâmetros)
 
-Por padrão, esse cmdlet irá relatar os números de versão e os caminhos de DLLs necessários para o monitoramento.
+Por padrão, esse cmdlet relatará o status de monitoramento dos aplicativos Web.
+Use esta opção para examinar se o aplicativo foi instrumentado com êxito.
+Você também pode examinar qual chave de instrumentação foi correspondida ao seu site.
 
+
+### <a name="-powershellmodule"></a>-PowerShellModule
+**Opcional**. Use essa opção para relatar os números de versão e os caminhos de DLLs necessários para o monitoramento.
 Use esta opção se você precisar identificar a versão de qualquer DLL, incluindo o SDK do Application Insights.
-
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**Opcional**. Use esse parâmetro para relatar se o IIS está em execução.
-Ele também baixará as ferramentas externas para determinar se as DLLs necessárias que são carregadas no tempo de execução do IIS.
+**Opcional**. Use essa opção para relatar se o IIS está em execução.
+Ele também fará o download das ferramentas externas para determinar se as DLLs necessárias são carregadas no tempo de execução do IIS.
 
 
-Se esse processo falhar por algum motivo, você pode executar esses comandos manualmente:
+Se esse processo falhar por algum motivo, você poderá executar estes comandos manualmente:
 - iisreset.exe /status
-- [handle64.exe](https://docs.microsoft.com/sysinternals/downloads/handle) w3wp -p | findstr /I "InstrumentationEngine AI. ApplicationInsights"
-- [listdlls64.exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr /I "InstrumentationEngine AI ApplicationInsights"
+- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp | findstr/I "InstrumentationEngine AI. ApplicationInsights"
+- [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp | findstr/I "InstrumentationEngine ia ApplicationInsights"
 
 
 ### <a name="-force"></a>-Force
 
-**Opcional**. Usado somente com InspectProcess. Use essa opção para ignorar o prompt do usuário que aparece antes do download de ferramentas adicionais.
+**Opcional**. Usado somente com InspectProcess. Use essa opção para ignorar o prompt do usuário que aparece antes que as ferramentas adicionais sejam baixadas.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
- Faça mais com v2 de Monitor de Status:
- - Use nosso guia para [solucionar problemas de](status-monitor-v2-troubleshoot.md) v2 do Monitor de Status.
+ Faça mais com Status Monitor v2:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.

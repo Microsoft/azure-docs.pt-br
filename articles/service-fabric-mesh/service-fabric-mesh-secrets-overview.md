@@ -4,17 +4,17 @@ description: Armazenar e usar segredos de Malha do Service Fabric.
 services: service-fabric-mesh
 keywords: segredos
 author: v-steg
-ms.author: v-steg
+ms.author: jeconnoc
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: jeanpaul.connock
-ms.openlocfilehash: 4268356db5f46e92862e19d6391cfe5a94511270
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: jeconnoc
+ms.openlocfilehash: b5cfa93298222d914069b6ab63deb8ba8a9b59c3
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810635"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875336"
 ---
 # <a name="service-fabric-mesh-application-secrets"></a>Segredos do aplicativo de Malha do Fabric Mesh
 A Malha do Service Fabric dá suporte a Segredos como recursos do Azure. Um segredo de Malha do Service Fabric pode ser qualquer informação de texto confidenciais como cadeias de caracteres de conexão de armazenamento, senhas ou outros valores que devem ser armazenados e transmitidos de forma segura.

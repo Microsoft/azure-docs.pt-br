@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 5ef653e825a5f1eb0f5df52f9c2544a5224b34cf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66003440"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67434855"
 ---
 # <a name="azure-managed-application-with-managed-identity"></a>Aplicativo gerenciado do Azure com identidade gerenciada
 
@@ -322,8 +322,23 @@ Depois de criar o pacote de aplicativo gerenciado, o aplicativo gerenciado pode 
 O token do aplicativo gerenciado agora pode ser acessado por meio de `listTokens` api do locatário do publicador. Um exemplo de solicitação pode parecer com:
 
 ``` HTTP
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}?api-version=2018-09-01-preview HTTP/1.1
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
+
+{
+    "authorizationAudience": "https://management.azure.com/",
+    "userAssignedIdentities": [
+        "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}"
+    ]
+}
 ```
+
+Parâmetros do corpo da solicitação:
+
+Parâmetro | Obrigatório | DESCRIÇÃO
+---|---|---
+authorizationAudience | *no* | O URI de ID do aplicativo de recurso de destino. Também é o `aud` declaração (público) do token emitido. O valor padrão é "https://management.azure.com/"
+userAssignedIdentities | *no* | A lista de identidades gerenciadas atribuídas para recuperar um token para. Se não for especificado, `listTokens` retornará o token para a identidade gerenciada atribuído pelo sistema.
+
 
 Uma resposta de exemplo pode parecer com:
 
@@ -345,6 +360,18 @@ Content-Type: application/json
     ]
 }
 ```
+
+A resposta conterá uma matriz de tokens sob o `value` propriedade:
+
+Parâmetro | DESCRIÇÃO
+---|---
+access_token | O token de acesso solicitado.
+expires_in | O número de segundos que o token de acesso serão válido.
+expires_on | O período de expiração do token de acesso. Isso é representado como o número de segundos de época.
+not_before | O período de tempo quando o token de acesso entra em vigor. Isso é representado como o número de segundos de época.
+authorizationAudience | O `aud` (público) o token de acesso foi a solicitação. Isso é o mesmo que o que foi fornecido no `listTokens` solicitação.
+ResourceId | A ID de recurso do Azure para o token emitido. Isso é a ID do aplicativo gerenciado ou a ID da identidade atribuída pelo usuário.
+token_type | O tipo do token.
 
 ## <a name="next-steps"></a>Próximas etapas
 

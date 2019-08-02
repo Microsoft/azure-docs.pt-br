@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 435e5f2163270672ac5f1f5695ca2fe9be22ee6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f89105abc21f5ef6cce53ea55622a808f947e86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388752"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357298"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planeje o ambiente de versão prévia do Azure Time Series Insights
 
@@ -88,5 +88,8 @@ Para saber mais, confira [Formatar eventos](./time-series-insights-send-events.m
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- Revisão [Azure Advisor](../advisor/advisor-overview.md) planejar suas opções de configuração de recuperação de negócios.
+
 - Leia mais sobre [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na visualização de Insights de série do tempo.
+
 - Saiba mais sobre [modelagem de dados](./time-series-insights-update-tsm.md) na visualização de Insights de série do tempo.

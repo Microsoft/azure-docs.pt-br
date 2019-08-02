@@ -4,7 +4,7 @@ description: Aprenda a criar uma conta do Lote do Azure no portal do Azure para 
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86747b72c436c4dac3bbf0a752fee4d24cb47f60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e1543d578e6812fd270bd76ec18bdfe8fe5ba6a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60722458"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324049"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
-Saiba como criar uma conta do Lote do Azure no [portal do Azure][azure_portal] e escolha as propriedades da conta que se ajustam ao seu cenário de computação. Saiba onde encontrar propriedades da conta importantes, como chaves de acesso e URLs de conta.
+Saiba como criar uma conta do lote do Azure no [portal do Azure][azure_portal]e escolha as propriedades da conta que se ajustam ao seu cenário de computação. Saiba onde encontrar propriedades da conta importantes, como chaves de acesso e URLs de conta.
 
 Para saber mais sobre contas do Lote e cenários, confira a [visão geral do recurso](batch-api-basics.md).
 
@@ -109,17 +109,21 @@ Ao criar sua primeira conta do Lote no modo de assinatura do usuário, é precis
 
 No modo de assinatura do usuário, é necessário ter um Azure Key Vault que pertença ao mesmo grupo de recursos da conta do Lote a ser criada. Verifique se o grupo de recursos está em uma região em que o Lote esteja [disponível](https://azure.microsoft.com/regions/services/) e que tenha suporte pela assinatura.
 
-1. No [portal do Azure][azure_portal], selecione **Novo** > **Segurança** > **Key Vault**.
+1. Na [portal do Azure][azure_portal], selecione **novo** > **Key Vault**de**segurança** > .
 
 1. Na página **Criar Key Vault**, insira um nome para o cofre de chaves e crie um grupo de recursos na região desejada para a conta do Lote. Deixe as configurações restantes com valores padrão e selecione **Criar**.
 
-Ao criar a conta do Lote no modo de assinatura de usuário, use o grupo de recursos para o cofre de chaves, especifique a **Assinatura de usuário** como o modo de alocação de pool e selecione o cofre de chaves.
+Ao criar a conta do lote no modo de assinatura do usuário, use o grupo de recursos para o cofre de chaves. Especifique a **assinatura do usuário** como o modo de alocação do pool, selecione o cofre de chaves e marque a caixa para conceder acesso ao lote do Azure ao cofre de chaves. 
+
+Se você preferir conceder acesso ao key Vault manualmente, vá para a seção **políticas de acesso** do cofre de chaves e selecione **lote do Microsoft Azure**. Configure as **permissões secretas** usando o menu suspenso. O lote do Azure deve receber, no mínimo, as permissões **obter**, **listar**, **definir**e **excluir** .
+
+![Permissões secretas para o lote do Azure](./media/batch-account-create-portal/secret-permissions.png)
 
 ### <a name="configure-subscription-quotas"></a>Configurar cotas de assinatura
 
 As cotas de núcleo não são definidas por padrão em contas de Lote de assinatura de usuário. As cotas de núcleos precisam ser definidas manualmente, porque as cotas de núcleo padrão do Lote não se aplicam às contas no modo de assinatura de usuário.
 
-1. No [portal do Azure][azure_portal], selecione sua conta do Lote no modo de assinatura de usuário para exibir as respectivas propriedades e configurações.
+1. Na [portal do Azure][azure_portal], selecione a conta do lote do modo de assinatura do usuário para exibir suas configurações e propriedades.
 
 1. No menu à esquerda, selecione **Cotas** para exibir e configurar as cotas de núcleo associadas com sua conta do Lote.
 

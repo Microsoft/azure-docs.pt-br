@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e242e85525b446fcbe8a2ec05da539fb45acf487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eff07f157f6011b9b561334c00b3a4d94989ff5a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091848"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform-identity-authentication"></a>Tutorial: Integração do Azure Active Directory com o SAP Cloud Platform Identity Authentication
 
@@ -72,7 +72,7 @@ Para configurar a integração da Autenticação de Identidade da SAP Cloud Plat
 
 **Para adicionar a Autenticação de Identidade da SAP Cloud Platform da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -124,7 +124,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações sobre logon único de Domínio e URLs do SAP Cloud Platform Identity Authentication](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<IAS-tenant-id>.accounts.ondemand.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<IAS-tenant-id>.accounts.ondemand.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<IAS-tenant-id>.accounts.ondemand.com/saml2/idp/acs/<IAS-tenant-id>.accounts.ondemand.com`
 
@@ -146,7 +146,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 7. Se o seu aplicativo SAP espera um atributo, como **firstName**, adicione o atributo **firstName** na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -268,4 +268,4 @@ Quando clicar no bloco da SAP Cloud Platform Identity Authentication no Painel d
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

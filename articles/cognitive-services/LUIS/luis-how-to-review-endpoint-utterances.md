@@ -1,7 +1,7 @@
 ---
-title: Examinar as declarações de usuário
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Aprendizado ativo captura consultas de ponto de extremidade e seleciona as declarações de ponto de extremidade do usuário que não saibam. Você examinar essas declarações para selecionar a intenção e marcação de entidades para essas declarações do mundo de leitura. Aceitar essas alterações em suas declarações de exemplo, em seguida, treinar e publicar. Em seguida, LUIS identifica declarações com mais precisão.
+title: Examinar usuário declarações-LUIS
+titleSuffix: Azure Cognitive Services
+description: O aprendizado ativo captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,25 +11,25 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8fac360682ef11c438cdec333fac21d6f8cfc117
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c2f49d4bf573cc2dc2e1a3b8fc13413a738df8ba
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195054"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560457"
 ---
-# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como revisar as declarações de ponto de extremidade no portal do LUIS para aprendizado ativo
+# <a name="how-to-review-endpoint-utterances-in-luis-portal-for-active-learning"></a>Como examinar o ponto de extremidade declarações no LUIS portal for active Learning
 
-[Aprendizado ativo](luis-concept-review-endpoint-utterances.md) captura consultas de ponto de extremidade e seleciona as declarações de ponto de extremidade do usuário que não saibam. Você examinar essas declarações para selecionar a intenção e marcação de entidades para essas declarações do mundo de leitura. Aceitar essas alterações em suas declarações de exemplo, em seguida, treinar e publicar. Em seguida, LUIS identifica declarações com mais precisão.
+O [aprendizado ativo](luis-concept-review-endpoint-utterances.md) captura consultas de ponto de extremidade e seleciona o ponto de extremidade do usuário declarações que não tem certeza de. Revise essas declarações para selecionar as entidades de intenção e marca para essas declarações de leitura do mundo. Aceite essas alterações em seu exemplo declarações, em seguida, treine e publique. LUIS, em seguida, identifica declarações com mais precisão.
 
 
 ## <a name="enable-active-learning"></a>Habilitar o aprendizado ativo
 
-Para habilitar o aprendizado ativo, registrar consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) com o `log=true` querystring parâmetro e valor.
+Para habilitar o aprendizado ativo, faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) de extremidade `log=true` com o parâmetro e o valor de QueryString.
 
 ## <a name="disable-active-learning"></a>Desabilitar o aprendizado ativo
 
-Para desabilitar o aprendizado ativo, não faça logon em consultas de usuário. Isso é feito definindo a [consulta de ponto de extremidade](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) com o `log=false` querystring parâmetro e valor.
+Para desabilitar o aprendizado ativo, não faça log de consultas de usuário. Isso é feito definindo a [consulta de ponto](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) de extremidade `log=false` com o parâmetro e o valor de QueryString.
 
 ## <a name="filter-utterances"></a>Filtrar declarações
 

@@ -5,17 +5,17 @@ keywords: rbac de automação, controle de acesso baseado em função, rbac azur
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b2bcdf3d74c6946b8c9f0dacaeabf28d9c76f94
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60738673"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477726"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controle de acesso com base em função na Automação do Azure
 
@@ -232,6 +232,7 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |Verificação do estado da integração – Ler VM      | Microsoft.Compute/virtualMachines/read         | Máquina Virtual         |
 |Verificação do estado da integração – Ler conta      | Microsoft.Automation/automationAccounts/read  |  Conta de automação   |
 | Verificação de espaço de trabalho de integração de VM<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Assinatura         |
+| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Assinatura|
 
 <sup>1</sup> essa permissão é necessária para carregar por meio da experiência do portal de VM.
 
@@ -251,6 +252,7 @@ As tabelas a seguir mostram as permissões mínimas necessárias para integraç�
 |Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Criar/editar configuração de escopo     | Microsoft.OperationalInsights/workspaces/write        | Workspace        |
 |Vincular solução à configuração de escopo      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solução         |
+| Registrar o provedor de Log Analytics |Microsoft.Insights/register/action | Assinatura|
 |**Etapa 2 – Integrar várias VMs**     |         |         |
 |Folha de VMOnboarding – Criar extensão MMA     | Microsoft.Compute/virtualMachines/write           | Máquina Virtual        |
 |Criar/editar pesquisa salva     | Microsoft.OperationalInsights/workspaces/write           | Workspace        |

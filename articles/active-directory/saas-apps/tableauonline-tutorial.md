@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5e405dc4ea323a6869207de53b7577ee960924eb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889281"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Azure Active Directory ao Tableau Online
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Tableau Online, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Tableau Online](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 

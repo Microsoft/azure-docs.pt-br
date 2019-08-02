@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Migrar de federação para PTA do AD do Azure'
+title: 'Azure AD Connect: Migrar da Federação para o PTA para o Azure AD'
 description: Este artigo contém informações sobre como migrar seu ambiente de identidade híbrida da federação para autenticação de passagem.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27f5a7d8bb6dc347414d84d8cf536f1c2d7a9910
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ba63f9c04e062741eded9c39e44ba64281931387
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109349"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311345"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação de passagem do Azure Active Directory
 
@@ -77,8 +77,8 @@ Para entender qual método você deve usar, conclua as etapas nas seções a seg
    ![Captura de tela da opção Exibir configuração atual na página de Tarefas adicionais](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. Na página **Examinar sua solução**, role para baixo até os **AD FS (Serviços de Federação do Active Directory)** .<br />
 
-   * Se a configuração do AD FS aparecer nesta seção, você poderá presumir com segurança que o AD FS foi originalmente configurado por meio do Azure AD Connect. Você pode converter seus domínios de identidade federada em identidade gerenciada usando a opção **Alterar entrada do usuário** do Azure AD Connect. Para obter mais informações sobre o processo, veja a seção **Opção 1: Configurar a autenticação de passagem usando o Azure AD Connect**.
-   * Se o AD FS não está listado nas configurações atuais, você deve converter manualmente seus domínios de identidade federada para identidade gerenciada usando o PowerShell. Para obter mais informações sobre esse processo, veja a seção **Opção 2: Alterne de federação para autenticação de passagem usando o Azure AD Connect e o PowerShell**.
+   * Se a configuração do AD FS aparecer nesta seção, você poderá presumir com segurança que o AD FS foi originalmente configurado por meio do Azure AD Connect. Você pode converter seus domínios de identidade federada em identidade gerenciada usando a opção **Alterar entrada do usuário** do Azure AD Connect. Para obter mais informações sobre o processo, consulte a **opção da seção a: Configurar a autenticação de passagem usando o Azure AD Connect**.
+   * Se o AD FS não está listado nas configurações atuais, você deve converter manualmente seus domínios de identidade federada para identidade gerenciada usando o PowerShell. Para obter mais informações sobre esse processo, veja a seção **Opção B: Alterne de federação para autenticação de passagem usando o Azure AD Connect e o PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Configurações de federação atuais do documento
 
@@ -128,9 +128,9 @@ Antes de converter de identidade federada em identidade gerenciada, analise aten
 |-|-|
 | Você planeja continuar usando o AD FS com outros aplicativos (que não o Azure AD e o Office 365). | Depois de converter seus domínios, você usará tanto o AD FS quanto o Azure AD. Considere a experiência do usuário. Em alguns cenários, os usuários podem precisar realizar a autenticação duas vezes: uma vez para o Azure AD (em que um usuário obtém acesso SSO a outros aplicativos, como o Office 365) e novamente para todos os aplicativos que ainda estão associados ao AD FS como um objeto de confiança de terceira parte confiável. |
 | Sua instância do AD FS é muito personalizada e depende das configurações de personalização específicas no arquivo onload.js (por exemplo, se você tiver alterado a experiência de conexão para que os usuários usem apenas um formato **SamAccountName** para o nome de usuário, em vez de um nome UPN, ou sua organização tiver aplicado fortemente a identidade de marca à experiência de conexão). O arquivo onload.js não pode ser duplicado no Azure AD. | Antes de continuar, verifique se que o Azure AD pode atender aos seus atuais requisitos de personalização. Para obter mais informações e diretrizes, veja as seções sobre identidade visual do AD FS e personalização do AD FS.|
-| Você usa o AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles do AD FS que bloqueiam a versões anteriores de clientes de autenticação usando uma combinação de [controla o acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regras de acesso do Exchange Online cliente](https://aka.ms/EXOCAR). |
+| Você usa o AD FS para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controles de AD FS que bloqueiam versões anteriores de clientes de autenticação usando uma combinação de [controles de acesso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) e [regras de acesso para cliente do Exchange Online](https://aka.ms/EXOCAR). |
 | Você exige que os usuários realizem a autenticação multifator em relação a uma solução de servidor de autenticação multifator local quando os usuários se autenticam para o AD FS.| Em um domínio de identidade gerenciada, você não pode injetar um desafio de autenticação multifator por meio da solução de autenticação multifator local no fluxo de autenticação. No entanto, você pode usar o serviço de Autenticação Multifator do Azure para a autenticação multifator depois da conversão do domínio.<br /><br /> Se os usuários no momento não usam Autenticação Multifator do Azure, é necessária uma etapa de registro de usuário realizada uma única vez. Você deve preparar e comunicar o registro planejado a seus usuários. |
-| No momento, você usa políticas de controle de acesso (regras AuthZ) no AD FS para controlar o acesso ao Office 365.| Considere trocar as políticas com o Azure AD equivalente [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) e [regras de acesso do Exchange Online cliente](https://aka.ms/EXOCAR).|
+| No momento, você usa políticas de controle de acesso (regras AuthZ) no AD FS para controlar o acesso ao Office 365.| Considere substituir as políticas com as [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) do Azure ad equivalentes e as [regras de acesso para cliente do Exchange Online](https://aka.ms/EXOCAR).|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizações de comuns do AD FS
 
@@ -142,13 +142,13 @@ O AD FS emite a declaração **InsideCorporateNetwork** se o usuário que está 
 
 A declaração **InsideCorporateNetwork** não está mais disponível depois da conversão de seus domínios em autenticação de passagem. Você agora usa [localizações nomeadas no Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) para substituir essa funcionalidade.
 
-Depois de configurar localizações nomeadas, você deve atualizar todas as políticas de acesso condicional que foram configuradas para incluir ou excluir a rede **todas as localizações confiáveis** ou **IPs confiáveis de MFA** valores refletir o novo localizações nomeadas.
+Depois de configurar os locais nomeados, você deve atualizar todas as políticas de acesso condicional que foram configuradas para incluir ou excluir a rede **todos os locais confiáveis** ou valores de **IPs confiáveis MFA** para refletir os novos locais nomeados.
 
-Para obter mais informações sobre o **local** condição no acesso condicional, consulte [locais de acesso condicional do Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
+Para obter mais informações sobre a condição de **local** no acesso condicional, consulte [Active Directory locais de acesso condicional](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
 #### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivos ingressados no Azure AD híbrido
 
-Quando você ingressa um dispositivo para o Azure AD, você pode criar regras de acesso condicional que impõe que os dispositivos atendem aos padrões de acesso de segurança e conformidade. Além disso, os usuários podem entrar em um dispositivo usando uma conta corporativa ou escolar, em vez de uma conta pessoal. Quando você usa dispositivos ingressados no Azure AD híbrido, pode ingressar seus dispositivos ingressados em domínio do Active Directory no Azure AD. Seu ambiente federado pode ter sido configurado para usar esse recurso.
+Ao unir um dispositivo ao Azure AD, você pode criar regras de acesso condicional que impõem que os dispositivos atendam aos seus padrões de acesso para segurança e conformidade. Além disso, os usuários podem entrar em um dispositivo usando uma conta corporativa ou escolar, em vez de uma conta pessoal. Quando você usa dispositivos ingressados no Azure AD híbrido, pode ingressar seus dispositivos ingressados em domínio do Active Directory no Azure AD. Seu ambiente federado pode ter sido configurado para usar esse recurso.
 
 Para garantir que a junção híbrida continue funcionando para todos os dispositivos que ingressem no domínio após a conversão de seus domínios para autenticação de passagem, para clientes do Windows 10, você deve usar o Azure AD Connect para sincronizar contas de computador do Active Directory com o Azure AD.
 

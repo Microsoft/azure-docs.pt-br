@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 89e0b6b5bedf36c89bf3a54f4baf42f7019625c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8331161cde9e7717834dabd2228848de40f7be23
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59051454"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360304"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Provisionando dispositivos com o Serviço de provisionamento de dispositivos no Hub IoT do Azure
 O Microsoft Azure fornece um conjunto avançado de serviços de nuvem pública integrados para todas as suas necessidades de soluções de IoT. O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o provisionamento de toque zero, Just-In-Time no Hub IoT correto sem necessidade de intervenção humana, permitindo que os clientes provisionem milhões de dispositivos de modo seguro e escalonável.
@@ -108,8 +108,9 @@ Há um Contrato de Nível de Serviço de 99,9% para o Serviço de Provisionament
 ## <a name="quotas"></a>Cotas
 Cada assinatura do Azure tem limites de cota em vigor que podem afetar o escopo de sua solução de IoT. O limite atual em uma base por assinatura é 10 Serviços de Provisionamento de Dispositivos por assinatura.
 
-Para obter mais detalhes sobre os limites de cota:
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
+Para obter mais detalhes sobre os limites de cota:
 * [Limites de Serviço da assinatura do Azure](../azure-subscription-service-limits.md)
 
 ## <a name="related-azure-components"></a>Componentes relacionados do Azure

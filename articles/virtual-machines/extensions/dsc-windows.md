@@ -14,12 +14,12 @@ ms.tgt_pltfrm: windows
 ms.workload: ''
 ms.date: 03/26/2018
 ms.author: robreed
-ms.openlocfilehash: 9f81e2b7537a5ecc6778baa93a1bab23dd30ff8a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89d652f440e97650b7e7ac63cccc7fde75d7204a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475500"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798275"
 ---
 # <a name="powershell-dsc-extension"></a>Extensão de DSC do PowerShell
 
@@ -72,7 +72,7 @@ O JSON a seguir mostra o esquema que serve para a parte das configurações da e
             "dataCollection": "enable"
         },
         "advancedOptions": {
-            "forcePullAndApply": false
+            "forcePullAndApply": false,
             "downloadMappings": {
                 "specificDependencyKey": "https://myCustomDependencyLocation"
             }
@@ -98,30 +98,30 @@ O JSON a seguir mostra o esquema que serve para a parte das configurações da e
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| NOME | Valor/Exemplo | Tipo de dados |
 | ---- | ---- | ---- |
 | apiVersion | 01-10-2018 | date |
-| publicador | Microsoft.Powershell.DSC | string |
+| publisher | Microsoft.Powershell.DSC | string |
 | type | DSC | string |
 | typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Valores da Propriedade de Configurações
 
-| NOME | Tipo de Dados | DESCRIÇÃO
+| NOME | Tipo de dados | DESCRIÇÃO
 | ---- | ---- | ---- |
 | settings.wmfVersion | string | Especifica a versão do Windows Management Framework que deve ser instalada em sua VM. Configurar essa propriedade como 'latest' instalará a versão mais atualizada do WMF. Os únicos valores possíveis atualmente para essa propriedade são ‘4.0’, ‘5.0’, e a mais recente. Esses valores possíveis estão sujeitos a atualizações. O valor padrão é ‘latest’. |
 | settings.configuration.url | string | Especifica o local da URL de onde baixar o arquivo zip configuração DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationUrlSasToken como o valor do token de SAS. Esta propriedade será necessária se settings.configuration.script e/ou settings.configuration.function estiverem definidas.
 | settings.configuration.script | string | Especifica o nome do arquivo do script que contém a definição de sua configuração DSC. Esse script deve estar na pasta raiz do arquivo zip baixado da URL especificada pela propriedade configuration.url. Esta propriedade é necessária se settings.configuration.url e/ou settings.configuration.script estiverem definidas.
 | settings.configuration.function | string | Especifica o nome da configuração DSC. A configuração denominada deve estar contida no script definido por configuration.script. Esta propriedade será necessária se settings.configuration.script.url e/ou settings.configuration.function estiverem definidas.
-| settings.configurationArguments | Coleção | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade não será criptografada.
+| settings.configurationArguments | Collection | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade não será criptografada.
 | settings.configurationData.url | string | Especifica a URL de onde baixar o arquivo de dados de configuração (.pds1) para usar como entrada para a sua configuração de DSC. Se a URL fornecida exigir um token SAS para acesso, será necessário definir a propriedade protectedSettings.configurationDataUrlSasToken como o valor do token de SAS.
 | settings.privacy.dataEnabled | string | Habilita ou desabilita a coleta de telemetria. Os únicos valores possíveis para essa propriedade são ‘Enable’, ‘Disable’, ”, ou $null. Deixar esta propriedade em branco ou nulo permitirá telemetria
 | settings.advancedOptions.forcePullAndApply | Bool | Esta configuração é projetada para aprimorar a experiência de trabalhar com a extensão para registrar os nós com o DSC de automação do Azure.  Se o valor for `$true`, aguardará a extensão para a primeira execução da configuração extraída do serviço antes de retornar êxito/falha.  Se o valor é definido como $false, o status retornado pela extensão só fará referência a se o nó foi registrado com a configuração de estado de automação do Azure com êxito e a configuração de nó não será executada durante o registro.
-| settings.advancedOptions.downloadMappings | Coleção | Define locais alternativos para fazer o download de dependências como WMF e .NET
+| settings.advancedOptions.downloadMappings | Collection | Define locais alternativos para fazer o download de dependências como WMF e .NET
 
 ### <a name="protected-settings-property-values"></a>Valores da Propriedade de Configurações Protegidos
 
-| NOME | Tipo de Dados | DESCRIÇÃO
+| NOME | Tipo de dados | DESCRIÇÃO
 | ---- | ---- | ---- |
 | protectedSettings.configurationArguments | string | Define os parâmetros que você deseja passar para a configuração de DSC. Esta propriedade será criptografada. |
 | protectedSettings.configurationUrlSasToken | string | Especifica o token SAS para acessar a URL definida por configuration.url. Esta propriedade será criptografada. |
@@ -162,7 +162,7 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código de Erro | Significado | Ação possível |
+| Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |
 | 1000 | Erro genérico | A mensagem de erro é fornecida pela exceção específica em logs de extensão |
 | 52 | Erro de Instalação da Extensão | A mensagem de erro é fornecida pela exceção específica |

@@ -8,19 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom: ''
-ms.openlocfilehash: e03cc45c5868f90dd1c2da0d7b4890fbf72c9899
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 22c18b573e7107163f858c79956ca6f5380f6834
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954784"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604967"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Início Rápido: Criar um assistente virtual que tem como prioridade o uso de voz com o SDK de Fala, UWP
 
-Guias de início rápido também estão disponíveis para [conversão de fala em texto](quickstart-csharp-uwp.md) e [tradução de fala](quickstart-translate-speech-uwp.md).
+Guias de início rápido também estão disponíveis para [conversão de fala em texto](quickstart-csharp-uwp.md), [conversão de texto em fala](quickstart-text-to-speech-csharp-uwp.md) e [tradução de fala](quickstart-translate-speech-uwp.md).
 
 Neste artigo, você desenvolverá um aplicativo UWP (Plataforma Universal do Windows) em C# usando o [SDK de Fala](speech-sdk.md). O programa se conectará a um bot criado e configurado anteriormente para proporcionar uma experiência de assistente virtual que tem como prioridade o uso de voz no aplicativo cliente. O aplicativo foi criado com o [Pacote NuGet do SDK de Fala](https://aka.ms/csspeech/nuget) e o Microsoft Visual Studio 2017 (qualquer edição).
 
@@ -32,14 +31,11 @@ Neste artigo, você desenvolverá um aplicativo UWP (Plataforma Universal do Win
 Este início rápido requer:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-* Uma chave de assinatura do Azure para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
+* Uma chave de assinatura do Azure para os Serviços de Fala. [Obtenha uma gratuitamente](get-started.md) ou crie-a no [portal do Azure](https://portal.azure.com).
 * Um bot criado anteriormente, configurado com o [canal de Fala do Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
     > [!NOTE]
-    > Atualmente, na versão prévia, o canal de Fala do Direct Line dá suporte apenas à região **westus2**.
-
-    > [!NOTE]
-    > A avaliação de 30 dias do tipo de preço Standard descrita em [Experimentar os Serviços de Fala gratuitamente](get-started.md) está restrita à região **westus** (não **westus2**) e, portanto, não é compatível com a Fala do Direct Line. As assinaturas da região **westus2** da Camada gratuita e Standard são compatíveis.
+    > A Fala do Direct Line (Versão prévia) está disponível atualmente em um subconjunto de regiões dos Serviços de Fala. Consulte [a lista de regiões com suporte a assistentes virtuais com prioridade no uso de voz](regions.md#voice-first-virtual-assistants) e implante seus recursos em uma dessas regiões.
 
 ## <a name="optional-get-started-fast"></a>Opcional: Introdução rápida
 
@@ -63,7 +59,7 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
         <Grid>
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center"  Margin="20,50,0,0" VerticalAlignment="Center" Width="800">
                 <Button x:Name="EnableMicrophoneButton" Content="Enable Microphone"  Margin="0,0,10,0" Click="EnableMicrophone_ButtonClicked" Height="35"/>
@@ -84,7 +80,7 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
     </Page>
     ```
 
-1. Abra o arquivo de origem code-behind `MainPage.xaml.cs`. Você o encontrará agrupado em `MainPage.xaml`. Substitua o conteúdo pelo código abaixo. Aqui está o que este exemplo abrange: 
+1. Abra o arquivo de origem code-behind `MainPage.xaml.cs`. Você o encontrará agrupado em `MainPage.xaml`. Substitua o conteúdo pelo código abaixo. Aqui está o que este exemplo abrange:
 
     * Uso de instruções para os namespaces Speech e Speech.Dialog
     * Uma implementação simples para garantir o acesso ao microfone, conectado a um manipulador de botão
@@ -111,7 +107,7 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
     {
         public sealed partial class MainPage : Page
         {
-            private SpeechBotConnector botConnector;
+            private DialogServiceConnector connector;
 
             private enum NotifyType
             {
@@ -230,7 +226,7 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
                 });
             }
 
-            private void InitializeBotConnector()
+            private void InitializeDialogServiceConnector()
             {
                 // New code will go here
             }
@@ -243,31 +239,31 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
     }
     ```
 
-1. Em seguida, você criará o `SpeechBotConnector` com as informações de sua assinatura. Adicione o código a seguir ao corpo do método de `InitializeBotConnector`, substituindo as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey` e `YourServiceRegion` por seus próprios valores para o bot, pela assinatura de fala e pela [região](regions.md).
+1. Em seguida, você criará o `DialogServiceConnector` com as informações de sua assinatura. Adicione o código a seguir ao corpo do método de `InitializeDialogServiceConnector`, substituindo as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey` e `YourServiceRegion` por seus próprios valores para o bot, pela assinatura de fala e pela [região](regions.md).
 
     > [!NOTE]
-    > Atualmente, na versão prévia, o canal de Fala do Direct Line dá suporte apenas à região **westus2**.
+    > A Fala do Direct Line (Versão prévia) está disponível atualmente em um subconjunto de regiões dos Serviços de Fala. Consulte [a lista de regiões com suporte a assistentes virtuais com prioridade no uso de voz](regions.md#voice-first-virtual-assistants) e implante seus recursos em uma dessas regiões.
 
     > [!NOTE]
     > Para obter informações sobre como configurar o bot e recuperar um segredo do canal, confira a documentação do Bot Framework para [o canal de Fala do Direct Line](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
     ```csharp
-    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    // create a DialogServiceConfig by providing a bot secret key and Cognitive Services subscription key
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret";
-    const string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    const string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region. Note: only a subset of regions are currently supported
 
-    var botConnectorConfig = BotConnectorConfig.FromSecretKey(channelSecret, speechSubscriptionKey, region);
-    botConnectorConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
-    botConnector = new SpeechBotConnector(botConnectorConfig);
+    var botConfig = DialogServiceConfig.FromBotSecret(channelSecret, speechSubscriptionKey, region);
+    botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
+    connector = new DialogServiceConnector(botConfig);
     ```
 
-1. `SpeechBotConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações. Adicione manipuladores a esses eventos, acrescentando o conteúdo a seguir ao final do corpo do método de `InitializeBotConnector`.
+1. `DialogServiceConnector` depende de vários eventos para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações. Adicione manipuladores a esses eventos, acrescentando o conteúdo a seguir ao final do corpo do método de `InitializeDialogServiceConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     {
         NotifyUser($"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
 
@@ -277,7 +273,7 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
         }
     };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += (sender, canceledEventArgs) =>
+    connector.Canceled += (sender, canceledEventArgs) =>
     {
         NotifyUser($"Canceled, reason={canceledEventArgs.Reason}");
         if (canceledEventArgs.Reason == CancellationReason.Error)
@@ -286,47 +282,47 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
         }
     };
     // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    connector.Recognizing += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Recognizing! in-progress text={recognitionEventArgs.Result.Text}");
     };
     // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    connector.Recognized += (sender, recognitionEventArgs) =>
     {
         NotifyUser($"Final speech-to-text result: '{recognitionEventArgs.Result.Text}'");
     };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    connector.SessionStarted += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Now Listening! Session started, id={sessionEventArgs.SessionId}");
     };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    connector.SessionStopped += (sender, sessionEventArgs) =>
     {
         NotifyUser($"Listening complete. Session ended, id={sessionEventArgs.SessionId}");
     };
     ```
 
-1. Com a configuração estabelecida e os manipuladores de eventos registrados, agora o `SpeechBotConnector` precisa apenas escutar. Adicione o código a seguir ao corpo do método `ListenButton_ButtonClicked` na classe `MainPage`.
+1. Com a configuração estabelecida e os manipuladores de eventos registrados, agora o `DialogServiceConnector` precisa apenas escutar. Adicione o código a seguir ao corpo do método `ListenButton_ButtonClicked` na classe `MainPage`.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (botConnector == null)
+        if (connector == null)
         {
-            InitializeBotConnector();
+            InitializeDialogServiceConnector();
             // Optional step to speed up first interaction: if not called, connection happens automatically on first use
-            var connectTask = botConnector.ConnectAsync();
+            var connectTask = connector.ConnectAsync();
         }
 
         try
         {
             // Start sending audio to your speech-enabled bot
-            var listenTask = botConnector.ListenOnceAsync();
+            var listenTask = connector.ListenOnceAsync();
 
             // You can also send activities to your bot as JSON strings -- Microsoft.Bot.Schema can simplify this
             string speakActivity = @"{""type"":""message"",""text"":""Greeting Message"", ""speak"":""Hello there!""}";
-            await botConnector.SendActivityAsync(speakActivity);
+            await connector.SendActivityAsync(speakActivity);
 
         }
         catch (Exception ex)
@@ -359,10 +355,12 @@ Este Início Rápido descreverá, passo a passo, como criar um aplicativo client
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Explorar amostras de C# no GitHub](https://aka.ms/csspeech/samples)
+> [Criar e implantar um bot básico](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## <a name="see-also"></a>Consulte também
 
-- [Traduzir discurso](how-to-translate-speech-csharp.md)
-- [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
-- [Personalizar modelos de linguagem](how-to-customize-language-model.md)
+- [Sobre assistentes virtuais com prioridade no uso de voz](voice-first-virtual-assistants.md)
+- [Obter gratuitamente uma chave de assinatura do Serviço de Fala](get-started.md)
+- [Palavras de ativação personalizadas](speech-devices-sdk-create-kws.md)
+- [Conectar a Fala do Direct Line ao seu bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [Explorar amostras de C# no GitHub](https://aka.ms/csspeech/samples)

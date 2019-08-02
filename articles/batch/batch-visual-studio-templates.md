@@ -4,7 +4,7 @@ description: Saiba como os modelos de projeto do Visual Studio podem ajudar voc�
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 085bfa582b676f34a02e4c1c5ae7e69c49e5cb4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb4c71f2c7f42ef599796bc380bb7a9f35b8c64e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550035"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322769"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Usar modelos de projeto do Visual Studio para iniciar rapidamente soluções em lote
 
@@ -56,13 +56,13 @@ Conforme mostrado no diagrama a seguir, um trabalho de computação que usa esse
 Para usar os modelos do Lote, você precisará do seguinte:
 
 * Um computador com o Visual Studio 2015 instalado. Modelos de lote atualmente só têm suporte para o Visual Studio 2015.
-* Os modelos do Lote, disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
+* Os modelos de lote, que estão disponíveis na [Galeria do Visual Studio][vs_gallery] como extensões do Visual Studio. Há duas maneiras de obter os modelos:
   
-  * Instalar os modelos usando a caixa de diálogo **Extensões e Atualizações** no Visual Studio (para saber mais, confira [Localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **Extensões e Atualizações** , procure e baixe as duas extensões a seguir:
+  * Instale os modelos usando a caixa de diálogo **extensões e atualizações** no Visual Studio (para obter mais informações, consulte [localizando e usando extensões do Visual Studio][vs_find_use_ext]). Na caixa de diálogo **Extensões e Atualizações** , procure e baixe as duas extensões a seguir:
     
     * Gerenciador de Trabalhos do Lote do Azure com o Divisor de Trabalho
     * Processador de Tarefas do Lote do Azure
-  * Baixe os modelos da galeria online para o Visual Studio: [Modelos de projeto do Lote do Microsoft Azure][vs_gallery_templates]
+  * Baixe os modelos da galeria online para o Visual Studio: [Modelos de projeto Lote do Microsoft Azure][vs_gallery_templates]
 * Se você planeja usar o recurso [Pacotes de aplicativos](batch-application-packages.md) para implantar o Gerenciador de trabalho e o processador de tarefas nos nós de computação do Lote, será necessário vincular uma conta de armazenamento à sua conta do Lote.
 
 ## <a name="preparation"></a>Preparação
@@ -157,7 +157,7 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> A seção anotada nos métodos `Split()` é a única seção do código do modelo do Gerenciador de trabalho que você pode modificar adicionando a lógica para dividir os trabalhos em tarefas diferentes. Se você quiser modificar uma seção diferente do modelo, primeiro você precisará ter certeza de que está familiarizado com o funcionamento do Lote e experimente alguns dos [exemplos de código do Lote][github_samples].
+> A seção anotada nos métodos `Split()` é a única seção do código do modelo do Gerenciador de trabalho que você pode modificar adicionando a lógica para dividir os trabalhos em tarefas diferentes. Se você quiser modificar uma seção diferente do modelo, verifique se está familiarizado com o funcionamento do lote e experimente alguns dos [exemplos de código do lote][github_samples].
 > 
 > 
 
@@ -371,7 +371,7 @@ Uma tarefa do Processador de tarefas implementada com o modelo do Processador de
 
 | Código | DESCRIÇÃO |
 | --- | --- |
-| [Process.ExitCode][process_exitcode] |O Processador de tarefas foi executado até a conclusão. Observe que isso não significa que o programa invocado foi bem-sucedida, apenas que o Processador de tarefas o invocou e executou com êxito qualquer pós-processamento sem exceções. O significado do código de saída depende do programa invocado, normalmente o código de saída 0 significa que o programa foi bem-sucedido e qualquer outro código de saída significa que o programa falhou. |
+| [Process. ExitCode][process_exitcode] |O Processador de tarefas foi executado até a conclusão. Observe que isso não significa que o programa invocado foi bem-sucedida, apenas que o Processador de tarefas o invocou e executou com êxito qualquer pós-processamento sem exceções. O significado do código de saída depende do programa invocado, normalmente o código de saída 0 significa que o programa foi bem-sucedido e qualquer outro código de saída significa que o programa falhou. |
 | 1 |A tarefa do Processador de tarefas falhou com uma exceção em uma parte “esperada” do programa. A exceção foi convertida para um `TaskProcessorException` com informações de diagnóstico e, quando possível, sugestões para resolver a falha. |
 | 2 |A tarefa do Processador de tarefas falhou com uma exceção “inesperada”. A exceção foi registrada na saída padrão, mas o Processador de tarefas não conseguiu adicionar informações de diagnóstico ou correção adicionais. |
 
@@ -410,7 +410,7 @@ Um cliente pode passar informações para a tarefa do Gerenciador de trabalho na
 * URL da conta do Lote
 * Chave da conta do Lote
 
-O serviço do Lote tem um mecanismo simples para passar configurações de ambiente para uma tarefa do Gerenciador de trabalho usando a propriedade `EnvironmentSettings` em [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask].
+O serviço de lote tem um mecanismo simples para passar configurações de ambiente para uma tarefa do Gerenciador de `EnvironmentSettings` trabalho usando a propriedade em [Microsoft. Azure. Batch. JobManagerTask][net_jobmanagertask].
 
 Por exemplo, para obter a instância do `BatchClient` para uma conta do Lote, você pode passar a URL e credenciais de chave compartilhadas como variáveis do ambiente a partir do código do cliente para a conta do Lote. Da mesma forma, para acessar a conta de armazenamento vinculada à conta do Lote, você pode passar o nome da conta de armazenamento e a chave da conta de armazenamento como variáveis de ambiente.
 
@@ -437,7 +437,7 @@ parameters.json e, se o encontrar, o carrega como o dicionário de parâmetros. 
 
 ## <a name="next-steps"></a>Próximas etapas
 ### <a name="persist-job-and-task-output-to-azure-storage"></a>Persistir saída de tarefa e de trabalho no Armazenamento do Azure
-Outra ferramenta útil no desenvolvimento de soluções do Lote são as [Convenções de Arquivo do Lote do Azure][nuget_package]. Use essa biblioteca de classes .NET (em versão de visualização) em seus aplicativos .NET do Lote para armazenar e recuperar com facilidade as saídas de tarefas no Armazenamento do Azure. [Persistir e saída de tarefa e de trabalho do Lote do Azure](batch-task-output.md) contém uma discussão completa sobre a biblioteca e seu uso.
+Outra ferramenta útil no desenvolvimento da solução do lote é as [convenções de arquivo do lote do Azure][nuget_package]. Use essa biblioteca de classes .NET (em versão de visualização) em seus aplicativos .NET do Lote para armazenar e recuperar com facilidade as saídas de tarefas no Armazenamento do Azure. [Persistir e saída de tarefa e de trabalho do Lote do Azure](batch-task-output.md) contém uma discussão completa sobre a biblioteca e seu uso.
 
 
 [net_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.jobmanagertask.aspx

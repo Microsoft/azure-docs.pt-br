@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
-ms.author: martincoetzer
+ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff59b93603af61fd8ea571966a3c43a06929ae04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 831ba47ea4e999219a6d8cf34cb5fb0fdcd1ead8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113481"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594954"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Criar uma estratégia de gerenciamento de controle de acesso resiliente com o Azure Active Directory
 
@@ -123,7 +123,7 @@ Uma política de acesso condicional de contingência é uma **desabilitado polí
 * Dê um nome às suas políticas para garantir que seja fácil encontrá-las durante uma interrupção. Inclua os seguintes elementos no nome da política:
   * Um *número de rótulo* para a política.
   * Texto a ser exibido, essa política é somente para emergências. Por exemplo:  **HABILITAR EM EMERGÊNCIA**
-  * A *interrupção* à qual ela se aplica. Por exemplo:  **Durante Interrupção da MFA**
+  * A *interrupção* à qual ela se aplica. Por exemplo: **Durante Interrupção da MFA**
   * Um *número de sequência* para mostrar a ordem em que você deve ativar as políticas.
   * Os *aplicativos* aos quais ela se aplica.
   * Os *controles* aos quais ela se aplica.
@@ -143,7 +143,7 @@ O exemplo a seguir: **Exemplo A - política de CA de contingência para restaura
   * Nome: EM001 – HABILITAR EM EMERGÊNCIA: Interrupção de MFA [1/4] – Exchange SharePoint – Exigir ingresso no Azure AD Híbrido
   * Usuários e Grupos: Incluir ContingencyAccess. Excluir CoreAdmins e EmergencyAccess
   * Aplicativos de Nuvem: Exchange Online e SharePoint Online
-  * Condições: Qualquer
+  * Condições: Any
   * Controles de Concessão: Requer um dispositivo ingressado no domínio
   * Estado: Desabilitado
 * Política 2: Bloquear as plataformas que não sejam Windows

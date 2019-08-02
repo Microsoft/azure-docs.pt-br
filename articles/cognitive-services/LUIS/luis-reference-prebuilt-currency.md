@@ -1,6 +1,6 @@
 ---
-title: Entidade predefinidos de moeda
-titleSuffix: Azure
+title: Entidade predefinida de moeda-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de moeda de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 369e8f94a4733a7c9e21fee98c72aa447802e943
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072018"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563488"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Entidade de moeda predefinida para um aplicativo LUIS
-A entidade de moeda predefinidos detecta a moeda em muitos denominações e países/regiões, independentemente da cultura do aplicativo LUIS. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo moeda às intenções do aplicativo. A entidade de moeda é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 
+A entidade de moeda predefinida detecta a moeda em muitas indicações e países/regiões, independentemente da cultura do aplicativo LUIS. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo moeda às intenções do aplicativo. A entidade de moeda é compatível com [muitas culturas](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-currency"></a>Tipos de moeda
 A moeda é gerenciada por meio do repositório do GitHub [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26)
@@ -64,9 +64,9 @@ O exemplo a seguir mostra a resolução da entidade **builtin.currency**.
 
 
 
-### <a name="preview-api-version-3x"></a>Versão de API de visualização 3. x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O JSON a seguir é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -91,7 +91,7 @@ O JSON a seguir é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O JSON a seguir é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

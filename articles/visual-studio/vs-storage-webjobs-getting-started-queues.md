@@ -12,17 +12,17 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: f6f1a3a7f0a406e1dbb40f4bfc6a358da7ac68fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 44206f1826fc25407d9dec3f832b70881091e187
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391110"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68248971"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Armazenamento de Fila do Azure e aos Serviços Conectados do Visual Studio (Projetos WebJob)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Este artigo descreve como começar a usar o armazenamento de filas do Azure em um projeto de Trabalho Web do Azure Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto de WebJob usando a caixa de diálogo **Adicionar Serviços Conectados** do Visual Studio, os pacotes NuGet do Armazenamento do Azure apropriados são instalados, as referências apropriadas .NET são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento são atualizadas no arquivo App.config.  
 
 Este artigo fornece exemplos de código em C# que mostram como usar o SDK do Azure WebJobs versão 1.x com o serviço de armazenamento de Fila do Azure.
@@ -190,7 +190,7 @@ Para obter mais informações, consulte [Desligamento normal dos trabalhos Web](
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo **Queue** . Como **QueueTrigger**, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila da cadeia
-O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector<T>** , conforme mostrado posteriormente nesta seção.)
+O exemplo de código não síncrono a seguir cria uma nova mensagem de fila na fila denominada "outputqueue" com o mesmo conteúdo que a mensagem da fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **\<IAsyncCollector T >** conforme mostrado mais adiante nesta seção.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +216,7 @@ public static void CreateQueueMessage(
 O SDK serializa automaticamente o objeto em JSON. Uma mensagem da fila sempre é criada, mesmo que o objeto seja nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou em funções assíncronas
-Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **ICollector<T>** ou **IAsyncCollector<T>** , conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **\<ICollector t >** ou **\<IAsyncCollector t >** , conforme mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(

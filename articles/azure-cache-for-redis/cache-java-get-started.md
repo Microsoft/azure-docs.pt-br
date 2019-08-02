@@ -15,32 +15,21 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 047350fa957d9ca1fdec50f97a590ba90a42e1b2
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 01fb6f66ce71599a70a127a2b73eba6f848bf365
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237759"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68324136"
 ---
-# <a name="quickstart-how-to-use-azure-cache-for-redis-with-java"></a>Início Rápido: Como usar o Cache do Azure para Redis com Java
+# <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Início Rápido: Usar o Cache do Azure para Redis com Java
 
-
-O Cache do Azure para Redis fornece acesso a um Cache do Azure para Redis dedicado gerenciado pela Microsoft. O cache é acessível por meio de qualquer aplicativo no Microsoft Azure.
-
-Este artigo mostra como começar a usar o Cache do Azure para Redis usando o cliente [Jedis](https://github.com/xetorthio/jedis) do Redis para Java.
-
-![Aplicativo de cache concluído](./media/cache-java-get-started/cache-app-complete.png)
-
-Você pode usar qualquer editor de código para concluir as etapas deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma opção excelente nas plataformas Windows, macOS e Linux.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
+Neste guia de início rápido, você incorporará o Cache do Azure para Redis a um aplicativo Java usando o cliente Redis do [Jedis](https://github.com/xetorthio/jedis) para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Apache Maven](https://maven.apache.org/)
-
-
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## <a name="create-an-azure-cache-for-redis"></a>Criar um Cache do Azure para Redis
 
@@ -50,7 +39,7 @@ Você pode usar qualquer editor de código para concluir as etapas deste início
 
 Adicionar variáveis de ambiente para o seu **NOME DO HOST** e a chave de acesso **Primária**. Você usará essas variáveis no seu código em vez de incluir as informações confidenciais diretamente no seu código.
 
-```
+```CMD 
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
 set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
@@ -59,7 +48,7 @@ set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 Usando o Maven, gere um novo aplicativo de início rápido:
 
-```
+```CMD
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.3 -DgroupId=example.demo -DartifactId=redistest -Dversion=1.0
 ```
 
@@ -139,7 +128,7 @@ Salve *App.java*.
 
 Execute o seguinte comando do Maven para compilar e executar o aplicativo:
 
-```
+```CMD
 mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
@@ -147,7 +136,6 @@ mvn exec:java -D exec.mainClass=example.demo.App
 No exemplo abaixo, você pode ver que a chave `Message` já tinha um valor armazenado em cache, que foi definido por meio do Console do Redis no portal do Azure. O aplicativo atualizou esse valor armazenado em cache. O aplicativo também executou os comandos `PING` e `CLIENT LIST`.
 
 ![Aplicativo de cache concluído](./media/cache-java-get-started/cache-app-complete.png)
-
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -161,7 +149,7 @@ Caso contrário, se você não for mais usar o aplicativo de exemplo do início 
 
 Entre no [portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources*. Em seu grupo de recursos, na lista de resultados, clique em **...**, depois em **Excluir grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , digite o nome do seu grupo de recursos. As instruções deste artigo usaram um grupo de recursos chamado *TestResources*. Em seu grupo de recursos, na lista de resultados, clique em **...** , depois em **Excluir grupo de recursos**.
 
 ![Excluir](./media/cache-java-get-started/cache-delete-resource-group.png)
 
@@ -169,14 +157,9 @@ Você receberá uma solicitação para confirmar a exclusão do grupo de recurso
 
 Após alguns instantes, o grupo de recursos, e todos os recursos contidos nele, serão excluídos.
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste guia de início rápido, você aprendeu a usar o Cache do Azure para Redis de um aplicativo Java. Continue para o próximo início rápido usar o Cache do Azure para Redis com um aplicativo Web ASP.NET.
 
 > [!div class="nextstepaction"]
 > [Crie um aplicativo Web ASP.NET que usa um Cache do Azure para Redis.](./cache-web-app-howto.md)
-
-
-

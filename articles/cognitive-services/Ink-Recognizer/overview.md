@@ -1,28 +1,28 @@
 ---
 title: O que é o Reconhecimento de Tinta Digital? – API de Reconhecimento de Tinta Digital
-titlesuffix: Azure Cognitive Services
-description: Integre o Reconhecimento de Tinta Digital a seus aplicativos, sites, ferramentas e outras soluções para fornecer...
+titleSuffix: Azure Cognitive Services
+description: Integre o Reconhecimento de Tinta Digital a seus aplicativos, sites, ferramentas e outras soluções para permitir que os dados de traço de tinta sejam identificados e usados como entrada.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
-ms.topic: tutorial
-ms.date: 05/02/2019
+ms.topic: overview
+ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c90d656539a2ed64b416dc9b8e7e11e205b98ee6
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65025602"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478360"
 ---
 # <a name="what-is-the-ink-recognizer-api"></a>O que é a API de Reconhecimento de Tinta Digital?
 
 
 O Serviço Cognitivo do Reconhecimento de Tinta Digital fornece uma API REST baseada em nuvem para analisar e reconhecer o conteúdo de tinta digital. Ao contrário dos serviços que usam o OCR (reconhecimento óptico de caracteres), a API exige dados de traço de tinta digital como entrada. Os traços de tinta digital são conjuntos ordenados por tempo de pontos 2D (coordenadas X e Y) que representam o movimento das ferramentas de entrada, como canetas digitais ou dedos. Em seguida, ela reconhece as formas e o conteúdo manuscrito da entrada e retorna uma resposta JSON contendo todas as entidades reconhecidas.
 
-![Um fluxograma que descreve o envio de uma entrada de traço de tinta à API](media/ink-recognizer-pen-graph.png)
+![Um fluxograma que descreve o envio de uma entrada de traço de tinta à API](media/ink-recognizer-pen-graph.svg)
 
 ## <a name="features"></a>Recursos
 

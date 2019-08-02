@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b849e63b758dca777df2be682b28bc4e10e58330
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7c09542013dff3a18965d1070216a938c26a144e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102854"
 ---
 # <a name="tutorial-integrate-expensein-with-azure-active-directory"></a>Tutorial: Integrar o ExpenseIn ao Azure Active Directory
 
@@ -63,8 +63,8 @@ Para configurar e testar o SSO do Azure AD com o ExpenseIn, conclua os seguintes
 
 1. **[Configure o SSO do Azure AD](#configure-azure-ad-sso)** para permitir que os usuários usem esse recurso.
 2. **[Configure o ExpenseIn](#configure-expensein)** para definir as configurações de SSO no lado do aplicativo.
-3. **[Crie um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** para permitir que Brenda Fernandes use o logon único do Azure AD.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B. Fernandes use o logon único do Azure AD.
 5. **[Criar usuário de teste do ExpenseIn](#create-expensein-test-user)** para ter um equivalente de B. Fernandes no ExpenseIn que esteja vinculado à representação de usuário do Azure AD.
 6. **[Teste o SSO](#test-sso)** para verificar se a configuração funciona.
 
@@ -101,25 +101,35 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 ### <a name="configure-expensein"></a>Configurar o ExpenseIn
 
-1. Em uma janela diferente do navegador da Web, entre no ExpenseIn como administrador.
+1. Para automatizar a configuração no ExpenseIn, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-2. Clique em **Administrador** na parte superior da página e, em seguida, navegue até **Logon único** e clique em **Adicionar provedor**.
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão ao navegador, clique em **Instalação do ExpenseIn**. Você será direcionado ao aplicativo ExpenseIn. Em seguida, forneça as credenciais de administrador para entrar no ExpenseIn. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 5.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se desejar configurar o ExpenseIn manualmente, abra uma nova janela do navegador da Web, entre no site da empresa ExpenseIn como administrador e execute as seguintes etapas:
+
+4. Clique em **Administrador** na parte superior da página e, em seguida, navegue até **Logon único** e clique em **Adicionar provedor**.
 
      ![Configuração do ExpenseIn](./media/expenseIn-tutorial/config01.png)
 
-3. No item pop-up **Novo Provedor de Identidade**, execute as seguintes etapas:
+5. No item pop-up **Novo Provedor de Identidade**, execute as seguintes etapas:
 
     ![Configuração do ExpenseIn](./media/expenseIn-tutorial/config02.png)
 
     a. Na caixa de texto **Nome do Provedor**, digite o nome como Azure.
 
-    b. Na caixa de texto **URL de Destino**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    b. Selecione **Sim** para **Permitir fazer logon no provedor iniciado**.
 
-    c. Na caixa de texto **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    c. Na caixa de texto **URL de Destino**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    d. Abra o Certificado (Base64) no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado**.
+    d. Na caixa de texto **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
-    e. Clique em **Criar**.
+    e. Abra o Certificado (Base64) no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado**.
+
+    f. Clique em **Criar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -128,8 +138,8 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
 1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
-   1. No campo **Nome**, insira `B. Simon`.  
-   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
@@ -171,7 +181,7 @@ Para permitir que os usuários do Azure AD entrem no ExpenseIn, eles precisarão
 
     b. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
-    c. Na caixa de texto **Email**, insira o email do usuário como `B. Simon@contoso.com`.
+    c. Na caixa de texto **Email**, insira o email do usuário como `B.Simon@contoso.com`.
 
     d. Clique em **Criar**.
 
@@ -185,4 +195,4 @@ Ao selecionar o bloco do ExpenseIn no Painel de Acesso, você deverá entrar aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

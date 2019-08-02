@@ -61,8 +61,16 @@
   items:
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Regiões e disponibilidade
-      href: regions-and-availability.md
+    - name: Regiões
+      href: regions.md
+    - name: Disponibilidade e desempenho
+      items:
+        - name: Disponibilidade
+          href: availability.md
+        - name: Colocalização
+          href: co-location.md
+        - name: Desempenho de rede
+          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Tamanhos e tipos de VM
       href: sizes.md
       items:
@@ -97,10 +105,14 @@
           href: sizes-previous-gen.md
         - name: ACU (Unidades de computação do Azure)
           href: acu.md
+        - name: Cotas do vCPU
+          href: quotas.md
         - name: Pontuações de parâmetro de comparação
           href: compute-benchmark-scores.md
     - name: Distribuições endossadas
       href: endorsed-distros.md
+    - name: Hosts dedicados
+      href: dedicated-hosts.md
     - name: Manutenção e atualizações
       href: maintenance-and-updates.md
     - name: Armazenamento em disco
@@ -119,8 +131,8 @@
           href: ephemeral-os-disks.md
     - name: Rede
       href: network-overview.md
-    - name: Aplicativos de dimensionamento automático
-      href: autoscale.md
+    - name: Conjuntos de dimensionamento
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Automação de infraestrutura
       href: infrastructure-automation.md
     - name: Segurança e política
@@ -131,12 +143,10 @@
       href: monitor.md
     - name: Backup e recuperação
       href: backup-recovery.md
-    - name: Considerações de implantação
-      items:
-        - name: Diretrizes de infraestrutura
-          href: infrastructure-example.md
-        - name: Cotas do vCPU
-          href: quotas.md
+    - name: Diretrizes de infraestrutura
+      href: infrastructure-example.md
+    - name: Atributos de segurança
+      href: virtual-machines-linux-security-attributes.md
 - name: Guias de instruções
   items:
     - name: Criar VMs
@@ -150,6 +160,12 @@
           href: create-vm-rest-api.md
         - name: Como copiar ou clonar uma VM
           href: copy-vm.md
+        - name: Usar hosts dedicados
+          items:
+            - name: CLI
+              href: dedicated-hosts-cli.md
+            - name: Portal
+              href: dedicated-hosts-portal.md
     - name: Como proteger VMs
       items:
         - name: Acesso Just-In-Time
@@ -274,13 +290,13 @@
           items:
             - name: Visão geral
               href: image-builder-overview.md
-            - name: Usar a CLI
+            - name: Usar a CLI do Azure
               href: image-builder.md
             - name: Referência de modelo
               href: image-builder-json.md
-            - name: Usar com galerias
+            - name: Criar para galerias de imagens
               href: image-builder-gallery.md
-            - name: Atualizar uma versão de imagem
+            - name: Atualizar uma imagem existente
               href: image-builder-gallery-update-image-version.md
             - name: Solucionar problemas
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
@@ -320,6 +336,8 @@
           href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
         - name: Alta disponibilidade
           href: manage-availability.md
+        - name: Criar um grupo de posicionamento de proximidade
+          href: proximity-placement-groups.md
         - name: Como dimensionar verticalmente
           href: vertical-scaling-automation.md
         - name: Criar VM em zona de disponibilidade
@@ -411,8 +429,6 @@
           href: freebsd-pf-nat.md
         - name: Bancos de dados
           items:
-            - name: MySQL
-              href: mysql-install.md
             - name: MySQL no SUSE
               href: mysql-on-opensuse.md
             - name: MongoDB

@@ -1,5 +1,5 @@
 ---
-title: Ativos nos Serviços de Mídia – Azure | Microsoft Docs
+title: Ativos nos serviços de mídia do Azure | Microsoft Docs
 description: Este artigo fornece uma explicação sobre a natureza dos ativos e como eles são usados pelos Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d0a81d5d7ce8e7569b77007b6ad9c322cf626f16
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551773"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670693"
 ---
 # <a name="assets"></a>Ativos
 
@@ -87,9 +87,22 @@ curl -X PUT \
 
 Para obter um exemplo completo, consulte [Criar uma entrada de trabalho de um arquivo local](job-input-from-local-file-how-to.md). Nos Serviços de Mídia do Azure v3, entrada de um trabalho também pode ser criada de URLs HTTPS (consulte [criar uma entrada de trabalho de uma URL HTTPS](job-input-from-http-how-to.md)).
 
-## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
+## <a name="map-v3-asset-properties-to-v2"></a>Mapear propriedades de ativo v3 v2
 
-Veja [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
+A tabela a seguir mostra como o [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate#asset)do propriedades na v3 são mapeadas para propriedades do ativo no v2.
+
+|Propriedades de V3|Propriedades de v2|
+|---|---|
+|ID - (exclusivo) o caminho completo do Azure Resource Manager, veja exemplos na [ativo](https://docs.microsoft.com/rest/api/media/assets/createorupdate)||
+|nome – (exclusivo) consulte [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) ||
+|alternateId|AlternateId|
+|assetId|ID - valor (exclusivo) começa com o `nb:cid:UUID:` prefixo.|
+|criado|Criado|
+|description|Nome|
+|lastModified|LastModified|
+|storageAccountName|StorageAccountName|
+|storageEncryptionFormat| Opções (opções de criação)|
+|type||
 
 ## <a name="storage-side-encryption"></a>Criptografia do armazenamento
 
@@ -104,6 +117,10 @@ Para proteger os Ativos em repouso, os ativos devem ser criptografados pela crip
 <sup>1</sup> Enquanto os Serviços de Mídia deem suporte para tratamento de conteúdo sem qualquer forma de criptografia/limpo, não é recomendável fazer isso.
 
 <sup>2</sup> Nos Serviços de Mídia v3, a criptografia de armazenamento (criptografia AES-256) somente terá suporte para compatibilidade com versões anteriores quando os Ativos tiverem sido criados com os Serviços de Mídia v2. Isso significa que o v3 funciona com recursos criptografados de armazenamento existentes, mas não permite a criação de novos recursos.
+
+## <a name="filtering-ordering-paging"></a>Filtragem, classificação, paginação
+
+Confira [Filtragem, classificação, paginação de entidades dos Serviços de Mídia](entities-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

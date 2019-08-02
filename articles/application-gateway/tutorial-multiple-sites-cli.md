@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: caf82fdab8a841e5c49616a40216a788d877a81b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65955606"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501958"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicativo que hospeda vários sites usando a CLI do Azure
 
@@ -233,7 +233,7 @@ O uso de registros A não é recomendado, pois o VIP pode mudar quando o gateway
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicativo
 
-Digite seu nome de domínio na barra de endereços do navegador. Como http://www.contoso.com.
+Digite seu nome de domínio na barra de endereços do navegador. Por exemplo, http:\//www.contoso.com.
 
 ![Testar o site contoso no gateway do aplicativo](./media/tutorial-multiple-sites-cli/application-gateway-nginxtest1.png)
 

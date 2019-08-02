@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05d9dc8f676589dcb301c19b0a2e80e9fd4c1fa0
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65604367"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249753"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Coletar logs II no Azure Monitor
 O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor e armazenados como [dados de log](data-platform.md).
@@ -34,7 +34,7 @@ Configurar logs do IIS no Azure Monitor a partir de [menu de configurações ava
 
 
 ## <a name="data-collection"></a>Coleta de dados
-O Azure Monitor coleta entradas de log do IIS de cada agente a cada vez que o log é fechado e um novo será criado. Essa frequência é controlada pela configuração **agendamento de substituição de arquivo de Log** para o site do IIS que é uma vez por dia por padrão. Por exemplo, se as configurações são **por hora**, então, o Azure Monitor coletará o log de cada hora.  Se as configurações for **diária**, então, o Azure Monitor coletará o log de cada dia.
+Azure Monitor coleta entradas de log do IIS de cada agente sempre que o carimbo de data/hora do log é alterado ou um novo arquivo é criado. O log é lido a cada 5 minutos. A frequência da criação do novo arquivo é controlada pela configuração **agenda de substituição do arquivo de log** para o site do IIS, que é uma vez por dia por padrão. Se, por algum motivo, o IIS não atualizar o carimbo de data/hora antes do horário de substituição, se a configuração for por **hora**, Azure monitor coletará o log a cada hora. Se a configuração for **diária**, Azure monitor coletará o log a cada 24 horas.
 
 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
@@ -42,7 +42,7 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Computador |Nome do computador do qual o evento foi coletado. |
+| Computer |Nome do computador do qual o evento foi coletado. |
 | cIP |Endereço IP do cliente. |
 | csMethod |Método de solicitação, como GET ou POST. |
 | csReferer |Site do qual o usuário seguiu um link para o site atual. |
@@ -72,7 +72,7 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |
 | W3CIISLog &#124; summarize count() by cIP |Contagem das entradas do log do IIS por endereço IP do cliente. |
-| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Entradas de log de contagem do IIS por URL para o host www\.contoso.com. |
+| W3CIISLog &#124; where csHost=="www\.contoso.com" &#124; summarize count() by csUriStem |Contagem de entradas de log do IIS por URL para o\.host www contoso.com. |
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total de bytes recebidos por cada computador com IIS. |
 
 ## <a name="next-steps"></a>Próximas etapas

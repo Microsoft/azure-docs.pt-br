@@ -4,21 +4,21 @@ description: Este artigo descreve a integração de controle de origem com o Git
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ae61af2ad857068950e2b2cdb6f058a33f57186
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64574115"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477580"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controle de origem na Automação do Azure
 
-Controle de origem permite que você mantenha seus runbooks em sua automação de conta são atualizados com seus scripts em seu repositório de controle de origem do GitHub ou repositórios do Azure. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção. Integração de controle do código-fonte com a automação dá suporte à sincronização de direção única do seu repositório de controle do código-fonte.
+Controle do código-fonte permite que você mantenha seus runbooks em sua conta de automação atualizado com seus scripts em seu repositório de controle de origem do GitHub ou repositórios do Azure. O controle de origem permite que você colabore com facilidade com sua equipe, controle alterações e reverta para versões anteriores de seus runbooks. Por exemplo, o controle do código-fonte permite sincronizar diferentes branches no controle do código-fonte com suas contas de Automação de desenvolvimento, teste ou produção. Isso facilita a promoção de código que foi testado em seu ambiente de desenvolvimento para sua conta de Automação de produção. Integração de controle do código-fonte com a automação dá suporte à sincronização de direção única do seu repositório de controle do código-fonte.
 
 A automação do Azure dá suporte a três tipos de controle de origem:
 

@@ -9,12 +9,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 57cda4d07315c6c37c2ce51f530fb081949b628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 50d39aa3c6341e61e383c5584ab2992e3fea3189
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939498"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278082"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver do Sistema de Arquivos de Blobs do Azure (ABFS): Um driver de Armazenamento do Microsoft Azure dedicado para Hadoop
 
@@ -43,9 +43,9 @@ hdfs dfs -put flight_delays.csv abfs://fileanalysis@myanalytics.dfs.core.windows
 
 Internamente, o driver ABFS converte os recursos especificados no URI em arquivos e diretórios e faz chamadas à API REST do Azure Data Lake Store com essas referências.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
-O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo Hadoop possa acessar com segurança os recursos contidos em uma conta compatível com Azure Data Lake Storage Gen2. Detalhes completos dos esquemas de autenticação disponíveis são fornecidos no [guia de segurança do Armazenamento do Microsoft Azure](../common/storage-security-guide.md). Eles são:
+O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo Hadoop possa acessar com segurança os recursos contidos em uma conta compatível com Azure Data Lake Storage Gen2. Detalhes completos dos esquemas de autenticação disponíveis são fornecidos no [guia de segurança do Armazenamento do Microsoft Azure](../common/storage-security-guide.md). Elas são:
 
 - **Chave compartilhada**: Permite que os usuários acessem TODOS os recursos na conta. A chave é criptografada e armazenada na configuração do Hadoop.
 
@@ -55,11 +55,11 @@ O driver ABFS dá suporte a duas formas de autenticação, para que o aplicativo
 
 Todas as configurações para o driver ABFS são armazenadas no arquivo de configuração <code>core-site.xml</code>. Nas distribuições do Hadoop que caracterizam [Ambari](https://ambari.apache.org/), a configuração também pode ser gerenciada usando o portal da Web ou a API REST do Ambari.
 
-Os detalhes de todas as entradas de configuração com suporte são especificados na [Documentação oficial do Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html).
+Os detalhes de todas as entradas de configuração com suporte são especificados na [Documentação oficial do Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
 ### <a name="hadoop-documentation"></a>Documentação do Hadoop
 
-O driver ABFS está totalmente documentado na [Documentação oficial do Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+O driver ABFS está totalmente documentado na [Documentação oficial do Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
 
 ## <a name="next-steps"></a>Próximas etapas
 

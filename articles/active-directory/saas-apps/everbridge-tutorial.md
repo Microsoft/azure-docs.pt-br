@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: f8dd11e7fb0b9fda0e0f1c7d3f794f6bfd766cdf
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 60463a00c6864bed7b3a18e816ef0143d3573782
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231456"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Tutorial: Integração do Azure Active Directory ao Everbridge
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Everbridge, siga estas etapas.
 
     ![Informações de logon único do domínio e URLs do Everbridge](common/idp-intiated.png)
 
-     a. Na caixa **Identificador**, insira uma URL que siga o padrão `https://sso.everbridge.net/<API_Name>`
+    a. Na caixa **Identificador**, insira uma URL que siga o padrão `https://sso.everbridge.net/<API_Name>`
 
     b. Na caixa **URL de Resposta**, insira uma URL que siga o padrão `https://manager.everbridge.net/saml/SSO/<API_Name>/alias/defaultAlias`
 
@@ -121,7 +121,7 @@ Para configurar o logon único do Azure AD com o Everbridge, siga estas etapas.
 
      ![Domínio Everbridge e informações de logon único de URLs para o modo iniciado pelo IDP](common/idp-intiated.png)
 
-     a. Na caixa **Identificador**, insira uma URL que siga o padrão `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+    a. Na caixa **Identificador**, insira uma URL que siga o padrão `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
     b. Na caixa **URL de Resposta**, insira uma URL que siga o padrão `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Everbridge, siga estas etapas.
 
      ![Domínio Everbridge e informações de logon único de URLs para o modo iniciado pelo SP](common/both-signonurl.png)
 
-      a. Na caixa **URL de Entrada**, insira uma URL que siga o padrão `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+     a. Na caixa **URL de Entrada**, insira uma URL que siga o padrão `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
      > [!NOTE]
      > Esses valores não são reais. Atualize esses valores com os valores do Identificador, da URL de Resposta e da URL de Logon reais. Para obter esses valores, entre em contato com a equipe de suporte do [Everbridge](mailto:support@everbridge.com). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -156,7 +156,7 @@ Para configurar o SSO no **Everbridge** como um aplicativo do **portal do gerent
    
      ![Configurar o logon único](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-      a. Na caixa **Nome**, insira o nome do provedor do identificador. Um exemplo é o nome da sua empresa.
+     a. Na caixa **Nome**, insira o nome do provedor do identificador. Um exemplo é o nome da sua empresa.
    
      b. Na caixa **Nome da API**, insira o nome da API.
    
@@ -190,7 +190,7 @@ Para criar o usuário de teste Brenda Fernandes no portal do Azure, siga estas e
 
     ![Caixa de diálogo Usuário](common/user-properties.png)
 
-     a. Na caixa **Nome**, insira **BrendaFernandes**.
+    a. Na caixa **Nome**, insira **BrendaFernandes**.
   
     b. Na caixa **Nome de Usuário**, insira `brittasimon@yourcompanydomain.extension`. Um exemplo é BrittaSimon@contoso.com.
 
@@ -238,5 +238,5 @@ Ao selecionar a peça do Everbridge no Painel de Acesso, você deverá ser conec
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

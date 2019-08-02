@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 886118614427bea61f745e1ded28824b60225919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd62cda209a8ac95a41fa271ce3a96001a3b4811
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112305"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164784"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização no acesso condicional do Azure Active Directory? 
 
@@ -56,7 +56,10 @@ A localização nomeada tem os seguintes componentes:
 - **Países/regiões** - esta opção permite que você selecione um ou mais países ou regiões para definir uma localização nomeada.
 - **Incluir áreas desconhecidas** -alguns endereços IP não são mapeados para um país ou região específica. Esta opção permite que você escolha se esses endereços IP devem ser incluídos na localização nomeada. Use essa configuração quando a política usando a localização nomeada deve aplicar-se a localizações desconhecidas.
 
-O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. As organizações podem configurar até 90 localizações nomeadas, cada um configurado com até 1200 intervalos de IP.
+O número de localizações que você pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Você pode configurar os locais com base das seguintes limitações:
+
+- Uma localização nomeada com até 1200 intervalos de IP.
+- Um máximo de 90 localizações nomeadas com um intervalo IP atribuído a cada um delas.
 
 Política de acesso condicional se aplica ao tráfego IPv4 e IPv6. Localizações nomeadas no momento não permita os intervalos de IPv6 a ser configurado. Essa limitação faz com que as seguintes situações:
 

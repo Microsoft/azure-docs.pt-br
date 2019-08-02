@@ -9,15 +9,15 @@ ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: e8fe694cc757f5bcb9cf470f17306e8aa0028744
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238734"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172282"
 ---
 | Resource | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| vCPUs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10\.000 |
+| vCPUs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md)<sup>1</sup> |20 |10.000 |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |200 |200 |
 | [Contas de armazenamento](../articles/storage/common/storage-create-storage-account.md) por assinatura<sup>2</sup> |100 |100 |
 | [Serviços de nuvem](../articles/cloud-services/cloud-services-choose-me.md) por assinatura |20 |200 |

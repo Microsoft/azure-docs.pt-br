@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 66022b5e4885c515bd6117f9a44b8108ff84ae5c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171645"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250110"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerenciar o servidor de configuração para recuperação de desastres de VM do VMware
 
@@ -109,7 +109,7 @@ Você pode registrar novamente o servidor de configuração no mesmo cofre se ne
    ```
 
     >[!NOTE]
-    >Para obter os **certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *“<Unidade de Instalação \ Recuperação do Site do Azure do Microsoft \ agent \ cdpcli.exe>" --registermt*
+    >Para efetuar **pull dos certificados mais recentes** do servidor de configuração para o servidor de processo de expansão, execute o comando *\<"Installation Drive\Microsoft Azure site Recovery\agent\cdpcli.exe >"--registermt*
 
 8. Finalmente, reinicie o obengine executando o seguinte comando.
    ```
@@ -154,13 +154,13 @@ Atualize o servidor da seguinte maneira:
     ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Baixe o arquivo instalador da atualização no servidor de configuração.
 
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Clique duas vezes para executar o instalador.
 5. O instalador detecta a versão atual em execução no computador. Clique em **Sim** para iniciar a atualização.
 6. Quando a atualização for concluída valida a configuração do servidor.
 
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Atualização](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Clique em **Finish** para fechar o instalador.
 8. Para atualizar o restante dos componentes do Site Recovery, veja as nossas [diretrizes de atualização](https://aka.ms/asr_vmware_upgrades).
@@ -183,7 +183,7 @@ Execute o arquivo de instalação da seguinte maneira:
 
 ### <a name="parameters"></a>parâmetros
 
-|Nome do Parâmetro| Type | DESCRIÇÃO| Valores|
+|Nome do Parâmetro| Tipo | DESCRIÇÃO| Valores|
 |-|-|-|-|
 | /ServerMode|Obrigatório|Especifica se os servidores de configuração e de processo devem ser instalados ou somente o servidor de processo|CS<br>PS|
 |/InstallLocation|Obrigatório|A pasta na qual os componentes estão instalados| Qualquer pasta no computador|
@@ -258,7 +258,7 @@ Opcionalmente, você pode excluir o servidor de configuração usando o PowerShe
     `Remove-AzSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
-> Você pode usar o **-Force** opção em Remove-AzSiteRecoveryFabric para exclusão forçada do servidor de configuração.
+> Você pode usar a opção **-Force** em Remove-AzSiteRecoveryFabric para a exclusão forçada do servidor de configuração.
 
 ## <a name="generate-configuration-server-passphrase"></a>Gerar a Frase secreta do servidor de configuração
 

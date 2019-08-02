@@ -5,26 +5,26 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 02/25/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 66effb095edf7927a38fca53b2ff317e9bad468e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491450"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619618"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Crie uma função no Linux usando uma imagem personalizada
 
 O Azure Functions permite hospedar suas funções no Linux em seu próprio contêiner personalizado. Você também pode [hospedar em um contêiner padrão do Serviço de Aplicativo do Azure](functions-create-first-azure-function-azure-cli-linux.md). Essa funcionalidade requer [o tempo de execução do Functions 2.x](functions-versions.md).
 
-Neste tutorial, você aprenderá a implantar suas funções no Azure como uma imagem personalizada do Docker. Esse padrão será útil quando você precisar personalizar a imagem interna de contêiner do Serviço de Aplicativo. Convém usar uma imagem personalizada quando suas funções precisarem de uma versão de idioma específico, ou exigirem uma configuração ou dependência específica que não é fornecida na imagem interna. Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). O [suporte para Python](functions-reference-python.md) está em versão prévia.
+Neste tutorial, você aprenderá a implantar suas funções no Azure como uma imagem personalizada do Docker. Esse padrão será útil quando você precisar personalizar a imagem de contêiner interna. Convém usar uma imagem personalizada quando suas funções precisarem de uma versão de idioma específico, ou exigirem uma configuração ou dependência específica que não é fornecida na imagem interna. Imagens base com suporte para Azure Functions encontram-se no [repositório de imagens de base do Azure Functions](https://hub.docker.com/_/microsoft-azure-functions-base). O [suporte para Python](functions-reference-python.md) está em versão prévia.
 
-Este tutorial explica como usar o Azure Functions Core Tools para criar uma função em uma imagem personalizada do Linux. Publique essa imagem em um aplicativo de funções no Azure, que foi criado usando a CLI do Azure.
+Este tutorial explica como usar o Azure Functions Core Tools para criar uma função em uma imagem personalizada do Linux. Publique essa imagem em um aplicativo de funções no Azure, que foi criado usando a CLI do Azure. Posteriormente, você atualizará a função para se conectar ao armazenamento de Filas do Azure. Você também a habilitará.  
 
 Neste tutorial, você aprenderá como:
 
@@ -33,12 +33,13 @@ Neste tutorial, você aprenderá como:
 > * Compile uma imagem personalizada usando o Docker.
 > * Publique uma imagem personalizada em um registro de contêiner.
 > * Criar uma conta do Armazenamento do Azure.
-> * Crie um Plano do Serviço de Aplicativo do Linux.
+> * Criar um plano de hospedagem Premium.
 > * Implante um aplicativo de funções do Hub do Docker.
 > * Adicione configurações de aplicativo ao aplicativo de funções.
-> * Habilitar a implantação contínua
+> * Habilitar a implantação contínua.
+> * Adicionar o monitoramento do Application Insights.
 
-As etapas a seguir têm suporte em um computador Mac, Windows ou Linux.  
+As etapas a seguir têm suporte em um computador Mac, Windows ou Linux. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,7 +66,7 @@ Quando você inclui a opção `--docker`, um dockerfile é gerada para o projeto
 
 Quando solicitado, escolha um tempo de execução do trabalho com as seguintes linguagens:
 
-* `dotnet`: cria um projeto de biblioteca de classes do .NET (.csproj).
+* `dotnet`: cria um projeto de biblioteca de classes do .NET Core (.csproj).
 * `node`: cria um projeto de JavaScript.
 * `python`: cria um projeto do Python.
 
@@ -87,8 +88,6 @@ cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
-
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
@@ -189,41 +188,26 @@ Agora, você pode usar essa imagem como a origem de implantação para um novo a
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Criar um Plano do Serviço de Aplicativo do Linux
+## <a name="create-a-premium-plan"></a>Criar um plano Premium
 
-No momento, não há suporte para a hospedagem no Linux do Functions em planos de consumo. Você precisa hospedar aplicativos de contêiner do Linux em um Plano do Serviço de Aplicativo do Linux. Para saber mais sobre hospedagem, confira [Comparação de planos de hospedagem do Azure Functions](functions-scale.md).
+Hospedagem do Linux para contêineres personalizados do Functions compatíveis em [planos Dedicados (Serviço de Aplicativo)](functions-scale.md#app-service-plan) e [planos Premium](functions-premium-plan.md#features). Este tutorial usa um plano Premium, que pode ser dimensionado conforme necessário. Para saber mais sobre hospedagem, confira [Comparação de planos de hospedagem do Azure Functions](functions-scale.md).
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+O exemplo a seguir cria um plano Premium chamado `myPremiumPlan` no **tipo de preço Elástico Premium 1** (`--sku EP1`), na região Oeste dos EUA (`-location WestUS`) e em um contêiner do Linux (`--is-linux`).
+
+```azurecli-interactive
+az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan \
+--location WestUS --number-of-workers 1 --sku EP1 --is-linux
+```
 
 ## <a name="create-and-deploy-the-custom-image"></a>Criar e implantar a imagem personalizada
 
-O aplicativo de funções hospeda a execução de suas funções. Crie um aplicativo de funções a partir de uma imagem do Hub do Docker usando o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
+O aplicativo de funções gerencia a execução das funções em seu plano de hospedagem. Crie um aplicativo de funções a partir de uma imagem do Hub do Docker usando o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 No comando a seguir, substitua um nome de aplicativo de funções exclusivo quando você vir o espaço reservado `<app_name>` e o nome da conta de armazenamento por `<storage_name>`. O `<app_name>` é usado como domínio DNS padrão para o aplicativo de funções, portanto, o nome deve ser exclusivo entre todos os aplicativos no Azure. Como antes, `<docker-id>` é o nome de conta do Docker.
 
 ```azurecli-interactive
 az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myAppServicePlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
-```
-
-Depois que o aplicativo de funções for criado, a CLI do Azure mostrará informações semelhantes ao exemplo a seguir:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
+--plan myPremiumPlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
 ```
 
 O parâmetro _deployment-container-image-name_ indica a imagem hospedada no Hub do Docker a ser usada para criar o aplicativo de funções. Use o comando [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) para exibir informações sobre a imagem usada para a implantação. Use o comando [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) para implantar de uma imagem diferente.
@@ -256,16 +240,6 @@ Agora você pode testar suas funções em execução no Linux no Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
-## <a name="enable-application-insights"></a>Habilitar o Application Insights
-
-A maneira recomendada de monitorar a execução de suas funções é a integração do aplicativo de funções com o Azure Application Insights. Ao criar um aplicativo de funções no portal do Azure, essa integração é realizada por padrão. No entanto, quando você cria seu aplicativo de funções usando a CLI do Azure, não é feita a integração em seu aplicativo de funções no Azure.
-
-Para habilitar o Application Insights no aplicativo de funções:
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md).
-
 ## <a name="enable-continuous-deployment"></a>Habilitar a implantação contínua
 
 Um dos benefícios do uso de contêineres é ser capaz de implantar as atualizações automaticamente quando os contêineres são atualizados no registro. Habilitar a implantação contínua com o comando [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config).
@@ -278,11 +252,21 @@ az functionapp deployment container config --enable-cd \
 
 Esse comando retorna a URL de webhook de implantação após a implantação contínua ser habilitada. Você também pode usar o comando [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) para retornar essa URL. 
 
-Copie a URL de implantação e navegue até seu repositório DockerHub, escolha a guia **Webhooks**, digite um **nome do Webhook** para o webhook, cole a URL em **URL do Webhook**e, em seguida, escolha o sinal de adição (**+**).
+Copie a URL de implantação e navegue até seu repositório DockerHub, escolha a guia **Webhooks**, digite um **nome do Webhook** para o webhook, cole a URL em **URL do Webhook**e, em seguida, escolha o sinal de adição ( **+** ).
 
 ![Adicione o webhook em seu repositório DockerHub](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
 Com o conjunto de webhook, todas as atualizações para a imagem vinculada no DockerHub fazem com que o aplicativo de funções baixe e instale a imagem mais recente.
+
+## <a name="enable-application-insights"></a>Habilitar o Application Insights
+
+A maneira recomendada de monitorar a execução de suas funções é a integração do aplicativo de funções com o Azure Application Insights. Ao criar um aplicativo de funções no portal do Azure, essa integração é realizada por padrão. No entanto, quando você cria seu aplicativo de funções usando a CLI do Azure, não é feita a integração em seu aplicativo de funções no Azure.
+
+Para habilitar o Application Insights no aplicativo de funções:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Para saber mais, consulte [Monitorar Azure Functions](functions-monitoring.md).
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
@@ -295,11 +279,11 @@ Neste tutorial, você aprendeu como:
 > * Compile uma imagem personalizada usando o Docker.
 > * Publique uma imagem personalizada em um registro de contêiner.
 > * Criar uma conta do Armazenamento do Azure.
-> * Crie um Plano do Serviço de Aplicativo do Linux.
+> * Criar um plano Premium do Linux.
 > * Implante um aplicativo de funções do Hub do Docker.
 > * Adicione configurações de aplicativo ao aplicativo de funções.
-
-Saiba como habilitar a funcionalidade de integração contínua incorporada à plataforma central de Serviço de Aplicativo. É possível configurar seu aplicativo de funções para que o contêiner seja reimplantado quando você atualizar a imagem no Hub do Docker.
+> * Habilitar a implantação contínua.
+> * Adicionar o monitoramento do Application Insights.
 
 > [!div class="nextstepaction"] 
-> [Implantação contínua com o Aplicativo Web para Contêineres](../app-service/containers/app-service-linux-ci-cd.md)
+> [Saiba mais sobre as opções de implantação de funções no Azure](functions-deployment-technologies.md)

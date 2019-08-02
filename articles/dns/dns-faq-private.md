@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: c963cb1b6930b41a703b479e0213311d971e6606
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 480cf22491dbbfcb9fe1961b5c9a7aa6fe12a0cb
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082840"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274043"
 ---
 # <a name="azure-private-dns-faq"></a>Perguntas Frequentes de DNS privado do Azure
 
@@ -78,7 +78,7 @@ Os limites padrão a seguir se aplicam quando você usa o DNS privado do Azure.
 | Resource | Limite padrão |
 | --- | --- |
 |Zonas DNS privadas por assinatura|1000|
-|Conjuntos de registros por zona de DNS privado|25\.000|
+|Conjuntos de registros por zona de DNS privado|25.000|
 |Registros por conjunto de registros|20|
 |Links de rede virtual por zona de DNS privado|1000|
 |Links de redes virtuais por zonas DNS privadas com o registro automático habilitado|100|
@@ -88,6 +88,13 @@ Os limites padrão a seguir se aplicam quando você usa o DNS privado do Azure.
 ## <a name="is-there-portal-support-for-private-zones"></a>Existe suporte de portal para zonas privadas?
 
 Sim e as zonas privadas que já foram criadas por meio de APIs, PowerShell, CLI e SDKs são visíveis no portal do Azure.
+
+## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Por que não Minhas zonas DNS privadas existentes são exibidos na nova experiência do portal?
+
+Como parte da versão de atualização da visualização, lançamos um novo modelo de recurso para as zonas DNS privadas. As zonas DNS privadas existentes precisará ser migrados para o novo modelo de recurso antes que elas podem aparecer na nova experiência de portal. Consulte abaixo para obter instruções sobre como migrar para o novo modelo de recurso.
+
+## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Como migrar meu zonas privadas do DNS existentes para o novo modelo?
+É altamente recomendável que você migre para o novo modelo de recurso assim que possível. Modelo de recursos herdados terão suporte, no entanto, ainda mais recursos serão não ser desenvolvioas sobre esse modelo. No futuro, pretendemos descontinuá-la em favor do novo modelo de recurso. Para obter orientação sobre como migrar seu DNS privada existente Consulte zonas do novo modelo de recurso[guia de migração para zonas privadas do DNS do Azure](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

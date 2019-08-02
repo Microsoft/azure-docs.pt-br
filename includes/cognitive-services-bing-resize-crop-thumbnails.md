@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: f96c3a693ce8fc099374c998b35ce2fa90f4bb3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124713"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868989"
 ---
 Algumas respostas Bing incluem URLs para imagens em miniatura servidas pelo Bing. Você pode redimensionar e cortar as imagens em miniatura. 
 
@@ -17,11 +17,11 @@ Algumas respostas Bing incluem URLs para imagens em miniatura servidas pelo Bing
 > Garanta que o tamanho e o corte da miniatura forneçam um cenário de pesquisa e respeitem os direitos de terceiros, conforme exigido pelos requisitos de uso e de exibição da API de Pesquisa do Bing.
 
 
-Para redimensionar uma imagem, incluir a consulta de l (largura) e/ou na URL da miniatura de consulta de parâmetro-h (altura). Especifique a largura e altura em pixels. Por exemplo:  
+Para redimensionar uma imagem, inclua o parâmetro de consulta w (largura), o parâmetro de consulta h (Height) ou ambos na URL da miniatura. Especifique a largura e altura em pixels. Por exemplo:  
   
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=200&h=200`  
   
-Se você especificar apenas a largura ou o parâmetro de consulta altura, o Bing mantém a taxa de proporção da imagem. Se você especificar ambos width e height e não manter a taxa de proporção original da imagem, o Bing adiciona preenchimento branco para a borda da imagem. Por exemplo, se você redimensionar uma imagem de 480 x 359 para 200 x 200 sem corte, a largura total contém a imagem, mas a altura contém 25 pixels de preenchimento branco nas partes superior e inferior da imagem. O mesmo será verdadeiro se a imagem tiver 359x480, exceto pelas bordas esquerda e direita, que terão o preenchimento branco. Se você cortar a imagem, o preenchimento branco não será adicionado.  
+Se você especificar apenas a largura ou apenas o parâmetro de consulta de altura, o Bing manterá a taxa de proporção da imagem. Se você especificar largura e altura e não mantiver a taxa de proporção original da imagem, o Bing adicionará o preenchimento branco à borda da imagem. Por exemplo, se você redimensionar uma imagem de 480 x 359 para 200 x 200 sem corte, a largura total contém a imagem, mas a altura contém 25 pixels de preenchimento branco nas partes superior e inferior da imagem. O mesmo será verdadeiro se a imagem tiver 359x480, exceto pelas bordas esquerda e direita, que terão o preenchimento branco. Se você cortar a imagem, o preenchimento branco não será adicionado.  
 
  
 A figura a seguir mostra o tamanho original de uma imagem em miniatura (480 x 300).  

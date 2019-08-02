@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1c3b95686b8c91552615a9014102fd6a14f8c385
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9e4025d040783bff1cd85fb46d571e3a89967892
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889094"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089655"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Tutorial: Integração do Azure Active Directory ao Sprinklr
 
@@ -53,7 +53,7 @@ Para configurar a integração do Sprinklr ao Azure AD, você precisará adicion
 
 **Para adicionar o Sprinklr da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Sprinklr, siga estas etapas:
 
     ![Informações sobre o logon único do domínio e URLs do Sprinklr](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sprinklr.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sprinklr.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sprinklr.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do cliente Sprinklr](https://www.sprinklr.com/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Sprinklr, siga estas etapas:
 
     ![Logons Únicos](./media/sprinklr-tutorial/ic782910.png "Logons Únicos")
 
-     a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
+    a. Na caixa de texto **Nome**, digite um nome para a sua configuração (por exemplo: *WAADSSOTest*).
 
     b. Selecione **Habilitado**.
 
@@ -239,7 +239,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Editar usuário](./media/sprinklr-tutorial/ic782916.png "Editar usuário")
 
-     a. Nas caixas de texto **Email**, **Nome** e **Sobrenome**, digite as informações de uma conta de usuário do Azure AD que você deseja provisionar.
+    a. Nas caixas de texto **Email**, **Nome** e **Sobrenome**, digite as informações de uma conta de usuário do Azure AD que você deseja provisionar.
 
     b. Selecione **Senha Desabilitada**.
 
@@ -256,7 +256,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Funções de Parceiro](./media/sprinklr-tutorial/ic782917.png "Funções de Parceiro")
 
-     a. Na lista **Global**, selecione **ALL_Permissions**.  
+    a. Na lista **Global**, selecione **ALL_Permissions**.  
 
     b. Clique em **Atualizar**.
 
@@ -275,4 +275,4 @@ Ao clicar no bloco do Sprinklr no Painel de Acesso, você deverá entrar automat
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

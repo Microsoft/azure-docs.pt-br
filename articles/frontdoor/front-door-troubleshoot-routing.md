@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736115"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335888"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Solução de problemas comuns de roteamentos
 Este artigo descreve como solucionar alguns dos problemas comuns de roteamento que você pode enfrentar para a sua configuração do Azure Front Door Service. 
@@ -62,11 +62,11 @@ Há várias causas possíveis para esse sintoma:
 
 
 3. Verificar as configurações de regra de roteamento
-     - Navegue até a regra de roteamento que deve fazer o roteamento do nome do host do Front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente; se não estiverem, verifique se o protocolo que o Front Door usará ao encaminhar a solicitação está configurado corretamente. Os _protocolos aceitos_ determinam que solicitações o Front Door deve aceitar e o _Protocolo de encaminhamento_ na guia _Avançado_ determina qual protocolo o Front Door deve usar para encaminhar a solicitação para o back-end.
+     - Navegue até a regra de roteamento que deve fazer o roteamento do nome do host do Front-end em questão para um pool de back-end. Verifique se os protocolos aceitos estão configurados corretamente; se não estiverem, verifique se o protocolo que o Front Door usará ao encaminhar a solicitação está configurado corretamente. Os _protocolos aceitos_ determinam quais solicitações a porta frontal deve aceitar e o _protocolo_ de encaminhamento determina qual porta frontal do protocolo deve usar para encaminhar a solicitação para o back-end.
           - Por exemplo, se o back-end só aceitar solicitações HTTP, as seguintes configurações serão válidas:
                - Os _Protocolos aceitos_ são HTTP e HTTPS. O _Protocolo de encaminhamento_ é HTTP. Solicitação de correspondência não funcionará, já que o HTTPS é um protocolo permitido e, se uma solicitação tiver chegado como HTTPS, o Front Door tentará encaminhá-la usando HTTPS.
 
                - Os _Protocolos aceitos_ são HTTP. O _Protocolo de encaminhamento_ é solicitação de correspondência ou HTTPS.
 
-   - Clique na guia _Avançado_ na parte superior do painel de configuração de regra de roteamento. _Reescrita de URL_ é desabilitada por padrão e você só deverá usar este campo se quiser restringir o escopo dos recursos hospedados pelo back-end que deseja disponibilizar. Quando desabilitado, o Front Door encaminhará o mesmo caminho de solicitação que ele recebe. É possível que esse campo esteja configurado incorretamente e o Front Door esteja solicitando um recurso do back-end que não está disponível, retornando, assim, um código de status HTTP 404.
+   - _Reescrita de URL_ é desabilitada por padrão e você só deverá usar este campo se quiser restringir o escopo dos recursos hospedados pelo back-end que deseja disponibilizar. Quando desabilitado, o Front Door encaminhará o mesmo caminho de solicitação que ele recebe. É possível que esse campo esteja configurado incorretamente e o Front Door esteja solicitando um recurso do back-end que não está disponível, retornando, assim, um código de status HTTP 404.
 

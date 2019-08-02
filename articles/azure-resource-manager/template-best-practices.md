@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: bcc529b02505359e6e4e320d4991a082797c5261
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cdec216187050a449f23f72474e0265acce14c5f
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60389569"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867385"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Práticas recomendadas para modelos do Azure Resource Manager
 
@@ -28,7 +28,7 @@ Para obter recomendações sobre como criar modelos que funcionam em todos os am
 
 ## <a name="template-limits"></a>Limites de modelo
 
-Limite o tamanho de seu modelo em 1 MB e cada arquivo de parâmetro em 64 KB. O limite de 1 MB se aplica para o estado final do modelo depois que ele foi expandido com definições de recurso iterativo e valores para variáveis e parâmetros. 
+Limite o tamanho do modelo para 4 MB e cada arquivo de parâmetro para 64 KB. O limite de 4 MB se aplica ao estado final do modelo depois que ele é expandido com definições de recursos iterativos e valores para variáveis e parâmetros. 
 
 Você também está limitado a:
 
@@ -36,7 +36,7 @@ Você também está limitado a:
 * 256 variáveis
 * 800 recursos (incluindo a contagem de cópias)
 * 64 valores de saída
-* 24\.576 caracteres em uma expressão de modelo
+* 24.576 caracteres em uma expressão de modelo
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](resource-manager-objects-as-parameters.md).
 
@@ -147,7 +147,7 @@ As informações nesta seção podem ser úteis quando você trabalha com [parâ
 
 * Para obter recursos que não estão disponíveis em todos os locais, use um parâmetro separado ou especifique um valor de local literal.
 
-## <a name="variables"></a>variáveis
+## <a name="variables"></a>Variáveis
 
 As seguintes informações podem ser úteis quando você trabalha com [variáveis](resource-group-authoring-templates.md#variables):
 

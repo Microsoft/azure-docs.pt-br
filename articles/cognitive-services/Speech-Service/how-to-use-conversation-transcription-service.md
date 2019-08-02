@@ -1,5 +1,5 @@
 ---
-title: Transcrição de vários participantes conversas com o Speech SDK - serviços de fala
+title: Transcrever conversas de vários participantes com o SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como usar a transcrição de conversa com o SDK de fala. Disponível para C++, C#e Java.
 services: cognitive-services
@@ -8,42 +8,42 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 07/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: f0838d345abfcfdf69ca6ea44d3206c23010b457
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8c4ecc017d058900297f2220173e064700e7051b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67073098"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559460"
 ---
-# <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcrição de vários participantes conversas com o SDK de fala
+# <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcrever conversas de vários participantes com o SDK de fala
 
-O SDK de fala **ConversationTranscriber** API permite que você transcrever reuniões/conversas com a capacidade de adicionar, remover e identificar os participantes por fluxo de áudio para o serviços de fala usando `PullStream` ou `PushStream`.
+A API **ConversationTranscriber** do SDK de fala permite transcrever reuniões/conversas com a capacidade de adicionar, remover e identificar participantes transmitindo áudio para os serviços de fala usando `PullStream` o ou `PushStream`o.
 
 ## <a name="limitations"></a>Limitações
 
-* Transcriber conversa tem suporte para C++, C#e o Java no Android, Linux e Windows.
-* O Kit de desenvolvimento ROOBO é o ambiente de hardware com suporte para a criação transcrições de conversa que fornece circular matriz de microfone várias que pode ser utilizado com eficiência para a identificação do locutor. [Para obter mais informações, consulte o SDK de dispositivos de fala](speech-devices-sdk.md).
-* Suporte do SDK de fala para a transcrição de conversa é limitado ao uso de áudio pull e push fluxos de modo com oito canais de áudio PCM 16 kHz 16 bits.
-* Transcrição de conversa está atualmente disponível em idiomas de "en-US" e "zh-CN" nas seguintes regiões: centralus e eastasia.
+* O transcrevedor de conversa tem suporte C++para C#o, o e o Java no Windows, Linux e Android.
+* O ROOBO DevKit é o ambiente de hardware com suporte para a criação de transcrições de conversa, pois fornece uma matriz circular de vários microfones que pode ser utilizada com eficiência para a identificação do orador. [Para obter mais informações, consulte SDK de dispositivos de fala](speech-devices-sdk.md).
+* O suporte do SDK de fala para transcrição de conversa é limitado ao uso de transmissão de áudio e fluxos de modo de push com oito canais de áudio PCM de 16 bits 16 kHz.
+* A transcrição de conversa está disponível atualmente nos idiomas "en-US" e "zh-CN" nas seguintes regiões: centralus e eastasia.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Saiba como usar a fala em texto com o SDK de fala.](quickstart-csharp-dotnet-windows.md)
+* [Saiba como usar a conversão de fala em texto com o SDK de fala.](quickstart-csharp-dotnet-windows.md)
 * [Obtenha sua assinatura de avaliação de fala.](https://azure.microsoft.com/try/cognitive-services/)
 * O Speech SDK versão 1.5.1 ou posterior é necessário.
 
-## <a name="create-voice-signatures-for-participants"></a>Criar assinaturas de voz para os participantes
+## <a name="create-voice-signatures-for-participants"></a>Criar assinaturas de voz para participantes
 
-A primeira etapa é criar assinaturas de voz para os participantes da conversa. Criando assinaturas de voz é necessário para a identificação do locutor eficiente.
+A primeira etapa é criar assinaturas de voz para os participantes da conversa. A criação de assinaturas de voz é necessária para uma identificação de alto-falante eficiente.
 
-### <a name="requirements-for-input-wave-file"></a>Requisitos para o arquivo de entrada wave
+### <a name="requirements-for-input-wave-file"></a>Requisitos para o arquivo wave de entrada
 
-* O arquivo wave de áudio de entrada para a criação de assinaturas de voz deverão estar no amostras de 16 bits, taxa de amostragem kHz 16 e um formato único canal (Mono).
-* O tamanho recomendado para cada amostra de áudio é entre 30 segundos e dois minutos.
+* O arquivo wave de entrada de áudio para criar assinaturas de voz deve estar em amostras de 16 bits, taxa de amostra de 16 kHz e um único formato de canal (mono).
+* O comprimento recomendado para cada amostra de áudio é entre 30 e dois minutos.
 
-O exemplo a seguir mostra duas maneiras diferentes para criar assinatura de voz por [usando a API REST](https://aka.ms/cts/signaturegenservice) de C#:
+O exemplo a seguir mostra duas maneiras diferentes de criar a assinatura de voz [usando a API REST](https://aka.ms/cts/signaturegenservice) de C#:
 
 ```csharp
 class Program
@@ -85,11 +85,11 @@ class Program
 }
 ```
 
-## <a name="transcribing-conversations"></a>Transcrever conversas
+## <a name="transcribing-conversations"></a>Transcrevendo conversas
 
-Para transcrever conversas com vários participantes, criar o `ConversationTranscriber` objeto que está associado com o `AudioConfig` objeto criado para a sessão de conversa e o fluxo de áudio usando `PullAudioInputStream` ou `PushAudioInputStream`.
+Para `ConversationTranscriber` transcrever conversas com vários participantes, crie o objeto associado `AudioConfig` ao objeto criado para a sessão de conversa e transmita áudio usando `PullAudioInputStream` ou `PushAudioInputStream`.
 
-Vamos supor que você tenha uma classe ConversationTranscriber chamada `MyConversationTranscriber`. Seu código pode ter esta aparência:
+Vamos supor que você tenha uma classe ConversationTranscriber chamada `MyConversationTranscriber`. Seu código pode ter a seguinte aparência:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -159,7 +159,7 @@ public class MyConversationTranscriber
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // Create voice signatures using REST API described in the earlier section in this document. 
+                // Create voice signatures using REST API described in the earlier section in this document.
                 // Voice signature needs to be in the following format:
                 // { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
 

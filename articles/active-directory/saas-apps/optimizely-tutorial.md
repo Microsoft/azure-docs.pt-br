@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bf4f1a08c4356a68db5315b7563adb3b6c884d41
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904623"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095498"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Azure Active Directory com o Optimizely
 
@@ -53,7 +53,7 @@ Para configurar a integração do Optimizely ao Azure AD, você precisa adiciona
 
 **Para adicionar o Optimizely da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
     ![Domínio Optimizely e informações de logon único das URLs](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.optimizely.net/<instance name>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.optimizely.net/<instance name>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `urn:auth0:optimizely:contoso`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `urn:auth0:optimizely:contoso`
 
     > [!NOTE]
     > Esses não são os valores reais. Você atualizará o valor com a URL de logon real e o identificador, o que é explicado no tutorial posteriormente. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
     | ---------------| --------------- |
     | email | user.mail |
     
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure Active Directory com o Optimizely, execu
 
 2. Em resposta ao seu email, o Optimizely fornece a URL de Entrada (SSO iniciado pelo SP) e os valores do Identificador (ID de Entidade de Provedor de Serviços).
 
-     a. Copie a **URL de SSO iniciado pelo SP** fornecida pelo Optimizely e cole na caixa de texto **URL de Logon** na seção **Configuração SAML básica** no portal do Azure.
+    a. Copie a **URL de SSO iniciado pelo SP** fornecida pelo Optimizely e cole na caixa de texto **URL de Logon** na seção **Configuração SAML básica** no portal do Azure.
 
     b. Copie a **ID da Entidade do Provedor de Serviço** fornecida pelo Optimizely e cole na caixa de texto **Identificador** na seção **Configuração SAML básica** no portal do Azure.
 
@@ -255,5 +255,5 @@ Ao clicar no bloco do Optimizely no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

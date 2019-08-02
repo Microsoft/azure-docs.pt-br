@@ -10,12 +10,12 @@ ms.date: 11/20/2018
 ms.author: mhopkins
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 87651aa1fd44a831e94a00b5871faaae51f2f6a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d44dabe68900aa45b076f44cc38ed85d6938afa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148301"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249942"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Como usar o armazenamento de Blob no iOS
 
@@ -80,7 +80,7 @@ Você pode importar o arquivo de estrutura em seu aplicativo fazendo o seguinte:
 #import <AZSClient/AZSClient.h>
 ```
 
-Se você estiver usando Swift, você precisará criar um cabeçalho ponte e importar <AZSClient/AZSClient.h> para lá:
+Se você estiver usando o Swift, será necessário criar um cabeçalho de ponte e importar \<AZSClient/AZSClient. h > lá:
 
 1. Crie um arquivo de cabeçalho `Bridging-Header.h` e adicione a instrução de importação acima.
 2. Vá para a guia *Configurações de Build* e pesquise por *Cabeçalho Ponte do Objective-C*.

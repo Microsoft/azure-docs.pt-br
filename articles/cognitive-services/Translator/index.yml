@@ -5,14 +5,14 @@ metadata:
   title: 'Documentação do Conversor de Texto - Inícios Rápidos, Tutoriais, Referência da API - Serviços Cognitivos do Azure | Microsoft Docs'
   description: Saiba como usar a Tradução de Texto para traduzir o texto em vários idiomas.
   services: cognitive-services
-  author: v-pawal
+  author: swmachan
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 06/04/2019
-  ms.author: v-jansko
+  ms.author: swmachan
 abstract:
   description: 'A Tradução de Texto é um serviço de tradução automática baseado em nuvem que você pode usar para traduzir texto quase em tempo real por meio de uma simples chamada da API REST. A API usa a tecnologia de tradução automática neural moderna e oferece a tecnologia de tradução automática estatística. O Tradutor Personalizado é uma extensão da API de Tradução de Texto que permite criar sistemas de tradução neural. O sistema de tradução personalizada pode ser usado para traduzir o texto com a API de Tradução de Texto ou os <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Serviços de Fala da Microsoft</a>. Para obter a lista de idiomas com suporte para as traduções automáticas neural e estatística, consulte <a href="languages.md">Idiomas com Suporte</a>.'
 sections:

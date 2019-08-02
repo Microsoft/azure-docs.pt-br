@@ -27,6 +27,8 @@
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Conceitos
   items:
+    - name: Planejar um relatório e monitorar uma implantação
+      href: plan-monitoring-and-reporting.md
     - name: Logs de auditoria
       href: concept-audit-logs.md
     - name: Logs de entrada
@@ -58,7 +60,7 @@
           href: howto-power-bi-content-pack.md
         - name: Configurar pré-requisitos para a API do Relatório
           href: howto-configure-prerequisites-for-reporting-api.md
-        - name: Como usar pastas de trabalho do Azure Monitor
+        - name: Como usar as pastas de trabalho do Azure AD
           href: howto-use-azure-monitor-workbooks.md
     - name: Monitoramento
       items:
@@ -87,6 +89,8 @@
 - name: Referência
   expanded: true
   items:
+    - name: Cmdlets do PowerShell do Azure AD para relatórios
+      href: reference-powershell-reporting.md
     - name: Referência da API de logs de auditoria
       href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
     - name: Referência da API de logs de entrada

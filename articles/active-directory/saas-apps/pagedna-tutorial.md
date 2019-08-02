@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cb309e6c49ed36247398909e5e1b7ad9f7bc42
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3c7f8c8efcad0a07a3d3a56925866b10d94f82ed
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891208"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227475"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pagedna"></a>Tutorial: Integração do Azure Active Directory com o PageDNA
 
@@ -171,7 +171,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela o acesso ao PageDNA.
+Nesta seção, ao conceder acesso ao PageDNA ao usuário, você permitirá que o usuário Brenda Fernandes use o logon único do Azure.
 
 1. No portal do Azure, selecione **Aplicativos empresariais** > **Todos os aplicativos** > **PageDNA**.
 
@@ -211,4 +211,5 @@ Ao selecionar o **PageDNA** no portal Meus Aplicativos, você deverá ser conect
 
 * [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-* [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

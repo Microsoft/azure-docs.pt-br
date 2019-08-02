@@ -1,6 +1,6 @@
 ---
 title: Enviando consultas para a API de Pesquisa de Notícias do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como enviar solicitações de pesquisa para a API de Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 9f0cf6c39876355862e2a4c9823d01b1cfd19c0f
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: cfa9cd23e19788d847fd9177d70ee2af89c69272
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383357"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423837"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Enviando consultas para a API de Pesquisa de Notícias do Bing
 
@@ -64,12 +64,12 @@ Host: api.cognitive.microsoft.com
 
 O exemplo a seguir mostra a resposta à solicitação anterior. O exemplo também mostra os cabeçalhos de resposta.
 
-```
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
+```json
 BingAPIs-TraceId: 994974CC8D994C95A5C31387296A510A
-BingAPIs-SessionId: 92C9798D29C846ABBDAE4AB6C47CC888
 X-MSEdge-ClientID: 3358F499A06F6A562B88F8F4A1236BC0
 BingAPIs-Market: en-US
-X-MSEdge-Ref: Ref A: 994974CC8D994C95A5C31387296A510A Ref B: BY3EDGE0207 Ref C: 2018-09-17T16:55:22Z
 
 {
    "_type": "News",

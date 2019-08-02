@@ -1,21 +1,21 @@
 ---
 title: Contagens de caractere - API de Tradução de Texto
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Como a API de Tradução de Texto conta caracteres.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: eccd0c47c1bfc071f43a6329406cd14f704d019e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514284"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595995"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Como a API de Tradução de Texto conta caracteres
 

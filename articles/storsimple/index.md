@@ -2,22 +2,19 @@
 title: Documentação do Azure StorSimple - Tutoriais | Microsoft Docs
 description: Saiba como usar o Azure StorSimple, uma solução de armazenamento integrado que gerencia as tarefas de armazenamento entre os dispositivos local e o armazenamento em nuvem do Azure.
 services: storsimple
-author: czeumault
-manager: carolz
+author: twooley
+manager: twooley
 layout: LandingPage
-ms.assetid: ''
 ms.service: storsimple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 11/01/2018
-ms.author: carolz
-ms.openlocfilehash: b98106d1a440a30345a2f63bf5fa60384c41627e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: twooley
+ms.openlocfilehash: 0c81d4a4eb934fe8268097e3e2dc7ebe25f2e1d4
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929972"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68610149"
 ---
 # <a name="storsimple-documentation"></a>Documentação do StorSimple
 

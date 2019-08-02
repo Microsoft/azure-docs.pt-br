@@ -4,19 +4,150 @@ description: Lista os tipos de recursos do Azure que podem ser movidos para um n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 6/6/2019
+ms.date: 7/9/2019
 ms.author: tomfitz
-ms.openlocfilehash: 314b28edbd5770186d96fb2a2b203f26ff27bda0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22493ad7998e9014c88c79e6ac5eee3bf1216119
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752362"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226809"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
-Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Embora um tipo de recurso seja compatível com a operação de movimentação, pode haver condições que impeçam que o recurso seja movido. Para obter detalhes sobre as condições que afetam as operações de movimentação, confira [Move resources to new resource group or subscription](resource-group-move-resources.md) (Mover recursos para um novo grupo de recursos ou assinatura).
+Este artigo lista se um tipo de recurso do Azure é compatível com a operação de movimentação. Ele também fornece informações sobre condições especiais a serem consideradas ao mover um recurso.
 
-Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).
+Ir para um namespace do provedor de recursos:
+> [!div class="op_single_selector"]
+> - [Microsoft.AAD](#microsoftaad)
+> - [microsoft.aadiam](#microsoftaadiam)
+> - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
+> - [Microsoft.AnalysisServices](#microsoftanalysisservices)
+> - [Microsoft.ApiManagement](#microsoftapimanagement)
+> - [Microsoft.AppConfiguration](#microsoftappconfiguration)
+> - [Microsoft.AppService](#microsoftappservice)
+> - [Microsoft.Authorization](#microsoftauthorization)
+> - [Microsoft.Automation](#microsoftautomation)
+> - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
+> - [Microsoft.AzureStack](#microsoftazurestack)
+> - [Microsoft. backup](#microsoftbackup)
+> - [Microsoft.Batch](#microsoftbatch)
+> - [Microsoft.BatchAI](#microsoftbatchai)
+> - [Microsoft.BingMaps](#microsoftbingmaps)
+> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
+> - [Microsoft.Blockchain](#microsoftblockchain)
+> - [Microsoft.Blueprint](#microsoftblueprint)
+> - [Microsoft.BotService](#microsoftbotservice)
+> - [Microsoft.Cache](#microsoftcache)
+> - [Microsoft.Cdn](#microsoftcdn)
+> - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
+> - [Microsoft.ClassicCompute](#microsoftclassiccompute)
+> - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
+> - [Microsoft.ClassicStorage](#microsoftclassicstorage)
+> - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
+> - [Microsoft.Compute](#microsoftcompute)
+> - [Microsoft.Container](#microsoftcontainer)
+> - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
+> - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
+> - [Microsoft.ContainerService](#microsoftcontainerservice)
+> - [Microsoft.ContentModerator](#microsoftcontentmoderator)
+> - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
+> - [Microsoft.CostManagement](#microsoftcostmanagement)
+> - [Microsoft.CustomerInsights](#microsoftcustomerinsights)
+> - [Microsoft.DataBox](#microsoftdatabox)
+> - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
+> - [Microsoft.Databricks](#microsoftdatabricks)
+> - [Microsoft.DataCatalog](#microsoftdatacatalog)
+> - [Microsoft.DataConnect](#microsoftdataconnect)
+> - [Microsoft.DataExchange](#microsoftdataexchange)
+> - [Microsoft.DataFactory](#microsoftdatafactory)
+> - [Microsoft.DataLake](#microsoftdatalake)
+> - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
+> - [Microsoft.DataLakeStore](#microsoftdatalakestore)
+> - [Microsoft.DataMigration](#microsoftdatamigration)
+> - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
+> - [Microsoft.DBforMySQL](#microsoftdbformysql)
+> - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
+> - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
+> - [Microsoft.Devices](#microsoftdevices)
+> - [Microsoft.DevSpaces](#microsoftdevspaces)
+> - [Microsoft.DevTestLab](#microsoftdevtestlab)
+> - [microsoft.dns](#microsoftdns)
+> - [Microsoft.DocumentDB](#microsoftdocumentdb)
+> - [Microsoft.DomainRegistration](#microsoftdomainregistration)
+> - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
+> - [Microsoft.EventGrid](#microsofteventgrid)
+> - [Microsoft.EventHub](#microsofteventhub)
+> - [Microsoft.Genomics](#microsoftgenomics)
+> - [Microsoft.HanaOnAzure](#microsofthanaonazure)
+> - [Microsoft.HDInsight](#microsofthdinsight)
+> - [Microsoft.HealthcareApis](#microsofthealthcareapis)
+> - [Microsoft.HybridCompute](#microsofthybridcompute)
+> - [Microsoft.HybridData](#microsofthybriddata)
+> - [Microsoft.ImportExport](#microsoftimportexport)
+> - [microsoft.insights](#microsoftinsights)
+> - [Microsoft.IoTCentral](#microsoftiotcentral)
+> - [Microsoft.IoTSpaces](#microsoftiotspaces)
+> - [Microsoft.KeyVault](#microsoftkeyvault)
+> - [Microsoft.Kusto](#microsoftkusto)
+> - [Microsoft.LabServices](#microsoftlabservices)
+> - [Microsoft.LocationBasedServices](#microsoftlocationbasedservices)
+> - [Microsoft.LocationServices](#microsoftlocationservices)
+> - [Microsoft.Logic](#microsoftlogic)
+> - [Microsoft.MachineLearning](#microsoftmachinelearning)
+> - [Microsoft.MachineLearningCompute](#microsoftmachinelearningcompute)
+> - [Microsoft.MachineLearningExperimentation](#microsoftmachinelearningexperimentation)
+> - [Microsoft.MachineLearningModelManagement](#microsoftmachinelearningmodelmanagement)
+> - [Microsoft.MachineLearningOperationalization](#microsoftmachinelearningoperationalization)
+> - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
+> - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
+> - [Microsoft.Maps](#microsoftmaps)
+> - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
+> - [Microsoft.Media](#microsoftmedia)
+> - [Microsoft.Migrate](#microsoftmigrate)
+> - [Microsoft.NetApp](#microsoftnetapp)
+> - [Microsoft.Network](#microsoftnetwork)
+> - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
+> - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
+> - [Microsoft.Peering](#microsoftpeering)
+> - [Microsoft.Portal](#microsoftportal)
+> - [Microsoft.PortalSdk](#microsoftportalsdk)
+> - [Microsoft.PowerBI](#microsoftpowerbi)
+> - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [Microsoft.ProjectOxford](#microsoftprojectoxford)
+> - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
+> - [Microsoft.Relay](#microsoftrelay)
+> - [Microsoft.SaaS](#microsoftsaas)
+> - [Microsoft.Scheduler](#microsoftscheduler)
+> - [Microsoft.Search](#microsoftsearch)
+> - [Microsoft.Security](#microsoftsecurity)
+> - [Microsoft.ServerManagement](#microsoftservermanagement)
+> - [Microsoft.ServiceBus](#microsoftservicebus)
+> - [Microsoft.ServiceFabric](#microsoftservicefabric)
+> - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
+> - [Microsoft.SignalRService](#microsoftsignalrservice)
+> - [Microsoft.SiteRecovery](#microsoftsiterecovery)
+> - [Microsoft.Solutions](#microsoftsolutions)
+> - [Microsoft.Sql](#microsoftsql)
+> - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
+> - [Microsoft.SqlVM](#microsoftsqlvm)
+> - [Microsoft.Storage](#microsoftstorage)
+> - [Microsoft.StorageCache](#microsoftstoragecache)
+> - [Microsoft.StorageSync](#microsoftstoragesync)
+> - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
+> - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
+> - [Microsoft.StorSimple](#microsoftstorsimple)
+> - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
+> - [Microsoft.StreamAnalyticsExplorer](#microsoftstreamanalyticsexplorer)
+> - [Microsoft.TerraformOSS](#microsoftterraformoss)
+> - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
+> - [Microsoft.Token](#microsofttoken)
+> - [Microsoft.VirtualMachineImages](#microsoftvirtualmachineimages)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
+> - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft.Web](#microsoftweb)
+> - [Microsoft.WindowsIoT](#microsoftwindowsiot)
+> - [Microsoft.WindowsVirtualDesktop](#microsoftwindowsvirtualdesktop)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -41,7 +172,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| propriedade serviço | Sim | Sim |
+| serviço | Sim | Sim |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -55,6 +186,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | appidentities | Não | Não |
 | gateways | Não | Não |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação do serviço de aplicativo](./move-limitations/app-service-move-limitations.md).
+
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -66,6 +200,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | automationaccounts | Sim | Sim |
 | automationaccounts/configurations | Sim | Sim |
 | automationaccounts/runbooks | Sim | Sim |
+
+> [!IMPORTANT]
+> Os Runbooks devem existir no mesmo grupo de recursos que a conta de automação.
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -125,10 +262,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ------------- | ----------- | ---------- |
 | redis | Sim | Sim |
 
+> [!IMPORTANT]
+> Se o cache do Azure para instância Redis estiver configurado com uma rede virtual, a instância não poderá ser movida para uma assinatura diferente. Consulte [limitações de movimentação de redes virtuais](./move-limitations/virtual-network-move-limitations.md).
+
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| perfis | Sim | Sim |
+| profiles | Sim | Sim |
 | profiles/endpoints | Sim | Sim |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
@@ -136,11 +276,17 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ------------- | ----------- | ---------- |
 | certificateorders | Sim | Sim |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação do serviço de aplicativo](./move-limitations/app-service-move-limitations.md).
+
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
 | domainnames | Sim | Não |
 | virtualmachines | Sim | Não |
+
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos entre assinaturas com uma operação específica para esse cenário.
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -149,10 +295,16 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | reservedips | Não | Não |
 | virtualnetworks | Não | Não |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos entre assinaturas com uma operação específica para esse cenário.
+
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
 | storageaccounts | Sim | Não |
+
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação da implantação clássica](./move-limitations/classic-model-move-limitations.md). Os recursos de implantação clássicos podem ser movidos entre assinaturas com uma operação específica para esse cenário.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -167,8 +319,8 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | galleries | Não | Não |
 | galleries/images | Não | Não |
 | galleries/images/versions | Não | Não |
-| hostgroups | Não | Não |
-| hostgroups/hosts | Não | Não |
+| hosts | Não | Não |
+| hosts/hosts | Não | Não |
 | images | Sim | Sim |
 | proximityplacementgroups | Não | Não |
 | restorepointcollections | Não | Não |
@@ -178,6 +330,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | virtualmachines | Sim | Sim |
 | virtualmachines/extensions | Sim | Sim |
 | virtualmachinescalesets | Sim | Sim |
+
+> [!IMPORTANT]
+> Consulte as [diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftcontainer"></a>Microsoft.Container
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -244,7 +399,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
 | catalogs | Sim | Sim |
-| datacatalogs | Não | Não |
+| catálogos de | Não | Não |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -390,6 +545,11 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ------------- | ----------- | ---------- |
 | clusters | Sim | Sim |
 
+> [!IMPORTANT]
+> Você pode mover os clusters HDInsight para uma nova assinatura ou grupo de recursos. No entanto, não é possível mover os recursos de rede vinculados ao cluster HDInsight (por exemplo, a rede virtual, NIC ou balanceador de carga) entre assinaturas. Além disso, não é possível mover uma para um novo grupo de recursos uma NIC que está conectada a uma máquina virtual para o cluster.
+>
+> Ao mover um cluster HDInsight para uma nova assinatura, mova primeiro os outros recursos (como a conta de armazenamento). Em seguida, mova apenas o cluster HDInsight.
+
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -398,7 +558,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| Máquinas | Não | Não |
+| maquina | Não | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -427,6 +587,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | webtests | Sim | Sim |
 | workbooks | Sim | Sim |
 
+> [!IMPORTANT]
+> Certifique-se de que a mudança para a nova assinatura não exceda as cotas de [assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
+
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -444,6 +607,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | hsmpools | Não | Não |
 | vaults | Sim | Sim |
 
+> [!IMPORTANT]
+> Os cofres de chaves usados para criptografia de disco não podem ser movidos para um grupo de recursos na mesma assinatura ou entre assinaturas.
+
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -452,7 +618,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| labaccounts | Sim | Sim |
+| labaccounts | Não | Não |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -564,9 +730,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | expressroutecrossconnections | Não | Não |
 | expressroutegateways | Não | Não |
 | expressrouteports | Não | Não |
-| frontdoors | Sim | Sim |
-| frontdoorwebapplicationfirewallpolicies | Sim | Sim |
-| loadbalancers | Sim | Sim |
+| frontdoors | Não | Não |
+| frontdoorwebapplicationfirewallpolicies | Não | Não |
+| loadbalancers | Sim-SKU básico<br>Não-SKU padrão | Sim-SKU básico<br>Não-SKU padrão |
 | localnetworkgateways | Sim | Sim |
 | natgateways | Sim | Sim |
 | networkintentpolicies | Sim | Sim |
@@ -582,7 +748,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | privatednszones/virtualnetworklinks | Sim | Sim |
 | privateendpoints | Não | Não |
 | privatelinkservices | Não | Não |
-| publicipaddresses | Sim | Sim |
+| publicipaddresses | Sim-SKU básico<br>Não-SKU padrão | Sim-SKU básico<br>Não-SKU padrão |
 | publicipprefixes | Sim | Sim |
 | routefilters | Não | Não |
 | routetables | Sim | Sim |
@@ -598,6 +764,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | vpnsites | Não | Não |
 | webapplicationfirewallpolicies | Sim | Sim |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação de redes virtuais](./move-limitations/virtual-network-move-limitations.md).
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -608,6 +777,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
 | workspaces | Sim | Sim |
+
+> [!IMPORTANT]
+> Certifique-se de que a mudança para a nova assinatura não exceda as cotas de [assinatura](../azure-subscription-service-limits.md#azure-monitor-limits).
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -651,6 +823,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ------------- | ----------- | ---------- |
 | vaults | Sim | Sim |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação dos serviços de recuperação](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -671,6 +846,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
 | searchservices | Sim | Sim |
+
+> [!IMPORTANT]
+> Você não pode mover vários recursos de pesquisa em regiões diferentes em uma única operação. Em vez disso, mova-os em operações separadas.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -720,6 +898,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ------------- | ----------- | ---------- |
 | siterecoveryvault | Não | Não |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação dos serviços de recuperação](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -732,13 +913,16 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsoftsql"></a>Microsoft.Sql
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| instancepools | Sim | Sim |
-| managedinstances | Sim | Sim |
-| managedinstances/databases | Sim | Sim |
+| instancepools | Não | Não |
+| managedinstances | Não | Não |
+| managedinstances/databases | Não | Não |
 | servers | Sim | Sim |
 | servers/databases | Sim | Sim |
 | servidores/elasticpools | Sim | Sim |
 | virtualclusters | Sim | Sim |
+
+> [!IMPORTANT]
+> Um banco de dados e um servidor devem estar no mesmo grupo de recursos. Quando você move um SQL Server, todos os seus bancos de dados também são movidos. Este comportamento se aplica ao Banco de Dados SQL do Azure e ao banco de dados SQL Data Warehouse do Azure.
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -759,7 +943,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| Caches | Não | Não |
+| caches | Não | Não |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -786,6 +970,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ------------- | ----------- | ---------- |
 | streamingjobs | Sim | Sim |
 
+> [!IMPORTANT]
+> Stream Analytics trabalhos não podem ser movidos quando estiver em estado de execução.
+
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -811,7 +998,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 ## <a name="microsofttoken"></a>Microsoft.Token
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
-| armazena | Não | Não |
+| mercado | Não | Não |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -824,6 +1011,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | conta | Sim | Sim |
 | account/extension | Sim | Sim |
 | account/project | Sim | Sim |
+
+> [!IMPORTANT]
+> Para alterar a assinatura do Azure DevOps, consulte [alterar a assinatura do Azure usada para cobrança](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 | Tipo de recurso | Grupo de recursos | Assinatura |
@@ -845,6 +1035,9 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | sites/premieraddons | Sim | Sim |
 | sites/slots | Sim | Sim |
 
+> [!IMPORTANT]
+> Consulte [diretrizes de movimentação do serviço de aplicativo](./move-limitations/app-service-move-limitations.md).
+
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 | Tipo de recurso | Grupo de recursos | Assinatura |
 | ------------- | ----------- | ---------- |
@@ -863,3 +1056,5 @@ No momento, serviços de terceiros não dão suporte à operação de movimenta�
 
 ## <a name="next-steps"></a>Próximas etapas
 Para ver comandos para mover recursos, confira [Move resources to new resource group or subscription](resource-group-move-resources.md) (Mover recursos para o novo grupo de recursos ou assinatura).
+
+Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

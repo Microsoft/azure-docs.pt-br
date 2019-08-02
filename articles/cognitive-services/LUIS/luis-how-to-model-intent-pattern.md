@@ -1,7 +1,7 @@
 ---
-title: Padrões aumentam a precisão
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: Adicione modelos padrão para aumentar a precisão de previsão em aplicativos Luis (reconhecimento vocal a linguagem).
+title: Padrões-adição de precisão-LUIS
+titleSuffix: Azure Cognitive Services
+description: Adicione modelos de padrão para melhorar a precisão da previsão em aplicativos Reconhecimento vocal (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7b6c8ba1517de44d01ffbceec812749403465e63
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196625"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638082"
 ---
-# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para aumentar a precisão de previsão
-Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use uma [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revelam um padrão na ordem das palavras e a escolha do word. Padrões usam specific [sintaxe](luis-concept-patterns.md#pattern-syntax) para indicar a localização de: [entidades](luis-concept-entity-types.md), entidade [funções](luis-concept-roles.md)e texto opcional.
+# <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Como adicionar padrões para melhorar a precisão da previsão
+Depois que um aplicativo LUIS recebe o ponto de extremidade declarações, use um [padrão](luis-concept-patterns.md) para melhorar a precisão da previsão para declarações que revela um padrão em ordem de palavras e escolha de palavra. Padrões usam [sintaxe](luis-concept-patterns.md#pattern-syntax) específica para indicar o local de: [entidades](luis-concept-entity-types.md), [funções](luis-concept-roles.md)de entidade e texto opcional.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Adicionar declaração modelo para criar o padrão
 1. Abra o aplicativo selecionando seu nome na página **Meus Aplicativos** e, em seguida, selecione **Padrões** no painel esquerdo, sob **Melhorar o desempenho do aplicativo**.
@@ -34,7 +34,7 @@ Depois que um aplicativo LUIS recebe declarações de ponto de extremidade, use 
 
     ![Captura de tela de entidade do padrão](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Se sua entidade inclui um [função](luis-concept-roles.md), indicam a função com um único dois pontos `:`, depois que o nome de entidade, como `{Location:Origin}`. A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter. 
+    Se sua entidade incluir uma [função](luis-concept-roles.md), indique a função com um único dois `:`-pontos,, após o `{Location:Origin}`nome da entidade, como. A lista de funções das entidades é exibida em uma lista. Selecione a função e, depois, selecione Enter. 
 
     ![Captura de tela da entidade com a função](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 
@@ -56,22 +56,22 @@ Depois de adicionar, editar, remover ou reatribuir um padrão, [treine](luis-how
 <a name="remove-entity-or-intent-filter"></a>
 <a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
 
-## <a name="use-contextual-toolbar"></a>Use a barra de ferramentas contextual
+## <a name="use-contextual-toolbar"></a>Usar barra de ferramentas contextual
 
 A barra de ferramentas contextual acima da lista de padrões permite que você:
 
-* Procure padrões
+* Pesquisar padrões
 * Editar um padrão
 * Reatribuir padrão individual a uma intenção diferente
 * Reatribuir vários padrões a uma intenção diferente
-* Excluir um único padrão
+* Excluir um padrão único
 * Excluir vários padrões
 * Filtrar a lista de padrões por entidade
-* Filtro de lista padrão pela intenção
+* Filtro-padrão-listar por intenção
 * Remover o filtro de entidade ou intenção
 * Adicionar padrão de declaração existente na página de intenção ou de entidade
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [criar um padrão](luis-tutorial-pattern.md) com um pattern.any e funções com um tutorial.
+* Saiba como [criar um padrão](luis-tutorial-pattern.md) com um padrão. qualquer função e com um tutorial.
 * Saiba como [treinar](luis-how-to-train.md) seu aplicativo.

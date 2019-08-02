@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: d485799547644ccb3c34a8841e8b20d8a45444bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ffe2cfc19a7ce94e47046839f6973793b73c118
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707363"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441406"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o Excel e o driver ODBC para conectar-se a tabelas do Hive no HDInsight.
@@ -37,7 +37,7 @@ Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste ar
     Atualmente, o Ranger só funciona com o Hive e o Yarn.
 
 ## <a name="create-domain-users"></a>Criar usuários de Domínio
-Confira [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), para obter informações sobre como criar hiveruser1 e hiveuser2. Você usará as duas contas de usuário neste tutorial.
+Confira [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp), para obter informações sobre como criar hiveruser1 e hiveuser2. Você pode usar as contas de dois usuário neste artigo.
 
 ## <a name="create-ranger-policies"></a>Criar políticas do Ranger
 Nesta seção, você criará duas políticas do Ranger para acessar hivesampletable. Você pode dar permissão select em um conjunto diferente de colunas. Ambos os usuários foram criados em [Criar um cluster HDInsight com ESP](apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp). Na próxima seção, você testará as duas políticas no Excel.

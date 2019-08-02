@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee12bfc8a79b6abcfdf2978d4e640c34f801e346
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7b2e012a4ce8ac4a9a5afb895d545beb0a0b8946
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989735"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100615"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Tutorial: Integrar o iLMS ao Azure Active Directory
 
@@ -80,7 +80,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configuração Básica de SAML**, caso queira configurar o aplicativo no modo iniciado por **IDP**, insira os valores nos seguintes campos:
 
-     a. Na caixa de texto **Identificador**, cole o valor do **Identificador** copiado da seção **Provedor de Serviços** das configurações do SAML no portal de administração do iLMS.
+    a. Na caixa de texto **Identificador**, cole o valor do **Identificador** copiado da seção **Provedor de Serviços** das configurações do SAML no portal de administração do iLMS.
 
     b. Na caixa de texto **URL de Resposta**, cole o valor da **(URL) do Ponto de Extremidade** copiado da seção **Provedor de Serviços** das configurações do SAML no portal de administração do iLMS com o seguinte padrão `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
@@ -101,7 +101,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | region | user.state |
     | department | user.jobtitle |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -149,7 +149,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 6. Se você desejar habilitar o provisionamento JIT para criar contas do iLMS para cancelar o reconhecimento de usuários, realize as seguintes etapas:
 
-     a. Marque a opção **Criar Conta de Usuário Não Reconhecido**.
+    a. Marque a opção **Criar Conta de Usuário Não Reconhecido**.
 
     ![Configurar o logon único](./media/ilms-tutorial/tutorial_ilms_ssoconfig2.png)
 
@@ -177,7 +177,7 @@ Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do A
 
 1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades **Usuário**, siga estas etapas:
+1. Nas propriedades do **Usuário**, siga estas etapas:
    1. No campo **Nome**, insira `Britta Simon`.  
    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
@@ -217,7 +217,7 @@ Caso precise criar um usuário manualmente, siga as etapas abaixo:
 
     ![Adicionar Funcionário](./media/ilms-tutorial/create_testuser_add.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como Fernandes.
 
@@ -244,4 +244,4 @@ Quando escolher o bloco do iLMS no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

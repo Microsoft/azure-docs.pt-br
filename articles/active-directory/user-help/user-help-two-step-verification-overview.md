@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a38b91cd17e2107fe85bfc77da8ead86196173
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d33a18aaca923bd49858671546ab053cf3fb21a3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174037"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382136"
 ---
 # <a name="two-step-verification-overview"></a>Visão geral da verificação em duas etapas
 
@@ -30,9 +30,9 @@ Verificação em duas etapas é mais segura do que apenas uma senha, porque se b
 
 |Artigo |DESCRIÇÃO |
 |------|------------|
-|[Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) |Descreve como configurar a verificação em duas etapas pela primeira vez.|
-|[Introdução à verificação em duas etapas](multi-factor-authentication-end-user.md)|Descreve a você o que significa a verificação em duas etapas.| 
-|[Como entrar](user-help-sign-in.md)|Descreve como entrar usando seu método de verificação especificado.|
-|[Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md) |Descreve como alterar suas configurações, como número de telefone ou método de registro preferido.|
-|[Ajuda com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) |Descreve como solucionar problemas comuns com a verificação em duas etapas.|
-|[Gerenciar senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) |Descreve como criar e usar senhas do aplicativo.|
+| [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) |Descreve como configurar a verificação em duas etapas pela primeira vez.|
+| [Introdução à verificação de duas etapas](multi-factor-authentication-end-user.md) Descreve o que significa a verificação em duas etapas significa para você.| 
+| [Como entrar](user-help-sign-in.md) Descreve como entrar usando seu método de verificação especificado.|
+| [Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md) |Descreve como alterar suas configurações, como número de telefone ou método de registro preferido.|
+| [Ajuda com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) |Descreve como solucionar problemas comuns com a verificação em duas etapas.|
+| [Gerenciar senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) |Descreve como criar e usar senhas do aplicativo.|

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3e68e7004858cf750bbe6186861442da1f9c6cdf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681886"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085875"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Azure Active Directory com Zscaler Three
 
@@ -119,7 +119,7 @@ Para configurar o logon único do Azure AD com o Zscaler Three, execute as segui
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -168,7 +168,7 @@ Para configurar o logon único do Azure AD com o Zscaler Three, execute as segui
    
     ![Administração](./media/zscaler-three-tutorial/ic800206.png "Administração")
 
-     a. Em Tipo de Autenticação, escolha **SAML**.
+    a. Em Tipo de Autenticação, escolha **SAML**.
 
     b. Clique em **Configurar SAML**.
 
@@ -176,7 +176,7 @@ Para configurar o logon único do Azure AD com o Zscaler Three, execute as segui
             
     ![Gerenciar usuários e autenticação](./media/zscaler-three-tutorial/ic800208.png "Gerenciar usuários e autenticação")
     
-     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
+    a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
     b. Na caixa de texto **Atributo de Nome de Logon**, insira **NameID**.
 
@@ -196,7 +196,7 @@ Para configurar o logon único do Azure AD com o Zscaler Three, execute as segui
 
     ![Administração](./media/zscaler-three-tutorial/ic800207.png)
 
-     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
+    a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
     b. Clique em **Ativar**.
 
@@ -219,7 +219,7 @@ Para configurar o logon único do Azure AD com o Zscaler Three, execute as segui
    
     ![Servidor proxy](./media/zscaler-three-tutorial/ic769494.png "Servidor proxy")
 
-     a. Selecione **Usar um servidor proxy para LAN**.
+    a. Selecione **Usar um servidor proxy para LAN**.
 
     b. Na caixa de texto Endereço, digite **gateway.Zscaler Three.net**.
 
@@ -306,5 +306,5 @@ Ao clicar no bloco do Zscaler Three no Painel de Acesso, você deverá ser conec
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

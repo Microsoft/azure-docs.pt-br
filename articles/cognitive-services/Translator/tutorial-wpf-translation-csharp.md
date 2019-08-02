@@ -3,19 +3,19 @@ title: 'Tutorial: Criar um aplicativo de tradução com o WPF em C# – API de T
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você criará um aplicativo do WPF (Windows Presentation Foundation) que usa APIs dos Serviços Cognitivos para tradução de texto, detecção de idioma e verificação ortográfica com uma chave de assinatura única. Este exercício mostrará como usar recursos da API de Tradução de Texto e a API de Verificação Ortográfica do Bing.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 2deaa0ed8b21d5e091fe5d3b3e6986eaf2340281
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: b929d0c0da2a812a1c8595536f09931e4edd0fd9
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514723"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594925"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar um aplicativo de tradução com o WPF
 
@@ -48,7 +48,7 @@ Essa lista inclui os Serviços Cognitivos usados neste tutorial. Siga o link par
 
 Antes de continuar, você precisará do seguinte:
 
-* Assinatura dos Serviços Cognitivos do Azure. [Obter uma chave dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-subscription).
+* Assinatura dos Serviços Cognitivos do Azure. [Obter uma chave dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#multi-service-resource).
 * Um computador Windows
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/) – Community ou Enterprise
 
@@ -62,7 +62,7 @@ A primeira coisa que precisamos fazer é configurar nosso projeto no Visual Stud
 1. Abra o Visual Studio. Em seguida, selecione **Arquivo > Novo > Projeto**.
 2. No painel esquerdo, localize e selecione **Visual C#** . Em seguida, selecione **Aplicativo do WPF (.NET Framework)** no painel central.
    ![Criar um aplicativo do WPF no Visual Studio](media/create-wpf-project-visual-studio.png)
-3. Dê um nome para o projeto, defina a versão da estrutura como **.NET Framework 4.5.2 ou posterior** e, em seguida, clique em **OK**.
+3. Nomeie o projeto `MSTranslatorTextDemo`, defina a versão da estrutura como **.NET Framework 4.5.2 ou posterior** e, em seguida, clique em **OK**.
 4. Seu projeto foi criado. Você observará duas guias abertas: `MainWindow.xaml` e `MainWindow.xaml.cs`. Neste tutorial adicionaremos código a esses dois arquivos. O primeiro para a interface do usuário do aplicativo; o segundo para as chamadas à Tradução de Texto e à Verificação Ortográfica do Bing.
    ![Examinar o ambiente](media/blank-wpf-project.png)
 
@@ -82,6 +82,7 @@ Vamos adicionar assemblies ao nosso projeto para serializar e desserializar obje
    * [System.Runtime.Serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization)
    * [System.Web](https://docs.microsoft.com/dotnet/api/system.web)
    * [System.Web.Extensions](https://docs.microsoft.com/dotnet/api/system.web)
+   * [System.Windows](https://docs.microsoft.com/dotnet/api/system.windows)
 3. Depois de adicionar essas referências ao projeto, clique em **OK** para fechar o **Gerenciador de Referências**.
 
 > [!NOTE]
@@ -197,7 +198,7 @@ Todo o nosso projeto é encapsulado na classe `MainWindow : Window`. Vamos come�
        // authentication options, see: https://docs.microsoft.com/azure/cognitive-services/authentication.
        const string COGNITIVE_SERVICES_KEY = "YOUR_COG_SERVICES_KEY";
        // Endpoints for Translator Text and Bing Spell Check
-       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api- version=3.0";
+       public static readonly string TEXT_TRANSLATION_API_ENDPOINT = "https://api.cognitive.microsofttranslator.com/{0}?api-version=3.0";
        const string BING_SPELL_CHECK_API_ENDPOINT = "https://westus.api.cognitive.microsoft.com/bing/v7.0/spellcheck/";
        // An array of language codes
        private string[] languageCodes;
@@ -211,7 +212,7 @@ Todo o nosso projeto é encapsulado na classe `MainWindow : Window`. Vamos come�
        {
            Exception e = (Exception)args.ExceptionObject;
            MessageBox.Show("Caught " + e.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-           System.Windows.app.Current.Shutdown();
+           System.Windows.Application.Current.Shutdown();
        }
        // MainWindow constructor
        public MainWindow()
@@ -224,7 +225,7 @@ Todo o nosso projeto é encapsulado na classe `MainWindow : Window`. Vamos come�
                MessageBox.Show("One or more invalid API subscription keys.\n\n" +
                    "Put your keys in the *_API_SUBSCRIPTION_KEY variables in MainWindow.xaml.cs.",
                    "Invalid Subscription Key(s)", MessageBoxButton.OK, MessageBoxImage.Error);
-               System.Windows.app.Current.Shutdown();
+               System.Windows.Application.Current.Shutdown();
            }
            else
            {
@@ -370,7 +371,7 @@ Agora, vamos criar um método para detectar o idioma do texto de origem (texto i
        HttpWebRequest detectLanguageWebRequest = (HttpWebRequest)WebRequest.Create(detectUri);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
        detectLanguageWebRequest.Headers.Add("Ocp-Apim-Subscription-Region", "westus");
-       detectLanguageWebRequest.ContentType = "app/json; charset=utf-8";
+       detectLanguageWebRequest.ContentType = "application/json; charset=utf-8";
        detectLanguageWebRequest.Method = "POST";
 
        // Send request
@@ -427,7 +428,7 @@ private string CorrectSpelling(string text)
     HttpWebRequest spellCheckWebRequest = (HttpWebRequest)WebRequest.Create(uri);
     spellCheckWebRequest.Headers.Add("Ocp-Apim-Subscription-Key", COGNITIVE_SERVICES_KEY);
     spellCheckWebRequest.Method = "POST";
-    spellCheckWebRequest.ContentType = "app/x-www-form-urlencoded"; // doesn't work without this
+    spellCheckWebRequest.ContentType = "application/x-www-form-urlencoded"; // doesn't work without this
 
     // Create and send the request
     string body = "text=" + System.Web.HttpUtility.UrlEncode(text);

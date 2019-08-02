@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22d24b62532190ebd4d119b4ced03ddbd9dde8f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b94d852ec5e0cba133fc1e141a5695e1c898f16
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863286"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloudpassage"></a>Tutorial: Integração do Azure Active Directory ao CloudPassage
 
@@ -53,7 +53,7 @@ Para configurar a integração do CloudPassage com o AD do Azure, você precisa 
 
 **Para adicionar o CloudPassage por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o CloudPassage, execute as seguin
 
     ![Informações de logon único de Domínio e de URLs do CloudPassage](common/sp-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://portal.cloudpassage.com/saml/init/accountid`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://portal.cloudpassage.com/saml/init/accountid`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o padrão a seguir: `https://portal.cloudpassage.com/saml/consume/accountid`. Você pode obter o valor para este atributo clicando em **documentação de instalação do SSO** na seção **Configurações de Logon Único** do seu portal CloudPassage.
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o CloudPassage, execute as seguin
     | sobrenome |user.surname |
     | email |user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -174,7 +174,7 @@ Para configurar o logon único do Azure AD com o CloudPassage, execute as seguin
    
     ![Configurar o logon único][14]
 
-     a. Marque a caixa de seleção **Habilitar SSO (Logon Único) (Documentação de instalação de SSO)**.
+    a. Marque a caixa de seleção **Habilitar SSO (Logon Único) (Documentação de instalação de SSO)** .
     
     b. Colar o **Identificador do Azure AD** na caixa de texto **URL do Emissor do SAML**.
   
@@ -257,7 +257,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no CloudP
    
     ![Criar um usuário de teste CloudPassage][24]
     
-     a. Na caixa de texto **Nome** , digite Brenda. 
+    a. Na caixa de texto **Nome** , digite Brenda. 
   
     b. Na caixa de texto **Sobrenome** , digite Fernandes.
   
@@ -279,7 +279,7 @@ Ao clicar no bloco do CloudPassage no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

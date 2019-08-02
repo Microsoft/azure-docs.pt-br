@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f0d42562b1c927fe0f87ddc87b5e097022d2be2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 817eecce6c2c1be273b47494e8ecc14180394796
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922087"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spotinst"></a>Tutorial: Integração do Azure Active Directory com o Spotinst
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Spotins
 
     ![Informações de logon único Spotinst domínio e URLs](common/idp-preintegrated-relay.png)
 
-     a. Clique em **Definir URLs adicionais**.
+    a. Clique em **Definir URLs adicionais**.
 
     b. No **estado de retransmissão** caixa de texto, digite um valor: `<ID>`
 
@@ -114,7 +114,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Spotins
 
     ![Informações de logon único Spotinst domínio e URLs](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de Logon**, digite a URL: `https://console.spotinst.com`
+    Na caixa de texto **URL de Logon**, digite a URL: `https://console.spotinst.com/auth/saml`
 
     > [!NOTE]
     > O valor de estado de retransmissão não é real. Você atualizará o valor do estado do relé com o valor atual do estado do relé, que será explicado posteriormente no tutorial.
@@ -131,7 +131,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Spotins
     | Nome | user.givenname |
     | Sobrenome | user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -175,7 +175,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Spotins
 
     ![Segurança Spotinst](./media/spotinst-tutorial/tutorial_spotinst_security.png)
 
-     a. Copie o valor **Estado de Retransmissão** da sua instância e cole-o na caixa de texto **Estado de Retransmissão** na seção **Configuração Básica de SAML** no portal do Azure.
+    a. Copie o valor **Estado de Retransmissão** da sua instância e cole-o na caixa de texto **Estado de Retransmissão** na seção **Configuração Básica de SAML** no portal do Azure.
 
     b. Clique em **PROCURAR** para carregar o arquivo xml de metadados que você baixou do portal do Azure
 
@@ -237,7 +237,7 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Spotinst.
 
 1. Se você configurou o aplicativo no modo iniciado pelo **SP**, execute as seguintes etapas:
 
-    a. Em uma janela diferente do navegador da Web, faça logon no Spotinst como administrador de segurança.
+   a. Em uma janela diferente do navegador da Web, faça logon no Spotinst como administrador de segurança.
 
    b. Clique no **ícone do usuário** no canto superior direito da tela e clique **configurações**.
 
@@ -271,5 +271,5 @@ Ao clicar no bloco Spotinst no Painel de Acesso, você deve ser conectado automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11cc42f9ed7e427620b22ce65365183bc62cc0be
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 58d535c7f19adec470f1fbc9b8d88429ea6e0e26
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65884552"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Tutorial: Integração do Azure Active Directory com o 4me
 
@@ -54,7 +54,7 @@ Para configurar a integração de 4me ao Microsoft Azure Active Directory, você
 
 **Para adicionar o 4me por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o 4me, execute as seguintes etapa
 
     ![Informações de logon único de Domínio e URLs do 4me](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
     | Ambiente| URL|
     |---|---|
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o 4me, execute as seguintes etapa
     | QA| `https://<SUBDOMAIN>.4me.qa`|
     | | |
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
     | Ambiente| URL|
     |---|---|
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o 4me, execute as seguintes etapa
     | last_name | user.surname |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -185,7 +185,7 @@ Para configurar o logon único do Azure AD com o 4me, execute as seguintes etapa
 
     ![4me singleasignon](./media/4me-tutorial/tutorial_4me_singlesignon.png)
 
-     a. Selecione a opção **Habilitado**.
+    a. Selecione a opção **Habilitado**.
 
     b. Na caixa de texto **URL de logoff remoto**, cole o valor da **URL de logoff** que você copiou do portal do Azure.
 
@@ -265,4 +265,4 @@ Ao clicar no bloco do 4me no Painel de Acesso, você deverá ser conectado autom
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

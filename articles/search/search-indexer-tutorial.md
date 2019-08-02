@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c9413fb78bbb92618818ac4311ab1af8ad65576d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bb082fb83f8c2521b0deabced6f851e62b785e8f
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025077"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485381"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial do C#: Rastrear um Banco de Dados SQL do Azure usando indexadores do Azure Search
 
@@ -58,7 +58,7 @@ As chamadas REST exigem a URL do serviço e uma chave de acesso em cada solicita
 
 1. Em **Configurações** > **Chaves**, obtenha uma chave de administração para adquirir todos os direitos sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso seja necessário sobrepor uma. É possível usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-fiddler/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações requerem uma chave de api em cada pedido enviado ao serviço. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
@@ -99,7 +99,7 @@ O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados 
 
    ![Página do banco de dados SQL](./media/search-indexer-tutorial/hotels-db.png)
 
-4. No painel de navegação, clique em **Editor de consultas (visualização)**.
+4. No painel de navegação, clique em **Editor de consultas (visualização)** .
 
 5. Clique em **Logon** e insira o nome de usuário e senha do administrador do servidor.
 

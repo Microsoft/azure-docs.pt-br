@@ -6,178 +6,94 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 04/2/2019
+ms.date: 06/14/2019
 ms.author: alkohli
-ms.openlocfilehash: f9d01b56da2650be395878ce07e4aae73495061f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f8116ec0836623adf803991017950ddc7f960923
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939634"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67805718"
 ---
-# <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Solucionar problemas no Azure Data Box Disk
+# <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>Usar logs para solucionar problemas de validação no disco do Azure Data Box
 
-Este artigo se aplica ao Microsoft Azure Data Box Disk e descreve os fluxos de trabalho usados para solucionar quaisquer problemas que você encontrar ao implantar essa solução. 
+Este artigo se aplica ao disco do Microsoft Azure Data Box. O artigo descreve como usar os logs para solucionar os problemas de validação, que você pode ver quando você implanta essa solução.
 
-Este artigo inclui as seguintes seções:
+## <a name="validation-tool-log-files"></a>Arquivos de log da ferramenta de validação
 
-- Fazer download de logs de diagnóstico
-- Consultar logs de atividade
-- Erros da ferramenta de desbloqueio do Data Box Disk
-- Erros da ferramenta de cópia de divisão do Data Box Disk
+Quando você validar os dados nos discos usando o [ferramenta de validação](data-box-disk-deploy-copy-data.md#validate-data), um *error.xml* é gerado para registrar erros. O arquivo de log está localizado no `Drive:\DataBoxDiskImport\logs` pasta da unidade. Um link para o log de erros é fornecido quando você executar a validação.
 
-## <a name="download-diagnostic-logs"></a>Fazer download de logs de diagnóstico
+<!--![Validation tool with link to error log](media/data-box-disk-troubleshoot/validation-tool-link-error-log.png)-->
 
-Se houver erros durante o processo de cópia de dados, o portal exibirá um caminho até a pasta onde estão os logs de diagnóstico. 
+Se você executar várias sessões para validação, um log de erro é gerado por sessão.
 
-Os logs de diagnóstico podem ser:
-- Logs de erros
-- Logs detalhados  
+- Aqui está um exemplo de log de erros quando os dados carregados no `PageBlob` pasta não é de 512 bytes alinhados. Todos os dados carregados para PageBlob devem ser de 512 bytes alinhados, por exemplo, um VHD ou VHDX. Os erros nesse arquivo estão na `<Errors>` e avisos no `<Warnings>`.
 
-Para navegar até o caminho do log de cópia, vá até a conta de armazenamento associada ao seu pedido do Data Box. 
-
-1.  Vá até **Geral > Detalhes do pedido** e anote a conta de armazenamento associada ao seu pedido.
- 
-
-2.  Vá até **Todos os recursos** e procure a conta de armazenamento identificada na etapa anterior. Selecione e clique na conta de armazenamento.
-
-    ![Copiar logs 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
-
-3.  Vá até **Serviço Blob > Procurar blobs** e procure o blob correspondente à conta de armazenamento. Acesse **diagnosticslogcontainer > waies**. 
-
-    ![Copiar logs 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
-
-    Você deve ver os logs de erros e os logs detalhados da cópia dos dados. Selecione e clique em cada arquivo e, em seguida, baixe uma cópia local.
-
-## <a name="query-activity-logs"></a>Consultar logs de atividade
-
-É possível usar os logs de atividade para encontrar um erro ao solucionar problemas ou monitorar como um usuário em sua organização modificou um recurso. Com os logs de atividade, você pode determinar:
-
-- Quais operações foram executadas nos recursos em sua assinatura.
-- Quem iniciou a operação.
-- Quando a operação ocorreu.
-- O status da operação.
-- Os valores de outras propriedades que podem ajudar você a pesquisar a operação.
-
-O log de atividades contém todas as operações de gravação (como PUT, POST, DELETE) realizadas em seus recursos, mas não as operações de leitura (como GET).
-
-Os logs de atividade são retidos por 90 dias. Você pode consultar qualquer intervalo de datas, desde que a data inicial não seja anterior a 90 dias no passado. Você também pode filtrar por uma das consultas internas no Insights. Por exemplo, clique em erro e, depois, selecione e clique em falhas específicas para entender a causa raiz.
-
-## <a name="data-box-disk-unlock-tool-errors"></a>Erros da ferramenta de desbloqueio do Data Box Disk
-
-
-| Mensagem de erro/Comportamento da ferramenta      | Recomendações                                                                                               |
-|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| Nenhum<br><br>A ferramenta de desbloqueio do Data Box Disk trava.                                                                            | BitLocker não instalado. Verifique se o computador host que está executando a ferramenta de desbloqueio do Data Box Disk tem o BitLocker instalado.                                                                            |
-| O .NET Framework atual não tem suporte. As versões com suporte são 4.5 e superiores.<br><br>A ferramenta é encerrada com uma mensagem.  | O .NET 4.5 não está instalado. Instale o .NET 4.5 ou superior no computador host que executa a ferramenta de desbloqueio do Data Box Disk.                                                                            |
-| Não foi possível desbloquear ou verificar os volumes. Contatar Suporte da Microsoft  <br><br>A ferramenta não consegue desbloquear ou verificar qualquer unidade bloqueada. | A ferramenta não conseguiu desbloquear as unidades bloqueadas com a chave de acesso fornecida. Contate o Suporte da Microsoft para as próximas etapas.                                                |
-| Os volumes a seguir foram desbloqueados e verificados. <br>Letras de unidade de volume: E:<br>Não foi possível desbloquear os volumes com as seguintes chaves de acesso: werwerqomnf, qwerwerqwdfda <br><br>A ferramenta desbloqueia algumas unidades e lista as letras de unidade bem-sucedidas e com falha.| Êxito parcial. Não foi possível desbloquear algumas unidades com a chave de acesso fornecida. Contate o Suporte da Microsoft para as próximas etapas. |
-| Não foi possível localizar os volumes bloqueados. Verifique se o disco recebido da Microsoft está conectado corretamente e está em estado bloqueado.          | A ferramenta não consegue encontrar unidades bloqueadas. Ou as unidades já estão desbloqueadas ou não foram detectadas. Verifique se as unidades estão conectadas e bloqueadas.                                                           |
-| Erro fatal: Parâmetro inválido<br>Nome do parâmetro: nvalid_arg<br>USO:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Exemplo: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Exemplo: DataBoxDiskUnlock /SystemCheck<br>Exemplo: DataBoxDiskUnlock /Help<br><br>/PassKeys:       obtenha essa chave de acesso do pedido do Azure DataBox Disk. A chave de acesso desbloqueia seus discos.<br>/Help:           esta opção fornece ajuda sobre o uso de cmdlet e exemplos.<br>/SystemCheck:    essa opção verifica se o sistema atende aos requisitos para executar a ferramenta.<br><br>Pressione qualquer tecla para sair. | Parâmetro inválido inserido. Os únicos parâmetros permitidos são /SystemCheck, /PassKey e /Help.                                                                            |
-
-## <a name="data-box-disk-split-copy-tool-errors"></a>Erros da ferramenta de cópia de divisão do Data Box Disk
-
-|Mensagem de erro/avisos  |Recomendações |
-|---------|---------|
-|[Info] Recuperação de senha do BitLocker para o volume: m <br>[Erro] Exceção detectada ao recuperar a chave do BitLocker para m: de volume<br> A sequência não contém elementos.|Esse erro será gerado se o Data Box Disk de destino estiver offline. <br> Use a ferramenta `diskmgmt.msc` em discos online.|
-|[Erro] Exceção gerada: A operação de WMI falhou:<br> Method=UnlockWithNumericalPassword, ReturnValue=2150694965, <br>Win32Message = o formato da senha de recuperação fornecida é inválido. <br>As senhas de recuperação do BitLocker têm 48 dígitos. <br>Verifique se a senha de recuperação está no formato correto e, em seguida, tente novamente.|Use a ferramenta de desbloqueio do Data Box Disk para desbloquear os discos e repita o comando. Para obter mais informações, acesse <li> [Desbloquear Data Box Disk para clientes Windows](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client). </li><li> [Desbloquear Data Box Disk para clientes Linux](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client). </li>|
-|[Erro] Exceção gerada: Existe um arquivo de DriveManifest.xml na unidade de destino. <br> Isso indica que a unidade de destino pode ter sido preparada com um arquivo de diário diferente. <br>Para adicionar mais dados à mesma unidade, use o arquivo de diário anterior. Para excluir dados existentes e reutilizar a unidade de destino para um novo trabalho de importação, exclua DriveManifest.xml na unidade. Execute o comando novamente com um novo arquivo de diário.| Esse erro é recebido quando você tenta usar o mesmo conjunto de unidades para várias sessões de importação. <br> Use um conjunto de unidades apenas para uma sessão de divisão e cópia.|
-|[Erro] Exceção gerada: CopySessionId importdata-sept-test-1 se refere a uma sessão de cópia anterior e não pode ser reutilizado para uma nova sessão de cópia.|Esse erro é relatado ao tentar usar o mesmo nome de um trabalho anterior concluído com êxito para um novo trabalho.<br> Atribua um nome exclusivo para seu trabalho.|
-|[Informações] O nome do arquivo ou diretório de destino ultrapassa o limite de comprimento NTFS. |Esta mensagem é relatada quando o arquivo de destino foi renomeado devido a um caminho de arquivo longo.<br> Modifique a opção de descarte no arquivo `config.json` para controlar esse comportamento.|
-|[Erro] Exceção gerada: Sequência de escape JSON inválida. |Esta mensagem é relatada quando o config.json tem formato que não é válido. <br> Validar sua `config.json` usando [JSONlint](https://jsonlint.com/) antes de salvar o arquivo.|
-
-## <a name="deployment-issues-for-linux"></a>Problemas de implantação para Linux
-
-Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente Linux para cópia de dados.
-
-### <a name="issue-drive-getting-mounted-as-read-only"></a>Problema: Unidade sendo montada como somente leitura
- 
-**Causa** 
-
-Isso pode ser devido a um sistema de arquivos não limpo. 
-
-Remontar uma unidade como leitura e gravação não funciona com Data Box Disks. Não há suporte para esse cenário em unidades descriptografadas pelo dislocker. Você pode ter remontado o dispositivo com sucesso usando o seguinte comando:
-
-    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
-
-Embora a remontagem tenha sido bem-sucedida, os dados não persistirão.
-
-**Resolução**
-
-Execute as seguintes etapas no seu sistema Linux:
-
-1. Instalar o `ntfsprogs` pacote para o utilitário ntfsfix.
-2. Desmonte os pontos de montagem fornecidos para a unidade pela ferramenta de desbloqueio. O número de pontos de montagem variam para unidades.
-
-    ```
-    unmount /mnt/DataBoxDisk/mountVol1
+    ```xml
+    <?xml version="1.0" encoding="utf-8"?>
+        <ErrorLog Version="2018-10-01">
+            <SessionId>session#1</SessionId>
+            <ItemType>PageBlob</ItemType>
+            <SourceDirectory>D:\Dataset\TestDirectory</SourceDirectory>
+            <Errors>
+                <Error Code="Not512Aligned">
+                    <Description>The file is not 512 bytes aligned.</Description>
+                    <List>
+                        <File Path="\Practice\myScript.ps1" />
+                    </List>
+                    <Count>1</Count>
+                </Error>
+            </Errors>
+            <Warnings />
+        </ErrorLog>
     ```
 
-3. Execute `ntfsfix` no caminho correspondente. O número realçado deve ser igual a etapa 2.
+- Aqui está um exemplo de log de erros quando o nome do contêiner não é válido. A pasta que você cria em `BlockBlob`, `PageBlob`, ou `AzureFile` pastas no disco se torna um contêiner em sua conta de armazenamento do Azure. O nome do contêiner deve seguir a [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
+    ```xml
+        <?xml version="1.0" encoding="utf-8"?>
+        <ErrorLog Version="2018-10-01">
+          <SessionId>bbsession</SessionId>
+          <ItemType>BlockBlob</ItemType>
+          <SourceDirectory>E:\BlockBlob</SourceDirectory>
+          <Errors>
+            <Error Code="InvalidShareContainerFormat">
+              <List>
+                <Container Name="Azu-reFile" />
+                <Container Name="bbcont ainer1" />
+              </List>
+              <Count>2</Count>
+            </Error>
+          </Errors>
+          <Warnings />
+    </ErrorLog>
     ```
-    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
-    ```
 
-4. Execute o seguinte comando para remover os metadados de hibernação que podem causar o problema de montagem.
+## <a name="validation-tool-errors"></a>Erros de validação de ferramenta
 
-    ```
-    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
-    ```
+Os erros contidos na *error.xml* com as ações recomendadas correspondentes são resumidos na tabela a seguir.
 
-5. Faça uma desmontagem limpa.
+| Código do erro| DESCRIÇÃO                       | Ações recomendadas               |
+|------------|--------------------------|-----------------------------------|
+| `None` | Validado com êxito os dados. | Nenhuma ação é necessária. |
+| `InvalidXmlCharsInPath` |Não foi possível criar um arquivo de manifesto, como o caminho do arquivo tem caracteres que não são válidos. | Remova esses caracteres para continuar.  |
+| `OpenFileForReadFailed`| Não foi possível processar o arquivo. Isso pode ser devido a uma corrupção de sistema de problema ou arquivo de acesso.|Não foi possível ler o arquivo devido a um erro. Os detalhes do erro estão na exceção. |
+| `Not512Aligned` | Esse arquivo não está em um formato válido para a pasta PageBlob.| Somente dados de carregamento que é de 512 bytes alinhado à `PageBlob` pasta. Remova o arquivo da pasta PageBlob ou movê-lo para a pasta BlockBlob. Repita a validação.|
+| `InvalidBlobPath` | Caminho do arquivo não é mapeado para um caminho de blob válido na nuvem de acordo com as convenções de nomenclatura de BLOBs do Azure.|Siga as diretrizes de nomenclatura do Azure para renomear o caminho do arquivo. |
+| `EnumerationError` | Não foi possível enumerar o arquivo para validação. |Pode haver vários motivos para esse erro. Um motivo mais provável é o acesso ao arquivo. |
+| `ShareSizeExceeded` | Esse arquivo causado o tamanho do compartilhamento de arquivos do Azure para exceder o limite do Azure de 5 TB.|Reduzir o tamanho dos dados no compartilhamento de forma que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
+| `AzureFileSizeExceeded` | Tamanho do arquivo excede os limites de tamanho de arquivos do Azure.| Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação.|
+| `BlockBlobSizeExceeded` | Tamanho do arquivo excede os limites de tamanho do Blob de blocos do Azure. | Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
+| `ManagedDiskSizeExceeded` | Tamanho do arquivo excede os limites de tamanho de disco gerenciado do Azure. | Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
+| `PageBlobSizeExceeded` | Tamanho do arquivo excede os limites de tamanho de disco gerenciado do Azure. | Reduzir o tamanho do arquivo ou os dados para que ele está em conformidade com o [limites de tamanho do objeto do Azure](data-box-disk-limits.md#azure-object-size-limits). Repita a validação. |
+| `InvalidShareContainerFormat`  |Os nomes de diretório não está em conformidade com as convenções de nomenclatura do Azure para contêineres ou compartilhamentos.         |A primeira pasta criada sob as pastas já existentes no disco se torna um contêiner em sua conta de armazenamento. Esse nome de compartilhamento ou um contêiner não estiver de acordo com as convenções de nomenclatura do Azure. Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação.   |
+| `InvalidBlobNameFormat` | Caminho do arquivo não é mapeado para um caminho de blob válido na nuvem de acordo com as convenções de nomenclatura de BLOBs do Azure.|Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
+| `InvalidFileNameFormat` | Caminho do arquivo não é mapeado para um caminho de arquivo válido na nuvem, de acordo com as convenções de nomenclatura de arquivo do Azure. |Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação. |
+| `InvalidDiskNameFormat` | Caminho do arquivo não é mapeado para um nome de disco válido na nuvem, de acordo com as convenções de nomenclatura de disco gerenciado do Azure. |Renomeie o arquivo para que ele está em conformidade com [convenções de nomenclatura do Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). Repita a validação.       |
+| `NotPartOfFileShare` | O caminho de carregamento de arquivos não é válido. Carregue os arquivos para uma pasta de arquivos do Azure.   | Remova os arquivos no erro e carregar esses arquivos em uma pasta pré-criada. Repita a validação. |
+| `NonVhdFileNotSupportedForManagedDisk` | Um arquivo não VHD não pode ser carregado como um disco gerenciado. |Remover os arquivos não-VHD `ManagedDisk` pasta que elas não têm suporte ou mover esses arquivos para um `PageBlob` pasta. Repita a validação. |
 
-    ```
-    ./DataBoxDiskUnlock_x86_64 /unmount
-    ```
-
-6. Fazer uma limpeza unlock e montar.
-7. Teste o ponto de montagem, escrevendo um arquivo.
-8. Desmonte e monte novamente para validar a persistência de arquivo.
-9. Continue com a cópia de dados.
- 
-### <a name="issue-error-with-data-not-persisting-after-copy"></a>Problema: Erro de dados não persistirem após a cópia
- 
-**Causa** 
-
-Se você vir que sua unidade não tem dados depois de ter sido desmontada (embora os dados tenham sido copiados para ela), talvez você tenha remontado uma unidade como leitura-gravação depois de a unidade ter sido montada como somente leitura.
-
-**Resolução**
- 
-Se esse for o caso, confira a resolução para [unidades sendo montadas como somente leitura](#issue-drive-getting-mounted-as-read-only).
-
-Se esse não for o caso, copie os logs da pasta que tem a ferramenta de desbloqueio do Data Box Disk e [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
-
-## <a name="deployment-issues-for-windows"></a>Problemas de implantação para Windows
-
-Esta seção apresenta detalhes sobre alguns dos principais problemas enfrentados durante a implantação do Data Box Disk ao usar um cliente Windows para cópia de dados
-
-### <a name="issue-could-not-unlock-drive-from-bitlocker"></a>Problema: Não foi possível desbloquear a unidade do BitLocker
- 
-**Causa** 
-
-Você usou a senha na caixa de diálogo do BitLocker e tentou desbloquear o disco usando a caixa de diálogo desbloquear unidades do BitLocker. Isso não funcionaria. 
-
-**Resolução**
-
-Para desbloquear Data Box Disks, você precisa usar a ferramenta de Desbloqueio do Data Box Disk e fornecer a senha do portal do Azure. Para obter mais informações, vá para [Tutorial: Desempacotar, conectar e desbloquear o Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
- 
-### <a name="issue-could-not-unlock-or-verify-some-volumes-contact-microsoft-support"></a>Problema: Não foi possível desbloquear nem verificar alguns volumes. Contatar Suporte da Microsoft
- 
-**Causa** 
-
-Talvez você veja o seguinte erro no log de erros e não consiga desbloquear nem verificar alguns volumes.
-
-`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
- 
-Isso indica que você provavelmente não tem a versão apropriada do Windows PowerShell no seu cliente do Windows.
-
-**Resolução**
-
-Você pode instalar o [Windows PowerShell v5.0](https://www.microsoft.com/download/details.aspx?id=54616) e repetir a operação.
- 
-Se você ainda não puder desbloquear os volumes, copie os logs da pasta que tem a ferramenta de Desbloqueio do Data Box Disk e [entre em contato com o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba como [Gerenciar o Data Box Disk por meio do Portal do Azure](data-box-portal-ui-admin.md).
+- Solucionar problemas [erros de upload de dados](data-box-disk-troubleshoot-upload.md).

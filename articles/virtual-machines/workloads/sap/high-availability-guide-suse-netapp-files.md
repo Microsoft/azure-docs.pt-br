@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: radeltch
-ms.openlocfilehash: b3b5a89b43eaa5c0851962aef414ec9c9b7440da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8fcf4afa5a363d355f627be95dd7fe8131203ac
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357722"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797965"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server com arquivos do Azure NetApp para aplicativos SAP
 
@@ -80,10 +80,10 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux ][deployment-guide]
-* [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
-* [Guias de melhores práticas SUSE SAP HA][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o Netweaver HA e a Replicação de Sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
+* [Máquinas virtuais de planejamento e implementação para SAP no Linux do Azure][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
+* [SUSE SAP HA guias de melhores práticas][suse-ha-guide] os guias contêm todas as informações necessárias para configurar o Netweaver HA e replicação de sistema do SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão do SP3 com a extensão de alta disponibilidade do SUSE 12][suse-ha-12sp3-relnotes]
 * [Aplicativos do NetApp SAP no Microsoft Azure usando arquivos do Azure NetApp][anf-sap-applications-azure]
 
@@ -137,7 +137,7 @@ O SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e o banco de dado
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Configurando a infraestrutura de arquivos do Azure NetApp 
 
-O SAP NetWeaver requer um armazenamento compartilhado para o diretório de perfil e transporte.  Antes de prosseguir com a instalação para infraestrutura de arquivos do Azure NetApp, familiarize-se com o [documentação de arquivos do Azure NetApp][anf-azure-doc]. Verifique se sua região do Azure selecionada oferece NetApp serviço arquivos do Azure. O link a seguir mostra a disponibilidade dos arquivos do Azure NetApp por região do Azure: [Disponibilidade de arquivos NetApp do Azure por região do Azure][anf-avail-matrix].
+O SAP NetWeaver requer um armazenamento compartilhado para o diretório de perfil e transporte.  Antes de prosseguir com a instalação para infraestrutura de arquivos do Azure NetApp, familiarize-se com o [documentação do Azure NetApp arquivos][anf-azure-doc]. Verifique se sua região do Azure selecionada oferece NetApp serviço arquivos do Azure. O link a seguir mostra a disponibilidade dos arquivos do Azure NetApp por região do Azure: [Disponibilidade de arquivos NetApp do Azure por região do Azure][anf-avail-matrix].
 
 Os arquivos NetApp do Azure está disponível em várias [regiões do Azure](https://azure.microsoft.com/global-infrastructure/services/?products=netapp). Antes de implantar os arquivos do Azure NetApp, solicitar integração aos arquivos do NetApp do Azure, seguindo a [Registre-se para obter instruções de arquivos do Azure NetApp][anf-register]. 
 
@@ -426,7 +426,6 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    #     fs_QAS_ASCS        (ocf::heartbeat:Filesystem):    <b>Started anftstsapcl1</b>
    #     nc_QAS_ASCS        (ocf::heartbeat:anything):      <b>Started anftstsapcl1</b>
    #     vip_QAS_ASCS       (ocf::heartbeat:IPaddr2):       <b>Started anftstsapcl1</b>
-   #     rsc_sap_QAS_ASCS00 (ocf::heartbeat:SAPInstance):   <b>Started anftstsapcl1</b>
    # stonith-sbd     (stonith:external/sbd): <b>Started anftstsapcl2</b>
    </code></pre>
   
@@ -549,7 +548,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 6. **[A]** Configurar Keep Alive
 
-   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia [nota SAP 1410736][1410736] para obter mais informações.
 
    O parâmetro enque/encni/set_so_keepalive do perfil do ASCS/SCS já foi adicionado na última etapa.
 
@@ -788,7 +787,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a PAS e AAS, **[P]*
 
 ## <a name="install-database"></a>Instalar banco de dados
 
-Neste exemplo, o SAP NetWeaver está instalado no SAP HANA. Você pode usar todos os bancos de dados com suporte para esta instalação. Para obter mais informações sobre como instalar o SAP HANA no Azure, consulte [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure][sap-hana-ha]. Para obter uma lista de bancos de dados com suporte, consulte [Nota SAP 1928533][1928533].
+Neste exemplo, o SAP NetWeaver está instalado no SAP HANA. Você pode usar todos os bancos de dados com suporte para esta instalação. Para obter mais informações sobre como instalar o SAP HANA no Azure, consulte [alta disponibilidade do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 * Executar a instalação da instância do banco de dados SAP
 
@@ -967,6 +966,9 @@ Os testes a seguir são uma cópia de casos de teste a [práticas guias de prát
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    anftstsapcl1:~ # crm resource cleanup rsc_sap_QAS_ERS01
+   # Remove migration constraints
+   anftstsapcl1:~ # crm resource clear rsc_sap_QAS_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_QAS_ASCS00
    </code></pre>
 
    Estado do recurso após o teste:
@@ -1296,9 +1298,9 @@ Os testes a seguir são uma cópia de casos de teste a [práticas guias de prát
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP][planning-guide]
-* [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
-* [Implantação DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
+* [Máquinas virtuais de planejamento e implementação para o SAP do Azure][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
 * Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP 
 * HANA no Azure (instâncias grandes), consulte [SAP HANA (instâncias grandes) alta disponibilidade e recuperação de desastres no Azure](hana-overview-high-availability-disaster-recovery.md).
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP HANA em VMs do Azure, confira [Alta disponibilidade do SAP HANA em VMs (Máquinas Virtuais) do Azure][sap-hana-ha]
+* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP HANA em VMs do Azure, consulte [alta disponibilidade do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]

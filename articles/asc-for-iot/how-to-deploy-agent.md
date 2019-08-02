@@ -2,24 +2,25 @@
 title: Selecione e implante a Central de segurança do Azure para visualização do agente de IoT | Microsoft Docs
 description: Saiba mais sobre como selecionar e implantar a Central de segurança do Azure para os agentes de segurança de IoT nos dispositivos de IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c76cce5a3d9add8a1dcd8acc439a70c4a8655a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c549e5ccbda9b364b3e7d20c9572eb777c32299e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200560"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616824"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e implantar um agente de segurança em seu dispositivo IoT
 
@@ -86,14 +87,14 @@ A lista a seguir inclui todas as plataformas com suporte no momento.
 
 |ASC para agente do IoT |Sistema operacional |Arquitetura |
 |--------------|------------|--------------|
-|C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 16.04 |   X64|
+|C|Ubuntu 18.04 |   X64|
 |C|Debian 9 |   x64, x86|
-|C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
-|C#|Debian 9    |x64|
+|C#|Ubuntu 16.04    |X64|
+|C#|Ubuntu 18.04    |X64|
+|C#|Debian 9    |X64|
 |C#|Windows Server 2016|    X64|
-|C#|Windows 10 IoT Core build 17763 |x64|
+|C#|Windows 10 IoT Core build 17763 |X64|
 
 ## <a name="next-steps"></a>Próximas etapas
 

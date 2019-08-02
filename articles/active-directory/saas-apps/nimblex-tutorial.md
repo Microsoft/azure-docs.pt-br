@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd7199e94a58b3f0c121a0fd9401bff94406ed84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870853"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Azure Active Directory com o Nimblex
 
@@ -55,7 +55,7 @@ Para configurar a integração do Nimblex ao Azure AD, você precisará adiciona
 
 **Para adicionar o Nimblex da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Nimblex, realize as seguintes e
 
     ![Informações de Domínio e URLs do Nimblex para logon único](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<YOUR APPLICATION PATH>/`
 
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure AD com o Nimblex, realize as seguintes e
 
     ![SAML do Nimblex](./media/nimblex-tutorial/tutorial_nimblex_sso.png)
 
-     a. Na caixa de texto **Descrição**, digite o nome da instância.
+    a. Na caixa de texto **Descrição**, digite o nome da instância.
 
     b. No Bloco de Notas, abra o certificado codificado em Base 64 baixado do portal do Azure, copie o conteúdo e cole-o na caixa **Certificado**.
 
@@ -174,7 +174,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No **nome de usuário** , digite **brittasimon@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon@contoso.com
@@ -228,5 +228,5 @@ Ao clicar no bloco do Nimblex no Painel de Acesso, você deverá entrar automati
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

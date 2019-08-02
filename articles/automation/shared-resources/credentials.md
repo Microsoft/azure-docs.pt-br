@@ -4,17 +4,17 @@ description: Os ativos de credenciais na Automação do Azure contêm credenciai
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb34c3f04302e6a2b5cc307b98bafe93e09fcf2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 44bc49d10c492822c1b5d30ad5794ac2522cb918
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734703"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478145"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ativos de credenciais na Automação do Azure
 
@@ -155,5 +155,5 @@ print cred["password"]
 * Para saber mais sobre links na criação gráfica, veja [Links na criação gráfica](../automation-graphical-authoring-intro.md#links-and-workflow)
 * Para entender os diferentes métodos de autenticação com Automação, consulte [Segurança da Automação do Azure](../automation-security-overview.md)
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](../automation-first-runbook-graphical.md)
-* Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](../automation-first-runbook-textual.md)
+* Para começar a usar os runbooks do fluxo de trabalho do PowerShell, consulte [Meu primeiro runbook do fluxo de trabalho do PowerShell](../automation-first-runbook-textual.md)
 * Para começar a usar runbooks Python2, consulte [Meu primeiro runbook Python2](../automation-first-runbook-textual-python2.md) 

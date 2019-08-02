@@ -3,16 +3,16 @@ title: Práticas recomendadas de configuração de dispositivo para o Azure IoT 
 description: Saiba mais sobre práticas recomendadas para configurar dispositivos IoT em escala
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: c97395981ea3af90c7b0c590cb049fccc7392304
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33e77d63b958df292ee9b4ac8ded41f3693cb6bc
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734823"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485804"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Práticas recomendadas para configuração do dispositivo dentro de uma solução de IoT
 
@@ -64,9 +64,11 @@ A seguir são melhores práticas para desenvolvedores de solução IoT que estã
 
 * **Organize dispositivos usando marcas do dispositivo gêmeo:** A solução deve permitir que o operador definir os anéis de qualidade ou outros conjuntos de dispositivos com base em várias estratégias de implantação, como canário. A organização do dispositivo pode ser implementada em sua solução usando tags de gêmeo de dispositivo e [consultas](iot-hub-devguide-query-language.md). Organização do dispositivo é necessária para permitir que as implantações de configuração com precisão e com segurança.
 
-* **Implemente [configurações de dispositivo automático](iot-hub-auto-device-config.md):** Implantar configurações de dispositivo automático e alterações de configuração de monitor para conjuntos grandes de dispositivos IoT por meio de dispositivos gêmeos. As configurações automáticas de dispositivos segmentam conjuntos de dispositivos gêmeos por meio da **condição de destino** que é uma consulta em marcas de dispositivos gêmeos ou em propriedades relatadas. O **conteúdo alvo** é o conjunto de propriedades desejadas que serão configuradas dentro do dispositivo gêmeo alvo. O conteúdo alvo deve alinhar com a estrutura do dispositivo gêmeo definida pelo fabricante/integrador de hardware IoT.
+* **Implemente [configurações de dispositivo automático](iot-hub-auto-device-config.md):** Implantar configurações de dispositivo automático e alterações de configuração de monitor para conjuntos grandes de dispositivos IoT por meio de dispositivos gêmeos.
 
-   As **métricas** são consultas em propriedades relatadas de dispositivos gêmeos e também devem ser alinhadas com a estrutura de dispositivo gêmeo definida pelo fabricante/integrador de hardware de IoT. As configurações automáticas de dispositivos também têm o benefício do IoT Hub executar operações de gêmeos de dispositivo a uma taxa que nunca excederá os [limites de aceleração](iot-hub-devguide-quotas-throttling.md) para leituras e atualizações de gêmeos de dispositivos.
+   As configurações automáticas de dispositivos segmentam conjuntos de dispositivos gêmeos por meio da **condição de destino** que é uma consulta em marcas de dispositivos gêmeos ou em propriedades relatadas. O **conteúdo alvo** é o conjunto de propriedades desejadas que serão configuradas dentro do dispositivo gêmeo alvo. O conteúdo alvo deve alinhar com a estrutura do dispositivo gêmeo definida pelo fabricante/integrador de hardware IoT. O **métricas** são consultas no dispositivo gêmeo propriedades relatadas e também devem ser alinhadas com a estrutura de gêmeo de dispositivo definida do fabricante/integrador de hardware de IoT.
+
+   Configurações de dispositivo automático executam pela primeira vez logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Eles também se beneficiam do IoT Hub executando operações de Gêmeos de dispositivo a uma taxa que nunca excederá o [limites de limitação](iot-hub-devguide-quotas-throttling.md) para leituras de Gêmeos de dispositivo e atualizações.
 
 * **Use o [serviço de provisionamento de dispositivo](../iot-dps/how-to-manage-enrollments.md):** Os desenvolvedores de solução devem usar o serviço de provisionamento de dispositivos para atribuir marcas do dispositivo gêmeo para novos dispositivos, de modo que eles serão configurados automaticamente pelo **configurações de dispositivo automático** que são destinadas a gêmeos com essa marca. 
 

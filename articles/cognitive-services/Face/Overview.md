@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c45fd508c14c368c6c9057b9fdeea8df9d8a52c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905694"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606905"
 ---
 # <a name="what-is-the-azure-face-api"></a>O que é a API de Detecção Facial do Azure?
 
@@ -59,11 +59,11 @@ A API de Grupo divide um conjunto de rostos desconhecidos em vários grupos com 
 
 A API de Identificação é usada para identificar um rosto detectado comparado com um banco de dados de pessoas. Esse recurso pode ser útil para marcação de imagem automática em software de gerenciamento de fotos. Crie o banco de dados com antecedência e edite-o ao longo do tempo.
 
-A imagem a seguir mostra um exemplo de um banco de dados chamado “myfriends”. Cada grupo pode conter até 1 milhão de objetos person diferentes. Cada pessoa objeto pode ter até 248 faces registradas.
+A imagem a seguir mostra um exemplo de um banco de dados chamado `"myfriends"`. Cada grupo pode conter até 1 milhão de objetos person diferentes. Cada pessoa objeto pode ter até 248 faces registradas.
 
 ![Uma grade com três colunas para pessoas diferentes, cada uma com três linhas de imagens de rosto](./Images/person.group.clare.jpg)
 
-Após um banco de dados ter sido criado e treinado, você pode fazer a identificação com relação ao grupo e a um novo rosto detectado. Se a face for identificada como uma pessoa no grupo, ela é retornada.
+Depois de criar e treinar um banco de dados, você poderá fazer a identificação em relação ao grupo com um novo rosto detectado. Se a face for identificada como uma pessoa no grupo, ela é retornada.
 
 Para saber mais sobre a identificação da pessoa, confira o guia de conceitos [Reconhecimento facial](concepts/face-recognition.md) ou a documentação de referência [API de Identificação](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 

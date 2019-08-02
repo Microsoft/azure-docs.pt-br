@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 58c50eac60f1a8a47aac9a88125bc3e0132ec3db
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ba4763e8d4835911d33d21c0f5bb431851a649b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059151"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444708"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento para o Azure Service Fabric
 
@@ -78,6 +78,8 @@ Com as propriedades de nó e as restrições de posicionamento declaradas, siga 
 2. Execute `Get-ServiceFabricNode` para garantir que o nó tenha feito a transição para desabilitado. Caso contrário, aguarde até que o nó seja desabilitado. Isso pode levar algumas horas para cada nó. Não continue até que o nó tenha feito a transição para desabilitado.
 3. Diminua o número de VMs em um tipo de nó. A instância da VM mais alta agora será removida.
 4. Repita as etapas 1 a 3 conforme necessário, mas nunca reduza verticalmente o número de instâncias no tipo de nó primário para uma quantidade menor do que a camada de confiabilidade garante. Confira [Planejamento de capacidade do cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
+5. Depois que todas as VMs desapareceram (representado como "Down") a malha: / System/InfrastructureService / [nome do nó] mostrará um estado de erro. Em seguida, você pode atualizar o recurso de cluster para remover o tipo de nó. Você pode usar a implantação de modelo do ARM ou editar o recurso de cluster por meio de [do Azure resource manager](https://resources.azure.com). Isso iniciará uma atualização de cluster que removerá a malha: / / InfrastructureService / [tipo de nó] serviço do sistema que está em estado de erro.
+ 6. Depois que você pode, opcionalmente, exclua a VMScaleSet, você ainda verá os nós como "Down" do Service Fabric Explorer exibir entanto. A última etapa seria para limpá-las com `Remove-ServiceFabricNodeState` comando.
 
 ### <a name="example-scenario"></a>Cenário de exemplo
 Um cenário com suporte para quando executar uma operação de dimensionamento vertical é: você deseja migrar o cluster do Service Fabric e o aplicativo de um disco não gerenciado para discos gerenciados, sem tempo de inatividade do aplicativo. 

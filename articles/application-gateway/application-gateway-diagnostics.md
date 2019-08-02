@@ -6,13 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 3/28/2019
-ms.author: amitsriva
-ms.openlocfilehash: a8b0ee159b1c4a4072ce5a86f9fb925744a415b3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: victorh
+ms.openlocfilehash: 39317c0448168bc2ed8fdd0455a210254887d496
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048707"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655398"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integridade do back-end, logs de diagnóstico e métricas do Gateway de Aplicativo
 
@@ -157,7 +157,7 @@ O Azure gera o log de atividades por padrão. Os logs são preservados por 90 di
 
 O log de acesso é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Cada acesso do Gateway de aplicativo é registrado no formato JSON, conforme mostrado no exemplo a seguir para v1:
 
-|Value  |DESCRIÇÃO  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo que atendeu à solicitação.        |
 |clientIP     | IP de origem da solicitação.        |
@@ -197,7 +197,7 @@ O log de acesso é gerado apenas se você o habilitou em cada instância do Gate
 ```
 Para o Gateway de aplicativo e WAF v2, os logs de mostram mais algumas informações:
 
-|Value  |DESCRIÇÃO  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo que atendeu à solicitação.        |
 |clientIP     | IP de origem da solicitação.        |
@@ -237,7 +237,7 @@ Para o Gateway de aplicativo e WAF v2, os logs de mostram mais algumas informaç
         "receivedBytes": 65,
         "sentBytes": 553,
         "timeTaken": 205,
-        "sslEnabled": "off"
+        "sslEnabled": "off",
         "sslCipher": "",
         "sslProtocol": "",
         "serverRouted": "104.41.114.59:80",
@@ -253,7 +253,7 @@ Para o Gateway de aplicativo e WAF v2, os logs de mostram mais algumas informaç
 O log de desempenho é gerado apenas se você o habilitou em cada instância do Gateway de Aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Os dados do log de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registrados em log:
 
 
-|Value  |DESCRIÇÃO  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     |  Instância do Gateway de Aplicativo para a qual os dados de desempenho estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.        |
 |healthyHostCount     | Número de hosts íntegros no pool de back-end.        |
@@ -290,7 +290,7 @@ O log de desempenho é gerado apenas se você o habilitou em cada instância do 
 O log de firewall é gerado apenas se você o habilitou em cada gateway de aplicativo, conforme detalhado nas etapas anteriores. Esse log também exige a configuração de um firewall de aplicativo Web em um gateway de aplicativo. Os dados são armazenados na conta de armazenamento especificada quando o log foi habilitado. Os seguintes dados são registrados em log:
 
 
-|Value  |DESCRIÇÃO  |
+|Valor  |DESCRIÇÃO  |
 |---------|---------|
 |instanceId     | Instância do Gateway de Aplicativo para a qual os dados de firewall estão sendo gerados. Para um gateway de aplicativo de várias instâncias, há uma linha por instância.         |
 |clientIp     |   IP de origem da solicitação.      |
@@ -299,10 +299,10 @@ O log de firewall é gerado apenas se você o habilitou em cada gateway de aplic
 |ruleSetType     | Tipo de conjunto de regras. O valor disponível é OWASP.        |
 |ruleSetVersion     | Versão utilizada do conjunto de regras. Os valores disponíveis são 2.2.9 e 3.0.     |
 |ruleId     | ID da Regra do evento de gatilho.        |
-|message     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
+|mensagem     | Mensagem amigável para o evento de gatilho. Mais detalhes são fornecidos na seção de detalhes.        |
 |action     |  Ação executada na solicitação. Os valores disponíveis são Bloqueada e Permitida.      |
 |site     | Site para o qual o log foi gerado. No momento, somente Global é listado porque as regras são globais.|
-|detalhes     | Detalhes do evento de gatilho.        |
+|details     | Detalhes do evento de gatilho.        |
 |details.message     | Descrição da regra.        |
 |details.data     | Dados específicos encontrados na solicitação que corresponderam à regra.         |
 |details.file     | Arquivo de configuração que continha a regra.        |

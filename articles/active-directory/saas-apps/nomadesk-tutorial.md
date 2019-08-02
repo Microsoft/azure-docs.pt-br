@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d261b776-b48e-45f0-9722-0297adefabb8
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: b1a60c4110d69aec7a384a869ce4a2841741e920
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3eda3ad3339b6b5832625ac54531c395694f8197
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896229"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588090"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nomadesk"></a>Tutorial: Integração do Azure Active Directory com o Nomadesk
 
@@ -54,7 +54,7 @@ Para configurar a integração do Nomadesk ao AD do Azure, você precisa adicion
 
 **Para adicionar o Nomadesk por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure Active Directory com o Nomadesk, execute
 
     ![Informações de logon único de Domínio e URLs do Nomadesk](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://mynomadesk.com/logon/saml/<TENANTID>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://mynomadesk.com/logon/saml/<TENANTID>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://secure.nomadesk.com/saml/<instancename>`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://secure.nomadesk.com/saml/<instancename>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Nomadesk](mailto:support@nomadesk.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -201,5 +201,5 @@ Ao clicar no bloco do Nomadesk no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

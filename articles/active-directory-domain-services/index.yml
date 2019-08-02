@@ -5,8 +5,8 @@ metadata:
   title: Documentação do Azure AD Domain Services
   description: Saiba como usar os Active Directory Domain Services para adicionar máquinas virtuais do Azure a um domínio sem usar controladores de domínio. Tutoriais e outras documentações mostram como gerenciar máquinas virtuais usando políticas de grupo.
   keywords: 'Azure AD, Azure, ingresso no domínio, política de grupo, LDAP, Kerberos, controlador de domínio, DC, comparação de precisão e deslocamento'
-  author: MikeStephens-MS
-  ms.author: mstephen
+  author: iainfoulds
+  ms.author: iainfou
   manager: daveba
   ms.date: 05/22/2019
   ms.topic: landing-page

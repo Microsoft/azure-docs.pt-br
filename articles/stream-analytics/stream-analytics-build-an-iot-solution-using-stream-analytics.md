@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b250a5e14ab37553d93453d05f8ff388bf1ba84
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201477"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620514"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilar uma solução de IoT usando o Stream Analytics
 
@@ -138,7 +138,8 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 10. Após alguns instantes, uma notificação será exibida para confirmar a **Implantação com êxito**.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Examinar os recursos do TollApp do Azure Stream Analytics
-1. Faça logon no Portal do Azure
+
+1. Entre no Portal do Azure
 
 2. Localize o grupo de recursos que você nomeou na seção anterior.
 
@@ -163,7 +164,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
 
    Para parafrasear a intenção da consulta, digamos que você precise contar a quantidade de veículos que entra no pedágio. Como um pedágio tem um fluxo contínuo de veículos entrando, esses são eventos de entrada análogos a um fluxo que nunca é interrompido. Para quantificar o fluxo, é necessário definir um "período de tempo" para medida suplementar. Vamos aprimorar ainda mais a questão: "Quantos veículos entram em um pedágio a cada três minutos?" Isso é conhecido como contagem em cascata.
 
-   Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.  Para obter mais detalhes, leia sobre os constructos [Gerenciamento de Tempo](https://msdn.microsoft.com/library/azure/mt582045.aspx) e [Janelas](https://msdn.microsoft.com/library/azure/dn835019.aspx) usados na consulta.
+   Como você pode ver, o Stream Analytics do Azure usa uma linguagem de consulta parecida com SQL e adiciona algumas extensões para especificar aspectos da consulta relacionados ao tempo.  Para obter mais detalhes, leia sobre os constructos [Gerenciamento de Tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e [Janelas](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) usados na consulta.
 
 3. Examine as entradas do trabalho de exemplo do TollApp. Apenas a entrada EntryStream é usada na consulta atual.
    - A entrada **EntryStream** é uma conexão do Hub de Eventos que coloca os dados em fila, representando cada vez que um carro entra em um pedágio na rodovia. Um aplicativo Web que faz parte do exemplo está criando os eventos e esses dados são enfileirados nesse Hub de Eventos. Observe que essa entrada é consultada na cláusula FROM da consulta de streaming.
@@ -171,7 +172,7 @@ Há vários recursos que podem ser facilmente implantados em um grupo de recurso
    - O **Registro** é uma conexão do Armazenamento de Blobs do Azure, apontando para um arquivo registration.json estático usado para pesquisas, conforme necessário. Essa entrada de dados de referência é usada em variações posteriores da sintaxe de consulta.
 
 4. Examinar as Saídas do trabalho de exemplo do TollApp.
-   - A saída do **Cosmos DB** é uma coleção de bancos de dados do Cosmos que recebe os eventos do coletor de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
+   - **O cosmos DB** saída é um contêiner de banco de dados do Cosmos que recebe eventos de coletor de saída. Observe que essa saída é usada na cláusula INTO da consulta de streaming.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Iniciar o trabalho de streaming do TollApp
 Siga estas etapas para iniciar o trabalho de streaming:

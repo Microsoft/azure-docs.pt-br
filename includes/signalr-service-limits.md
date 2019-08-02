@@ -14,11 +14,11 @@ ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: zhshang
 ms.openlocfilehash: 1d87439b7afeb946fd37c468a0853adcb674ee5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238624"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172323"
 ---
 | Resource | Limite padrão | Limite máximo | 
 | --- | --- | --- |
@@ -28,7 +28,7 @@ ms.locfileid: "66238624"
 | Contagens de unidade de serviço do Azure SignalR total por assinatura por região |150 |Ilimitado |
 | Conexões por unidade por dia para a camada gratuita |20 |20 |
 | Conexões por unidade por dia para a camada Standard |1\.000 |1\.000|
-| Mensagens incluídas por unidade por dia para a camada gratuita|20\.000 |20\.000 |
+| Mensagens incluídas por unidade por dia para a camada gratuita|20.000 |20.000 |
 | Mensagens incluídas por unidade por dia para a camada Standard|1\.000.000 |1\.000.000 |
 
 Para solicitar uma atualização para os limites padrão da sua assinatura, abra um tíquete de suporte. 

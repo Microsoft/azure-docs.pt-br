@@ -1,7 +1,7 @@
 ---
 title: Conteúdo externo e da comunidade para a API do Google Analytics de texto
 titleSuffix: Azure Cognitive Services
-description: Blogs de parceiro, vídeos do YouTube, treinamento para API de Análise de Texto e Serviços Cognitivos da Microsoft no Azure.
+description: Blogs de parceiros, vídeos do YouTube, treinamento para serviços cognitivas do Azure API de Análise de Texto.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: b46acb2f0fe04c37e73a69a09ee6ede9110864ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51263af978ed599d7a7b8a2159c0c9c3c25b33a0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827928"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558821"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo externo e da comunidade para o Serviço Cognitivo do Text Analytics
 
@@ -35,7 +35,7 @@ ms.locfileid: "60827928"
 
 + Blog do Power BI: extração de frases-chave de mensagens do Facebook: [Parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [Parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-## <a name="videos"></a>vídeos
+## <a name="videos"></a>Vídeos
 
 + [Aplicativo Lógico de aplicativo para detectar sentimento e extrair frases-chave do seu texto](https://www.youtube.com/watch?v=jVN9NObAzgk)
 

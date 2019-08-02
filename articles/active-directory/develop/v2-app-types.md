@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3dbd3f2148c14780c380cc0c7f2fab2a41e165
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235243"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482399"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma de identidade da Microsoft
 
@@ -55,7 +55,7 @@ Muitos aplicativos modernos têm um aplicativo de página única front-end que �
 
 Nesse fluxo, o aplicativo recebe tokens diretamente da plataforma de identidade da Microsoft autorizar o ponto de extremidade, sem qualquer troca de servidor para servidor. Todo o manuseio de lógica de autenticação e de sessão ocorra inteiramente no cliente JavaScript, sem redirecionamentos adicionais de página.
 
-![Fluxo de autenticação implícita](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![Mostra o fluxo de autenticação implícita](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 Para ver esse cenário em ação, experimente as amostras de código do aplicativo de página única para o [Introdução à plataforma da identidade de Microsoft](v2-overview.md#getting-started) seção.
 
@@ -80,7 +80,7 @@ Mais detalhes sobre os diferentes tipos de tokens usados no ponto de extremidade
 
 Em aplicativos de servidor Web, o fluxo de autenticação de entrada usa estas etapas de alto nível:
 
-![Fluxo de autenticação do aplicativo Web](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![Mostra o fluxo de autenticação do aplicativo web](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 Você pode garantir a identidade do usuário ao validar o token de ID com uma chave de assinatura pública recebida do ponto de extremidade de plataforma de identidade Microsoft. Um cookie de sessão é definido e pode ser usado para identificar o usuário nas solicitações de página subsequentes.
 
@@ -106,7 +106,7 @@ Uma API Web pode oferecer aos usuários o poder de aceitar/recusar uma funcional
 
 Uma API da Web pode receber tokens de acesso de todos os tipos de aplicativos, incluindo aplicativos de servidor Web, aplicativos móveis e de desktop, aplicativos de página única, daemons do lado do servidor e até outras APIs da Web. O fluxo de alto nível para uma API Web tem esta aparência:
 
-![Fluxo de autenticação da API Web](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![Mostra a fluxo de autenticação de API da web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 Para saber como proteger uma API Web usando tokens de acesso OAuth2, confira os exemplos de código da API da Web na [guia de introdução de plataforma de identidade Microsoft](v2-overview.md#getting-started) seção.
 
@@ -118,7 +118,7 @@ Os aplicativos instalados no dispositivo, como os aplicativos móveis e de deskt
 
 Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremidade de plataforma de identidade Microsoft quando o usuário faz logon. O código de autorização representa a permissão do aplicativo para chamar serviços de back-end em nome do usuário conectado. O aplicativo pode trocar o código de autorização em segundo plano por um token de acesso e um token de atualização do OAuth 2.0. O aplicativo pode usar o token de acesso para se autenticar em APIs da Web em solicitações HTTP, e usar o token de atualização para obter novos tokens de acesso quando os antigos expirarem.
 
-![Fluxo de autenticação do aplicativo nativo](./media/v2-app-types/convergence-scenarios-native.svg)
+![Mostra o fluxo de autenticação do aplicativo nativo](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 
@@ -126,6 +126,6 @@ Os aplicativos com processos de longa duração ou que operem sem interação co
 
 Nesse fluxo, o aplicativo interage diretamente com o `/token` ponto de extremidade para obter acesso:
 
-![Fluxo de autenticação de aplicativo de daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![Mostra o fluxo de autenticação do aplicativo de daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Para construir um aplicativo daemon, consulte a [ documentação de credenciais do cliente ](v2-oauth2-client-creds-grant-flow.md) ou tente um [ aplicativo de amostra .NET ](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

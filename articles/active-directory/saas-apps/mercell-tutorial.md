@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 2411a036cd56d88e261317ae523d8186b85b5a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b37e35eb0314de25dad2ce07175a774f921fe4cf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65872287"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercell"></a>Tutorial: Integração do Azure Active Directory ao Mercell
 
@@ -54,7 +54,7 @@ Para configurar a integração do Mercell ao Microsoft Azure AD, você precisa a
 
 **Para adicionar o Mercell da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -186,5 +186,5 @@ Ao clicar no bloco do Mercell no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

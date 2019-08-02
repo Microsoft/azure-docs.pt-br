@@ -9,15 +9,15 @@ ms.date: 04/22/2019
 ms.author: jroth
 ms.custom: include file
 ms.openlocfilehash: 712b70960e09a9c2b0e7a998bc0bddbc28c1e112
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146232"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172281"
 ---
 | Resource | Limite padrão | Limite máximo |
 | --- | --- | --- |
-| VMs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |25\.000<sup>1</sup> por região. |25\.000 por região. |
+| VMs por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |25.000<sup>1</sup> por região. |25.000 por região. |
 | Total de núcleos da VM por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Entre em contato com o suporte. |
 | Núcleos de VM por séries como Dv2 e F, por [assinatura](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> por região. | Entre em contato com o suporte. |
 | [Coadministradores](../articles/billing-add-change-azure-subscription-administrator.md) por assinatura |Ilimitado. |Ilimitado. |
@@ -26,7 +26,7 @@ ms.locfileid: "66146232"
 | [Conjuntos de disponibilidade](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) por assinatura |2\.000 por região. |2\.000 por região. |
 | Tamanho de solicitação de API do Gerenciador de recursos do Azure |4,194,304 bytes. |4,194,304 bytes. |
 | Marcas por assinatura<sup>2</sup> |Ilimitado. |Ilimitado. |
-| Cálculos de marca exclusivos por assinatura<sup>2</sup> | 10\.000 | 10\.000 |
+| Cálculos de marca exclusivos por assinatura<sup>2</sup> | 10.000 | 10.000 |
 | [Serviços de nuvem](../articles/cloud-services/cloud-services-choose-me.md) por assinatura |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [Implantações de nível de assinatura](../articles/azure-resource-manager/deploy-to-subscription.md) por local | 800<sup>4</sup> | 800 |

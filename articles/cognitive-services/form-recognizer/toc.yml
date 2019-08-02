@@ -7,16 +7,26 @@
 - name: Guia de início rápido
   expaned: true
   items:
-    - name: Treinar o modelo e extrair dados
+    - name: Usando a API REST
       items:
-        - name: Usando a API REST
+        - name: Treinar o modelo personalizado e extrair dados
           items:
             - name: cURL
               href: quickstarts/curl-train-extract.md
             - name: Python
               href: quickstarts/python-train-extract.md
+        - name: Usar modelo de recebimento predefinido
+          items:
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
+    - name: Usar o .NET SDK
+      href: quickstarts/dotnet-sdk.md
 - name: Guias de instruções
   items:
+    - name: Criar um conjunto de dados de treinamento
+      href: build-training-data-set.md
     - name: Usar contêineres
       items:
         - name: Instalar e executar contêineres
@@ -25,10 +35,16 @@
         - name: Configurar contêineres
           href: form-recognizer-container-configuration.md
           displayName: 'docker, container, run, billing, apikey, logging'
+        - name: Usar instâncias de contêiner
+          href: deploy-form-recognizer-on-container-instances.md
 - name: Referência
   items:
     - name: API de Reconhecimento de Formulários
       href: 'https://aka.ms/form-recognizer/api'
+    - name: SDKs
+      items:
+        - name: .NET
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview'
 - name: Recursos
   items:
     - name: Preços e limites

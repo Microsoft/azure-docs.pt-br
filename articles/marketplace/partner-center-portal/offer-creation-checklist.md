@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 904058c2c98c8ded2ea9c91e8aa7ec595aa49b05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb824eb67e84ec4bdb93bc355ac6a6afa844ceb9
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481438"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701166"
 ---
 # <a name="offer-creation-checklist"></a>Lista de verificação da criação de oferta
 
@@ -38,12 +38,12 @@ Itens que é necessários para fornecer ou especificar são indicadas abaixo. Al
 
 ## <a name="new-offer-modal"></a>Nova oferta modal 
 
-As primeira partes de informações que você será solicitado a fornecer são um nome e uma ID de sua oferta. 
+As primeira partes de informações que você será solicitado a fornecer são uma ID e um alias para sua oferta. 
 
 | **Nome do campo**    | **Observações**   |  
 | :---------------- | :-----------| 
 | ID da oferta  | Obrigatório, não pode ser alterado após a criação. Número máximo de 50 caracteres e deve consistir apenas de caracteres em minúsculas, alfanuméricos, traços ou sublinhados. |
-| Nome da oferta  | Obrigatório. |
+| Alias de oferta  | Obrigatório. |
 
 ## <a name="offer-setup-page"></a>Página de instalação da oferta
 
@@ -68,7 +68,7 @@ A página de propriedades é onde você define as categorias e setores usados pa
 | :---------------- | :-----------|  
 | Categoria e subcategoria | 3 de 1 e máximo necessário. Padrão: Nenhum selecionado. |
 | Setores e subindustries | Opcional. máximo de setores de L1 2 e máximo de 2 subindustries dentro de cada setor de L1, padrão: Nada selecionado |
-| Versão do aplicativo  | Opcional. Padrão: Nenhuma. |
+| Versão do aplicativo  | Opcional. Padrão: nenhuma. |
 | Contrato padrão de uso  | Opcional. Padrão: não selecionado.  | |
 | Termos de uso  | Necessário se o contrato padrão não está selecionado.  |
 
@@ -78,7 +78,7 @@ A página de listagem é onde você fornece o texto e imagens que os clientes ve
 
 | **Nome do campo**    | **Observações**   |
 | :---------------- | :-----------| 
-| NOME  | Obrigatório, máximo 50 caracteres. |
+| Nome  | Obrigatório, máximo 50 caracteres. |
 | Resumo  | Obrigatório, máximo 100 caracteres. | 
 | DESCRIÇÃO  | Obrigatório, máximo de 3000 caracteres. |
 | Instruções de introdução  | Obrigatório, máximo de 3000 caracteres. |

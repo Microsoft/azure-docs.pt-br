@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/23/2019
-ms.openlocfilehash: e29ef2616a43223ec582575ca6363f78b26e5f22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80137c7f1ecebab4d2da0c4b7ba0ca9292dad22e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66753051"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443962"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorar e preparar dados com a classe de conjunto de dados (visualização)
 
 Aprenda a explorar e preparar dados com o pacote azureml conjuntos de dados na [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). O [conjunto de dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) classe (visualização) permite que você explore e preparar seus dados, fornecendo funções, como: amostragem, as estatísticas de resumo e transformações inteligentes. Etapas de transformação são salvos no [definições de conjunto de dados](how-to-manage-dataset-definitions.md) com a capacidade de lidar com vários arquivos grandes de esquemas diferentes de uma maneira altamente escalonável.
 
 > [!Important]
-> Algumas classes de conjunto de dados (visualização) têm dependências no [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) (GA) do pacote. Embora as funções de transformação podem ser feitas diretamente com o GA'ed [funções de preparação de dados](how-to-transform-data.md), recomendamos que os wrappers de pacote do conjunto de dados descritos neste artigo se você estiver criando uma nova solução. Azure Machine Learning conjuntos de dados (versão prévia) permitem que você não só transformar seus dados, mas também [dados de instantâneo](how-to-create-dataset-snapshots.md) e armazenar [definições de conjunto de dados com controle de versão](how-to-manage-dataset-definitions.md). Conjuntos de dados é a próxima versão do SDK de preparação de dados, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial.
+> Algumas classes de conjunto de dados (visualização) têm dependências no [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) (GA) do pacote. Embora as funções de transformação podem ser feitas diretamente com o GA'ed [funções de preparação de dados](how-to-transform-data.md), recomendamos que os wrappers de pacote do conjunto de dados descritos neste artigo se você estiver criando uma nova solução. Azure Machine Learning conjuntos de dados (versão prévia) permitem que você não só transformar seus dados, mas também [dados de instantâneo](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py) e armazenar [definições de conjunto de dados com controle de versão](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py). Conjuntos de dados é a próxima versão do SDK de preparação de dados, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,7 +63,7 @@ top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
+||id|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
 -|--|-----------|----|-----|----|------------|---
 0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|PRÁTICA ENGANOSA|...
 1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
@@ -80,7 +80,7 @@ simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
+||id|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
 1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|PRÁTICA ENGANOSA|...
@@ -103,7 +103,7 @@ sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fra
 sample_dataset.to_pandas_dataframe()
 ```
 
-||ID|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
+||id|Número do Caso|Data|Bloco|IUCR|Texto Primário|...|
 -|--|-----------|----|-----|----|------------|---
 0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|ROUBO|...
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|ROUBO|...
@@ -117,9 +117,9 @@ sample_dataset.to_pandas_dataframe()
 dataset.get_profile()
 ```
 
-||Type|Min|max|Count|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio padrão|Variação|Distorção|Curtose
+||Type|Min|max|Contagem|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio padrão|Variação|Distorção|Curtose
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Número do Caso|FieldType.STRING|HZ239907|HZ278872|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Data|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Bloco|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
@@ -140,7 +140,7 @@ Ano|FieldType.INTEGER|2016|2016|10.0|0,0|10.0|0,0|0,0|0,0|2016|2016|2016|2016|20
 Atualizado Em|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0,0|0,0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
 Longitude|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0,0|0,0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
-Local padrão|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0,0|10.0|0,0|0,0|7.0||||||||||||||
+Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0,0|10.0|0,0|0,0|7.0||||||||||||||
 
 ## <a name="impute-missing-values"></a>Acrescentar valores ausentes
 
@@ -162,7 +162,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(3)
 ```
 
-||ID|Detenção| Latitude|Longitude|
+||id|Detenção| Latitude|Longitude|
 -|---------|-----|---------|----------|
 |0|10498554|Falso|41.692834|-87.604319|
 |1|10516598|Falso| 41.744107 |-87.664494|
@@ -215,7 +215,7 @@ ds_def.head(3)
 
 Conforme mostrado na tabela de saída a seguir, a latitude ausente foi inserir com o `MEAN` valor de `Arrest==False` grupo e a longitude ausente foi inserir com-87.
 
-||ID|Detenção|Latitude|Longitude
+||id|Detenção|Latitude|Longitude
 -|---------|-----|---------|----------
 0|10498554|Falso|41.692834|-87.604319
 1|10516598|Falso|41.744107|-87.664494
@@ -228,7 +228,7 @@ dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(3)
 ```
 
-||ID|Detenção|Latitude|Longitude
+||id|Detenção|Latitude|Longitude
 -|---------|-----|---------|----------
 0|10498554|Falso|41.692834|-87.604319
 1|10516598|Falso|41.744107|-87.664494
@@ -258,7 +258,7 @@ ds_def.get_profile()
 
 ||Type|Min|max|Count|Contagem faltando|Sem contagem faltando|Percentual faltando|Contagem de erros|Contagem vazia|0,1% quantil|1% quantil|5% quantil|25% quantil|50% quantil|75% quantil|95% quantil|99% quantil|99,9% quantil|Média|Desvio padrão|Variação|Distorção|Curtose
 -|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
-ID|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
+id|FieldType.INTEGER|1.04986e + 07|1.05351e + 07|10.0|0,0|10.0|0,0|0,0|0,0|1.04986e + 07|1.04992e + 07|1.04986e + 07|1.05166e + 07|1.05209e + 07|1.05259e + 07|1.05351e + 07|1.05351e + 07|1.05351e + 07|1.05195e + 07|12302.7|1.51358e + 08|-0.495701|-1.02814
 Detenção|FieldType.BOOLEAN|Falso|Falso|10.0|0,0|10.0|0,0|0,0|0,0||||||||||||||
 Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|0,0|10.0|0,0|0,0|0,0|41.6928|41.7185|41.6928|41.78|41.78|41.78|41.9032|41.9032|41.9032|41.78|0.0517107|0.002674|0.837593|1.05
 Longitude|FieldType.INTEGER|-87|-87|10.0|0,0|10.0|0,0|3.0|0,0|-87|-87|-87|-87|-87|-87|-87|-87|-87|-87|0|0|NaN|NaN
@@ -288,7 +288,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(3)
 ```
 
-||ID|Número do Caso|Data|Bloco|...|
+||id|Número do Caso|Data|Bloco|...|
 -|---------|-----|---------|----|---
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
@@ -310,7 +310,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
 
 Na tabela a seguir, observe que uma nova coluna, Date_Time_Range contém registros no formato especificado.
 
-||ID|Data|Date_Time_Range
+||id|Data|Date_Time_Range
 -|--------|-----|----
 0|10498554|2016-04-04 23:56:00|2016-04-04 10 PM-12 AM
 1|10516598|2016-04-15 17:00:00|2016-04-15 ÀS 16H - 6 PM
@@ -376,8 +376,6 @@ dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-
-* [Gerenciar o ciclo de vida das definições de conjunto de dados](how-to-manage-dataset-definitions.md).
 
 * Consulte o aprendizado de máquina automatizado [tutorial](tutorial-auto-train-models.md) para obter um exemplo de modelo de regressão.
 

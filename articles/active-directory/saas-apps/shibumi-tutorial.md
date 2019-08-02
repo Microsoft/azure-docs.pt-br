@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 445e24732edc1bc7e4d1cfe3ff49a54115c7ea3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dc8c06d5c38092ee74367b40415f1fc2bb616633
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867461"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shibumi"></a>Tutorial: Integração do Azure Active Directory ao Shibumi
 
@@ -55,7 +55,7 @@ Para configurar a integração do Shibumi ao Azure AD, você precisará adiciona
 
 **Para adicionar o Shibumi da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Shibumi, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Shibumi](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.shibumi.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.shibumi.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.shibumi.com/saml/SSO`
 
@@ -204,5 +204,5 @@ Ao clicar no bloco do Shibumi no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

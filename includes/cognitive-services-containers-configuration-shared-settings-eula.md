@@ -1,19 +1,19 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: 04b7031382d7ed611822a3dd721dfa09f01bce74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 98a0ddd828c3d72fdead0ccc2fb1daabf7548de1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116762"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712517"
 ---
 A configuração `Eula` indica que você aceitou a licença para o contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser definido como `accept`.
 
-|Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
+|Obrigatório| Nome | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
 |Sim| `Eula` | string | Aceitação da licença<br><br>Exemplo:<br>`Eula=accept` |
 

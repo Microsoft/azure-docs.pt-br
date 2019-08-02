@@ -1,6 +1,6 @@
 ---
-title: limites
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Limites-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém os limites conhecidos do LUIS (Reconhecimento vocal) dos Serviços Cognitivos do Azure. O LUIS tem várias áreas de limite. O limite de modelo controla intenções, entidades e recursos no LUIS. Limites de cota com base no tipo de chave. A combinação de teclado controla o site do LUIS.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d4991a0a05bbdd7143987bfa227cc40732cda35
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65154566"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639237"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para seu modelo e suas chaves do LUIS
 O LUIS tem várias áreas de limite. A primeira é o [limite de modelo](#model-boundaries), que controla intenções, entidades e recursos no LUIS. A segunda área é [limites de cota](#key-limits) com base no tipo de chave. A terceira área de limites é a [combinação de teclado](#keyboard-controls) para controlar o site do LUIS. Uma quarta área é o [mapeamento de região do mundo](luis-reference-regions.md) entre o site de criação do LUIS e as APIs do [ponto de extremidade](luis-glossary.md#endpoint) do LUIS. 
@@ -29,21 +29,21 @@ Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere 
 |Área|Limite|
 |--|:--|
 | [Nome do aplicativo][luis-get-started-create-app] | *Máximo de caracteres padrão |
-| [Teste de lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
+| [Teste em lote][batch-testing]| 10 conjuntos de dados, 1000 declarações por conjunto de dados|
 | Lista explícita | 50 por aplicativo|
 | Entidades externas | sem limites |
-| [Intenções][intents]|500 por aplicativo: 499 intenções personalizadas e a intenção _Nenhuma_ obrigatória.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
+| [Tentativas][intents]|500 por aplicativo: 499 intenções personalizadas e a intenção _Nenhuma_ obrigatória.<br>O aplicativo [baseado em expedição](https://aka.ms/dispatch-tool) tem 500 fontes de expedição correspondentes.|
 | [Entidades de lista](./luis-concept-entity-types.md) | Pai: 50, filho: 20.000 itens. O nome Canonical é o máximo de caracteres padrão* Valores de sinônimos não têm restrição de comprimento. |
-| [Entidades de computador aprendeu + funções](./luis-concept-entity-types.md):<br> Composição,<br>simples,<br>função de entidade|Um limite de 100 entidades pai ou 330 entidades, o que limita as ocorrências de usuário pela primeira vez. Uma função de conta como uma entidade com a finalidade desse limite. Um exemplo é uma composição com uma entidade simples que tem 2 funções é: 1 simples composto + 1 + 2 funções = 4 das 330 entidades.|
-| [Visualização – entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|listas de ~ 1 de 2 mil por solicitação de consulta de ponto de extremidade de previsão|
+| [Entidades e funções aprendidas por computador](./luis-concept-entity-types.md):<br> Spot<br>único<br>função de entidade|Um limite de entidades pai 100 ou de 330 entidades, o que limitará o usuário primeiro. Uma função conta como uma entidade para a finalidade desse limite. Um exemplo é uma composição com uma entidade simples que tem duas funções é: 1 composição + 1 simples + 2 funções = 4 das entidades 330.|
+| [Visualização-entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 listas de ~ 1K por solicitação de ponto de extremidade de previsão de consulta|
 | [Padrões](luis-concept-patterns.md)|500 padrões por aplicativo.<br>O comprimento máximo do padrão é de 400 caracteres.<br>3 entidades Pattern.any por padrão<br>Máximo de 2 textos opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicativo, 3 entidades pattern.any por padrão |
 | [Lista de frases][phrase-list]|10 listas de frases, 5 mil itens por lista|
 | [Entidades predefinidas](./luis-prebuilt-entities.md) | nenhum limite|
 | [Entidades de expressão regular](./luis-concept-entity-types.md)|20 entidades<br>500 caracteres, no máximo, por padrão de entidade de expressão regular|
 | [Funções](luis-concept-roles.md)|300 funções por aplicativo. 10 funções por entidade|
-| [Declaração][utterances] | 500 caracteres|
-| [Declarações][utterances] | 15\.000 por aplicativo - não há nenhum limite no número de declarações por intenção|
+| [Expressão][utterances] | 500 caracteres|
+| [Declarações][utterances] | 15.000 por aplicativo – não há limite para o número de declarações por tentativa|
 | [Versões](luis-concept-version.md)| nenhum limite |
 | [Nome da versão][luis-how-to-manage-versions] | 10 caracteres restritos a alfanuméricos e ponto (.) |
 
@@ -51,16 +51,16 @@ Se seu aplicativo exceder os limites e os perímetros do modelo LUIS, considere 
 
 <a name="intent-and-entity-naming"></a>
 
-## <a name="object-naming"></a>Nomeação de objeto
+## <a name="object-naming"></a>Nomenclatura de objeto
 
-Não use os seguintes caracteres em que os nomes a seguir.
+Não use os seguintes caracteres nos nomes a seguir.
 
-|Object|Excluir caracteres|
+|Objeto|Excluir caracteres|
 |--|--|
-|Intenção, entidade e nomes de função|`:`<br>`$`|
+|Nomes de intenção, entidade e função|`:`<br>`$`|
 |Nome da versão|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
-## <a name="key-usage"></a>Uso de chave
+## <a name="key-usage"></a>Uso da chave
 
 O Reconhecimento Vocal tem chaves separadas: um tipo para criação e outro para consulta do ponto de extremidade de previsão. Para saber mais sobre as diferenças entre tipos de chaves, confira [Chaves de ponto de extremidade de previsão de criação e consulta no LUIS](luis-concept-keys.md).
 
@@ -72,19 +72,19 @@ A chave de criação tem diferentes limites para criação e ponto de extremidad
 |Chave|Criação|Ponto de extremidade|Finalidade|
 |--|--|--|--|
 |Criação/Início de Reconhecimento Vocal|1 milhão/mês, 5/segundo|1 mil/mês, 5/segundo|Criando seu aplicativo LUIS|
-|[Assinatura][pricing] de Reconhecimento Vocal – F0 – Camada gratuita |inválido|10 mil/mês, 5/segundo|Consultando seu ponto de extremidade LUIS|
-|[Assinatura][pricing] de Reconhecimento Vocal - S0 – camada Básica|inválido|50/segundo|Consultando seu ponto de extremidade LUIS|
-|[Assinatura][pricing] do Serviço Cognitivo – S0 – camada Standard|inválido|50/segundo|Consultando seu ponto de extremidade LUIS|
+|[Assinatura][pricing] reconhecimento vocal-F0-camada gratuita |inválido|10 mil/mês, 5/segundo|Consultando seu ponto de extremidade LUIS|
+|[Assinatura][pricing] reconhecimento vocal-S0-camada básica|inválido|50/segundo|Consultando seu ponto de extremidade LUIS|
+|[Assinatura][pricing] de serviço cognitiva-S0-camada Standard|inválido|50/segundo|Consultando seu ponto de extremidade LUIS|
 |[Integração de análise de sentimento](luis-how-to-publish-app.md#enable-sentiment-analysis)|inválido|sem encargos|Adicionando informações de sentimento incluindo extração de dados de frase de chave |
-|Integração de fala|inválido|US$ 5,50/1 mil solicitações de ponto de extremidade|Converter declaração falada em declaração de texto e retornar resultados do LUIS|
+|[Integração de fala](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|inválido|US$ 5,50/1 mil solicitações de ponto de extremidade|Converter declaração falada em declaração de texto e retornar resultados do LUIS|
 
 ## <a name="keyboard-controls"></a>Controles de teclado
 
-|Entrada de teclado | DESCRIÇÃO | 
+|Entrada de teclado | Descrição | 
 |--|--|
 |Control+E|alterna entre tokens e entidades na lista de declarações|
 
-## <a name="website-sign-in-time-period"></a>Período de tempo de entrada no site
+## <a name="website-sign-in-time-period"></a>Período de tempo de entrada do site
 
 O acesso de entrada é para **60 minutos**. Após esse período, você obterá esse erro. Você precisa entrar novamente.
 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-ms.openlocfilehash: c5b5b88ee1334ac6d7b39b8ad53bd020e6042454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.author: v-mohabe
+ms.openlocfilehash: 02d993d760338356fa29ee58a03215e14d6583f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480529"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68295599"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e recursos compatíveis com a Central de Segurança do Azure
 
@@ -51,7 +51,7 @@ Os sistemas operacionais Windows a seguir são compatíveis:
 Os sistemas operacionais Linux a seguir são compatíveis:
 
 > [!NOTE]
-> Uma vez que a lista de sistemas operacionais de Linux é alterados constantemente, se preferir, clique em [aqui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para exibir a lista mais atualizada de versões com suporte, caso tenham ocorrido alterações desde a última publicação neste tópico.
+> Como a lista de sistemas operacionais Linux com suporte está em constante mudança, se você preferir, clique [aqui](https://github.com/microsoft/OMS-Agent-for-Linux#supported-linux-operating-systems) para exibir a lista mais atualizada de versões com suporte, caso haja alterações desde que este tópico foi publicado pela última vez.
 
 64 bits
 * CentOS 6 e 7
@@ -67,7 +67,7 @@ Os sistemas operacionais Linux a seguir são compatíveis:
 * Oracle Linux 6
 * Red Hat Enterprise Linux Server 6
 * Debian GNU/Linux 8 e 9
-* Ubuntu Linux 14.04 LTS e 16.04 LTS
+* Ubuntu Linux 14, 4 LTS e 16, 4 LTS
 
 ## <a name="vms-and-cloud-services"></a>VMs e Serviços de Nuvem
 VMs que são executadas em um serviço de nuvem também são compatíveis. Apenas funções Web e de trabalho de serviços de nuvem que são executadas em slots de produção são monitorados. Para saber mais sobre os serviços de nuvem, confira [Visão geral dos Serviços de Nuvem do Azure](../cloud-services/cloud-services-choose-me.md).
@@ -78,27 +78,27 @@ VMs que são executadas em um serviço de nuvem também são compatíveis. Apena
 > [!div class="mx-tableFixed"]
 > 
 
-|Servidor|Windows||Linux||||Preços|
+|Servidor|Windows|||Linux|||Preços|
 |----|----|----|----|----|----|----|----|
-|**Ambiente**|**As tabelas**||**Non-Azure**|**As tabelas**||**Non-Azure**||
+|**Ambiente**|**As tabelas**||**Não Azure**|**As tabelas**||**Não Azure**||
 ||**Máquina Virtual**|**Conjunto de Dimensionamento de Máquinas Virtuais**||**Máquina Virtual**|**Conjunto de Dimensionamento de Máquinas Virtuais**|
-|Alertas de detecção de ameaças VMBA|✔|✔|✔|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Detecção de ameaças (gratuito) de recomendações (padrão)|
+|Alertas de detecção de ameaças VMBA|✔|✔|✔|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|Recomendações (gratuito) detecção de ameaças (padrão)|
 |Alertas de detecção de ameaças baseadas em rede|✔|✔|X|✔|✔|X|Standard|
 |Integração com o Windows Defender ATP|✔ (em versões compatíveis)|✔ (em versões compatíveis)|✔|X|X|X|Standard|
 |Patches ausentes|✔|✔|✔|✔|✔|✔|Grátis|
 |Configurações de segurança|✔|✔|✔|✔|✔|✔|Grátis|
-|Avaliação de proteção de ponto de extremidade|✔|✔|✔|X|X|X|Grátis|
+|Avaliação do Endpoint Protection|✔|✔|✔|X|X|X|Grátis|
 |Acesso à VM JIT|✔|X|X|✔|X|X|Standard|
 |Controles de aplicativo adaptáveis|✔|X|✔|✔|X|✔|Standard|
 |FIM|✔|✔|✔|✔|✔|✔|Standard|
 |Avaliação de criptografia de disco|✔|✔|X|✔|✔|X|Grátis|
 |Implantação de terceiros|✔|X|X|✔|X|X|Grátis|
-|Avaliação de NSG|✔|✔|X|✔|✔|X|Grátis|
+|Avaliação do NSG|✔|✔|X|✔|✔|X|Grátis|
 |Detecção de ameaças sem arquivo|✔|✔|✔|X|X|X|Standard|
 |Mapa de rede|✔|✔|X|✔|✔|X|Standard|
 |Controles de rede adaptável|✔|✔|X|✔|✔|X|Standard|
-|Relatórios e painel de conformidade regulatória|✔|✔|✔|✔|✔|✔|Standard|
-|Recomendações e detecção de ameaças em contêineres do Docker hospedado IaaS|X|X|X|✔|✔|✔|Standard|
+|Painel de conformidade regulatória & relatórios|✔|✔|✔|✔|✔|✔|Standard|
+|Recomendações e detecção de ameaças em contêineres de IaaS hospedados pelo Docker|X|X|X|✔|✔|✔|Standard|
 
 ### <a name="supported-endpoint-protection-solutions"></a>Soluções de proteção de ponto de extremidade com suporte
 
@@ -106,7 +106,7 @@ A tabela a seguir fornece uma matriz de:
  - Se você pode usar a Central de Segurança do Azure para instalar cada solução para você.
  - Quais soluções de proteção de ponto de extremidade a Central de Segurança pode descobrir. Se uma dessas soluções de proteção de ponto de extremidade for descoberta, a Central de Segurança não recomendará a instalação de uma.
 
-Para obter informações sobre quando as recomendações são geradas para cada uma dessas proteções, confira [avaliação de proteção de ponto de extremidade e recomendações](security-center-endpoint-protection.md).
+Para obter informações sobre quando as recomendações são geradas para cada uma dessas proteções, consulte [Endpoint Protection avaliação e recomendações](security-center-endpoint-protection.md).
 
 | Proteção do ponto de extremidade| Plataformas | Instalação da Central de Segurança | Descoberta da Central de Segurança |
 |------|------|-----|-----|
@@ -124,7 +124,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 ## <a name="supported-paas-features"></a>Recursos de PaaS compatíveis
 
 
-|Serviço|Recomendações (gratuitas)|Detecção de ameaças (padrão)|
+|Serviço|Recomendações (gratuito)|Detecção de ameaças (padrão)|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -141,7 +141,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |Service fabric|✔| ND|
 |Conta de automação|✔| ND|
 |Balanceador de carga|✔| ND|
-|Search|✔| ND|
+|Pesquisar|✔| ND|
 |Barramento de Serviço|✔| ND|
 |Stream Analytics|✔| ND|
 |Hub de Eventos|✔| ND|
@@ -156,7 +156,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 
 \* Esses recursos são compatíveis atualmente com a versão prévia pública.
 
-\*\* Recomendações de AAD só estão disponíveis para assinaturas padrão
+\*\*As recomendações do AAD estão disponíveis somente para assinaturas padrão
 
 
 

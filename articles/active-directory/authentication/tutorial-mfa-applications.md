@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fdf88ed6cedaa38676a56536ff1eda7ee6bca66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a229eef3d49964e71becf066d67f60b18da6fc18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204790"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113234"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Tutorial: Concluir uma distribuição de um piloto da Autenticação Multifator do Azure
 
-Neste tutorial, você aprende a configurar uma política de acesso condicional, habilitando a Autenticação Multifator do Azure (MFA do Azure) ao fazer logon no portal do Azure. A política é implantada e testada em um grupo específico de usuários piloto. A implantação do Azure MFA usando o acesso condicional fornece uma flexibilidade significativa para organizações e administradores em comparação com o método tradicional imposto.
+Neste tutorial, você aprende a configurar uma política de Acesso Condicional, habilitando a Autenticação Multifator do Azure (MFA do Azure) ao fazer logon no portal do Azure. A política é implantada e testada em um grupo específico de usuários piloto. A implantação do Azure MFA usando o Acesso Condicional fornece uma flexibilidade significativa para organizações e administradores em comparação com o método tradicional imposto.
 
 > [!div class="checklist"]
 > * Habilitar a Autenticação Multifator do Microsoft Azure
@@ -36,7 +36,7 @@ Neste tutorial, você aprende a configurar uma política de acesso condicional, 
 ## <a name="enable-azure-multi-factor-authentication"></a>Habilitar a Autenticação Multifator do Microsoft Azure
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta de Administrador Global.
-1. Acesse **Azure Active Directory**, **Acesso condicional**
+1. Navegue até **Azure Active Directory**, **Acesso Condicional**
 1. Selecione **Nova política**
 1. Nomeie a política **Piloto de MFA**
 1. Em **usuários e grupos**, selecione o botão de opção **Selecionar usuários e grupos**
@@ -56,9 +56,9 @@ Neste tutorial, você aprende a configurar uma política de acesso condicional, 
 
 ## <a name="test-azure-multi-factor-authentication"></a>Testar a Autenticação Multifator do Microsoft Azure
 
-Para provar que a política de acesso condicional funciona, você testa o logon em um recurso que não deve exigir o MFA e, em seguida, no portal do Azure que requer o MFA.
+Para provar que a política de Acesso Condicional funciona, você testa o logon em um recurso que não deve exigir o MFA e, em seguida, no portal do Azure que requer o MFA.
 
-1. Abra uma nova janela do navegador no modo InPrivate ou anônimo e navegue até [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+1. Abra uma nova janela do navegador no modo InPrivate ou incógnito e navegue até [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
    * Faça logon com o usuário de teste criado como parte da seção de pré-requisitos deste artigo e observe que ele não deve solicitar para concluir o MFA.
    * Feche a janela do navegador.
 2. Abra uma nova janela do navegador no modo InPrivate ou anônimo e navegue até [https://portal.azure.com](https://portal.azure.com).
@@ -70,8 +70,8 @@ Para provar que a política de acesso condicional funciona, você testa o logon 
 Se você decidir que não deseja mais usar a funcionalidade configurada como parte deste tutorial, faça a alteração a seguir.
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**, **Acesso condicional**.
-1. Selecione a política de acesso condicional que você criou.
+1. Navegue até **Azure Active Directory**, **Acesso Condicional**.
+1. Selecione a política de Acesso Condicional que você criou.
 1. Clique em **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas

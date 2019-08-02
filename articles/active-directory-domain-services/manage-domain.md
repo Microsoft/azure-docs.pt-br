@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administrar um domínio gerencia
 description: Administrar domínios gerenciados dos Serviços de Domínio do Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: ergreenl
-ms.openlocfilehash: 31221b17059bb7754e24ce1139e8cb2ec22cf7a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 4095161cd35ff610b357196c91e71256a8bc0263
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245858"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67473020"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrar um domínio gerenciado dos Serviços de Domínio do Azure Active Directory
 Este artigo mostra como administrar um domínio gerenciado dos Serviços de Domínio do Azure Active Directory (AD).

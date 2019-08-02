@@ -1,6 +1,6 @@
 ---
 title: Como percorrer os vídeos disponíveis – Pesquisa de Vídeo do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como percorrer todos os vídeos retornados pela API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: 12549bb53a21dd657f51a4a02460ddc82c47bef8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3570d8772734595c6707ca8103006867a8eb47a
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66386395"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500716"
 ---
 # <a name="paging-through-video-search-results"></a>Paginação de resultados de pesquisa de vídeo
 
@@ -42,7 +42,7 @@ Para obter o número estimado de resultados da pesquisa encontrados, use o campo
 Para percorrer os vídeos disponíveis, use os parâmetros de consulta [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#count) e [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) ao enviar a solicitação.  
   
 
-|Parâmetro  |DESCRIÇÃO  |
+|Parâmetro  |Descrição  |
 |---------|---------|
 |`count`     | Especifica o número de resultados a serem retornados na resposta. O número máximo de resultados que você pode solicitar na resposta é 100. O padrão é 10. O número real entregue pode ser menor que o solicitado.        |
 |`offset`     | Especifica o número de resultados para ignorar. O `offset` é baseado em zero e deve ser menor que (`totalEstimatedMatches` - `count`).          |

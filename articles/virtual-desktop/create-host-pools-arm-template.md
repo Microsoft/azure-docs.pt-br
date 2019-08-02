@@ -4,15 +4,15 @@ description: Como criar um pool de host na visualização de área de trabalho V
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 4df8b854a94374346eec6f77d761e65a04ef78a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdc61aede6e650bce62768b7a97f8640affd594f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523975"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620478"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Criar um pool de host com um modelo do Azure Resource Manager
 
@@ -20,7 +20,7 @@ Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas d
 
 Siga as instruções desta seção para criar um pool de host para um locatário de área de trabalho Virtual do Windows com um modelo do Azure Resource Manager fornecido pela Microsoft. Este artigo informa como criar um pool de host na área de trabalho Virtual do Windows, crie um grupo de recursos com as VMs em uma assinatura do Azure, Junte-se nessas VMs ao domínio do AD e registrar as máquinas virtuais com área de trabalho Virtual do Windows.
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>O que você precisa executar o modelo do Azure Resource Manager
+## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>O que é necessário para executar o modelo do Azure Resource Manager
 
 Verifique se que você sabe o seguinte antes de executar o modelo do Azure Resource Manager:
 
@@ -40,11 +40,11 @@ Se você estiver implantando em uma assinatura do Enterprise, role para baixo e 
 
 Se você estiver implantando em uma assinatura do provedor de soluções na nuvem, siga estas etapas para implantar no Azure:
 
-1. Role para baixo e clique com botão direito **implantar no Azure**, em seguida, selecione **cópia local do Link**.
-2. Abra um editor de texto como bloco de notas e cole o link lá.
+1. Role para baixo e clique com o botão direito do mouse em **Implantar no Azure** e, em seguida, selecione **Copiar o link**.
+2. Abra um editor de texto, como o Bloco de Notas, e cole o link nele.
 3. Logo após "https://portal.azure.com/" e a hashtag (#) antes de inserir um sinal de arroba (@) seguido do nome de domínio de locatário. Aqui está um exemplo do formato você deve usar: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
-4. Entre no portal do Azure como um usuário com permissões de administrador/Colaborador à assinatura do provedor de soluções na nuvem.
-5. Cole o link que você copiou para o editor de texto na barra de endereços.
+4. Entre no portal do Azure como um usuário com permissões de Administrador/Colaborador para a assinatura do Provedor de Soluções de Nuvem.
+5. Cole o link copiado para o editor de texto na barra de endereços.
 
 Para obter orientação sobre quais parâmetros você deve inserir para seu cenário, consulte a área de trabalho Virtual do Windows [arquivo Leiame](https://github.com/Azure/RDS-Templates/blob/master/wvd-templates/Create%20and%20provision%20WVD%20host%20pool/README.md). O arquivo Leiame esteja sempre atualizado com as alterações mais recentes.
 

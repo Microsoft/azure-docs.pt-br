@@ -14,13 +14,30 @@ metadata:
   ms.date: 11/22/2017
   ms.author: raynew
 abstract:
-  description: As Migrações para Azure ajudam a descobrir e avaliar a adequação dos computadores locais para a migração para o Azure e fornecem estimativas de tamanho e custo para executar as VMs do Azure.
+  description: 'As Migrações para Azure ajudam você a migrar para a nuvem do Azure. As Migrações para Azure oferecem um hub central para acompanhar a descoberta, a avaliação e a migração de cargas de trabalho locais e de VMs na nuvem. O hub fornece as ferramentas de Migrações para Azure para avaliação e migração, além de ferramentas integradas de ISVs (fornecedores independentes de software).'
 sections:
   - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
-        text: Saiba como avaliar as VMs do VMware para a migração para o Azure
+        text: Saiba como avaliar e migrar VMs do VMware para o Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-vmware">Preparar VMs do VMware para avaliação e migração para o Azure</a>
+          - html: <a href="tutorial-assess-vmware">Avaliar VMs do VMware para migração para o Azure</a>
+          - html: <a href="tutorial-migrate-vmware">Migrar VMs do VMware para o Azure com migração sem agente</a>
+          - html: <a href="tutorial-migrate-vmware-agent">Migrar VMs do VMware para o Azure com migração baseada em agente</a>
+      - type: paragraph
+        text: Saiba como avaliar e migrar VMs do Hyper-V para o Azure
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-hyper-v">Preparar VMs do Hyper-V para avaliação e migração para o Azure</a>
+          - html: <a href="tutorial-assess-hyper-v">Avaliar VMs do Hyper-V para migração para o Azure</a>
+          - html: <a href="tutorial-migrate-hyper-v">Migrar VMs do Hyper-V para o Azure</a>
+      - type: paragraph
+        text: 'Saiba como migrar servidores físicos, computadores virtualizados e VMs na nuvem para o Azure'
       - type: list
         style: unordered
         items:
-          - html: <a href="tutorial-assessment-vmware">Descobrir e avaliar as VMs do VMware locais</a>
+          - html: <a href="tutorial-migrate-physical-virtual-machines">Migrar servidores físicos ou virtualizados para o Azure</a>

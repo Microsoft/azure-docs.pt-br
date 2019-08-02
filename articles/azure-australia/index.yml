@@ -1,0 +1,35 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure Austrália
+metadata:
+  title: Documentação do Azure Austrália | Microsoft Docs
+  description: 'O Microsoft Azure Austrália oferece uma plataforma de nuvem baseada nos princípios fundamentais de segurança, privacidade e controle, conformidade e transparência.'
+  author: Galey801
+  ms.service: azure-australia
+  ms.topic: landing-page
+  ms.date: 07/22/2019
+  ms.author: grgale
+abstract:
+  description: 'O Microsoft Azure Austrália oferece uma plataforma de nuvem baseada nos princípios fundamentais de segurança, privacidade e controle, conformidade e transparência. O Microsoft Azure Austrália é certificado pelo ACSC (Centro Australiano de Segurança Cibernética) e está incluído na CCSL (Lista de Serviços de Nuvem Certificados). O Azure Austrália está listado na CCSL nas classificações PROTEGIDO e Não classificado: DLM (que agora é Oficial: Confidencial). O Azure Austrália emprega, em todos os sistemas e aplicativos criados usando sua arquitetura, serviços de conformidade e segurança de nível mundial essenciais para o governo australiano e para organizações de infraestrutura crítica e seus fornecedores.'
+sections:
+  - title: Por onde começo?
+    items:
+      - type: paragraph
+        text: 'Para obter informações mais detalhadas sobre o Azure Austrália, comece lendo a visão geral que pode ser acessada usando o link abaixo.'
+      - html: <a href="australia-overview.md">O que é o Azure Austrália?</a>
+  - title: Treinamento em Vídeo Pluralsight gratuito
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Administrador do Azure
+            href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://go.microsoft.com/fwlink/?linkid=2012827'
+          - title: Como habilitar a proteção da plataforma no Microsoft Azure
+            href: 'https://app.pluralsight.com/paths/skills/enabling-platform-protection-in-microsoft-azure'
+            image:
+              src: 'https://docs.microsoft.com/media/logos/logo_pluralsight.svg'
+              href: 'https://app.pluralsight.com/paths/skills/enabling-platform-protection-in-microsoft-azure'

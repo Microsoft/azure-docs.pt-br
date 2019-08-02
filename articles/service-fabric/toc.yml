@@ -73,10 +73,14 @@
           href: service-fabric-tutorial-upgrade-cluster.md
         - name: 5 – Excluir um cluster
           href: service-fabric-tutorial-delete-cluster.md
-    - name: Criar um cluster autônomo no AWS
+    - name: Criar um cluster independente
       items:
-        - name: 1 - Criar a infraestrutura no AWS
-          href: service-fabric-tutorial-standalone-create-infrastructure.md
+        - name: 1 – Criar a infraestrutura
+          items:
+            - name: Usando o AWS
+              href: service-fabric-tutorial-standalone-create-infrastructure.md
+            - name: Usando o Azure
+              href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
         - name: 2 - Configurar Service Fabric
           href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
         - name: 3 - Implantar um aplicativo no cluster
@@ -270,7 +274,7 @@
           items:
             - name: Visão geral dos clusters do Azure
               href: service-fabric-azure-clusters-overview.md
-            - name: Tipos de nós e Conjuntos de Dimensionamento de VMs
+            - name: Tipos de nó e conjuntos de dimensionamento de máquinas virtuais
               href: service-fabric-cluster-nodetypes.md
             - name: Atualização dos clusters no Azure
               href: service-fabric-cluster-upgrade.md
@@ -543,8 +547,8 @@
           href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
         - name: Práticas recomendadas
           href: /azure/architecture/service-fabric/migrate-from-cloud-services
-        - name: Refatorar um aplicativo migrado
-          href: /azure/architecture/service-fabric/refactor-migrated-app
+        - name: Modernizar seu aplicativo
+          href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
     - name: Gerenciar ciclo de vida do aplicativo
       items:
         - name: Preparar um aplicativo
@@ -695,6 +699,8 @@
       items:
         - name: Diagnosticar cenários comuns
           href: service-fabric-diagnostics-common-scenarios.md
+        - name: Diagnosticar erros de pacote de código
+          href: service-fabric-diagnostics-code-package-errors.md
         - name: Monitorar aplicativos
           items:
             - name: Adicionar registro em log ao seu aplicativo

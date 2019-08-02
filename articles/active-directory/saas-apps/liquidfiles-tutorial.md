@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5352040dbbe33569dfdb4e987d8bd84435702230
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6514594d3119ebf8fab774c3e84c85e34bdfeaf4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097939"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-liquidfiles"></a>Tutorial: Integração do Azure Active Directory com o LiquidFiles
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o LiquidFiles, realize as seguint
 
     ![Informações de logon único de Domínio e URLs do LiquidFiles](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YOUR_SERVER_URL>/saml/init`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<YOUR_SERVER_URL>/saml/init`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<YOUR_SERVER_URL>`
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o LiquidFiles, realize as seguint
 
     ![Configurar o logon único](./media/liquidfiles-tutorial/tutorial_single_01.png)
 
-     a. Em **Método de Logon Único**, selecione **SAML 2**.
+    a. Em **Método de Logon Único**, selecione **SAML 2**.
 
     b. Na caixa de texto **URL de Logon de IDP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -223,5 +223,5 @@ Ao clicar no bloco do LiquidFiles no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

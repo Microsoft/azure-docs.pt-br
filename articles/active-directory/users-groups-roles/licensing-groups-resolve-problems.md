@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2129405dfdc2585d29c35a0982c9823a4cd57f71
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65466276"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359988"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licenças para um grupo no Azure Active Directory
 
@@ -35,15 +35,15 @@ Quando você está usando o licenciamento com base em grupo, os mesmos erros pod
 
 1. Para localizar usuários em um estado de erro em um grupo específico, abra o painel do grupo. Em **Licenças**, uma notificação será exibida se houver usuários em um estado de erro.
 
-   ![Grupo e notificações por mensagem de erro](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Mensagem de notificação de erro e grupo](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Selecione a notificação para abrir uma lista de todos os usuários afetados. Você pode selecionar cada usuário individualmente para ver mais detalhes.
 
-   ![lista de usuários no grupo de estado de erro de licenciamento](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![lista de usuários no estado de erro de licenciamento de grupo](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Para localizar todos os grupos que contêm pelo menos um erro, na folha **Azure Active Directory**, selecione **Licenças** e, em seguida, **Visão Geral**. Uma caixa de informações é exibida quando grupos exigem sua atenção.
 
-   ![Visão geral e informações sobre os grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Visão geral e informações sobre grupos em estado de erro](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Selecione a caixa para ver uma lista de todos os grupos com erros. Você pode selecionar cada grupo para obter mais detalhes.
 
@@ -62,7 +62,7 @@ Para ver quais usuários e grupos estão consumindo licenças, selecione um prod
 
 **PowerShell:** Os cmdlets do PowerShell relatam esse erro como _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Planos de serviço conflitante
+## <a name="conflicting-service-plans"></a>Planos de serviço conflitantes
 
 **Problema:** Um dos produtos especificados no grupo contém um plano de serviço que está em conflito com outro plano de serviço já está atribuído ao usuário por meio de um produto diferente. Alguns planos de serviço são configurados de uma maneira que não possam ser atribuídos ao mesmo usuário que outro plano de serviço relacionado.
 
@@ -105,17 +105,17 @@ Se você usar o Exchange Online, alguns usuários em seu locatário poderão est
 > [!TIP]
 > Para ver se há um endereço de proxy duplicado, execute o seguinte cmdlet do PowerShell no Exchange Online:
 > ```
-> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > Para obter mais informações sobre esse problema, consulte a [mensagem de erro "O endereço Proxy já está sendo usado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como se conectar ao Exchange Online usando o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
 
 Depois de solucionar quaisquer problemas de endereço proxy para os usuários afetados, force o processamento de licença no grupo para garantir que as licenças agora possam ser aplicadas.
 
-## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Alteração do atributo ProxyAddresses e email do AD do Azure
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Alteração de atributo de ProxyAddresses e de email do Azure AD
 
-**Problema:** Ao atualizar atribuição de licença em um usuário ou grupo, você poderá ver que o atributo de email do AD do Azure e ProxyAddresses de alguns usuários sejam alterados.
+**Problema:** Ao atualizar a atribuição de licença em um usuário ou grupo, você pode ver que o atributo email e ProxyAddresses do Azure AD de alguns usuários são alterados.
 
-Atualização da atribuição de licença em faz com que um usuário, o cálculo a ser disparada de endereço de proxy, que pode alterar os atributos de usuário. Para entender o motivo exato da alteração e resolver o problema, consulte este artigo sobre [como o atributo proxyAddresses é populado no Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+Atualizar a atribuição de licença em um usuário faz com que o cálculo do endereço proxy seja disparado, o que pode alterar os atributos do usuário. Para entender o motivo exato da alteração e resolver o problema, consulte este artigo sobre [como o atributo proxyAddresses é populado no Azure ad](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>O que acontece quando há mais de uma licença de produto em um grupo?
 

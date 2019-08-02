@@ -20,10 +20,10 @@
     - name: Criar um pipeline para copiar dados
       href: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
       items:
-        - name: Assistente de Cópia
-          href: data-factory-copy-data-wizard-tutorial.md
         - name: Portal do Azure
           href: data-factory-copy-activity-tutorial-using-azure-portal.md
+        - name: Assistente de Cópia
+          href: data-factory-copy-data-wizard-tutorial.md
         - name: Visual Studio
           href: data-factory-copy-activity-tutorial-using-visual-studio.md
         - name: Azure PowerShell

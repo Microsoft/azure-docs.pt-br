@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fe253feca6a22ee0177082e178f897c5b634bb3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d35c4f410c29bba7848dde53d206cdd2ccd980ca
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61257180"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836162"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Mover dados de um servidor SFTP usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -44,7 +44,7 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados de uma o
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-- Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. Para obter amostras JSON que copiam dados do servidor SFTP para o Armazenamento de Blobs do Azure, consulte a seção [Exemplo de JSON: copiar dados do servidor SFTP para o blob do Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) deste artigo.
+- Você também pode usar as ferramentas abaixo para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo do Resource Manager**, **.NET API**, e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. Para obter amostras JSON que copiam dados do servidor SFTP para o Armazenamento de Blobs do Azure, consulte a seção [Exemplo de JSON: copiar dados do servidor SFTP para o blob do Azure](#json-example-copy-data-from-sftp-server-to-azure-blob) deste artigo.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 A tabela a seguir apresenta a descrição para elementos JSON específicos do serviço FTP vinculado.
@@ -55,10 +55,10 @@ A tabela a seguir apresenta a descrição para elementos JSON específicos do se
 | host | Nome ou endereço IP do servidor SFTP. |Sim |
 | port |Porta na qual o servidor SFTP está escutando. O valor padrão é: 21 |Não |
 | authenticationType |Especifique o tipo de autenticação. Valores permitidos: **Básico**, **SshPublicKey**. <br><br> Consulte as seções [Usando a autenticação Básica](#using-basic-authentication) e [Usando autenticação de chave pública SSH](#using-ssh-public-key-authentication) para ver mais propriedades e amostras do JSON, respectivamente. |Sim |
-| skipHostKeyValidation | Especifique se deseja ignorar a validação da chave de host. | Não. O valor padrão: false |
+| skipHostKeyValidation | Especifique se deseja ignorar a validação da chave de host. | Nº O valor padrão: false |
 | hostKeyFingerprint | Especifique a impressão digital da chave de host. | Sim se o `skipHostKeyValidation` estiver definido como false.  |
 | gatewayName |Nome do Gateway de Gerenciamento de Dados para se conectar a um servidor SFTP local. | Sim se estiver copiando dados de um servidor SFTP local. |
-| encryptedCredential | Credencial criptografada para acessar o servidor SFTP. Gerado automaticamente quando você especifica a autenticação Básica (nome de usuário + senha) ou autenticação SshPublicKey (nome de usuário + conteúdo ou caminho da chave privada) no assistente de cópia ou na caixa de diálogo de pop-up do ClickOnce. | Não. Aplique somente quando estiver copiando dados de um servidor SFTP local. |
+| encryptedCredential | Credencial criptografada para acessar o servidor SFTP. Gerado automaticamente quando você especifica a autenticação Básica (nome de usuário + senha) ou autenticação SshPublicKey (nome de usuário + conteúdo ou caminho da chave privada) no assistente de cópia ou na caixa de diálogo de pop-up do ClickOnce. | Nº Aplique somente quando estiver copiando dados de um servidor SFTP local. |
 
 ### <a name="using-basic-authentication"></a>Usando a autenticação Básica
 
@@ -66,7 +66,7 @@ Para usar a autenticação Básica, defina `authenticationType` como `Basic` e e
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| username | Usuário que tem acesso ao servidor SFTP. |Sim |
+| Nome de Usuário | Usuário que tem acesso ao servidor SFTP. |Sim |
 | password | Senha do usuário (nome de usuário). | Sim |
 
 #### <a name="example-basic-authentication"></a>Exemplo: Autenticação básica
@@ -116,10 +116,10 @@ Para usar a autenticação de chave pública SSH, defina `authenticationType` co
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 | --- | --- | --- |
-| username |Usuário que tem acesso ao servidor SFTP |Sim |
+| Nome de Usuário |Usuário que tem acesso ao servidor SFTP |Sim |
 | privateKeyPath | Especifique, para o arquivo de chave privada, um caminho absoluto que esse gateway possa acessar. | Especifique `privateKeyPath` ou `privateKeyContent`. <br><br> Aplique somente quando estiver copiando dados de um servidor SFTP local. |
 | privateKeyContent | Uma cadeia de caracteres serializada do conteúdo da chave privada. O Assistente de Cópia pode ler o arquivo de chave privada e extrair o conteúdo da chave privada automaticamente. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade privateKeyPath em seu lugar. | Especifique `privateKeyPath` ou `privateKeyContent`. |
-| password | Especifique a senha/frase secreta para descriptografar a chave particular se o arquivo de chave for protegido por uma frase secreta. | Sim, se o arquivo de chave privada for protegido por uma frase secreta. |
+| passPhrase | Especifique a senha/frase secreta para descriptografar a chave particular se o arquivo de chave for protegido por uma frase secreta. | Sim, se o arquivo de chave privada for protegido por uma frase secreta. |
 
 > [!NOTE]
 > O conector SFTP fornece suporte para a chave OpenSSH RSA/DSA. Certifique-se de que o conteúdo do arquivo da chave inicia com "-----BEGIN [RSA/DSA] PRIVATE KEY-----". Se o arquivo da chave privada for um arquivo ppk-format, utilize a ferramenta Putty para converter de .ppk para o formato OpenSSH.
@@ -225,7 +225,7 @@ Por outro lado, as propriedades disponíveis na seção typeProperties da ativid
 Consulte o artigo [Formatos de arquivo e de compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md) para obter detalhes.
 
 ## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>Exemplo de JSON: copiar dados do servidor SFTP para o blob do Azure
-O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados da origem SFTP para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados da origem SFTP para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados **diretamente** de qualquer uma das fontes para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece snippets de JSON. Ele não inclui instruções passo a passo para criar o data factory. Confira o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo.

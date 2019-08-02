@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: f79fbc46104eb886a758802aff79a46feb4f5a3b
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 857646bb1b9b317f1e51218d258616e775056b43
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866623"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442270"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Criar sua primeira função hospedada no Linux usando o Core Tools e a CLI do Azure (versão prévia)
 
@@ -67,7 +67,7 @@ Use o comando a seguir para navegar até a nova pasta do projeto `MyFunctionProj
 cd MyFunctionProj
 ```
 
-## <a name="reference-bindings"></a>Associações de referência
+## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

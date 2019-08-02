@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ffc2e8c186ce485f7df19b3f797aaa8982735f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864187"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442768"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Active Directory com o Bonusly
 
@@ -54,7 +54,7 @@ Para configurar a integração do Bonusly ao Azure AD, você precisa adicionar o
 
 **Para adicionar o Bonusly da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -142,13 +142,13 @@ Para configurar o logon único do Azure AD com o Bonusly, realize as seguintes e
 
     ![Página de Diálogo Saml do Bonusly](./media/bonus-tutorial/ic773687.png "Bonusly")
 
-     a. Na caixa de texto **URL de Destino de SSO de IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Destino de SSO de IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Logon de IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     c. Na caixa de texto **Emissor do IdP**, cole o valor de **Identificador do Azure AD** copiado do portal do Azure.
     
-    d. Cole o valor da **Impressão digital** copiado do Portal do Azure na caixa de texto **Impressão Digital do Certificado**.
+    d. Cole o valor da **Impressão digital** copiado do Portal do Azure na caixa de texto **Impressão Digital do Certificado**.
     
     e. Clique em **Save** (Salvar).
 
@@ -233,7 +233,7 @@ Para permitir que os usuários do Azure AD se conectem ao Bonusly, eles precisam
 
     ![Adicionar Usuário](./media/bonus-tutorial/ic781045.png "Adicionar Usuário")  
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
@@ -256,4 +256,4 @@ Ao clicar no bloco do Bonusly no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

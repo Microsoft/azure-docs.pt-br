@@ -1,23 +1,21 @@
 ---
-title: Gerenciar Reservas do Azure | Microsoft Docs
+title: Gerenciar reservas do Azure
 description: Saiba como é possível alterar o escopo de assinatura e gerenciar o acesso às Reservas do Azure.
 ms.service: billing
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89279387b3630ea654070eef671f131ec757d55f
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127135"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491191"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerenciar Reservas para recursos do Azure
 
@@ -54,7 +52,7 @@ Para atualizar o escopo de uma reserva:
 
 Se você alterar de compartilhado para escopo único, poderá selecionar apenas as assinaturas em que é o proprietário. Somente as assinaturas no mesmo contexto de cobrança que a reserva podem ser selecionadas.
 
-O escopo somente aplica-se à oferta Pagamento Conforme o Uso MS-AZR-0003P ou MS-AZR-0023P, oferta Enterprise MS-AZR-0017P ou MS-AZR-0148P, ou tipos de assinatura CSP.
+O escopo só se aplica a assinaturas individuais com tarifas pré-pagas (ofertas MS-AZR - 0003p ou MS-AZR - 0023P), a oferta Enterprise MS-AZR - 0017p ou MS-AZR - 0148p ou tipos de assinatura de CSP.
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Adicionar ou alterar os usuários que podem gerenciar uma reserva
 

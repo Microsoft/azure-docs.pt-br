@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 801a631b56a11e68c444ede846ff82195cd7627f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870702"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: Integração do Azure Active Directory com o ON24 Virtual Environment SAML Connection
 
@@ -53,7 +53,7 @@ Para configurar a integração do ON24 Virtual Environment SAML Connection ao Az
 
 **Para adicionar o ON24 Virtual Environment SAML Connection da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o ON24 Virtual Environment SAML C
 
     ![Informações de logon único de URLs e Domínio de Conexão SAML do Ambiente Virtual ON24](common/idp-relay.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL:
+    a. Na caixa de texto **Identificador**, digite uma URL:
 
      **URL do ambiente de produção**
     
@@ -243,5 +243,5 @@ Ao clicar no bloco do ON24 Virtual Environment SAML Connection no Painel de Aces
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

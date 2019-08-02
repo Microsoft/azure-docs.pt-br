@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: dce13636cce299098c988ccea3a059f0f0e12acd
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fe6758cb6b8d120862cbbe593574360c1bc7b17b
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823270"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698114"
 ---
 # <a name="quickstart-project-answer-search-query-in-c"></a>Início Rápido: Consulta de Pesquisa de Resposta de Projeto em C#
 
@@ -25,7 +25,7 @@ O exemplo em C# a seguir cria e envia uma consulta para obter informações sobr
 
 Você precisará ter o [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/) para executar esse código no Windows. (O Community Edition gratuito funcionará.)
 
-Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="code-scenario"></a>Cenário do código
 

@@ -4,7 +4,7 @@ description: Exemplo de script da CLI do Azure - Criar uma máquina virtual Linu
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3e4410a5acb852ea9cd7f5ca24e67e8335a45e30
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 1956ade75bab3d819c92ce7bc7be966c1a23d708
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692657"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709470"
 ---
 # <a name="create-a-vm-with-wordpress"></a>Criar uma máquina virtual com WordPress
 

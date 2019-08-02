@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 835f23f98ebe56e0b19081f07dc3302ef93b27b9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a601b0c40f84832101e97a7abf7dd7418a0a5c69
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171585"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673228"
 ---
 É possível criar uma VNet com um modelo de implantação do Resource Manager e com o portal do Azure seguindo estas etapas. Para obter mais informações sobre redes virtuais, confira [Visão geral da rede virtual](../articles/virtual-network/virtual-networks-overview.md).
 
@@ -22,7 +22,7 @@ ms.locfileid: "66171585"
 >
 >
 
-1. Entre no [portal do Azure](http://portal.azure.com) e selecione **Criar um recurso**. A página **Novo** é aberta.
+1. Entre no [portal do Azure](https://portal.azure.com) e selecione **Criar um recurso**. A página **Novo** é aberta.
 
 2. No campo **Pesquisar no marketplace**, insira *rede virtual* e selecione **Rede virtual** na lista retornada. A página **Rede virtual** é aberta.
 

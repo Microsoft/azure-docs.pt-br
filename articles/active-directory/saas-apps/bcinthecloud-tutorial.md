@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4412e4c482f72872c0783f5390f86acf669e9137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 097569c6ec43d6d45e89ff3a32fe907861eedc81
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106451"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bc-in-the-cloud"></a>Tutorial: Integração do Azure Active Directory com o BC in the Cloud
 
@@ -53,7 +53,7 @@ Para configurar a integração do BC in the Cloud ao Azure AD, você precisa adi
 
 **Para adicionar o BC in the Cloud por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o BC in the Cloud, execute as seg
 
     ![Informações de logon único de Domínio e URLs do BC in the Cloud](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.bcinthecloud.com/router/loginSaml/<customerid>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://app.bcinthecloud.com/router/loginSaml/<customerid>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL: `https://app.bcinthecloud.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://app.bcinthecloud.com`
 
     > [!NOTE]
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do BC in the Cloud](https://www.bcinthecloud.com/supportcenter/) para obter esse valor.

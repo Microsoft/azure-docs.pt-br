@@ -1,23 +1,17 @@
 ---
 title: Funções do modelo do Resource Manager | Microsoft Docs
 description: Descreve as funções a serem usadas no modelo do Gerenciador de Recursos do Azure para recuperar valores, trabalhar com cadeias de caracteres e numéricos e recuperar informações de implantação.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80f5c59f5a113bbe29d18bae41ba44adc338a4b7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 201fea91aba2a14720a7c28df5128f94e9e327fd
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069290"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205425"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funções do modelo do Gerenciador de Recursos do Azure
 Este artigo descreve todas as funções que você pode usar em um modelo do Azure Resource Manager. Para obter informações sobre como usar funções em seu modelo, consulte [sintaxe de modelo](resource-group-authoring-templates.md#syntax).

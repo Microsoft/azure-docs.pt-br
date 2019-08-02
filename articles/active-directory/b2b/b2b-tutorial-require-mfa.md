@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb26a5056ba4cec14218af70f1561c17e637102c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813114"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67113191"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Tutorial: Impor a autenticação multifator para usuários convidados de B2B
 
@@ -78,7 +78,7 @@ Para concluir o cenário deste tutorial, você precisa de:
 4.  Na página **Acesso Condicional**, na barra de ferramentas na parte superior, selecione **Nova política**.
 5.  Na página **Novo**, na caixa de texto **Nome**, digite **Exigir MFA para acesso ao portal do B2B**.
 6.  Na seção **Atribuições**, selecione **Usuários e grupos**.
-7.  Na página **Usuários e grupos**, escolha **Selecionar usuários e grupos** e, em seguida, selecione **Todos os usuários convidados (visualização)**.
+7.  Na página **Usuários e grupos**, escolha **Selecionar usuários e grupos** e, em seguida, selecione **Todos os usuários convidados (visualização)** .
 
     ![Captura de tela mostrando a seleção de todos os usuários convidados](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Selecione **Concluído**.
@@ -123,7 +123,7 @@ Para concluir o cenário deste tutorial, você precisa de:
 
     ![Captura de tela mostrando onde selecionar a opção What if](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
-## <a name="test-your-conditional-access-policy"></a>Testar sua política de acesso condicional
+## <a name="test-your-conditional-access-policy"></a>Teste sua política de acesso condicional
 1.  Use seu nome de usuário de teste e senha para entrar no [portal do Azure](https://portal.azure.com/).
 2.  Você deve ver uma solicitação para métodos de autenticação adicionais. Observe que pode levar algum tempo para que a política entre em vigor.
 

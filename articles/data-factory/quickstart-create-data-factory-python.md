@@ -13,16 +13,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2c2b43b0f9a6d5764f885163db7fb0e67f0a8e9e
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549826"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444191"
 ---
-# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início rápido: Criar um data factory e pipeline usando o Python
+# <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início Rápido: Criar um data factory e pipeline usando o Python
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão atual](quickstart-create-data-factory-python.md)
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 1. Inicie o Bloco de notas. Copie o texto a seguir e salve-o como um arquivo **input.txt** no disco.
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
@@ -52,12 +52,12 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 1. Abra um terminal ou prompt de comando com privilégios de administrador. 
 2. Primeiro, instale o pacote do Python para recursos de gerenciamento do Azure:
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. Para instalar o pacote do Python para o Data Factory, execute o seguinte comando:
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -178,10 +178,10 @@ Você define um conjunto de dados que representa os dados de origem no Blob do A
 ```python
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(ls_name)
+    ds_ls = LinkedServiceReference(reference_name=ls_name)
     blob_path= 'adfv2tutorial/input'
     blob_filename = 'input.txt'
-    ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
+    ds_azure_blob= AzureBlobDataset(linked_service_name=ds_ls, folder_path=blob_path, file_name = blob_filename)
     ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 ```
@@ -196,7 +196,7 @@ Você define um conjunto de dados que representa os dados de origem no Blob do A
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adfv2tutorial/output'
-    dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
+    dsOut_azure_blob = AzureBlobDataset(linked_service_name=ds_ls, folder_path=output_blobpath)
     dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 ```
@@ -210,9 +210,9 @@ Adicione o código a seguir, que cria um **pipeline com uma atividade de cópia*
     act_name = 'copyBlobtoBlob'
     blob_source = BlobSource()
     blob_sink = BlobSink()
-    dsin_ref = DatasetReference(ds_name)
-    dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
+    dsin_ref = DatasetReference(reference_name=ds_name)
+    dsOut_ref = DatasetReference(reference_name=dsOut_name)
+    copy_activity = CopyActivity(name=act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
 
     #Create a pipeline with the copy activity
     p_name = 'copyPipeline'
@@ -266,6 +266,7 @@ from azure.mgmt.datafactory.models import *
 from datetime import datetime, timedelta
 import time
 
+
 def print_item(group):
     """Print an Azure object instance."""
     print("\tName: {}".format(group.name))
@@ -278,6 +279,7 @@ def print_item(group):
         print_properties(group.properties)
     print("\n")
 
+
 def print_properties(props):
     """Print a ResourceGroup properties instance."""
     if props and hasattr(props, 'provisioning_state') and props.provisioning_state:
@@ -285,16 +287,21 @@ def print_properties(props):
         print("\t\tProvisioning State: {}".format(props.provisioning_state))
     print("\n")
 
+
 def print_activity_run_details(activity_run):
     """Print activity run details."""
     print("\n\tActivity run details\n")
     print("\tActivity run status: {}".format(activity_run.status))
     if activity_run.status == 'Succeeded':
-        print("\tNumber of bytes read: {}".format(activity_run.output['dataRead']))
-        print("\tNumber of bytes written: {}".format(activity_run.output['dataWritten']))
-        print("\tCopy duration: {}".format(activity_run.output['copyDuration']))
+        print("\tNumber of bytes read: {}".format(
+            activity_run.output['dataRead']))
+        print("\tNumber of bytes written: {}".format(
+            activity_run.output['dataWritten']))
+        print("\tCopy duration: {}".format(
+            activity_run.output['copyDuration']))
     else:
         print("\tErrors: {}".format(activity_run.error['message']))
+
 
 def main():
 
@@ -308,12 +315,13 @@ def main():
     df_name = '<Your data factory name>'
 
     # Specify your Active Directory client ID, client secret, and tenant ID
-    credentials = ServicePrincipalCredentials(client_id='<Active Directory client ID>', secret='<client secret>', tenant='<tenant ID>')
+    credentials = ServicePrincipalCredentials(
+        client_id='<Active Directory client ID>', secret='<client secret>', tenant='<tenant ID>')
     resource_client = ResourceManagementClient(credentials, subscription_id)
     adf_client = DataFactoryManagementClient(credentials, subscription_id)
 
-    rg_params = {'location':'eastus'}
-    df_params = {'location':'eastus'}
+    rg_params = {'location': 'eastus'}
+    df_params = {'location': 'eastus'}
 
     # create the resource group
     # comment out if the resource group already exits
@@ -331,26 +339,32 @@ def main():
     ls_name = 'storageLinkedService'
 
     # Specify the name and key of your Azure Storage account
-    storage_string = SecureString('DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>')
+    storage_string = SecureString(
+        'DefaultEndpointsProtocol=https;AccountName=<storage account name>;AccountKey=<storage account key>')
 
-    ls_azure_storage = AzureStorageLinkedService(connection_string=storage_string)
-    ls = adf_client.linked_services.create_or_update(rg_name, df_name, ls_name, ls_azure_storage)
+    ls_azure_storage = AzureStorageLinkedService(
+        connection_string=storage_string)
+    ls = adf_client.linked_services.create_or_update(
+        rg_name, df_name, ls_name, ls_azure_storage)
     print_item(ls)
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
     ds_ls = LinkedServiceReference(ls_name)
-    blob_path= 'adfv2tutorial/input'
+    blob_path = 'adfv2tutorial/input'
     blob_filename = 'input.txt'
-    ds_azure_blob= AzureBlobDataset(ds_ls, folder_path=blob_path, file_name = blob_filename)
-    ds = adf_client.datasets.create_or_update(rg_name, df_name, ds_name, ds_azure_blob)
+    ds_azure_blob = AzureBlobDataset(
+        ds_ls, folder_path=blob_path, file_name=blob_filename)
+    ds = adf_client.datasets.create_or_update(
+        rg_name, df_name, ds_name, ds_azure_blob)
     print_item(ds)
 
     # Create an Azure blob dataset (output)
     dsOut_name = 'ds_out'
     output_blobpath = 'adfv2tutorial/output'
     dsOut_azure_blob = AzureBlobDataset(ds_ls, folder_path=output_blobpath)
-    dsOut = adf_client.datasets.create_or_update(rg_name, df_name, dsOut_name, dsOut_azure_blob)
+    dsOut = adf_client.datasets.create_or_update(
+        rg_name, df_name, dsOut_name, dsOut_azure_blob)
     print_item(dsOut)
 
     # Create a copy activity
@@ -359,27 +373,32 @@ def main():
     blob_sink = BlobSink()
     dsin_ref = DatasetReference(ds_name)
     dsOut_ref = DatasetReference(dsOut_name)
-    copy_activity = CopyActivity(act_name,inputs=[dsin_ref], outputs=[dsOut_ref], source=blob_source, sink=blob_sink)
+    copy_activity = CopyActivity(act_name, inputs=[dsin_ref], outputs=[
+                                 dsOut_ref], source=blob_source, sink=blob_sink)
 
     # Create a pipeline with the copy activity
     p_name = 'copyPipeline'
     params_for_pipeline = {}
-    p_obj = PipelineResource(activities=[copy_activity], parameters=params_for_pipeline)
+    p_obj = PipelineResource(
+        activities=[copy_activity], parameters=params_for_pipeline)
     p = adf_client.pipelines.create_or_update(rg_name, df_name, p_name, p_obj)
     print_item(p)
 
     # Create a pipeline run
     run_response = adf_client.pipelines.create_run(rg_name, df_name, p_name,
-        {
-        }
-    )
+                                                   {
+                                                   }
+                                                   )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
-    pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
+    pipeline_run = adf_client.pipeline_runs.get(
+        rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))
-    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1), datetime.now() + timedelta(1)))
+    activity_runs_paged = list(adf_client.activity_runs.list_by_pipeline_run(
+        rg_name, df_name, pipeline_run.run_id, datetime.now() - timedelta(1), datetime.now() + timedelta(1)))
     print_activity_run_details(activity_runs_paged[0])
+
 
 # Start the main method
 main()
@@ -428,7 +447,7 @@ Copy duration: 4
 Para excluir o data factory, adicione o código a seguir ao programa:
 
 ```python
-adf_client.factories.delete(rg_name,df_name)
+adf_client.factories.delete(rg_name, df_name)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

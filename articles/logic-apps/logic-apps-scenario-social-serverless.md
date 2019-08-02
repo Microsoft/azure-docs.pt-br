@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: 5dd9d8eac7d65815d7c98a28b0d5af55f19cec47
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f0176253d0f1953e9c779a317cfe7bf453acb8f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464425"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385440"
 ---
 # <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente em streaming com os Aplicativos Lógicos do Azure e o Azure Functions
 
@@ -26,7 +26,7 @@ Aplicativos Lógicos do Azure fornecem um mecanismo de fluxo de trabalho sem ser
 
 Nesse cenário, você cria um aplicativo lógico que terá como gatilho encontrar os comentários dos clientes. Alguns conectores que ajudam a responder aos comentários dos clientes incluem Outlook.com, Office 365, Survey Monkey, Twitter e uma [solicitação HTTP de um formulário web](https://blogs.msdn.microsoft.com/logicapps/2017/01/30/calling-a-logic-app-from-an-html-form/). O fluxo de trabalho que você cria monitora um hashtag no Twitter.
 
-Você pode [criar toda a solução no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implantar a solução com o modelo do Azure Resource Manager](../logic-apps/logic-apps-create-deploy-template.md). Para obter uma explicação de vídeo que mostra como criar essa solução, [Assista a este vídeo do Channel 9](https://aka.ms/logicappsdemo). 
+Você pode [criar toda a solução no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [implantar a solução com o modelo do Azure Resource Manager](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). Para obter uma explicação de vídeo que mostra como criar essa solução, [Assista a este vídeo do Channel 9](https://aka.ms/logicappsdemo). 
 
 ## <a name="trigger-on-customer-data"></a>Gatilho em dados do cliente
 
@@ -99,14 +99,14 @@ Para exibir históricos de execução anteriores no Visual Studio ou no portal d
 
 * Abrir o Gerenciador de Nuvem do Visual Studio. Localizar seu aplicativo lógico, abra o menu de atalho do aplicativo. Selecione **Abrir histórico de execução**.
 
-  > [!NOTE]
-  > Para Visual Studio de 2019, Cloud Explorer pode abrir o Designer do aplicativo lógico no portal do Azure, mas não é possível ainda abrir Designer do aplicativo lógico incorporado ou histórico de execução.
+  > [!TIP]
+  > Caso não tenha esse comando no Visual Studio 2019, verifique se você tem as atualizações mais recentes do Visual Studio.
 
 * No portal do Azure, localize o aplicativo lógico. No menu do aplicativo lógico, escolha **Visão geral**. 
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implantação automatizados
 
-Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) em qualquer região do Azure no mundo. Você pode usar essa funcionalidade para modificar os parâmetros para a criação de versões diferentes do seu aplicativo e para integrar a solução no Azure Pipelines. Você também pode incluir o Azure Functions no seu modelo de implantação, para que você possa gerenciar a solução inteira, com todas as dependências, como um modelo único. Saiba como [criar modelos de implantação de aplicativos lógicos](../logic-apps/logic-apps-create-deploy-template.md).
+Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment) em qualquer região do Azure no mundo. Você pode usar essa funcionalidade para modificar os parâmetros para a criação de versões diferentes do seu aplicativo e para integrar a solução no Azure Pipelines. Você também pode incluir o Azure Functions no seu modelo de implantação, para que você possa gerenciar a solução inteira, com todas as dependências, como um modelo único. Saiba como automatizar a [implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
 
 Para um exemplo de um modelo de implantação com uma função do Azure, verifique o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

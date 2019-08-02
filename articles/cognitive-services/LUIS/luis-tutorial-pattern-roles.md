@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: c0e3ac1d53cda2afb2184b92b0fd0afd662101bb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523267"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277511"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extrair padrões relacionados contextualmente usando funções
 

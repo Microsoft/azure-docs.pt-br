@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f86dfd414309e8420dc19c92c1cd20c40a5a13a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 99c7947b6469f64f2ea05b2290305710db1ee796
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108180"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477105"
 ---
 # <a name="managing-access-to-apps"></a>Gerenciando o acesso a aplicativos
 Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a ser um desafio depois que um aplicativo é integrado ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou a assistência técnica deve ter uma função ativa contínua no gerenciamento de acesso aos seus aplicativos. Às vezes, a atribuição é executada por uma equipe de TI geral ou de divisão. Frequentemente, a decisão de atribuição deve ser delegada ao tomador de decisões comerciais, exigindo sua aprovação antes de a TI fazer a atribuição.  Outras organizações investem na integração com um sistema de gerenciamento automatizado de identidade e acesso existente, como RBAC (controle de acesso baseado em função) ou ABAC (controle de acesso baseado em atributos). A integração e o desenvolvimento de regras tendem a ser especializados e caros. Em cada abordagem de gerenciamento, monitoramento e relatórios exigem um investimento separado, caro e complexo.
@@ -27,7 +27,7 @@ Gerenciamento de acesso contínuo, avaliação de uso e relatórios continuam a 
 ## <a name="how-does-azure-active-directory-help"></a>Como o Active Directory do Azure ajuda?
  O AD do Azure oferece suporte a gerenciamento de acesso abrangente para aplicativos configurados, permitindo que as organizações obtenham facilmente as políticas de acesso corretas desde a atribuição automática, com base em atributo (cenários de ABAC ou RBAC) por meio da delegação e incluindo gerenciamento de administradores. Com o AD do Azure, você pode facilmente obter políticas complexas, combinando vários modelos de gerenciamento de um único aplicativo e pode até reutilizar regras de gerenciamento entre aplicativos com o mesmo público.
 
-* [Adicionando aplicativos novos ou existentes](configure-single-sign-on-portal.md)
+* [Adicionando aplicativos novos ou existentes](add-gallery-app.md)
 
   A atribuição de aplicativo do AD do Azure se concentra em dois modos de atribuição principais:
 
@@ -51,8 +51,8 @@ Com o AD do Azure, aplicativos como o Salesforce podem ser pré-configurados par
 
 Nesse caso, todos os usuários atribuídos poderiam ser provisionados automaticamente no Salesforce. Como são adicionados a grupos diferentes, sua atribuição de função seria atualizada no Salesforce. Os usuários poderiam descobrir e acessar o Salesforce por meio do painel de acesso de aplicativos Microsoft, clientes do Office na web ou até mesmo navegando para sua página de logon organizacional do Salesforce. Os administradores poderiam exibir facilmente o status de atribuição e uso usando os relatórios do AD do Azure.
 
-Os administradores podem empregar [acesso condicional do Azure AD](../active-directory-conditional-access-azure-portal.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
+Os administradores podem empregar o [acesso condicional do Azure ad](../active-directory-conditional-access-azure-portal.md) para definir políticas de acesso para funções específicas. Essas políticas podem incluir se o acesso é permitido fora do ambiente corporativo e até mesmo requisitos de autenticação multifator ou dispositivo para obter acesso em vários casos.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Proteger aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
+* [Protegendo aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Gerenciamento de grupo de autoatendimento/SSAA](../users-groups-roles/groups-self-service-management.md)

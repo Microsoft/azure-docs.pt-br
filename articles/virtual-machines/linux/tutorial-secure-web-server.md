@@ -4,7 +4,7 @@ description: Neste tutorial, você aprenderá a usar a CLI do Azure para protege
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7d372dfa845459a63de8ccc1b81e7b1319f47e34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 069a0310d1baca4f1be3b5cda0d1e75fbcdfa4c4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66169384"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703477"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Proteger um servidor Web em uma máquina virtual do Linux no Azure com certificados SSL armazenados no Key Vault
 Para proteger servidores Web, um certificado SSL (protocolo SSL) pode ser usado para criptografar o tráfego da Web. Esses certificados SSL podem ser armazenados no Azure Key Vault e permitem implantações seguras de certificados em VMs (máquinas virtuais) do Linux no Azure. Neste tutorial, você aprenderá a:
@@ -84,7 +84,7 @@ vm_secret=$(az vm secret format --secrets "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>Criar uma configuração de cloud-init para proteger o NGINX
 [Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como a inicialização de nuvem é executada durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.
 
-Quando você cria uma VM, certificados e chaves são armazenados no diretório protegido */var/lib/waagent/*. Para automatizar a adição do certificado à VM e configurar o servidor Web, use o cloud-init. Neste exemplo, instale e configure o servidor Web NGINX. Você pode usar o mesmo processo para instalar e configurar o Apache. 
+Quando você cria uma VM, certificados e chaves são armazenados no diretório protegido */var/lib/waagent/* . Para automatizar a adição do certificado à VM e configurar o servidor Web, use o cloud-init. Neste exemplo, instale e configure o servidor Web NGINX. Você pode usar o mesmo processo para instalar e configurar o Apache. 
 
 Crie um arquivo chamado *cloud-init-web-server.txt* e cole a seguinte configuração:
 

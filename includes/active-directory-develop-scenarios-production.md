@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121651"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172102"
 ---
 Tornar seu aplicativo excelente:
 

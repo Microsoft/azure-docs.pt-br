@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 9b529780387e1129dd7827e4d9c805d185a459d0
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 4b37da8d31fc5ac605e59d9aceb456e996df438b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399248"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503061"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introdução ao Azure Dev Spaces com .NET Core e Visual Studio
 
@@ -36,7 +36,7 @@ Neste guia, você aprenderá a:
 1. Entre no Portal do Azure em https://portal.azure.com.
 1. Escolha **Criar um recurso** > procure por **Kubernetes** > selecione **Serviço de Kubernetes** > **Criar**.
 
-   Conclua as etapas a seguir em cada título do formulário *Criar cluster do Kubernetes* e verifique se a [região selecionada dá suporte ao Azure Dev Spaces][supported-regions].
+   Conclua as etapas a seguir em cada cabeçalho do formulário *Criar cluster do Kubernetes* e verifique se a [região selecionada dá suporte ao Azure Dev Spaces][supported-regions].
 
    - **DETALHES DO PROJETO**: selecione uma assinatura do Azure e um grupo de recursos do Azure novo ou existente.
    - **DETALHES DO CLUSTER**: insira um nome, a região, a versão e o prefixo do nome DNS do cluster AKS.
@@ -125,9 +125,16 @@ Clique no link **Sobre** na parte superior da página para disparar o ponto de i
 O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
 
 ### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
-1. Localize o arquivo `./Views/Home/Index.cshtml` e edite o HTML. Por exemplo, altere a linha 70 que lê `<h2>Application uses</h2>` para algo como: `<h2>Hello k8s in Azure!</h2>`
-1. Salve o arquivo.
-1. Volte para o navegador e atualize a página. Você verá a página da Web exibir o HTML atualizado.
+
+
+1. Localize o arquivo `./Views/Home/Index.cshtml` e edite o HTML. Por exemplo, altere a [linha 73 que diz `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) para algo como: 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. Salve o arquivo.
+3. Volte para o navegador e atualize a página. Você verá a página da Web exibir o HTML atualizado.
 
 O que aconteceu? As edições em arquivos de conteúdo, como HTML e CSS, não exigem a recompilação em um aplicativo Web do .NET Core e, portanto, uma sessão F5 ativa sincroniza automaticamente os arquivos de conteúdo modificados no contêiner em execução no AKS. Assim, você pode ver suas edições de conteúdo imediatamente.
 

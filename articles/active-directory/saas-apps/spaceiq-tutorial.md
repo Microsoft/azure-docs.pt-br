@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: de2b60ef280ceebdc97ea7dfc208df1cea3956c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3358ad473ede9e8d78a835e8c68e690e5340638
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699895"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090102"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Tutorial: Integração do Azure Active Directory ao SpaceIQ
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SpaceIQ
 
     ![Informações de logon único de Domínio e URLs do SpaceIQ](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite a URL `https://api.spaceiq.com`
+    a. Na caixa de texto **Identificador**, digite a URL `https://api.spaceiq.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.spaceiq.com/saml/<instanceid>/callback`
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SpaceIQ
 
     ![Configurações de Autenticação SAML](./media/spaceiq-tutorial/setting3.png)
 
-     a. Na caixa **URL do emissor SAML**, cole o valor do **Identificador do Microsoft Azure Active Directory** copiado da janela de configuração de aplicativo do Microsoft Azure Active Directory.
+    a. Na caixa **URL do emissor SAML**, cole o valor do **Identificador do Microsoft Azure Active Directory** copiado da janela de configuração de aplicativo do Microsoft Azure Active Directory.
 
     b. Copie o valor da **URL de Ponto de Extremidade de Retorno de Chamada SAML (somente leitura)** e cole na caixa **URL de Resposta** da seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -219,5 +219,5 @@ Ao clicar no bloco SpaceIQ no Painel de Acesso, você deve ser conectado automat
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

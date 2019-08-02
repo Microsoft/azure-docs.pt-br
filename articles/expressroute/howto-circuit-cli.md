@@ -6,13 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: cherylmc
+ms.reviewer: anzaman
+ms.openlocfilehash: e42190814b9365c7db054eb2b5f1842581b64009
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837803"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657063"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Criar e modificar um circuito do ExpressRoute usando a CLI
 
@@ -23,9 +24,10 @@ Este artigo descreve como criar um circuito do Azure ExpressRoute usando a CLI (
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
-> 
+>
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -117,7 +119,7 @@ A resposta é semelhante ao seguinte exemplo:
 
 Verifique a resposta para ver se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas quando criar um circuito:
 
-* NOME
+* Nome
 * PeeringLocations
 * BandwidthsOffered
 
@@ -127,8 +129,8 @@ Agora você está pronto para criar um circuito do ExpressRoute.
 
 > [!IMPORTANT]
 > O circuito do ExpressRoute será cobrado a partir do momento em que uma chave de serviço for emitida. Execute esta operação quando o provedor de conectividade estiver pronto para provisionar o circuito.
-> 
-> 
+>
+>
 
 Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar o circuito do ExpressRoute. Você pode criar um grupo de recursos executando o seguinte comando:
 
@@ -136,7 +138,7 @@ Se você ainda não tiver um grupo de recursos, deverá criar um antes de criar 
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
-O exemplo a seguir mostra como criar um circuito do ExpressRoute de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação. 
+O exemplo a seguir mostra como criar um circuito do ExpressRoute de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação.
 
 Especifique a camada da SKU e a família de SKUs corretas:
 
@@ -267,8 +269,8 @@ Para obter instruções passo a passo, confira o artigo [configuração do rotea
 
 > [!IMPORTANT]
 > Estas instruções aplicam-se apenas a circuitos criados com provedores de serviço que oferecem serviços de conectividade de camada 2. Se você estiver usando um provedor de serviços que oferece serviços gerenciados de camada 3 (normalmente um IP VPN, como MPLS), seu provedor de conectividade configurará e gerenciará o roteamento para você.
-> 
-> 
+>
+>
 
 ### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. Vincular uma rede virtual a um circuito do ExpressRoute
 
@@ -279,7 +281,7 @@ Em seguida, vincule uma rede virtual a seu circuito do ExpressRoute. Use o artig
 Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade. Você pode fazer as seguintes alterações sem tempo de inatividade:
 
 * Você pode habilitar ou desabilitar o complemento ExpressRoute Premium para seu circuito do ExpressRoute.
-* Você pode aumentar a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito. 
+* Você pode aumentar a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito.
 * Altere o plano de medição de Dados Limitados para Dados Ilimitados. No entanto, não há suporte para alteração do plano de medição de Dados Ilimitados para Dados Limitados.
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
 
@@ -299,8 +301,8 @@ Agora, o circuito terá os recursos do complemento ExpressRoute Premium habilita
 
 > [!IMPORTANT]
 > Esta operação poderá falhar se você estiver usando recursos que ultrapassem o que é permitido para o circuito padrão.
-> 
-> 
+>
+>
 
 Antes de desabilitar o complemento ExpressRoute Premium, entenda os seguintes critérios:
 

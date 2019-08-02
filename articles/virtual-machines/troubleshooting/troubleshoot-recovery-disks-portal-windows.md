@@ -4,7 +4,7 @@ description: Saiba como solucionar problemas de máquinas virtuais Windows no Az
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/13/2018
 ms.author: genli
-ms.openlocfilehash: ec2da7d9f659f32c40f7a2685ab08be4eec27ed5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ab6fc75475cd99e3d803450476880175f12d2b6
+ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320614"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67881188"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM de recuperação usando o portal do Azure
-Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original.
+Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) Windows no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo fornece detalhes sobre como usar o portal do Azure para conectar o disco rígido virtual a outra VM Windows para corrigir erros e, em seguida, recriar a VM original. 
 
 ## <a name="recovery-process-overview"></a>Visão geral do processo de recuperação
 O processo de solução de problemas é o seguinte:
@@ -34,30 +34,24 @@ O processo de solução de problemas é o seguinte:
 
 Para a VM, esse disco gerenciado de usos, podemos agora pode usar o Azure PowerShell para alterar o disco do sistema operacional para uma máquina virtual. Não precisamos mais excluir e recriar a VM. Para obter mais informações, consulte [solucionar problemas de uma VM Windows anexando o disco do sistema operacional a uma VM usando o PowerShell do Azure de recuperação](troubleshoot-recovery-disks-windows.md).
 
+> [!NOTE]
+> Este artigo não se aplica à VM com disco não gerenciado.
+
 ## <a name="determine-boot-issues"></a>Determinar problemas de inicialização
 Para determinar por que a VM não pode ser inicializada corretamente, examine a captura de tela da VM do diagnóstico de inicialização. Um exemplo comum seria uma atualização de aplicativo com falha ou um disco rígido virtual subjacente que está sendo excluído ou movido.
 
-Selecione a VM no portal e role para baixo até a seção **Suporte + Solução de problemas**. Clique em **Diagnóstico de inicialização** para exibir a captura de tela. Observe códigos de erro e mensagens de erro específicos para ajudar a determinar por que a VM está com um problema. 
+Selecione a VM no portal e role para baixo até a seção **Suporte + Solução de problemas**. Clique em **Diagnóstico de inicialização** para exibir a captura de tela. Observe códigos de erro e mensagens de erro específicos para ajudar a determinar por que a VM está com um problema.
 
 ![Exibindo os logs do console do diagnóstico de inicialização da VM](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
 Clique também em **Baixar captura de tela** para baixar uma captura de tela da VM.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Exibir detalhes do disco rígido virtual existente
-Antes de anexar o disco rígido virtual a outra VM, você precisa identificar o nome do VHD (disco rígido virtual). 
+Antes de anexar o disco rígido virtual a outra VM, você precisa identificar o nome do VHD (disco rígido virtual).
 
-Selecione o grupo de recursos no portal e sua conta de armazenamento. Clique em **Blobs**, como no seguinte exemplo:
+Selecione a VM que tem o problema e, em seguida, selecione **discos**. Registre o nome do disco do sistema operacional como no exemplo a seguir:
 
-![Selecionar os blobs de armazenamento](./media/troubleshoot-recovery-disks-portal-windows/storage-account-overview.png)
-
-Normalmente, você tem um contêiner chamado **vhds** que armazena os discos rígidos virtuais. Selecione o contêiner para exibir uma lista de discos rígidos virtuais. Anote o nome do VHD (o prefixo é geralmente o nome da VM):
-
-![Identificar o VHD no contêiner de armazenamento](./media/troubleshoot-recovery-disks-portal-windows/storage-container.png)
-
-Selecione o disco rígido virtual existente na lista e copie a URL para uso nas próximas etapas:
-
-![Copiar a URL do disco rígido virtual existente](./media/troubleshoot-recovery-disks-portal-windows/copy-vhd-url.png)
-
+![Selecionar os blobs de armazenamento](./media/troubleshoot-recovery-disks-portal-windows/view-disk.png)
 
 ## <a name="delete-existing-vm"></a>Excluir VM existente
 Discos rígidos virtuais e VMs são dois recursos distintos no Azure. Um disco rígido virtual é o local em que o próprio sistema operacional, os aplicativos e as configurações são armazenados. A VM em si são apenas os metadados que definem o tamanho ou a localização e que faz referência a recursos como um disco rígido virtual ou a NIC (placa de interface de rede) virtual. Cada disco rígido virtual tem uma concessão atribuída quando anexado a uma VM. Embora os discos de dados possam ser anexados e desanexados mesmo durante a execução da VM, o disco do sistema operacional não pode ser desanexado, a menos que o recurso de VM seja excluído. A concessão continua associando o disco do sistema operacional a uma VM mesmo quando a VM está em um estado parado e desalocado.
@@ -70,30 +64,15 @@ Selecione a VM no portal e clique em **Excluir**:
 
 Aguarde até que a VM tenha concluído a exclusão antes de anexar o disco rígido virtual a outra VM. A concessão no disco rígido virtual que o associa à VM precisa ser liberada antes da anexação do disco rígido virtual a outra VM.
 
-
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>Anexar um disco rígido virtual existente a outra VM
 Para as próximas etapas, você pode usar outra VM para fins de solução de problemas. Você anexa o disco rígido virtual existente a essa VM de solução de problemas para poder procurar e editar o conteúdo do disco. Esse processo permite que você corrija os erros de configuração ou examine arquivos de aplicativo ou de log do sistema adicionais, por exemplo. Escolha ou crie outra VM a ser usada para fins de solução de problemas.
 
-1. Selecione o grupo de recursos no portal e a VM de solução de problemas. Selecione **Discos** e clique em **Anexar existente**:
+1. Selecione o grupo de recursos no portal e a VM de solução de problemas. Selecione **discos**, selecione **Editar**e, em seguida, clique em **adicionar disco de dados**:
 
     ![Anexar um disco existente no portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
-2. Para selecionar o disco rígido virtual existente, clique em **Arquivo VHD**:
-
-    ![Procurar VHD existente](./media/troubleshoot-recovery-disks-portal-windows/select-vhd-location.png)
-
-3. Selecione sua conta de armazenamento e seu contêiner e clique no VHD existente. Clique no botão **Selecionar** para confirmar sua escolha:
-
-    ![Selecionar o VHD existente](./media/troubleshoot-recovery-disks-portal-windows/select-vhd.png)
-
-4. Com o VHD agora selecionado, clique em **OK** para anexar o disco rígido virtual existente:
-
-    ![Confirmar a anexação do disco rígido virtual existente](./media/troubleshoot-recovery-disks-portal-windows/attach-disk-confirm.png)
-
-5. Depois de alguns segundos, o painel **Discos** da VM lista o disco rígido virtual existente conectado como um disco de dados:
-
-    ![Disco rígido virtual existente anexado como um disco de dados](./media/troubleshoot-recovery-disks-portal-windows/attached-disk.png)
-
+2. Na lista **discos de dados** , selecione o disco do sistema operacional da VM que você identificou. Se você não vir o disco do sistema operacional, verifique se a solução de problemas da VM e do disco do sistema operacional estão na mesma região (local).
+3. Selecione **salvar** para aplicar as alterações.
 
 ## <a name="mount-the-attached-data-disk"></a>Montar o disco de dados anexado
 
@@ -125,13 +104,16 @@ Depois de resolver os erros, desanexe o disco rígido virtual existente da VM de
 
     ![Definir o disco de dados como offline no Gerenciador do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Agora desanexe o disco rígido virtual da VM. Selecione a VM no portal do Azure e clique em **Discos**. Selecione o disco rígido virtual existente e clique em **Desanexar**:
+3. Agora desanexe o disco rígido virtual da VM. Selecione a VM no portal do Azure e clique em **Discos**. 
+4. Selecione **Editar**, selecione o disco do sistema operacional que você anexou e clique em desanexar:
 
     ![Desanexar um disco rígido virtual existente](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
     Aguarde até que a VM tenha desanexo o disco de dados corretamente antes de continuar.
 
 ## <a name="create-vm-from-original-hard-disk"></a>Criar a VM com base no disco rígido original
+
+### <a name="method-1-use-azure-resource-manager-template"></a>Método 1 Use Azure Resource Manager modelo
 Para criar uma VM com base no disco rígido virtual original, use [esse modelo do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-new-or-existing-vnet). O modelo implanta uma VM em uma rede virtual nova ou existente, usando a URL do VHD do comando anterior. Clique no botão **Implantar no Azure** da seguinte maneira:
 
 ![Implantar a VM com base no modelo do GitHub](./media/troubleshoot-recovery-disks-portal-windows/deploy-template-from-github.png)
@@ -140,6 +122,14 @@ O modelo é carregado no portal do Azure para implantação. Insira os nomes da 
 
 ![Implantar a VM com base no modelo](./media/troubleshoot-recovery-disks-portal-windows/deploy-from-image.png)
 
+### <a name="method-2-create-a-vm-from-the-disk"></a>Método 2 criar uma VM a partir do disco
+
+1. No portal do Azure, selecione o grupo de recursos no portal e localize o disco do sistema operacional. Você também pode pesquisar o disco usando o nome do disco:
+
+    ![Pesquisar disco de portal do Azure](./media/troubleshoot-recovery-disks-portal-windows/search-disk.png)
+1. Selecione **visão geral**e, em seguida, selecione **criar VM**.
+    ![Criar VM de um disco a partir de portal do Azure](./media/troubleshoot-recovery-disks-portal-windows/create-vm-from-disk.png)
+1. Siga o assistente para criar a VM.
 
 ## <a name="re-enable-boot-diagnostics"></a>Habilitar o diagnóstico de inicialização novamente
 Ao criar a VM com base no disco rígido virtual existente, o diagnóstico de inicialização poderá não ser habilitado automaticamente. Para verificar o status do diagnóstico de inicialização e ativá-lo, se necessário, selecione a VM no portal. Em **Monitoramento**, clique em **Configurações de diagnóstico**. Verifique se o status é **Ativado** e se a marca de seleção ao lado de **Diagnóstico de inicialização** está marcada. Se fizer alguma alteração, clique em **Salvar**:

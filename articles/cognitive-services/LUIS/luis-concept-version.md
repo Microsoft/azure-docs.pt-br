@@ -1,6 +1,6 @@
 ---
-title: Controle de versão
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Controle de versão-LUIS
+titleSuffix: Azure Cognitive Services
 description: As versões no LUIS são semelhantes às versões na programação tradicional. Cada versão é um instantâneo no tempo do aplicativo. Antes de fazer alterações no aplicativo, crie uma nova versão. É mais fácil voltar para o aplicativo exato e, em seguida, tentar remover e retornar a intenção e os enunciados do aplicativo para um estado anterior.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9da79e5b744f8ba70c0e265f0d1f0126b37eba49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e13efa70d0344defeb306a92ac405439635e929
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509663"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619693"
 ---
 # <a name="understand-how-and-when-to-use-a-luis-version"></a>Reconhecer como e quando usar uma versão do LUIS
 
@@ -35,7 +35,7 @@ A versão inicial (0.1) é a versão ativa padrão.
 
 O nome da versão ativa no momento é exibido no painel superior esquerdo depois do nome do aplicativo. 
 
-[![Versão ativa de alteração](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Alterar versão ativa](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## <a name="versions-and-publishing-slots"></a>Versões e slots de publicação
 Você publica em slots de estágio e de produto. Cada slot pode ter uma versão diferente ou a mesma versão. Isso é útil para verificar as alterações entre as versões do modelo por meio do ponto de extremidade, disponível para bots ou outros aplicativos de chamada do LUIS. 

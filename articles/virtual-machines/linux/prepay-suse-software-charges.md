@@ -1,23 +1,21 @@
 ---
-title: Pagar antecipadamente por planos de software - reservas do Azure | Microsoft Docs
+title: Pagar antecipadamente por planos de software - reservas do Azure
 description: Saiba como você pode pagar antecipadamente para os planos economizar dinheiro ao longo de seus custos de pagamento conforme o uso de software.
-documentationcenter: ''
-author: yashesvi
+author: bandersmsft
 manager: yashesvi
-editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e15dcdbbcaed32d836bb751ef93ce17e90bd6905
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8e9d07bf01536d7865bd79f667a937037d96837
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60771236"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67489893"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Pagar antecipadamente planos de software do Azure
 
@@ -25,22 +23,22 @@ Quando você paga antecipadamente para o uso de software do SUSE e RedHat no Azu
 
 Você pode comprar planos de software do SUSE e RedHat no portal do Azure. Comprar um plano:
 
-- Você deve ter a função de proprietário para pelo menos uma Enterprise ou assinatura paga conforme o uso.
+- Você deve ter a função de proprietário para pelo menos uma Enterprise ou assinatura individual com preços pré-pagos.
 - Para assinaturas do Enterprise, o **adicionar instâncias reservadas** opção deve ser habilitada no [portal EA](https://ea.azure.com/). Se a configuração estiver desabilitada, você deve ser um administrador de EA para a assinatura.
 - Para o programa de provedor de solução de nuvem (CSP), os agentes administradores ou agentes de vendas podem comprar os planos de software.
 
 ## <a name="buy-a-software-plan"></a>Compre um plano de software
 
-1. Entrar no portal do Azure e acesse [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
+1. Entre portal do Azure e acesse [reservas](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 2. Clique em **adicionar** e, em seguida, selecione o plano de software que você deseja comprar.
 Preencha os campos obrigatórios. Qualquer VM do Linux SUSE ou RedHat VM que corresponde aos atributos daquilo que você compra obtém o desconto. O número real de implantações que obtêm o desconto depende do escopo e da quantidade selecionada.
 3. Selecione uma assinatura. Ele é usado para pagar para o plano.
-O método de pagamento da assinatura é cobrado os custos iniciais para a reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou Pagamento Conforme o Uso (números da oferta: MS-AZR-0003P ou MS-AZR-0023P).
+O método de pagamento da assinatura é cobrado os custos iniciais para a reserva. O tipo de assinatura deve ser um Enterprise Agreement (números de oferta: MS-AZR-0017P ou MS-AZR - 0148p) ou um contrato individual com preços pré-pagos (números de oferta: MS-AZR-0003P ou MS-AZR-0023P).
     - Para uma assinatura de empresa, os encargos são deduzidos do saldo do compromisso monetário do registro ou cobrados como média.
-    - Para uma assinatura pré-paga, os encargos são cobrados ao método de pagamento de cartão de crédito ou fatura da assinatura.
+    - Para uma assinatura individual com preço pré-pago, os encargos são cobrados ao método de pagamento de cartão de crédito ou fatura da assinatura.
 4. Selecione um escopo. O escopo pode cobrir uma assinatura ou várias assinaturas (escopo compartilhado).
     - Assinatura única - o desconto de plano é aplicada a correspondência de uso na assinatura.
-    - Compartilhado - o desconto de plano é aplicado a correspondência de instâncias em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o contexto de cobrança é o registro e inclui todas as assinaturas no registro. Para clientes de pré-pago, o contexto de cobrança é todas as assinaturas de pago conforme o uso criadas pelo administrador da conta.
+    - Compartilhado - o desconto de plano é aplicado a correspondência de instâncias em qualquer assinatura em seu contexto de cobrança. Para clientes empresariais, o contexto de cobrança é o registro e inclui todas as assinaturas no registro. Para planos individuais com clientes de preços pago conforme o uso, o contexto de cobrança é todos os planos individuais com assinaturas de preços pago conforme o uso criadas pelo administrador da conta.
 5. Selecione um produto para escolher o tamanho da VM e o tipo de imagem. O desconto aplica-se ao tamanho da VM selecionado apenas.
 6. Selecione uma condição de um ano ou três anos.
 7. Escolha uma quantidade, o que é o número de instâncias de VM pré-pagas que pode obter o desconto de cobrança.

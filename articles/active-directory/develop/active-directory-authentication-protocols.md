@@ -2,7 +2,7 @@
 title: Protocolos de autenticação do Azure Active Directory | Microsoft Docs
 description: Uma visão geral dos protocolos de autenticação suportados pelo Azure Active Directory (AD)
 documentationcenter: dev-center-name
-author: ryanwi
+author: rwike77
 services: active-directory
 manager: CelesteDG
 editor: ''
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
-ms.author: rwike77
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d36e4304c4775ac335c1cc405ee8c6a0208da52a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f964c5882432ae0637039e32ca961008e8223b6b
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546211"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612580"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocolos de autenticação do Azure Active Directory
 O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos de autenticação e autorização mais usados. Os tópicos nesta seção descrevem os protocolos suportados e sua implementação no Azure AD. Os tópicos incluem uma revisão dos tipos de declarações com suporte, uma introdução ao uso de metadados de federação, documentação detalhada de referência dos protocolos OAuth 2.0. e SAML 2.0 e uma seção de solução de problemas.
@@ -38,7 +38,7 @@ O Azure Active Directory (AD do Azure) oferece suporte a vários dos protocolos 
 * [Serviço para Chamadas de Serviço com Fluxo Em Nome De](v1-oauth2-on-behalf-of-flow.md) – Saiba como utilizar o fluxo de Em Nome De OAuth 2.0 para chamadas de serviços.
 * [Referência de protocolo SAML](active-directory-saml-protocol-reference.md) - Saiba mais sobre os perfis de logon único e logout único SAML do Azure AD.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Guia do desenvolvedor do Active Directory do Azure](v1-overview.md)
 
 [Exemplos de código do Active Directory](sample-v1-code.md)

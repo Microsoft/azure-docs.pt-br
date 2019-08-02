@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 8e85f390ee5ff74f02cb95fa4dcf1dfc1a35dad1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 21c10e142802914bcf3292ef7f25066675e6cdd1
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699871"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67143915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integração do Azure Active Directory com o SharePoint no local
 
@@ -56,6 +56,9 @@ Para configurar a integração do SharePoint local ao Azure AD, você precisa ad
 1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
+
+    > [!NOTE]   
+    > Se o elemento não estiverem disponíveis, também é possível abrir pelo link fixo **Todos os serviços** na parte superior do painel de navegação à esquerda. Na visão geral a seguir, o link do **Azure Active Directory** está localizado na seção **Identidade** ou ele pode ser pesquisado usando a caixa de texto de filtro.
 
 2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
 
@@ -106,7 +109,7 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
 
     ![Informações de logon único de Domínio e URLs do SharePoint local](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `urn:sharepoint:federation`
 
@@ -165,7 +168,7 @@ Para configurar o logon único do Azure AD com o SharePoint local, execute as se
 
     Em seguida, siga estas etapas para habilitar o provedor de identidade confiável para seu aplicativo:
 
-     a. Na Administração Central, navegue até **Gerenciar Aplicativo de Web** e selecione o aplicativo Web que você deseja proteger com o Azure AD.
+    a. Na Administração Central, navegue até **Gerenciar Aplicativo de Web** e selecione o aplicativo Web que você deseja proteger com o Azure AD.
 
     b. Na faixa de opções, clique em **Provedores de Autenticação** e escolha a região que você deseja usar.
 
@@ -370,4 +373,4 @@ Ao clicar no bloco do SharePoint local no Painel de Acesso, você deverá entrar
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

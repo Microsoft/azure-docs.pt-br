@@ -48,8 +48,6 @@
       items:
         - name: Criar um namespace
           href: relay-create-namespace-portal.md
-        - name: Usar a Retransmissão do WCF para expor serviços WCF para clientes externos
-          href: relay-wcf-dotnet-get-started.md
         - name: APIs disponíveis
           href: relay-api-overview.md
           items:

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2440b638a9c8eb27505b747d26917de8032e6cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5cc6c8b4947f8c5ebeb27be2dc82f323f84a6902
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510141"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835431"
 ---
 # <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Vincular uma assinatura do Azure a um locatário do Azure Active Directory B2C
 
@@ -45,9 +45,9 @@ Navegue até o locatário do Azure AD que mostra a sua assinatura do Azure. Abra
 
 ## <a name="find-azure-ad-b2c-in-the-azure-marketplace"></a>Localizar Azure AD B2C no Azure Marketplace
 
-Clique no botão **Criar um recurso**. No campo **Pesquisar no Marketplace**, insira `B2C`.
+Clique no botão **Criar um recurso**. No **pesquisar no Marketplace** , insira `Active Directory B2C`.
 
-![Adicionar o botão realçado e o texto AD B2C no campo Pesquisar o marketplace](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Captura de tela portal com 'B2C do Active Directory' na pesquisa de mercado](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 Na lista de resultados, selecione **Azure AD B2C**.
 
@@ -67,7 +67,7 @@ Em Assinatura, selecione uma assinatura ativa do Azure que você administra.
 
 Selecione um Grupo de Recursos e o local do Grupo de Recursos. Aqui, a seleção não tem impacto sobre o local, desempenho ou status de cobrança do locatário do Azure AD B2C.
 
-![Criar recurso do B2C](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![A página de criação de recursos do Azure AD B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Gerenciar seus recursos de locatário do Azure AD B2C
 
@@ -80,9 +80,17 @@ Você pode usar esse recurso para:
 - Enviar uma solicitação de suporte
 - Mover o recurso de locatário do Azure AD B2C para outra assinatura do Azure ou para outro Grupo de Recursos.
 
-![Configurações de Recursos do B2C](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![Página de configurações de recursos do B2C no portal do Azure](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Alterar o locatário do Azure AD B2C assinatura de cobrança
+
+Os locatários do Azure AD B2C podem ser movidos para outra assinatura, se as assinaturas de origem e de destino existir no mesmo locatário do Active Directory do Azure.
+
+Para saber como mover recursos do Azure como seu locatário do Azure AD B2C para outra assinatura, consulte [mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md).
+
+Antes de iniciar a movimentação, certifique-se de ler o artigo inteiro para compreender totalmente as limitações e requisitos para uma movimentação desse tipo. Além de instruções para mover os recursos, ele inclui informações críticas, como uma lista de verificação de pré-mover e como validar a operação de movimentação.
+
+## <a name="known-issues"></a>Problemas Conhecidos
 
 ### <a name="self-imposed-restrictions"></a>Restrições autoimpostas
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 8f6f94fa8602dcc2b8eed19262f595cb18c40b57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 547aed05746cb3f6c73c420169c727cc98c4ac4f
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65968314"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551750"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da Central de Segurança para segurança aprimorada
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
@@ -28,7 +28,7 @@ A Central de Segurança do Azure fornece gerenciamento de segurança unificado e
 A Central de Segurança é oferecida em duas camadas:
 
 - A camada **Gratuita** é habilitada automaticamente em todas as assinaturas do Azure e oferece política de segurança, avaliação de segurança contínua e recomendações de práticas de segurança para ajudar a proteger seus recursos do Azure.
-- A camada **Standard** estende os recursos da Camada gratuita para cargas de trabalho em execução em outras nuvens públicas e privadas, fornecendo gerenciamento unificado de segurança e proteção contra ameaças em suas cargas de trabalho de nuvem híbrida. A camada Standard também adiciona recursos avançados de detecção de ameaças, que usam análise comportamental interna e aprendizado de máquina para identificar ataques e explorações de dia zero, controles de acesso e de aplicativos a fim de reduzir a exposição a ataques de rede e malware, e muito mais. Você pode experimentar gratuitamente a camada Standard. Central de segurança Standard oferece suporte ao Azure recursos, incluindo máquinas virtuais, VM conjuntos de dimensionamento, o serviço de aplicativo, servidores SQL e contas de armazenamento. Se você tivera Central de Segurança do Azure Standard pode recusar o suporte com base no tipo de recurso. 
+- A camada **Standard** estende os recursos da Camada gratuita para cargas de trabalho em execução em outras nuvens públicas e privadas, fornecendo gerenciamento unificado de segurança e proteção contra ameaças em suas cargas de trabalho de nuvem híbrida. A camada Standard também adiciona recursos avançados de detecção de ameaças, que usam análise comportamental interna e aprendizado de máquina para identificar ataques e explorações de dia zero, controles de acesso e de aplicativos a fim de reduzir a exposição a ataques de rede e malware, e muito mais. Você pode experimentar gratuitamente a camada Standard. Central de segurança Standard oferece suporte ao Azure recursos, incluindo VMs, Máquina Virtual conjuntos de dimensionamento, o serviço de aplicativo, servidores SQL e contas de armazenamento. Se você tivera Central de Segurança do Azure Standard pode recusar o suporte com base no tipo de recurso. 
 
 
 Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -40,9 +40,9 @@ Você pode atualizar uma assinatura inteira do Azure para a camada Standard, que
 
 Para obter a camada Standard:
 
-1. Selecione **Política de Segurança** no menu principal da **Central de Segurança**.
+1. Selecione **preços & configurações** sobre o **Central de segurança** menu principal.
 2. Selecione a assinatura que você deseja atualizar para o Padrão.
-3. Na folha **Política de segurança**, selecione **Camada de preços**.
+3. Selecione **tipo de preço**.
 4. Selecione **Standard** para atualizar.
 5. Clique em **Salvar**.
 

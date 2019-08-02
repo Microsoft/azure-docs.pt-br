@@ -3,7 +3,7 @@ title: Executar tarefas em contas de usuário - Lote do Azure | Microsoft Docs
 description: Configurar contas de usuário para executar tarefas no Lote do Azure
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -15,15 +15,15 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b3004303dd1587340b467c2fd52cb7233c95fd
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595388"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322713"
 ---
 > [!NOTE] 
-> As contas de usuário discutidas neste artigo são diferentes de usuários contas usadas para o protocolo de área de trabalho remota (RDP) ou Secure Shell (SSH), por motivos de segurança. 
+> As contas de usuário discutidas neste artigo são diferentes das contas de usuários usadas para protocolo RDP (RDP) ou Secure Shell (SSH), por motivos de segurança. 
 >
 > Para se conectar a um nó em execução na configuração da máquina virtual Linux via SSH, confira [Usar Área de Trabalho Remota para uma VM Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para se conectar a nós em execução no Windows via RDP, confira [Conectar-se a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
 > Para se conectar a um nó em execução na configuração do serviço de nuvem via RDP, confira [Habilitar a Conexão de Área de Trabalho Remota para uma função nos Serviços de Nuvem do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).

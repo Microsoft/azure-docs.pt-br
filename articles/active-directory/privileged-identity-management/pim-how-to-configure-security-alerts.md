@@ -14,18 +14,18 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce0d99fb283be8cbeba6f8a7954ff49161a2d511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6875ab8f184c67b02c91d1a8e312959f3ba9553b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288488"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476410"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurar alertas de segurança para funções do Azure AD no PIM
 
 Azure Active Directory (Azure AD) PIM Privileged Identity Management () gera alertas quando há atividade suspeita ou não segura em seu ambiente. Quando um alerta é disparado, ele aparece no painel PIM. Selecione o alerta para ver um relatório que lista os usuários ou as funções que dispararam o alerta.
 
-![Alertas de segurança do PIM - captura de tela](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
+![Funções do Azure AD - painel de alerta listando alertas e a gravidade](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Alertas de segurança
 
@@ -122,11 +122,11 @@ Você pode personalizar os alertas de segurança no PIM para trabalhar com seu a
 
 1. Clique em **as configurações** e, em seguida **alertas**.
 
-    ![Navegar até as configurações de alertas de segurança](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
+    ![Funções do Azure AD - configurações de alertas selecionados](./media/pim-how-to-configure-security-alerts/settings-alerts.png)
 
 1. Clique em um nome de alerta para definir a configuração desse alerta.
 
-    ![Configurações de alerta de segurança](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
+    ![Para o painel de configurações de alerta de segurança de alerta, selecionado](./media/pim-how-to-configure-security-alerts/security-alert-settings.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

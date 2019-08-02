@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: d04f31ef20135271e4adb1551246d351bfab7b1f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fda9594d97500075e6b018e1e8c9ff5816fe3590
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883977"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fuse"></a>Tutorial: Integração do Azure Active Directory ao Fuse
 
@@ -52,7 +52,7 @@ Para configurar a integração do Fuse com o Azure AD, você precisará adiciona
 
 **Para adicionar o Fuse por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Fuse, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do fusível](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<tenant name>.fusionuniversal.com/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://{tenantname}.fuseuniversal.com/`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Fuse](mailto:support@fusion-universal.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -145,7 +145,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

@@ -6,37 +6,37 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 06/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8b7e6d234984e84f5b238d657281dd8b1b9ec423
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 72bb11cd064c90c2bbe1e9e6452dcbf07fe37817
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056875"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304864"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
-Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
+Este artigo descreve se um tipo de recurso dá suporte a [marcas](resource-group-using-tags.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo.
 
 Para obter os mesmos dados como um arquivo de valores separados por vírgula, baixe [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | DomainServices | Sim | Sim |
 | DomainServices/oucontainer | Não | Não |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Não |  Não |
 | diagnosticSettingsCategories | Não |  Não |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | supportProviders | Não |  Não |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | aadsupportcases | Não |  Não |
 | addsservices | Não |  Não |
@@ -48,7 +48,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | services | Não |  Não |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | configurações | Não |  Não |
 | generateRecommendations | Não |  Não |
@@ -56,7 +56,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | suppressions | Não |  Não |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | actionRules | Não |  Não |
 | alertas | Não |  Não |
@@ -68,24 +68,24 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | smartGroups | Não |  Não |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | servers | Sim | Sim |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | reportFeedback | Não |  Não |
-| propriedade serviço | Sim | Sim |
+| serviço | Sim | Sim |
 | validateServiceName | Não |  Não |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | attestationProviders | Não |  Não |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | classicAdministrators | Não |  Não |
 | denyAssignments | Não |  Não |
@@ -100,7 +100,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | roleDefinitions | Não |  Não |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | automationaccounts | Sim | Sim |
 | automationAccounts/configurations | Sim | Sim |
@@ -110,7 +110,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | automationAccounts/runbooks | Não |  Não |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | environments | Não |  Não |
 | environments/accounts | Não |  Não |
@@ -118,24 +118,24 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | environments/accounts/namespaces/configurations | Não |  Não |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | b2cDirectories | Sim | Não |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | registrations | Sim | Sim |
 | registrations/customerSubscriptions | Não |  Não |
 | registrations/products | Não |  Não |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | batchAccounts | Sim | Sim |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | billingAccounts | Não |  Não |
 | billingAccounts/billingProfiles | Não |  Não |
@@ -189,18 +189,18 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | usagePlans | Não |  Não |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | mapApis | Sim | Sim |
 | updateCommunicationPreference | Não |  Não |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | BizTalk | Sim | Sim |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | blueprintAssignments | Não |  Não |
 | blueprintAssignments/assignmentOperations | Não |  Não |
@@ -211,20 +211,20 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | blueprints/versions/artifacts | Não |  Não |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | botServices | Sim | Sim |
 | botServices/channels | Não |  Não |
 | botServices/connections | Não |  Não |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | Redis | Sim | Sim |
 | RedisConfigDefinition | Não |  Não |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | appliedReservations | Não |  Não |
 | calculatePrice | Não |  Não |
@@ -243,24 +243,24 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | validateReservationOrder | Não |  Não |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | edgenodes | Não |  Não |
-| perfis | Sim | Sim |
+| profiles | Sim | Sim |
 | profiles/endpoints | Sim | Sim |
 | profiles/endpoints/origins | Não |  Não |
 | profiles/endpoints/origins | Não |  Não |
 | validateProbe | Não |  Não |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | certificateOrders | Sim | Sim |
 | certificateOrders/certificates | Não |  Não |
 | validateCertificateRegistrationInformation | Não |  Não |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | recursos | Não |  Não |
 | domainNames | Não |  Não |
@@ -279,12 +279,12 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | virtualMachines/diagnosticSettings | Não |  Não |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | Migração de infraestrutura clássica | Não |  Não |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | recursos | Não |  Não |
 | expressRouteCrossConnections | Não |  Não |
@@ -298,7 +298,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | virtualNetworks/virtualNetworkPeerings | Não |  Não |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | recursos | Não |  Não |
 | disks | Não |  Não |
@@ -314,18 +314,18 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | vmImages | Não |  Não |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | RateCard | Não |  Não |
 | UsageAggregates | Não |  Não |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | availabilitySets | Sim | Sim |
 | disks | Sim | Sim |
@@ -346,7 +346,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | virtualMachineScaleSets/networkInterfaces | Não |  Não |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | AggregatedCost | Não |  Não |
 | Saldos | Não |  Não |
@@ -364,18 +364,18 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | ReservationRecommendations | Não |  Não |
 | ReservationSummaries | Não |  Não |
 | ReservationTransactions | Não |  Não |
-| tags | Não |  Não |
+| Marcas | Não |  Não |
 | Termos | Não |  Não |
 | UsageDetails | Não |  Não |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | containerGroups | Sim | Sim |
 | serviceAssociationLinks | Não |  Não |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | registries | Sim | Sim |
 | registries/builds | Não |  Não |
@@ -401,24 +401,24 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | registries/webhooks/ping | Não |  Não |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | containerServices | Sim | Sim |
 | managedClusters | Sim | Sim |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | de dimensionamento da Web | Sim | Sim |
 | updateCommunicationPreference | Não |  Não |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | Alertas | Não |  Não |
 | BillingAccounts | Não |  Não |
@@ -426,13 +426,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | Departments | Não |  Não |
 | Dimensões | Não |  Não |
 | EnrollmentAccounts | Não |  Não |
-| Consulta | Não |  Não |
+| Consultar | Não |  Não |
 | register | Não |  Não |
 | Reportconfigs | Não |  Não |
 | Relatórios | Não |  Não |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | hubs | Sim | Sim |
 | hubs/authorizationPolicies | Não |  Não |
@@ -449,33 +449,33 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | hubs/widgetTypes | Não |  Não |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | jobs | Sim | Sim |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | DataBoxEdgeDevices | Sim | Sim |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | workspaces | Sim | Não |
 | workspaces/virtualNetworkPeerings | Não |  Não |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | catalogs | Sim | Sim |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | connectionManagers | Sim | Sim |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | dataFactories | Sim | Não |
 | dataFactories/diagnosticSettings | Não |  Não |
@@ -484,7 +484,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | factories/integrationRuntimes | Não |  Não |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 | accounts/dataLakeStoreAccounts | Não |  Não |
@@ -492,34 +492,34 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | accounts/storageAccounts/containers | Não |  Não |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 | accounts/eventGridFilters | Não |  Não |
 | accounts/firewallRules | Não |  Não |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | services | Sim | Sim |
 | services/projects | Sim | Sim |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | servers | Sim | Sim |
 | servers/recoverableServers | Não |  Não |
 | servers/virtualNetworkRules | Não |  Não |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | servers | Sim | Sim |
 | servers/recoverableServers | Não |  Não |
 | servers/virtualNetworkRules | Não |  Não |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | servers | Sim | Sim |
 | servers/advisors | Não |  Não |
@@ -530,7 +530,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | servers/waitStatistics | Não |  Não |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | IotHubs | Sim | Sim |
 | IotHubs/eventGridFilters | Não |  Não |
@@ -538,12 +538,12 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | usages | Não |  Não |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | controladores | Sim | Sim |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | labs | Sim | Sim |
 | labs/serviceRunners | Sim | Sim |
@@ -551,13 +551,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | schedules | Sim | Sim |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | databaseAccounts | Não |  Não |
 | databaseAccounts | Sim | Sim |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | domains | Sim | Sim |
 | domains/domainOwnershipIdentifiers | Não |  Não |
@@ -566,14 +566,14 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | validateDomainRegistrationInformation | Não |  Não |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | lcsprojects | Não |  Não |
 | lcsprojects/clouddeployments | Não |  Não |
 | lcsprojects/connectors | Não |  Não |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | domains | Sim | Não |
 | domains/topics | Não |  Não |
@@ -583,7 +583,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | topicTypes | Não |  Não |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | clusters | Sim | Não |
 | namespaces | Sim | Não |
@@ -594,13 +594,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | namespaces/eventhubs/consumergroups | Não |  Não |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | recursos | Não |  Não |
 | providers | Não |  Não |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | enroll | Não |  Não |
 | galleryitems | Não |  Não |
@@ -616,29 +616,29 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | retrieveresourcesbyid | Não |  Não |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | guestConfigurationAssignments | Não |  Não |
 | software | Não |  Não |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | hanaInstances | Sim |  Sim |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | clusters | Sim | Sim |
 | clusters/applications | Não |  Não |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | jobs | Sim | Sim |
 
 ## <a name="microsoftinformationprotection"></a>Microsoft.InformationProtection
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | labelGroups | Não |  Não |
 | labelGroups/labels | Não |  Não |
@@ -647,7 +647,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | labelGroups/labels/subLabels/conditions | Não |  Não |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | actiongroups | Sim | Sim |
 | activityLogAlerts | Sim | Sim |
@@ -679,23 +679,23 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | workbooks | Sim | Sim |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Não |  Não |
 | diagnosticSettingsCategories | Não |  Não |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | IoTApps | Sim | Sim |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | Grafo | Sim | Sim |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | deletedVaults | Não |  Não |
 | vaults | Sim | Sim |
@@ -703,7 +703,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | vaults/secrets | Não |  Não |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | clusters | Sim | Sim |
 | clusters/databases | Não |  Não |
@@ -711,41 +711,41 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | clusters/databases/eventhubconnections | Não |  Não |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | labaccounts | Sim | Sim |
 | users | Não |  Não |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | logs | Não |  Não |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | integrationAccounts | Sim | Sim |
 | workflows | Sim | Sim |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | commitmentPlans | Sim | Sim |
 | webServices | Sim | Sim |
 | Workspaces | Sim | Sim |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 | accounts/workspaces | Sim | Sim |
@@ -755,24 +755,24 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | teamAccounts/workspaces/projects | Sim | Sim |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelManagement
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | workspaces | Sim | Sim |
 | workspaces/computes | Não |  Não |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | Identidades | Não |  Não |
 | userAssignedIdentities | Sim | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | getEntities | Não |  Não |
 | managementGroups | Não |  Não |
@@ -781,13 +781,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | tenantBackfillStatus | Não |  Não |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 | accounts/eventGridFilters | Não |  Não |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | offers | Não |  Não |
 | offerTypes | Não |  Não |
@@ -801,19 +801,19 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | products | Não |  Não |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | classicDevServices | Sim | Sim |
 | updateCommunicationPreference | Não |  Não |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | Contratos | Não |  Não |
 | offertypes | Não |  Não |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | mediaservices | Sim | Sim |
 | mediaservices/accountFilters | Não |  Não |
@@ -833,12 +833,12 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | mediaservices/transforms | Não |  Não |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | projects | Sim | Sim |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | applicationGateways | Sim | Não |
 | applicationSecurityGroups | Sim | Sim |
@@ -864,8 +864,8 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | dnszones/TXT | Não |  Não |
 | expressRouteCircuits | Sim  | Não |
 | expressRouteServiceProviders | Não |  Não |
-| frontdoors | Sim | Sim |
-| frontdoorWebApplicationFirewallPolicies | Sim | Sim |
+| frontdoors | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
+| frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
 | getDnsResourceReference | Não |  Não |
 | interfaceEndpoints | Sim | Sim |
 | internalNotify | Não |  Não |
@@ -890,7 +890,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | trafficmanagerprofiles | Sim | Sim |
 | trafficmanagerprofiles/heatMaps | Não |  Não |
 | virtualWans | Sim | Sim |
-| virtualNetworkGateways | Sim | Não |
+| virtualNetworkGateways | Sim | Sim |
 | virtualNetworks | Sim | Sim |
 | virtualNetworks/subnets | Não |  Não |
 | virtualNetworkTaps | Sim | Sim |
@@ -899,14 +899,18 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | vpnSites | Sim | Sim |
 | frontdoorWebApplicationFirewallPolicies | Sim | Sim |
 
+<a id="frontdoor" />
+
+Para o serviço de porta frontal do Azure, você pode aplicar marcas ao criar o recurso, mas a atualização ou adição de marcas não tem suporte no momento.
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | namespaces | Sim | Não |
 | namespaces/notificationHubs | Sim | Não |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | dispositivos | Não |  Não |
 | linkTargets | Não |  Não |
@@ -917,7 +921,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | workspaces/query | Não |  Não |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | managementassociations | Não |  Não |
 | managementconfigurations | Sim | Sim |
@@ -925,7 +929,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | Modos de exibição | Sim | Sim |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | policyEvents | Não |  Não |
 | policyStates | Não |  Não |
@@ -933,35 +937,35 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | remediations | Não |  Não |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | consoles | Não |  Não |
 | dashboards | Sim | Sim |
 | userSettings | Não |  Não |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | workspaceCollections | Sim | Sim |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | capacities | Sim | Sim |
 
 ## <a name="microsoftprojectoxford"></a>Microsoft.ProjectOxford
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | accounts | Sim | Sim |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | backupProtectedItems | Não |  Não |
 | vaults | Sim | Sim |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | namespaces | Sim | Sim |
 | namespaces/authorizationrules | Não |  Não |
@@ -971,13 +975,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | namespaces/wcfrelays/authorizationrules | Não |  Não |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | recursos | Não |  Não |
 | subscriptionsStatus | Não |  Não |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | availabilityStatuses | Não |  Não |
 | childAvailabilityStatuses | Não |  Não |
@@ -987,7 +991,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | Notificações | Não |  Não |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | deployments | Não |  Não |
 | deployments/operations | Não |  Não |
@@ -1006,25 +1010,25 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | tenants | Não |  Não |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | de dimensionamento da Web | Sim | Sim |
 | saasresources | Não |  Não |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | flows | Sim | Sim |
 | jobcollections | Sim | Sim |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | resourceHealthMetadata | Não |  Não |
 | searchServices | Sim | Sim |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | advancedThreatProtectionSettings | Não |  Não |
 | alertas | Não |  Não |
@@ -1059,13 +1063,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | workspaceSettings | Não |  Não |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Não |  Não |
 | diagnosticSettingsCategories | Não |  Não |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | namespaces | Sim | Não |
 | namespaces/authorizationrules | Não |  Não |
@@ -1080,13 +1084,13 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | premiumMessagingRegions | Não |  Não |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | clusters | Sim | Sim |
 | clusters/applications | Não |  Não |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | de dimensionamento da Web | Sim | Sim |
 | gateways | Sim | Sim |
@@ -1095,12 +1099,12 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | volumes | Sim | Sim |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | SignalR | Sim | Sim |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | applianceDefinitions | Sim | Sim |
 | appliances | Sim | Sim |
@@ -1109,7 +1113,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | jitRequests | Sim | Sim |
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | managedInstances | Sim | Sim |
 | managedInstances/databases | Sim (veja a observação a seguir) | Sim |
@@ -1137,14 +1141,14 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | SqlVirtualMachineGroups | Sim | Sim |
 | SqlVirtualMachineGroups/AvailabilityGroupListeners | Não |  Não |
 | SqlVirtualMachines | Sim | Sim |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | storageAccounts | Sim | Sim |
 | storageAccounts/blobServices | Não |  Não |
@@ -1155,7 +1159,7 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | usages | Não |  Não |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | storageSyncServices | Sim | Sim |
 | storageSyncServices/registeredServers | Não |  Não |
@@ -1165,12 +1169,12 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | storageSyncServices/workflows | Não |  Não |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | managers | Sim | Sim |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | streamingjobs | Sim (veja a observação a seguir) | Sim |
 | streamingjobs/diagnosticSettings | Não |  Não |
@@ -1179,25 +1183,25 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 > Você não pode adicionar uma marca quando streamingjobs estiver em execução. Pare o recurso para adicionar uma marca.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | CreateSubscription | Não |  Não |
 | SubscriptionDefinitions | Não |  Não |
 | SubscriptionDefinitions | Não |  Não |
 
 ## <a name="microsoftsupport"></a>microsoft.support
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | supporttickets | Não |  Não |
 
 ## <a name="microsoftterraformoss"></a>Microsoft.TerraformOSS
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | providerRegistrations | Sim | Sim |
 | recursos | Sim | Sim |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | environments | Sim | Não |
 | environments/accessPolicies | Não |  Não |
@@ -1205,14 +1209,14 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | environments/referenceDataSets | Sim | Não |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | conta | Sim | Sim |
 | account/extension | Sim | Sim |
 | account/project | Sim | Sim |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | apiManagementAccounts | Não |  Não |
 | apiManagementAccounts/apis/connections/connectionAcls | Não |  Não |
@@ -1259,18 +1263,18 @@ Para obter os mesmos dados como um arquivo de valores separados por vírgula, ba
 | verifyHostingEnvironmentVnet | Não |  Não |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | diagnosticSettings | Não |  Não |
 | diagnosticSettingsCategories | Não |  Não |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | DeviceServices | Sim | Sim |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
-| Tipo de recurso | Suporte de Tags | Marcar no relatório de custo |
+| Tipo de recurso | Suporte de Tags | Marca no relatório de custo |
 | ------------- | ----------- | ----------- |
 | components | Não |  Não |
 | componentsSummary | Não |  Não |

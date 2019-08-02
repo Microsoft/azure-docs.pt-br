@@ -3,23 +3,26 @@ title: 'Início Rápido: Obter lista de idiomas compatíveis, Node.js – API de
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você obterá uma lista dos idiomas compatíveis com tradução, transliteração e pesquisa em dicionário, além de exemplos que usam a API de Tradução de Texto com Node.js.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 1341307ef3868e5398f8ee6583c8bec9759832f5
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: e31f30373349d4048f9021ab8eee7f39dcf5cd57
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515151"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705519"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-with-nodejs"></a>Início Rápido: Usar a API de Tradução de Texto para obter uma lista dos idiomas com suporte com Node.js
 
 Neste início rápido, você aprenderá a fazer uma solicitação GET que retorna uma lista dos idiomas com suporte usando o Node.js e a API REST de Tradução de Texto.
+
+>[!TIP]
+> Caso queira ver todo o código de uma vez, o código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,6 +66,8 @@ let options = {
     json: true,
 };
 ```
+
+Se estiver usando uma assinatura de vários serviço cognitivos, você também deverá incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre a autenticação com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="make-the-request-and-print-the-response"></a>Fazer a solicitação e imprimir a resposta
 
@@ -183,8 +188,10 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Node.js no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 

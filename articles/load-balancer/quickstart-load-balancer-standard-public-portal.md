@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um Standard Load Balancer usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 79ba86fd32248da240706fda2d8b5fcf8323263d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c8df0daac25a79bbbd67577c30b0a2da62d037da
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143192"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273836"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Início Rápido: Criar um balanceador de carga padrão para VMs usando o Portal do Azure
 
@@ -41,8 +41,8 @@ Nesta seção, você cria um Standard Load Balancer que ajuda a balancear a carg
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Assinatura               | Selecione sua assinatura.    |    
-    | Grupo de recursos         | Selecione **Criar** e digite *myResourceGroupSLB* na caixa de texto.|
+    | Subscription               | Selecione sua assinatura.    |    
+    | Resource group         | Selecione **Criar** e digite *myResourceGroupSLB* na caixa de texto.|
     | NOME                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
@@ -114,9 +114,9 @@ Nesta seção, crie uma rede virtual, crie três máquinas virtuais para o pool 
     | ------- | ----- |
     | NOME | Insira *myVNet*. |
     | Espaço de endereço | Insira *10.1.0.0/16*. |
-    | Assinatura | Selecione sua assinatura.|
-    | Grupo de recursos | Selecione o recurso existente – *myResourceGroupSLB*. |
-    | Local padrão | Selecione **Europa Ocidental**.|
+    | Subscription | Selecione sua assinatura.|
+    | Resource group | Selecione o recurso existente – *myResourceGroupSLB*. |
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede – Nome | Insira *myBackendSubnet*. |
     | Sub-rede – Intervalo de endereços | Insira *10.1.0.0/24*. |
 1. Deixe o restante dos padrões e selecione **Criar**.
@@ -143,7 +143,7 @@ O Standard Load Balancer só dá suporte a VMs com endereços IP Standard no poo
        1. No campo **Configurar grupo de segurança de rede**, selecione **Criar novo**. 
        1. Insira *myNetworkSecurityGroup* e selecione **OK**.
    - Para tornar a VM em uma parte do pool de back-end do Load Balancer, conclua as seguintes etapas:
-        - Em **Balanceamento de Carga**, para **Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?**, selecione **Sim**.
+        - Em **Balanceamento de Carga**, para **Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?** , selecione **Sim**.
         - Em **Configurações de balanceamento de carga**, para **Opções de balanceamento de carga**, selecione **Azure Load Balancer**.
         - Para **Selecionar um balanceador de carga**, escolha *myLoadBalancer*.
         - Selecione a guia **Gerenciamento** ou selecione **Avançar** > **Gerenciamento**.

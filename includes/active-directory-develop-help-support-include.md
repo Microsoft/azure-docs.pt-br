@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 08/06/2018
 ms.author: celested
 ms.openlocfilehash: 2bf0c0c9a7af3ecc3b85d1bd449ac25ee211987c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66120156"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172101"
 ---
 ## <a name="help-and-support"></a>Ajuda e suporte
 

@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Node.js | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing, usando o Node.js
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/15/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 43b46b4dd035efa3117ce23728db42bb11a9ab6c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e95b9aa8f01142065202e029c6298fc4c4cb1294
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790271"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68565742"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o Node.js
 

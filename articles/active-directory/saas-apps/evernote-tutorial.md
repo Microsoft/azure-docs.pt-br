@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4185e9f5e1b411f95afacb80499db048769ea27b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59499913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102966"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Azure Active Directory ao Evernote
 
@@ -53,7 +53,7 @@ Para configurar a integração do Evernote ao Azure AD, você precisará adicion
 
 **Para adicionar o Evernote da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o Evernote, execute as seguintes 
 
     ![image](./media/evernote-tutorial/samlassertion.png)
 
-     a. Selecione a opção **Assinar resposta SAML e declaração** para **Opção de Assinatura**.
+    a. Selecione a opção **Assinar resposta SAML e declaração** para **Opção de Assinatura**.
 
     b. Clique em **Salvar**
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Evernote, execute as seguintes 
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. No **'Console de Administração'**, acesse **'Segurança'** e selecione **'Logon Único'**
+3. No **'Console de Administração'** , acesse **'Segurança'** e selecione **'Logon Único'**
 
     ![SSO-Setting](./media/evernote-tutorial/tutorial_evernote_sso.png)
 
@@ -153,7 +153,7 @@ Para configurar o logon único do Azure AD com o Evernote, execute as seguintes 
 
     ![Certificate-Setting](./media/evernote-tutorial/tutorial_evernote_certx.png)
     
-     a.  **Habilitar SSO:** o SSO está habilitado por padrão (clique em **Desabilitar Logon Único** para remover o requisito de SSO)
+    a.  **Habilitar SSO:** o SSO está habilitado por padrão (clique em **Desabilitar Logon Único** para remover o requisito de SSO)
 
     b. Cole o valor da **URL de Logon** copiado do portal do Azure na caixa de texto **URL de Solicitação HTTP do SAML**.
 
@@ -220,11 +220,11 @@ No caso do Evernote, o provisionamento é uma tarefa manual.
 
 1. Faça logon em seu site de empresa do Evernote como administrador.
 
-2. Clique no **'Console de Administração'**.
+2. Clique no **'Console de Administração'** .
 
     ![Admin-Console](./media/evernote-tutorial/tutorial_evernote_adminconsole.png)
 
-3. No **'Console de Administração'**, acesse **'Adicionar usuários'**.
+3. No **'Console de Administração'** , acesse **'Adicionar usuários'** .
 
     ![Add-testUser](./media/evernote-tutorial/create_aaduser_0001.png)
 
@@ -246,5 +246,5 @@ Ao clicar no bloco do Evernote no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

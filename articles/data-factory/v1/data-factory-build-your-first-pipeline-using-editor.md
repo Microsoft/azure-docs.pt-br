@@ -14,25 +14,27 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 964e6235923402814879fe59a204985b8aaac2b4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2a7e2f9e5018bdad2a1ed2c6edcb727a2ffdcddd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573830"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839123"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Tutorial: Criar seu primeiro data factory usando o portal do Azure
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
-> * [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
+> * [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
 
 > [!NOTE]
 > Este artigo se aplica à versão 1 do Azure Data Factory, que geralmente está disponível. Caso esteja usando a versão atual do serviço Data Factory, confira [Início Rápido: Criar um data factory usando o Data Factory](../quickstart-create-data-factory-dot-net.md).
+
+> [!WARNING]
+> O editor de JSON no portal do Azure para criação e implantação de pipelines do ADF v1 será DESATIVADO em 31 de julho de 2019. Após o dia 31 de julho de 2019, você poderá continuar usando [cmdlets do PowerShell para o ADF v1](https://docs.microsoft.com/powershell/module/az.datafactory/?view=azps-2.4.0&viewFallbackFrom=azps-2.3.2), o [SDK do .NET para o ADF v1](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactories.models?view=azure-dotnet) e as [APIs REST do ADF v1](https://docs.microsoft.com/rest/api/datafactory/) para criar e implantar seus pipelines do ADF v1.
 
 Neste artigo, você aprende a usar o [portal do Azure](https://portal.azure.com/) para criar seu primeiro data factory. Para fazer o tutorial usando outras ferramentas/SDKs, escolha uma das opções da lista suspensa. 
 
@@ -156,7 +158,7 @@ Nesta etapa, você vincula um cluster do HDInsight sob demanda ao seu data facto
 
     Observe os seguintes pontos:
 
-      a. O data factory cria um cluster do HDInsight baseado no Linux para você com as propriedades do JSON. Para obter mais informações, confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
+     a. O data factory cria um cluster do HDInsight baseado no Linux para você com as propriedades do JSON. Para obter mais informações, confira [Serviço vinculado do HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
      b. Você usa seu próprio cluster do HDInsight em vez de usar um cluster do HDInsight sob demanda. Para obter mais informações, confira [Serviço vinculado do HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service).
 
@@ -212,12 +214,12 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
    | Propriedade | Aninhado em | DESCRIÇÃO |
    |:--- |:--- |:--- |
    | type | properties |A propriedade type é definida como **AzureBlob** porque os dados residem no armazenamento de blobs. |
-   | linkedServiceName | formato |Refere-se ao AzureStorageLinkedService que você criou anteriormente. |
+   | linkedServiceName | format |Refere-se ao AzureStorageLinkedService que você criou anteriormente. |
    | folderPath | typeProperties | Especifica o contêiner de blobs e a pasta que contém blobs de entrada. | 
    | fileName | typeProperties |Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Neste tutorial, somente o arquivo input.log é processado. |
-   | type | formato |Os arquivos de log estão em formato de texto. Utilize **TextFormat**. |
-   | columnDelimiter | formato |As colunas nos arquivos de log são delimitadas pelo caractere de vírgula (`,`). |
-   | frequency/interval | disponibilidade |A frequência é definida como **Mês** e o intervalo como **1**, o que significa que as fatias de entrada estão disponíveis mensalmente. |
+   | type | format |Os arquivos de log estão em formato de texto. Utilize **TextFormat**. |
+   | columnDelimiter | format |As colunas nos arquivos de log são delimitadas pelo caractere de vírgula (`,`). |
+   | frequency/interval | availability |A frequência é definida como **Mês** e o intervalo como **1**, o que significa que as fatias de entrada estão disponíveis mensalmente. |
    | external | properties | Essa propriedade será definida como **true** se os dados de entrada não forem gerados por esse pipeline. Neste tutorial, o arquivo input.log não é gerado por esse pipeline, portanto, definimos a propriedade como **true**. |
 
     Para saber mais informações sobre essas propriedades JSON, confira [Conector do Blob do Azure](data-factory-azure-blob-connector.md#dataset-properties).
@@ -334,7 +336,7 @@ Nesta etapa, você cria seu primeiro pipeline com a atividade de Hive do HDInsig
    >
 1. Confirme o seguinte:
 
-    a. O arquivo **input.log** existe na pasta **inputdata** do contêiner **adfgetstarted** no armazenamento de blobs.
+   a. O arquivo **input.log** existe na pasta **inputdata** do contêiner **adfgetstarted** no armazenamento de blobs.
 
    b. O arquivo **partitionweblogs.hql** existe na pasta **script** do contêiner **adfgetstarted** no armazenamento de blobs. Se não encontrar esses arquivos, siga as etapas na seção "Pré-requisitos" [Visão geral do Tutorial](data-factory-build-your-first-pipeline.md).
 

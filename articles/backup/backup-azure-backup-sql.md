@@ -1,19 +1,18 @@
 ---
 title: Backup do Azure para cargas de trabalho do SQL Server usando o DPM
 description: Uma introdução ao backup de bancos de dados do SQL Server usando o serviço do Backup do Azure
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60afba5d094d730aab20f2a7d50206c063f390ff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60643829"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466637"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Fazer backup do SQL Server no Azure como uma carga de trabalho do DPM
 Este artigo guia você pelas etapas de configuração para o backup de bancos de dados do SQL Server usando o Backup do Azure.
@@ -26,14 +25,14 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 2. Criar cópias de backup sob demanda no Azure.
 3. Recuperar o banco de dados do Azure.
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 Antes de começar, verifique se todos os [pré-requisitos](backup-azure-dpm-introduction.md#prerequisites-and-limitations) para usar o Backup do Microsoft Azure para proteger as cargas de trabalho foram atendidos. Os pré-requisitos abrangem tarefas como criar um cofre de backup, baixar as credenciais do cofre, instalar o Agente de Backup do Azure e registrar o servidor no cofre.
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Criar política de backup para proteger bancos de dados SQL Server no Azure
 1. No servidor DPM, clique no workspace **Proteção**.
 2. Na faixa de opções da ferramenta, clique em **Novo** para criar um novo grupo de proteção.
 
-    ![Criar grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
+    ![Criar Grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
 3. O DPM mostra a tela inicial com a orientação sobre como criar um **Grupo de Proteção**. Clique em **Avançar**.
 4. Selecione **Servidores**.
 

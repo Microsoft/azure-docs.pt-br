@@ -9,7 +9,7 @@ metadata:
   ms.author: jasonh
   ms.service: data-catalog
   ms.topic: landing-page
-  ms.date: 04/05/2019
+  ms.date: 07/01/2019
 abstract:
   description: 'Saiba como usar o Catálogo de Dados para ajudar a sua organização e a sua equipe a descobrir, a entender e a consumir suas fontes de dados. Os tutoriais, a referência da API REST e outra documentação mostram como planejar e configurar seu repositório de dados em que os consumidores de dados podem descobrir fontes de dados disponíveis e obter conhecimento enviado por especialistas no assunto.'
 sections:
@@ -40,5 +40,3 @@ sections:
         items:
           - title: REST
             html: <p><a href="/rest/api/datacatalog/">referência da API REST (a página pode estar em inglês)</a></p><p><a href="/rest/api/datacatalog/data-catalog-search-syntax-reference">Referência de sintaxe de pesquisa</a></p>
-          - title: Gerenciador de Recursos
-            html: <p><a href="/azure/templates/microsoft.datacatalog/catalogs">Modelos do Gerenciador de Recursos</a></p>

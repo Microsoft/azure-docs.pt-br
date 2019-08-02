@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff0cb82e3f1ddedf8dabebadf7a0309d08b2c4e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fff2469269d8f60f837f0af444e16928a9212bb0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138993"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67866576"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure
 
@@ -90,29 +90,29 @@ Nesta etapa, implante o projeto em dois aplicativos do Serviço de Aplicativo. U
 
 ### <a name="create-azure-resources"></a>Criar recursos do Azure
 
-No Cloud Shell, execute os comandos a seguir para criar dois aplicativos Web. Substitua _&lt;front\_end\_app\_name>_ e  _&lt;back\_end\_app\_name>_ por dois nomes de aplicativo exclusivos (os caracteres válidos são `a-z`, `0-9` e `-`). Para saber mais sobre cada comando, confira [API RESTful com CORS no Serviço de Aplicativo do Azure](app-service-web-tutorial-rest-api.md).
+No Cloud Shell, execute os comandos a seguir para criar dois aplicativos Web. Substitua _\<nome-do-aplicativo-front-end>_ e _\<nome-do-aplicativo-de-back-end>_ por dois nomes de aplicativo globais exclusivos (os caracteres válidos são `a-z`, `0-9` e `-`). Para saber mais sobre cada comando, confira [API RESTful com CORS no Serviço de Aplicativo do Azure](app-service-web-tutorial-rest-api.md).
 
 ```azurecli-interactive
 az group create --name myAuthResourceGroup --location "West Europe"
 az appservice plan create --name myAuthAppServicePlan --resource-group myAuthResourceGroup --sku FREE
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front_end_app_name> --deployment-local-git --query deploymentLocalGitUrl
-az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back_end_app_name> --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <front-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
+az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePlan --name <back-end-app-name> --deployment-local-git --query deploymentLocalGitUrl
 ```
 
 > [!NOTE]
-> Salve as URLs dos remotos do Git para os aplicativos de front-end e back-end que são mostradas na saída de `az webapp create`.
+> Salve as URLs dos repositórios remotos Git para os aplicativos front-end e de back-end que são mostradas na saída de `az webapp create`.
 >
 
 ### <a name="push-to-azure-from-git"></a>Enviar do Git para o Azure
 
-Voltando à _janela do terminal local_, execute os comandos do Git a seguir para implantar o aplicativo de back-end. Substitua _&lt;deploymentLocalGitUrl-of-back-end-app>_ pela URL do Git remoto que você salvou de [Criar recursos do Azure](#create-azure-resources). Quando solicitado a fornecer credenciais pelo Gerenciador de Credenciais do Git, insira [suas credenciais de implantação](deploy-configure-credentials.md), não as credenciais usadas para fazer logon no portal do Azure.
+Voltando à _janela do terminal local_, execute os comandos do Git a seguir para implantar o aplicativo de back-end. Substitua _\<deploymentLocalGitUrl-of-back-end-app>_ pela URL do Git remoto que você salvou de [Criar recursos do Azure](#create-azure-resources). Quando precisar fornecer credenciais pelo Gerenciador de Credenciais do Git, insira [suas credenciais de implantação](deploy-configure-credentials.md), não as credenciais usadas para entrar no portal do Azure.
 
 ```bash
 git remote add backend <deploymentLocalGitUrl-of-back-end-app>
 git push backend master
 ```
 
-Na janela do terminal local, execute os comandos do Git a seguir para implantar o mesmo código no aplicativo front-end. Substitua _&lt;deploymentLocalGitUrl-of-front-end-app>_ pela URL do Git remoto que você salvou de [Criar recursos do Azure](#create-azure-resources).
+Na janela do terminal local, execute os comandos do Git a seguir para implantar o mesmo código no aplicativo front-end. Substitua _\<deploymentLocalGitUrl-of-front-end-app>_ pela URL do Git remoto que você salvou de [Criar recursos do Azure](#create-azure-resources).
 
 ```bash
 git remote add frontend <deploymentLocalGitUrl-of-front-end-app>
@@ -124,8 +124,8 @@ git push frontend master
 Navegue até as URLs a seguir em um navegador e veja os dois aplicativos funcionando.
 
 ```
-http://<back_end_app_name>.azurewebsites.net
-http://<front_end_app_name>.azurewebsites.net
+http://<back-end-app-name>.azurewebsites.net
+http://<front-end-app-name>.azurewebsites.net
 ```
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/azure-run.png)
@@ -141,11 +141,11 @@ Nesta etapa, aponte o código do servidor de front-end do aplicativo para acessa
 
 ### <a name="modify-front-end-code"></a>Modificar o código de front-end
 
-No repositório local, abra _Controllers/TodoController.cs_. No início da classe `TodoController`, adicione as seguintes linhas e substitua  _&lt;back\_end\_app\_name>_ pelo nome do seu aplicativo de back-end:
+No repositório local, abra _Controllers/TodoController.cs_. No início da classe `TodoController`, adicione as seguintes linhas e substitua _\<nome-do-aplicativo-de-back-end>_ pelo nome do aplicativo de back-end:
 
 ```cs
 private static readonly HttpClient _client = new HttpClient();
-private static readonly string _remoteUrl = "https://<back_end_app_name>.azurewebsites.net";
+private static readonly string _remoteUrl = "https://<back-end-app-name>.azurewebsites.net";
 ```
 
 Localize o método `GetAll()` e substitua o código entre chaves por:
@@ -204,9 +204,9 @@ git push frontend master
 
 ### <a name="check-your-changes"></a>Verificar as alterações
 
-Navegue até `http://<front_end_app_name>.azurewebsites.net` e adicione alguns itens, como `from front end 1` e `from front end 2`.
+Navegue até `http://<front-end-app-name>.azurewebsites.net` e adicione alguns itens, como `from front end 1` e `from front end 2`.
 
-Navegue até `http://<back_end_app_name>.azurewebsites.net` para ver os itens adicionados do aplicativo de front-end. Além disso, adicione alguns itens, como `from back end 1` e `from back end 2` e atualize o aplicativo de front-end para ver se ele reflete as alterações.
+Navegue até `http://<back-end-app-name>.azurewebsites.net` para ver os itens adicionados do aplicativo de front-end. Além disso, adicione alguns itens, como `from back end 1` e `from back end 2` e atualize o aplicativo de front-end para ver se ele reflete as alterações.
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/remote-api-call-run.png)
 
@@ -218,7 +218,7 @@ Use o Azure Active Directory como o provedor de identidade. Para saber mais, con
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitar autenticação e autorização para o aplicativo de back-end
 
-No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
+No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** >  _\<mome-do-aplicativo-de-back-end>_ .
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -234,7 +234,7 @@ Clique em **Expresso**, aceite as configurações padrão para criar um novo apl
 
 Na página **Autenticação/Autorização**, clique em **Salvar**. 
 
-Quando você vir a notificação com a mensagem `Successfully saved the Auth Settings for <back_end_app_name> App`, atualize a página.
+Quando você vir a notificação com a mensagem `Successfully saved the Auth Settings for <back-end-app-name> App`, atualize a página.
 
 Clique em **Azure Active Directory** novamente e clique em **Gerenciar Aplicativo**.
 
@@ -246,7 +246,7 @@ Na página de gerenciamento do aplicativo AD, copie a **ID do aplicativo** em um
 
 Siga as mesmas etapas para o aplicativo de front-end, mas ignore a última etapa. Não é necessário ter a **ID do aplicativo** para o aplicativo de front-end. Mantenha a página **Configurações do Azure Active Directory** aberta.
 
-Se desejar, navegue até `http://<front_end_app_name>.azurewebsites.net`. Ele agora deve direcioná-lo a uma página de entrada segura. Depois de entrar, você ainda não conseguirá acessar os dados do aplicativo de back-end porque precisa fazer três coisas:
+Se desejar, navegue até `http://<front-end-app-name>.azurewebsites.net`. Ele agora deve direcioná-lo a uma página de entrada segura. Depois de entrar, você ainda não conseguirá acessar os dados do aplicativo de back-end porque precisa fazer três coisas:
 
 - Conceder ao front-end acesso ao back-end
 - Configurar o Serviço de Aplicativo para retornar um token utilizável
@@ -267,7 +267,7 @@ Clique em **Gerenciar Permissões** > **Adicionar** > **Selecionar uma API**.
 
 Na página **Selecionar uma API**, digite o nome do aplicativo AD do seu aplicativo de back-end, que é o mesmo do aplicativo de back-end por padrão. Selecione-o na lista e clique em **Selecionar**.
 
-Marque a caixa de seleção ao lado **Acessar  _&lt;nome\_aplicativo\_AD>_**. Clique em **Selecionar** > **Concluído**.
+Marque a caixa de seleção ao lado **Acessar _\<nome-do-aplicativo-do-AD>_** . Clique em **Selecionar** > **Concluído**.
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
@@ -279,7 +279,7 @@ Entre no [Azure Resource Explorer](https://resources.azure.com). Na parte superi
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/app-service-web-tutorial-auth-aad/resources-enable-write.png)
 
-No navegador à esquerda, clique em **assinaturas** > **_&lt;sua\_assinatura >_**   >  **resourceGroups** > **myAuthResourceGroup** > **provedores** > **Microsoft.Web**  >  **sites** > **_\<nome\_aplicativo\_front\_end>_**   >  **config** > **authsettings**.
+No navegador à esquerda, clique em **assinaturas** >  **_\<sua-assinatura>_**  > **resourceGroups** > **myAuthResourceGroup** > **providers** > **Microsoft.Web** > **sites** >  **_\<nome-do-aplicativo-front-end>_**  > **config** > **authsettings**.
 
 No modo de exibição **authsettings**, clique em **Editar**. Defina `additionalLoginParams` para a cadeia de caracteres JSON a seguir usando a ID do aplicativo copiada. 
 
@@ -327,7 +327,7 @@ git commit -m "add authorization header for server code"
 git push frontend master
 ```
 
-Entre em `https://<front_end_app_name>.azurewebsites.net` novamente. Na página do contrato de uso do dados do usuário, clique em **Aceitar**.
+Entre em `https://<front-end-app-name>.azurewebsites.net` novamente. Na página do contrato de uso do dados do usuário, clique em **Aceitar**.
 
 Agora você deve ser capaz de criar, ler, atualizar e excluir dados do aplicativo back-end como fazia antes. A única diferença é que ambos os aplicativos agora são protegidos pelo recurso de autenticação e autorização, do Serviço de Aplicativo, incluindo as chamadas entre serviços.
 
@@ -345,10 +345,10 @@ Embora o código do servidor tenha acesso a cabeçalhos de solicitação, o cód
 
 ### <a name="configure-cors"></a>Configurar o CORS
 
-No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua os espaços reservados  _\<back\_end\_app\_name>_ e _\<front\_end\_app\_name>_.
+No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua os espaços reservados _\<nome-do-aplicativo-de-back-end>_ e _\<nome-do-aplicativo-front-end>_ .
 
 ```azurecli-interactive
-az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back_end_app_name> --set properties.cors.allowedOrigins="['https://<front_end_app_name>.azurewebsites.net']" --api-version 2015-06-01
+az resource update --name web --resource-group myAuthResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<back-end-app-name> --set properties.cors.allowedOrigins="['https://<front-end-app-name>.azurewebsites.net']" --api-version 2015-06-01
 ```
 
 Essa etapa não está relacionada ao recurso de autenticação e autorização. No entanto, você precisa dela para que seu navegador permita chamadas à API do seu aplicativo Angular.js entre domínios. Para saber mais, confira [Adicionar funcionalidade CORS](app-service-web-tutorial-rest-api.md#add-cors-functionality).
@@ -357,7 +357,7 @@ Essa etapa não está relacionada ao recurso de autenticação e autorização. 
 
 No repositório local, abra _wwwroot/index.html_.
 
-Na linha 51, defina a variável `apiEndpoint` como a URL do aplicativo de back-end (`https://<back_end_app_name>.azurewebsites.net`). Substitua _\<back\_end\_app\_name>_ pelo nome do seu aplicativo no Serviço de Aplicativo.
+Na linha 51, defina a variável `apiEndpoint` como a URL do aplicativo de back-end (`https://<back-end-app-name>.azurewebsites.net`). Substitua _\<nome-do-aplicativo-de-back-end>_ pelo nome de seu aplicativo no Serviço de Aplicativo.
 
 No repositório local, abra _wwwroot/app/scripts/todoListSvc.js_ e veja se `apiEndpoint` foi acrescentado a todas as chamadas à API. Seu aplicativo Angular.js agora está chamando as APIs de back-end. 
 
@@ -411,7 +411,7 @@ git commit -m "add authorization header for Angular"
 git push frontend master
 ```
 
-Navegue até `https://<front_end_app_name>.azurewebsites.net` novamente. Agora você deve poder criar, ler, atualizar e excluir dados do aplicativo de back-end diretamente no aplicativo Angular.js.
+Navegue até `https://<front-end-app-name>.azurewebsites.net` novamente. Agora você deve poder criar, ler, atualizar e excluir dados do aplicativo de back-end diretamente no aplicativo Angular.js.
 
 Parabéns! O código do cliente agora está acessando os dados de back-end em nome do usuário autenticado.
 

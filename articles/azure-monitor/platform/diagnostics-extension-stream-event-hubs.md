@@ -10,10 +10,10 @@ ms.date: 07/13/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: c5fc2199de8623dd3a9f2bc5faf23c7c40d67d75
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "64922820"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no afunilamento usando os Hubs de Eventos
@@ -22,7 +22,7 @@ O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e 
 Entre os tipos de dados com suporte estão:
 
 * Eventos de ETW (Rastreamento de Eventos para Windows)
-* contadores de desempenho
+* Contadores de desempenho
 * Logs de eventos do Windows
 * Logs de aplicativo
 * Logs de infraestrutura do Diagnóstico do Azure

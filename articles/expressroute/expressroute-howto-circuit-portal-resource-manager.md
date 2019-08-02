@@ -6,14 +6,15 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 16f3ad1aa037dca2e7b8c3e68ae952c27b952711
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 25821f60f47b1279e70cba2574901cd5df3d327f
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366422"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846595"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>Criar e modificar um circuito do ExpressRoute
 
@@ -21,6 +22,7 @@ ms.locfileid: "60366422"
 > * [Portal do Azure](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [CLI do Azure](howto-circuit-cli.md)
+> * [Modelo do Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
 > * [Vídeo – Portal do Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-circuit-classic.md)
 >
@@ -56,7 +58,7 @@ Em um navegador, acesse o [Portal do Azure](https://portal.azure.com) e entre co
    * **medição de dados** determina o tipo de cobrança. Você pode especificar **Limitado** para um plano de dados limitado e **Ilimitado** para um plano de dados ilimitado. Observe que você pode alterar o tipo de cobrança de **Limitada** para **Ilimitada**.
 
      > [!IMPORTANT]
-     > Você não pode alterar o tipo de **Unlimited** à **limitado**.
+     > Não é possível alterar o tipo de **ilimitado** para **limitado**.
 
    * **Local de Emparelhamento** é o local físico em que você está realizando o emparelhamento com a Microsoft.
 
@@ -121,7 +123,7 @@ Você pode exibir o status de um circuito selecionando-o e mostrando a página V
 
 ## <a name="modify"></a>Modificar um circuito do ExpressRoute
 
-Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade. É possível modificar a largura de banda, o SKU, o modelo de cobrança e permitir operações clássicas na página **Configurações**. Para saber mais sobre os limites e as limitações, consulte as [Perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md). 
+Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade. É possível modificar a largura de banda, o SKU, o modelo de cobrança e permitir operações clássicas na página **Configurações**. Para saber mais sobre os limites e as limitações, consulte as [Perguntas frequentes sobre o ExpressRoute](expressroute-faqs.md).
 
 É possível executar as seguintes tarefas sem tempo de inatividade:
 
@@ -139,9 +141,9 @@ Você pode modificar certas propriedades de um circuito do ExpressRoute sem afet
 * Você pode habilitar e desabilitar *Permitir Operações Clássicas*.
   > [!IMPORTANT]
   > Talvez seja necessário recriar o circuito de ExpressRoute se não houver capacidade adequada na porta existente. Você não pode atualizar o circuito não se houver capacidade adicional disponível nesse local.
-  > 
+  >
   > Embora seja possível atualizar a largura de banda sem problemas, não é possível reduzir a largura de banda de um circuito ExpressRoute sem interrupção. O downgrade da largura de banda exige o desprovisionamento do circuito do ExpressRoute e um reprovisionamento de um novo circuito do ExpressRoute.
-  > 
+  >
   > Poderá ocorrer uma falha ao desabilitar a operação do complemento Premium se você estiver usando recursos que ultrapassam o que é permitido para o circuito standard.
 
 Para modificar um circuito do ExpressRoute, clique em **Configuração**.

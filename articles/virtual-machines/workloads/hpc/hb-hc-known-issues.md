@@ -4,7 +4,7 @@ description: Saiba mais sobre problemas conhecidos com tamanhos VM da série HB 
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: ff65f3937069be87e922dad9287ba22380632329
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d4b57fb2fee3849e102868c86fe3cab465fc70d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66810031"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707789"
 ---
 # <a name="known-issues-with-hb-series-and-hc-series-vms"></a>Problemas comuns com VMs série HB e série HC
 
@@ -31,13 +31,13 @@ As VMs da série HB podem expor somente 228 GB de RAM para máquinas virtuais co
 
 Rede acelerada do Azure não está habilitada no momento, mas será como nós progredimos com o período de visualização. Vamos notificar os clientes quando esse recurso tem suporte.
 
+## <a name="qp0-access-restriction"></a>Restrição de acesso qp0
+
+Para impedir o acesso de hardware de baixo nível que pode resultar em vulnerabilidades de segurança, o par de fila 0 não está acessível para as VMs convidadas. Isso só deve afetar ações normalmente associados com a administração da NIC ConnectX-5 e executar alguns diagnósticos InfiniBand como ibdiagnet, mas não os aplicativos do usuário final em si.
+
 ## <a name="ud-transport"></a>Transporte UD
 
-No lançamento, HB série não suporta dinamicamente conectado transporte (DCT). Suporte para DCT será implementado ao longo do tempo. Há suporte para transportes de Conexão (RC) e não confiáveis datagrama (UD) confiáveis.
-
-## <a name="azure-batch"></a>Lote do Azure
-
-Enquanto as VMs da série HB estão em visualização, use uma conta do lote no modo de assinatura de usuário não está no modo de serviço.
+No lançamento, as séries de HB e de HC não dão suporte a dinamicamente conectado transporte (DCT). Suporte para DCT será implementado ao longo do tempo. Há suporte para transportes de Conexão (RC) e não confiáveis datagrama (UD) confiáveis.
 
 ## <a name="gss-proxy"></a>Proxy GSS
 

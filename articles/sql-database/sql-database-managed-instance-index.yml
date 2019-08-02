@@ -105,7 +105,7 @@ sections:
             values:
               - href: /azure/sql-database/sql-database-managed-instance-get-started
               - href: 'https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44'
-              - href: sql-database-managed-instance-get-started
+              - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
           - title: Modificar a Instância
             values:
@@ -141,7 +141,7 @@ sections:
             values:
               - href: null
               - href: null
-              - href: 'https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa'
+              - href: /azure/sql-database/scripts/sql-managed-instance-restore-geo-backup
               - href: null
           - title: Ponto de extremidade do IP público conjunto
             values:

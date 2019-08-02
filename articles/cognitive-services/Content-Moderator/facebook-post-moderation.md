@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Moderar conteúdo do Facebook – Content Moderator'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você aprenderá a usar o Content Moderator baseado em aprendizado de máquina para ajudar a moderar postagens e comentários do Facebook.
 services: cognitive-services
 author: PatrickFarley
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233822"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564939"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderar comandos e postagens do Facebook com o Content Moderator do Azure
 
@@ -48,11 +48,11 @@ Veja o início rápido [Familiarize-se com o Content Moderator](quick-start.md) 
 
 ## <a name="configure-image-moderation-workflow"></a>Configurar o fluxo de trabalho de moderação de imagem
 
-Veja o guia [Definir, testar e usar fluxos de trabalho](review-tool-user-guide/workflows.md) para criar um fluxo de trabalho de imagem personalizado. Isso permitirá que o Content Moderator verifique automaticamente imagens no Facebook e envie algumas para a ferramenta de Análise. Tome nota do **nome** do fluxo de trabalho.
+Veja o guia [Definir, testar e usar fluxos de trabalho](review-tool-user-guide/workflows.md) para criar um fluxo de trabalho de imagem personalizado. O Content Moderator usará esse fluxo de trabalho para verificar automaticamente imagens no Facebook e enviar algumas para a ferramenta de Análise. Tome nota do **nome** do fluxo de trabalho.
 
 ## <a name="configure-text-moderation-workflow"></a>Configurar o fluxo de trabalho de moderação de texto
 
-Mais uma vez, veja o guia [Definir, testar e usar fluxos de trabalho](review-tool-user-guide/workflows.md), agora para criar um fluxo de trabalho de texto personalizado. Isso permitirá que o Content Moderator verifique automaticamente o conteúdo de texto. Tome nota do **nome** do fluxo de trabalho.
+Mais uma vez, veja o guia [Definir, testar e usar fluxos de trabalho](review-tool-user-guide/workflows.md); desta vez, crie um fluxo de trabalho de texto personalizado. O Content Moderator usará esse fluxo de trabalho para verificar automaticamente o conteúdo do texto. Tome nota do **nome** do fluxo de trabalho.
 
 ![Configurar Fluxo de trabalho de Texto](images/text-workflow-configure.PNG)
 
@@ -77,7 +77,7 @@ Entre no [portal do Azure](https://portal.azure.com/) e siga estas etapas:
     | cm:TextWorkflow | Nome do fluxo de trabalho para executar em Texto |
     | cm:CallbackEndpoint | URL do aplicativo de funções CMListener que você criará mais adiante neste guia |
     | fb:VerificationToken | Um token secreto que você criará, usado para assinar os eventos do feed do Facebook |
-    | fb:PageAccessToken | O token de acesso de grafo do Facebook não expira e permite a função Ocultar/Excluir as postagens em seu nome. Você obterá isso em uma etapa posterior. |
+    | fb:PageAccessToken | O token de acesso de grafo do Facebook não expira e permite a função Ocultar/Excluir as postagens em seu nome. Você obterá esse token em uma etapa posterior. |
 
     Clique no botão **Salvar** na parte superior da página.
 

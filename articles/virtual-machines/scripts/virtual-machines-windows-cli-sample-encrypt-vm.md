@@ -4,7 +4,7 @@ description: Amostra de script da CLI do Azure – Criptografar uma VM Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: bfa6eb8264bf64ad63542640b71d5abe13c7bfb5
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 4b6cf773069582e8164a86b37bdb669b71e2f2da
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732593"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703274"
 ---
 # <a name="encrypt-a-windows-virtual-machine-in-azure"></a>Criptografar uma máquina virtual do Windows no Azure
 

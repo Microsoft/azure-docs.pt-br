@@ -1,6 +1,6 @@
 ---
-title: Entidades de URL predefinidas
-titleSuffix: Azure
+title: Entidades predefinidas de URL-LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida URL de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: d59020eb45f7dcced5ea8da04b3b908def34fb70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4b2db4accb638e6e4147a19d94d0a323cfe7c81
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072236"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560112"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>Entidade de URL predefinida para um aplicativo LUIS
 A entidade de URL extrai URLs com nomes de domínio ou endereços IP. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo URLs ao aplicativo. A entidade de URL é compatível somente com a cultura `en-us`. 
@@ -54,9 +54,9 @@ O exemplo a seguir mostra a resolução da entidade **builtin.url**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de visualização 3. x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O JSON a seguir é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -78,7 +78,7 @@ O JSON a seguir é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O JSON a seguir é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

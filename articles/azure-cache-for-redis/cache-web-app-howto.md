@@ -15,28 +15,21 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864813"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326492"
 ---
-# <a name="quickstart-create-an-aspnet-web-app"></a>Início Rápido: Criar um aplicativo Web ASP .NET 
+# <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Início Rápido: Use o Cache do Azure para Redis com um aplicativo Web ASP.NET 
 
-## <a name="introduction"></a>Introdução
-
-Este início rápido mostra como criar e implantar um aplicativo Web ASP.NET no Serviço de Aplicativo do Azure usando o Visual Studio 2019. O aplicativo de exemplo se conecta ao Cache do Azure para Redis para armazenar e recuperar dados do cache. Depois de concluir o início rápido, você terá um aplicativo Web em execução, hospedado no Azure, que lê e grava no Cache do Azure para Redis.
-
-![Teste simples concluído no Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Neste guia de início rápido, você usa o Visual Studio 2019 para criar um aplicativo Web ASP.NET que se conecta ao Cache do Azure para Redis para armazenar e recuperar dados de cache. Depois, você implantará o aplicativo no Serviço de Aplicativo do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir o início rápido, é preciso instalar o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com os seguintes ambientes:
-* Desenvolvimento Web e ASP.NET
-* Desenvolvimento do Azure
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as cargas de trabalho de **desenvolvimento do ASP.NET e para a Web** e **desenvolvimento do Azure**.
 
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 

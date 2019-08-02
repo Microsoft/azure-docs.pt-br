@@ -8,12 +8,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 05/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51f84234ac35be5f60d1aaa5dac661ad9ce5e0c2
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: da31b6a880344de918a3b3e0f89f60d985db2ce7
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66257893"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406029"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o fluxo estruturado do Apache Spark com o Apache Kafka no HDInsight
 
@@ -44,7 +44,7 @@ Quando você terminar as etapas neste documento, lembre-se de excluir os cluster
 > 
 > Para sua conveniência, este documento direciona para um modelo que pode criar todos os recursos necessários do Azure. 
 >
-> Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira o documento [Estender o HDInsight usando uma rede virtual](hdinsight-extend-hadoop-virtual-network.md).
+> Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira o documento [Planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="structured-streaming-with-apache-kafka"></a>Fluxo estruturado com Apache Kafka
 

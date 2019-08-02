@@ -4,7 +4,7 @@ description: Bi-direcional Console Serial para máquinas virtuais do Azure e con
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a561d29f462d44eb6bc440bb6110430cc5c51688
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f3fa646fcca99d5762f480b3fd12c5e249eabaf8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735254"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710576"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console Serial do Azure para Linux
 
-O Console Serial no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux (VMs) e instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial COM1 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
+O Console Serial no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Linux (VMs) e instâncias de conjunto de dimensionamento de máquinas virtuais. Essa conexão serial conecta-se à porta serial ttys0 da VM ou instância do conjunto de dimensionamento de máquina virtual, fornecendo acesso a ele, independentemente do estado do sistema operacional ou rede. O console serial só pode ser acessado por meio do portal do Azure e é permitido apenas para os usuários que tenham uma função de acesso de Colaborador ou superior para o conjunto de dimensionamento VM ou máquina virtual.
 
 Console Serial funciona da mesma maneira para VMs e instâncias de conjunto de dimensionamento de máquinas virtuais. Neste documento, todos os menções em VMs implicitamente inclui instâncias de conjunto de dimensionamento de máquina virtual, a menos que indicado de outra forma.
 

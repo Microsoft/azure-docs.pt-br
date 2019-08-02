@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a03bb2626525bf022b109105a7c6bc0dee23aea
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 148c2c46a911088d01ab83fe2d16e8ca81d272ff
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407042"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lockpath-keylight"></a>Tutorial: Integração do Azure Active Directory ao LockPath Keylight
 
@@ -55,7 +55,7 @@ Para configurar a integração do LockPath Keylight ao Azure AD, é necessário 
 
 **Para adicionar o LockPath Keylight por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o LockPath Keylight, execute as s
 
     ![Informações de logon único de Domínio e URLs do LockPath Keylight](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.keylightgrc.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.keylightgrc.com/`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<company name>.keylightgrc.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<company name>.keylightgrc.com`
 
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<company name>.keylightgrc.com/Login.aspx`
 
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o LockPath Keylight, execute as s
 
 1. Para habilitar o SSO no LockPath Keylight, realize as seguintes etapas:
 
-     a. Faça logon em sua conta do LockPath Keylight como administrador.
+    a. Faça logon em sua conta do LockPath Keylight como administrador.
 
     b. No menu na parte superior, clique em **Pessoa** e escolha **Instalação do Keylight**.
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o LockPath Keylight, execute as s
 
     ![Configurar o logon único](./media/keylight-tutorial/405.png)
 
-     a. Defina **Autenticação SAML** como **Ativa**.
+    a. Defina **Autenticação SAML** como **Ativa**.
 
     b. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -172,11 +172,11 @@ Para configurar o logon único do Azure AD com o LockPath Keylight, execute as s
 
     j. Defina **Provisionar configuração de segurança automaticamente** e selecione **Configuração de Usuário Padrão**.
 
-    k. Na caixa de texto **Atributo de email**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    k. Na caixa de texto **Atributo de email**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    l. Na caixa de texto **Atributo de nome**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    l. Na caixa de texto **Atributo de nome**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    m. Na caixa de texto **Atributo de sobrenome**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    m. Na caixa de texto **Atributo de sobrenome**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
     n. Clique em **Save** (Salvar).
 
@@ -246,4 +246,4 @@ Ao clicar no bloco do LockPath Keylight no Painel de Acesso, você deverá ser c
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

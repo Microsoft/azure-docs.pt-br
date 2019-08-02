@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66141001"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172610"
 ---
 O exemplo anterior mostrou um logon padrão, que requer que o cliente contate o provedor de identidade e o serviço de back-end do Azure sempre que o aplicativo for iniciado. Esse método é ineficiente e você pode ter problemas relacionados ao uso caso muitos clientes tentem iniciar o aplicativo simultaneamente. Uma abordagem melhor é armazenar em cache o token de autorização retornado pelo serviço do Azure e tentar usá-lo antes de usar um logon baseado em provedor.
 

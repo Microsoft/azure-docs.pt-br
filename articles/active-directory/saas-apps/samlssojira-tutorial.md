@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 020e0395c7678f6856a293c8386a44d7a959bc06
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 67be6251b1500ff85b833bbb7c7348a76045496f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786526"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092076"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Jira da Resolution GmbH
 
@@ -105,7 +105,7 @@ Para configurar o logon único com o SSO do SAML para Jira da resolution GmbH, s
 
     ![Informações de Domínio e URLs do logon único do SAML SSO para Jira da Resolution GmbH](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -160,7 +160,7 @@ Para configurar o logon único com o SSO do SAML para Jira da resolution GmbH, s
 
     ![Configurar o logon único](./media/samlssojira-tutorial/addon5a.png)
  
-     a. Definir o **Azure Active Directory** como o tipo de IdP.
+    a. Definir o **Azure Active Directory** como o tipo de IdP.
     
     b. Adicione o **Nome** do Provedor de Identidade (por exemplo, Azure AD).
     
@@ -176,7 +176,7 @@ Para configurar o logon único com o SSO do SAML para Jira da resolution GmbH, s
 
     ![Configurar o logon único](./media/samlssojira-tutorial/addon5c.png)
 
-     a. Clique no botão **Selecionar Arquivo XML de Metadados** e selecione o arquivo **XML de Metadados de Federação** baixado anteriormente.
+    a. Clique no botão **Selecionar Arquivo XML de Metadados** e selecione o arquivo **XML de Metadados de Federação** baixado anteriormente.
 
     b. Clique no botão **Importar**.
      
@@ -216,7 +216,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **Brenda Fernandes**.
+    a. No campo **Nome**, insira **Brenda Fernandes**.
   
     b. No campo **Nome de usuário**, insira <b>BrittaSimon@contoso.com</b>.
 
@@ -274,7 +274,7 @@ Para permitir que usuários do Azure AD entrem no SSO do SAML para Jira da resol
 
     ![Adicionar Funcionário](./media/samlssojira-tutorial/user4-new.png) 
 
-     a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário: <b>BrittaSimon@contoso.com</b>.
+    a. Na caixa de texto **Endereço de email**, digite o endereço de email do usuário: <b>BrittaSimon@contoso.com</b>.
 
     b. Na caixa de texto **Nome completo**, digite o nome completo do usuário: **Brenda Fernandes**.
 
@@ -319,5 +319,5 @@ Após ativar a opção, ainda será possível chegar ao prompt de nome de usuár
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

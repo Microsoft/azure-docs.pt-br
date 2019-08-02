@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5e22a3f3b362811fd87460ec41b61a990f4d83fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902011"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795522"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como ... no Application Insights?
 ## <a name="get-an-email-when-"></a>Receber um email quando...
@@ -137,16 +137,25 @@ Saiba mais sobre [preços e cotas](../../azure-monitor/app/pricing.md).
 ## <a name="disable-telemetry"></a>Desabilitar telemetria
 Para **parar e iniciar dinamicamente** a coleta e a transmissão de telemetria do servidor:
 
-```
+### <a name="aspnet-classic-applications"></a>Aplicativos ASP.NET clássico
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>Outros aplicativos
+Não é recomendável usar `TelemetryConfiguration.Active` singleton no console ou aplicativos ASP.NET Core.
+Se você criou `TelemetryConfiguration` de instância por conta própria - definir `DisableTelemetry` para `true`.
 
+Para aplicativos ASP.NET Core, você pode acessar `TelemetryConfiguration` instância usando [injeção de dependência do ASP.NET Core](/aspnet/core/fundamentals/dependency-injection/). Veja mais detalhes no [Application Insights para aplicativos ASP.NET Core](../../azure-monitor/app/asp-net-core.md) artigo.
 
-Para **desabilitar os coletores padrão selecionados** - por exemplo, contadores de desempenho, solicitações HTTP ou dependências - exclua ou comente as linhas relevantes em [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md). Você poderá fazer isso, por exemplo, se quiser enviar seus próprios dados de TrackRequest.
+## <a name="disable-selected-standard-collectors"></a>Desabilitar os coletores padrão selecionados
+Você pode desabilitar os coletores padrão (por exemplo, contadores de desempenho, solicitações HTTP ou dependências)
+
+* **Aplicativos ASP.NET** - exclua ou comente as linhas relevantes em [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **Aplicativos ASP.NET Core** -execute as opções de configuração de módulos de telemetria no [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
 ## <a name="view-system-performance-counters"></a>Exibir contadores de desempenho do sistema
 Entre as métricas que você pode exibir no Metrics Explorer, existe um conjunto de contadores de desempenho do sistema. Há uma folha predefinida intitulada **Servidores** que exibe vários deles.

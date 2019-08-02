@@ -4,18 +4,18 @@ description: Saiba como configurar associações de função do Azure
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 8372becd614e35bead9e98e405e2694f3f16db4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bced6dc71063b6be68d739ef67fb5ec46c3d1be6
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472323"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480429"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Exemplo de gatilho e associação de funções do Azure
 

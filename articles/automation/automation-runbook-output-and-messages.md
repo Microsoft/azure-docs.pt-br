@@ -4,24 +4,24 @@ description: Descreve como criar e recuperar a saída e mensagens de erro de run
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cbf91af4e91f41fff30a7edfa869d07a21b881e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c129391c0830e0194c32a041853482f92340bbb9
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61226882"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405780"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Saída e mensagens do runbook na Automação do Azure
 A maioria dos runbooks de Automação do Azure tem alguma forma de saída. Essa saída pode ser uma mensagem de erro para o usuário ou um objeto complexo que você pretende usar com outro runbook. O Windows PowerShell oferece [vários fluxos](/powershell/module/microsoft.powershell.core/about/about_redirection) para o envio da saída de um script ou de um de fluxo de trabalho. A Automação do Azure trabalha com cada um desses fluxos de maneira diferente. Siga as melhores práticas sobre como usar cada uma delas ao criar um runbook.
 
 A tabela a seguir fornece uma breve descrição de cada um dos fluxos e o comportamento no portal do Azure dos runbooks publicados e quando [testar um runbook](automation-testing-runbook.md). Mais detalhes sobre cada fluxo são fornecidos nas seções posteriores.
 
-| Fluxo | DESCRIÇÃO | Publicado | Teste |
+| Stream | Descrição | Publicado | Teste |
 |:--- |:--- |:--- |:--- |
 | Saída |Objetos que se destinam a consumo de outros runbooks. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
 | Aviso |Mensagem de aviso para o usuário. |Gravado no histórico do trabalho. |Exibido no Painel de Saída do Teste. |
@@ -160,19 +160,19 @@ O Windows PowerShell usa [variáveis de preferência](https://technet.microsoft.
 
 A tabela a seguir lista as variáveis de preferência que podem ser usadas em runbooks com seus valores válidos e padrão. Essa tabela inclui somente os valores que são válidos em um runbook. Os valores adicionais serão válidos para as variáveis de preferência quando usados no Windows PowerShell fora da Automação do Azure.
 
-| Variável | Valor Padrão | Valores Válidos |
+| Variável | Default Value | Valores Válidos |
 |:--- |:--- |:--- |
-| WarningPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
-| ErrorActionPreference |Continue |Stop<br>Continue<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stop<br>Continue<br>SilentlyContinue |
+| WarningPreference |Continue |Parar<br>Continuar<br>SilentlyContinue |
+| ErrorActionPreference |Continuar |Parar<br>Continuar<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |Parar<br>Continuar<br>SilentlyContinue |
 
 A tabela a seguir lista o comportamento para os valores de variáveis de preferência válidos em runbooks.
 
 | Valor | Comportamento |
 |:--- |:--- |
-| Continue |Registra em log a mensagem e continua executando o runbook. |
+| Continuar |Registra em log a mensagem e continua executando o runbook. |
 | SilentlyContinue |Continua executando o runbook sem registrar em log a mensagem. Este valor tem o efeito de ignorar a mensagem. |
-| Stop |Registra em log a mensagem e suspende o runbook. |
+| Parar |Registra em log a mensagem e suspende o runbook. |
 
 ## <a name="runbook-output"></a>Recuperar saída e mensagens do runbook
 ### <a name="azure-portal"></a>Portal do Azure
@@ -184,23 +184,23 @@ No Windows PowerShell, você pode recuperar saída e mensagens de um runbook usa
 O exemplo a seguir inicia um runbook de exemplo e aguarda a sua conclusão. Depois de concluído, seu fluxo de saída será coletado do trabalho.
 
 ```powershell
-$job = Start-AzureRmAutomationRunbook -ResourceGroupName "ResourceGroup01" `
+$job = Start-AzAutomationRunbook -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook"
 
 $doLoop = $true
 While ($doLoop) {
-  $job = Get-AzureRmAutomationJob -ResourceGroupName "ResourceGroup01" `
+  $job = Get-AzAutomationJob -ResourceGroupName "ResourceGroup01" `
     –AutomationAccountName "MyAutomationAccount" -Id $job.JobId
   $status = $job.Status
   $doLoop = (($status -ne "Completed") -and ($status -ne "Failed") -and ($status -ne "Suspended") -and ($status -ne "Stopped"))
 }
 
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Output
 
-# For more detailed job output, pipe the output of Get-AzureRmAutomationJobOutput to Get-AzureRmAutomationJobOutputRecord
-Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
-  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzureRmAutomationJobOutputRecord
+# For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
+Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+  –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
 ``` 
 
 ### <a name="graphical-authoring"></a>Criação gráfica
@@ -220,8 +220,8 @@ Na captura de tela anterior, é possível ver que, ao habilitar o log Detalhado 
    
    ![Página Registro e Rastreamento de Criação Gráfica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-monitor-logs"></a>Logs do Microsoft Azure Monitor
-A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Com os logs do Azure Monitor, você pode,
+### <a name="microsoft-azure-monitor-logs"></a>Microsoft Azure monitorar logs
+A Automação pode enviar status de trabalho do runbook e fluxos de trabalho para o espaço de trabalho do Log Analytics. Com os logs de Azure Monitor que você pode,
 
 * Obter informações sobre os trabalhos de Automação 
 * Disparar um email ou um alerta com base no status do trabalho de runbook (por exemplo, com falha ou suspenso) 
@@ -229,7 +229,7 @@ A Automação pode enviar status de trabalho do runbook e fluxos de trabalho par
 * Correlacionar trabalhos em contas de Automação 
 * Visualizar o histórico de trabalho ao longo do tempo    
 
-Para obter mais informações sobre como configurar a integração com os logs do Azure Monitor para coletar, correlacionar e agir sobre dados de trabalho, consulte [encaminhar status do trabalho e fluxos de trabalho de automação para logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+Para obter mais informações sobre como configurar a integração com os logs de Azure Monitor para coletar, correlacionar e agir sobre os dados do trabalho, consulte [encaminhar fluxos de trabalho e status do trabalho da automação para Azure monitor logs](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre a execução de runbooks, como monitorar trabalhos de runbook e outros detalhes técnicos, confira [Acompanhar um trabalho de runbook](automation-runbook-execution.md)

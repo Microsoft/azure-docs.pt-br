@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: 80776f9284752e8554486cb458096ccc9319949e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 840124a35ed4389699757e011aaf5d05a9400836
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61323632"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385534"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnósticos e ativar alertas para os Aplicativos Lógicos do Azure
 
@@ -74,13 +74,13 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
 ## <a name="turn-on-diagnostics-logging-for-your-logic-app"></a>Ativar o log de diagnósticos do aplicativo lógico
 
-Para uma depuração mais avançada com eventos e detalhes de tempo de execução, você pode configurar log de diagnósticos com [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md). O Azure Monitor é um serviço no Azure que monitora a sua nuvem e ambientes para ajudá-lo a manter a disponibilidade e desempenho locais. 
+Para uma depuração mais rica com detalhes e eventos de tempo de execução, você pode configurar o log de diagnóstico com [logs de Azure monitor](../log-analytics/log-analytics-overview.md). Azure Monitor é um serviço no Azure que monitora seus ambientes locais e de nuvem para ajudá-lo a manter a disponibilidade e o desempenho. 
 
 Antes de iniciar, é necessário ter um espaço de trabalho do Log Analytics. Saiba [como criar um espaço de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
 1. No [portal do Azure](https://portal.azure.com), encontre e selecione o aplicativo lógico. 
 
-2. No menu da folha de aplicativo lógico, sob **Monitoring**, escolha **diagnóstico** > **configurações de diagnóstico**.
+2. No menu folha do aplicativo lógico, em **monitoramento**, escolha **configurações de diagnóstico**de **diagnóstico** > .
 
    ![Acesse Monitoramento, Diagnóstico, Configurações de Diagnóstico](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
@@ -127,7 +127,7 @@ Para localizar e exibir eventos no aplicativo lógico, como eventos de gatilho, 
 
    ![Inserir a cadeia de pesquisa](media/logic-apps-monitor-your-logic-apps/oms-start-query.png)
 
-   Saiba mais sobre [como encontrar dados nos logs do Azure Monitor](../log-analytics/log-analytics-log-searches.md).
+   Saiba mais sobre [como localizar dados em logs de Azure monitor](../log-analytics/log-analytics-log-searches.md).
 
 5. Na página de resultados, na barra à esquerda, escolha o período de tempo que você deseja exibir.
 Para refinar a consulta adicionando um filtro, escolha **+Adicionar**.
@@ -155,7 +155,7 @@ Para refinar a consulta adicionando um filtro, escolha **+Adicionar**.
 
 ## <a name="extend-how-and-where-you-use-diagnostic-data-with-other-services"></a>Estender como e onde usar os dados de diagnóstico com outros serviços
 
-Juntamente com os logs do Azure Monitor, você pode estender como usar dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
+Juntamente com os logs de Azure Monitor, você pode estender como usar os dados de diagnóstico do aplicativo lógico com outros serviços do Azure, por exemplo: 
 
 * [Arquivar logs do Diagnóstico do Azure no Armazenamento do Azure](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [Transmitir logs do Diagnóstico do Azure para os Hubs de Eventos do Azure](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) 
@@ -178,7 +178,7 @@ De acordo com as opções que você deseja configurar, primeiro [crie uma conta 
 
 Para monitorar métricas específicas ou limites excedidos do aplicativo lógico, configure [alertas no Azure](../azure-monitor/platform/alerts-overview.md). Saiba mais sobre as [métricas no Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md). 
 
-Configurar alertas sem [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md), siga estas etapas. Para os critérios de alertas e ações, mais avançados [configurar logs do Azure Monitor](#azure-diagnostics) muito.
+Para configurar alertas sem [logs de Azure monitor](../log-analytics/log-analytics-overview.md), siga estas etapas. Para critérios e ações de alertas mais avançados, [configure Azure monitor logs](#azure-diagnostics) também.
 
 1. No menu da folha do aplicativo lógico, em **Monitoramento**, escolha **Diagnóstico** > **Regras de alerta** > **Adicionar alerta**, conforme mostrado aqui:
 
@@ -270,9 +270,29 @@ Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e
     }
   }
   ```
+  Aqui está outro exemplo que usa a ação **inicializar variável** . O exemplo adiciona propriedades rastreadas da entrada da ação em que a entrada é uma matriz, não um registro.  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
+  }
+  ```
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar modelos para implantação de aplicativos lógicos e gerenciamento de versão](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Cenários B2B com o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitorar mensagens do B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

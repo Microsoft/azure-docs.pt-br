@@ -2,7 +2,7 @@
 title: Conectar-se ao SQL Data Warehouse do Azure | Microsoft Docs
 description: Conecte-se ao SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c937285b9c54072c6d1e1b0628c3d5fbfe786f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f5c8ca56bc188c0664604a78c38a05be3c3b01
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873660"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479742"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conectar-se ao SQL Data Warehouse do Azure
 Conecte-se ao SQL Data Warehouse do Azure.
@@ -23,7 +23,7 @@ Conecte-se ao SQL Data Warehouse do Azure.
 ## <a name="find-your-server-name"></a>Localizar o nome do servidor
 O nome do servidor no exemplo a seguir é samplesvr.database.windows.net. Para localizar o nome de servidor totalmente qualificado:
 
-1. Acesse o [Portal do Azure][Azure portal].
+1. Vá para o [Portal do Azure][Azure portal].
 2. Clique em **SQL Data Warehouses**.
 3. Clique no data warehouse que você deseja conectar.
 4. Localize o nome completo do servidor.
@@ -31,7 +31,7 @@ O nome do servidor no exemplo a seguir é samplesvr.database.windows.net. Para l
     ![Nome completo do servidor][1]
 
 ## <a name="supported-drivers-and-connection-strings"></a>Drivers suportados e cadeias de conexão
-SQL Data Warehouse do Azure dá suporte ao [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], e [JDBC][JDBC]. Para encontrar a versão e a documentação mais recentes, clique em um dos drivers anteriores. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no Portal do Azure, clique em **Mostrar cadeias de conexão de banco de dados** no exemplo anterior. A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
+O Azure SQL data warehouse dá suporte a [ADO.net][ADO.NET], [ODBC][ODBC], [php][php]e [JDBC][JDBC]. Para encontrar a versão e a documentação mais recentes, clique em um dos drivers anteriores. Para gerar automaticamente a cadeia de conexão para o driver que você está usando no Portal do Azure, clique em **Mostrar cadeias de conexão de banco de dados** no exemplo anterior. A seguir também há alguns exemplos da aparência de uma cadeia de conexão para cada driver.
 
 > [!NOTE]
 > Considere definir o tempo limite de conexão para 300 segundos a fim de permitir que a conexão perdure em curtos períodos de indisponibilidade.
@@ -61,15 +61,15 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Configurações de conexão
 O SQL Data Warehouse padroniza algumas configurações durante a conexão e a criação do objeto. Essas configurações não podem ser substituídas e incluem:
 
-| Configuração de banco de dados | Value |
+| Configuração de banco de dados | Valor |
 |:--- |:--- |
-| [ANSI_NULLS][ANSI_NULLS] |ATIVADO |
-| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ATIVADO |
+| [ANSI_NULLS][ANSI_NULLS] |LIGAR |
+| [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |LIGAR |
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para se conectar e consultar com o Visual Studio, confira [Consultar com o Visual Studio][Query with Visual Studio]. Para saber mais sobre as opções de autenticação, confira [Autenticação no SQL Data Warehouse do Azure][Authentication to Azure SQL Data Warehouse].
+Para se conectar e consultar com o Visual Studio, consulte [consultar com o Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md

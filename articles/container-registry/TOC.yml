@@ -41,14 +41,16 @@
   items:
     - name: SKUs de registro de contêiner
       href: container-registry-skus.md
+    - name: 'Registros, repositórios e imagens'
+      href: container-registry-concepts.md
     - name: Armazenamento de imagem
       href: container-registry-storage.md
     - name: Formatos de conteúdo
       href: container-registry-image-formats.md
+    - name: Imagens de marca e versão
+      href: container-registry-image-tag-version.md
     - name: Replicação geográfica
       href: container-registry-geo-replication.md
-    - name: Funções e permissões
-      href: container-registry-roles.md
     - name: Práticas recomendadas do registro
       href: container-registry-best-practices.md
 - name: Guias de instruções
@@ -75,6 +77,8 @@
       items:
         - name: Limitar o acesso com a rede virtual (versão prévia)
           href: container-registry-vnet.md
+        - name: Acessar por trás de um firewall
+          href: container-registry-firewall-access-rules.md
         - name: Authentication
           items:
             - name: Visão geral da autenticação
@@ -87,16 +91,28 @@
               href: container-registry-auth-aci.md
             - name: Autenticar no AKS (Serviço de Kubernetes do Azure)
               href: container-registry-auth-aks.md
+        - name: Funções e permissões
+          href: container-registry-roles.md
         - name: Confiança em conteúdo
           href: container-registry-content-trust.md
     - name: Tarefas do ACR
       items:
         - name: Visão geral das Tarefas do ACR
           href: container-registry-tasks-overview.md
+        - name: Tarefas agendadas
+          href: container-registry-tasks-scheduled.md
         - name: Tarefas de várias etapas
           href: container-registry-tasks-multi-step.md
-        - name: Usar com identidade gerenciada
-          href: container-registry-tasks-authentication-managed-identity.md
+        - name: Criar imagem com Buildpacks (versão prévia)
+          href: container-registry-tasks-pack-build.md
+        - name: Acessar recursos seguros com identidades gerenciadas
+          items:
+            - name: Habilitar uma identidade gerenciada em uma tarefa
+              href: container-registry-tasks-authentication-managed-identity.md
+            - name: Autenticação entre registros de uma tarefa
+              href: container-registry-tasks-cross-registry-authentication.md
+            - name: Autenticação externa usando um cofre de chaves
+              href: container-registry-tasks-authentication-key-vault.md
     - name: Registros e outros serviços do Azure
       items:
         - name: Instâncias de Contêiner do Azure
@@ -105,6 +121,10 @@
           href: ../aks/tutorial-kubernetes-prepare-app.md
         - name: Service Fabric
           href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+    - name: Solucionar problemas
+      items:
+        - name: Diagnosticar problemas comuns
+          href: container-registry-check-health.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -129,6 +149,8 @@
       href: container-registry-webhook-reference.md
     - name: Esquema da Grade de Eventos
       href: ../event-grid/event-schema-container-registry.md
+    - name: Erros de verificação de integridade
+      href: container-registry-health-error-reference.md
       maintainContext: true
 - name: Recursos
   items:

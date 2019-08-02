@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a054274da0c83fa5f079e05a1c648c1fc693fd7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 2bc3de858102c02d49a7cefeef15de7e1c82220e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900335"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106464"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Tutorial: Integração do Azure Active Directory ao BambooHR
 
@@ -53,7 +53,7 @@ Para configurar a integração do BambooHR ao Azure AD, você precisa adicionar 
 
 **Para adicionar o BambooHR por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o BambooHR, realize as seguintes 
 
     ![Informações de logon único em Domínio e URLs do BambooHR](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company>.bamboohr.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company>.bamboohr.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `BambooHR-SAML`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `BambooHR-SAML`
 
     > [!NOTE]
     > O valor da **URL de logon** não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao Cliente do BambooHR](https://www.bamboohr.com/contact.php) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o BambooHR, realize as seguintes 
    
     ![A página de logon único do BambooHR](./media/bamboo-hr-tutorial/ic796691.png "Logon único")   
 
-     a. Selecione **Aplicativos**.
+    a. Selecione **Aplicativos**.
    
     b. No painel **Aplicativos**, selecione **Logon único**.
    
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o BambooHR, realize as seguintes 
    
     ![O painel de Logon Único do SAML](./media/bamboo-hr-tutorial/IC796692.png "Logon Único do SAML")
    
-     a. Na caixa **URL de logon SSO**, cole a **URL de Logon** que você copiou do portal do Azure na etapa 6.
+    a. Na caixa **URL de logon SSO**, cole a **URL de Logon** que você copiou do portal do Azure na etapa 6.
       
     b. No Bloco de Notas, abra o certificado codificado em Base 64 baixado no Portal do Azure, copie o conteúdo e cole-o na caixa **Certificado X.509**.
    
@@ -234,5 +234,5 @@ Ao clicar no bloco do BambooHR no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

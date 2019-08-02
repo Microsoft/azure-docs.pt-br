@@ -1,93 +1,108 @@
 ---
-title: Monitoramento contínuo de seu pipeline de lançamento de DevOps com o Azure DevOps e o Azure Application Insights | Microsoft Docs
-description: Fornece instruções para configurar rapidamente o monitoramento contínuo com Application Insights
+title: Monitoramento contínuo de seu pipeline de versão do DevOps com o Azure Pipelines e o Aplicativo Azure insights | Microsoft Docs
+description: Fornece instruções para configurar rapidamente o monitoramento contínuo com o Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 11/13/2017
+ms.date: 07/16/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 41999defb01e024773b6364f169a1ce3b1377237
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39a2f75fe74b61463af464078b4446bba07dec0
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60902276"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277691"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Adicionar monitoramento contínuo ao seu pipeline de versão
 
-O Azure DevOps Services integra-se ao Azure Application Insights para permitir o monitoramento contínuo de seu pipeline de lançamento de DevOps em todo o ciclo de vida de desenvolvimento de software. 
+O Azure Pipelines integra-se com o Aplicativo Azure insights para permitir o monitoramento contínuo de seu pipeline de versão do DevOps em todo o ciclo de vida do desenvolvimento de software. 
 
-Agora, o Azure DevOps Services dá suporte ao monitoramento contínuo por meio do qual os pipelines de lançamento podem incorporar dados de monitoramento do Application Insights e de outros recursos do Azure. Quando um alerta do Application Insights for detectado, a implantação poderá permanecer aberta ou ser revertida até que o alerta seja resolvido. Se todas as verificações forem aprovadas, as implantações poderão prosseguir automaticamente dos testes até a produção sem a necessidade de intervenção manual. 
+Com o monitoramento contínuo, os pipelines de versão podem incorporar dados de monitoramento de Application Insights e outros recursos do Azure. Quando o pipeline de liberação detecta um alerta de Application Insights, o pipeline pode portar ou reverter a implantação até que o alerta seja resolvido. Se todas as verificações forem aprovadas, as implantações poderão prosseguir automaticamente do teste até a produção, sem a necessidade de intervenção manual. 
 
 ## <a name="configure-continuous-monitoring"></a>Configurar o monitoramento contínuo
 
-1. Selecione um projeto existente do Azure DevOps Services.
+1. No [Azure DevOps](https://dev.azure.com), selecione uma organização e um projeto.
+   
+1. No menu à esquerda da página do projeto, selecione  > **lançamentos**de pipelines. 
+   
+1. Solte a seta ao lado de **novo** e selecione **novo pipeline de liberação**. Ou, se você ainda não tiver um pipeline, selecione **novo pipeline** na página que aparece.
+   
+1. No painel **selecionar um modelo** , procure e selecione **Azure app implantação de serviço com monitoramento contínuo**e, em seguida, selecione **aplicar**. 
 
-2. Passe o mouse sobre **Build e Versão** > Selecione **Versões** > Clique no **sinal de mais** > **Criar definição de versão** > Procure **Monitoramento** > **Implantação do Serviço de Aplicativo do Azure com Monitoramento Contínuo.**
+   ![Novo pipeline de lançamento de Azure Pipelines](media/continuous-monitoring/001.png)
 
-   ![Novo pipeline de lançamento do Azure DevOps Services](media/continuous-monitoring/001.png)
+1. Na caixa **estágio 1** , selecione o hiperlink para **exibir as tarefas do estágio.**
 
-3. Clique em **Aplicar.**
+   ![Exibir tarefas do estágio](media/continuous-monitoring/002.png)
 
-4. Ao lado do ponto de exclamação vermelho, selecione o texto em azul para **Exibir tarefas do ambiente.**
+1. No painel configuração do **estágio 1** , preencha os seguintes campos: 
 
-   ![Exibir tarefas do ambiente](media/continuous-monitoring/002.png)
-
-   Uma caixa de configuração será exibida, use a tabela a seguir para preencher os campos de entrada.
-
-    | Parâmetro        | Value |
+    | Parâmetro        | Valor |
    | ------------- |:-----|
-   | **Nome do ambiente**      | Nome que descreva o ambiente do pipeline de lançamento |
-   | **Assinatura do Azure** | A lista suspensa é preenchida com assinaturas do Azure vinculadas à organização do Azure DevOps Services|
-   | **Nome do Serviço de Aplicativo** | A entrada manual de um novo valor pode ser necessária para esse campo, dependendo de outras seleções |
-   | **Grupo de recursos**    | A lista suspensa é preenchida com os Grupos de Recursos disponíveis |
-   | **Nome do recurso do Application Insights** | A lista suspensa é preenchida com todos os recursos do Application Insights que correspondem ao grupo de recursos selecionado anteriormente.
+   | **Nome do estágio**      | Forneça um nome de estágio ou deixe-o no **estágio 1**. |
+   | **Assinatura do Azure** | Clique na lista suspensa e selecione a assinatura do Azure vinculada que você deseja usar.|
+   | **Tipo de aplicativo** | Clique no menu suspenso e selecione seu tipo de aplicativo. |
+   | **Nome do Serviço de Aplicativo** | Insira o nome do seu serviço de Azure App. |
+   | **Nome do grupo de recursos para Application Insights**    | Clique no menu suspenso e selecione o grupo de recursos que deseja usar. |
+   | **Nome do recurso do Application Insights** | Selecione o recurso de Application Insights para o grupo de recursos que você selecionou.
 
-5. Selecione **Configurar alertas do Application Insights**
-
-6. Para regras de alerta padrão, selecione **Salvar** > Insira um comentário descritivo > clique **OK**
+1. Para salvar o pipeline com as configurações de regra de alerta padrão, selecione **salvar** no canto superior direito na janela DevOps do Azure. Insira um comentário descritivo e, em seguida, selecione **OK**.
 
 ## <a name="modify-alert-rules"></a>Modificar as regras de alerta
 
-1. Para modificar as configurações de Alerta predefinidas, clique na caixa com **reticências...**  à direita do **Regras de alerta.**
+Pronto para uso, a **implantação do serviço de Azure app com** o modelo de monitoramento contínuo tem quatro regras de alerta: **Disponibilidade**, **solicitações com falha**, **tempo de resposta do servidor**e **exceções de servidor**. Você pode adicionar mais regras ou alterar as configurações de regra para atender às suas necessidades de nível de serviço. 
 
-   (Quatro regras de alerta prontas para uso estão presentes: Disponibilidade, Solicitações com falha, Tempo de resposta de servidor, Exceções de servidor.)
+Para modificar as configurações da regra de alerta:
 
-2. Clique no símbolo de lista suspensa ao lado de **Disponibilidade.**
+1. No painel esquerdo da página de pipeline de liberação, selecione **configurar alertas de Application insights**.
 
-3. Modifique o **Limite** de disponibilidade para atender aos requisitos de nível de serviço.
-
-   ![Modificar Alerta](media/continuous-monitoring/003.png)
-
-4. Selecione **OK** > **Salvar** > Insira um comentário descritivo > clique em **OK.**
+1. No painel **alertas Azure monitor** , selecione as reticências **...** ao lado de **regras de alerta**.
+   
+1. Na caixa de diálogo **regras de alerta** , selecione o símbolo suspenso ao lado de uma regra de alerta, como **disponibilidade**. 
+   
+1. Modifique o **limite** e outras configurações para atender às suas necessidades.
+   
+   ![Modificar alerta](media/continuous-monitoring/003.png)
+   
+1. Selecione **OK**e, em seguida, selecione **salvar** no canto superior direito na janela DevOps do Azure. Insira um comentário descritivo e, em seguida, selecione **OK**.
 
 ## <a name="add-deployment-conditions"></a>Adicionar condições de implantação
 
-1. Clique em **Pipeline** > Selecione o símbolo das condições de **Pré** ou **Pós-implantação**, dependendo do estágio que exija um portão de monitoramento contínuo.
+Quando você adiciona Gates de implantação ao seu pipeline de lançamento, um alerta que excede os limites definidos impede a promoção de liberação indesejada. Depois de resolver o alerta, a implantação pode continuar automaticamente.
 
+Para adicionar Gates de implantação:
+
+1. Na página principal do pipeline, em **estágios**, selecione o símbolo **condições de pré-implantação** ou **pós-implantação** , dependendo de qual estágio precisa de um portão de monitoramento contínuo.
+   
    ![Condições de pré-implantação](media/continuous-monitoring/004.png)
+   
+1. No painel configuração de **condições de pré-implantação** , defina **Gates** como **habilitado**.
+   
+1. Ao lado de **entradas de implantação**, selecione **Adicionar**.
+   
+1. Selecione **Azure monitor alertas de consulta** no menu suspenso. Essa opção permite que você acesse os alertas de Azure Monitor e Application Insights.
+   
+   ![Alertas de Azure Monitor de consulta](media/continuous-monitoring/005.png)
+   
+1. Em **Opções de avaliação**, insira os valores desejados para configurações como **o tempo entre a reavaliação de Gates** e **o tempo limite após o qual as Gates falharão**. 
 
-2. Defina **Portões** como **Habilitado** > **Portões de aprovação**> clique em **Adicionar.**
+## <a name="view-release-logs"></a>Exibir logs de liberação
 
-3. Selecione **Azure Monitor** (essa opção oferece a capacidade para acessar alertas tanto do Azure Monitor quanto do Application Insights)
+Você pode ver o comportamento do portão de implantação e outras etapas de versão nos logs de liberação. Para abrir os logs:
 
-    ![Azure Monitor](media/continuous-monitoring/005.png)
-
-4. Insira um valor de **Tempo limite de portões**.
-
-5. Insira um **Intervalo de Amostragem.**
-
-## <a name="deployment-gate-status-logs"></a>Logs de status de portão de implantação
-
-Depois de adicionar portões de implantação, um alerta no Application Insights que excede o limite definido anteriormente protege a implantação da promoção indesejada de versão. Quando o alerta for resolvido, a implantação poderá continuar automaticamente.
-
-Para observar esse comportamento, selecione **Versões** > Clique com o botão direito do mouse em Nome da versão **abra** > **Logs.**
-
-![Logs](media/continuous-monitoring/006.png)
+1. Selecione **versões** no menu à esquerda da página pipeline. 
+   
+1. Selecione qualquer versão. 
+   
+1. Em **estágios**, selecione qualquer estágio para exibir um resumo de lançamento. 
+   
+1. Para exibir os logs, selecione **Exibir logs** no resumo da versão, selecione o hiperlink **bem-sucedido** ou **com falha** em qualquer estágio, ou passe o mouse sobre qualquer estágio e selecione **logs**. 
+   
+   ![Exibir logs de liberação](media/continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre o Azure Pipelines experimente estes [inícios rápidos.](https://docs.microsoft.com/azure/devops/pipelines)
+Para obter mais informações sobre Azure Pipelines, consulte a [documentação do Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines).

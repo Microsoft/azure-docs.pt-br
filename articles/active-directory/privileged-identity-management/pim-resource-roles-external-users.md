@@ -15,12 +15,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0afec1d6eded25a2d9b2389c950e2e21e06e0d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07476c9f5db64a5d107a493022fa3548fe0dae4c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307069"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476350"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Convidar usuários e atribuir funções de recurso do Azure no PIM
 
@@ -47,7 +47,7 @@ Aqui estão alguns cenários de exemplo, quando você pode convidar pessoas para
 
 Quando você usa a colaboração B2B, você pode convidar um usuário externo à sua organização como convidado. O convidado parece estar em sua organização, mas o convidado não tem nenhuma credencial associada a ele. Sempre que um convidado precisa ser autenticada, eles devem ser autenticados na organização inicial e não em sua organização. Isso significa que se o convidado não tiver acesso à sua organização inicial, eles também percam o acesso à sua organização. Por exemplo, se o convidado deixa sua organização, eles automaticamente perdem o acesso a recursos compartilhados com eles no Azure AD sem ter que fazer nada. Para obter mais informações sobre B2B, consulte [O que é acesso de usuário convidado no Azure Active Directory B2B?](../b2b/what-is-b2b.md).
 
-![B2B e convidado](./media/pim-resource-roles-external-users/b2b-external-user.png)
+![Diagrama que mostra como um usuário convidado é exibido em seu diretório, mas é autenticado em seu diretório base](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## <a name="check-guest-collaboration-settings"></a>Verifique as configurações de colaboração de convidado
 
@@ -59,7 +59,7 @@ Para certificar-se de que você pode convidar pessoas em sua organização, voc�
 
 1. Clique em **Gerenciar configurações de colaboração externa**.
 
-    ![Configuração de colaboração externa](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
+    ![Página de configurações de colaboração externa, mostrando as configurações de restrição de permissão, convite e colaboração](./media/pim-resource-roles-external-users/external-collaboration-settings.png)
 
 1. Certifique-se de que os **Administradores e usuários na função de emissor do convite ao convidado** a alternância é definida como **Sim**.
 
@@ -81,21 +81,21 @@ Usar o PIM, você pode convidar uma pessoa e torná-los elegível para uma funç
 
 1. Em Gerenciar, clique em **Funções** para ver a lista de funções dos recursos do Azure.
 
-    ![Funções dos recursos do Azure](./media/pim-resource-roles-external-users/resources-roles.png)
+    ![Listam de funções de recursos do Azure mostrando o número de usuários que estão ativas e qualificadas](./media/pim-resource-roles-external-users/resources-roles.png)
 
 1. Clique na função mínima que o usuário precisará.
 
-    ![Função selecionada](./media/pim-resource-roles-external-users/selected-role.png)
+    ![Selecionado listando os membros atuais dessa função de página de função](./media/pim-resource-roles-external-users/selected-role.png)
 
 1. Clique em **Adicionar membro** para abrir o novo painel de atribuição.
 
 1. Clique em **Selecionar um membro ou grupo**.
 
-    ![Selecionar um membro ou grupo](./media/pim-resource-roles-external-users/select-member-group.png)
+    ![Nova atribuição - selecione um membro ou grupo listando usuários e grupos, juntamente com uma opção de convite de painel](./media/pim-resource-roles-external-users/select-member-group.png)
 
 1. Para convidar um convidado, clique em **convidar**.
 
-    ![Convidar uma pessoa](./media/pim-resource-roles-external-users/invite-guest.png)
+    ![Convidar uma página de convidado com as caixas para inserir um endereço de email e especificar uma mensagem pessoal](./media/pim-resource-roles-external-users/invite-guest.png)
 
 1. Depois que você tiver selecionado um convidado, clique em **convidar**.
 
@@ -105,13 +105,13 @@ Usar o PIM, você pode convidar uma pessoa e torná-los elegível para uma funç
 
 1. No **configurações de associação** painel, selecione o tipo de atribuição e a duração.
 
-    ![Configurações de associação](./media/pim-resource-roles-external-users/membership-settings.png)
+    ![Nova atribuição - página de configurações de associação com opções para especificar o tipo de atribuição, data de início e data de término](./media/pim-resource-roles-external-users/membership-settings.png)
 
 1. Para concluir a atribuição, clique em **Concluído** e, em seguida **Adicionar**.
 
     A atribuição de função convidado aparecerá na sua lista de função.
 
-    ![Atribuição de função para convidado](./media/pim-resource-roles-external-users/role-assignment.png)
+    ![Página de função listando o convidado como qualificada](./media/pim-resource-roles-external-users/role-assignment.png)
 
 ## <a name="activate-role-as-a-guest"></a>Ativar a função como um convidado
 
@@ -119,13 +119,13 @@ Como um usuário externo, primeiro você precisa aceitar o convite para sua orga
 
 1. Abra o email com o seu convite. O email se parecerá com o seguinte.
 
-    ![Convite por email](./media/pim-resource-roles-external-users/email-invite.png)
+    ![Convite por email com o nome do diretório, a mensagem pessoal e um link de Introdução](./media/pim-resource-roles-external-users/email-invite.png)
 
 1. Clique no link **Começar** link no email.
 
 1. Depois de revisar as permissões, clique em **Aceitar**.
 
-    ![Revisar permissões](./media/pim-resource-roles-external-users/invite-accept.png)
+    ![Examine a página de permissões em um navegador com uma lista de permissões que a organização que você examine](./media/pim-resource-roles-external-users/invite-accept.png)
 
 1. Você pode ser solicitado a aceitar os termos de uso e especificar se deseja permanecer conectado.
 
@@ -133,11 +133,11 @@ Como um usuário externo, primeiro você precisa aceitar o convite para sua orga
 
 1. Para ativar sua função, abra o email com o link ativar função. O email se parecerá com o seguinte.
 
-    ![Convite por email](./media/pim-resource-roles-external-users/email-role-assignment.png)
+    ![Mensagem de email de PIM indicando qualificados para uma função com um link de função ativar](./media/pim-resource-roles-external-users/email-role-assignment.png)
 
 1. Clique em **Ativar a função** para abrir suas funções qualificadas no PIM.
 
-    ![Minhas funções - qualificadas](./media/pim-resource-roles-external-users/my-roles-eligible.png)
+    ![Minha página de funções no PIM listando suas funções qualificadas](./media/pim-resource-roles-external-users/my-roles-eligible.png)
 
 1. Em Ação, clique no link **Ativar**.
 
@@ -145,7 +145,7 @@ Como um usuário externo, primeiro você precisa aceitar o convite para sua orga
 
 1. Depois de especificar as configurações para a função, clique em **Ativar** para ativar a função.
 
-    ![Ativar função](./media/pim-resource-roles-external-users/activate-role.png)
+    ![Ativar escopo de listagem de página e as opções para especificar a hora de início, duração e motivo](./media/pim-resource-roles-external-users/activate-role.png)
 
     A menos que o administrador seja necessário para aprovar sua solicitação, você deve ter acesso aos recursos especificados.
 
@@ -157,13 +157,13 @@ Assim como um usuário membro, você pode exibir os logs de auditoria para contr
 
 1. Clique em **Auditoria de recurso** para exibir a atividade para esse recurso. O exemplo a seguir mostra um exemplo da atividade para um grupo de recursos.
 
-    ![Auditoria de recurso](./media/pim-resource-roles-external-users/audit-resource.png)
+    ![Página de listagem o tempo, o solicitante e a ação de auditoria de recursos do Azure - recursos](./media/pim-resource-roles-external-users/audit-resource.png)
 
 1. Para exibir a atividade para o convidado, clique em **Azure Active Directory** > **usuários** > nome do convidado.
 
 1. Clique em **logs de auditoria** para ver os logs de auditoria para a organização. Se necessário, você pode especificar os filtros.
 
-    ![auditoria de organização](./media/pim-resource-roles-external-users/audit-directory.png)
+    ![Data de listagem, destino, iniciada por e a atividade das trilhas de auditoria de diretório](./media/pim-resource-roles-external-users/audit-directory.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

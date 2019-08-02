@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d50c4366128edb5b4bc76408eb1085817af1ce3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 664824772d9c04e5d02d7a38cda58ad4ede8baaf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896768"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096263"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>Tutorial: Integração do Azure Active Directory com o New Relic
 
@@ -52,7 +52,7 @@ Para configurar a integração do New Relic ao Azure AD, você precisará adicio
 
 **Para adicionar o do New Relic da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o New Relic, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do New Relic](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – Lembre-se de substituir sua própria ID da Conta do New Relic.
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://rpm.newrelic.com/accounts/{acc_id}/sso/saml/login` – Lembre-se de substituir sua própria ID da Conta do New Relic.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `rpm.newrelic.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `rpm.newrelic.com`
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o New Relic, execute as seguintes
    
     ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
    
-     a. Clique em **Escolher Arquivo** para carregar seu certificado baixado do Active Directory do Azure.
+    a. Clique em **Escolher Arquivo** para carregar seu certificado baixado do Active Directory do Azure.
 
     b. Na caixa de texto **URL de logon remoto**, cole o valor da **URL de Logon** copiado do portal do Azure.
    
@@ -217,7 +217,7 @@ Para permitir que os usuários do Azure Active Directory façam logon no New Rel
    
     ![Usuários ativos](./media/new-relic-tutorial/ic797042.png "Usuários ativos")
    
-     a. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
+    a. Na caixa de texto **Email** , digite o endereço de email de um usuário válido do Active Directory do Azure que você deseja provisionar.
 
     b. Como **Função**, selecione **Usuário**.
 

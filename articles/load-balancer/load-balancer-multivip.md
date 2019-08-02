@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Visão geral de vários VIPs e como definir vários VIPs em um serviço de nuvem
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: bf5721e206316a4ce576253743e9ac65de47094a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 3e97bea85d4d97b159168b21b4a6e932e655ccfb
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591744"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274702"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configurar vários VIPs para um serviço de nuvem
 
@@ -172,7 +172,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName myService -LBSetName myLBSet -Virtual
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Logs de Monitor do Azure para balanceamento de carga do Azure](load-balancer-monitor-log.md)
+[Logs de Azure Monitor para o Azure Load Balancer](load-balancer-monitor-log.md)
 
 [Visão geral do balanceador de carga para a Internet](load-balancer-internet-overview.md)
 

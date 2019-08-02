@@ -2,28 +2,39 @@
   href: /azure/hdinsight
 - name: Visão geral
   items:
-    - name: Componentes do Apache Hadoop no HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
+    - name: O que é a Consulta Interativa no HDInsight?
+      href: ./apache-interactive-query-get-started.md
       maintainContext: true
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Executar consultas do Apache Hive – Apache Zeppelin
       href: ./hdinsight-connect-hive-zeppelin.md
-- name: Introdução
+- name: Tutoriais
   items:
-    - name: Iniciar com Consulta Interativa
-      href: ./apache-interactive-query-get-started.md
+    - name: Analisar dados com Consulta Interativa
+      href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Conceitos
+  items:
     - name: Instalar aplicativos HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
     - name: planejamento de capacidade
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
+    - name: Solucionar problemas
+      items:
+        - name: Exceção OutOfMemoryError
+          items:
+            - name: Limite de sobrecarga de GC excedido
+              href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+        - name: Desempenho da consulta do Apache Hive LLAP
+          href: ./interactive-query-troubleshoot-query-performance.md
 - name: Como
   items:
+    - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
+      href: apache-hive-migrate-workloads.md
+      maintainContext: true
     - name: Usar o armazenamento de cluster
       items:
         - name: Usando o Armazenamento do Azure
@@ -101,6 +112,9 @@
         - name: Conectar o Power BI ao Apache Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true
+        - name: Consultar Hive com PowerShell e ODBC
+          href: apache-hive-query-odbc-driver-powershell.md
+          maintainContext: true
         - name: Conectar o Excel ao Apache Hadoop
           href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
           maintainContext: true
@@ -109,9 +123,6 @@
           maintainContext: true
         - name: Analisar tweets armazenados
           href: ../hdinsight-analyze-twitter-data-linux.md
-          maintainContext: true
-        - name: Analisar dados de atraso de voo
-          href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
     - name: Estender clusters
       items:
@@ -251,9 +262,6 @@
         - name: Aplicação de patches de SO para cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-        - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
-          href: apache-hive-migrate-workloads.md
-          maintainContext: true
     - name: Solucionar problemas
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -298,7 +306,7 @@
     - name: Segurança do Enterprise
       items:
         - name: Visão geral
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
           maintainContext: true
         - name: Planejar segurança da empresa
           href: ../domain-joined/apache-domain-joined-architecture.md
@@ -322,10 +330,14 @@
       items:
         - name: Arquitetura de rede virtual do HDInsight
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planejar VNETs para o HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Criar VNETs para o HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Endereços IP necessários para NSGs e UDRs
+          href: ../hdinsight-management-ip-addresses.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight na VNet do Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
     - name: Monitorando com os logs do Azure Monitor

@@ -94,7 +94,7 @@
             - name: Servidor R no HDInsight
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Aprenda a usar o Servidor R no HDInsight
-              href: /azure/hdinsight/r-server/r-server-get-started?context=azure/machine-learning/team-data-science-process/context/ml-context
+              href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Workspace do Azure Machine Learning
           href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Analisar as necessidades de negócios

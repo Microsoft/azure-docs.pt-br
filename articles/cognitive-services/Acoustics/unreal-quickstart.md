@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a78df2d4d84487399da10ca722550639a92e71bf
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59492390"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798133"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Início Rápido do Projeto Acústico Unreal/Wwise
 Neste início rápido, você experimentará os controles de design do Projeto Acústico usando o conteúdo de amostra fornecido para o Unreal Engine e Wwise.
@@ -50,14 +50,16 @@ O plugin do Unreal do Projeto Acústico requer que o comportamento adicional sej
 
     ![Captura de tela da janela do Windows Explorer mostrando o script para aplicar patch no projeto do Wwise](media/patch-wwise-script.png)
 
-* Se você não tiver instalado o SDK do DirectX, precisará de comentar a linha que contém DXSDK_DIR no `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Se você não tiver o SDK do DirectX instalado, dependendo da versão do Wwise que você está usando, talvez seja preciso comentar na linha que contém `DXSDK_DIR` em `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
 
     ![Captura de tela do editor de código mostrando o DXSDK comentado](media/directx-sdk-comment.png)
 
 ### <a name="open-the-unreal-project"></a>Abra o projeto Unreal. 
 Ele solicitará que você recompile os módulos; Clique em Sim.
 
-Se abrir o projeto falhar em falhas de build, verifique se você instalou o plugin do projeto Wwise do Projeto Acústico para a mesma versão do Wwise usada no projeto de exemplo do Projeto Acústico.
+>Se abrir o projeto falhar em falhas de build, verifique se você instalou o plugin do projeto Wwise do Projeto Acústico para a mesma versão do Wwise usada no projeto de exemplo do Projeto Acústico.
+
+>Se você não estiver usando [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6, precisará regenerar bancos de som antes da reprodução do áudio no projeto de exemplo.
 
 ## <a name="experiment-with-project-acoustics-design-controls"></a>Fazer experiências com os controles de design do Projeto Acústico
 Ouça como a cena parece clicando no botão reproduzir no editor do editor. Na área de trabalho, use W, A, S, D e o mouse para mover-se. Para ver os atalhos de teclado de outros controles, pressione **F1**. Aqui estão algumas atividades de design para tentar:

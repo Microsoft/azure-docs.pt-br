@@ -9,16 +9,18 @@ ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: 0c40d0985b0d6c967a55b1954a1cb54feeb15361
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f96d1956fececbe00bf9f33bd146056836c2c4c0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149394"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564998"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Início Rápido: Carregar, baixar e listar blobs com o Python
 
 Neste Início Rápido, você verá como usar o Python para carregar, baixar e listar blobs de blocos em um contêiner no Armazenamento de Blobs do Azure. Blobs são simplesmente objetos que podem armazenar qualquer quantidade de dados de texto ou binários (como imagens, documentos, mídia de streaming, dados de arquivo etc.) e, no Armazenamento do Azure, são diferentes de compartilhamentos de arquivo, tabelas sem esquema e filas de mensagens. (Para obter mais informações, confira [Introdução ao Armazenamento do Azure](/azure/storage/common/storage-introduction).)
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,8 +47,9 @@ Este comando clona o repositório *Azure-Samples/storage-blobs-python-quickstart
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 No aplicativo, forneça o nome da conta de armazenamento e a chave de conta para criar um objeto `BlockBlobService`. Abra o arquivo *example.py* no Gerenciador de Soluções na sua IDE. Substitua os valores `accountname` e `accountkey` pelo nome de conta e chave. 
 
-```python 
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
+```python
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
 ```
 
 ## <a name="run-the-sample"></a>Execute o exemplo
@@ -54,11 +57,13 @@ Este exemplo cria um arquivo de teste na pasta *Documentos*. O programa de exemp
 
 Primeiro, instale as dependências, executando `pip install`:
 
+```python
     pip install azure-storage-blob
+```
 
 Em seguida, execute o exemplo. Você verá mensagens semelhantes à seguinte saída:
   
-```
+```output
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
 
 Uploading to Blob storage as blobQuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -92,16 +97,18 @@ Depois de obter o contêiner de Blob de Nuvem, crie uma instância do objeto **C
 
 Nesta seção, você instancia os objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos. O contêiner é chamado de **quickstartblobs**. 
 
-```python 
+```python
 # Create the BlockBlockService that is used to call the Blob service for the storage account.
-block_blob_service = BlockBlobService(account_name = 'accountname', account_key = 'accountkey') 
- 
+block_blob_service = BlockBlobService(
+    account_name='accountname', account_key='accountkey')
+
 # Create a container called 'quickstartblobs'.
 container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name) 
+block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
-block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
+block_blob_service.set_container_acl(
+    container_name, public_access=PublicAccess.Container)
 ```
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
 
@@ -126,7 +133,8 @@ print("Temp file = " + full_path_to_file)
 print("\nUploading to Blob storage as blob" + local_file_name)
 
 # Upload the created file, use local_file_name for the blob name.
-block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
+block_blob_service.create_blob_from_path(
+    container_name, local_file_name, full_path_to_file)
 ```
 
 Há vários métodos de upload que você pode usar com o Armazenamento de Blobs. Por exemplo, se você tem um fluxo de memória, pode usar o método `create_blob_from_stream` em vez de `create_blob_from_path`. 
@@ -152,9 +160,11 @@ Baixe os blobs para o disco local usando o método `get_blob_to_path`. O código
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, string.replace(
+    local_file_name, '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
-block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
+block_blob_service.get_blob_to_path(
+    container_name, local_file_name, full_path_to_file2)
 ```
 
 ### <a name="clean-up-resources"></a>Limpar recursos

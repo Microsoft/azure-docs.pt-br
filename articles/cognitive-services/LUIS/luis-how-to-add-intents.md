@@ -1,6 +1,6 @@
 ---
-title: Adicionar tentativas
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Adicionar tentativas-LUIS
+titleSuffix: Azure Cognitive Services
 description: Adicione intenções ao seu aplicativo do LUIS para identificar grupos de perguntas ou comandos que têm as mesmas intenções.
 services: cognitive-services
 author: diberry
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84799c2866e7b887a7b509280b073814e7653638
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148163"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638211"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do usuário de expressões
 
@@ -44,29 +44,29 @@ Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuári
 
 <a name="#intent-prediction-discrepancy-errors"></a>
 
-## <a name="intent-prediction-errors"></a>Erros de intenção de previsão 
+## <a name="intent-prediction-errors"></a>Erros de previsão de intenção 
 
-Uma expressão de exemplo em uma intenção pode ter um erro de previsão intencional entre a intenção em que de expressão de exemplo está atualmente e a intenção de previsão determinada durante o treinamento. 
+Um exemplo de expressão em uma intenção pode ter um erro de previsão de intenção entre a intenção em que o exemplo expressão está atualmente em e a intenção de previsão determinada durante o treinamento. 
 
-Para localizar erros de previsão de expressão e corrigi-los, use o **filtro** dessa opção **avaliação** opções de incorreta e Unclear combinado com o **exibição** opção de **Exibição detalhada**. 
+Para localizar erros de previsão do expressão e corrigi-los, use as opções de **avaliação** da opção de **filtro** de incorreto e não claro combinados com a opção **Exibir** da **exibição detalhada**. 
 
 ![Para localizar erros de previsão de expressão e corrigi-los, use a opção de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
 
-Quando os filtros e o modo de exibição são aplicadas, e há declarações de exemplo com erros, a lista de expressão de exemplo mostra as declarações e os problemas.
+Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.
 
-![! [Quando o modo de exibição e filtros são aplicados, e há declarações de exemplo com erros, a lista de expressão de exemplo mostra as declarações e os problemas.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+![! [Quando os filtros e a exibição são aplicados e há um exemplo de declarações com erros, a lista de expressão de exemplo mostra o declarações e os problemas.] (./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
 
-Cada linha mostra a pontuação de previsão do treinamento para a declaração de exemplo, a pontuação do rival mais próximo, o que é a diferença nessas duas pontuações. 
+Cada linha mostra a pontuação de previsão do treinamento atual para o exemplo expressão, a Pontuação do rival mais próximo, que é a diferença nessas duas pontuações. 
 
-### <a name="fixing-intents"></a>Corrigindo as intenções
+### <a name="fixing-intents"></a>Corrigindo tentativas
 
-Para saber como corrigir erros de intenção de previsão, use o [painel de resumo](luis-how-to-use-dashboard.md). O painel de resumo fornece a análise para treinamento de último a versão Active Directory e oferece as principais sugestões para corrigir seu modelo.  
+Para saber como corrigir erros de previsão de intenção, use o [painel de resumo](luis-how-to-use-dashboard.md). O painel de resumo fornece análise para o último treinamento da versão ativa e oferece as principais sugestões para corrigir seu modelo.  
 
 ## <a name="add-a-custom-entity"></a>Adicione uma entidade personalizada
 
 Uma vez que um enunciado é adicionado a um intento, você pode selecionar o texto de dentro do enunciado para criar uma entidade personalizada. Uma entidade personalizada é uma maneira de marcar texto para extração, junto com a intenção correta. 
 
-Ver [Adicionar entidade a expressão](luis-how-to-add-example-utterances.md) para saber mais.
+Consulte [Adicionar entidade ao expressão](luis-how-to-add-example-utterances.md) para saber mais.
 
 ## <a name="entity-prediction-discrepancy-errors"></a>Erros de discrepância de previsão de entidade 
 
@@ -82,7 +82,7 @@ Para obter informações, consulte [Entidade pré-criada](luis-how-to-add-entiti
 
 ## <a name="using-the-contextual-toolbar"></a>Usando a barra de ferramentas contextual
 
-Quando um ou mais declarações de exemplo são selecionadas na lista, marcando a caixa à esquerda de uma expressão, a barra de ferramentas acima da lista de expressão permite que você execute as seguintes ações:
+Quando um ou mais exemplos de declarações são selecionados na lista, marcando a caixa à esquerda de um expressão, a barra de ferramentas acima da lista expressão permite que você execute as seguintes ações:
 
 * Reatribuir intenção: mover a (s) declaração (ões) para uma intenção diferente
 * Excluir utterance(s)

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 0b17a87fa02c382ae19cca6e4abcfff2ec475450
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6d395d878d38ab48b95ca82d94d2a222428bae1
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66252685"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274950"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparar roteamento de mensagens e Grade de Eventos para Hub IoT
 
@@ -64,7 +64,7 @@ O roteamento de mensagens do Hub IoT e a integração do Hub IoT com a Grade de 
 
    Roteamento de mensagens do IoT Hub dá suporte a número limitado de tipos de ponto de extremidade e pontos de extremidade exclusivos, mas você pode compilar conectores para redirecionar os dados e eventos para pontos de extremidade adicionais. Para obter uma lista completa dos pontos de extremidade com suporte, consulte a tabela na seção anterior. 
 
-   A integração do IoT Hub com a grade de eventos dá suporte a pontos de extremidade de 500 por IoT Hub e uma maior variedade de tipos de ponto de extremidade. Ele ingenuamente integra-se com o Azure Functions, aplicativos lógicos, filas de armazenamento e barramento de serviço e também funciona com webhooks para estender o envio de dados fora do ecossistema do serviço do Azure e aos aplicativos de negócios de terceiros.
+   A integração do IoT Hub com a grade de eventos dá suporte a pontos de extremidade de 500 por IoT Hub e uma maior variedade de tipos de ponto de extremidade. Ele integra nativamente com o Azure Functions, aplicativos lógicos, filas de armazenamento e barramento de serviço e também funciona com webhooks para estender o envio de dados fora do ecossistema do serviço do Azure e aos aplicativos de negócios de terceiros.
 
 * **É importante os dados chegarem em ordem?**
 

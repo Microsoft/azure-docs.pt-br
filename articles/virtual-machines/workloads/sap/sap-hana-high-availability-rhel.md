@@ -4,7 +4,7 @@ description: Estabeleça alta disponibilidade do SAP HANA em VMs (máquinas virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 1eca9dd82bec120e5554627ade71688c82be7763
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66e1e4603602835d6ed5be9af58eb09a24b00b63
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64922124"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709112"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Alta disponibilidade do SAP HANA em VMs do Azure no Red Hat Enterprise Linux
 
@@ -66,9 +66,9 @@ Primeiro, leia os seguintes documentos e Notas SAP:
 * A Nota SAP [2243692] tem informações sobre o licenciamento do SAP no Linux no Azure.
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux (este artigo)][deployment-guide]
-* [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
+* [Máquinas virtuais de planejamento e implementação para SAP no Linux do Azure][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP no Linux (Este artigo)][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
 * [Replicação do sistema SAP HANA no cluster de marca-passo](https://access.redhat.com/articles/3004101)
 * Documentação geral RHEL
   * [Visão geral do complemento de alta disponibilidade](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -181,7 +181,7 @@ Para implantar o modelo, siga estas etapas:
    1. Selecione **OK**.
    1. Repita essas etapas para portas 3**03**41 e 3**03**42.
 
-Para obter mais informações sobre as portas necessárias para SAP HANA, leia o capítulo [Conexões aos bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) no guia [Bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) ou[Nota SAP 2388694][2388694].
+Para obter mais informações sobre as portas necessárias para o SAP HANA, leia o capítulo [conexões com bancos de dados de locatário](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) na [bancos de dados de locatário do SAP HANA](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) guia ou [nota SAP 2388694][2388694].
 
 > [!IMPORTANT]
 > Não habilite os carimbos de hora do TCP em VMs do Azure colocadas por trás do balanceador de carga do Azure. Habilitar TCP carimbos de hora fará com que as investigações de integridade falha. Defina o parâmetro **net.ipv4.tcp_timestamps** à **0**. Para obter detalhes, consulte [investigações de integridade do balanceador de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
@@ -335,7 +335,7 @@ As etapas nesta seção usam os seguintes prefixos:
 
 1. **[A]** Atualize o Agente de Host do SAP.
 
-   Baixe o último arquivo do Agente de Host do SAP pelo [Centro de Software do SAP][sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho do arquivo para apontar para o arquivo que você baixou:
+   Baixe o arquivo do SAP Host Agent mais recente do [Centro de Software SAP][sap-swcenter] e execute o seguinte comando para atualizar o agente. Substitua o caminho do arquivo para apontar para o arquivo que você baixou:
 
    <pre><code>sudo /usr/sap/hostctrl/exe/saphostexec -upgrade -archive &lt;path to SAP Host Agent SAR&gt;
    </code></pre>
@@ -730,7 +730,7 @@ Resource Group: g_ip_HN1_03
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP][planning-guide]
-* [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
-* [Implantação DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
+* [Máquinas virtuais de planejamento e implementação para o SAP do Azure][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
 * Para saber como estabelecer alta disponibilidade e plano de recuperação de desastre do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastre do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md)

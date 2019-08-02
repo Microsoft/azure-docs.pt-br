@@ -52,13 +52,15 @@
     - name: Uso de insights do Bing
       href: bing-insights-usage.md
     - name: Análise de API de pesquisa Visual
-      href: bing-visual-search-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
 - name: Guias de instruções
   items:
     - name: Obter insights usando tokens
       href: use-insights-token.md
     - name: Miniaturas de redimensionamento e corte
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Procurar por uma imagem usando tokens de insight de imagem
       href: tutorial-visual-search-insights-token.md
     - name: Criar um aplicativo Web de página única
@@ -72,7 +74,7 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python'
     - name: Requisitos de uso e exibição

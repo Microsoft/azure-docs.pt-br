@@ -4,17 +4,17 @@ description: Este artigo descreve como você pode atualizar módulos comuns do A
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 05/30/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c09c9df1b8af7adca5c0169cf31881121ba6cc99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: a42fae4e7ff9ba9edc29c64480983987e41cf9c1
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427491"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476793"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Como atualizar módulos do Azure PowerShell na Automação do Azure
 
@@ -35,9 +35,7 @@ Se você desenvolve seus scripts localmente, é recomendável ter as mesmas vers
 
 A seguir estão algumas considerações que se deve fazer ao usar esse processo para atualizar seus módulos do Azure:
 
-* Esse runbook dá suporte à atualização apenas o **Azure** e **AzureRm** módulos no momento. [Módulos do Azure do PowerShell Az](/powershell/azure/new-azureps-module-az) têm suporte em contas de automação, mas não pode ser atualizada com este runbook. Há fatores importantes que você precisa levar em conta ao usar o `Az` módulos em sua conta de automação, para saber mais, consulte [módulos de Az usando em sua conta de automação](az-modules.md).
-
-* Evite iniciar esse runbook em contas de Automação que contêm módulos Az.
+* Esse runbook dá suporte à atualização do **Azure** e **AzureRm** módulos por padrão. Esse runbook dá suporte à atualização do **Az** módulos também. Examine os [runbook de módulos do Azure atualização Leiame](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) para obter mais informações sobre como atualizar `Az` módulos com este runbook. Há fatores importantes adicionais que você precisa levar em conta ao usar o `Az` módulos em sua conta de automação, para saber mais, consulte [módulos de Az usando em sua conta de automação](az-modules.md).
 
 * Antes de iniciar esse runbook, verifique se sua conta de Automação tem uma [credencial da conta Executar como do Azure](manage-runas-account.md) criada.
 

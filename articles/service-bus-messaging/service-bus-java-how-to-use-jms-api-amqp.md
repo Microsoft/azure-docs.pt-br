@@ -1,5 +1,5 @@
 ---
-title: Como usar o AMQP 1.0 com a API do barramento de serviço em Java JMS | Microsoft Docs
+title: Como usar o AMQP 1,0 com a API do barramento de serviço Java JMS | Microsoft Docs
 description: Como usar o Java Message Service (JMS) com o Barramento de Serviço do Microsoft Azure e Advanced Message Queuing Protocol (AMQP) 1.0.
 services: service-bus-messaging
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47b077dbb62088093c60a588660045529678c58f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310954"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68318450"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Como usar a API do Serviço de Mensagem Java (JMS) com Barramento de Serviço e AMQP 1.0
 O AMQP 1.0 é um protocolo de mensagens eficiente, confiável e conectado que pode ser usado para criar aplicativos de mensagens robustos em plataformas cruzadas.
@@ -51,7 +51,7 @@ Você deve adicionar os seguintes quatro arquivos JAR do arquivamento de distrib
 ### <a name="java-naming-and-directory-interface-jndi"></a>Java Naming and Directory Interface (JNDI)
 O JMS usa a Java Naming and Directory Interface (JNDI) para criar uma separação entre nomes lógicos e físicos. Dois tipos de objetos JMS são resolvidos usando a JNDI: ConnectionFactory e Destination. A JNDI usa um modelo de provedor no qual você pode conectar diferentes serviços de diretório para lidar com tarefas de resolução de nome. A biblioteca Apache Qpid JMS do AMQP 1.0 vem com um Provedor JNDI simples baseado em arquivo de propriedades que é configurado usando um arquivo de propriedades no seguinte formato:
 
-```
+```TEXT
 # servicebus.properties - sample JNDI configuration
 
 # Register a ConnectionFactory in JNDI using the form:
@@ -301,7 +301,7 @@ public class JmsQueueQuickstart {
 Passe a **Cadeia de Conexão** das políticas de acesso compartilhado para executar o aplicativo.
 Abaixo está a saída do formulário, executando o aplicativo:
 
-```
+```Output
 > mvn clean package
 >java -jar ./target/jmsqueuequickstart-1.0.0-jar-with-dependencies.jar -c "<CONNECTION_STRING>"
 
@@ -333,7 +333,7 @@ Closing queue client.
 ## <a name="amqp-disposition-and-service-bus-operation-mapping"></a>Disposição do Advanced Message Queuing Protocol e mapeamento da operação de Barramento de Serviço
 Aqui está como uma disposição de AMQP se traduz em uma operação de Barramento de Serviço:
 
-```
+```Output
 ACCEPTED = 1; -> Complete()
 REJECTED = 2; -> DeadLetter()
 RELEASED = 3; (just unlock the message in service bus, will then get redelivered)
@@ -341,16 +341,16 @@ MODIFIED_FAILED = 4; -> Abandon() which increases delivery count
 MODIFIED_FAILED_UNDELIVERABLE = 5; -> Defer()
 ```
 
-## <a name="jms-topics-vs-service-bus-topics"></a>Tópicos JMS vs. Tópicos do Service Bus
-Usar tópicos do barramento de serviço do Azure e assinaturas por meio do Java Message Service (JMS) API fornece básica enviar e receber recursos. É uma opção conveniente quando a portabilidade de aplicativos de outros agentes de mensagens com as APIs do JMS em conformidade, mesmo que os tópicos do barramento de serviço são diferentes de tópicos do JMS e exigem alguns ajustes. 
+## <a name="jms-topics-vs-service-bus-topics"></a>Tópicos de JMS vs. Tópicos do Service Bus
+O uso de tópicos e assinaturas do barramento de serviço do Azure por meio da API JMS (Java Message Service) fornece recursos básicos de envio e recebimento. É uma opção conveniente ao portar aplicativos de outros agentes de mensagem com APIs compatíveis com JMS, mesmo que os tópicos do barramento de serviço sejam diferentes dos tópicos JMS e exijam alguns ajustes. 
 
-Tópicos de barramento de serviço do Azure rotear mensagens para assinaturas duráveis, nomeadas compartilhadas que são gerenciadas por meio da interface de gerenciamento de recursos do Azure, as ferramentas de linha de comando do Azure, ou por meio do portal do Azure. Cada assinatura permite até 2000 regras de seleção, cada um dos quais podem ter uma condição de filtro e, para filtros SQL, também uma ação de transformação de metadados. Cada correspondência da condição de filtro seleciona a mensagem de entrada a ser copiado para a assinatura de tehj.  
+Os tópicos do barramento de serviço do Azure roteiam mensagens para assinaturas nomeadas, compartilhadas e duráveis que são gerenciadas por meio da interface de gerenciamento de recursos do Azure, das ferramentas de linha de comando do Azure ou do portal do Azure. Cada assinatura permite até 2000 regras de seleção, cada uma delas pode ter uma condição de filtro e, para filtros SQL, também uma ação de transformação de metadados. Cada correspondência de condição de filtro seleciona a mensagem de entrada a ser copiada na assinatura tehj.  
 
-Recebendo mensagens de assinaturas é idêntico de recebimento de mensagens de filas. Cada assinatura tem uma fila de inatividade associada, bem como a capacidade de encaminhar automaticamente mensagens para outra fila ou tópicos. 
+O recebimento de mensagens de assinaturas é idêntico ao receber mensagens de filas. Cada assinatura tem uma fila de mensagens mortas associada, bem como a capacidade de encaminhar mensagens automaticamente para outra fila ou tópicos. 
 
-Tópicos JMS permitem que os clientes criem dinamicamente, assinantes não duráveis e duráveis que, opcionalmente, permitem a filtragem de mensagens com seletores de mensagem. Não há suporte para essas entidades não compartilhadas pelo barramento de serviço. É a sintaxe de regra de filtro SQL para o barramento de serviço, no entanto, muito semelhante à sintaxe do seletor de mensagem JMS com suporte. 
+Os tópicos JMS permitem que os clientes criem dinamicamente assinantes não duráveis e duráveis que permitem, opcionalmente, filtrar mensagens com seletores de mensagem. Essas entidades não compartilhadas não são suportadas pelo barramento de serviço. No entanto, a sintaxe da regra de filtro SQL para o barramento de serviço é muito semelhante à sintaxe do seletor de mensagem suportada por JMS. 
 
-Lado do tópico JMS Editor é compatível com o barramento de serviço, conforme mostrado neste exemplo, mas os assinantes dinâmicos não são. Não há suporte para as seguintes APIs do JMS relacionadas à topologia com o barramento de serviço. 
+O lado do Publicador do tópico JMS é compatível com o barramento de serviço, conforme mostrado neste exemplo, mas assinantes dinâmicos não são. Não há suporte para as seguintes APIs JMS relacionadas à topologia com o barramento de serviço. 
 
 ## <a name="unsupported-features-and-restrictions"></a>Restrições e recursos não suportados
 As restrições a seguir ocorrem durante o uso do JMS sobre o AMQP 1.0 com o Service Bus, ou seja:

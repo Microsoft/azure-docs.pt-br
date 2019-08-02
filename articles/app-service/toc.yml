@@ -70,14 +70,17 @@
     - name: Funcionalidade de SO
       href: operating-system-functionality.md
     - name: Segurança
-      href: overview-security.md
       items:
+        - name: Recomendações
+          href: security-recommendations.md
         - name: Autenticação e autorização
           href: overview-authentication-authorization.md
         - name: SO e aplicação de patch ao tempo de execução
           href: overview-patch-os-runtime.md
         - name: Atributos de segurança
           href: app-service-security-attributes.md
+        - name: Visão geral da segurança
+          href: overview-security.md
     - name: Recursos de rede
       href: networking-features.md
     - name: IPs de entrada e saída
@@ -102,6 +105,10 @@
           href: web-sites-php-configure.md
         - name: Configurar o Java
           href: configure-language-java.md
+        - name: Conectar-se a recursos locais
+          href: web-sites-integrate-with-vnet.md
+        - name: Configurar o Armazenamento do Azure (contêiner)
+          href: configure-connect-to-azure-storage.md
     - name: Implantar no Azure
       items:
         - name: Implantar o aplicativo

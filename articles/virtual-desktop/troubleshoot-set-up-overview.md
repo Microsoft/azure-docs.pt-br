@@ -4,15 +4,15 @@ description: Uma visão geral para solução de problemas ao configurar um ambie
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 43f940c3c5b0fcf06fb5aa9be268f85db19fc8a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b349d7f384c801e95d745f7a18535f9f5d13cf86
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077656"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605202"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>Visão geral da solução de problemas, comentários e suporte
 

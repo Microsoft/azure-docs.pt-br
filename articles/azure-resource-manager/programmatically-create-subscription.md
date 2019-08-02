@@ -3,22 +3,16 @@ title: Criar programaticamente assinaturas do Azure Enterprise | Microsoft Docs
 description: Aprenda a criar programaticamente assinaturas adicionais do Azure Enterprise ou Enterprise Dev/Test.
 services: azure-resource-manager
 author: jureid
-manager: jureid
-editor: ''
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/10/2019
 ms.author: jureid
-ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf325b93c626e0c7f9584449154e2d531995cdc5
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796072"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204341"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente assinaturas do Azure Enterprise (versão prévia)
 
@@ -202,7 +196,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 
 Para ver uma lista completa de todos os parâmetros, consulte [criar conta az](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 
-----
+---
 
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da API de criação de assinatura do Azure Enterprise
 

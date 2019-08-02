@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: fcb9171d2285efab0f65e6ab424908bc42c0ea2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 01e7ca184f2be755f23cd402e0694ea282e3b85e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66391885"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441388"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Conecte o Excel ao Apache Hadoop no HDInsight do Azure com o driver ODBC do Microsoft Hive
 
@@ -32,7 +32,7 @@ Antes de começar este artigo, você deve ter os seguintes itens:
 * Uma estação de trabalho com o Office 2010 Professional Plus ou posterior ou o Excel 2010 ou posterior.
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Instalar o driver ODBC do Microsoft Hive
-Baixe e instale o [Driver ODBC do Microsoft Hive](https://go.microsoft.com/fwlink/?LinkID=286698) versão que corresponde à versão do aplicativo em que você usará o driver ODBC.  Para este tutorial, o driver é usado para o Office Excel.
+Baixe e instale o [Driver ODBC do Microsoft Hive](https://go.microsoft.com/fwlink/?LinkID=286698) versão que corresponde à versão do aplicativo em que você usará o driver ODBC.  Neste artigo, o driver é usado para o Office Excel.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Criar fonte de dados ODBC do Apache Hive
 As etapas a seguir mostram como criar uma fonte de dados ODBC do Hive.

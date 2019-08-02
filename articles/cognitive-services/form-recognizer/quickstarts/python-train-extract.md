@@ -1,20 +1,20 @@
 ---
-title: 'Início Rápido: treinar em um modelo e extrair dados de formulário usando a API REST com o Python – Reconhecimento de Formulários'
+title: 'Início Rápido: Treinar um modelo e extrair dados de formulário usando a API REST com o Python – Reconhecimento de Formulários'
 titleSuffix: Azure Cognitive Services
 description: Neste Início Rápido, você usará a API REST do Reconhecimento de Formulários com o Python para treinar em um modelo e extrair dados de formulários.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: ebed76c82b647d11e34a17ae94edf208929f8c56
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 53409769fc85422f4c34a14d22e7c44b2d5cce35
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475247"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443842"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início Rápido: treinar em um modelo do Reconhecimento de Formulários e extrair dados de formulário usando a API REST com o Python
 
@@ -26,34 +26,22 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Para concluir este início rápido, é necessário ter:
 - Acesso à versão prévia de acesso limitado do Reconhecimento de Formulários. Para obter acesso à versão prévia, preencha e envie o formulário de [Solicitação de acesso ao Reconhecimento de Formulários](https://aka.ms/FormRecognizerRequestAccess).
 - [Python](https://www.python.org/downloads/) instalado (se quiser executar o exemplo localmente).
-- Um conjunto com pelo menos cinco formulários do mesmo tipo. Você usará esses dados para treinar o modelo. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este Início Rápido. Carregue os dados na raiz de uma conta do Armazenamento de Blobs do Azure.
+- Um conjunto com pelo menos cinco formulários do mesmo tipo. Você usará esses dados para treinar o modelo. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido. Carregue os dados na raiz de um contêiner de armazenamento de blobs em uma conta do Armazenamento do Azure.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso do Reconhecimento de Formulários
 
-Quando o acesso para usar o Reconhecimento de Formulários for concedido, você receberá um email de boas-vindas com vários links e recursos. Use o link do "portal do Azure" na mensagem para abrir o portal do Azure e criar um recurso do Reconhecimento de Formulários. No painel **Criar**, forneça as informações a seguir:
-
-|    |    |
-|--|--|
-| **Nome** | Um nome descritivo para o seu recurso. É recomendável usar um nome descritivo, como, por exemplo, *MyNameFormRecognizer*. |
-| **Assinatura** | Selecione a assinatura do Azure à qual o acesso foi concedido. |
-| **Localidade** | A localização da sua instância de serviço cognitivo. Locais diferentes podem introduzir latência, mas não têm impacto sobre a disponibilidade de tempo de execução do seu recurso. |
-| **Tipo de preços** | O custo do recurso depende de seu uso e do tipo de preço que você escolheu. Para obter mais informações, consulte a API [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/).
-| **Grupo de recursos** | O [grupo de recursos do Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) que conterá o seu recurso. Você pode criar um grupo ou adicioná-lo a um grupo pré-existente. |
-
-> [!IMPORTANT]
-> Normalmente, ao criar um recurso de Serviço Cognitivo no portal do Azure, você tem a opção de criar uma chave de assinatura para vários serviços (usada em vários serviços cognitivos) ou uma chave de assinatura de serviço único (usada somente com um serviço cognitivo específico). No entanto, como o Reconhecimento de Formulários é uma versão prévia, ele não está incluído na assinatura vários serviços e você não pode criar a assinatura de serviço único, a menos que você use o link fornecido no email de boas-vindas.
-
-Quando o recurso de Reconhecimento de Formulários concluir a implantação, localize-o e selecione-o na lista **Todos os recursos** do portal. Em seguida, selecione a guia **Chaves** para exibir suas chaves de assinatura. A chave fornecerá ao aplicativo o acesso ao recurso. Copie o valor de **CHAVE 1**. Você o usará na próxima seção.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## <a name="train-a-form-recognizer-model"></a>Treinar um modelo do Reconhecimento de Formulários
 
-Primeiro, você precisará de um conjunto de dados de treinamento em um blob do Armazenamento do Azure. É necessário ter um mínimo de cinco formulários de exemplo (documentos PDF e/ou imagens) do mesmo tipo/da mesma estrutura dos dados de entrada principais. Ou você pode usar um único formulário vazio com dois formulários preenchidos. O nome do arquivo do formulário vazio precisa incluir a palavra "vazio".
+Primeiro, você precisará de um conjunto de dados de treinamento em um contêiner de blobs do Armazenamento do Azure. É necessário ter um mínimo de cinco formulários preenchidos (documentos PDF e/ou imagens) do mesmo tipo/da mesma estrutura dos dados de entrada principais. Ou você pode usar um único formulário vazio com dois formulários preenchidos. O nome do arquivo do formulário vazio precisa incluir a palavra "vazio". Veja [Criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para compilar os dados de treinamento.
 
-Para treinar um modelo do Reconhecimento de Formulários usando os documentos no contêiner de blob do Azure, chame a API **Treinar** executando o comando do Python a seguir. Antes de executar o código, faça estas alterações:
+Para treinar um modelo do Reconhecimento de Formulários usando os documentos no contêiner de blobs do Azure, chame a API **Treinar** executando o comando do Python a seguir. Antes de executar o código, faça estas alterações:
 
 1. Substitua `<Endpoint>` pela URL do ponto de extremidade do recurso do Reconhecimento de Formulários na região do Azure em que você obteve suas chaves de assinatura.
-1. Substitua `<SAS URL>` pela URL de SAS (Assinatura de Acesso Compartilhado) de um contêiner do Armazenamento de Blob do Azure no qual os dados de treinamento estão localizados.  
 1. Substitua `<Subscription key>` pela chave de assinatura que você copiou na etapa anterior.
+1. Substitua `<SAS URL>` pela URL da Assinatura de Acesso Compartilhado (SAS) do contêiner de armazenamento de Blobs do Azure. Para recuperar a URL de SAS, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no seu contêiner e selecione **Obter assinatura de acesso compartilhado**. Verifique se as permissões de **Leitura** e **Lista** estão marcadas e clique em **Criar**. Em seguida, copie o valor na seção **URL**. Deve ter o formulário: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -127,9 +115,9 @@ Observe o valor de `"modelId"`. Ele será necessário nas etapas a seguir.
 Em seguida, você analisará um documento e extrairá pares chave-valor e tabelas dele. Chame a API **Modelar – Analisar** executando o comando do Python a seguir. Antes de executar o comando, faça essas alterações:
 
 1. Substitua `<Endpoint>` pelo ponto de extremidade que você obteve com a chave de assinatura do Reconhecimento de Formulários. Encontre-o na guia **Visão geral** de recursos do Reconhecimento de Formulários.
-1. Substitua `<File Path>` pelo caminho do arquivo ou a URL do local do formulário cujos dados serão extraídos.
+1. Substitua `<path to your form>` pelo caminho do arquivo do seu formulário (por exemplo, C:\temp\file.pdf).
 1. Substitua `<modelID>` pela ID do modelo recebida na seção anterior.
-1. Substitua `<file type>` pelo tipo do arquivo. Tipos com suporte: pdf, imagem/jpeg, imagem/png.
+1. Substitua `<file type>` pelo tipo do arquivo. Tipos com suporte: `application/pdf`, `image/jpeg`, `image/png`.
 1. Substitua `<subscription key>` por sua chave de assinatura.
 
     ```python
@@ -138,11 +126,11 @@ Em seguida, você analisará um documento e extrairá pares chave-valor e tabela
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
-    file_path = r"<File Path>"
+    file_path = r"<path to your form>"
     model_id = "<modelID>"
     headers = {
         # Request headers
-        'Content-Type': 'application/<file type>',
+        'Content-Type': '<file type>',
         'Ocp-Apim-Subscription-Key': '<subscription key>',
     }
 

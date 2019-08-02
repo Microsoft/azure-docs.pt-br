@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a231a4317aa2500b6377b512ae9311b2c7acda
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e12f532ca73824c50375fba8b5ca3ee6e256c202
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898194"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100847"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Tutorial: Integração do Azure Active Directory com o HPE SaaS
 
@@ -53,7 +53,7 @@ Para configurar a integração do HPE SaaS ao AD do Azure, você precisará adic
 
 **Para adicionar o HPE SaaS da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o HPE SaaS, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do HPE SaaS](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://login.saas.hpe.com/msg`
+    a. Na caixa de texto **URL de Logon**, digite uma URL como: `https://login.saas.hpe.com/msg`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.saas.hpe.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.saas.hpe.com`
 
     > [!NOTE]
     > O valor do Identificador não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte ao cliente do HPE SaaS](https://saas.hpe.com/en-us/contact) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

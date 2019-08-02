@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b57ffbd3cb2b31da3fc2882e941f9788d83fea8
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731003"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341668"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solucionar problemas ao habilitar ou exibir o Profiler do Application Insights
 
@@ -88,7 +88,7 @@ Para o Profiler funcionar corretamente:
 
       ![Criador de perfil de trabalho Web de log]
 
-Se você não consegue descobrir por que o Profiler não está funcionando para você, você pode baixar o log e enviá-lo para a nossa equipe para obter assistência. 
+Se você não consegue descobrir por que o Profiler não está funcionando para você, você pode baixar o log e enviá-la à nossa equipe de assistência, serviceprofilerhelp@microsoft.com. 
     
 ### <a name="manual-installation"></a>Instalação manual
 

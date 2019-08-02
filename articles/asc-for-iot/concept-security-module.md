@@ -2,24 +2,25 @@
 title: Entender a Central de segurança do Azure para o módulo de segurança de IoT gêmeos Preview | Microsoft Docs
 description: Saiba mais sobre o conceito de Gêmeos de módulo de segurança e como eles são usados na Central de segurança do Azure para IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: de0f21fbd847ff801308523f48e9d0c8a91880fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f964fd2b121c6232081673666f5babb160e1721
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198373"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618303"
 ---
 # <a name="security-module"></a>Módulo de segurança
 

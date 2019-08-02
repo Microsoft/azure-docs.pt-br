@@ -43,6 +43,8 @@
         - name: Avaliação offline
           href: concepts-offline-evaluation.md
           displayName: 'learning policy, Counterfactual, features'
+        - name: Avaliação de recurso
+          href: concept-feature-evaluation.md
     - name: Desempenho e escalabilidade
       href: concepts-scalability-performance.md
 - name: Guias de instruções
@@ -62,12 +64,28 @@
       href: 'https://go.microsoft.com/fwlink/?linkid=2092082'
     - name: SDKs
       items:
-        - name: Referência do SDK do .NET
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
-        - name: Pacote NuGet
-          href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: .NET
+          items:
+            - name: Referência do SDK do .NET
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092353'
+            - name: Pacote NuGet
+              href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
+        - name: Go
+          items:
+            - name: .
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer'
+        - name: Node.js
+          items:
+            - name: NPM
+              href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
+        - name: Python
+          items:
+            - name: Pacote Pypi
+              href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Recursos
   items:
+    - name: solução de problemas
+      href: troubleshooting.md
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
     - name: Conformidade

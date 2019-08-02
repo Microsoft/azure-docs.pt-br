@@ -17,12 +17,12 @@ ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760eb5a37a09687cd98ca7abbdcb0bc42667f830
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6972c91a18f9deb240871d8c64a14647474d9d78
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107617"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377263"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de login 
 
@@ -30,7 +30,7 @@ Com as informações fornecidas pelo [relatório de logins de usuários](concept
 
 - Quem entrou na minha inscrição?
 - Quais aplicativos foram conectados?
-- Quais inscrições falharam por quê?
+- Quais entradas falharam e por quê?
 
 Quando um login falhar, você verá um código de erro correspondente à falha. Este artigo lista os códigos de erro e suas descrições, juntamente com um curso sugerido de ação, quando aplicável. 
 
@@ -50,10 +50,10 @@ A seleção de um item da lista filtrada abre a folha **Detalhes da Atividade: C
 
 Você também pode acessar programaticamente os dados de login usando a [API de relatórios](concept-reporting-api.md).
 
-## <a name="error-codes"></a>Códigos do Erro
+## <a name="error-codes"></a>Códigos de erro
 
 
-|Erro|DESCRIÇÃO|
+|Erro|Descrição|
 |---|---|
 |16000|Este é um detalhe de implementação interna e não uma condição de erro. É possível ignorar essa referência com segurança.|
 |20001|Há um problema com seu provedor de identidade federada. Entre em contato com seu IDP para resolver esse problema.|
@@ -66,7 +66,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50001|O nome da entidade de serviço não foi encontrado neste locatário. Isso pode acontecer se o aplicativo não tiver sido instalado pelo administrador do locatário ou se o principal do recurso não tiver sido encontrado no diretório ou for inválido.|
 |50002|Falha ao entrar devido ao acesso de proxy restrito no locatário. Se for sua própria política de inquilino, você poderá alterar suas configurações de inquilino restrito para corrigir esse problema.|
 |50003|Falha ao entrar devido à ausência de chave de assinatura ou de certificado. Isso pode ocorre porque não existia nenhuma chave de assinatura configurada no aplicativo. Confira as resoluções descritas em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#certificate-or-key-not-configured). Se o problema persistir, entre em contato com o proprietário do aplicativo ou com o administrador do aplicativo.|
-|50005|O usuário tentou fazer logon em um dispositivo de uma plataforma que não é suportada atualmente por meio da política de acesso condicional.|
+|50005|O usuário tentou fazer logon em um dispositivo de uma plataforma que atualmente não tem suporte por meio da política de acesso condicional.|
 |50006| Falha na verificação de assinatura devido a uma assinatura inválida. Confira a resolução descrita em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery). Se o problema persistir, entre em contato com o proprietário do aplicativo ou com o administrador do aplicativo.|
 |50007|O certificado de criptografia do parceiro não foi encontrado para esse aplicativo. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para obter esse fixo.|
 |50008|A instrução de declaração SAML está ausente ou foi configurada incorretamente no token. Entre em contato com seu provedor de federação.|
@@ -79,7 +79,7 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50027|Token JWT inválido pelos seguintes motivos:<ul><li>não contém declaração nonce, subdeclaração</li><li>incompatibilidade do identificador do assunto</li><li>declaração duplicada nas declarações de idToken</li><li>emissor inesperado</li><li>audiência inesperada</li><li>não está dentro de seu intervalo de tempo válido </li><li>o formato do token não é apropriado</li><li>falha na verificação de assinatura do token de ID externa do emissor.</li></ul>Entre em contato com o proprietário do aplicativo|
 |50029|URI inválida – o nome de domínio contém caracteres inválidos. Entre em contato com o administrador do inquilino.|
 |50034|O usuário não existe no diretório. Entre em contato com o administrador do locatário.|
-|50042|O salt requerido para gerar um identificador de paridade está ausente no princípio. Entre em contato com o administrador do inquilino.|
+|50042|O Salt necessário para gerar um identificador de par está ausente em princípio. Entre em contato com o administrador do inquilino.|
 |50048|O assunto não é compatível com o emissor de declaração na declaração do cliente. Entre em contato com o administrador do inquilino.|
 |50050|A solicitação está malformada. Entre em contato com o proprietário do aplicativo.|
 |50053|A conta está bloqueada porque o usuário tentou entrar muitas vezes com uma ID de usuário ou senha incorreta.|
@@ -129,12 +129,12 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |50180|Necessária a autenticação integrada do Windows. Habilite o locatário para um SSO contínuo.|
 |51001|Dica de Domínio não está presente com o Identificador de Segurança Local - UPN Local.|
 |51004|A conta de usuário não existe no diretório.|
-|51006|Necessária a autenticação integrada do Windows. Usuário conectado usando o token de sessão que está ausente por meio da declaração. Solicite ao usuário que refaça o logon.|
+|51006|Necessária a autenticação integrada do Windows. Usuário conectado usando o token de sessão que está faltando por meio de declaração. Solicite ao usuário que refaça o logon.|
 |52004|Usuário não forneceu autorização para acessar os recursos do LinkedIn. |
 |53000|Política de acesso condicional requer um dispositivo compatível, e o dispositivo não é compatível. Solicite que o usuário registre seu dispositivo com um provedor de MDM aprovado, como o Intune.|
 |53001|A política de acesso condicional requer um dispositivo com ingresso no domínio, e o dispositivo não o é. O usuário use um domínio tenha ingressado no dispositivo.|
-|53002|Aplicativo usado não é um aplicativo aprovado para acesso condicional. O usuário precisa usar um dos aplicativos da lista de aplicativos aprovados para uso para obter acesso.|
-|53003|Acesso foi bloqueado devido a políticas de acesso condicional.|
+|53002|O aplicativo usado não é um aplicativo aprovado para acesso condicional. O usuário precisa usar um dos aplicativos da lista de aplicativos aprovados para uso para obter acesso.|
+|53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O usuário precisa concluir o processo de registro de autenticação multifator antes de acessar este conteúdo. O usuário deve se registrar para a autenticação multifator.|
 |65001|O aplicativo X não tem permissão para acessar o aplicativo Y ou a permissão foi revogada. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização interativa para esse usuário e recurso. Outra possibilidade: o usuário ou administrador não aceitou usar o aplicativo com a ID X. Envie uma solicitação de autorização ao administrador do seu locatário para atuar em nome do Aplicativo: Y para o Recurso: Z.|
 |65004|O usuário se recusou a consentir para acessar o aplicativo. Peça que o usuário tente entrar novamente e dê consentimento ao aplicativo|
@@ -174,14 +174,14 @@ Você também pode acessar programaticamente os dados de login usando a [API de 
 |81012|Isso não é uma condição de erro. Isso indica que o usuário que está tentando entrar no Azure AD é diferente do usuário conectado ao dispositivo. É possível ignorar esse código nos logs com segurança.|
 |90010|Não há suporte para a solicitação por vários motivos. Por exemplo, a solicitação é feita usando um método de solicitação não compatível (apenas o método POST é compatível) ou não há suporte para o algoritmo de autenticação de tokens solicitado. Contate o desenvolvedor do aplicativo.|
 |90014| Um campo obrigatório para uma mensagem de protocolo estava ausente. Contate o proprietário do aplicativo. Se você for o proprietário do aplicativo, verifique se tem todos os parâmetros necessários para a solicitação de logon. |
-|90051| Token de delegação inválido. ID de nuvem nacional inválido ({cloudId}) é especificado.|
+|90051| Token de delegação inválido. Foi especificada uma ID de nuvem nacional inválida ({cloudid}).|
 |90072| A conta precisa primeiro ser adicionada como um usuário externo no locatário. Saia e entre novamente com outra conta do Azure AD.|
 |90094| A concessão exige permissões de administrador. Solicite ao administrador de locatários que ele forneça o consentimento para esse aplicativo.|
-|500021|Multilocatário é restrita pelo proxy da empresa. Negando o acesso aos recursos.|
-|500121| Falha de autenticação durante a solicitação de autenticação forte.|
+|500021|O locatário é restrito pelo proxy da empresa. Negando o acesso aos recursos.|
+|500121| A autenticação falhou durante uma solicitação de autenticação forte.|
 |500133| A declaração não está dentro de seu intervalo de tempo válido. Certifique-se de que o token de acesso não expirou antes de usá-lo para a declaração de usuário ou antes de solicitar um novo token.|
-|530021|Aplicativo não atende os requisitos de aplicativo de acesso condicional aprovada.|
-|7000218|O corpo da solicitação deve conter o seguinte parâmetro: 'client_assertion' ou 'client_secret'.|
+|530021|O aplicativo não atende aos requisitos de aplicativo aprovados para acesso condicional.|
+|7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
 ## <a name="next-steps"></a>Próximas etapas

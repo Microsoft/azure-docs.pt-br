@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 06/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d8a9b82e51c837af6343ddf851545d02299aa527
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 834484278bb597bba4a5e1821d0b6572913a761d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473878"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67146995"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-in-azure"></a>Pré-requisitos comuns para implantar OpenShift no Azure
 
@@ -69,7 +69,7 @@ az group create --name keyvaultrg --location eastus
 ```
 
 ## <a name="create-a-key-vault"></a>Criar um cofre de chave
-Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault). O nome do Key Vault deve ser globalmente exclusivo.
+Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [az keyvault create](/cli/azure/keyvault). O nome do Cofre de chaves deve ser globalmente exclusivo e deve ser habilitado para implantação de modelo ou a implantação falhará com o erro "KeyVaultParameterReferenceSecretRetrieveFailed".
 
 O exemplo abaixo cria um keyvault denominado *keyvault* no grupo de recursos *keyvaultrg*:
 

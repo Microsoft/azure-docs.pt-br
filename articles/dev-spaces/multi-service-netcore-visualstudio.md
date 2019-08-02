@@ -10,13 +10,13 @@ ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 487ad5c4f68f2fd965384a33aa9f6c0e8da351a4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
+ms.openlocfilehash: dd90dee2f973bb26a43706eb77f15778cb9116a0
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800742"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502968"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento de vários serviços com Azure Dev Spaces
 
@@ -77,35 +77,6 @@ O exemplo de código anterior encaminha o cabeçalho `azds-route-as` da solicita
 1. Pressione F10 para continuar. Agora o ponto de interrupção no projeto `mywebapi` será disparado.
 1. Pressione F5 para continuar e você estará novamente no código no projeto `webfrontend`.
 1. Pressionar F5 mais uma vez concluirá a solicitação e retornará uma página no navegador. No aplicativo Web, a página Sobre exibirá uma mensagem concatenada pelos dois serviços: "Olá de webfrontend e Olá de mywebapi".
-
-Muito bem! Agora você tem um aplicativo de vários contêineres em que cada contêiner pode ser desenvolvido e implantado separadamente.
-
-### <a name="automatic-tracing-for-http-messages"></a>Rastreamento automático de mensagens HTTP
-Você deve ter observado que, embora *webfrontend* não contenha nenhum código especial para imprimir a chamada HTTP que faz para *mywebapi*, o HTTP rastreia mensagens na janela de saída:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
-   GET /Home/About HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend-668b7ddb9f-n5rhj --pu5-> mywebapi:
-   GET /api/values/1 HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
-   HTTP/1.1 200 OK
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
-   HTTP/1.1 200 OK
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-sc...<[TRUNCATED]>
-```
-Este é um dos benefícios "gratuitos" que você obtém com a instrumentação do Azure Dev Spaces. Nós inserimos componentes que rastreiam solicitações HTTP conforme elas passam pelo sistema para facilitar o rastreamento de chamadas de vários serviços complexas durante o desenvolvimento.
 
 ### <a name="well-done"></a>Muito bem!
 Agora você tem um aplicativo de vários contêineres em que cada contêiner pode ser desenvolvido e implantado separadamente.

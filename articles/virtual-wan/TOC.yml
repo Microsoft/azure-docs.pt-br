@@ -10,8 +10,6 @@
       href: virtual-wan-site-to-site-portal.md
     - name: Criar uma conexão do ExpressRoute
       href: virtual-wan-expressroute-portal.md
-    - name: Criar uma conexão ponto a site
-      href: virtual-wan-point-to-site-portal.md
 - name: Conceitos
   items:
     - name: Sobre locais e parceiros

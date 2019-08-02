@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201998168b0709b1608ffad2565518e15d47e52c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fa8e54a6a665b1bad91a87ca8e58f873df1ae8a
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234294"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672311"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Pré-requisitos do Azure Disk Encryption (versão anterior)
 
@@ -28,26 +28,64 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="bkmk_OSs"></a> Sistemas operacionais com suporte
-O Azure Disk Encryption tem suporte nos seguintes sistemas operacionais:
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
-- Versões do Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
-  - Para o Windows Server 2008 R2, você deve ter o .NET Framework 4.5 instalado antes de habilitar a criptografia no Azure. Instale-o a partir do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
-- Versões de cliente do Windows: Cliente Windows 8 e cliente Windows 10.
-- O Azure Disk Encryption tem suporte somente em distribuições e versões específicas do servidor Linux baseado na Galeria do Azure. Para obter a lista das versões com suporte no momento, consulte o [perguntas frequentes sobre o Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+### <a name="windows"></a>Windows
+
+- Cliente do Windows: Windows 8 e posterior.
+- Windows Server: Windows Server 2008 R2 e versões posteriores.  
+ 
+> [!NOTE] 
+> Windows Server 2008 R2 requer o .NET Framework 4.5 ser instalado para a criptografia; Instale-o a partir do Windows Update com a atualização opcional Microsoft .NET Framework 4.5.2 para sistemas baseados em x64 do Windows Server 2008 R2 ([KB2901983](https://www.catalog.update.microsoft.com/Search.aspx?q=KB2901983)).  
+>  
+> Núcleo do Windows Server 2012 R2 e Windows Server 2016 Core requer o componente bdehdcfg para ser instalado na VM para criptografia.
+
+### <a name="linux"></a>Linux 
+
+Azure Disk Encryption tem suporte em um subconjunto do [distribuições do Linux endossadas pelo Azure](../virtual-machines/linux/endorsed-distros.md), que é um subconjunto de todas as distribuições Linux server possíveis, em si.
+
+![Diagrama de Venn de distribuições do Linux server que dá suporte à criptografia de disco do Azure](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Distribuições do Linux e de servidor que não são endossadas pelo Azure não dão suporte a Azure Disk Encryption e, desses endossadas, somente os seguintes distribuições e versões de suportam Azure Disk Encryption:
+
+| Distribuição Linux | Versão | Tipo de volume suportado para criptografia|
+| --- | --- |--- |
+| Ubuntu | 18.04| SO e disco de dados |
+| Ubuntu | 16.04| SO e disco de dados |
+| Ubuntu | 14.04.5</br>[com kernel ajustado para Azure atualizado para 4.15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | SO e disco de dados |
+| RHEL | 7.6 | Disco do sistema operacional e dados (consulte a observação abaixo) |
+| RHEL | 7.5 | Disco do sistema operacional e dados (consulte a observação abaixo) |
+| RHEL | 7.4 | Disco do sistema operacional e dados (consulte a observação abaixo) |
+| RHEL | 7.3 | Disco do sistema operacional e dados (consulte a observação abaixo) |
+| RHEL | 7,2 | Disco do sistema operacional e dados (consulte a observação abaixo) |
+| RHEL | 6,8 | Disco de dados (consulte a observação abaixo) |
+| RHEL | 6.7 | Disco de dados (consulte a observação abaixo) |
+| CentOS | 7.6 | SO e disco de dados |
+| CentOS | 7.5 | SO e disco de dados |
+| CentOS | 7.4 | SO e disco de dados |
+| CentOS | 7.3 | SO e disco de dados |
+| CentOS | 7.2n | SO e disco de dados |
+| CentOS | 6,8 | Disco de dados |
+| openSUSE | 42.3 | Disco de dados |
+| SLES | 12-SP4 | Disco de dados |
+| SLES | 12-SP3 | Disco de dados |
+
+> [!NOTE]
+> A nova implementação ADE tem suporte para RHEL SO e disco de dados para imagens RHEL7 pay-as. Atualmente, o ADE não dá suporte para imagens RHEL BYOS (Traga sua própria assinatura). Ver [Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md) para obter mais informações.
+
 - O Azure Disk Encryption exige que seu cofre de chaves e as VMs residam na mesma região e assinatura do Azure. Configurá os recursos em regiões separadas causa uma falha na habilitação do recurso de Azure Disk Encryption.
 
-## <a name="bkmk_LinuxPrereq"></a> Pré-requisitos adicionais para VMs IaaS Linux 
+#### <a name="additional-prerequisites-for-linux-iaas-vms"></a>Pré-requisitos adicionais para VMs IaaS Linux 
 
-- O Azure Disk Encryption para Linux requer 7 GB de RAM na VM para habilitar a criptografia de disco do sistema operacional em [imagens com suporte](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Quando o processo de criptografia de disco do sistema operacional for concluído, a VM pode ser configurada para executar com menos memória.
+- Azure Disk Encryption exige o dm-crypt e vfat módulos para serem presentes no sistema. Remover ou desabilitar vfat a partir da imagem padrão impedirá que o sistema de ler o volume de chave e obter a chave necessária para desbloquear os discos em reinicializações subsequentes. Etapas de proteção do sistema que remova o módulo vfat do sistema não são compatíveis com o Azure Disk Encryption. 
 - Antes de habilitar a criptografia, os discos de dados a serem criptografados precisam ser listados corretamente em /etc/fstab. Use um nome de dispositivo de bloco persistente para essa entrada, pois nomes de dispositivo no formato "/dev/sdX" não podem ser considerados para serem associados com o mesmo disco entre as reinicializações, principalmente depois que a criptografia é aplicada. Para obter mais detalhes sobre esse comportamento, consulte: [Solucionar problemas de alterações do nome do dispositivo da VM do Linux](../virtual-machines/linux/troubleshoot-device-names-problems.md)
-- Verifique se as configurações de /etc/fstab estão definidas corretamente para a montagem. Para definir essas configurações, execute o comando mount - a ou reinicie a VM e disparar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar se a unidade desejada ainda está montada. 
+- Verifique se as configurações de /etc/fstab estão definidas corretamente para a montagem. Para definir essas configurações, execute o comando mount - a ou reinicie a VM e disparar a remontagem dessa forma. Quando terminar, verifique a saída do comando lsblk para verificar se a unidade ainda está montada. 
   - Se o arquivo /etc/fstab não montar a unidade corretamente antes de habilitar a criptografia, o Azure Disk Encryption não será capaz de montá-la corretamente.
   - O processo de criptografia de disco do Azure se moverá as informações de montagem fora /etc/fstab e em seu próprio arquivo de configuração como parte do processo de criptografia. Não se assuste para ver a entrada ausente do /etc/fstab após a criptografia de unidade de dados é concluída.
-  -  Após a reinicialização, ela levará tempo para o processo de criptografia de disco do Azure montar os discos criptografados recentemente. Eles não estarão disponíveis imediatamente após uma reinicialização. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar unidades criptografadas antes de seus ficando disponível para outros processos acessem. Esse processo pode levar mais de um minuto após a reinicialização, dependendo das características do sistema.
+  - Antes de iniciar a criptografia, não se esqueça de parar todos os serviços e processos que poderia estar escrevendo para os discos de dados montados e desabilitá-los, para que eles não reiniciam automaticamente após uma reinicialização. Eles poderiam manter arquivos abertos nessas partições, impedindo que o procedimento de criptografia para remontá-los, causando a falha da criptografia. 
+  - Após a reinicialização, ela levará tempo para o processo de criptografia de disco do Azure montar os discos criptografados recentemente. Eles não estarão disponíveis imediatamente após uma reinicialização. O processo precisa de tempo para iniciar, desbloquear e, em seguida, montar as unidades criptografadas antes de estar disponível para ser acessado por outros processos. Esse processo pode levar mais de um minuto após a reinicialização, dependendo das características do sistema.
 
-Um exemplo de comandos que podem ser usados para montar os discos de dados e criar os necessários/etc/fstab entradas pode ser encontrado no [197-205 desse arquivo de script de linhas](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L197-L205). 
-
+Um exemplo de comandos que podem ser usados para montar os discos de dados e criar as entradas/ etc/fstab necessárias pode ser encontrado nas [linhas 244-248 desse arquivo de script ](https://github.com/ejarvi/ade-cli-getting-started/blob/master/validate.sh#L244-L248). 
 
 ## <a name="bkmk_GPO"></a> Sistema de rede e a diretiva de grupo
 
@@ -71,7 +109,7 @@ Um exemplo de comandos que podem ser usados para montar os discos de dados e cri
 
 
 **Política de grupo:**
- - A solução de Azure Disk Encryption usa o protetor de chave externa BitLocker para VMs IaaS do Windows. Para VMs ingressado no domínio, não envie por push todas as políticas de grupo que imponham protetores TPM. Para obter informações sobre a política de grupo "Permitir BitLocker sem um TPM compatível", confira [Referência de política de grupo do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#a-href-idbkmk-unlockpol1arequire-additional-authentication-at-startup).
+ - A solução de Azure Disk Encryption usa o protetor de chave externa BitLocker para VMs IaaS do Windows. Para VMs ingressado no domínio, não envie por push todas as políticas de grupo que imponham protetores TPM. Para obter informações sobre a política de grupo "Permitir BitLocker sem um TPM compatível", confira [Referência de política de grupo do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
 
 -  A política do BitLocker em máquinas virtuais ingressadas no domínio com política de grupo personalizada deve incluir a seguinte configuração: [Configurar o armazenamento de usuário do BitLocker as informações de recuperação -> permitir 256 bits chave de recuperação](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). O Azure Disk Encryption falha quando as configurações da política de grupo personalizada para o BitLocker são incompatíveis. Em computadores que não tinham a configuração de política correta, aplique a nova política, force a atualização da nova política (gpupdate.exe /force) e, em seguida, pode ser necessário reiniciar.  
 

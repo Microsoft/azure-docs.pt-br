@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: aaeee4238110faa7a842073af8431b30b885db3c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: c2565a5549cbca08b987883e5905f09070b5ab2c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870017"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443194"
 ---
-# <a name="add-an-azure-storage-queue-binding-to-your-function"></a>Adicionar uma associação de fila do Armazenamento do Azure à sua função
+# <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila do Armazenamento do Azure à sua função do Python
 
 O Azure Functions lhe permite conectar os serviços do Azure e outros recursos às funções sem precisar escrever seu próprio código de integração. Essas *associações*, que representam a entrada e a saída, são declaradas na definição de função. Dados de associações são fornecidos à função como parâmetros. Um gatilho é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e de saída. Para saber mais, confira [Conceitos de gatilhos e de associações do Azure Functions](functions-triggers-bindings.md).
 
@@ -32,7 +32,7 @@ Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido d
 
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
-No artigo de início rápido anterior, você criou um aplicativo de funções no Azure juntamente com uma Conta de armazenamento. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à sua Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo local.settings.json. Execute o seguinte comando do Azure Functions Core Tools para baixar as configurações para local.settings.json, substituindo `<APP_NAME>` pelo nome do seu aplicativo de funções do artigo anterior:
+No artigo de início rápido anterior, você criou um aplicativo de funções no Azure, juntamente com a Conta de armazenamento necessária. A cadeia de conexão dessa conta é armazenada com segurança nas configurações do aplicativo no Azure. Neste artigo, você escreverá mensagens em uma Fila de armazenamento na mesma conta. Para se conectar à sua Conta de armazenamento ao executar a função localmente, é necessário baixar as configurações do aplicativo para o arquivo local.settings.json. Execute o seguinte comando do Azure Functions Core Tools para baixar as configurações para local.settings.json, substituindo `<APP_NAME>` pelo nome do seu aplicativo de funções do artigo anterior:
 
 ```bash
 func azure functionapp fetch-app-settings <APP_NAME>
@@ -44,6 +44,12 @@ Talvez seja necessário entrar em sua conta do Azure.
 > Como ela contém segredos, o arquivo local.settings.json nunca é publicado e deve ser excluído do controle do código-fonte.
 
 É necessário ter o valor `AzureWebJobsStorage`, que é a cadeia de conexão da Conta de armazenamento. Use esta conexão para verificar se a associação de saída funciona conforme o esperado.
+
+## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
+
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+
+Agora, você pode adicionar uma associação de saída do armazenamento ao seu projeto.
 
 ## <a name="add-an-output-binding"></a>Adicionar uma associação de saída
 
@@ -117,8 +123,8 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
         return func.HttpResponse(f"Hello {name}!")
     else:
         return func.HttpResponse(
-             "Please pass a name on the query string or in the request body",
-             status_code=400
+            "Please pass a name on the query string or in the request body",
+            status_code=400
         )
 ```
 
@@ -133,7 +139,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Como o artigo anterior exigia que você habilitasse os pacotes de extensões no host.json, a [Extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização.
+> Como o artigo anterior exigia que você habilitasse os pacotes de extensões no host.json, a [Extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com outras extensões de associação da Microsoft.
 
 Copie a URL da função `HttpTrigger` da saída do tempo de execução de função e cole-a na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `?name=<yourname>` a essa URL e execute a solicitação. Você deve ver a mesma resposta no navegador como você viu no artigo anterior.
 

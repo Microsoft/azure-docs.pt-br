@@ -1,0 +1,42 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure FXT Edge Filer
+metadata:
+  title: Documentação do Azure FXT Edge Filer
+  description: Usar o Azure FXT Edge Filer como uma camada de cache para tarefas de HPC (computação de alto desempenho) de leitura intensa
+  author: ekpgh
+  ms.service: fxt-edge-filer
+  ms.topic: landing-page
+  ms.date: 07/10/2019
+  ms.author: v-erkell
+abstract:
+  description: 'O cache de armazenamento híbrido do Azure FXT Edge Filer é um sistema híbrido de hardware/software que acelera o acesso a dados para fluxos de trabalho de HPC (computação de alto desempenho) de leitura intensa com base no arquivo. Um cluster de três ou mais dispositivos Azure FXT Edge Filer pode acelerar o desempenho de armazenamento para sistemas NAS locais (NetApp ou Dell EMC Isilon), armazenamento em nuvem ou uma combinação de soluções.'
+sections:
+  - title: Tutoriais passo a passo
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-install">Instalar o hardware Azure FXT Edge Filer</a>
+          - html: <a href="fxt-network-power">Fazer conexões de rede para o Azure FXT Edge Filer</a>
+          - html: <a href="fxt-node-password">Definir as senhas raiz em nós de hardware</a>
+          - html: <a href="fxt-cluster-create">Criar o cluster de cache de armazenamento híbrido</a>
+          - html: <a href="fxt-add-nodes">Adicionar nós de cluster</a>
+          - html: <a href="fxt-add-storage">Adicionar armazenamento de back-end e configurar o namespace virtual</a>
+          - html: <a href="fxt-configure-network">Definir as configurações de rede do cluster</a>
+  - title: Guias de instruções
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-mount-clients">Conectar clientes ao cluster do Azure FXT Edge Filer</a>
+          - html: <a href="fxt-monitor">Monitorar o Azure FXT Edge Filer</a>
+          - html: <a href="fxt-power-off">Desligar com segurança um nó de hardware</a>
+  - title: Recursos
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="fxt-specs">Especificações de hardware</a>
+          - html: <a href="fxt-additional-doc">Documentação adicional</a>
+          - html: <a href="fxt-support-ticket">Abrir um tíquete de suporte</a>

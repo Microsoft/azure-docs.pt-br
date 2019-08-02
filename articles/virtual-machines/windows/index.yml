@@ -6,14 +6,12 @@ metadata:
   title: 'Documentação das Máquinas Virtuais de Windows do Microsoft Azure - Tutoriais, Referência de API'
   meta.description: 'Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.'
   services: virtual-machines\windows
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machines-windows
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/23/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'As Máquinas Virtuais do Windows Azure fornecem infraestrutura sob demanda, de alta escalabilidade, segura e virtualizada usando o Windows Server. Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Windows com nossos guias de início rápido, tutoriais e exemplos.'
   aside:

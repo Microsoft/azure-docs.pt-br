@@ -1,22 +1,22 @@
 ---
 title: Métodos de autenticação - Azure Active Directory
-description: Quais métodos de autenticação estão disponíveis no Azure AD para MFA e SSPR
+description: Métodos de autenticação disponíveis no Azure AD para MFA e o SSPR
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1322c919906dc2d0dd23de538fa2c1992fbe5da0
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66119358"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164837"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -180,7 +180,9 @@ Depois que os erros forem resolvidos, o administrador poderá ativar cada chave 
 
 Os usuários podem ter uma combinação de até cinco tokens OATH de hardware ou aplicativos de autenticador, como o aplicativo Microsoft Authenticator configurado para uso a qualquer momento.
 
-## <a name="mobile-phone"></a>Telefone celular
+## <a name="phone-options"></a>Opções de telefone
+
+### <a name="mobile-phone"></a>Telefone celular
 
 Duas opções estão disponíveis para usuários com telefones celulares.
 
@@ -193,18 +195,18 @@ Para funcionarem adequadamente, os números de telefone devem estar no formato *
 >
 > A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
 
-### <a name="text-message"></a>mensagem de texto
+#### <a name="text-message"></a>mensagem de texto
 
 Um SMS é enviado para o número do celular que contém um código de verificação. Digite o código de verificação fornecido na interface de login para continuar.
 
-### <a name="phone-call"></a>chamada telefônica
+#### <a name="phone-call"></a>chamada telefônica
 
 Uma chamada de voz automatizada é feita para o número de telefone que você fornece. Atenda a chamada e pressione # no teclado do telefone para autenticar
 
 > [!IMPORTANT]
 > A partir de março de 2019 as opções de chamada telefônica não estará disponível para os usuários do MFA e o SSPR em locatários gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por essa alteração. Chamada telefônica continuará disponível para os usuários no pago locatários do Azure AD. Essa alteração só afeta o locatários gratuitos/avaliação do Azure AD.
 
-## <a name="office-phone"></a>Telefone comercial
+### <a name="office-phone"></a>Telefone comercial
 
 Uma chamada de voz automatizada é feita para o número de telefone que você fornece. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar.
 
@@ -219,6 +221,25 @@ O atributo de telefone do escritório é gerenciado pelo seu administrador.
 > Precisa haver um espaço entre o código do país e o número de telefone.
 >
 > A redefinição de senha não dá suporte a ramais telefônicos. Mesmo no formato +1 4255551234X12345, as extensões são removidas antes que a chamada seja completada.
+
+### <a name="troubleshooting-phone-options"></a>Opções de telefone de solução de problemas
+
+Problemas comuns relacionados aos métodos de autenticação usando um número de telefone:
+
+* ID do chamador bloqueados em um único dispositivo
+   * Solucionar problemas de dispositivo
+* Número de telefone incorreto, o código do país incorreto, o número de telefone residencial versus o número de telefone de trabalho
+   * Solucionar problemas de objeto de usuário e configurado os métodos de autenticação. Certifique-se de que os números de telefone correto são registrados.
+* PIN incorreto inserido
+   * Confirme se o usuário usou o PIN correto registrado no servidor de MFA do Azure.
+* Chamada encaminhada para a caixa postal
+   * Verifique se o usuário tem o telefone ativado e que o serviço está disponível em sua área ou usar método alternativo.
+* Usuário está bloqueado
+   * Ter o administrador de desbloquear o usuário no portal do Azure.
+* SMS não está inscrito no dispositivo
+   * Solicite ao usuário alterar os métodos ou ativar SMS no dispositivo.
+* Provedores de telecomunicações com defeito (nenhuma entrada de telefone detectados, problemas de tons DTMF, ID de chamadas bloqueadas em vários dispositivos, ou bloqueado SMS em vários dispositivos)
+   * A Microsoft usa vários provedores de telecomunicações para rotear chamadas telefônicas e mensagens SMS para autenticação. Se você estiver vendo a qualquer um dos problemas acima têm uma usuário tentar usar o método de pelo menos 5 vezes dentro de 5 minutos e ter informações do usuário disponíveis ao contatar o suporte da Microsoft.
 
 ## <a name="app-passwords"></a>Senhas de aplicativo
 

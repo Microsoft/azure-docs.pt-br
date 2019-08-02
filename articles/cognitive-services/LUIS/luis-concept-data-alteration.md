@@ -1,6 +1,6 @@
 ---
-title: Alteração de dados
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Alteração de dados-LUIS
+titleSuffix: Azure Cognitive Services
 description: Saiba como os dados podem ser alterados antes das previsões no LUIS (Reconhecimento vocal)
 services: cognitive-services
 author: diberry
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 0648dd9bc93097d3c2433943f983b5e9d22f0279
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 198ce98808c8a62a839d154c365518c9e8263056
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473498"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619900"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>Alterar os dados de declaração antes ou durante a previsão
-O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a correção de ortografia e a correção de problemas de fuso horário do datetimeV2 pré-criado. 
+O LUIS fornece maneiras de manipular a declaração antes ou durante a previsão. Isso inclui a [correção ortográfica](luis-tutorial-bing-spellcheck.md)e a correção de problemas de fuso horário para [datetimeV2](luis-reference-prebuilt-datetimev2.md)predefinidos. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigir erros de ortografia na declaração
-O LUIS usa a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) para corrigir erros de ortografia na declaração. O LUIS precisa da chave associada a esse serviço. Crie a chave e adicione-a como um parâmetro querystring no [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356). 
+O LUIS usa a [API de Verificação Ortográfica do Bing V7](../Bing-Spell-Check/overview.md) para corrigir erros de ortografia na declaração. O LUIS precisa da chave associada a esse serviço. Crie a chave e adicione-a como um parâmetro querystring no [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356). 
 
 Também é possível corrigir erros de ortografia no painel **Testar** [inserindo a chave](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). A chave é mantida como uma variável de sessão no navegador para o painel Testar. Adicione a chave ao painel Testar em cada sessão do navegador para a qual você deseja corrigir a ortografia. 
 
@@ -30,7 +30,7 @@ O uso da chave no painel de teste e no ponto de extremidade são contados na cot
 
 O ponto de extremidade requer dois parâmetros para as correções ortográfica funcionarem:
 
-|Param|Value|
+|Param|Valor|
 |--|--|
 |`spellCheck`|boolean|
 |`bing-spell-check-subscription-key`|Chave de ponto de extremidade de [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)|
@@ -49,16 +49,16 @@ Quando a [API de Verificação Ortográfica do Bing V7](https://azure.microsoft.
 }
 ```
  
-### <a name="whitelist-words"></a>Adicionar palavras na lista de permissões
-A API de verificação ortográfica do Bing usada no LUIS não dá suporte a uma lista de permissões de palavras a serem ignoradas durante as alterações de verificação ortográfica. Se você precisar adicionar palavras ou acrônimos na lista de permissões, processe o enunciado no aplicativo cliente com uma lista de permissões antes de enviá-lo ao LUIS para previsão de intenção.
+### <a name="list-of-allowed-words"></a>Lista de palavras permitidas
+A API de verificação ortográfica do Bing usada em LUIS não dá suporte a uma lista (também chamada de lista de permissões) de palavras a serem ignoradas durante as alterações de verificação ortográfica. Se você precisar permitir uma lista de palavras ou acrônimos, processe o expressão no aplicativo cliente antes de enviar o expressão para LUIS para previsão de intenção.
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Alterar o fuso horário da entidade datetimeV2 predefinida
-Quando um aplicativo LUIS usa a entidade datetimeV2 predefinida, um valor datetime pode ser retornado na resposta da previsão. O fuso horário da solicitação é usado para determinar o datetime correto a ser retornado. Se a solicitação for proveniente de um bot ou de outro aplicativo centralizado antes de chegar ao LUIS, corrija o fuso horário que o LUIS usa. 
+Quando um aplicativo LUIS usa a entidade [datetimeV2](luis-reference-prebuilt-datetimev2.md) predefinida, um valor DateTime pode ser retornado na resposta de previsão. O fuso horário da solicitação é usado para determinar o datetime correto a ser retornado. Se a solicitação for proveniente de um bot ou de outro aplicativo centralizado antes de chegar ao LUIS, corrija o fuso horário que o LUIS usa. 
 
 ### <a name="endpoint-querystring-parameter"></a>Parâmetro querystring do ponto de extremidade
 O fuso horário é corrigido adicionando o fuso horário do usuário ao [ponto de extremidade](https://go.microsoft.com/fwlink/?linkid=2092356) usando o parâmetro `timezoneOffset`. O valor de `timezoneOffset` deve ser o número positivo ou negativo, em minutos, para alterar a hora.  
 
-|Param|Value|
+|Param|Valor|
 |--|--|
 |`timezoneOffset`|O número positivo ou negativo, em minutos|
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
 ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116330"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172303"
 ---
 >[!NOTE]
 >Para obter recursos que não são fixos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie contas de serviços de mídia do Azure adicionais em uma tentativa de obter limites mais altos.
@@ -18,7 +18,7 @@ ms.locfileid: "66116330"
 | --- | --- | 
 | Contas de serviços de mídia do Azure em uma única assinatura | 25 (fixo) |
 | Unidades por conta dos serviços de mídia reservadas de mídia |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
-| Trabalhos por conta dos Serviços de Mídia | 50\.000<sup>2</sup> |
+| Trabalhos por conta dos Serviços de Mídia | 50.000<sup>2</sup> |
 | Tarefas encadeadas por trabalho | 30 (fixo) |
 | Ativos por conta dos serviços de mídia | 1\.000.000|
 | Ativos por tarefa | 50 |

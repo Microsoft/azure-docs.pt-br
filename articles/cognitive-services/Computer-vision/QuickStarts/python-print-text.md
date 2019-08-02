@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9f911f70360c645f8077928a66978bd631e37160
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: a60d93b081637ca2be5ed0c6d1a21ce185e6cdbb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006396"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321397"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Extrair texto impresso (OCR) usando a API REST e o Python na Pesquisa Visual Computacional
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Início Rápido: Extrair um texto impresso (OCR) usando a API REST da Pesquisa Visual Computacional e o Python
 
 Neste início rápido, você extrairá texto impresso, com OCR (reconhecimento óptico de caracteres) de uma imagem usando a API REST da Pesquisa Visual Computacional. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), você pode detectar texto impresso em uma imagem e extrair os caracteres reconhecidos em um fluxo de caracteres utilizável por computador.
 
@@ -49,7 +49,7 @@ Para criar e executar o exemplo, siga estas etapas:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from PIL import Image
@@ -75,8 +75,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
     "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'language': 'unk', 'detectOrientation': 'true'}
-data    = {'url': image_url}
+params = {'language': 'unk', 'detectOrientation': 'true'}
+data = {'url': image_url}
 response = requests.post(ocr_url, headers=headers, params=params, json=data)
 response.raise_for_status()
 
@@ -99,11 +99,27 @@ for word in word_infos:
     bbox = [int(num) for num in word["boundingBox"].split(",")]
     text = word["text"]
     origin = (bbox[0], bbox[1])
-    patch  = Rectangle(origin, bbox[2], bbox[3], fill=False, linewidth=2, color='y')
+    patch = Rectangle(origin, bbox[2], bbox[3],
+                      fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(origin[0], origin[1], text, fontsize=20, weight="bold", va="top")
 plt.axis("off")
 ```
+
+## <a name="upload-image-from-local-storage"></a>Carregar imagem do armazenamento local
+
+Se desejar analisar uma imagem local, defina o cabeçalho Content-Type como application/octet-stream e defina o corpo da solicitação como uma matriz de bytes em vez de dados JSON.
+
+```python
+image_path = "<path-to-local-image-file>"
+# Read the image into a byte array
+image_data = open(image_path, "rb").read()
+# Set Content-Type to octet-stream
+headers = {'Ocp-Apim-Subscription-Key': subscription_key, 'Content-Type': 'application/octet-stream'}
+# put the byte array into your post request
+response = requests.post(ocr_url, headers=headers, params=params, data = image_data)
+```
+
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 

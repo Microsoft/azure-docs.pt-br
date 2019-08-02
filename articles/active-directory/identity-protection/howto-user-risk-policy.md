@@ -2,38 +2,31 @@
 title: Como configurar a política de risco do usuário no Azure Active Directory Identity Protection| Microsoft Docs
 description: Saiba como configurar a política de risco do usuário no Azure AD Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 942f7e43a549b5aa1a21284949ffc12ef3c8d75f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fc7ea05497d69a7ca833cc783e7a2bc6bf1a8b07
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108925"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335446"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Como: Configurar a política de risco de usuário
 
-Com o risco do usuário, o Microsoft Azure AD detecta a probabilidade de que uma conta de usuário tenha sido comprometida. Como administrador, você pode configurar um política de acesso condicional, responder automaticamente a um nível de risco do usuário específico de risco do usuário.
+Com o risco do usuário, o Microsoft Azure AD detecta a probabilidade de que uma conta de usuário tenha sido comprometida. Como administrador, você pode configurar uma política de acesso condicional de risco do usuário para responder automaticamente a um nível de risco do usuário específico.
  
 Este artigo fornece as informações necessárias para configurar a política de risco do usuário.
 
-
 ## <a name="what-is-a-user-risk-policy"></a>O que é uma política de risco do usuário?
 
-O Microsoft Azure AD analisa cada entrada de um usuário. O objetivo da análise é detectar ações suspeitas que ocorrem junto com a entrada. No Microsoft Azure AD, as ações suspeitas que o sistema pode detectar também são conhecidas como eventos de risco. Embora alguns eventos de risco possam podem ser detectados em tempo real, há também aqueles que exigem mais tempo. Por exemplo, para detectar uma viagem impossível a locais atípicos, o sistema requer um período inicial de aprendizado de 14 dias para conhecer melhor o comportamento normal de um usuário. Há várias opções para resolver os eventos de risco detectados. Por exemplo, você pode resolver eventos de risco individuais manualmente, ou você pode obtê-los resolvido usando um risco de entrada ou um política de acesso condicional de risco do usuário.
+O Microsoft Azure AD analisa cada entrada de um usuário. O objetivo da análise é detectar ações suspeitas que ocorrem junto com a entrada. No Microsoft Azure AD, as ações suspeitas que o sistema pode detectar também são conhecidas como eventos de risco. Embora alguns eventos de risco possam podem ser detectados em tempo real, há também aqueles que exigem mais tempo. Por exemplo, para detectar uma viagem impossível a locais atípicos, o sistema requer um período inicial de aprendizado de 14 dias para conhecer melhor o comportamento normal de um usuário. Há várias opções para resolver os eventos de risco detectados. Por exemplo, você pode resolver manualmente os eventos de risco individuais ou pode obtê-los resolvidos usando um risco de entrada ou uma política de acesso condicional de risco do usuário.
 
 Todos os eventos de risco que foram detectados para um usuário e não são resolvidos são conhecidos como eventos de risco ativos. Os eventos de risco ativos que estão associados a um usuário são conhecidos como risco do usuário. Com base no risco do usuário, o Microsoft Azure AD calcula uma probabilidade (baixa, média, alta) de um usuário ter sido comprometido. A probabilidade é chamada de nível de risco do usuário.
 
@@ -41,14 +34,11 @@ Todos os eventos de risco que foram detectados para um usuário e não são reso
 
 A política de risco do usuário é uma resposta automatizada que pode ser configurada para um nível de risco do usuário específico. Com uma política de risco do usuário, é possível bloquear o acesso aos recursos ou exigir uma alteração de senha para retornar uma conta de usuário para um estado inicial.
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>Como fazer para acessar a política de risco do usuário?
    
 A política de risco de entrada encontra-se na seção **Configurar** na [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Política de risco do usuário](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>Configurações de política
 
@@ -64,7 +54,7 @@ Ao configurar a política de risco de entrada, será necessário definir:
 
 - O tipo de acesso que deverá ser imposto quando o nível de risco de entrada for alcançado:  
 
-    ![Access](./media/howto-user-risk-policy/13.png)
+    ![Acessar](./media/howto-user-risk-policy/13.png)
 
 - O estado da sua política:
 
@@ -78,8 +68,7 @@ A caixa de diálogo de configuração de política fornece uma opção para esti
 
 É possível definir uma política de segurança de risco do usuário para bloquear os usuários ao entrar dependendo do nível do risco.
 
-![Bloqueio](./media/howto-user-risk-policy/16.png)
-
+![Bloqueando](./media/howto-user-risk-policy/16.png)
 
 Bloquear a entrada:
 
@@ -110,9 +99,6 @@ Para obter uma visão geral da experiência do usuário relacionada, confira:
 - Na folha **Azure AD Identity Protection**, na seção **Configurar**, clique em **Política de risco de usuário**.
 
     ![Política de risco do usuário](./media/howto-user-risk-policy/1009.png "Política de risco do usuário")
-
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

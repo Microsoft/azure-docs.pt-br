@@ -3,21 +3,23 @@ title: 'Início Rápido: Reconhecer fala, Unity – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Use este guia para criar um aplicativo de conversão de fala em texto com o Unity e o SDK de Fala para Unity (Beta). Quando terminar, você pode usar o microfone do computador para transcrever a conversão de fala em texto em tempo real.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
-ms.author: wolfma
-ms.openlocfilehash: 3cedfaf1ae16c17026314fc24dbdc7bb11494caf
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 07/23/2019
+ms.author: jhakulin
+ms.openlocfilehash: 425cacb22865e64a996c653477120a5f7f410c9a
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020950"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405943"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Início Rápido: Reconhecer fala com o SDK de Fala para Unity (Beta)
+
+Guias de início rápido também estão disponíveis para [conversão de texto em fala](quickstart-text-to-speech-csharp-unity.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -35,7 +37,7 @@ Para concluir este projeto, você precisará de:
 
 * [Unity 2018.3 ou posterior](https://store.unity.com/) com o [Unity 2019.1 adicionando suporte ao UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * Para obter suporte ao ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+     * Para obter suporte ao ARM64, instale as [ferramentas de build opcionais para o ARM64 e o SDK do Windows 10 para ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/)
 * Uma chave de assinatura para o Serviço de Fala. [Obtenha uma gratuitamente](get-started.md).
 * Acesso ao microfone do computador.
 
@@ -79,7 +81,7 @@ Quando você terminar, a interface do usuário deverá ser semelhante a esta cap
 
 ## <a name="add-the-sample-code"></a>Adicione o código de amostra
 
-1. Na [Janela Projeto](https://docs.unity3d.com/Manual/ProjectView.html) (por padrão, no canto inferior esquerdo), clique no botão **Criar** e, em seguida, selecione **Script C#**. Nomeie o script `HelloWorld`.
+1. Na [Janela Projeto](https://docs.unity3d.com/Manual/ProjectView.html) (por padrão, no canto inferior esquerdo), clique no botão **Criar** e, em seguida, selecione **Script C#** . Nomeie o script `HelloWorld`.
 
 1. Edite o script clicando duas vezes nele.
 

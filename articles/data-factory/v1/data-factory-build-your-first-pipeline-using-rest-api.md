@@ -13,17 +13,16 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab36d475052aa71427427e1362c74abd031fa414
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66146839"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839452"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro Azure data factory usando a API REST do Data Factory
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -474,7 +473,7 @@ Execute Invoke-Command e o próximo até ver a fatia no estado **Pronto** ou **F
 >
 >
 
-Você também pode usar o portal do Azure para monitorar fatias e solucionar problemas. Veja os detalhes em [Monitorar pipelines usando o portal do Azure](data-factory-build-your-first-pipeline-using-editor.md#monitor-a-pipeline) .
+Você também pode usar o portal do Azure para monitorar fatias e solucionar problemas. Veja os detalhes em [Monitorar pipelines usando o portal do Azure](data-factory-monitor-manage-pipelines.md) .
 
 ## <a name="summary"></a>Resumo
 Neste tutorial, você criou uma data factory do Azure para processar dados ao executar o script Hive em um cluster hadoop do HDInsight. Você usou o Data Factory Editor no portal do Azure para executar as seguintes etapas:

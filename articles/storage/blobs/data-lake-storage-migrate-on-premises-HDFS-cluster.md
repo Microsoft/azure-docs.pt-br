@@ -7,13 +7,13 @@ ms.service: storage
 ms.date: 06/11/2019
 ms.author: normesta
 ms.topic: article
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 65ef586d74297e692160dc075dead2f0b1d973b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 4445a8566c04d30cfb8743cbd33623f2e23f0dde
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67116965"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595392"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usar o Azure Data Box para migrar dados de um repositório do HDFS local para o armazenamento do Azure
 
@@ -345,7 +345,7 @@ Você precisará excluir alguns diretórios de trabalho DisCp. Por exemplo, excl
 
 No cluster Hadoop no local em que você planeja iniciar o trabalho DistCp, crie um arquivo que especifica a lista de diretórios que você deseja excluir.
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```
 .*ranger/audit.*

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 02/28/2019
-ms.openlocfilehash: c1db16475224cc3c91a5353ead0aabd091098e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 775e1abe1f3d6412171b8ff5427fd905e37480b5
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240372"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489681"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Os pools elásticos ajudam você a gerenciar e dimensionar vários bancos de dados SQL do Azure
 
@@ -205,19 +205,19 @@ Para obter mais informações, consulte [Criar alertas do Banco de Dados SQL no 
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
-  A SnelStart usado pools Elásticos com o banco de dados SQL para expandir rapidamente seus serviços comerciais a uma taxa de 1.000 novos SQL Databases do Azure por mês.
+  O SnelStart usou pools elásticos com o banco de dados SQL do Azure para expandir rapidamente seus serviços de negócios a uma taxa de 1.000 novos bancos de dados SQL do Azure por mês.
 
 - [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
 
-  Umbraco usa pools Elásticos com o banco de dados SQL do Azure para provisionar e dimensionar serviços rapidamente para milhares de locatários na nuvem.
+  O Umbraco usa pools elásticos com o banco de dados SQL do Azure para provisionar e dimensionar rapidamente os serviços para milhares de locatários na nuvem.
 
 - [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
 
-  Daxko/CSI usa pools Elásticos com o banco de dados SQL do Azure para acelerar o ciclo de desenvolvimento e aprimorar os serviços de atendimento e o desempenho.
+  O Daxko/CSI usa pools elásticos com o banco de dados SQL do Azure para acelerar seu ciclo de desenvolvimento e aprimorar seus serviços e desempenho do cliente.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para dimensionar pools elásticos, confira [Dimensionar pools elásticos](sql-database-elastic-pool.md) e [Dimensionar um pool elástico - exemplo de código](scripts/sql-database-monitor-and-scale-pool-powershell.md)
+- Para dimensionar pools elásticos, confira [Dimensionar pools elásticos](sql-database-elastic-pool-scale.md) e [Dimensionar um pool elástico - exemplo de código](scripts/sql-database-monitor-and-scale-pool-powershell.md)
 - Para obter um vídeo, confira [Curso em vídeo da Microsoft Virtual Academy sobre os recursos elásticos do Banco de Dados SQL do Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 - Para saber mais sobre padrões de design para aplicativos SaaS usando pools elásticos, confira [Padrões de design para aplicativos de SaaS multilocatários com o banco de dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 - Para ver um tutorial de SaaS usando pools elásticos, consulte [Introdução ao aplicativo Wingtip SaaS](sql-database-wtp-overview.md).

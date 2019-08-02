@@ -6,14 +6,14 @@ author: jimzim
 ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
+ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 651236c25ed912ebd7399d351677a67e3826278c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 9fd37a8343858f44719fe4422b3b9994db42f8af
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306193"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672476"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift no Azure
 
@@ -106,6 +106,10 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Opcional: Conectar a rede virtual do cluster a uma rede virtual existente
 
 Se você não precisar conectar a VNET (rede virtual) do cluster criado a uma VNET existente por meio do emparelhamento, ignore esta etapa.
+
+Se emparelhar a uma rede fora da assinatura padrão, na assinatura, você também precisará registrar o provedor Microsoft.ContainerService. Para fazer isso, execute o comando abaixo nessa assinatura. Caso contrário, se estiver realizando o emparelhamento da VNET na mesma assinatura, você pode ignorar a etapa de registro. 
+
+`az provider register -n Microsoft.ContainerService --wait`
 
 Primeiro, obtenha o identificador da VNET existente. O identificador será do formato: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 

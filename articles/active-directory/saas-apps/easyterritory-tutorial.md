@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee12e9cdf98d1e3a7ab0a49caf8639e9e585455
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fecfc00cfae3a4407f815d27a3f48d6c3bfc92a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854816"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-easyterritory"></a>Tutorial: Integração do Azure Active Directory ao EasyTerritory
 
@@ -53,7 +53,7 @@ Para configurar a integração do EasyTerritory ao Azure AD, você precisa adici
 
 **Para adicionar o EasyTerritory da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o EasyTerritory, execute as segui
 
     ![Informações de logon único de Domínio e URLs do EasyTerritory](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.easyterritory.com/<tenant id>/dev/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.easyterritory.com/<tenant id>/dev/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.easyterritory.com/<tenant id>/dev/authservices/acs`
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o EasyTerritory, execute as segui
 
     ![Informações de logon único de Domínio e URLs do EasyTerritory](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<company name>.easyterritory.com/`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<company name>.easyterritory.com/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do EasyTerritory](mailto:sales@easyterritory.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -154,7 +154,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

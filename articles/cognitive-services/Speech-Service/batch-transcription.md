@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
-ms.openlocfilehash: 1828cdce66104424cc7845fea89127219e6b77a0
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: b71400c3ae3c1cc6737d9194b4d94bf0b9c7efa9
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67137262"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606736"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição do lote?
 
@@ -56,7 +55,7 @@ A API de transcrição de lote dá suporte aos seguintes formatos:
 | MP3 | PCM | 16-bit | 8 ou 16 kHz, mono, estéreo |
 | OGG | OPUS | 16-bit | 8 ou 16 kHz, mono, estéreo |
 
-Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. Essa solicitação de exemplo inclui propriedades para a filtragem de conteúdo ofensivo, pontuação e carimbos de data/hora no nível da palavra. 
+Para fluxos de áudio estéreo, a API de transcrição de lotes divide os canais esquerdo e direito durante a transcrição. Os dois arquivos JSON com o resultado são criados a partir de um único canal. Os timestamps por emissão permitem ao desenvolvedor criar uma transcrição final ordenada. Essa solicitação de exemplo inclui propriedades para a filtragem de conteúdo ofensivo, pontuação e carimbos de data/hora no nível da palavra.
 
 ### <a name="configuration"></a>Configuração
 
@@ -91,12 +90,13 @@ Use essas propriedades opcionais para configurar a transcrição:
 | `PunctuationMode` | Especifica como manipular a pontuação nos resultados do reconhecimento. Os valores aceitos são `none`, o que desativa a pontuação, `dictated` que implica pontuação explícita, `automatic` que permite ao decodificador lidar com pontuação ou `dictatedandautomatic`, o que implica em sinais de pontuação ditados ou automáticos. |
  | `AddWordLevelTimestamps` | Especifica se os carimbos de data/hora no nível da palavra devem ser adicionados à saída. Os valores aceitos são `true`, o que habilita os carimbos de data/hora no nível da palavra e `false` (o valor padrão) para desabilitá-los. |
  | `AddSentiment` | Especifica o sentimento deve ser adicionado à declaração. Os valores aceitos são `true` que permite que o sentimento por expressão e `false` (o valor padrão) para desabilitá-lo. |
+ | `AddDiarization` | Especifica que alalysis diarization deve ser executada na entrada que deve ser contendo duas vozes de canal mono. Os valores aceitos são `true` que permite que diarization e `false` (o valor padrão) para desabilitá-lo. Ele também requer `AddWordLevelTimestamps` a ser definido como true.|
 
 ### <a name="storage"></a>Armazenamento
 
 O lote dá suporte a transcrição [armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) para a leitura de áudio e transcrições de gravação para o armazenamento.
 
-## <a name="webhooks"></a>Webhooks 
+## <a name="webhooks"></a>webhooks
 
 Sondagem de status de transcrição pode não tenha o melhor desempenho, ou fornecer a melhor experiência de usuário. Para sondar o status, você pode registrar retornos de chamada, o qual o cliente serão notificado quando tem concluído a tarefas de transcrição de longa execução.
 
@@ -122,23 +122,18 @@ Para solicitar que a sua solicitação de transcrição de áudio é processada 
 }
 ```
 
-Carimbos de hora de nível do Word também teria que ser ' Ativado ' pois indicam os parâmetros na solicitação acima. 
+Carimbos de hora de nível do Word também teria que ser ' Ativado ' pois indicam os parâmetros na solicitação acima.
 
 O áudio correspondente conterá os alto-falantes identificados por um número (atualmente, damos suporte a apenas duas vozes, para que os alto-falantes serão identificados como ' 1 de alto-falante ' e 'Alto-falante 2') seguido pela saída de transcrição.
 
 Observe também que Diarization não está disponível em gravações em estéreo. Além disso, todos os JSON saída conterá a marca de alto-falante. Se diarization não for usado, ele mostrará ' alto-falante: Nulo ' na saída JSON.
 
-Localidades com suporte estão listadas abaixo.
-
-| Linguagem | localidade |
-|--------|-------|
-| Inglês | en-US |
-| Chinês | zh-CN |
-| Deutsch | de-DE |
+> [!NOTE]
+> Diarization está disponível em todas as regiões e para todas as localidades!
 
 ## <a name="sentiment"></a>Sentimento
 
-Sentimento é um novo recurso na API de transcrição de lote e é um recurso importante no domínio do Centro de chamada. Os clientes podem usar o `AddSentiment` parâmetros às suas solicitações para 
+Sentimento é um novo recurso na API de transcrição de lote e é um recurso importante no domínio do Centro de chamada. Os clientes podem usar o `AddSentiment` parâmetros às suas solicitações para
 
 1.  Obtenha informações sobre a satisfação do cliente
 2.  Obter informações sobre o desempenho dos agentes (levando as chamadas de equipe)
@@ -191,7 +186,7 @@ O recurso usa um modelo de sentimento, que está atualmente em versão Beta.
 
 Exemplos completos estão disponíveis na [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples) dentro de `samples/batch` subdiretório.
 
-Você precisa personalizar o código de exemplo com as informações de assinatura, a região de serviço, o URI de SAS que aponta para o arquivo de áudio a transcrever e IDs de modelo caso deseje usar um modelo de linguagem ou acústico personalizado. 
+Você precisa personalizar o código de exemplo com as informações de assinatura, a região de serviço, o URI de SAS que aponta para o arquivo de áudio a transcrever e IDs de modelo caso deseje usar um modelo de linguagem ou acústico personalizado.
 
 [!code-csharp[Configuration variables for batch transcription](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#batchdefinition)]
 

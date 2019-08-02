@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
 ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148170"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171911"
 ---
 **Discos de máquina de virtual não gerenciados Premium: Limites por conta**
 
@@ -34,6 +34,6 @@ ms.locfileid: "66148170"
 
 | Resource | Limite padrão |
 | --- | --- |
-| Máximo de IOPS por VM |80\.000 IOPS com VM GS5 |
+| Máximo de IOPS por VM |80.000 IOPS com VM GS5 |
 | Taxa de transferência máxima por VM |2\.000 MB/s com VM GS5 |
 

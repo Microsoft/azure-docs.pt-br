@@ -9,11 +9,11 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: feec6a695ad867d26d32904d020648b029f9da35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155744"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172012"
 ---
 ## <a name="create-a-media-services-account"></a>Criar uma conta de Serviços de Mídia
 

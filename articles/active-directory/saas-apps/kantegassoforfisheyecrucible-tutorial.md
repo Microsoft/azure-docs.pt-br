@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 16-04-2019
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 477271debc5f04b4ea0c71145968b29945142571
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f262f94c451d5dcffd933bdebb1374b8733b9fd8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917482"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595185"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-fisheyecrucible"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para FishEye/Crucible
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o FishEye/C
 
     ![Informações de logon único de URLs e domínio de logon único do Kantega para o FishEye/Crucible](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o FishEye/C
 
     ![Configurar o logon único](./media/kantegassoforfisheyecrucible-tutorial/addon6.png)
 
-     a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
+    a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
 
     b. Clique em **Próximo**.
 
@@ -185,7 +185,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o FishEye/C
 
     ![Configurar o logon único](./media/kantegassoforfisheyecrucible-tutorial/addon7.png)
 
-     a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
+    a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
     b. Clique em **Próximo**.
 
@@ -193,7 +193,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o FishEye/C
 
     ![Configurar o logon único](./media/kantegassoforfisheyecrucible-tutorial/addon8.png)
 
-     a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
+    a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
     b. Clique em **Próximo**.
 
@@ -205,7 +205,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o FishEye/C
 
     ![Configurar o logon único](./media/kantegassoforfisheyecrucible-tutorial/addon10.png)
 
-     a. Selecione **Criar usuários no Diretório interno do FishEye, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
+    a. Selecione **Criar usuários no Diretório interno do FishEye, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
     b. Clique em **Próximo**.
 
@@ -217,7 +217,7 @@ Para configurar o logon único do Azure AD com o SSO do Kantega para o FishEye/C
 
     ![Configurar o logon único](./media/kantegassoforfisheyecrucible-tutorial/addon12.png)
 
-     a. Selecione **Domínios conhecidos** no painel esquerdo da página.
+    a. Selecione **Domínios conhecidos** no painel esquerdo da página.
 
     b. Insira o nome de domínio na caixa de texto **Domínios conhecidos**.
 
@@ -293,7 +293,7 @@ Para permitir que os usuários do Azure AD entrem no FishEye/Crucible, eles deve
 
     ![Adicionar Funcionário](./media/kantegassoforfisheyecrucible-tutorial/user3.png)
 
-     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome de Exibição**, digite o nome de exibição do usuário, como Brenda Fernandes.
 
@@ -317,4 +317,4 @@ Quando clicar no bloco do logon único do Kantega para o FishEye/Crucible no Pai
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

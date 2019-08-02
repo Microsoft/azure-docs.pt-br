@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c29819d817138f2512420584947763247837a9ea
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704132"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "67135196"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Início Rápido: criar um aplicativo Unity para HoloLens que usa as Âncoras Espaciais do Azure
 
@@ -34,18 +34,18 @@ Você aprenderá a:
 Para concluir este guia de início rápido:
 
 
-- Você precisará de um computador Windows com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a>, ou posterior, e o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>, ou posterior, instalados. A instalação do Visual Studio deverá incluir a carga de trabalho de **Desenvolvimento com a Plataforma Universal do Windows**. Além disso, será necessário instalar o <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+- Você precisará de um computador Windows com o <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a>, ou posterior, e o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>, ou posterior, instalados. A instalação do Visual Studio deverá incluir a carga de trabalho de **Desenvolvimento com a Plataforma Universal do Windows**. Instale o <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
 - Você precisará de um dispositivo do HoloLens com o [modo de desenvolvedor](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) habilitado. A [Atualização de outubro de 2018 para o Windows 10](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018) (também conhecida como RS5) deverá ser instalada no dispositivo. Para atualizar para a versão mais recente do HoloLens, abra o aplicativo de **Configurações**, acesse **Atualização e Segurança** e, em seguida, selecione **Verificar atualizações**.
 - No aplicativo, é necessário habilitar o recurso **SpatialPerception**. Essa configuração está em **Configurações de Build** > **Configurações do Player** > **Configurações de Publicação** > **Recursos**.
 - No seu aplicativo, é necessário habilitar **Realidade Virtual com Suporte** com **SDK de Realidade Misturada do Windows**. Esta configuração está em **Configurações de Build** > **Configurações do Player** > **Configurações XR**.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Abrir o projeto de exemplo no Unity
+## <a name="download-and-open-the-unity-sample-project"></a>Baixe e abra o projeto de exemplo do Unity
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-No Unity, abra o projeto na pasta do Unity.
+[!INCLUDE [Open Unity Project](../../../includes/spatial-anchors-open-unity-project.md)]
 
 Abra **Configurações de Build** selecionando **Arquivo** > **Configurações de Build**.
 
@@ -53,7 +53,7 @@ Na seção **Plataforma**, selecione **Plataforma Universal do Windows**. Altere
 
 Selecione **Alternar Plataforma** para alterar a plataforma para a **Plataforma Universal do Windows**. O Unity poderá solicitar que você instale componentes de suporte UWP, se estiverem faltando.
 
-   ![Janela Configurações de Build do Unity](./media/get-started-unity-hololens/unity-build-settings.png)
+![Janela Configurações de Build do Unity](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Feche a janela **Configurações de Build**.
 

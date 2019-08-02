@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como criar um Standard Load Balancer público com front-end com redundância de zona usando a CLI do Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2018
-ms.author: kumud
-ms.openlocfilehash: 8f1bf9b9070f2db2376de9cb0a0602eaea98b47e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 6a22ac9a2727c537d98e692e67076637fe8cc457
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147685"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274322"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Balancear carga de VMs em todas as zonas de disponibilidade usando a CLI do Azure
 
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Criar um Standard IP público com redundância de zona
-Para acessar seu aplicativo na Internet, você precisará de um endereço IP público para o balanceador de carga. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Criar uma zona com redundância de endereço IP pública com [az network public-ip criar](/cli/azure/network/public-ip#az-network-public-ip-create). Quando você cria um endereço IP público Standard, ele é com redundância de zona por padrão.
+Para acessar seu aplicativo na Internet, você precisará de um endereço IP público para o balanceador de carga. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Crie um endereço IP público com redundância de zona com [AZ Network Public-IP Create](/cli/azure/network/public-ip#az-network-public-ip-create). Quando você cria um endereço IP público Standard, ele é com redundância de zona por padrão.
 
 O exemplo a seguir cria um endereço IP público com redundância de zona nomeado *myPublicIP* no grupo de recursos *myResourceGroupLoadBalancer*.
 

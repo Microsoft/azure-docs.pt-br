@@ -4,7 +4,7 @@ description: Saiba como executar cargas de trabalho em máquinas virtuais do Azu
 services: virtual-machines
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 06/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 167370a4eebded3dba898ed47dede7a36900d976
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4593859c441073115fddc3a67dc4ce99fdd6124a
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808224"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795070"
 ---
 # <a name="workloads-on-azure-virtual-machines"></a>Cargas de trabalho em máquinas virtuais do Azure
 
 Máquinas virtuais no Azure pode dar suporte a várias cargas de trabalho. Cada carga de trabalho pode ter especializado orientação sobre o design ideal para implantações em VMs no Azure. Eis algumas das orientações que podemos oferecer para cargas de trabalho especializadas.
 
-- [Computação de alto desempenho](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) no Azure usa a CPU ou GPU otimizada máquinas virtuais para resolver problemas complexos, com computação intensiva. 
+- [Computação de alto desempenho](./hpc/overview.md) no Azure usa a CPU ou GPU otimizada máquinas virtuais para resolver problemas complexos, com computação intensiva.
 - [SAP](./sap/get-started.md) no Azure pode executar seus cenários e SAP cargas de trabalho críticas em uma plataforma escalonável, em conformidade e de eficácia comprovada na empresa.
 - [Oracle](./oracle/oracle-considerations.md) dá suporte a edições Oracle DB 12.1 Standard e Enterprise em execução no Azure em imagens de máquina virtual com base no Oracle Linux. 
 - [Rehosting de mainframe](./mainframe-rehosting/overview.md) 

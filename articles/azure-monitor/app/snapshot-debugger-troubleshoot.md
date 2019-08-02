@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: bf19d4f5ce60411413c21fce12f9fe9d2f391bf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60783921"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444543"
 ---
 # <a id="troubleshooting"></a> Solução de problemas habilitando o depurador de instantâneo do Application Insights ou exibir instantâneos
 Se habilitado o depurador de instantâneo do Application Insights para seu aplicativo, mas não estiver vendo os instantâneos para exceções, você pode usar estas instruções para solucionar problemas. Pode haver vários motivos diferentes, por que os instantâneos não são gerados. Você pode executar a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
@@ -38,6 +38,10 @@ Se isso não resolver o problema, consulte as etapas manuais de solução de pro
 ## <a name="verify-the-instrumentation-key"></a>Verificar a chave de instrumentação
 
 Certifique-se de que está usando a chave de instrumentação correta no aplicativo publicado. Normalmente, a chave de instrumentação é lida do arquivo ApplicationInsights.config. Verifique se o valor é o mesmo da chave de instrumentação para o recurso do Application Insights que você vê no portal.
+
+## <a name="preview-versions-of-net-core"></a>Versões de visualização do .NET Core
+Se o aplicativo usa uma versão prévia do .NET Core e o depurador de instantâneos foi habilitado por meio de [painel do Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, em seguida, o depurador de instantâneos não pode começar. Siga as instruções em [habilitar o depurador de instantâneo para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o [snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) pacote NuGet com o aplicativo ***Além disso*** para habilitar por meio de [painel do Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Atualize para a versão mais recente do pacote NuGet
 

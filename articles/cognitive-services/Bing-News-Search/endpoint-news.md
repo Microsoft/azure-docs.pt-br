@@ -1,6 +1,6 @@
 ---
 title: Ponto de extremidade da Pesquisa de Notícias do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Resumo do ponto de extremidade da API de Pesquisa de Notícias.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 6ea218da23d65696c76008cb15e183fcc4bbda10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82e37e8fa47b467e7c2fe98f801482675809a266
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383223"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423771"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Pontos de extremidade da API de Pesquisa de Notícias do Bing
 

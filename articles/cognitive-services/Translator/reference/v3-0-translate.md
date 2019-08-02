@@ -3,19 +3,19 @@ title: Método de Tradução de API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
 description: Usar o método de Tradução de API de Tradução de Texto.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-pawal
-ms.openlocfilehash: be61d8932288b9a6b2cc96e53d3630124ec0f610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 2b08ddb4241a9af7aee31bb51d75dd82ff8255d2
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389762"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839630"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3.0: Translate
 
@@ -42,7 +42,7 @@ Os parâmetros de solicitação passados na cadeia de caracteres de consulta sã
   </tr>
   <tr>
     <td>from</td>
-    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem.</td>
+    <td><em>Parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localize quais idiomas estão disponíveis para tradução, consultando <a href="./v3-0-languages.md">idiomas com suporte</a> usando o escopo <code>translation</code>. Se o parâmetro <code>from</code> não for especificado, a detecção automática de idioma será aplicada para determinar o idioma de origem. <br/><br/>Você deve usar o <code>from</code> parâmetro, em vez da detecção automática ao usar o <a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">dicionário dinâmico</a> recurso.</td>
   </tr>
   <tr>
     <td>para</td>
@@ -101,7 +101,7 @@ Os cabeçalhos de solicitação incluem:
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Tipo de conteúdo</td>
+    <td>Content-Type</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: <code>application/json</code>.</td>
   </tr>
   <tr>
@@ -374,7 +374,7 @@ Se você quiser evitar conteúdo ofensivo na tradução, independentemente da pr
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Ação</th>
+  <th>Action</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Esse é o comportamento padrão. O conteúdo ofensivo passará da origem para o destino.<br/><br/>

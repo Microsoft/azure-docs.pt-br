@@ -1,6 +1,6 @@
 ---
 title: Atualizar API de Verificação Ortográfica do Bing v5 para v7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Identifica as partes do aplicativo que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,22 +10,22 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: b19681fd1ad70985bccd375931f5d5801f153aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 545772a28a67310b12eb55cd1fb14e8d12a95a58
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60895782"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500814"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guia de atualização de API de Verificação Ortográfica
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Verificação Ortográfica do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
-## <a name="breaking-changes"></a>Alterações de última hora
+## <a name="breaking-changes"></a>Alterações da falha
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
-- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo: `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
+- O número de versão do ponto de extremidade foi alterado de v5 para v7. Por exemplo, `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta de erro e códigos de erro
 
@@ -38,7 +38,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Os códigos de erro da v5 foram substituídos pelos possíveis valores `code` e `subCode` a seguir.  
   
-|Código|Subcódigo|DESCRIÇÃO
+|Código|Subcódigo|Descrição
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O Bing retornará ServerError sempre que ocorrer qualquer uma das condições do subcódigo. A resposta incluirá esses erros se o código de status HTTP for 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se o erro for HttpNotAllowed, o código de status HTTP será 410.

@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb59fa0fe9094943dfc942d1d6e664891996c9e3
+ms.sourcegitcommit: 1e347ed89854dca2a6180106228bfafadc07c6e5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826759"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569290"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Monitorar o desempenho, integridade e uso com métricas do Data Explorer do Azure
 
@@ -42,14 +42,14 @@ No painel de métricas:
 
     **Métrica** | **Unidade** | **Agregação** | **Descrição da métrica**
     |---|---|---|---|
-    | Utilização do cache | Porcentagem | AVG, Max, Min | Porcentagem de recursos do cache alocada atualmente em uso pelo cluster. Cache refere-se ao tamanho do SSD alocado para atividade de usuário de acordo com a política de cache definida. Uma utilização média de cache de 80% ou menos é um estado sustentável para um cluster. Se o uso do cache média estiver acima de 80%, o cluster deve estar [escalado verticalmente](manage-cluster-scale-up.md) para um armazenamento com otimização de camada de preços ou [escalado horizontalmente](manage-cluster-scale-out.md) para mais instâncias. Como alternativa, se adapte a política de cache (menos dias no cache). Se a utilização do cache é mais de 100%, o tamanho dos dados a ser armazenado, de acordo com a política de cache for maior do que o tamanho total do cache no cluster. |
-    | CPU | Porcentagem | AVG, Max, Min | Porcentagem de recursos de computação alocados atualmente em uso pelas máquinas no cluster. Uma média de CPU de 80% ou menos é sustentável para um cluster. O valor máximo da CPU é 100%, que significa que não há nenhum recurso de computação adicionais para processar dados. Quando um cluster não está sendo bem executado, verifique o valor máximo da CPU para determinar se há CPUs específicas que estão bloqueados. |
+    | Utilização do cache | Percent | AVG, Max, Min | Porcentagem de recursos do cache alocada atualmente em uso pelo cluster. Cache refere-se ao tamanho do SSD alocado para atividade de usuário de acordo com a política de cache definida. Uma utilização média de cache de 80% ou menos é um estado sustentável para um cluster. Se o uso do cache média estiver acima de 80%, o cluster deve estar [escalado verticalmente](manage-cluster-vertical-scaling.md) para um armazenamento com otimização de camada de preços ou [escalado horizontalmente](manage-cluster-horizontal-scaling.md) para mais instâncias. Como alternativa, se adapte a política de cache (menos dias no cache). Se a utilização do cache é mais de 100%, o tamanho dos dados a ser armazenado, de acordo com a política de cache for maior do que o tamanho total do cache no cluster. |
+    | CPU | Percent | AVG, Max, Min | Porcentagem de recursos de computação alocados atualmente em uso pelas máquinas no cluster. Uma média de CPU de 80% ou menos é sustentável para um cluster. O valor máximo da CPU é 100%, que significa que não há nenhum recurso de computação adicionais para processar dados. Quando um cluster não está sendo bem executado, verifique o valor máximo da CPU para determinar se há CPUs específicas que estão bloqueados. |
     | Eventos processados (para os Hubs de eventos) | Count | Max, Min, Sum | Número total de eventos de leitura dos hubs de eventos e processada pelo cluster. Os eventos são divididos em eventos rejeitados e eventos aceitos pelo mecanismo de cluster. |
     | Latência de ingestão | Segundos | AVG, Max, Min | Latência de dados ingeridos, desde o momento em que os dados foram recebidos do cluster até que ele esteja pronto para consulta. O período de latência de ingestão depende do cenário de ingestão. |
     | Resultados de ingestão | Count | Count | Número total de operações de ingestão que falhou e foi bem-sucedida. Use **aplicam-se a divisão** criar buckets de sucesso e falha de resultados e analisar as dimensões (**valor** > **Status**).|
-    | Utilização de ingestão | Porcentagem | AVG, Max, Min | Porcentagem de recursos reais usados para ingestão de dados de recursos total alocados na política de capacidade para realizar a ingestão. A política de capacidade padrão é não mais do que 512 operações de ingestão simultâneas ou 75% dos recursos do cluster investidos na ingestão. Ingestão de média de utilização de 80% ou menos é um estado sustentável para um cluster. Valor máximo de utilização de ingestão é 100%, o que significa que todas as capacidade de ingestão de cluster é usada e uma fila de ingestão pode resultar. |
-    | Volume de ingestão (em MB) | Count | Max, Min, Sum | O tamanho total dos dados ingeridos no cluster (em MB) antes da compactação. |
-    | Keep alive | Count | Avg | Controla a capacidade de resposta do cluster. Um cluster totalmente dinâmico retorna o valor 1 e um cluster desconectado ou bloqueado retornará 0. |
+    | Utilização de ingestão | Percent | AVG, Max, Min | Porcentagem de recursos reais usados para ingestão de dados de recursos total alocados na política de capacidade para realizar a ingestão. A política de capacidade padrão é não mais do que 512 operações de ingestão simultâneas ou 75% dos recursos do cluster investidos na ingestão. Ingestão de média de utilização de 80% ou menos é um estado sustentável para um cluster. Valor máximo de utilização de ingestão é 100%, o que significa que todas as capacidade de ingestão de cluster é usada e uma fila de ingestão pode resultar. |
+    | Volume de ingestão (em MB) | Contagem | Max, Min, Sum | O tamanho total dos dados ingeridos no cluster (em MB) antes da compactação. |
+    | Keep alive | Contagem | Avg | Controla a capacidade de resposta do cluster. Um cluster totalmente dinâmico retorna o valor 1 e um cluster desconectado ou bloqueado retornará 0. |
     | Duração da consulta | Segundos | Count, Avg, Min, Max, Sum | Total de tempo até que os resultados da consulta são recebidos (não inclui a latência de rede). |
     | | | |
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eb99cd94dca2a463c275dd5d4fab540b4fc55318
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 4cbca467b50dd0e43132b6d09dc0785c501fca0f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510453"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204691"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gerenciar dados dos usuários no Azure Active Directory B2C
 
@@ -25,7 +26,7 @@ ms.locfileid: "66510453"
 
 ## <a name="delete-user-data"></a>Excluir dados de usuário
 
-Os dados de usuário são armazenados no diretório do Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria de usuário serão mantidos por 30 dias no Azure AD B2C. Se você quiser excluir os dados de usuário nesse período de 30 dias, você pode usar a operação [Excluir um usuário](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). É necessária uma operação de exclusão para cada um dos locatários do Azure AD B2C onde os dados podem residir. 
+Os dados de usuário são armazenados no diretório do Azure AD B2C e nos logs de auditoria. Todos os dados de auditoria de usuário é retido por sete dias no Azure AD B2C. Se você quiser excluir dados de usuário dentro desse período de 7 dias, você pode usar o [excluir um usuário](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser) operação. É necessária uma operação de exclusão para cada um dos locatários do Azure AD B2C onde os dados podem residir. 
 
 A cada usuário no Azure AD B2C é atribuído uma ID de objeto. A ID de objeto fornece um identificador não ambíguo usado para excluir dados de usuário no Azure AD B2C. Dependendo da arquitetura, a ID de objeto pode ser um identificador de correlação útil em outros serviços, como finanças, marketing e bancos de dados de gerenciamento de relacionamento com o cliente. 
 

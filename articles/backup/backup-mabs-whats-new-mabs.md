@@ -1,19 +1,18 @@
 ---
 title: O que há de novo no Servidor de Backup do Azure
 description: O Servidor de Backup do Azure oferece recursos avançados de backup para proteger VMs, arquivos e pastas, cargas de trabalho e muito mais. Aprenda a instalar ou atualizar o Servidor de Backup do Azure V3.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 5718064994a80266c216ae6040746be29194adc9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 131f5ae31649bd1973a3048b8b52a451f27522b4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254720"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464996"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>O que há de novo no Servidor de Backup do Azure
 
@@ -25,7 +24,7 @@ Os seguintes recursos estão incluídos no MABS V3:
 Com o Armazenamento de Backup Moderno (MBS) no MABS V2, anunciamos o armazenamento com capacidade de carga de trabalho, em que você configura determinadas cargas de trabalho para backup em armazenamento específico, com base nas propriedades de armazenamento. No entanto, após a configuração, você pode achar necessário mover backups de determinadas fontes de dados para outro armazenamento para utilização otimizada de recursos. O MABS V3 oferece a capacidade de migrar seus backups e configurá-los para serem armazenados em um volume diferente em [3 etapas](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
 
 ## <a name="prevent-unexpected-data-loss"></a>Evitar a perda de dados inesperados
-Nas empresas, o MABS é gerenciado por uma equipe de administradores. Embora existam diretrizes sobre armazenamento que devem ser usadas para backups, um volume incorreto dado ao MABS como armazenamento de backup pode levar à perda de dados críticos. Com o MABS V3, você pode evitar esses cenários configurando esses volumes como os que não estão disponíveis para armazenamento usando [esses cmdlets do PowerShell](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion).
+Nas empresas, o MABS é gerenciado por uma equipe de administradores. Embora existam diretrizes sobre armazenamento que devem ser usadas para backups, um volume incorreto dado ao MABS como armazenamento de backup pode levar à perda de dados críticos. Com o MABS V3, você pode evitar esses cenários configurando esses volumes como os que não estão disponíveis para armazenamento usando [esses cmdlets do PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
 ## <a name="custom-size-allocation"></a>Alocação de tamanho personalizado
 O armazenamento de Backup Moderno (MBS) consome armazenamento thinly, como e quando necessário. Para fazer isso, o MABS calcula o tamanho dos dados que estão sendo armazenados em backup quando estão configurados para proteção. No entanto, se muitos arquivos e pastas estiverem sendo submetidos a backup juntos, como no caso de um servidor de arquivos, o cálculo de tamanho pode levar muito tempo. Com o MABS V3, você pode configurar o MABS para aceitar o tamanho do volume como padrão, em vez de calcular o tamanho de cada arquivo, economizando tempo.
@@ -54,7 +53,7 @@ Encontre mais informações sobre as etapas de instalação/atualização para o
 
 
 > [!NOTE]
-> 
+>
 > O MABS tem o mesmo código base como o System Center Data Protection Manager. O MABS v3 é equivalente ao Data Protection Manager 1807.
 
 ## <a name="next-steps"></a>Próximas etapas

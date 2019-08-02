@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1fcac4bcfb5cd37ddf8b351514c8f4f1622367c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46b58aad8a5cb71744aca9baaa3a27d4d1efe8e2
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512572"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655251"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o logon com uma conta da Amazon usando políticas personalizadas no Azure Active Directory B2C
 
@@ -47,24 +47,24 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-4. Na página Visão Geral, selecione **Identity Experience Framework – VERSÃO PRÉVIA**.
+4. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
 5. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
 6. Para **Opções**, escolha `Manual`.
-7. Insira um **Nome** para a chave de política. Por exemplo: `AmazonSecret`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
+7. Insira um **Nome** para a chave de política. Por exemplo, `AmazonSecret`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
 8. Em **Segredo**, insira o segredo do cliente que você registrou anteriormente.
 9. Para **Uso de chave**, selecione `Signature`.
 10. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
 
-Se você quiser que os usuários entrem usando uma conta da Amazon, você precisa definir a conta como um provedor de declarações que podem se comunicar com o Azure AD B2C por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado. 
+Se você quiser que os usuários entrem usando uma conta da Amazon, você precisa definir a conta como um provedor de declarações que podem se comunicar com o Azure AD B2C por meio de um ponto de extremidade. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir uma conta do Amazon como um provedor de declarações adicionando ao **ClaimsProviders** elemento no arquivo de extensão da política.
 
 
 1. Abra *TrustFrameworkExtensions.xml*.
 2. Localize o elemento **ClaimsProviders**. Se ele não existir, adicione-o sob o elemento raiz.
-3. Adicione um novo **ClaimsProvider** da seguinte maneira:  
+3. Adicione um novo **ClaimsProvider** da seguinte maneira:
 
     ```xml
     <ClaimsProvider>
@@ -124,7 +124,7 @@ Neste ponto, o provedor de identidade foi definido, mas não está disponível e
 2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
 3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
 4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo: `SignUpSignInAmazon`.
+5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInAmazon`.
 
 ### <a name="display-the-button"></a>Exibir o botão
 
@@ -147,8 +147,8 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
     ```XML
     <ClaimsExchange Id="AmazonExchange" TechnicalProfileReferenceId="Amazon-OAuth" />
     ```
-    
-    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico que você criou anteriormente. Por exemplo: `Amazon-OAuth`.
+
+    Atualize o valor de **TechnicalProfileReferenceId** para a ID do perfil técnico que você criou anteriormente. Por exemplo, `Amazon-OAuth`.
 
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
@@ -169,7 +169,7 @@ A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cr
 Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
 
 1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o para *SignUpSignContoso.xml*.
-2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo: `SignUpSignInAmazon`.
+2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInAmazon`.
 3. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_amazon`
 4. Atualize o valor do atributo **ReferenceId** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignAmazon).
 5. Salve suas alterações, carregue o arquivo e, em seguida, selecione a nova política na lista.

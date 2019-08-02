@@ -5,6 +5,7 @@
     - name: Sobre os Gêmeos Digitais do Azure
       href: about-digital-twins.md
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Encontrar salas disponíveis
       href: quickstart-view-occupancy-dotnet.md
@@ -66,6 +67,8 @@
           href: how-to-navigate-apis.md
         - name: Padrões de consulta comuns
           href: how-to-query-common-apis.md
+    - name: Registrar aplicativo no AAD herdado
+      href: how-to-use-legacy-aad.md
 - name: Referência
   items:
     - name: Biblioteca de clientes com funções definidas pelo usuário

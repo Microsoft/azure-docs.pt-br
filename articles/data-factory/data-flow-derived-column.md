@@ -1,38 +1,34 @@
 ---
-title: Transformação de coluna derivada de mapeamento de fluxo de dados do Azure Data Factory
-description: Como transformar dados em grande escala com o Azure Data Factory Mapeando dados fluxo de transformação coluna derivada
+title: Derivado de transformação de coluna no mapeamento de fluxo de dados - Azure Data Factory | Microsoft Docs
+description: Saiba como transformar dados em escala no Azure Data Factory com a mapeamento de dados de fluxo transformação coluna derivada.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: 6568e5ebf356bb0e6b4ac8ff6059cd093f8da821
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 941c629fd8359edc7fc1cf364a6735314044d95e
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917575"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312176"
 ---
-# <a name="mapping-data-flow-derived-column-transformation"></a>Mapeamento de fluxo de dados de transformação de coluna derivada
+# <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação coluna derivada no mapeamento de fluxo de dados
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use a transformação de Coluna Derivada para gerar novas colunas em seu fluxo de dados ou modificar campos existentes.
 
-![derivar coluna](media/data-flow/dc1.png "Coluna Derivada")
+## <a name="derived-column-settings"></a>Configurações de coluna derivadas
 
-Você pode executar várias ações de Coluna Derivada em uma única transformação de Coluna Derivada. Clique em "Adicionar coluna" para transformar mais de uma coluna na etapa única de transformação.
+Para substituir uma coluna existente, selecione-o por meio do menu suspenso de coluna. Caso contrário, use o campo de seleção de coluna como uma caixa de texto e digite o novo nome da coluna. Para compilar a expressão da coluna derivada, clique na caixa 'Inserir a expressão' para abrir o [construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md).
 
-No campo Coluna, selecione uma coluna existente para sobrepor com um novo valor derivado ou clique em "Criar Nova Coluna" para gerar uma nova coluna com o novo valor derivado.
+![Derivado de configurações de coluna](media/data-flow/dc1.png "derivadas as configurações de coluna")
 
-A caixa de texto Expressão abrirá o Construtor de Expressões onde você poderá criar a expressão para as colunas derivadas usando funções de expressão.
+Para adicionar mais colunas derivadas, passe o mouse sobre um existente derivada de coluna e clique em '+'. Em seguida, escolha 'Adicionar coluna' ou 'Adicionar coluna padrão'. Padrões de coluna podem ser útil se os nomes de coluna são variáveis de suas fontes. Para obter mais informações, consulte [padrões de coluna](concepts-data-flow-column-pattern.md).
 
-## <a name="column-patterns"></a>Padrões de coluna
-
-Se os nomes de coluna são variáveis de suas fontes, você poderá criar transformações dentro da coluna derivada usando padrões de coluna em vez de usar colunas nomeadas. Consulte a [descompasso do esquema](concepts-data-flow-schema-drift.md) artigo para obter mais detalhes.
-
-![padrão de coluna](media/data-flow/columnpattern.png "padrões de coluna")
+![Novo derivado a seleção de coluna](media/data-flow/columnpattern.png "New derivado a seleção de coluna")
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre o [linguagem de expressão de Data Factory para transformações](https://aka.ms/dataflowexpressions) e o [construtor de expressões](concepts-data-flow-expression-builder.md)
+- Saiba mais sobre o [linguagem de expressão de mapeamento de fluxo de dados](data-flow-expression-functions.md).

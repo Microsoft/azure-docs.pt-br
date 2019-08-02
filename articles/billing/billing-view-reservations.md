@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 872837c774368820527b12778b1a7dd4ddc5c7af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21bf96866c14615009a17279ff2fdd04bf4116ad
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60369112"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490260"
 ---
 # <a name="view-azure-reservations-in-the-azure-portal"></a>Exibir reservas do Azure no portal do Azure
 
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [Adicionar ou alterar os usuários que p
 Para exibir uma reserva como Proprietário ou Leitor,
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Pesquise em **Reservas**.
+2. Pesquise **reservas**.
     ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-view-reservation/portal-reservation-search.png)  
 3. A lista mostra todas as reservas em que você tem a função proprietário ou leitor. Cada reserva mostra o último percentual de utilização conhecidos.  
     ![Exemplo que mostra uma lista de reservas](./media/billing-view-reservation/view-reservations.png)
@@ -49,7 +49,7 @@ Se você precisar alterar o escopo de uma reserva, dividir uma reserva ou altera
 Exibir transações de reserva no portal do Azure,
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. Pesquise **custo de gerenciamento + cobrança**.
 
     ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-view-reservation/portal-cm-billing-search.png)
 

@@ -2,19 +2,19 @@
 title: Glossário - conversor personalizado
 titleSuffix: Azure Cognitive Services
 description: Glossário de conversor personalizado
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: ae9b17dde20913c5d8d1201e66fcc924ce26a2b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b00e38259bc3fe8cb6998c64ec453a17963a5ee5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389325"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595780"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -22,7 +22,7 @@ O glossário [conversor personalizado](https://portal.customtranslator.azure.ai)
 
 | **Palavra ou frase**       | **Definição**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Idioma de origem          | O idioma de origem é o idioma que você está começando e deseja converter para outro idioma (o "destino").                                                                                                                                                                                                                                                                                                                                                         |
+| Idioma de Origem          | O idioma de origem é o idioma que você está começando e deseja converter para outro idioma (o "destino").                                                                                                                                                                                                                                                                                                                                                         |
 | Idioma de destino          | O idioma de destino é o idioma que você deseja que a tradução automática forneça depois de receber o idioma de origem.                                                                                                                                                                                                                                                                                                                                               |
 | Arquivo monolíngue         | Um arquivo monolíngue tem um único idioma que não está emparelhado com outro arquivo de um idioma diferente.                                                                                                                                                                                                                                                                                                                                                                 |
 | Arquivos paralelos           | Um arquivo paralelo é uma combinação de dois arquivos com o texto correspondente. Um arquivo com o idioma de origem. O outro tem o idioma de destino.                                                                                                                                                                                                                                                                                                                                         |

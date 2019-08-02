@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/13/2019
-ms.openlocfilehash: 2ea1d116de2c435e873c653bbfa0571377c4f5ef
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/01/2019
+ms.openlocfilehash: 5188862c50895c8e3f1bdecb4e08d39409bb5f9e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067065"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491660"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica do Banco de Dados SQL do Azure (visualização)
 
@@ -143,6 +143,7 @@ A consulta elástica está incluída no custo dos bancos de dados do Banco de Da
 * Exceto nvarchar (max), os tipos LOB (incluindo tipos espaciais) não são suportados em definições de tabela externa. Como uma solução alternativa, você pode criar uma exibição no banco de dados remoto que converte o tipo LOB em nvarchar(max), definir sua tabela externa na exibição em vez da tabela base e, em seguida, convertê-la novamente no tipo LOB original em suas consultas.
 * Colunas do tipo de dados nvarchar (max) no resultado configuram técnicas de envio de lote avançadas desabiliadas e podem afetar o desempenho da consulta para uma ordem de magnitude ou até mesmo duas ordens de magnitude no não canônicos casos de uso nos quais grandes quantidade de dados não agregados estão sendo transferidos como resultado da consulta.
 * Atualmente, não há suporte para estatísticas de coluna em tabelas externas. Há suporte para as estatísticas de tabelas, mas elas precisam ser criadas manualmente.
+* A consulta elástica funciona apenas com o banco de dados SQL. Você não pode usá-lo para consultar o SQL Server no local ou do SQL Server em uma VM.
 
 ## <a name="feedback"></a>Comentários
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97eb016f1a77d4166976c6a4d7aebd073550e8c2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 51fd45729a4e34fa1669f758c5a9c8f5cbec498f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workfront"></a>Tutorial: Integração do Azure Active Directory ao Workfront
 
@@ -54,7 +54,7 @@ Para configurar a integração do Workfront ao Azure AD, você precisará adicio
 
 **Para adicionar o Workfront por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Workfront, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Workfront](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.attask-ondemand.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.attask-ondemand.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.attasksandbox.com/SAML2`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.attasksandbox.com/SAML2`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Workfront](https://www.workfront.com/services-and-support) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Workfront, execute as seguintes
     
     ![Configurar o logon único][23]
    
-     a. Como **Tipo**, selecione **SAML 2.0**.
+    a. Como **Tipo**, selecione **SAML 2.0**.
    
     b. Selecione **ID do Provedor de Serviços**.
    
@@ -215,7 +215,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Workfr
    
     ![Criar um usuário de teste do Workfront][21] 
    
-     a. Na caixa de texto **Nome**, digite "Brenda".
+    a. Na caixa de texto **Nome**, digite "Brenda".
    
     b. Na caixa de texto **Sobrenome**, digite "Fernandes".
    
@@ -235,7 +235,7 @@ Ao clicar no bloco do Workfront no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

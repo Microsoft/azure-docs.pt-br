@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97db4159927183edef6fc7490c6453ba9d818565
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67927e06d2ffb48bd14a5408d39c0f3cda539f6e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104627"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-convercent"></a>Tutorial: Integração do Azure Active Directory com o Convercent
 
@@ -53,7 +53,7 @@ Para configurar a integração do Convercent ao Azure AD, você precisará adici
 
 **Para adicionar o Condeco da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o Convercent, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do Convercent](common/both-advanced-urls.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<instancename>.convercent.com/`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<instancename>.convercent.com/`
 
     b. Na caixa de texto **Estado de Retransmissão**, digite uma URL usando o seguinte padrão: `https://<instancename>.convercent.com/`
 
@@ -202,5 +202,5 @@ Ao clicar no bloco do Convercent no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

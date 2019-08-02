@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 764fca8d3cb4cd9c40d7880043637f89ef1a8578
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bf931b19b7490a94f30afde49038cdc7573fab3
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66755374"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67302237"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Como agendar indexadores do Azure Search
 Um indexador normalmente é executado uma vez, imediatamente após sua criação. Você pode executá-lo novamente sob demanda usando o portal, a API REST ou o SDK do .NET. Você também pode configurar um indexador para ser executado periodicamente em um agendamento.
@@ -43,6 +43,9 @@ Vamos considerar um exemplo para tornar isso mais concreto. Suponha que podemos 
 * A primeira execução do indexador começa em, ou em torno de 1 de junho de 2019 às 8:00 AM UTC. Vamos supor que essa execução demore 20 minutos (ou menos de uma hora).
 * A segunda execução começa em, ou em torno de 1 de junho de 2019 9:00 AM UTC. Suponha que essa execução demore 70 minutos - mais de uma hora – e não será concluído até 10 10h UTC.
 * A terceira execução está agendada para iniciar às 10:00 AM UTC, mas no momento a execução anterior ainda está em execução. Isso agendada execução, em seguida, é ignorada. A próxima execução do indexador não será iniciado até 11 horas UTC.
+
+> [!NOTE]
+> Se um indexador é definido para uma determinada agenda mas repetidamente falhar no mesmo documenta repetidamente cada vez que ele é executado, o indexador será iniciada executando em um intervalo menos frequente (até o máximo de pelo menos uma vez a cada 24 horas) com êxito até que ele faz aga de andamento no.  Se você acredita que corrigir qualquer problema que fazia com que o indexador ficar preso em um determinado ponto, você pode executar um em demanda tempo de execução do indexador, e se isso faz com êxito o andamento, o indexador irá retornar de seu intervalo de agendamento do conjunto novamente.
 
 <a name="portal"></a>
 

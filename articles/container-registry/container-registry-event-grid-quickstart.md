@@ -3,17 +3,18 @@ title: Início Rápido - Enviar eventos de Registro de Contêiner do Azure para 
 description: Neste início rápido, você habilita os eventos da Grade de Eventos para o registro de contêiner e, em seguida, efetua push de imagens de contêiner e exclui eventos para um aplicativo de exemplo.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: danlep
 ms.custom: seodec18
-ms.openlocfilehash: f5c075942a29968ea57c684cd817e578df951989
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49ee9a7f12601b0d93e320ab797be4a1ada41c04
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427621"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309795"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Início Rápido: Enviar eventos de registro de contêiner privado à Grade de Eventos
 
@@ -31,7 +32,7 @@ Os comandos da CLI do Azure neste artigo são formatados para o shell de **Bash*
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O seguinte comando [az group create][az-group-create] cria um grupo de recursos nomeado *myResourceGroup* na região *eastus*. Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
+Um grupo de recursos do Azure é um contêiner lógico no qual você implanta e gerencia os recursos do Azure. O comando [AZ Group Create][az-group-create] a seguir cria um grupo de  recursos chamado MyResource Group na região *eastus* . Se você quiser usar um nome diferente para o grupo de recursos, configure `RESOURCE_GROUP_NAME` para um valor diferente.
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=myResourceGroup
@@ -41,7 +42,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
-Em seguida, implante um registro de contêiner no grupo de recursos com os seguintes comandos. Antes de executar o comando [az acr create][az-acr-create], defina `ACR_NAME` como um nome para o registro. O nome deve ser exclusivo no Azure e é restrito a 5 a 50 caracteres alfanuméricos.
+Em seguida, implante um registro de contêiner no grupo de recursos com os seguintes comandos. Antes de executar o comando [AZ ACR Create][az-acr-create] , defina `ACR_NAME` como um nome para o registro. O nome deve ser exclusivo no Azure e é restrito a 5 a 50 caracteres alfanuméricos.
 
 ```azurecli-interactive
 ACR_NAME=<acrName>
@@ -100,7 +101,7 @@ Você deve ver o aplicativo de exemplo renderizado sem nenhuma mensagem de event
 
 ## <a name="subscribe-to-registry-events"></a>Assinar eventos de registro
 
-Na Grade de Eventos, você assina um *tópico* para informar quais eventos quer acompanhar e para onde enviá-los. O seguinte comando [az eventgrid event-subscription create][az-eventgrid-event-subscription-create] assina o registro de contêiner criado e especifica a URL do aplicativo Web como o ponto de extremidade para o qual deve enviar eventos. As variáveis de ambiente que você preencheu nas seções anteriores são reutilizadas aqui, portanto, nenhuma edição é necessária.
+Na Grade de Eventos, você assina um *tópico* para informar quais eventos quer acompanhar e para onde enviá-los. O comando [AZ eventgrid Event-Subscription Create][az-eventgrid-event-subscription-create] a seguir assina o registro de contêiner que você criou e especifica a URL do seu aplicativo Web como o ponto de extremidade para o qual ele deve enviar eventos. As variáveis de ambiente que você preencheu nas seções anteriores são reutilizadas aqui, portanto, nenhuma edição é necessária.
 
 ```azurecli-interactive
 ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query id --output tsv)
@@ -185,7 +186,7 @@ $ az acr repository show-tags --name $ACR_NAME --repository myimage
 
 ### <a name="delete-the-image"></a>Excluir a imagem
 
-Agora, gere um evento `ImageDeleted` excluindo a imagem com o comando [az acr repository delete][az-acr-repository-delete]:
+Agora, gere um `ImageDeleted` evento excluindo a imagem com o comando [AZ ACR Repository Delete][az-acr-repository-delete] :
 
 ```azurecli-interactive
 az acr repository delete --name $ACR_NAME --image myimage:v1

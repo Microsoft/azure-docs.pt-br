@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 817a19d5cabd7d20dc17154f29b4430e6b96c5fa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: bb33e829853e1f9a975d29c7a80298b9033f0748
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072052"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249639"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Início Rápido: obter uma resposta da base de dados de conhecimento usando cURL
 
@@ -69,7 +69,7 @@ Para gerar uma resposta com CURL, conclua as seguintes etapas:
 
 ## <a name="use-staging-endpoint-with-curl"></a>Usar o ponto de extremidade de preparo com cURL
 
-Se você quiser obter uma resposta do ponto de extremidade de preparo, use o `isTest` propriedade body.
+Caso deseje receber uma resposta do ponto de extremidade de preparo, use a propriedade do corpo `isTest`.
 
 ```json
 isTest:true

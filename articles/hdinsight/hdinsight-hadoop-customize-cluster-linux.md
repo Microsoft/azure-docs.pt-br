@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 03fcbb0216d85e337b4161aa24ceeb7d3a2bdebe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7885b03e9f92fc8e8c5b2c78049760cbed8d4dc7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479469"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703969"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizar os clusters de HDInsight do Azure por meio de ações de script
 
@@ -51,6 +51,9 @@ Uma ação de script é Bash script executado em nós em um cluster HDInsight. E
       * Gen1 ADLS: A entidade de serviço que HDInsight usa para acessar o Data Lake Storage deve ter acesso de leitura para o script. O formato de URI dos scripts armazenados no Data Lake Storage Gen1 é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
       
       * Um blob em uma conta do Armazenamento do Azure que seja a conta de armazenamento principal ou adicional para o cluster do HDInsight. O HDInsight recebe acesso a ambos esses tipos de contas de armazenamento durante a criação do cluster.
+
+        > [!IMPORTANT]  
+        > Não gire a chave de armazenamento nessa conta de armazenamento do Azure, como fará com que as ações de script subsequentes com scripts armazenados ali para falhar.
 
       * Um compartilhamento de arquivos serviço público acessível por meio de caminhos de http://. Os exemplos são BLOBs do Azure, GitHub, OneDrive.
 
@@ -143,11 +146,10 @@ Scripts de ação de script podem ser usados por meio dos utilitários a seguir:
 
 O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
 
-| NOME | Script |
+| Nome | script |
 | --- | --- |
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Confira [Instalar e usar o Hue em clusters Hadoop do HDInsight](hdinsight-hadoop-hue-linux.md). |
-| Instalar o Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Confira [Instalar e usar o Presto em clusters do HDInsight baseados em Hadoop](hdinsight-hadoop-install-presto.md). |
 | Instalar o Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Confira [Instalar o Apache Giraph em clusters Hadoop do HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Pré-carregar bibliotecas Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Confira [Adicionar bibliotecas Apache Hive personalizadas ao criar seu cluster do HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
@@ -171,12 +173,12 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
 
     A tabela a seguir descreve os elementos no formulário:
 
-    | Propriedade | Value |
+    | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __Personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
     | NOME |Especifique um nome para a ação de script. |
     | URI do script Bash |Especificar o URI do script. |
-    | Cabeçalho/Trabalho/Zookeeper |Especifique os nós em que o script deve ser executado: **Cabeçalho**, **Trabalho** ou **ZooKeeper**. |
+    | Head/Worker/ZooKeeper |Especifique os nós em que o script deve ser executado: **Cabeçalho**, **Trabalho** ou **ZooKeeper**. |
     | parâmetros |Especifique os parâmetros, se exigido pelo script. |
 
     Use a entrada __Persista essa ação de script__ para garantir que o script seja aplicado durante operações de escalonamento.
@@ -253,10 +255,10 @@ Vá para o [Portal do Azure](https://portal.azure.com):
 
     A tabela a seguir descreve os elementos no formulário:
 
-    | Propriedade | Value |
+    | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | NOME |Especifique um nome para a ação de script. |
+    | Nome |Especifique um nome para a ação de script. |
     | URI do script Bash |Especificar o URI do script. |
     | Cabeçalho/Trabalho/Zookeeper |Especifique os nós em que o script deve ser executado: **Cabeçalho**, **Trabalho** ou **ZooKeeper**. |
     | parâmetros |Especifique os parâmetros, se exigido pelo script. |
@@ -308,7 +310,7 @@ Antes de começar, instale e configure a CLI do Azure. Para saber mais, confira 
 
     Se você omitir parâmetros para esse comando, será solicitado a fornecê-los. Caso o script especificado com `-u` aceite parâmetros, especifique-os usando o parâmetro `-p`.
 
-    Os tipos de nós válidos são `headnode`, `workernode` e `zookeeper`. Caso o script deva ser aplicado a vários tipos de nós, especifique os tipos separados por um ponto-e-vírgula `;`. Por exemplo: `-n headnode;workernode`.
+    Os tipos de nós válidos são `headnode`, `workernode` e `zookeeper`. Caso o script deva ser aplicado a vários tipos de nós, especifique os tipos separados por um ponto-e-vírgula `;`. Por exemplo, `-n headnode;workernode`.
 
     Para persistir o script, adicione `--persistOnSuccess`. Também é possível persistir o script posteriormente usando `azure hdinsight script-action persisted set`.
 
@@ -424,7 +426,7 @@ O serviço HDInsight possibilita o uso de componentes personalizados de várias 
 
 3. **Exemplos**. Para componentes personalizados populares, a Microsoft e outras empresas podem fornecer exemplos de uso desses componentes em clusters HDInsight. Esses exemplos são fornecidos sem suporte.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Você pode usar a interface de usuário Web do Ambari para exibir as informações registradas pelas ações de script. Se o script falhar durante a criação do cluster, os logs também estarão disponíveis na conta de armazenamento padrão associada ao cluster. Esta seção fornece informações sobre como recuperar os logs usando ambas as opções.
 

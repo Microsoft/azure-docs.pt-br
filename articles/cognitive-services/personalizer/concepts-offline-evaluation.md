@@ -3,19 +3,19 @@ title: Avaliação offline – Personalizador
 titleSuffix: Azure Cognitive Services
 description: Crie um loop de comentários neste Início Rápido do C# com o serviço Personalizador.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 29caea481b1999086440db2021b86d949ce6cbc6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025610"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662858"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
 
@@ -48,7 +48,7 @@ Os seguintes aspectos são considerações importantes para uma avaliação offl
 
 O Personalizador pode usar o processo de avaliação offline para descobrir uma política de aprendizado mais ideal automaticamente.
 
-Depois de executar a avaliação offline, você poderá ver a eficácia comparativa do Personalizador com essa nova política em comparação com a atual política online. Em seguida, será possível aplicar essa política de aprendizado para implementá-la imediatamente no Personalizador ou baixá-la para análise ou uso futuro.
+Depois de executar a avaliação offline, você poderá ver a eficácia comparativa do Personalizador com essa nova política em comparação com a atual política online. Em seguida, você pode aplicar essa política de aprendizado para torná-la eficaz imediatamente no Personalizador, baixando-a e carregando-a no painel modelos e políticas. Você também pode baixá-lo para análise ou uso futuro.
 
 ## <a name="understanding-the-relevance-of-offline-evaluation-results"></a>Como entender a relevância dos resultados da avaliação offline
 
@@ -98,4 +98,5 @@ Recomendamos examinar as avaliações de recurso e fazer as seguintes perguntas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Configurar o Personalizador](how-to-settings.md)
+[Configurar o personalizado](how-to-settings.md)
+[executar avaliações offline](how-to-offline-evaluation.md) entender [como o personalizador funciona](how-personalizer-works.md)

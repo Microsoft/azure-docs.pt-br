@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: bce9f3b3a574d27e2fb47fb9b2da9470c43fd2eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 78a531c769612af0597e732f0dc539286dd7cdac
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399421"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489885"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs do Hyper-V locais para o Azure
 
@@ -33,8 +33,8 @@ Hyper-V sem Virtual Machine Manager | Você pode executar a recuperação de des
 
 **Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (incluindo server core installation) Windows Server 2012 R2 com as atualizações mais recentes | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md). 
-Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se o Virtual Machine Manager for usado, os hosts Windows Server 2019 devem ser gerenciados no Virtual Machine Manager de 2019. Da mesma forma, os hosts Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (executando sem Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (incluindo a instalação do Server Core), Windows Server 2012 R2 com as atualizações mais recentes | Se você já tiver configurado o Windows Server 2012 R2 com/ou o SCVMM 2012 R2 com o Azure Site Recovery e pretender atualizar o sistema operacional, siga as diretrizes na [documentação](upgrade-2012R2-to-2016.md). 
+Hyper-V (executando sem Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se Virtual Machine Manager for usado, os hosts do Windows Server 2019 deverão ser gerenciados em Virtual Machine Manager 2019. Da mesma forma, os hosts do Windows Server 2016 devem ser gerenciados no Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>VMs replicadas
@@ -52,8 +52,8 @@ Sistema operacional convidado | Qualquer SO convidado [com suporte para Azure](h
 
 **Ação** | **Detalhes**
 --- | ---
-Redimensionar o disco na VM replicada do Hyper-V | Sem suporte. Desative a replicação, faça a alteração e ative novamente a replicação para a VM.
-Adicionar disco na VM replicada do Hyper-V | Sem suporte. Desative a replicação, faça a alteração e ative novamente a replicação para a VM.
+Redimensionar o disco na VM replicada do Hyper-V | Não compatível. Desative a replicação, faça a alteração e ative novamente a replicação para a VM.
+Adicionar disco na VM replicada do Hyper-V | Não compatível. Desative a replicação, faça a alteração e ative novamente a replicação para a VM.
 
 ## <a name="hyper-v-network-configuration"></a>Configuração de rede Hyper-V
 
@@ -92,7 +92,7 @@ Rede Acelerada | Não | Não
 
 **Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | --- 
-NFS | ND | ND
+NFS | N/A | N/A
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
 Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM para CLARiiON | Sim | Sim
@@ -101,21 +101,21 @@ Múltiplos caminhos (MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5
 
 **Armazenamento** | **Hyper-V com Virtual Machine Manager** | **Hyper-V sem Virtual Machine Manager**
 --- | --- | ---
-VMDK | ND | ND
+VMDK | N/A | N/A
 VHD/VHDX | Sim | Sim
 VM geração 2 | Sim | Sim
 EFI/UEFI| Sim | Sim
 Disco de cluster compartilhado | Não | Não
 Disco criptografado | Não | Não
-NFS | ND | ND
+NFS | N/A | N/A
 SMB 3.0 | Não | Não
-RDM | ND | ND
+RDM | N/A | N/A
 Disco >1 TB | Sim, até 4.095 GB | Sim, até 4.095 GB
 Disco: 4K, setor lógico e físico | Não compatível: Gen 1/Gen 2 | Não compatível: Gen 1/Gen 2
 Disco: 4K setor lógico e 512 bytes setor físico | Sim |  Sim
 Gerenciamento de volumes lógicos (LVM). Há suporte para o LVM para discos de dados somente. As VMs do Azure tem apenas um único disco de sistema operacional. | Sim | Sim
 Volume com discos distribuídos >1 TB | Sim | Sim
-Espaços de Armazenamento | Sim | Sim
+Espaços de Armazenamento | Não | Não
 Adição/remoção de disco a quente | Não | Não
 Exclusão de disco | Sim | Sim
 Múltiplos caminhos (MPIO) | Sim | Sim

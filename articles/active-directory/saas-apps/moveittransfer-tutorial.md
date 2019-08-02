@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 76f1f0d99b47b0a57f97f4fcdf721a78a77ba9b4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905106"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096891"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Azure Active Directory ao MOVEit Transfer – Integração do Azure Active Directory
 
@@ -52,7 +52,7 @@ Para configurar a integração do MOVEit Transfer - Azure AD integration ao Azur
 
 **Para adicionar o MOVEit Transfer - Azure AD integration pela galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -102,7 +102,7 @@ Para configurar o logon único do Azure AD com o MOVEit Transfer - Azure AD inte
 
 4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](common/upload-metadata.png)
 
@@ -170,7 +170,7 @@ Para configurar o logon único do Azure AD com o MOVEit Transfer - Azure AD inte
     
     ![Edite Configurações de Provedor de Identidade Federado](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
-     a. Selecione **SAML NameID** como **Nome de logon**.
+    a. Selecione **SAML NameID** como **Nome de logon**.
     
     b. Selecione **Outros** como **Nome completo** e, na caixa de texto **Nome do atributo**, coloque o valor: `http://schemas.microsoft.com/identity/claims/displayname`.
     
@@ -250,5 +250,5 @@ Ao clicar no bloco do MOVEit Transfer - Azure AD integration no painel de acesso
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

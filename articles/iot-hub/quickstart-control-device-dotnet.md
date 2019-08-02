@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.openlocfilehash: fc219d9e3e5b365f341b2997804586e67275c1b7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 06/21/2019
+ms.openlocfilehash: 751db0effb57f19db47be1eed166d7053d617e3d
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046505"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491960"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (.NET)
 
@@ -83,7 +83,7 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string \
       --hub-name YourIoTHubName \
-      --device-id MyDotnetDevice 
+      --device-id MyDotnetDevice \
       --output table
     ```
 
@@ -98,12 +98,12 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
 Você também precisa de uma _cadeia de conexão de serviço_ do seu hub IoT para permitir que aplicativos de back-end se conectem ao hub e recuperem mensagens. O comando abaixo recupera a cadeia de conexão de serviço para o hub IoT:
 
 ```azurecli-interactive
-az iot hub show-connection-string --name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 Tome nota da cadeia de conexão de serviço, que se parece com:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 Você usará esse valor posteriormente no início rápido. A cadeia de conexão do serviço é diferente da cadeia de conexão do dispositivo.  
 

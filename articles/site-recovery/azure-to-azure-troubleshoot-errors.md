@@ -2,18 +2,18 @@
 title: Solução de problemas do Azure Site Recovery para erros e assuntos de replicação do Azure para Azure | Microsoft Docs
 description: Solucionando problemas de erros e problemas durante a replicação de máquinas virtuais do Azure para recuperação de desastres
 services: site-recovery
-author: sujayt
+author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: sujayt
-ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: asgang
+ms.openlocfilehash: 1e0450554597d99aa99d6df51f22bfc90c0d92ad
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796420"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798579"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solucionar problemas de replicação de VM do Azure para o Azure
 
@@ -156,7 +156,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Problema nº 1: Falha ao registrar a máquina virtual do Azure no Site Recovery (151195) </br>
 - **Possível causa** </br>
-  - Não é possível estabelecer conexão com pontos de extremidade do local devido à falha na resolução DNS.
+  - Não é possível estabelecer Conexão com pontos de extremidade do Site Recovery devido a falha na resolução DNS.
   - Isso é visto com mais frequência durante a proteção novamente quando você fizer failover da máquina virtual, mas o servidor DNS não está acessível da região de recuperação de Desastre.
 
 - **Resolução**
@@ -175,7 +175,7 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
       - Se novos endereços são adicionados no futuro para o Azure Active Directory (AAD) você precisará criar novas regras NSG.
 
 > [!NOTE]
-> Se as máquinas virtuais estão por trás **Standard** balanceador de carga interno e em seguida, ele não teria acesso ao O365 IPs, ou seja, login.micorsoftonline.com por padrão. Altere-o para **básicas** interno tipo de Balanceador de carga ou criar acesso com associação de saída, conforme mencionado na [artigo](https://aka.ms/lboutboundrulescli).
+> Se as máquinas virtuais estão por trás **Standard** balanceador de carga interno e em seguida, ele não teria acesso ao O365 IPs, ou seja, login.microsoftonline.com por padrão. Altere-o para **básicas** interno tipo de Balanceador de carga ou criar acesso com associação de saída, conforme mencionado na [artigo](https://aka.ms/lboutboundrulescli).
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: Falha na configuração do Site Recovery (151197)
 - **Possível causa** </br>
@@ -187,23 +187,23 @@ Para replicação de recuperação de Site para o trabalho, conectividade de sa�
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: A2A a replicação falha quando o tráfego de rede passará por meio do servidor de proxy no local (151072)
 - **Possível causa** </br>
-  - As configurações de proxy personalizadas são inválidas, e o agente do Serviço de Mobilidade do ASR não detectou automaticamente as configurações de proxy do IE
+  - As configurações de proxy personalizadas são inválidas e agente de serviço de mobilidade do Azure Site Recovery detectar automaticamente as configurações de proxy do IE
 
 
 - **Resolução**
   1. O agente do Serviço de Mobilidade detecta as configurações de proxy do IE no Windows e o ambiente /etc/ no Linux.
-  2. Se você preferir definir o proxy somente para o Serviço de Mobilidade do ASR, você poderá fornecer os detalhes do proxy no ProxyInfo.conf localizado em:</br>
+  2. Se você preferir definir proxy somente para o serviço de mobilidade do Azure Site Recovery, você pode fornecer os detalhes de proxy no ProxyInfo.conf localizado em:</br>
      - ``/usr/local/InMage/config/`` no ***Linux***
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` no ***Windows***
   3. O ProxyInfo.conf deve ter as configurações de proxy no seguinte formato INI.</br>
                 *[proxy]*</br>
                 *Address=http://1.2.3.4*</br>
                 *Port=567*</br>
-  4. O agente do Serviço de Mobilidade do ASR suporta apenas ***proxies não autenticados***.
+  4. Agente de serviço de mobilidade de recuperação de Site do Azure dá suporte a apenas ***proxies utenticados***.
 
 
 ### <a name="fix-the-problem"></a>Corrija o problema
-Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou os [ intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas no [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
+Para permitir [as URLs necessárias](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou o [intervalos de IP necessários](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), siga as etapas a [documento de diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md).
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>Disco não encontrado na máquina (código de erro 150039)
 
@@ -232,17 +232,42 @@ Você pode optar por proteger os discos ou ignorar o aviso para tornar o status 
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Para ignorar o aviso. Vá para itens replicados > máquina virtual > clique no alerta ignorar na seção de visão geral.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Não é possível ver o VM do Azure ou grupo de recursos para a seleção em "habilitar replicação"
 
- **Causa 1:  O grupo de recursos e a Máquina Virtual de origem estão em uma localização diferente** <br>
-O Azure Site Recovery atualmente normas que o grupo de recursos de região e as máquinas virtuais de origem devem estar no mesmo local. Se esse não for o caso, não será possível localizar a máquina virtual durante o tempo de proteção. Como alternativa, você pode habilitar a replicação da VM, em vez do cofre dos serviços de recuperação. Vá para a VM Sourece > Propriedades > Habilitar a replicação e recuperação de desastres.
 
-**Causa 2: O grupo de recursos não faz parte da assinatura selecionada** <br>
-Talvez não seja possível localizar o grupo de recursos no momento da proteção, se ele não fizer parte da assinatura fornecida. Certifique-se de que o grupo de recursos pertence à assinatura que está sendo usada.
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>Remover a máquina virtual do cofre foi concluído com informações (código de erro 150225)
+No momento da proteção da máquina virtual, o Azure Site Recovery cria alguns links na máquina virtual de origem. Quando você remove a proteção ou desabilite a replicação, o Azure Site Recovery remover esses vínculos como parte do trabalho de limpeza. No caso da máquina virtual tem um bloqueio de recurso, em seguida, o trabalho seja concluído com as informações. Ele informa que a máquina virtual foi removida do cofre dos serviços de recuperação, mas alguns dos links obsoletos não foi possível limpar da máquina de origem.
 
- **Causa 3: Configuração obsoleta** <br>
-Se VM que você deseja habilitar para replicação não é exibida, pode haver uma configuração obsoleta do Site Recovery na VM do Azure. A configuração obsoleta pode ser deixada em uma VM do Azure nos seguintes casos:
+Você pode ignorar este aviso caso não pretenda proteger essa máquina virtual novamente no futuro. No entanto, se você tem para proteger essa máquina virtual mais tarde, em seguida, você deve limpar os links conforme mencionado nas etapas abaixo. 
 
+**Se você não fizer a limpeza para cima, em seguida:**
+
+1.  Durante o tempo de habilitar a replicação por meio do Cofre de serviços de recuperação, a máquina virtual não será listada. 
+2.  Se você tentar proteger a VM por meio **Máquina Virtual > Configurações > recuperação de desastres** ele será falhou com o erro "*não é possível habilitar a replicação devido aos links de recursos obsoletos existentes na VM*".
+
+
+### <a name="fix-the-problem"></a>Corrija o problema
+
+>[!NOTE]
+>
+>O Azure Site Recovery não excluir a máquina virtual de origem ou impacto que ela de qualquer forma ao executar as etapas a seguir.
+>
+
+1. Remover o bloqueio da VM ou grupo de recursos. Por exemplo:  Abaixo VM nome "MoveDemo" tem o bloqueio de recurso que precisa ser excluído.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Baixar script [remover configuração obsoleta do Azure Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Execute o script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Forneça o nome VM e ID, VM do grupo de recursos de assinatura como um parâmetro.
+5. Se for solicitado a credenciais do Azure, forneça que e verificar que o script é executado sem falhas. 
+
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>Não é possível habilitar a replicação devido aos links de recursos obsoletos existentes na VM (código de erro 150226)
+
+**Causa: Máquina virtual tem configuração obsoleta deixada da proteção de recuperação de Site anterior**
+
+A configuração obsoleta pode ser deixada em uma VM do Azure nos seguintes casos:
+
+- Habilitar a replicação para a VM do Azure usando o Site Recovery e, em seguida, desabilite a replicação, mas o **VM de origem tinha um bloqueio de recurso**.
 - A replicação foi habilitada para a VM do Azure usando a recuperação de Site e então excluída no cofre de recuperação de Site sem desabilitar explicitamente a replicação na máquina virtual.
 - A replicação foi habilitada para a VM do Azure usando a recuperação de Site e então excluída no grupo de recursos contendo o cofre de recuperação de Site sem desabilitar explicitamente a replicação na máquina virtual.
 
@@ -250,9 +275,52 @@ Se VM que você deseja habilitar para replicação não é exibida, pode haver u
 
 >[!NOTE]
 >
->Atualize o módulo ""AzureRM.Resources"" antes de usar o script abaixo.
+>O Azure Site Recovery não excluir a máquina virtual de origem ou impacto que ela de qualquer forma ao executar as etapas a seguir.
 
-Você pode usar [Remover configuração de script ASR obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) e remover a configuração de recuperação de Site obsoleta na máquina virtual da Azure. Você deve ser capaz de ver a VM depois de remover a configuração obsoleta.
+
+1. Remover o bloqueio da VM ou grupo de recursos, caso haja algum. *Por exemplo:* Abaixo VM nome "MoveDemo" tem o bloqueio de recurso que precisa ser excluído.
+   
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Baixar script [remover configuração obsoleta do Azure Site Recovery](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Execute o script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Forneça o nome VM e ID, VM do grupo de recursos de assinatura como um parâmetro.
+5. Se for solicitado a credenciais do Azure, forneça que e verificar que o script é executado sem falhas.  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Não é possível ver o VM do Azure ou grupo de recursos para a seleção em "habilitar replicação"
+
+ **Causa 1:  O grupo de recursos e a Máquina Virtual de origem estão em uma localização diferente**
+ 
+O Azure Site Recovery atualmente normas que o grupo de recursos de região e as máquinas virtuais de origem devem estar no mesmo local. Se não for o caso, em seguida, você não seria capaz de encontrar a máquina virtual ou um grupo de recursos durante o tempo de proteção. 
+
+**Como uma solução alternativa**, você pode habilitar a replicação da VM, em vez do cofre dos serviços de recuperação. Vá para a VM de origem > Propriedades > Habilitar a replicação e recuperação de desastres.
+
+**Causa 2: O grupo de recursos não faz parte da assinatura selecionada**
+
+Talvez não seja possível localizar o grupo de recursos no momento da proteção, se ele não fizer parte da assinatura fornecida. Certifique-se de que o grupo de recursos pertence à assinatura que está sendo usada.
+
+ **Causa 3: Configuração obsoleta**
+ 
+Se VM que você deseja habilitar para replicação não é exibida, pode haver uma configuração obsoleta do Site Recovery na VM do Azure. A configuração obsoleta pode ser deixada em uma VM do Azure nos seguintes casos:
+
+- A replicação foi habilitada para a VM do Azure usando a recuperação de Site e então excluída no cofre de recuperação de Site sem desabilitar explicitamente a replicação na máquina virtual.
+- A replicação foi habilitada para a VM do Azure usando a recuperação de Site e então excluída no grupo de recursos contendo o cofre de recuperação de Site sem desabilitar explicitamente a replicação na máquina virtual.
+
+- Habilitar a replicação para a VM do Azure usando o Site Recovery e, em seguida, desabilite a replicação, mas a VM de origem tinha um bloqueio de recurso.
+
+### <a name="fix-the-problem"></a>Corrija o problema
+
+> [!NOTE]
+>
+> Atualize o módulo ""AzureRM.Resources"" antes de usar o script abaixo. O Azure Site Recovery não excluir a máquina virtual de origem ou impacto que ela de qualquer forma ao executar as etapas a seguir.
+>
+
+1. Remover o bloqueio da VM ou grupo de recursos, caso haja algum. *Por exemplo:* Abaixo VM nome "MoveDemo" tem o bloqueio de recurso que precisa ser excluído.
+
+   ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. Baixar script [remover a configuração obsoleta](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1).
+3. Execute o script *Cleanup-stale-asr-config-Azure-VM.ps1*.
+4. Forneça o nome VM e ID, VM do grupo de recursos de assinatura como um parâmetro.
+5. Se for solicitado a credenciais do Azure, forneça que e verificar que o script é executado sem falhas.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Não é possível selecionar a máquina virtual para proteção
  **Causa 1:  A máquina virtual tem uma extensão instalada em um estado com falha ou sem resposta** <br>
@@ -294,7 +362,7 @@ Para habilitar a replicação na VM, o estado de provisionamento deve ser **Com 
 
 **Código de erro** | **Possíveis causas:** | **Recomendações**
 --- | --- | ---
-151025<br></br>**Mensagem**: Falha ao instalar a extensão do Site Recovery | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
+151025<br></br>**Mensagem**: Extensão do site Recovery não conseguiu instalar | - Serviço 'Aplicativo do Sistema COM' desabilitado.</br></br>- O serviço de 'Cópias de Sombra de Volume' está desabilitado.| Defina os serviços 'Aplicativo do Sistema COM+' e 'Cópias de Sombra de Volume' para o modo de inicialização manual ou automático.
 
 ### <a name="fix-the-problem"></a>Corrija o problema
 
@@ -362,8 +430,8 @@ Few examples: </br>
 
 If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. </br>
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
+## Site Recovery mobility service update completed with warnings ( error code 151083)
+Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  Site Recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br>
 **Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
 
 

@@ -2,19 +2,19 @@
 title: Como gerenciar configurações? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: Como gerenciar configurações, criar espaço de trabalho, compartilhar espaço de trabalho e gerenciar a chave de assinatura no Tradutor Personalizado.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb766a8cc6ae0de2407f44982a58fcc448e4b00c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f90ada6b6cd1760b3b779010625f252533fa611d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66382663"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595773"
 ---
 # <a name="how-to-manage-settings"></a>Como gerenciar configurações
 

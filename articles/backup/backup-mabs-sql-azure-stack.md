@@ -1,19 +1,18 @@
 ---
 title: Fazer backup de cargas de trabalho do SQL Server no Azure Stack
 description: Usar o Servidor de Backup do Azure para proteger uma carga de trabalho do SQL Server no Azure Stack.
-services: backup
 author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
 ms.author: adigan
-ms.openlocfilehash: fb064c39fa014515fb2a3f4ccc96ce216f2f7b2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11d03a9c5cc81b915f48bc66f5a0e5ab034662ed
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60254273"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465149"
 ---
 # <a name="back-up-sql-server-on-stack"></a>Fazer backup do SQL Server no Stack
 Use este artigo para configurar o MABS (Servidor de Backup do Microsoft Azure) para proteger bancos de dados do SQL Server no Azure Stack.
@@ -24,7 +23,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 2. Criar cópias de backup sob demanda.
 3. Recuperar o banco de dados dos discos e do Microsoft Azure
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 
 [Instalar e preparar o Servidor de Backup do Azure](backup-mabs-install-azure-stack.md).
 
@@ -33,7 +32,7 @@ O gerenciamento de backup do banco de dados SQL Server no Azure e a recuperaçã
 
 2. Na faixa de opções da ferramenta, clique em **Novo** para criar um novo grupo de proteção.
 
-    ![Criar grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
+    ![Criar Grupo de proteção](./media/backup-azure-backup-sql/protection-group.png)
 
     O Servidor de Backup do Azure inicia o assistente de Grupo de proteção, que orienta você na criação de um **Grupo de proteção**. Clique em **Avançar**.
 

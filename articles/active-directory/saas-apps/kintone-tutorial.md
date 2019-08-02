@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: a66d1cb16f47ebe7aeba3685b3567620ae4a8a51
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a9245ab5a2d51ee3995ff0c614cafaebdc20d00f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898023"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kintone"></a>Tutorial: Integração do Azure Active Directory com o Kintone
 
@@ -53,7 +53,7 @@ Para configurar a integração do Kintone ao Azure AD, você precisará adiciona
 
 **Para adicionar o Kintone por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Kintone, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Kintone](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.kintone.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.kintone.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -155,7 +155,7 @@ Para configurar o logon único do Azure AD com o Kintone, execute as seguintes e
 
     ![Autenticação SAML](./media/kintone-tutorial/ic785883.png "Autenticação SAML")
 
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
@@ -242,7 +242,7 @@ Para permitir que os usuários do Azure AD entrem no Kintone, eles precisam ser 
 
     ![Novos Usuários](./media/kintone-tutorial/ic785890.png "novos Usuários")
 
-     a. Digite **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do Azure AD que deseja provisionar nas caixas de texto relacionadas.
+    a. Digite **Nome de Exibição**, **Nome de Logon**, **Nova Senha**, **Confirmar Senha**, **Endereço de Email** e outros detalhes de uma conta válida do Azure AD que deseja provisionar nas caixas de texto relacionadas.
 
     b. Clique em **Save** (Salvar).
 
@@ -261,4 +261,4 @@ Ao clicar no bloco do Kintone no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

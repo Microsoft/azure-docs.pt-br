@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 1958a829df2643bd218d4e8d7f6dd563b5b395e8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ca8351e7294c5a9cdd9f594eb4524d04a27b5c1
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66237175"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68516984"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar seus recursos com grupos de gerenciamento do Azure
 
@@ -98,7 +98,7 @@ O gráfico a seguir mostra a lista de funções e as ações compatíveis nos gr
 |Leitor                      |        |        |        |        |               |               | X     |
 |MG leitor*                  |        |        |        |        |               |               | X     |
 |Colaborador da política de recurso |        |        |        |        |               | X             |       |
-|Administrador de Acesso do Usuário   |        |        |        |        | X             |               |       |
+|Administrador de Acesso do Usuário   |        |        |        |        | X             | X             |       |
 
 *: O Colaborador de MG e o Leitor de MG só permitem que os usuários executem essas ações no escopo do grupo de gerenciamento.  
 **: Não são necessárias atribuições de função no grupo de gerenciamento raiz para mover uma assinatura ou um grupo de gerenciamento dele e para ele.  Confira [Gerenciar seus recursos com grupos de gerenciamento](manage.md) para obter detalhes de como mover itens dentro da hierarquia.

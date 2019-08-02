@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 8944e4533448f5787f5c85c12e4ab2747eb96e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ae074e8732898524d917f2537023c4b506cff80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65872259"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097481"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integração do Azure Active Directory ao Mercer BenefitsCentral (MBC)
 
@@ -52,7 +52,7 @@ Para configurar a integração do Mercer BenefitsCentral (MBC) no Azure AD, ser�
 
 **Para adicionar o Mercer BenefitsCentral (MBC) da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ Para configurar a integração do Mercer BenefitsCentral (MBC) no Azure AD, ser�
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Mercer BenefitsCentral (MBC)**, selecione **Mercer BenefitsCentral (MBC)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Mercer BenefitsCentral (MBC)** , selecione **Mercer BenefitsCentral (MBC)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![MBC (Mercer BenefitsCentral) na lista de resultados](common/search-new-app.png)
 
@@ -88,7 +88,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o MBC (Mercer BenefitsCentral), execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **MBC (Mercer BenefitsCentral)**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **MBC (Mercer BenefitsCentral)** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o MBC (Mercer BenefitsCentral), e
 
     ![Informações de logon único de Domínio e URLs do MBC (Mercer BenefitsCentral)](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `stg.mercerhrs.com/saml2.0`
+    a. Na caixa de texto **Identificador**, digite uma URL: `stg.mercerhrs.com/saml2.0`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://ssous-stg.mercerhrs.com/SP2/Saml2AssertionConsumer.aspx`
 
@@ -115,7 +115,7 @@ Para configurar o logon único do Azure AD com o MBC (Mercer BenefitsCentral), e
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o MBC (Mercer BenefitsCentral)**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o MBC (Mercer BenefitsCentral)** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o MBC (Mercer BenefitsCentral), e
 
 ### <a name="configure-mercer-benefitscentral-mbc-single-sign-on"></a>Configurar o logon único do MBC (Mercer BenefitsCentral)
 
-Para configurar o logon único no lado do **MBC (Mercer BenefitsCentral)**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do MBC (Mercer BenefitsCentral)](https://www.mercer.com/contact-us.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **MBC (Mercer BenefitsCentral)** , é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do MBC (Mercer BenefitsCentral)](https://www.mercer.com/contact-us.html). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -158,11 +158,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você habilita Brenda Fernandes a usar o logon único do Azure, concedendo acesso ao MBC (Mercer BenefitsCentral).
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **MBC (Mercer BenefitsCentral)**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **MBC (Mercer BenefitsCentral)** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione o **MBC (Mercer BenefitsCentral)**.
+2. Na lista de aplicativos, selecione o **MBC (Mercer BenefitsCentral)** .
 
     ![Link do MBC (Mercer BenefitsCentral) na lista de Aplicativos](common/all-applications.png)
 
@@ -196,5 +196,5 @@ Ao clicar no bloco do MBC (Mercer BenefitsCentral) no Painel de Acesso, você de
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

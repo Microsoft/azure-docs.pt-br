@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91d4cf874d4d98735582d2690072e6a04683c1f5
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>Tutorial: Integração do Azure Active Directory ao Adobe Sign
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
 
     ![Informações de logon único de URLs e domínio do Adobe Sign](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.echosign.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.echosign.com/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.echosign.com`
 
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
 
 1. Antes da configuração, entre em contato com a [equipe de suporte do Adobe Sign Client](https://helpx.adobe.com/in/contact/support.html) para adicionar seu domínio na lista de permissões do Adobe Sign. Veja como adicionar o domínio:
 
-     a. A equipe de suporte do [ Adobe Sign Client ](https://helpx.adobe.com/in/contact/support.html) envia um token gerado aleatoriamente. Para o seu domínio, o token será como o seguinte: **adobe-sign-verification = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
+    a. A equipe de suporte do [ Adobe Sign Client ](https://helpx.adobe.com/in/contact/support.html) envia um token gerado aleatoriamente. Para o seu domínio, o token será como o seguinte: **adobe-sign-verification = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx**
 
     b. Publique o token de verificação em um registro de texto DNS e notifique a [ equipe de suporte do Adobe Sign Client ](https://helpx.adobe.com/in/contact/support.html).
     
@@ -159,7 +159,7 @@ Para configurar o logon único do Azure AD com o Adobe Sign, realize as etapas a
    
    ![ Captura de tela das configurações do SAML ](./media/adobe-echosign-tutorial/ic789522.png " Configurações do SAML ")
 
-    a. Em **Modo SAML**, selecione **SAML Obrigatório**.
+   a. Em **Modo SAML**, selecione **SAML Obrigatório**.
    
    b. Selecione **Permitir Administradores da Conta Echosign para efetuar login usando suas Credenciais Echosign**.
    
@@ -243,7 +243,7 @@ Para permitir que os usuários do Azure AD entrem no Adobe Sign, eles devem ser 
    
     ![ Captura de tela da seção Criar novo usuário ](./media/adobe-echosign-tutorial/ic789525.png " Criar usuário ")
    
-     a. Digite **Endereço de e-mail**, **Nome** e **Sobrenome** de uma conta válida do AD do Azure que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite **Endereço de e-mail**, **Nome** e **Sobrenome** de uma conta válida do AD do Azure que você deseja provisionar nas caixas de texto relacionadas.
    
     b. Selecione **Criar usuário**.
 
@@ -262,5 +262,5 @@ Ao clicar no bloco do Adobe Sign no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

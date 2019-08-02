@@ -4,7 +4,7 @@ description: Saiba como instalar e configurar a extensão de segurança do Syman
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management
 ms.assetid: 19dcebc7-da6b-4510-907b-d64088e81fa2
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roiyz
-ms.openlocfilehash: 65b52c88741e618e8048451370918b06db73a651
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d79e46467c24277200ef72bb64e8c5b7427bf269
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617870"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705893"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows
 > [!IMPORTANT] 
@@ -33,7 +33,7 @@ Se tiver uma assinatura da Symantec para uma solução local, você poderá usá
 ## <a name="install-symantec-endpoint-protection-on-an-existing-vm"></a>Instalar o Symantec Endpoint Protection em uma VM existente
 Antes de começar, você precisa do seguinte:
 
-* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, em seu computador de trabalho. Você pode verificar a versão do PowerShell do Azure instalado com o comando **Get-Module azure | format-table version** . Para obter instruções e um link para a versão mais recente, consulte [Como instalar e configurar o Azure PowerShell][PS]. Faça logon em sua assinatura do Azure usando `Add-AzureAccount`.
+* O módulo Azure PowerShell, versão 0.8.2 ou mais recente, em seu computador de trabalho. Você pode verificar a versão do PowerShell do Azure instalado com o comando **Get-Module azure | format-table version** . Para obter instruções e um link para a versão mais recente, veja [Como instalar e configurar o Azure PowerShell][PS]. Faça logon em sua assinatura do Azure usando `Add-AzureAccount`.
 * O Agente de VM em execução na Máquina Virtual do Azure.
 
 Primeiro, verifique se o Agente de VM já está instalado na máquina virtual. Preencha o nome do serviço de nuvem e o nome da máquina virtual e, em seguida, execute os seguintes comandos em um prompt de comando do Azure PowerShell com nível de administrador. Substitua tudo entre aspas, incluindo os caracteres < e >.
@@ -48,7 +48,7 @@ $vm = Get-AzureVM -ServiceName $CSName -Name $VMName
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibir **False**, veja as instruções e um link para download na postagem do blog do Azure [Agente de VM e Extensões ‑ Parte 2][Agent].
+Se o comando **write-host** exibir **True**, o agente de VM está instalado. Se ele exibe **falsos**, consulte as instruções e um link para download na postagem do blog do Azure [agente de VM e extensões - parte 2][Agent].
 
 Se o Agente de VM Agent estiver instalado, execute estes comandos para instalar o agente Symantec Endpoint Protection.
 
@@ -68,7 +68,7 @@ Para verificar se a extensão de segurança Symantec foi instalada e está atual
 ## <a name="additional-resources"></a>Recursos adicionais
 [Como fazer logon em uma máquina virtual que executa o Windows Server][Logon]
 
-[Recursos e Extensões de VM do Azure][Ext]
+[Recursos e extensões de VM do Azure][Ext]
 
 <!--Link references-->
 [Symantec]: https://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure

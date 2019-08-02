@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a925b13e6aed55f13bb38df53f2d6063b0948730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0414b71a7c3765f7cf4d847e61544ab8a90ae3e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862831"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ekincare"></a>Tutorial: Integração do Azure Active Directory ao eKincare
 
@@ -55,7 +55,7 @@ Para configurar a integração do eKincare com o Azure AD, você precisa adicion
 
 **Para adicionar o eKincare a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o eKincare, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do eKincare](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<instancename>.ekincare.com/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<instancename>.ekincare.com/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<instancename>.ekincare.com/hul/saml`
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o eKincare, execute as seguintes 
     | organizationid | *"uniquevalue"* |
     | organizationname | *user.companyname* |
     
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -229,5 +229,5 @@ Ao clicar no bloco do eKincare no Painel de Acesso, você deve ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 71feb455457fdf75fb19121bac1927b42fe38b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0f614838ae44b5c4263bc9eac81e43fd13f87baa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865438"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Tutorial: Integração do Azure Active Directory com o Wdesk
 
@@ -53,7 +53,7 @@ Para configurar a integração do Wdesk ao Azure AD, você precisará adicionar 
 
 **Para adicionar o Wdesk por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Wdesk, execute as seguintes eta
 
     ![Informações de logon único de Domínio e URLs do Wdesk](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o Wdesk, execute as seguintes eta
 
     ![Configurar o logon único](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-       a. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Logon** no Portal do Azure.
+      a. Copie a **URL de Logon** e cole-a na caixa de texto **Url de Logon** no Portal do Azure.
    
       b. Copie a **URL de Metadados** e cole-a na caixa de texto **Identificador** no Portal do Azure.
        
@@ -244,7 +244,7 @@ Para permitir que os usuários do Azure AD entrem no Wdesk, eles precisam ser pr
   
     ![Criação de um usuário de teste do AD do Azure](./media/wdesk-tutorial/createuser4.png)
  
-     a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
+    a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 

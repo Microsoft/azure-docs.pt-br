@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9f83e0b6136a27c0cd519a345e085040f47cc6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c5021425341ed1fcc6d184a4ce072fadfdd39e24
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859086"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Tutorial: Integração do Azure Active Directory ao Portal Apex
 
@@ -55,7 +55,7 @@ Para configurar a integração do portal Apex ao Azure AD, você precisa adicion
 
 **Para adicionar o portal Apex da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Portal do Apex, execute as segu
 
     ![Informações de logon único de Domínio e URLs do portal Apex](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.apexportal.net/saml/sso.aspx`
 
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o Portal do Apex, execute as segu
     | E-MAIL | user.mail |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -232,4 +232,4 @@ Ao clicar no bloco do Portal do Apex no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

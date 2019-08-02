@@ -3,19 +3,19 @@ title: Início rápido do Azure - Executar trabalho do Lote - .NET
 description: Execute rapidamente um trabalho do Lote e tarefas com a biblioteca de clientes .NET do Lote.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b8d7556607cdb73c3e3ae19109bcbf34b72b0915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 37cd6fdd2f82af581e27f9341292c484b1cc601e
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595355"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322336"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Início Rápido: Executar o primeiro trabalho em Lote do Azure com a API do .NET
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Navegue até o diretório que contém o arquivo da solução Visual Studio `BatchDotNetQuickstart.sln`.
 
-Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo: 
+Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo:
 
 ```csharp
 // Batch account credentials

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 280143d54e516fb626bb2d5afd01653e03d8a82c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2ed1a20bf47771d927c0d58730fa0eb4471572af
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490439"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603380"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e PHP
 
@@ -43,7 +43,7 @@ Crie um arquivo HTML, *detectFaces.html*, e adicione o código a seguir.
 
 ## <a name="write-the-php-script"></a>Escrever o script PHP
 
-Adicione o código a seguir dentro do elemento `body` do documento. Isso configurará uma interface do usuário básica com um campo de URL, um botão **Analisar rosto**, um painel de resposta e um painel de exibição de imagens.
+Adicione o código a seguir dentro do elemento `body` do documento. Esse código configura uma interface do usuário básica com um campo de URL, um botão **Analisar rosto**, um painel de resposta e um painel de exibição de imagens.
 
 ```php
 <?php

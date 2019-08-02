@@ -76,10 +76,10 @@ Os recursos [da pesquisa salva do Log Analytics](../../azure-monitor/log-query/l
 
 Todas as propriedades de uma pesquisa salva são descritas na tabela a seguir.
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | description |
 |:--- |:--- |
 | category | A categoria para a pesquisa salva.  As pesquisas salvas na mesma solução geralmente compartilham uma única categoria para que eles são agrupados juntos no console. |
-| displayname | Nome para exibição para a pesquisa salva no portal. |
+| displayName | Nome para exibição para a pesquisa salva no portal. |
 | query | Consulta a executar. |
 
 > [!NOTE]
@@ -121,10 +121,10 @@ Uma pesquisa salva pode ter uma ou mais agendas com cada agenda que representa u
     }
 As propriedades de recursos de agendamento são descritas na tabela a seguir.
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
 | enabled       | Sim | Especifica se o alerta está habilitado quando ele é criado. |
-| intervalo      | Sim | A frequência com a consulta é executada em minutos. |
+| interval      | Sim | A frequência com a consulta é executada em minutos. |
 | queryTimeSpan | Sim | Período de tempo em minutos no qual avaliar resultados. |
 
 O recurso de agendamento deve depender a pesquisa salva para que ele seja criado antes da agenda.
@@ -174,20 +174,20 @@ Ações de alerta tem a seguinte estrutura. Isso inclui variáveis e parâmetros
 
 As propriedades de Recursos de ação de alerta são descritas nas tabelas a seguir.
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
-| Type | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
-| NOME | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
-| DESCRIÇÃO | Não | Descrição opcional do alerta. |
-| Severidade | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
+| type | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
+| name | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
+| description | Não | Descrição opcional do alerta. |
+| severity | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **crítico**<br>**aviso**<br>**informativo**
 
 
 #### <a name="threshold"></a>Limite
 Esta seção é necessária. Define as propriedades para o limite de alerta.
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
-| Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| Operator | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
 | Value | Sim | O valor para comparar os resultados. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
@@ -196,17 +196,17 @@ Esta seção é opcional. Inclua-o para um alerta de métrica de medição.
 > [!NOTE]
 > Alertas de métrica de medição estão atualmente em visualização pública.
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
 | TriggerCondition | Sim | Especifica se o limite do número total de violações ou falhas consecutivas dos seguintes valores:<br><br>**Total<br>consecutivas** |
-| Operador | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
+| Operator | Sim | O operador para a comparação dos seguintes valores:<br><br>**gt = maior que<br>lt = menor que** |
 | Value | Sim | Número de vezes que os critérios devem ser atendidos para disparar o alerta. |
 
 
 #### <a name="throttling"></a>Limitação
 Esta seção é opcional. Inclua esta seção se você desejar Suprimir alertas da mesma regra por algum tempo depois que um alerta é criado.
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
 | DurationInMinutes | Sim, se a limitação elemento incluído | Número de minutos para suprimir alertas depois da mesma regra de alerta será criado. |
 
@@ -215,7 +215,7 @@ Todos os alertas no Azure, use o Grupo de Ações como mecanismo padrão para li
 
 O usuário que tiver estendido seus alertas ao Azure tem uma agenda que deve ter agora detalhes do Grupo de Ações passado junto com o limite, para poder criar um alerta. Detalhes de email, URLs de Webhook, detalhes de automação de runbook e outras ações precisam ser definidas no Grupo de Ações antes de criar um alerta; é possível criar o [Grupo de Ações do Azure Monitor](../../azure-monitor/platform/action-groups.md) no Portal ou usar [Grupo de Ações – Modelo de Recursos](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
 | AzNsNotification | Sim | A ID de recurso do grupo de ações do Azure a ser associada ao alerta para tomar as ações necessárias quando os critérios de alerta são atendidos. |
 | CustomEmailSubject | Não | A linha do assunto personalizada do email enviado para todos os endereços especificados no grupo de ação associado. |
@@ -231,7 +231,7 @@ Cada agenda tem uma ação **Alerta**. Isso define os detalhes do alerta e, opci
 ##### <a name="emailnotification"></a>EmailNotification
  Esta seção é opcional. Inclua-a se desejar que o alerta envie emails a um ou mais destinatários.
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
 | Recipients | Sim | Lista delimitada por vírgulas de endereços de email para enviar notificações quando um alerta é criado, como no exemplo a seguir.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
 | Subject | Sim | Linha de assunto do email. |
@@ -240,7 +240,7 @@ Cada agenda tem uma ação **Alerta**. Isso define os detalhes do alerta e, opci
 ##### <a name="remediation"></a>Correção
 Esta seção é opcional. Inclua-a se desejar que um runbook seja iniciado em resposta ao alerta. 
 
-| Nome do elemento | Obrigatório | DESCRIÇÃO |
+| Nome do elemento | Obrigatório | description |
 |:--|:--|:--|
 | RunbookName | Sim | Nome do runbook para iniciar. |
 | WebhookUri | Sim | URI do webhook para o runbook. |

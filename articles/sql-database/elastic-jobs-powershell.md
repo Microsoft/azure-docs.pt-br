@@ -10,14 +10,13 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 064d55b96c8817f4b7ccc5f0925eeecfaf310424
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666776"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68550525"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Criar um agente de Trabalho Elástico usando o PowerShell
 
@@ -285,6 +284,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>Estados de execução de trabalho
+
+A tabela a seguir lista os estados possíveis de execução de trabalho:
+
+|Estado|DESCRIÇÃO|
+|:---|:---|
+|**Criado** | A execução do trabalho acabou de ser criada e não ainda está em andamento.|
+|**InProgress** | A execução do trabalho está atualmente em andamento.|
+|**WaitingForRetry** | A execução do trabalho não conseguiu concluir sua ação e está aguardando para tentar novamente.|
+|**Êxito** | A execução do trabalho foi concluída com êxito.|
+|**SucceededWithSkipped** | A execução do trabalho foi concluída com êxito, mas alguns de seus filhos foram ignorados.|
+|**Com falha** | A execução do trabalho falhou e esgotou suas novas tentativas.|
+|**TimedOut** | A execução do trabalho atingiu o tempo limite.|
+|**Cancelado** | A execução do trabalho foi cancelada.|
+|**Ignorado** | A execução do trabalho foi ignorada porque outra execução da mesma etapa de trabalho já estava em execução no mesmo destino.|
+|**WaitingForChildJobExecutions** | A execução do trabalho está esperando a conclusão das execuções filhas.|
 
 ## <a name="schedule-the-job-to-run-later"></a>Agendar o trabalho para execução posterior
 

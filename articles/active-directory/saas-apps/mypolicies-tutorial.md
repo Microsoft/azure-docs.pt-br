@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 240291c7ec1d989e52a2896dc696f69afbee0093
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32625ad1dc9648c5e91265ae71790b419497871a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871325"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096531"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mypolicies"></a>Tutorial: Integração do Azure Active Directory com o myPolicies
 
@@ -52,7 +52,7 @@ Para configurar a integração do myPolicies ao Azure AD, é necessário adicion
 
 **Para adicionar o myPolicies por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o myPolicies, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do myPolicies](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.mypolicies.com/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.mypolicies.com/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.mypolicies.com/users/auth/saml/callback`
 
@@ -196,5 +196,5 @@ Ao clicar no bloco do myPolicies no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

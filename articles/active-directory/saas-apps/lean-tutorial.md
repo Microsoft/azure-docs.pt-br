@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: ab4a36fa117793724a897de4f6d8f03d7f46504e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b194133bf1778e2edc826bae6c2dfecae65436f6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897844"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lean"></a>Tutorial: Integração do Azure Active Directory com Lean
 
@@ -54,7 +54,7 @@ Para configurar a integração do Lean com o Azure AD, será necessário adicion
 
 **Para adicionar o Lean por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Lean, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do Lean](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.goodpractice.net/api/gpsso`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.goodpractice.net/api/gpsso`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `bloom-goodpractice-<SUBDOMAIN>`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `bloom-goodpractice-<SUBDOMAIN>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Lean](mailto:support@goodpractice.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

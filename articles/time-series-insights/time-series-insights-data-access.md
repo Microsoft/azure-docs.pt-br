@@ -6,17 +6,17 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53489ef9c1264fa31b06f4660e545e6efbd1f616
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 69180e17714b7d7004e63dce0de82a50e1f0b3af
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237027"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67164632"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
@@ -36,7 +36,7 @@ Siga estas etapas para conceder acesso a dados para uma entidade de usuário.
 
     [![Data-access-um](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
-1. Escolha **Selecionar usuário**. Pesquise o nome de usuário ou endereço de email para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção.
+1. Escolha **Selecionar usuário**. Pesquise o nome de usuário ou endereço de email para localizar o usuário que deseja adicionar. Selecione **selecionar** para confirmar a seleção.
 
     [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
@@ -76,7 +76,7 @@ Siga estas etapas para conceder acesso de convidado a um ambiente do Time Series
 
     [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
-1. Escolha **Selecionar usuário**. Pesquise o endereço de email do usuário convidado para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção.
+1. Escolha **Selecionar usuário**. Pesquise o endereço de email do usuário convidado para localizar o usuário que deseja adicionar. Em seguida, **selecionar** para confirmar a seleção.
 
     [![Dados de acesso de nove](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 

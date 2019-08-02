@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0b6bdc884107a522c81d100c0a05018cbc9d0a70
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66136188"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718276"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solucionar problemas de domínio e de certificado SSL nos Serviço de Aplicativo do Azure
 
@@ -273,7 +273,7 @@ Esse problema ocorre por um dos seguintes motivos:
     |TXT|@|`<app-name>.azurewebsites.net`|
     |CNAME|www|`<app-name>.azurewebsites.net`|
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 **É necessário configurar meu domínio personalizado para meu site após adquiri-lo?**
 
@@ -325,7 +325,6 @@ Você pode gerenciar seu domínio, mesmo se você não tiver um aplicativo Web d
 
 **Posso mover um aplicativo web com um domínio personalizado para outra assinatura ou do ambiente do serviço de aplicativo v1 para V2?**
 
-Sim, você pode mover seu aplicativo web entre assinaturas. Siga as orientações [como mover recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Há algumas limitações ao mover o aplicativo web. Para obter mais informações, consulte [limitações para mover os recursos do serviço de aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-).
+Sim, você pode mover seu aplicativo web entre assinaturas. Siga as orientações [como mover recursos no Azure](../azure-resource-manager/resource-group-move-resources.md). Há algumas limitações ao mover o aplicativo web. Para obter mais informações, consulte [limitações para mover os recursos do serviço de aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 Depois de mover o aplicativo web, as associações de nome de host dos domínios dentro dos domínios personalizados definindo devem permanecer o mesmo. Não há etapas adicionais são necessárias para configurar as ligações de nome de host.

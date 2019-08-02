@@ -16,12 +16,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 927987237b51a47d0c8b7c66054842b0a7ff09a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff74db14a1621cdcea1b1ae082d351ce6a3a52f6
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473031"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227401"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Sincronização do Azure AD Connect: configurar o local de dados preferencial para recursos do Office 365
 O objetivo deste tópico é orientá-lo como configurar o atributo para o local de dados preferencial na sincronização do Azure Active Directory (Azure AD) Connect. Quando alguém usa recursos de Multi-Geo no Office 365, este atributo é usado para designar a localização geográfica de dados do Office 365 do usuário. (Os termos *região* e *área geográfica* são usados de maneira intercambiável.)
@@ -32,7 +32,7 @@ Por padrão, os recursos do Office 365 para seus usuários estão localizados na
 Com a configuração do atributo **preferredDataLocation**, a área geográfica do usuário poderá ser definida. Você pode ter os recursos do Office 365 do usuário, como o OneDrive e a caixa de correio, na mesma área geográfica que o usuário e ainda ter um locatário para toda a organização.
 
 > [!IMPORTANT]
-> O Multi-Geo está atualmente disponível para clientes com um mínimo de 2.500 assinaturas de serviços do Office 365. Converse com seu representante Microsoft para obter detalhes.
+> Várias regiões geográficas estão disponíveis no momento para clientes com um mínimo de 500 assinaturas de serviços do Office 365. Converse com seu representante Microsoft para obter detalhes.
 >
 >
 
@@ -50,6 +50,8 @@ As áreas geográficas no Office 365, disponíveis para replicação Multigeogr�
 | Índia | IND |
 | Japão | JPN |
 | Coreia do Sul | KOR |
+| África do Sul | ZAF |
+| Emirados Árabes Unidos | SEJA |
 | Reino Unido | GBR |
 | Estados Unidos | NAM |
 
@@ -124,7 +126,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 3. Para criar uma nova regra de entrada, selecione **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Value | Detalhes |
+    | Atributo | Valor | Detalhes |
     | --- | --- | --- |
     | NOME | *Fornecer um nome* | Por exemplo, "Entrada do AD – PreferredDataLocation do usuário" |
     | DESCRIÇÃO | *Forneça uma descrição personalizada* |  |
@@ -137,9 +139,9 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 5. Mantenha o **Filtro de escopo** vazio para incluir todos os objetos. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
 6. Acesse a guia **Transformação** e implemente a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    |Direta | preferredDataLocation | Selecione o atributo de origem | Desmarcado | Atualizar |
+    |Direta | preferredDataLocation | Selecione o atributo de origem | Desmarcado | Atualização |
 
 7. Para criar a regra de entrada, selecione **Adicionar**.
 
@@ -153,9 +155,9 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 3. Selecione **Adicionar nova regra**.
 4. Na guia **Descrição**, forneça a seguinte configuração:
 
-    | Atributo | Value | Detalhes |
+    | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | NOME | *Fornecer um nome* | Por exemplo, "Saída para Microsoft Azure AD – PreferredDataLocation do usuário" |
+    | Nome | *Fornecer um nome* | Por exemplo, "Saída para Microsoft Azure AD – PreferredDataLocation do usuário" |
     | DESCRIÇÃO | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecionar o Azure AD Connector* ||
     | Tipo de Objeto do Sistema Conectado | **Usuário** ||
@@ -165,18 +167,18 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
 5. Acesse a guia **Filtro de escopo** e adicione um único grupo de filtro de escopo com as duas cláusulas a seguir:
 
-    | Atributo | Operador | Value |
+    | Atributo | Operator | Valor |
     | --- | --- | --- |
-    | sourceObjectType | EQUAL | Usuário |
-    | cloudMastered | NOTEQUAL | True |
+    | sourceObjectType | EQUAL | User |
+    | cloudMastered | NOTEQUAL | verdadeiro |
 
     Filtro de escopo determina a quais objetos do Azure AD essa regra de sincronização de saída é aplicada. Neste exemplo, usamos o mesmo filtro de escopo da regra de sincronização OOB (pronta para uso) de “Saída para AD – identidade do usuário”. Impede que a regra de sincronização seja aplicada aos objetos de **Usuário** que não estão sincronizados do Active Directory local. Talvez seja necessário ajustar o filtro de escopo de acordo com sua implantação do Azure AD Connect.
 
 6. Acesse a guia **Transformação** e implemente a seguinte regra de transformação:
 
-    | Tipo de fluxo | Atributo de destino | source | Aplicar uma vez | Tipo de mesclagem |
+    | Tipo de fluxo | Atributo de destino | Origem | Aplicar uma vez | Tipo de mesclagem |
     | --- | --- | --- | --- | --- |
-    | Direta | preferredDataLocation | preferredDataLocation | Desmarcado | Atualizar |
+    | Direta | preferredDataLocation | preferredDataLocation | Desmarcado | Atualização |
 
 7. Feche **Adicionar** para criar a regra de saída.
 

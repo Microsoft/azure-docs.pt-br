@@ -14,13 +14,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: v-shysun
-ms.openlocfilehash: 5299437dea18510fa5f85ee27240c8afc434d125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mathoma
+ms.openlocfilehash: 7f6ec1ee65727fb8c3c7d98f696c288e95ec880a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477256"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876188"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Perguntas freqüentes sobre o SQL Server em execução em máquinas virtuais do Windows no Azure
 
@@ -37,7 +37,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 ## <a id="images"></a> Imagens
 
-1. **Quais imagens da galeria de máquinas virtuais do SQL Server estão disponíveis?**
+1. **Quais imagens da galeria de máquinas virtuais do SQL Server estão disponíveis?** 
 
    O Azure mantém imagens de máquina virtual para todas as versões principais compatíveis do SQL Server em todas as edições para o Windows e para o Linux. Para obter mais informações, consulte a lista completa dos [imagens de VM do Windows](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) e [imagens de VM do Linux](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -50,17 +50,17 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
    Sim. O Azure mantém apenas uma imagem por versão principal e edição. Por exemplo, quando um novo service pack do SQL Server é lançado, o Azure adiciona uma nova imagem à galeria para esse service pack. A imagem do SQL Server para o service pack anterior é removida imediatamente do Portal do Azure. No entanto, ela ainda estará disponível para provisionamento do PowerShell pelos próximos três meses. Depois de três meses, a imagem do service pack anterior não estará mais disponível. Essa política de remoção também se aplica quando uma versão do SQL Server se torna incompatível quando ela atinge o final de seu ciclo de vida.
 
 
-1. **É possível implantar uma imagem mais antiga do SQL Server que não está visível no portal do Azure?**
+1. **É possível implantar uma imagem mais antiga do SQL Server que não esteja visível na portal do Azure?**
 
    Sim, usando o PowerShell. Para obter mais informações sobre como implantar VMs do SQL Server usando o PowerShell, confira [Como provisionar máquinas virtuais do SQL Server com o Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
 
 1. **Posso criar uma imagem de VHD de uma VM do SQL Server?**
 
-   Sim, mas há algumas considerações. Se você implantar esse VHD para uma nova VM no Azure, você não obtém a seção de configuração do SQL Server no portal. Você deve, então, gerenciar as opções de configuração do SQL Server por meio do PowerShell. Além disso, você será cobrado à taxa da VM do SQL em que sua imagem foi originalmente baseada. Isso acontece mesmo se você remover o SQL Server do VHD antes de implantar. 
+   Sim, mas há algumas considerações. Se você implantar esse VHD em uma nova VM no Azure, você não obterá a seção de configuração SQL Server no Portal. Você deve, então, gerenciar as opções de configuração do SQL Server por meio do PowerShell. Além disso, você será cobrado à taxa da VM do SQL em que sua imagem foi originalmente baseada. Isso acontece mesmo se você remover o SQL Server do VHD antes de implantar. 
 
 1. **É possível definir configurações não mostradas na galeria de máquinas virtuais (por exemplo, Windows 2008 R2 + SQL Server 2012)?**
 
-   Não. Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas, seja pelo portal do Azure ou via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+   Nº Para imagens da galeria de máquinas virtuais que incluem o SQL Server, você deve selecionar uma das imagens fornecidas, seja pelo portal do Azure ou via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
 
 
 ## <a name="creation"></a>Criação
@@ -79,10 +79,9 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
    Há duas maneiras de fazer isso. Você pode provisionar uma das [imagens de máquina virtual que dão suporte a licenças](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), o que também é conhecido como BYOL (traga sua própria licença). Outra opção é copiar a mídia de instalação do SQL Server para uma VM do Windows Server e, em seguida, instalar o SQL Server na VM. No entanto, se você instala manualmente o SQL Server, não há nenhuma integração com o portal e não há suporte para a extensão do SQL Server IaaS Agent, portanto, recursos como o Backup Automatizado e a Aplicação de Patch Automatizada não funcionarão nesse cenário. Por esse motivo, é recomendável usar uma das imagens da Galeria do BYOL. Para usar BYOL ou sua própria mídia do SQL Server em uma VM do Azure, você deve ter [Mobilidade de Licenças via Software Assurance no Azure](https://azure.microsoft.com/pricing/license-mobility/). Para obter mais informações, consulte [Diretrizes de preço para VMs do Azure do SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-
 1. **É necessário pagar para licenciar o SQL Server em uma VM do Azure se ela está sendo usada somente para espera/failover?**
 
-   Se você tiver o Software Assurance e usar o License Mobility, conforme descrito em [perguntas frequentes sobre licenciamento de máquina Virtual](https://azure.microsoft.com/pricing/licensing-faq/), em seguida, você não precisa pagar para licenciar um SQL Server que participa como uma réplica secundária passiva em uma implantação de alta disponibilidade. Caso contrário, você precisará pagar para licenciá-lo.
+   Se você tiver o Software Assurance e usar Mobilidade de Licenças conforme descrito em [perguntas frequentes sobre licenciamento de máquina virtual](https://azure.microsoft.com/pricing/licensing-faq/), não será necessário pagar para licenciar um SQL Server participando como uma réplica secundária passiva em uma implantação de alta disponibilidade. Caso contrário, você precisará pagar para licenciá-lo.
 
 1. **Posso alterar uma VM para usar minha própria licença do SQL Server se ela foi criada com base em uma das imagens pré-pagas da galeria?**
 
@@ -97,7 +96,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Modelos de licenciamento de comutação exigirá nenhum tempo de inatividade para o SQL Server?**
 
-   Não. [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) não requer tempo de inatividade para o SQL Server, pois a alteração entrará em vigor imediatamente e não exige a reinicialização da VM. No entanto, para registrar sua VM do SQL Server com o provedor de recursos da VM do SQL, a [extensão IaaS do SQL](virtual-machines-windows-sql-server-agent-extension.md) é um pré-requisito e a instalação da extensão IaaS do SQL reinicia o serviço do SQL Server. Portanto, se a extensão IaaS do SQL precisa ser instalada, isso deve ser feito durante uma janela de manutenção. 
+   Nº [A alteração do modelo de licenciamento](virtual-machines-windows-sql-ahb.md) não requer tempo de inatividade para o SQL Server, pois a alteração entrará em vigor imediatamente e não exige a reinicialização da VM. No entanto, para registrar sua VM do SQL Server com o provedor de recursos da VM do SQL, a [extensão IaaS do SQL](virtual-machines-windows-sql-server-agent-extension.md) é um pré-requisito e a instalação da extensão IaaS do SQL reinicia o serviço do SQL Server. Portanto, se a extensão IaaS do SQL precisa ser instalada, isso deve ser feito durante uma janela de manutenção. 
 
 1. **Assinaturas de CSP podem ativar o benefício híbrido do Azure?**
 
@@ -105,17 +104,17 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Registrar minha VM com o novo provedor de recursos de VM do SQL trará custos adicionais?**
 
-   Não. O provedor de recursos de VM de SQL apenas habilita a capacidade de gerenciamento adicional do SQL Server na VM do Azure sem custos adicionais. 
+   Nº O provedor de recursos de VM de SQL apenas habilita a capacidade de gerenciamento adicional do SQL Server na VM do Azure sem custos adicionais. 
 
 1. **O provedor de recursos da VM do SQL está disponível para todos os clientes?**
  
    Sim. Todos os clientes são capazes de se registrar com o novo provedor de recursos de VM do SQL. No entanto, somente os clientes com Benefício de Software Assurance podem ativar o [Benefício Híbrido do Azure (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (ou BYOL) em uma VM do SQL Server. 
 
-1. **O que acontece com o _Microsoft.SqlVirtualMachine_ recurso se o recurso de VM é movido ou descartado?** 
+1. **O que acontecerá com o recurso _Microsoft. SqlVirtualMachine_ se o recurso da VM for movido ou descartado?** 
 
    Quando o recurso Microsoft.Compute / VirtualMachine é descartado ou movido, o recurso Microsoft.SqlVirtualMachine associado é notificado para replicar de maneira assíncrona a operação.
 
-1. **O que acontece com a VM se o _Microsoft.SqlVirtualMachine_ recursos é descartado?**
+1. **O que acontecerá com a VM se o recurso _Microsoft. SqlVirtualMachine_ for descartado?**
 
     O recurso Microsoft.Compute / Virtual Machine não é afetado quando o recurso Microsoft.Sql Virtual Machine é descartado. No entanto, as alterações de licenciamento serão padronizadas de volta para a origem da imagem original. 
 
@@ -127,11 +126,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Posso instalar uma segunda instância do SQL Server na mesma VM? Posso alterar os recursos instalados da instância padrão?**
 
-   Sim. A mídia de instalação do SQL Server está localizada em uma pasta na unidade **C** . Execute **Setup.exe** nessa localização para adicionar novas instâncias do SQL Server ou para alterar outros recursos instalados do SQL Server no computador. Observe que alguns recursos, como Backup automatizado, aplicação de patch automatizada e integração do Azure Key Vault, funcionam apenas na instância padrão ou um nome de instância que foi configurada corretamente (consulte a pergunta 3). 
+   Sim. A mídia de instalação do SQL Server está localizada em uma pasta na unidade **C** . Execute **Setup.exe** nessa localização para adicionar novas instâncias do SQL Server ou para alterar outros recursos instalados do SQL Server no computador. Observe que alguns recursos, como o backup automatizado, a aplicação de patch automatizada e a integração de Azure Key Vault, operam apenas na instância padrão ou uma instância nomeada que foi configurada corretamente (consulte a pergunta 3). 
 
 1. **Posso desinstalar a instância padrão do SQL Server?**
 
-   Sim, mas há algumas considerações. Conforme mencionado na resposta anterior, há recursos que contam com o [extensão do SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md).  Se você desinstalar a instância padrão sem remover a extensão IaaS também, a extensão continua a procurar por ele e pode gerar erros de log de eventos. Esses erros são provenientes das duas seguintes fontes: **Gerenciamento de Credenciais do Microsoft SQL Server** e **Microsoft SQL Server IaaS Agent**. Um dos erros pode ser semelhante ao seguinte:
+   Sim, mas há algumas considerações. Conforme mencionado na resposta anterior, há recursos que dependem da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md).  Se você desinstalar a instância padrão sem remover a extensão IaaS também, a extensão continuará a procurar e poderá gerar erros de log de eventos. Esses erros são provenientes das duas seguintes fontes: **Gerenciamento de Credenciais do Microsoft SQL Server** e **Microsoft SQL Server IaaS Agent**. Um dos erros pode ser semelhante ao seguinte:
 
       Ocorreu um erro relacionado à rede ou específico da instância ao estabelecer uma conexão com o SQL Server. O servidor não foi encontrado ou não estava acessível.
 
@@ -139,7 +138,7 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Posso usar uma instância nomeada do SQL Server com a extensão IaaS**?
    
-   Sim, se a instância nomeada é a única instância no SQL Server e se a instância padrão original tiver sido [desinstalado corretamente](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Se não houver nenhuma instância padrão e há várias instâncias nomeadas em uma única VM do SQL Server, a extensão IaaS conseguirá instalar. 
+   Sim, se a instância nomeada for a única na SQL Server e se a instância padrão original tiver sido desinstalada [corretamente](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). Se não houver nenhuma instância padrão e houver várias instâncias nomeadas em uma única VM SQL Server, a extensão de IaaS não será instalada. 
 
 1. **Posso remover o SQL Server completamente de uma VM de SQL?**
 
@@ -147,9 +146,10 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
    
 ## <a name="updating-and-patching"></a>Atualização e aplicação de patch
 
-1. **Como alterar para uma nova versão/edição do SQL Server em uma VM do Azure?**
+1. **Como fazer mudar para uma versão/edição diferente da SQL Server em uma VM do Azure?**
 
-   Clientes com Software Assurance são capazes de atualizações in-loco do SQL Server em execução em uma VM do Azure usando a mídia de instalação no Portal do licenciamento por Volume. No entanto, atualmente, não há nenhuma maneira de alterar a edição de uma instância do SQL Server. Criar uma nova máquina virtual do Azure com a edição do SQL Server desejada e, em seguida, migrar seus bancos de dados para o novo servidor usando o padrão [técnicas de migração de dados](virtual-machines-windows-migrate-sql.md).
+   Os clientes podem alterar sua versão/edição do SQL Server usando a mídia de instalação que contém a versão desejada ou a edição do SQL Server. Depois que a edição for alterada, use o portal do Azure para modificar a propriedade de edição da VM para refletir com precisão a cobrança da VM. Para obter mais informações, consulte [Change Edition of a VM SQL Server](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **Como as atualizações e os service packs são aplicados a uma VM do SQL Server?**
 
@@ -170,11 +170,11 @@ Este artigo fornece respostas para algumas das perguntas mais comuns sobre como 
 
 1. **Como instalar as ferramentas de Dados do SQL em minha VM do Azure?**
 
-    Baixe e instale as ferramentas de Dados SQL por meio do [Microsoft SQL Server Data Tools – Business Intelligence para Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Baixe e instale as ferramentas de Dados SQL por meio do [Microsoft SQL Server Data Tools – Business Intelligence para Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
 
-1. **São distribuídas com o MSDTC tem suportada em VMs do SQL Server?**
+1. **As transações distribuídas com o MSDTC têm suporte em VMs SQL Server?**
    
-    Sim. DTC local tem suporte para SQL Server 2016 SP2 e superior. No entanto, os aplicativos devem ser testados quando utilizando grupos de disponibilidade Always On, como transações em andamento durante um failover falhará e deverá ser repetida. DTC clusterizado está disponível a partir do Windows Server 2019. 
+    Sim. O DTC local tem suporte para o SQL Server 2016 SP2 e superior. No entanto, os aplicativos devem ser testados ao utilizar grupos de disponibilidade Always On, pois as transações em andamento durante um failover falharão e deverão ser repetidas. O DTC clusterizado está disponível a partir do Windows Server 2019. 
 
 ## <a name="resources"></a>Recursos
 

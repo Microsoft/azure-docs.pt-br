@@ -4,7 +4,7 @@ description: Saiba mais sobre o suporte de visualização para o tamanho VM da s
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: f96a1179c103dd9dfb4d358572f9a9adbe24b977
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809866"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797538"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual de HC-series
 
@@ -31,7 +31,7 @@ Topologia acima é transportado para a configuração do hipervisor series HC ta
 
 A VM não tem conhecimento que pCores 0-1 e 24 e 25 não foram fornecidos a ele. Portanto, ele expõe cada vnuma; como se tivesse nativamente 22 núcleos.
 
-Intel Xeon Platinum, Gold e Silver CPUs também apresentam uma rede de malha 2D no chip para a comunicação dentro e externo para o soquete da CPU. É altamente recomendável o processo de fixação para consistência e desempenho ideal. A fixação de processo funcionará em VMs da série HC porque silício subjacente é exposto como-é a VM convidada. Mais informações sobre a arquitetura Intel Xeon SP em: https://bit.ly/2RCYkiE
+Intel Xeon Platinum, Gold e Silver CPUs também apresentam uma rede de malha 2D no chip para a comunicação dentro e externo para o soquete da CPU. É altamente recomendável o processo de fixação para consistência e desempenho ideal. A fixação de processo funcionará em VMs da série HC porque silício subjacente é exposto como-é a VM convidada. Para obter mais informações, consulte [arquitetura Intel Xeon SP](https://bit.ly/2RCYkiE).
 
 O diagrama a seguir mostra a segregação de núcleos reservados para hipervisor do Azure e a VM da série HC.
 

@@ -1,21 +1,20 @@
 ---
 title: Comunicar-se com um aplicativo de dispositivo em Node.js por meio de fluxos de dispositivos do Hub IoT (versão prévia) | Microsoft Docs
 description: Neste início rápido, você executará aplicativos do lado do serviço do Node.js que se comunica com um dispositivo IoT por meio de um fluxo de dispositivos.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: d9d083569d648b2bd22438f295a640b4e8d03b77
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 74a9e5e6be326bf9cef3dc6d26594b80491deb3e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66733276"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446055"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Início Rápido: comunicar-se com um aplicativo de dispositivo no Node.js por meio de fluxos de dispositivos do Hub IoT (versão prévia)
 

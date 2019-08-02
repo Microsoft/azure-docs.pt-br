@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 7/18/2019
 ms.author: raiye
-ms.openlocfilehash: bdb3d0af93a69c1d15bd34a4badef5915ec0f01f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2dac76ef0d0d71c11291e63fdb3a7ce307638b50
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743023"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405548"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -39,9 +39,12 @@ Fornece a você informações atualizadas sobre as versões mais recentes do SO 
 >
 >
 
-Você não tem certeza de como atualizar o SO convidado? Confira [isto][cloud updates].
+Você não tem certeza de como atualizar o SO convidado? Verifique [isso][cloud updates] .
 
 ## <a name="news-updates"></a>Notícias atualizadas
+
+###### <a name="july-8-2019"></a>**8 de julho de 2019**
+O SO convidado de junho foi lançado.
 
 ###### <a name="june-6-2019"></a>**6 de junho de 2019**
 O SO convidado de maio foi lançado.
@@ -73,7 +76,7 @@ O SO convidado de outubro foi lançado.
 ###### <a name="october-12-2018"></a>**12 de outubro de 2018**
 O SO convidado de setembro foi lançado.
 
-## <a name="releases"></a>Lançamentos
+## <a name="releases"></a>Versões
 
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
 **Windows Server 2019**
@@ -81,22 +84,23 @@ O SO convidado de setembro foi lançado.
 .NET Framework instalado: 3.5, 4.7.2
 
 > [!NOTE]
-> O SDK do Microsoft Azure para .NET 3.0 pode ser baixado [aqui][Windows Azure SDK].
+> O SDK do Windows Azure para .NET-3,0 pode ser baixado [aqui][Windows Azure SDK].
 >
 >Etapas de instalação:
->1. Desinstale as versões mais antigas do MicrosoftAzureAuthoringTools*.msi
->2. Instalar o [SDK do Azure para .NET - 3.0][Windows Azure SDK]
->3. Reinicie seu computador
->4. Criar um novo projeto de serviço de nuvem e adicione uma única função de trabalho
->5. Alterar a família do SO para 6 e compilar um pacote
+>1. Desinstale todas as versões mais antigas do MicrosoftAzureAuthoringTools*. msi
+>2. Instalar o [SDK do Azure para .net-3,0][Windows Azure SDK]
+>3. Reiniciar o computador
+>4. Criar um novo projeto de serviço de nuvem e adicionar uma única função de trabalho
+>5. Altere a família do sistema operacional para 6 e crie um pacote
 >6. Implantar o pacote no Azure usando o portal do Azure ou o Visual Studio
 >
 
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-6.7_201905-01 |6 de junho de 2019 |POST 6.9 |
-| WA-GUEST-OS-6.6_201904-01 |7 de maio de 2019 |Post 6.8 |
+| WA-GUEST-OS-6.8_201906-01 |8 de julho de 2019 |Post 6,10 |
+| WA-GUEST-OS-6.7_201905-01 |6 de junho de 2019 |Post 6,9 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
@@ -106,7 +110,7 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-5-releases"></a>Versões da Família 5
 **Windows Server 2016**
 
-.NET Framework instalado: 3.5, 4.6.2
+.NET Framework instalado: 3,5, 4,6
 
 > [!NOTE]
 > A senha de RDP para a família do sistema operacional 5 deverá ter um mínimo de 10 caracteres.
@@ -115,8 +119,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-5.31_201905-01 |6 de junho de 2019 |Post 5.33 |
-| WA-GUEST-OS-5.30_201904-01 |7 de maio de 2019 |Post 5.32 |
+| WA-GUEST-OS-5.32_201906-01 |8 de julho de 2019 |Post 5,34 |
+| WA-GUEST-OS-5.31_201905-01 |6 de junho de 2019 |Post 5,33 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
@@ -128,12 +133,13 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
 
-.NET Framework instalado: 3.5, 4.5.1
+.NET Framework instalado: 3.5, 4.5.1, 4.5.2
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-4.66_201905-01 |6 de junho de 2019 |POST 4.68 |
-| WA-GUEST-OS-4.65_201904-01 |7 de maio de 2019 |POST 4.67 |
+| WA-GUEST-OS-4.67_201906-01 |8 de julho de 2019 |Post 4,69 |
+| WA-GUEST-OS-4.66_201905-01 |6 de junho de 2019 |Post 4,68 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
@@ -149,8 +155,9 @@ O SO convidado de setembro foi lançado.
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |Junho de 67, 2019 |POST 3,75 |
-| WA-GUEST-OS-3.72_201904-01 |7 de maio de 2019 |Post 3.74 |
+| WA-GUEST-OS-3.74_201906-01 |8 de julho de 2019 |Post 3,76 |
+| WA-GUEST-OS-3.73_201905-01 |6 de junho de 2019 |Post 3,75 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
@@ -162,12 +169,13 @@ O SO convidado de setembro foi lançado.
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework instalado: 3.5 (inclui 2.0 e 3.0)
+.NET Framework instalado: 3,5 (inclui 2,0 e 3,0), 4,5
 
 | Cadeia de caracteres de configuração | Data de liberação | Data da desabilitação |
 | --- | --- | --- |
-| WA-GUEST-OS-2.86_201905-01 |6 de junho de 2019 |Post 2.88 |
-| WA-GUEST-OS-2.85_201904-01 |7 de maio de 2019 |Post 2.87 |
+| WA-GUEST-OS-2.87_201906-01 |8 de julho de 2019 |Post 2,89 |
+| WA-GUEST-OS-2.86_201905-01 |6 de junho de 2019 |Post 2,88 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |7 de maio de 2019 |8 de julho de 2019 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |26 de março de 2019 |6 de junho de 2019 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |12 de março de 2019 |7 de maio de 2019 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |5 de fevereiro de 2019 |26 de março de 2019 |
@@ -177,10 +185,10 @@ O SO convidado de setembro foi lançado.
 |~~WA-GUEST-OS-2.78_201809-01~~ |12 de outubro de 2018 |14 de dezembro de 2018 |
 
 ## <a name="msrc-patch-updates"></a>Atualizações de patch do MSRC
-A lista de patches incluídos em cada lançamento mensal de SO convidado está disponível [aqui][patches].
+A lista de patches que estão incluídos em cada versão mensal do sistema operacional convidado está disponível [aqui][patches].
 
 ## <a name="sdk-support"></a>Suporte a SDK
-Embora a [política de desativação do SDK do Azure][retire policy sdk] indique que somente as versões acima da 2.2 têm suporte, as famílias de SO convidado específicas permitem que você use as versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
+Embora a política de desativação do [SDK do Azure][retire policy sdk] indique que apenas as versões acima de 2,2 têm suporte, as famílias de sistemas operacionais convidados específicos permitem que você use versões anteriores. Você sempre deve usar o SDK mais recente com suporte.
 
 | Família de SO convidado | Versões compatíveis do SDK |
 | --- | --- |
@@ -204,7 +212,7 @@ As famílias de SO convidado são baseadas em versões lançadas do Microsoft Wi
 * **Guest OS family**  
   Uma versão do sistema operacional Windows Server na qual o SO Convidado se baseia. Por exemplo, a *família 3* baseia-se no Windows Server 2012.
 * **Versão do SO Convidado**  
-  Específica de uma imagem da família de SO convidado mais os patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do SO convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
+  Específico de uma imagem da família de sistemas operacionais convidados, além dos patches relevantes do [MSRC (Microsoft Security Response Center)][msrc] disponíveis na data em que a nova versão do sistema operacional convidado é produzida. Nem todos os patches estarão necessariamente incluídos.
 
     Os números começam em 0 e são incrementados em 1 cada vez que um novo conjunto de atualizações é adicionado. Os zeros à direita são mostrados apenas se forem importantes. Ou seja, a versão 2.10 é uma versão diferente e muito posterior à versão 2.1.
 * **Versão do SO convidado**  
@@ -225,9 +233,9 @@ O Microsoft Azure está constantemente lançando atualizações. O SO convidado 
 
 Quando um novo lançamento do SO convidado é realizado, pode levar tempo para que ele se propague totalmente pelo Azure. Como os serviços são atualizados para o novo SO convidado, eles são reinicializados respeitando os domínios de atualização. Os serviços nos quais está definido o uso de atualizações "Automáticas" receberão um lançamento primeiro. Após a atualização, você verá a nova versão do SO convidado listada para seu serviço no portal do Azure. Relançamentos podem ocorrer durante esse período. Algumas versões podem ser implantadas por longos períodos de tempo e reinicializações de atualização automática podem não ocorrer por muitas semanas após a data de lançamento oficial. A partir do momento em que um SO convidado está disponível você pode escolher explicitamente essa versão a partir do portal ou em seu arquivo de configuração.
 
-Para uma grande variedade de informações valiosas sobre reinicializações e indicações para mais detalhes técnicos sobre atualizações de SO de host e convidados, consulte a postagem no blog do MSDN intitulada [Instância de Função reinicia devido a atualizações do SO][restarts].
+Para obter uma grande quantidade de informações valiosas sobre reinicializações e ponteiros para obter mais detalhes técnicos sobre as atualizações de sistema operacional convidado e host, consulte a postagem de blog do MSDN chamada [instância de função reinicia devido a atualizações do sistema operacional][restarts].
 
-Se você atualizar manualmente o SO convidado, veja [Política de desativação do SO convidado][retirepolicy] para obter informações adicionais.
+Se você atualizar manualmente o SO convidado, consulte a política de desativação do [SO convidado][retirepolicy] para obter informações adicionais.
 
 ## <a name="guest-os-supportability-and-retirement-policy"></a>Política de suporte e desativação do SO convidado
 A política de suporte e desativação do SO convidado é explicada [aqui][retirepolicy].

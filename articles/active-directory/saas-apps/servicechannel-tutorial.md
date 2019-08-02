@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce9573f78b6e8a9db65f35b7fc7711a8d3534508
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cedf625beabfb12a459a7fd7c2120250e267772c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: integração do Azure Active Directory com o ServiceChannel
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Service
 
     ![Informações de logon único para domínio e URLs do ServiceChannel](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite o valor: `http://adfs.<domain>.com/adfs/service/trust`
+    a. Na caixa de texto **Identificador**, digite o valor: `http://adfs.<domain>.com/adfs/service/trust`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer domain>.servicechannel.com/saml/acs`
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Service
     | ------ | --- |
     | Função   | user.assignedroles |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -232,4 +232,4 @@ Ao clicar no bloco ServiceChannel no Painel de Acesso, você deve ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

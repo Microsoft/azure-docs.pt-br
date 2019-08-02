@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 07/22/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48a26b2eea3004d5f2203409603ffe623a8cb5c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7e7f5aa324db869e30a8b2fe214416129baca8d9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65811889"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380740"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparação da colaboração B2B e B2C no Azure Active Directory
 
@@ -34,9 +34,9 @@ Recursos de colaboração B2B |     Oferta autônoma do B2C do AD do Azure
 Destinado a: organizações que desejam poder autenticar usuários de uma organização de parceiros, independentemente do provedor de identidade. | Destinado a: clientes convidados dos aplicativos Web e móveis, sejam indivíduos, clientes institucionais ou organizacionais, para o Azure AD.
 Identidades com suporte: funcionários com contas corporativas ou de estudante, parceiros com contas corporativas ou de estudante ou qualquer endereço de email. Em breve com suporte à federação direta.  | Identidades com suporte: os usuários do consumidor com contas de aplicativo locais (qualquer nome de usuário ou endereço de email) ou identidades sociais com suporte com federação direta.
 Usuários externos são gerenciados no mesmo diretório que os funcionários, mas são anotados de maneira especial. Eles podem ser gerenciados da mesma forma que os funcionários, podem ser adicionados aos mesmos grupos e assim por diante  | Usuários externos são gerenciados no diretório do aplicativo. Eles são gerenciados separadamente do diretório de parceiros e funcionários da organização (se houver).
-Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD. Por exemplo, é possível fornecer acesso ao Office 365 ou a aplicativos locais, além de outros aplicativos SaaS, como o Salesforce ou Workday.  |  Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. Não há suporte para SSO para Office 365 nem para outros aplicativos SaaS da Microsoft SaaS que não sejam da Microsoft.
+Há suporte para SSO (logon único) em todos os aplicativos conectados ao Azure AD. Por exemplo, é possível fornecer acesso ao Office 365 ou a aplicativos locais, além de outros aplicativos SaaS, como o Salesforce ou Workday.  |  Há suporte para SSO para aplicativos de clientes dentro dos locatários do B2C do AD do Azure. O SSO não é compatível com o Office 365 nem com outros aplicativos SaaS da Microsoft.
 Ciclo de vida do parceiro: gerenciado pela organização convidada/host.  | Ciclo de vida do cliente: autoatendido ou gerenciado pelo aplicativo.
-Política de segurança e conformidade: gerenciada pela organização convidada/host (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Política de segurança e conformidade: gerenciada pelo aplicativo.
+Política de segurança e conformidade: Gerenciada pela organização convidada/host (por exemplo, com [políticas de acesso condicional](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Política de segurança e conformidade: gerenciada pelo aplicativo.
 Identidade visual: a marca da organização convidada/host é usada.  |    Identidade visual: gerenciada pelo aplicativo. Geralmente, tende a ser da marca do produto com o esmaecimento da organização na tela de fundo.
 Mais informações: [Postagem no blog](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Documentação](what-is-b2b.md)  | Mais informações: [Página do produto](https://azure.microsoft.com/services/active-directory-b2c/), [documentação](https://docs.microsoft.com/azure/active-directory-b2c/)
 

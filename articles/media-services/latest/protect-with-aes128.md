@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: c957a98cdb6c195f7ed9b41dabc66a32714f57e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f7f68398cb473ca166d328ee15a92f3c848840f2
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142518"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273290"
 ---
 # <a name="tutorial-use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Tutorial: Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
+
+> [!NOTE]
+> Mesmo que o tutorial usa o [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) exemplos, as etapas gerais são as mesmas para [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), ou outro suporte [SDKs](media-services-apis-overview.md#sdks) .
 
 Você pode usar os Serviços de Mídia para a distribuição HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming criptografado com o AES usando chaves de criptografia de 128 bits. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Se você desejar para os serviços de mídia criptografar dinamicamente seu vídeo, você pode associar a chave de criptografia com o localizador de Streaming e também configurar a política de chave de conteúdo. Quando um fluxo é solicitado por um player, os serviços de mídia usam a chave especificada para criptografar dinamicamente seu conteúdo com AES-128. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para determinar se o usuário está autorizado a obter a chave, o serviço avalia a política de chave de conteúdo que você especificou para a chave.
 

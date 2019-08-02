@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 3/5/2019
+ms.date: 07/01/2019
 ms.author: moderakh
-ms.openlocfilehash: 356838f16f7f13506657326bae5dbe994d54bdd5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3cafa4d5aecaa4c8f3863c3269ec02793340e3e6
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "57570089"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509270"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Java Async do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 > [!div class="op_single_selector"]
@@ -43,6 +43,16 @@ O SDK Java Assíncrono de API SQL difere do SDK Java de API SQL fornecendo opera
 | **Tempo de execução mínimo com suporte**|[JDK 8](https://aka.ms/azure-jdks) | 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name250250"></a><a name="2.5.0"/>2.5.0
+* Modo TCP agora em por padrão
+* Métricas de consulta na partição cruzada agora retorna todas as partições
+* Forte global agora funciona corretamente
+* Failover para consultas não corretamente repetirá para vários mestres
+* Dependência impactos para os hotfixes de segurança
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* Correção de bug para suporte a Hash V2
 
 ### <a name="a-name243243"></a><a name="2.4.3"/>2.4.3
 * Correção de bug para vazamento de recursos em client#close() ([github 88 #](https://github.com/Azure/azure-cosmosdb-java/issues/88)).
@@ -144,7 +154,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 <br/>
 
-| Version | Data do lançamento | Data de desativação |
+| Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
 | [2.4.3](#2.4.3) |5 de março de 2019|--- |
 | [2.4.2](#2.4.2) |1 de março de 2019|--- |

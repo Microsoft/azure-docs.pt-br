@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b03109ee5cdb76247bf3be6fda97e0cf6e434f17
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519009"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296083"
 ---
-# <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de log do Azure Monitor
+# <a name="get-started-with-log-queries-in-azure-monitor"></a>Introdução às consultas de log no Azure Monitor
 
 
 > [!NOTE]
@@ -28,9 +28,9 @@ ms.locfileid: "65519009"
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial, você aprenderá a escrever consultas de log do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial, você aprenderá a criar consultas de log no Azure Monitor. Ele irá ensiná-lo como para:
 
-- Entender a estrutura de consultas
+- Entender a estrutura de consulta
 - Classificar os resultados de consulta
 - Filtrar resultados da consulta
 - Especifique um intervalo de tempo
@@ -38,6 +38,8 @@ Neste tutorial, você aprenderá a escrever consultas de log do Azure Monitor. E
 - Definir e usar campos personalizados
 - Agregar e agrupar resultados
 
+Para obter um tutorial sobre como usar o Log Analytics no portal do Azure, consulte [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md).<br>
+Para obter mais detalhes sobre consultas de log no Azure Monitor, consulte [visão geral do log de consultas no Azure Monitor](log-query-overview.md).
 
 ## <a name="writing-a-new-query"></a>Escrevendo uma nova consulta
 As consultas podem começar com um nome de tabela ou com o comando *pesquisa*. Você deve começar com um nome de tabela, pois ele define um escopo claro para a consulta e melhora o desempenho da consulta e a relevância dos resultados.
@@ -71,8 +73,8 @@ search in (SecurityEvent) "Cryptographic"
 
 Essa consulta pesquisa a tabela *SecurityEvent* em busca de registros que contenham a frase "Criptografia". Desses registros, 10 registros serão retornados e exibidos. Se omitirmos a parte e `in (SecurityEvent)`apenas executarmos`search "Cryptographic"`, a pesquisa irá passar por *todas* as tabelas, o que levaria mais tempo e seria menos eficiente.
 
-> [!NOTE]
-> Por padrão, um intervalo de tempo _últimas 24 horas_ está definido. Para usar um intervalo diferente, use o seletor de tempo (localizada ao lado de *vá* botão) ou adicionar um tempo explícito filtro de intervalo à sua consulta.
+> [!WARNING]
+> Consultas de pesquisa são geralmente mais lentas do que consultas baseadas em tabela porque eles têm que processar mais dados. 
 
 ## <a name="sort-and-top"></a>Classificar e superior
 Embora **levar** é útil para obter alguns registros, os resultados são selecionados e exibidos em nenhuma ordem específica. Para obter uma exibição ordenada, você poderia **classificação** pela coluna preferencial:

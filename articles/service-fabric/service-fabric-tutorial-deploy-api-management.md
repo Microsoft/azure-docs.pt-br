@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
+ms.date: 07/10/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: fc2c23d93a1800232b81c5eb2f861e8b71c3e437
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c290b13ccb65c68c32d63638b15e8a3f59ef8010
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428062"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228097"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar o Gerenciamento de API ao Service Fabric no Azure
 
@@ -77,7 +77,7 @@ Inicie o Visual Studio como administrador e crie um serviço ASP.NET Core:
  1. No Visual Studio, selecione Arquivo -> Novo projeto.
  2. Selecione o modelo de Aplicativo do Service Fabric em Nuvem e nomeie-o **"ApiApplication"** .
  3. Selecione o modelo do serviço do ASP.NET Core e nomeie o projeto **"WebApiService"** .
- 4. Selecione o modelo de projeto ASP.NET Core 2.0 da API Web.
+ 4. Selecione a API Web ASP.NET Core modelo de projeto 2,1.
  5. Uma vez que o projeto é criado, abra `PackageRoot\ServiceManifest.xml` e remova o atributo `Port` da configuração do recurso do ponto de extremidade:
 
     ```xml
@@ -88,7 +88,7 @@ Inicie o Visual Studio como administrador e crie um serviço ASP.NET Core:
     </Resources>
     ```
 
-    A remoção da porta permite que o Service Fabric especifique uma porta dinamicamente do intervalo de porta do aplicativo, aberto por meio do grupo de segurança de rede no modelo do Resource Manager de Cluster, permitindo o tráfego flua para o gerenciamento de API.
+    A remoção da porta permite que Service Fabric especifique uma porta dinamicamente do intervalo de portas do aplicativo, aberta por meio do grupo de segurança de rede no modelo do Resource Manager de cluster, permitindo que o tráfego flua para ele do gerenciamento de API.
 
  6. Pressione F5 no Visual Studio para verificar se a API Web está disponível localmente.
 
@@ -108,10 +108,10 @@ Um serviço sem estado ASP.NET Core nomeado `fabric:/ApiApplication/WebApiServic
 
 Baixe e salve os seguintes modelos do Resource Manager e o arquivo de parâmetros:
 
-* [network-apim.json][network-arm]
-* [network-apim.parameters.json][network-parameters-arm]
-* [apim.json][apim-arm]
-* [apim.parameters.json][apim-parameters-arm]
+* [Network-APIM. JSON][network-arm]
+* [Network-APIM. Parameters. JSON][network-parameters-arm]
+* [APIM. JSON][apim-arm]
+* [APIM. Parameters. JSON][apim-parameters-arm]
 
 O modelo *network-apim.json* implanta um novo grupo de segurança de rede e sub-rede na rede virtual em que o cluster do Service Fabric é implantado.
 
@@ -145,7 +145,7 @@ Insira um **displayName** descritivo e uma **descrição** para o produto. Para 
 
 * **displayName** pode ser qualquer nome para a API. Para este artigo, use "Aplicativo do Service Fabric".
 * **name** fornece um nome exclusivo e descritivo para a API, como "service-fabric-app". Esse nome será exibido nos portais do desenvolvedor e do editor.
-* **serviceUrl** faz referência ao serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço. Para back-ends do Service Fabric, esse valor de URL não é usado. Aqui, você pode colocar qualquer valor. Neste artigo, por exemplo, "http:\//servicefabric".
+* **serviceUrl** faz referência ao serviço HTTP que está implementando a API. O gerenciamento de API envia as solicitações para esse endereço. Para back-ends do Service Fabric, esse valor de URL não é usado. Aqui, você pode colocar qualquer valor. Para este artigo, por exemplo, "http\/:/servicefabric".
 * **path** é acrescentado à URL base para o serviço de gerenciamento de API. A URL base é comum para todas as APIs hospedadas por uma instância de um serviço de Gerenciamento de API. O Gerenciamento de API diferencia as APIs pelo sufixo e, portanto, o sufixo deve ser único para cada API para um editor específico.
 * **protocols** determina quais protocolos podem ser usados para acessar a API. Para este artigo, liste **http** e **https**.
 * **path** é um sufixo para a API. Para este artigo, use "myapp".
@@ -197,7 +197,7 @@ Para obter um conjunto completo de atributos de política de back-end do Service
 
 Preencha os seguintes parâmetros vazios em *apim.parameters.json* para a implantação.
 
-|Parâmetro|Value|
+|Parâmetro|Valor|
 |---|---|
 |apimInstanceName|sf-apim|
 |apimPublisherEmail|myemail@contosos.com|
@@ -288,7 +288,7 @@ Agora é possível tentar enviar uma solicitação para seu serviço de back-end
 
 Um cluster é composto por outros recursos do Azure, além do próprio recurso do cluster. A maneira mais simples de excluir o cluster e todos os recursos que ele consume é excluir o grupo de recursos.
 
-Entre no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster.  Você pode encontrar sua ID de assinatura fazendo logon no [Portal do Azure](https://portal.azure.com). Excluir o grupo de recursos e todos os recursos de cluster usando o [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Entre no Azure e selecione a ID de assinatura com a qual você deseja remover o cluster.  Você pode encontrar sua ID de assinatura fazendo logon no [Portal do Azure](https://portal.azure.com). Exclua o grupo de recursos e todos os recursos de cluster usando o [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

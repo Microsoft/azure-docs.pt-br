@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bdeecc5682eb09ac0a65d3834ad1770258c4e0
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898475"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102055"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>Tutorial: Integração do Azure Active Directory ao FreshDesk
 
@@ -53,7 +53,7 @@ Para configurar a integração do FreshDesk ao Azure AD, você precisa adicionar
 
 **Para adicionar o FreshDesk por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o FreshDesk, execute as seguintes
 
     ![Domínio FreshDesk e informações de logon único de URLs](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o padrão `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o padrão `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o padrão `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o padrão `https://<tenant-name>.freshdesk.com` ou qualquer outro valor sugerido pelo FreshDesk.
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com [equipe de suporte do cliente FreshDesk](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o FreshDesk, execute as seguintes
     | ---------------| --------------- |
     | Identificador Exclusivo do Usuário | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o FreshDesk, execute as seguintes
 
 8. Abra o **Prompt de Comando** e execute os seguintes comandos:
 
-     a. Insira o valor `certutil.exe -dump FreshDesk.cer` no prompt de comando.
+    a. Insira o valor `certutil.exe -dump FreshDesk.cer` no prompt de comando.
 
     > [!NOTE]
     > Aqui, **FreshDesk.cer** é o certificado que você baixou do portal do Azure.
@@ -171,7 +171,7 @@ Para configurar o logon único do Azure AD com o FreshDesk, execute as seguintes
 
     ![Logon Único](./media/freshdesk-tutorial/IC776770.png "Logon Único")
   
-     a. Para **SSO (Logon Único)**, selecione **Ativado**.
+    a. Para **SSO (Logon Único)** , selecione **Ativado**.
 
     b. Selecione **SSO do SAML**.
 
@@ -259,7 +259,7 @@ No caso do FreshDesk, o provisionamento é uma tarefa manual.
 
     ![Informações de Agente](./media/freshdesk-tutorial/IC776775.png "Informações de Agente")
 
-     a. Na caixa de texto **Email** , digite o endereço de email do Azure AD da conta do Azure AD que você deseja provisionar.
+    a. Na caixa de texto **Email** , digite o endereço de email do Azure AD da conta do Azure AD que você deseja provisionar.
 
     b. Na caixa de texto **Nome Completo** , digite o nome da conta do Azure AD que você deseja provisionar.
 
@@ -285,5 +285,5 @@ Ao clicar no bloco do FreshDesk no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

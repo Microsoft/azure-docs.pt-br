@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 73f0dc98d7d2c3e7aa77f6414cbd58e58599eae7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb86a75be464cb78a16170626bc96778d43bb8b6
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068823"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67974616"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com os resultados da pesquisa no Azure Search
 Este artigo fornece orientação sobre como implementar elementos padrão da página de resultados da pesquisa, por exemplo, contagem total, recuperação de documentos, ordens de classificação e navegação. As opções relacionadas à página que colaboram com dados ou informações para os resultados da pesquisa são especificadas por meio de solicitações de [Documento de Pesquisa](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) enviadas ao Serviço de Azure Search. 
@@ -25,7 +25,7 @@ Na API REST, as solicitações incluem um comando GET, um caminho e os parâmetr
 Vários exemplos de código incluem uma interface de front-end da Web, que podem ser encontrados aqui: [Aplicativo de demonstração de trabalhos da cidade de Nova York](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [do Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+> Uma solicitação válida inclui diversos elementos, como uma URL de serviço e o caminho, o verbo HTTP, `api-version` etc. Para resumir, recortamos os exemplos para destacar apenas a sintaxe relevante para a paginação. Para obter mais informações sobre a sintaxe de solicitação, consulte [Azure Search serviço REST](https://docs.microsoft.com/rest/api/searchservice).
 >
 
 ## <a name="total-hits-and-page-counts"></a>Total de ocorrências e contagens de página
@@ -34,21 +34,21 @@ Mostrar o número total de resultados retornados por uma consulta e, em seguida,
 
 ![][1]
 
-No Azure Search, você deve usar os parâmetros `$count`, `$top` e `$skip` para retornar esses valores. A exemplo a seguir mostra um exemplo de solicitação total atinge em um índice chamado "-catálogo online", é retornado como `@odata.count`:
+No Azure Search, você deve usar os parâmetros `$count`, `$top` e `$skip` para retornar esses valores. O exemplo a seguir mostra uma solicitação de exemplo para total de ocorrências em um índice chamado "online-Catalog `@odata.count`", retornado como:
 
     GET /indexes/online-catalog/docs?$count=true
 
 Recupera documentos em grupos de 15 e também mostra o total de ocorrências, começando na primeira página:
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 A paginação de resultados exige `$top` e `$skip`, sendo que `$top` especifica quantos itens devem retornar em um lote, e `$skip` especifica quantos itens ignorar. No exemplo a seguir, cada página mostra os próximos 15 itens, indicados por saltos incrementais no parâmetro `$skip` .
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Layout
 
@@ -56,7 +56,7 @@ Talvez você queira mostrar em uma página de resultados da pesquisa uma imagem 
 
  ![][2]
 
-No Azure Search, você usaria `$select` e uma [solicitação de API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) para implementar essa experiência.
+No Azure Search, você usaria `$select` o e uma [solicitação de API de pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) para implementar essa experiência.
 
 Para retornar um subconjunto dos campos para um layout lado a lado:
 
@@ -96,7 +96,7 @@ A navegação de pesquisa é comum em uma página de resultados, e normalmente f
 
 ## <a name="filters-at-the-page-level"></a>Filtros no nível da página
 
-Se seu design da solução incluir páginas de pesquisa dedicada para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online com os departamentos relacionados na parte superior da página), você pode inserir uma [expressão de filtro](search-filters.md) junto com um **onClick** evento para abrir uma página em um estado pré-filtrada.
+Se o design da solução incluísse páginas de pesquisa dedicadas para tipos específicos de conteúdo (por exemplo, um aplicativo de varejo online que tenha departamentos listados na parte superior da página), você poderá inserir uma [expressão de filtro](search-filters.md) junto com um evento OnClick para  Abra uma página em um Estado previamente filtrado.
 
 Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, a seguinte solicitação filtrará o nome da marca, retornando somente os documentos que correspondem a ele.
 
@@ -104,7 +104,7 @@ Você pode enviar um filtro com ou sem uma expressão de pesquisa. Por exemplo, 
 
 Confira [Pesquisar Documentos (API de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para saber mais sobre expressões `$filter`.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [API REST do Serviço de Azure Search](https://docs.microsoft.com/rest/api/searchservice)
 - [Operações de índice](https://docs.microsoft.com/rest/api/searchservice/Index-operations)

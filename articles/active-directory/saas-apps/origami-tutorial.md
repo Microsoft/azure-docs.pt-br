@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd347f4eb5f77dacc3c9fd61d0e885e9b3ee7959
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870346"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integração do Azure Active Directory com o Origami
 
@@ -53,7 +53,7 @@ Para configurar a integração do Origami ao Azure AD, você precisará adiciona
 
 **Para adicionar o Origami por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Origami, realize as seguintes e
    
     ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_531.png)
 
-     a. Selecione **Habilitar Logon Único**.
+    a. Selecione **Habilitar Logon Único**.
 
     b. Na caixa de texto **URL da Página de Entrada do Provedor de Identidade**, cole o valor de **URL de Logon** que você copiou do portal do Azure.
 
@@ -219,7 +219,7 @@ Nesta seção, você criará um usuário chamado Brenda Fernandes no Origami.
    
     ![Configurar o logon único](./media/origami-tutorial/tutorial_origami_56.png)
 
-     a. Na caixa de texto **Nome de Usuário**, insira o email do usuário como **brendafernandes\@contoso.com**.
+    a. Na caixa de texto **Nome de Usuário**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     b. Na caixa de texto **Senha** , digite uma senha.
 
@@ -249,5 +249,5 @@ Ao clicar no bloco do Origami no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

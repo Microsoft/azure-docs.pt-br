@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
-ms.openlocfilehash: c89567115079887295704e216cd4046fae99c9d1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 06/25/2019
+ms.openlocfilehash: 53a46c6137c3336c405eb62dc7b254ac26c13d9e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873022"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406004"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar o Apache Storm com o Apache Kafka no HDInsight
 
@@ -58,7 +58,7 @@ As seguintes variáveis de ambiente podem ser definidas quando você instala o J
 > 
 > Para sua conveniência, este documento direciona para um modelo que pode criar todos os recursos necessários do Azure. 
 >
-> Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira o documento [Estender o HDInsight usando uma rede virtual](hdinsight-extend-hadoop-virtual-network.md).
+> Para obter mais informações sobre como usar o HDInsight em uma rede virtual, confira o documento [Planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ## <a name="storm-and-kafka"></a>Storm e Kafka
 
@@ -629,15 +629,9 @@ Para remover o grupo de recursos usando o portal do Azure:
 2. Localize o grupo de recursos a ser excluído e clique com o botão direito do mouse no botão __Mais__ (...) do lado direito da lista.
 3. Selecione __Excluir grupo de recursos__ e confirme.
 
-> [!WARNING]  
-> A cobrança do cluster HDInsight começa quando um cluster é criado e para quando o cluster é excluído. A cobrança ocorre por minuto, portanto, sempre exclua o cluster quando ele não estiver mais sendo usado.
-> 
-> Excluir um Kafka no cluster HDInsight exclui todos os dados armazenados no Kafka.
-
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a usar uma topologia do [Apache Storm](https://storm.apache.org/) para gravar e ler do [Apache Kafka](https://kafka.apache.org/) no HDInsight. Você também aprendeu a armazenar dados no armazenamento compatível com [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) usado pelo HDInsight.
 
-Para saber mais sobre como usar o Kafka no HDInsight, consulte o documento [Usar a API de Produtor e Consumidor do Apache Kafka](kafka/apache-kafka-producer-consumer-api.md).
-
-Para obter informações sobre como implantar e monitorar topologias no HDInsight baseado em Linux, confira [Implantar e gerenciar topologias Apache Storm no HDInsight baseado em Linux](storm/apache-storm-deploy-monitor-topology-linux.md)
+> [!div class="nextstepaction"]
+> [Usar a API de Produtor e Consumidor do Apache Kafka](kafka/apache-kafka-producer-consumer-api.md)

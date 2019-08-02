@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419defd3c1ce154d392ab5249a64b420cc89255b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a958c693699cb83274e840f7cf36efceadc2ce5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874012"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106012"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bridgeline-unbound"></a>Tutorial: Integração do Azure Active Directory ao Bridgeline Unbound
 
@@ -54,7 +54,7 @@ Para configurar a integração do Bridgeline Unbound ao Azure AD, você precisa 
 
 **Para adicionar o Bridgeline Unbound da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Bridgeline Unbound, execute as 
 
     ![Informações de logon único de Domínio e URLs do Bridgeline Unbound](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `iApps_UPSTT_<ENVIRONMENTNAME>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `iApps_UPSTT_<ENVIRONMENTNAME>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.iapps.com/SAMLAssertionService.aspx`
 
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o Bridgeline Unbound, execute as 
 
     ![Informações de logon único de Domínio e URLs do Bridgeline Unbound](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.iapps.com/CommonLogin/login?<INSTANCENAME>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com [equipe de suporte do cliente do Bridgeline Unbound](mailto:support@iapps.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

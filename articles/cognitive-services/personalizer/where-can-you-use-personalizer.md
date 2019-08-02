@@ -3,19 +3,19 @@ title: Avaliação de cenário – Personalizador
 titleSuffix: Azure Cognitive Services
 description: O Personalizador pode ser aplicado em qualquer situação em que seu aplicativo pode selecionar o item, a ação ou o produto correto a ser exibido – visando aprimorar a experiência, alcançar melhores resultados de negócios ou melhorar a produtividade.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: e51ef9afd0e49b690a4f9cab09fdfbd3e86eee66
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 465fba3a466aceaf9ef7b71e4b1957bfdbcad766
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441043"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663653"
 ---
 # <a name="where-can-you-use-personalizer"></a>Em que situações o Personalizador pode ser usado?
 

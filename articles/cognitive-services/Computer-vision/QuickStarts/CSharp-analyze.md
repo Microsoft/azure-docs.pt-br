@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7ad03d06325f45aacd53817d92202b07de7c26e9
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 941478e8d09ea0a06139ba4ddf3ac14e5b52b9d6
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011138"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606029"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>Início Rápido: Analisar uma imagem local usando a API REST e o C# na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>Início Rápido: Analisar uma imagem local usando a API REST da Pesquisa Visual Computacional e o C#
 
 Neste Início Rápido, você analisará uma imagem armazenada localmente para extrair características visuais usando a API REST da Pesquisa Visual Computacional. Com o método [Analisar Imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), você pode extrair informações de características visuais com base no conteúdo da imagem.
 
@@ -64,7 +64,7 @@ namespace CSHttpClientSample
         // from the West US region, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the "westus" region.
+        // Free trial subscription keys are generated in the "westcentralus" region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         const string uriBase =
@@ -246,10 +246,6 @@ Uma resposta com êxito é retornada em JSON. O aplicativo de exemplo analisa e 
     }
 }
 ```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando não for mais necessário, exclua a solução do Visual Studio. Para fazer isso, abra o Explorador de Arquivos, navegue até a pasta em que você criou a solução do Visual Studio e a exclua.
 
 ## <a name="next-steps"></a>Próximas etapas
 

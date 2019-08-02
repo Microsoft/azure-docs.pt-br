@@ -70,10 +70,10 @@ A tabela a seguir descreve os atributos de um parâmetro.
 
 | Atributo | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool – Caixa suspensa<br>cadeia de caracteres – caixa de texto<br>int – Caixa de texto<br>securestring – Campo de senha<br> |
-| categoria |Categoria opcional para o parâmetro.  Parâmetros na mesma categoria são agrupados. |
-| controle |Funcionalidade adicional para parâmetros de cadeia de caracteres.<br><br>datetime – O controle datetime é exibido.<br>GUID – O valor de GUID é gerado automaticamente e o parâmetro não é exibido. |
-| Descrição |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
+| type |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool – Caixa suspensa<br>cadeia de caracteres – caixa de texto<br>int – Caixa de texto<br>securestring – Campo de senha<br> |
+| category |Categoria opcional para o parâmetro.  Parâmetros na mesma categoria são agrupados. |
+| control |Funcionalidade adicional para parâmetros de cadeia de caracteres.<br><br>datetime – O controle datetime é exibido.<br>GUID – O valor de GUID é gerado automaticamente e o parâmetro não é exibido. |
+| description |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
 A tabela a seguir lista os parâmetros padrão para todas as soluções de gerenciamento.  Esses valores são populados para o usuário em vez de solicitados a eles quando a solução é instalada dos modelos do Azure Marketplace ou de Início Rápido.  Se a solução for instalada com outro método, o usuário deverá fornecer valores para eles.
@@ -85,12 +85,12 @@ A tabela a seguir lista os parâmetros padrão para todas as soluções de geren
 
 | Parâmetro | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |
-| accountName |cadeia de caracteres |Nome da conta de Automação do Azure. |
-| pricingTier |cadeia de caracteres |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
-| regionId |cadeia de caracteres |Região da conta de Automação do Azure. |
-| solutionName |cadeia de caracteres |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
-| workspaceName |cadeia de caracteres |O nome do espaço de trabalho do Log Analytics. |
-| workspaceRegionId |cadeia de caracteres |A região do espaço de trabalho do Log Analytics. |
+| accountName |string |Nome da conta de Automação do Azure. |
+| pricingTier |string |Tipo de preço do espaço de trabalho do Log Analytics e da conta de Automação do Azure. |
+| regionId |string |Região da conta de Automação do Azure. |
+| solutionName |string |O nome da solução.  Se você estiver implantando a solução por meio de modelos de Início Rápido, defina solutionName como um parâmetro para que seja possível definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
+| workspaceName |string |O nome do espaço de trabalho do Log Analytics. |
+| workspaceRegionId |string |A região do espaço de trabalho do Log Analytics. |
 
 
 A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
@@ -224,10 +224,10 @@ A entidade **plano** do recurso da solução tem as propriedades na tabela a seg
 
 | Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Nome |O nome da solução. |
+| name |O nome da solução. |
 | version |Versão da solução conforme determinado pelo autor. |
 | product |Cadeia de caracteres exclusiva para identificar a solução. |
-| publicador |O publicador da solução. |
+| publisher |O publicador da solução. |
 
 
 

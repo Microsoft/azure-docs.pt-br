@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 06/30/2019
 ms.author: juliako
-ms.openlocfilehash: 6b5422e2eb67eb309c086c023df9f733940e5e44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 937dc6eefbbfc37aaeee0801f410f9f99cb0c787
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66735082"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67488679"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserir widgets do Video Indexer em seus aplicativos
 
@@ -32,6 +32,8 @@ Um widget **Insights cognitivos** inclui todos os insights visuais que foram ext
 |NOME|Definição|DESCRIÇÃO|
 |---|---|---|
 |widgets|Cadeias de caracteres separadas por vírgula|Permite controlar os insight que você deseja renderizar. <br/>Exemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` renderizará apenas insights de interface do usuário de pessoas e marcas<br/>Opções disponíveis: people, keywords, annotations, brands, sentiments, transcript e search.<br/>não tem suporte por meio de URL na versão = 2<br/><br/>**Observação:** Não há suporte para o parâmetro de URL de widgets na versão 2. |
+|localidade|Um código de idioma curto|Controla o idioma do insights. O padrão é `en`. Por exemplo: `language=de`.|
+|tab|Guia padrão selecionada|Controla a guia insights que é renderizada por padrão. `tab=timeline` renderiza os insights com a guia de linha do tempo selecionada.|
 
 ### <a name="player-widget"></a>Widget do player
 
@@ -39,12 +41,12 @@ Um widget **Player** permite transmitir o vídeo usando a taxa de bits adaptáve
 
 |NOME|Definição|DESCRIÇÃO|
 |---|---|---|
-|t|Segundos a partir do início|Faz o player começar a reproduzir do ponto de tempo determinado.<br/>Exemplo: t=60|
-|captions|Código de idioma|Busca a legenda no idioma determinado durante o carregamento do widget a estar disponível no menu de legendas.<br/>Exemplo: captions=en-US|
-|showCaptions|Um valor booliano|Faz o player ser carregado com as legendas já habilitadas.<br/>Exemplo: showCaptions=true|
-|type||Ativa uma capa de player de áudio (parte do vídeo é removida).<br/>Exemplo: type=audio|
-|autoplay|Um valor booliano|Indica se o player deve começar a reproduzir o vídeo quando carregado (o padrão é true).<br/>Exemplo: autoplay=false|
-|language|Código de idioma|Controla o idioma do player (o padrão é en-US)<br/>Exemplo: language=de-DE|
+|t|Segundos desde o início|Faz o player começar a reproduzir do ponto de tempo determinado.<br/>Exemplo: `t=60`.|
+|captions|Um código de idioma|Busca a legenda no idioma determinado durante o carregamento do widget a estar disponível no menu de legendas.<br/>Exemplo: `captions=en-US`.|
+|showCaptions|Um valor booliano|Faz o player ser carregado com as legendas já habilitadas.<br/>Exemplo: `showCaptions=true`.|
+|type||Ativa uma capa de player de áudio (parte do vídeo é removida).<br/>Exemplo: `type=audio`.|
+|autoplay|Um valor booliano|Indica se o player deve começar a reproduzir o vídeo quando carregado (o padrão é true).<br/>Exemplo: `autoplay=false`.|
+|language|Um código de idioma|Controla o idioma do player (o padrão é en-US)<br/>Exemplo: `language=de-DE`.|
 
 ## <a name="embedding-public-content"></a>Inserindo conteúdo público
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e0c2dc6c370e697f896e24e7d56c6eb8900601a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faaa5dcc435452d6ed9e0f2c5b481df1e352dfd2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867096"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Azure Active Directory ao SkyDesk Email
 
@@ -53,7 +53,7 @@ Para configurar a integração do SkyDesk Email ao Azure AD, você precisará ad
 
 **Para adicionar o SkyDesk Email a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -157,7 +157,7 @@ Para configurar o logon único do Azure AD com o SkyDesk Email, realize as segui
 
     ![Configurar o logon único](./media/skydeskemail-tutorial/tutorial_skydeskemail_57.png)
 
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 

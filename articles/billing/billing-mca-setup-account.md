@@ -1,8 +1,6 @@
 ---
-title: Configurar sua conta de cobrança para um contrato de cliente da Microsoft - Azure | Microsoft Docs
+title: Configurar sua conta de cobrança para um contrato de cliente da Microsoft - Azure
 description: Saiba como configurar sua conta de cobrança para um contrato de cliente da Microsoft.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
 editor: banders
@@ -12,23 +10,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/28/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64919160"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490689"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar sua conta de cobrança para um contrato de cliente da Microsoft
 
-Se o registro do Enterprise Agreement tiver expirado ou prestes a expirar, você pode assinar um contrato de cliente da Microsoft para renovar seu registro. A renovação inclui as seguintes etapas:
+Se o registro do Enterprise Agreement tiver expirado ou prestes a expirar, você pode assinar um contrato de cliente da Microsoft para renovar seu registro. Este artigo descreve as alterações em sua cobrança existente após a configuração e o orienta através da instalação de sua nova conta de cobrança. A renovação inclui as seguintes etapas:
 
 1. Aceite o novo contrato ao cliente Microsoft. Trabalhar com seu representante de campo da Microsoft para entender os detalhes e aceitar o novo contrato.
 2. Configure a nova conta de cobrança que é criada para o novo contrato ao cliente Microsoft.
-
-Este artigo descreve as alterações em sua cobrança existente após a configuração e o orienta através da instalação de sua nova conta de cobrança.
 
 Para configurar a conta de cobrança, transição a cobrança de assinaturas do Azure do seu registro do Enterprise Agreement para a nova conta. A configuração não afeta os serviços do Azure que são executados em suas assinaturas. No entanto, ele muda a maneira que você gerenciará a cobrança para suas assinaturas.
 
@@ -45,7 +41,7 @@ Antes de iniciar a instalação, é recomendável que você faça o seguinte:
 - **Entender as alterações na sua hierarquia de cobrança**
   - Você nova conta de cobrança é organizados de forma diferente que o seu registro de Enterprise Agreement. [Entender as alterações para a hierarquia na nova conta de cobrança](#understand-changes-to-your-billing-hierarchy).
 - **Entender as alterações para o acesso dos administradores de cobrança**
-  - Os administradores da sua inscrição de Enterprise Agreement obtém acesso para os escopos na nova conta de cobrança. [Entender as alterações para o acesso](#understand-changes-to-your-billing-administrators-access).
+  - Os administradores da sua inscrição de Enterprise Agreement obtém acesso para os escopos na nova conta de cobrança. [Entender as alterações para o acesso](#changes-to-billing-administrator-access).
 - **Exibir recursos do Enterprise Agreement que são substituídos pela nova conta**
   - Recursos de exibição do registro de contrato Enterprise que são substituídos pelos recursos na nova conta.
 - **Exibir as respostas às perguntas mais comuns**
@@ -55,7 +51,7 @@ Antes de iniciar a instalação, é recomendável que você faça o seguinte:
 
 Para concluir a instalação, você precisa ter o seguinte acesso:
 
-- Proprietário do perfil de cobrança que foi criado quando o contrato de cliente da Microsoft foi assinado. Para saber mais sobre perfis de cobrança, consulte [entender a cobrança perfis](billing-mca-overview.md#understand-billing-profiles).
+- Proprietário do perfil de cobrança que foi criado quando o contrato de cliente da Microsoft foi assinado. Para saber mais sobre perfis de cobrança, consulte [entender a cobrança perfis](billing-mca-overview.md#billing-profiles).
 
 - Administrador corporativo no registro que é renovado.
 
@@ -87,12 +83,12 @@ Sua nova conta de cobrança simplifica a cobrança para sua organização, forne
 
 ![Imagem de ea-mca-post-transição-hierarquia](./media/billing-mca-setup-account/mca-post-transition-hierarchy.png)
 
-1. Você pode usar a conta de cobrança para gerenciar a cobrança para o contrato de cliente da Microsoft. Para saber mais sobre a conta de cobrança, consulte [entender a conta de cobrança](billing-mca-overview.md#understand-billing-account).
-2. Você pode usar o perfil de cobrança para gerenciar a cobrança para sua organização, semelhante ao seu registro de Enterprise Agreement. Os administradores de empresa se tornarem proprietários de perfil de cobrança. Para saber mais sobre perfis de cobrança, consulte [entender a cobrança perfis](billing-mca-overview.md#understand-billing-profiles).
-3. Você pode usar uma seção de nota fiscal para organizar seus custos com base em suas necessidades, semelhantes aos departamentos em seu registro de Enterprise Agreement. Departamento se torna a seções de nota fiscal e administradores de departamento se tornarem proprietários das seções respectivo da nota fiscal. Para saber mais sobre as seções de fatura, consulte [entender as seções de nota fiscal](billing-mca-overview.md#understand-invoice-sections).
+1. Você pode usar a conta de cobrança para gerenciar a cobrança para o contrato de cliente da Microsoft. Para saber mais sobre a conta de cobrança, consulte [entender a conta de cobrança](billing-mca-overview.md#your-billing-account).
+2. Você pode usar o perfil de cobrança para gerenciar a cobrança para sua organização, semelhante ao seu registro de Enterprise Agreement. Os administradores de empresa se tornarem proprietários de perfil de cobrança. Para saber mais sobre perfis de cobrança, consulte [entender a cobrança perfis](billing-mca-overview.md#billing-profiles).
+3. Você pode usar uma seção de nota fiscal para organizar seus custos com base em suas necessidades, semelhantes aos departamentos em seu registro de Enterprise Agreement. Departamento se torna a seções de nota fiscal e administradores de departamento se tornarem proprietários das seções respectivo da nota fiscal. Para saber mais sobre as seções de fatura, consulte [entender as seções de nota fiscal](billing-mca-overview.md#invoice-sections).
 4. As contas que foram criadas no seu contrato Enterprise não têm suporte na nova conta de cobrança. Assinaturas da conta pertencem à seção respectivos fatura para seus departamentos. Os proprietários de conta podem criar e gerenciar assinaturas para suas seções de nota fiscal.
 
-## <a name="understand-changes-to-your-billing-administrators-access"></a>Entender as alterações para o acesso dos administradores de cobrança
+## <a name="changes-to-billing-administrator-access"></a>Alterações para acesso de administrador de cobrança
 
 Dependendo do seu acesso, os administradores de cobrança no seu registro do Enterprise Agreement obtém acesso a escopos a nova conta de cobrança. A tabela a seguir explica a alteração no acesso durante a instalação:
 
@@ -110,7 +106,7 @@ Sua nova conta dá suporte apenas a usuários do locatário que foi selecionado 
 
 Ao convidar usuários, eles são adicionados ao locatário como usuários convidados e obtém acesso à conta de cobrança. Para convidar usuários, o acesso de convidado deve ser ativado para o locatário. Para obter mais informações, consulte [controlar o acesso de convidado no Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso de convidado é desativado, entre em contato com os administradores globais do seu locatário para ativá-lo. <!-- Todo - How can they find their global administrator -->
 
-## <a name="view-features-replaced-by-the-new-billing-account"></a>Exibir recursos substituídos pela nova conta de cobrança
+## <a name="view-replaced-features"></a>Exibir recursos substituídos
 
 Recursos do Enterprise Agreement seguintes são substituídos por novos recursos na conta de cobrança para um contrato de cliente da Microsoft.
 
@@ -197,7 +193,7 @@ Para concluir a instalação, você precisa de acesso para a nova conta de cobra
 
    ![Captura de tela que mostra o status de transição](./media/billing-mca-setup-account/ea-mca-set-up-status.png)
 
-## <a name="validate-the-billing-account-is-set-up-properly"></a>Validar a cobrança de conta está configurada corretamente
+## <a name="validate-billing-account-set-up"></a>Validar a configuração de conta de cobrança
 
  Valide o seguinte para garantir que sua nova conta de cobrança está configurada corretamente:
 
@@ -205,7 +201,7 @@ Para concluir a instalação, você precisa de acesso para a nova conta de cobra
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+2. Pesquise **custo de gerenciamento + cobrança**.
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -221,7 +217,7 @@ Assinaturas do Azure que são transferidas da sua inscrição de Enterprise Agre
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+2. Pesquise **custo de gerenciamento + cobrança**.
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -241,7 +237,7 @@ Reservas do Azure que são movidas do seu registro do Enterprise Agreement para 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+2. Pesquise **custo de gerenciamento + cobrança**.
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
@@ -257,7 +253,7 @@ Os administradores de empresa são listados como proprietários de perfil ao mes
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
-2. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+2. Pesquise **custo de gerenciamento + cobrança**.
 
    ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-mca-setup-account/billing-search-cost-management-billing.png).
 

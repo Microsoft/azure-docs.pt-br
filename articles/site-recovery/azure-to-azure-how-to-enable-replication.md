@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
 ms.author: asgang
-ms.openlocfilehash: 86bd41d518006b0601a5c9d18e5429f76d5a4fc5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 19a1e13815f1d83f13392892dd9c87b84a40a1c1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926654"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551688"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -56,7 +56,7 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
    - **Rede virtual de destino**: Por padrão, o Site Recovery cria uma nova rede virtual na região de destino com um sufixo "asr" no nome. Isso é mapeado para sua rede de origem e usado para qualquer proteção futura. [Saiba mais](site-recovery-network-mapping-azure-to-azure.md) sobre o mapeamento de rede.
    - **Contas de armazenamento (a VM de origem não usa discos gerenciados) de destino**: Por padrão, o Site Recovery cria uma nova conta de armazenamento de destino imitando suas configurações de armazenamento da VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
    - **Discos gerenciados de réplica (a VM de origem usa discos gerenciados)** : Site Recovery cria novos discos gerenciados de réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou premium) a VM do disco gerenciado de origem.
-   - **Contas de armazenamento em cache**: O Site Recovery precisa de uma conta de armazenamento adicional, chamada de armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
+   - **Contas de armazenamento em cache**: O Site Recovery precisa de uma conta de armazenamento adicional, chamada de armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino. Essa conta de armazenamento deve ser o padrão.
    - **Conjuntos de disponibilidade de destino**: Por padrão, o Site Recovery cria uma novo conjunto de disponibilidade na região de destino com o sufixo "asr" no nome, para VMs que fazem parte de uma conjunto de disponibilidade na região de origem. Se o conjunto de disponibilidade criado pelo Site Recovery já existir, ele será reutilizado.
    - **Zonas de disponibilidade de destino**: Por padrão, o Site Recovery atribui o mesmo número da zona que a região de origem na região de destino se a região de destino oferecer suporte a zonas de disponibilidade.
 
@@ -66,7 +66,7 @@ Habilite a replicação. Este procedimento pressupõe que a região do Azure pri
      >Depois de habilitar a replicação, não é possível alterar o tipo de disponibilidade — única instância, zona de disponibilidade ou conjunto de disponibilidade. É preciso desabilitar e habilitar a replicação para alterar o tipo de disponibilidade.
      >
     
-   - **Política de replicação**: Define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de “24 horas” para retenção de pontos de recuperação e “60 minutos” para a frequência de instantâneo consistente do aplicativo.
+   - **Política de replicação**: Define as configurações para o histórico de retenção do ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery cria uma nova política de replicação com configurações padrão de ' 24 horas para retenção de ponto de recuperação e frequência do instantâneo '4 horas' para consistente com o aplicativo.
 
      ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 

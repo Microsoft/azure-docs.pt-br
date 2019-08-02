@@ -1,19 +1,18 @@
 ---
 title: Tutorial – Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure | Microsoft Docs
 description: Saiba como estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure, do início ao fim.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: df3850a839ac789957a9adffb7122a0b58987781
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705057"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699497"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Estender servidores de arquivos do Windows com a Sincronização de Arquivos do Azure
 
@@ -100,7 +99,7 @@ Nesta altura, você já criou uma conta de armazenamento e um compartilhamento d
    1. Na guia **Discos**, em **Opções de disco**, mantenha os padrões.
    1. Em **DISCOS DE DADOS**, selecione **Criar e anexar um novo disco**.
 
-   1. Use as configurações padrão, exceto **Tamanho (GiB)**, que poderá ser alterado para **1 GB** para este tutorial.
+   1. Use as configurações padrão, exceto **Tamanho (GiB)** , que poderá ser alterado para **1 GB** para este tutorial.
 
       ![Detalhes do disco de dados](./media/storage-sync-files-extend-servers/vm-create-new-disk-details.png)
 

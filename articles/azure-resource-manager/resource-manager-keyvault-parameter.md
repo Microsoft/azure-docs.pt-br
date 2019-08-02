@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: e47a087e27b6a8ade947e36ded762ce2e518ca25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de52dbb10d515a2255b5886df5bf0a0faa454f6b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507980"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672750"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação
 
@@ -94,7 +94,7 @@ O procedimento a seguir mostra como criar uma função com a permissão mínima 
       ]
     }
     ```
-    Substitua "00000000-0000-0000-0000-000000000000" pela ID de assinatura do usuário que precisa implantar os modelos.
+    Substitua "00000000-0000-0000-0000-000000000000" com a ID da assinatura.
 
 2. Crie a nova função usando o arquivo JSON:
 

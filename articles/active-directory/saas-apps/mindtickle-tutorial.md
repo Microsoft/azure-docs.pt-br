@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c38ccf8e1c2bee9695e629a2fc5e8e7b60c64a2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a02ef6da245db4fca19c2e20390cdad8718b301
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891528"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindtickle"></a>Tutorial: Integração do Azure Active Directory com o MindTickle
 
@@ -55,7 +55,7 @@ Para configurar a integração do MindTickle ao Azure AD, você precisa adiciona
 
 **Para adicionar o MindTickle da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o MindTickle, execute as seguinte
 
 4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](common/upload-metadata.png)
 
@@ -207,5 +207,5 @@ Ao clicar no bloco do MindTickle no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

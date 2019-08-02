@@ -4,7 +4,7 @@ description: Como configurar drivers NVIDIA GPU para VMs da série N que executa
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 769d3dda7b1e49612279c9bfa6a3dd586e50e4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e798b4316b8ccdc2f76512d4651365f5bb151ce
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66479110"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68278311"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -170,9 +170,9 @@ Implante VMs da série N habilitadas para RDMA de uma das imagens no Azure Marke
 
 * **CentOS-based 7.4 HPC** - Os drivers RDMA e o Intel MPI 5.1 são instalados na VM.
 
-## <a name="install-grid-drivers-on-nv-or-nvv2-series-vms"></a>Instalar drivers GRID em VMs da série NVv2 ou NV
+## <a name="install-grid-drivers-on-nv-or-nvv3-series-vms"></a>Instalar drivers de grade em VMs do NV ou da série NVv3
 
-Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexão SSH com cada VM e siga as etapas para a sua distribuição do Linux. 
+Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma conexão SSH com cada VM e siga as etapas para sua distribuição do Linux. 
 
 ### <a name="ubuntu"></a>Ubuntu 
 
@@ -188,8 +188,10 @@ Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexã
    sudo apt-get dist-upgrade -y
 
    sudo apt-get install build-essential ubuntu-desktop -y
+   
+   sudo apt-get install linux-azure -y
    ```
-3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NVv2 ou NV.) Para fazer isso, crie um arquivo no `/etc/modprobe.d` chamado `nouveau.conf` com o seguinte conteúdo:
+3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NVv2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -226,8 +228,15 @@ Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexã
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE
    ```
-9. Reinicie a VM e prossiga para verificar a instalação.
+   
+9. Remova o seguinte de `/etc/nvidia/gridd.conf` se ele estiver presente:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Reinicie a VM e prossiga para verificar a instalação.
 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux 
@@ -242,9 +251,11 @@ Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexã
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
  
    sudo yum install dkms
+   
+   sudo yum install hyperv-daemons
    ```
 
-2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NV2 ou NV.) Para fazer isso, crie um arquivo no `/etc/modprobe.d` chamado `nouveau.conf` com o seguinte conteúdo:
+2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Apenas use o driver NVIDIA em VMs NV2 ou NV.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -290,8 +301,15 @@ Para instalar drivers NVIDIA GRID em VMs da série NVv2 ou NV, faça uma conexã
  
    ```
    IgnoreSP=FALSE
+   EnableUI=FALSE 
    ```
-9. Reinicie a VM e prossiga para verificar a instalação.
+9. Remova o seguinte de `/etc/nvidia/gridd.conf` se ele estiver presente:
+ 
+   ```
+   FeatureType=0
+   ```
+10. Reinicie a VM e prossiga para verificar a instalação.
+
 
 ### <a name="verify-driver-installation"></a>Verificar a instalação de drivers
 
@@ -342,7 +360,7 @@ fi
 
 Em seguida, crie uma entrada para o seu script de atualização em `/etc/rc.d/rc3.d` para que o script seja invocado como raiz na inicialização.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 * Você pode definir o modo de persistência usando `nvidia-smi`, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
 

@@ -19,38 +19,33 @@
         - name: Com Node.js
           href: stream-files-nodejs-quickstart.md
     - name: Codificar o arquivo carregado e transmitir o vídeo
-      items:
-        - name: Com .NET
-          displayName: 'encode, encoding, job, transform'
-          href: stream-files-tutorial-with-api.md
+      displayName: 'encode, encoding, job, transform'
+      href: stream-files-tutorial-with-api.md
     - name: Transmissão ao vivo
-      items:
-        - name: Com .NET
-          href: stream-live-tutorial-with-api.md
-          displayName: 'Live Events, Live Outputs, ingest'
+      href: stream-live-tutorial-with-api.md
+      displayName: 'Live Events, Live Outputs, ingest'
     - name: Analisar seu vídeo
-      items:
-        - name: Com .NET
-          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-          href: analyze-videos-tutorial-with-api.md
+      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+      href: analyze-videos-tutorial-with-api.md
     - name: Criptografar dinamicamente com o AES-128
-      items:
-        - name: Com .NET
-          href: protect-with-aes128.md
+      href: protect-with-aes128.md
     - name: Criptografar dinamicamente com o DRM
-      items:
-        - name: Com .NET
-          displayName: 'PlayReady, Widevine, FairPlay'
-          href: protect-with-drm.md
+      displayName: 'PlayReady, Widevine, FairPlay'
+      href: protect-with-drm.md
 - name: Conceitos
   items:
     - name: Visão geral
       href: concepts-overview.md
-    - name: Upload e armazenamento na nuvem
+    - name: Contas
       items:
-        - name: Armazenamento
+        - name: Conta dos Serviços de Mídia
+          displayName: subscription
+          href: media-services-account-concept.md
+        - name: Conta de armazenamento
           href: storage-account-concept.md
           displayName: Storage side encryption
+    - name: Como carregar
+      items:
         - name: Ativos
           href: assets-concept.md
     - name: Codificação
@@ -98,12 +93,13 @@
           href: streaming-policy-concept.md
         - name: Códigos de erro do ponto de extremidade de streaming
           href: streaming-endpoint-error-codes.md
-    - name: Criptografia dinâmica e entrega de chaves
+    - name: Proteção do conteúdo
       items:
-        - name: Tipos de criptografia e protocolos de streaming
-          displayName: 'dynamic, encryption, content protection, PlayReady, Widevine, FairPlay'
+        - name: Criptografia dinâmica e entrega de chaves
+          displayName: 'content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay'
           href: content-protection-overview.md
-        - name: Sistema de DRM múltiplo com controle de acesso
+        - name: Design de sistema com vários DRMs
+          displayName: 'drm, access control'
           href: design-multi-drm-system-with-access-control.md
         - name: Licenças DRM
           items:
@@ -233,12 +229,26 @@
             - name: Com REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+        - name: Sub-recortar um vídeo
+          items:
+            - name: Com .NET
+              href: subclip-video-dotnet-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
+            - name: Com REST
+              href: subclip-video-rest-howto.md
+              displayName: 'subclipping, clip, edit, trim, clipping'
     - name: Usar a Grade de Eventos
       items:
         - name: Monitorar eventos - Portal
           href: monitor-events-portal-how-to.md
         - name: Monitorar eventos - CLI
           href: job-state-events-cli-how-to.md
+    - name: Usar o Azure Monitor
+      items:
+        - name: Métricas de monitoramento
+          href: media-services-metrics-howto.md
+        - name: Logs de diagnóstico do Monitor
+          href: media-services-diagnostic-logs-howto.md
     - name: Proteger conteúdo
       items:
         - name: Obter política de chave de conteúdo - .NET

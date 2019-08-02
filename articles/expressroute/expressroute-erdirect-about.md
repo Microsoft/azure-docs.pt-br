@@ -5,19 +5,19 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 07/10/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: fb9dc5116ba23d57c7f2fe543e734759e8bbcc7b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e598cc03a1b7b4999719152540866c7168130e03
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367619"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807473"
 ---
 # <a name="about-expressroute-direct"></a>Sobre o ExpressRoute Direct
 
-O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. O ExpressRoute Direct oferece conectividade dupla de 100 Gbps, que suporta conectividade ativa / ativa em escala.
+O ExpressRoute Direct fornece a capacidade de conectar-se diretamente à rede global da Microsoft em localizações de emparelhamento estrategicamente distribuídas no mundo todo. Diretos do ExpressRoute fornece Gbps duplos de 100 ou 10 Gbps conectividade, que dá suporte à conectividade de ativo/ativo em escala.
 
 Os principais recursos que o ExpressRoute Direct fornece incluem, mas não estão limitados a:
 
@@ -38,9 +38,9 @@ Antes de usar diretos do ExpressRoute, você deve primeiro registrar sua assinat
 
 | **ExpressRoute usando um provedor de serviços** | **ExpressRoute Direct** | 
 | --- | --- |
-| Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer infra-estrutura de 100 Gbps e gerenciamento total de todas as camadas
+| Utiliza provedores de serviços para permitir integração e conectividade rápidas na infraestrutura existente | Requer 100 Gbps/10 Gbps infraestrutura e gerenciamento completo de todas as camadas
 | Integra-se a centenas de fornecedores, inclusive Ethernet e MPLS | Capacidade direta/dedicada para setores regulamentados e ingestão de dados em massa |
-| SKUs de circuitos de 50 Mbps a 10 Gbps | O cliente pode selecionar uma combinação dos seguintes SKUs de circuito: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps – limitados a um total de 200 Gbps
+| SKUs de circuitos de 50 Mbps a 10 Gbps | Cliente pode selecionar uma combinação do circuito seguinte SKUs no ExpressRoute de 100 Gbps direta: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Cliente pode selecionar uma combinação do circuito seguinte SKUs de ExpressRoute de 10 Gbps direta:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
 | Otimizado para um único locatário | Otimizado para um único locatário/provedores de serviços de nuvem/várias unidades de negócios
 
 ## <a name="expressroute-direct-circuits"></a>Circuitos do ExpressRoute Direct
@@ -53,7 +53,28 @@ A funcionalidade na maioria dos cenários é equivalente a circuitos que utiliza
 
 ## <a name="circuit-skus"></a>SKUs de circuito
 
-O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no Armazenamento do Azure e em outros serviços de Big Data. Os circuitos do ExpressRoute no ExpressRoute Direct agora também dão suporte a SKUs de **40 Gbps** e **100 Gbps**. Os pares de portas físicas têm **100Gbps** apenas e podem ter vários circuitos virtuais com larguras de banda de 5, 10, 40, 100Gbps - até 200Gbps em qualquer combinação. 
+O ExpressRoute Direct dá suporte a cenários de ingestão de dados em massa no Armazenamento do Azure e em outros serviços de Big Data. Circuitos de ExpressRoute em 100 Gbps ExpressRoute direta também dão suporte a **40 Gbps** e **100 Gbps** SKUs do circuito. Os pares de porta física são **100 ou 10 Gbps** apenas e pode ter vários circuitos virtuais. Tamanhos de circuito:
+
+| **Diretos do ExpressRoute de 100 Gbps** | **Diretos do ExpressRoute de 10 Gbps** | 
+| --- | --- |
+| **Assinado da largura de banda**: 200 Gbps | **Assinado da largura de banda**: 20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+## <a name="technical-requirements"></a>Requisitos técnicos
+
+* Microsoft Enterprise Edge Router (MSEE) Interfaces:
+    * Portas duplas de Gigabit Ethernet de 10 ou 100 somente entre o par de roteador
+    * Conectividade de fibra de LR de modo único
+    * IPv4 e IPv6
+    * Bytes de 1500 de MTU de IP
+
+* Conectividade de 2/camada 3 da camada de comutador/roteador:
+    * Deve oferecer suporte a marca de 1 802.1Q (Dot1Q) ou uma marca duas 802.1Q (QinQ) encapsulamento de marca
+    * EtherType = 0x8100
+    * Deve adicionar a marca VLAN externa (STAG) com base na ID de VLAN especificada pela Microsoft - *aplicável apenas em QinQ*
+    * Deve oferecer suporte a várias sessões BGP (VLANs) por porta e o dispositivo
+    * Conectividade IPv4 e IPv6. *Para IPv6 sem sub-interface adicional será criado. Endereço IPv6 será adicionado ao existente sub-interface*. 
+    * Opcional: [Detecção de encaminhamento bidirecional (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) suporte, que é configurado por padrão em todos os Peerings privados em circuitos de ExpressRoute
 
 ## <a name="vlan-tagging"></a>Marcação de VLAN
 

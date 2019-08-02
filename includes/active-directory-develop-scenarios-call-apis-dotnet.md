@@ -15,11 +15,11 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 0196d39f5b131bc54e00412beb7fdf10b7352336
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121870"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172105"
 ---
 ### <a name="authenticationresult-properties-in-msalnet"></a>Propriedades de AuthenticationResult no MSAL.NET
 
@@ -37,7 +37,7 @@ Quando o token é entregue para um usuário, `AuthenticationResult` também cont
 
 ### <a name="iaccount"></a>IAccount
 
-MSAL.NET define a noção de conta (por meio de `IAccount` interface). Essa alteração interruptiva fornece a semântica de direito: o fato de que o mesmo usuário pode ter várias contas em diferentes diretórios do Azure AD. Também MSAL.NET fornece melhores informações no caso de cenários de convidado, como informações de conta inicial são fornecidas.
+MSAL.NET define a noção de conta (por meio de `IAccount` interface). Essa alteração da falha fornece a semântica correta: o fato de que o mesmo usuário pode ter várias contas, em diferentes diretórios do Azure AD. Também MSAL.NET fornece melhores informações no caso de cenários de convidado, como informações de conta inicial são fornecidas.
 O diagrama a seguir mostra a estrutura do `IAccount` interface:
 
 ![image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)

@@ -11,12 +11,12 @@ ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 92f25d956bc8f1f930ae6ebbf7ee48c144bf8a30
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816923"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476853"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -197,7 +197,7 @@ Em **Lógica de alerta**, para **Limite**, digite **0**. Quando tiver terminado,
 
 Em **Grupos de Ações**, selecione **Criar Novo**. Um grupo de ação é um grupo de ações que você pode usar através de vários alertas. As ações podem incluir, dentre outras, notificações email, runbooks, webhooks e muito mais. Para saber mais sobre grupos de ações, veja [Criar e gerenciar grupos de ações](../azure-monitor/platform/action-groups.md).
 
-Em **Detalhes do alerta**, insira um nome e uma descrição para o alerta. Defina **Severidade** como **Informativo(Sev 2)**, **Aviso(Sev 1)** ou **Crítico(Sev 0)**.
+Em **Detalhes do alerta**, insira um nome e uma descrição para o alerta. Defina **Severidade** como **Informativo(Sev 2)** , **Aviso(Sev 1)** ou **Crítico(Sev 0)** .
 
 Na caixa **Nome do grupo de ação**, digite um nome para o alerta e um nome curto. O nome curto é usado no lugar de um nome de grupo de ação completo quando as notificações são enviadas usando esse grupo.
 

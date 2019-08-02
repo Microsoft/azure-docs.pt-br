@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 27b154c5374fb16388e0ae72243fb7b32a400d96
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Tutorial: Integração do Azure Active Directory com o FactSet
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o FactSet, execute as seguintes e
 
     ![Informações de logon único de domínio e URLs do FactSet](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://login.factset.com`
 
@@ -197,5 +197,5 @@ Ao clicar no bloco do FactSet no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

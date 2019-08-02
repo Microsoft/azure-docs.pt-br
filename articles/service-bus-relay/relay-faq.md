@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 207f73bbf9a92d26be1791fc11ce81fe68252705
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111480"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422964"
 ---
 # <a name="azure-relay-faqs"></a>Perguntas frequentes sobre Retransmissão do Azure
 
@@ -36,13 +36,13 @@ O [serviço de Retransmissão do Azure](relay-what-is-it.md) facilita seus aplic
 Um [namespace](relay-create-namespace-portal.md) é um contêiner de escopo que você pode usar para tratar recursos de Retransmissão dentro de seu aplicativo. Você deve criar um namespace para usar a Retransmissão. Essa é uma das primeiras etapas para começar.
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>O que aconteceu com o serviço de Retransmissão do Barramento de Serviço?
-O serviço que antes era chamado de Retransmissão do Barramento de Serviço agora se chama [Retransmissão do WCF](relay-wcf-dotnet-get-started.md). Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos Serviços BizTalk do Azure. Ainda há suporte para Retransmissão do WCF e Conexões Híbridas.
+O serviço que antes era chamado de Retransmissão do Barramento de Serviço agora se chama [Retransmissão do WCF](service-bus-relay-tutorial.md). Você pode continuar a usar esse serviço como de costume. O recurso Conexões Híbridas é uma versão atualizada de um serviço que foi transplantado dos Serviços BizTalk do Azure. Ainda há suporte para Retransmissão do WCF e Conexões Híbridas.
 
 ## <a name="pricing"></a>Preços
-Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode conferir as [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq/) para obter informações gerais sobre preços do Azure. Para obter informações completas sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview].
+Esta seção responde a algumas perguntas frequentes sobre a estrutura de preços de Retransmissão. Você também pode conferir as [Perguntas frequentes sobre o suporte do Azure](https://azure.microsoft.com/support/faq/) para obter informações gerais sobre preços do Azure. Para saber mais sobre o preço da Retransmissão, consulte [Detalhes de preço do Barramento de Serviço][Pricing overview].
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>Como são cobradas as Conexões Híbridas e a Retransmissão do WCF?
-Para obter informações completas sobre os preços da Retransmissão, consulte a tabela [Conexões Híbridas e Retransmissões do WCF][Pricing overview] na página de detalhes de preços do Barramento de Serviço. Além dos preços mencionados, indicados naquela página, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo é provisionado.
+Para obter informações completas sobre preços de retransmissão, consulte a tabela [conexões híbridas e retransmissões do WCF][Pricing overview] na página detalhes de preços do barramento de serviço. Além dos preços mencionados, indicados naquela página, você é cobrado por transferências de dados associadas para saída fora do data center em que seu aplicativo é provisionado.
 
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>Como sou cobrado por Conexões Híbridas?
 Aqui estão três exemplos de cenários de cobrança para Conexões Híbridas:
@@ -80,11 +80,11 @@ Enviar uma mensagem para uma retransmissão do Barramento de Serviço é tratado
 As retransmissões abertas usando a associação do WCF **netTCPRelay** tratam as mensagens não como mensagens individuais, mas como um fluxo de dados que flui pelo sistema. Ao usar essa associação, somente o remetente e o ouvinte têm visibilidade do enquadramento das mensagens individuais enviadas e recebidas. Para retransmissões que usam a associação **netTCPRelay**, todos os dados são tratados como um fluxo para o cálculo das mensagens cobráveis. Nesse caso, o Barramento de Serviço calcula a quantidade total de dados enviados ou recebidos por meio de cada retransmissão individual por 5 minutos. Em seguida, ele divide essa quantidade total de dados por 64 KB para determinar o número de mensagens faturáveis para a retransmissão durante o período.
 
 ## <a name="quotas"></a>Cotas
-| Nome da cota | Scope |  Observações | Value |
+| Nome da cota | Escopo |  Observações | Valor |
 | --- | --- | --- | --- |
 | Ouvintes simultâneos em uma retransmissão |Entidade |Solicitações subsequentes de conexões adicionais são rejeitadas e uma exceção é recebida pelo código de chamada. |25 |
 | Conexões de retransmissão simultâneas por todos os pontos de extremidade de retransmissão em um namespace de serviço |Namespace |- |5\.000 |
-| Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10\.000 |
+| Pontos de extremidade de retransmissão por namespace de serviço |Namespace |- |10.000 |
 | Tamanho de mensagem para retransmissões [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) |Namespace |As mensagens de entrada que excederem essas cotas serão rejeitadas e uma exceção será recebida pelo código de chamada. |64 KB |
 | Tamanho de mensagem para retransmissões [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) |Namespace |Não há limite no tamanho da mensagem. |Ilimitado |
 
@@ -106,7 +106,7 @@ Para mover um namespace de uma assinatura do Azure para outra assinatura, você 
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-Para usar o portal do Azure para migrar namespaces de Retransmissão do Azure de uma assinatura para outra, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+Para usar o portal do Azure para migrar namespaces de Retransmissão do Azure de uma assinatura para outra, consulte [Mover recursos para um novo grupo de recursos ou assinatura](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -123,12 +123,12 @@ $res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsof
 Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-relay-apis-and-suggested-actions-you-can-take"></a>Quais são algumas das exceções geradas pelas APIs de Retransmissão do Azure e que ações sugeridas você pode executar?
-Para obter uma descrição de exceções comuns e ações sugeridas que você executar, consulte [Exceções de retransmissão][Relay exceptions].
+Para obter uma descrição das exceções comuns e as ações sugeridas que você pode tomar, consulte [exceções][Relay exceptions]de retransmissão.
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>O que é uma assinatura de acesso compartilhado e quais idiomas posso usar para gerar uma assinatura?
-As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em Node, PHP, Java, C e C#, consulte [Autenticação do Barramento de Serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
+As SAS (Assinaturas de Acesso Compartilhado) são um mecanismo de autenticação com base em hashes seguros SHA-256 ou URIs. Para obter informações sobre como gerar suas próprias assinaturas em node. js, PHP, Python, Java, C e C#, consulte Autenticação do [barramento de serviço com assinaturas de acesso compartilhado][Shared Access Signatures].
 
 ### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>É possível colocar pontos de extremidade de retransmissão em uma lista de permissões?
 Sim. O cliente de retransmissão faz conexões com o serviço de Retransmissão do Azure usando nomes de domínio totalmente qualificados. Os clientes podem adicionar uma entrada para `*.servicebus.windows.net` nos firewalls que dão suporte à lista de permissões de DNS.

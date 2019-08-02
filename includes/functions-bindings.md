@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 957009ec9833df2dd0f89c3745c7f3df5a3705b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131334"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171692"
 ---
 A tabela a seguir mostra as associações que são suportadas nas duas versões principais do tempo de execução do Azure Functions.
 
-| Type | 1.x | 2.x<sup>1</sup> | Gatilho | Entrada | Saída |
+| Tipo | 1.x | 2.x<sup>1</sup> | Gatilho | Entrada | Saída |
 | ---- | :-: | :-: | :------: | :---: | :----: |
 | [Armazenamento de Blobs](../articles/azure-functions/functions-bindings-storage-blob.md)          |✔|✔|✔|✔|✔|
 | [Cosmos DB](../articles/azure-functions/functions-bindings-documentdb.md)               |✔|✔|✔|✔|✔|

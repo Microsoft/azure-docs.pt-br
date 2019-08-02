@@ -2,18 +2,18 @@
 title: Resolver problemas de integração de gerenciamento de atualizações, controle de alterações e inventário
 description: Aprenda a solucionar erros de integração com as soluções Gerenciamento de atualizações, Controle de alterações e Inventário
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8867912d98897a695c1e59ebd4177301230281bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3687a2fdcba9c2078bbbd9344089b5a22467682c
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399768"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477496"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Resolver erros quando soluções de integração
 
@@ -55,7 +55,7 @@ Failed to configure automation account for diagnostic logging
 
 #### <a name="cause"></a>Causa
 
-Esse erro pode ser causado se o tipo de preço não corresponde ao modelo de cobrança da assinatura. Para obter mais informações, consulte [monitoramento de uso e custos estimados no Azure Monitor](http://aka.ms/PricingTierWarning).
+Esse erro pode ser causado se o tipo de preço não corresponde ao modelo de cobrança da assinatura. Para obter mais informações, consulte [monitoramento de uso e custos estimados no Azure Monitor](https://aka.ms/PricingTierWarning).
 
 #### <a name="resolution"></a>Resolução
 

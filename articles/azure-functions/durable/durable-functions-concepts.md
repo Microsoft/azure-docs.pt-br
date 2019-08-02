@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 95ec6a863f951a8c26abd865041c68df333a4e38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a244883f470f4906879725daf0d37bd1759e65c4
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071328"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812903"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Padrões de funções duráveis e conceitos técnicos (Azure Functions)
 
@@ -223,7 +223,7 @@ Em .NET, o parâmetro de [DurableOrchestrationClient](https://azure.github.io/az
 
 Nos exemplos anteriores, uma função disparada por HTTP assume um `functionName` o valor da URL de entrada e passa o valor para [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_). O [CreateCheckStatusResponse](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_CreateCheckStatusResponse_System_Net_Http_HttpRequestMessage_System_String_) API de associação, em seguida, retorna uma resposta que contém um `Location` cabeçalho e informações adicionais sobre a instância. Você pode usar as informações mais tarde para pesquisar o status da instância iniciada ou para encerrar a instância.
 
-### <a name="monitoring"></a>Padrão 4: Monitoramento
+### <a name="monitoring"></a>Padrão 4: Monitor
 
 O padrão de monitoramento refere-se a um processo flexível e recorrente em um fluxo de trabalho. Um exemplo está sondando até que condições específicas forem atendidas. Você pode usar uma expressão [gatilho de temporizador](../functions-bindings-timer.md) para resolver um basic cenário, como um trabalho de limpeza periódico, mas seu intervalo é estático e gerenciar tempos de vida da instância se torna complexo. Você pode usar as funções duráveis para criar intervalos de recorrência flexíveis, tempos de vida da tarefa de gerenciar e criar o monitor de vários processos de uma única orquestração.
 
@@ -374,7 +374,7 @@ module.exports = async function (context) {
 };
 ```
 
-## <a name="pattern-6-aggregator-preview"></a>Padrão #6: Agregador (visualização)
+### <a name="aggregator"></a>Padrão #6: Agregador (visualização)
 
 O sexto padrão é sobre agregar dados de evento em um período de tempo em um único endereçável *entidade*. Nesse padrão, os dados que está sendo agregados podem vir de várias fontes, poderão ser entregues em lotes ou podem ser dispersas em longa-períodos de tempo. O agregador talvez precise realizar ação nos dados do evento conforme eles chegam e clientes externos talvez seja necessário consultar os dados agregados.
 
@@ -385,27 +385,46 @@ O aspecto complicado tentar implementar esse padrão com normal, as funções se
 Usando um [função de entidade durável](durable-functions-preview.md#entity-functions), um pode implementar esse padrão facilmente como uma única função.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+Entidades duráveis também podem ser modeladas como classes do .NET. Isso pode ser útil se a lista de operações se torna grande e se for predominante estático. O exemplo a seguir é uma implementação equivalente do `Counter` entidade usando métodos e classes do .NET.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -426,7 +445,7 @@ public static async Task Run(
 }
 ```
 
-Da mesma forma, os clientes podem consultar para o estado de uma função de entidade usando métodos do `orchestrationClient` associação.
+Os proxies gerados dinamicamente também estão disponíveis para entidades de sinalização de uma maneira fortemente tipada. E, além de sinalização, os clientes também podem consultar para o estado de uma função de entidade usando métodos do `orchestrationClient` associação.
 
 > [!NOTE]
 > Funções da entidade atualmente só estão disponíveis na [durável Functions 2.0 visualização](durable-functions-preview.md).

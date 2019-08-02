@@ -2,18 +2,18 @@
 title: 'Tutorial: Capturar eventos de um espaço dos Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como receber notificações de seus espaços integrando os Gêmeos Digitais do Azure ao Aplicativo Lógico do Azure usando as etapas deste tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 524ca96687e9395b65ec513326ad0fd4f7c6d429
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 2b84fa2fd8053ca4dc7ef0ad246d29b2bba3dae5
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528895"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484708"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutorial: Receber notificações de espaços dos Gêmeos Digitais do Azure usando Aplicativos Lógicos
 
@@ -76,16 +76,16 @@ Os [tópicos da grade de eventos](../event-grid/concepts.md#topics) fornecem uma
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Substitua o espaço reservado `Primary_connection_string_for_your_Event_Grid` pelo valor de **YOUR_KEY_1**.
+1. Substitua o espaço reservado `<Primary connection string for your Event Grid>` pelo valor de **YOUR_KEY_1**.
 
-1. Substitua o espaço reservado `Secondary_connection_string_for_your_Event_Grid` pelo valor de **YOUR_KEY_2**.
+1. Substitua o espaço reservado `<Secondary connection string for your Event Grid>` pelo valor de **YOUR_KEY_2**.
 
-1. Substitua o espaço reservado `Event_Grid_Topic_Path` pelo caminho do tópico da grade de eventos. Obtenha esse caminho removendo o **https://** e os caminhos de recurso à direita da URL do **Ponto de Extremidade do Tópico**. Ele deve ficar aproximadamente com este formato: *seuNomedaGradedeEvento.seuLocal.eventgrid.azure.net*.
+1. Substitua o espaço reservado do **caminho** pelo caminho do tópico da grade de eventos. Obtenha esse caminho removendo o **https://** e os caminhos de recurso à direita da URL do **Ponto de Extremidade do Tópico**. Ele deve ficar aproximadamente com este formato: *seuNomedaGradedeEvento.seuLocal.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Insira todos os valores sem aspas. Verifique se há pelo menos um caractere de espaço após os dois-pontos no arquivo YAML. Você também pode validar o conteúdo do arquivo YAML usando qualquer validador YAML online, como [esta ferramenta](https://onlineyamltools.com/validate-yaml).
@@ -114,11 +114,11 @@ Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-a
 
 1. Abra o recurso do Aplicativo Lógico quando for implantado e abra o painel **Designer de Aplicativo Lógico**. 
 
-1. Selecione o gatilho **Quando um evento da Grade de Eventos ocorrer**. Entre no locatário com sua conta do Azure quando solicitado. Selecione **Permitir acesso** para o recurso da Grade de Eventos quando solicitado. Selecione **Continuar**.
+1. Selecione o gatilho **Quando um evento de recurso da Grade de Eventos ocorrer**. Entre no locatário com sua conta do Azure quando solicitado. Selecione **Permitir acesso** para o recurso da Grade de Eventos, se solicitado. Selecione **Continuar**.
 
-1. Na janela **Quando um evento de recurso ocorrer (versão prévia)**: 
+1. Na janela **Quando um evento de recurso ocorrer (versão prévia)** : 
    
-    a. Selecione a **Assinatura** que você usou para criar o tópico da grade de eventos.
+   a. Selecione a **Assinatura** que você usou para criar o tópico da grade de eventos.
 
    b. Selecione **Microsoft.EventGrid.Topics** como **Tipo de Recurso**.
 
@@ -130,11 +130,11 @@ Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-a
 
 1. Na janela **Escolher uma ação**:
 
-    a. Pesquise a frase **analisar json**e selecione a ação **Analisar JSON**.
+   a. Pesquise a frase **analisar json**e selecione a ação **Analisar JSON**.
 
    b. No campo **Conteúdo**, selecione **Corpo** na lista **Conteúdo dinâmico**.
 
-   c. Selecione **Usar amostra para gerar esquema**. Cole a carga JSON a seguir e selecione **Concluído**.
+   c. Selecione **Use o conteúdo de amostra para gerar o esquema**. Cole a carga JSON a seguir e selecione **Concluído**.
 
     ```JSON
     {
@@ -162,7 +162,7 @@ Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-a
 
 1. Na janela **Escolher uma ação**:
 
-    a. Selecione **Controle > Condição** ou pesquise **Condição** na lista **Ações**. 
+   a. Selecione **Controle > Condição** ou pesquise **Condição** na lista **Ações**. 
 
    b. Na primeira caixa de texto **Escolher um valor**, selecione **eventType** na lista **Conteúdo dinâmico** para a janela **Analisar JSON**.
 
@@ -172,9 +172,9 @@ Você pode usar o serviço [Aplicativos Lógicos do Azure](../logic-apps/logic-a
 
 1. Na janela **Se verdadeiro**:
 
-    a. Selecione **Adicionar uma ação** e selecione **Outlook para Office 365**.
+   a. Selecione **Adicionar uma ação** e selecione **Outlook para Office 365**.
 
-   b. Na lista **Ações**, selecione **Enviar um email**. Selecione **Entrar** e use suas credenciais de conta de email. Selecione **Permitir acesso** quando solicitado.
+   b. Na lista **Ações**, selecione **Enviar um email**. Selecione **Entrar** e use suas credenciais de conta de email. Selecione **Permitir acesso**, se solicitado.
 
    c. Na caixa **Para**, insira a ID do email para receber notificações. Em **Assunto**, digite o texto **Notificação dos Gêmeos Digitais sobre a má qualidade do ar no espaço**. Em seguida, selecione **TopologyObjectId** na lista **Conteúdo dinâmico** de **Parse JSON**.
 

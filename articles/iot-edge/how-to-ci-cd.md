@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f449449c542ce6ac04daa58ff37a3577f0d75aee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 659a6f5acaac848084ed1e9590a414191542b54a
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61221683"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414622"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integração contínua e implantação contínua no Azure IoT Edge
 
@@ -47,7 +47,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
 >
 >Para saber mais, confira [Criar um pipeline de build](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
 
-1. Logon em sua organização de DevOps do Azure (**https:\//dev.azure.com/{your organização} /** ) e abra o projeto que contém seu repositório de solução de IoT Edge.
+1. Entre em sua organização do Azure DevOps (**https\/:/dev.Azure.com/{Your Organization}/** ) e abra o projeto que contém seu repositório de solução de IOT Edge.
 
    Neste artigo, criamos um repositório chamado **IoTEdgeRepo**. Esse repositório contém **IoTEdgeSolution**, que tem o código para um módulo denominado **filtermodule**. 
 
@@ -73,7 +73,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
 
    * Se quiser criar os módulos na plataforma amd64 para contêineres do Windows 1809, você precisará [configurar o agente auto-hospedado no Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
 
-   * Se quiser criar os módulos na plataforma arm32v7 para contêineres do Linux, você precisará [configurar o agente auto-hospedado no Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
+   * Se você quiser criar seus módulos na plataforma arm32v7 ou arm64 para contêineres do Linux, precisará [Configurar o agente auto-hospedado no Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
      ![Configurar o pool de agentes de build](./media/how-to-ci-cd/configure-env.png)
 
@@ -103,7 +103,7 @@ Nesta seção, você criará um novo pipeline de build. Configure o pipeline par
 
    Se você tiver vários registros de contêiner para hospedar suas imagens de módulo, você precisará duplicar essa tarefa, selecione o registro de contêiner diferente e usar **Ignorar módulos** nas configurações avançadas para ignorar as imagens que não são para esse registro específico.
 
-8. Selecione a tarefa **Publicar artefatos de build** para editá-la. Forneça o caminho de arquivo para o arquivo de implantação gerado pela tarefa de build. Defina o valor de **Caminho de publicação** para coincidir com a variável de saída definida na tarefa de compilação de módulo. Por exemplo: `$(edge.DEPLOYMENT_FILE_PATH)`. Deixe os outros valores com seus padrões. 
+8. Selecione a tarefa **Publicar artefatos de build** para editá-la. Forneça o caminho de arquivo para o arquivo de implantação gerado pela tarefa de build. Defina o valor de **Caminho de publicação** para coincidir com a variável de saída definida na tarefa de compilação de módulo. Por exemplo, `$(edge.DEPLOYMENT_FILE_PATH)`. Deixe os outros valores com seus padrões. 
 
 9. Abra a guia **Gatilhos** e marque a caixa **Ativar integração contínua**. Verifique se o branch que contém seu código está incluído.
 
@@ -210,7 +210,7 @@ Para disparar um trabalho de build, você pode efetuar push da confirmação do 
 
 3. Selecione-o para acompanhar seu progresso. Se o pipeline de build concluir com êxito, ele disparará uma versão para o estágio **QA**. 
 
-    ![Logs de build](./media/how-to-ci-cd/build-logs.png)
+    ![Logs do build](./media/how-to-ci-cd/build-logs.png)
 
 4. A implantação bem-sucedida para o estágio **QA** dispara uma notificação para o aprovador. Verifique se os módulos foram implantados com sucesso nos dispositivos de destino com o estágio QA. Em seguida, navegue até o pipeline de lançamento e aprove o encaminhamento da versão para o estágio PROD, selecionando o botão **PROD** e **Aprovar**. 
 

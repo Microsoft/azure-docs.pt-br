@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 98ab9904f8afc5c74d9f043b0964bc56b49670cc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 92c2da7c248a9737ab0ead35e0d4a9cae87f4588
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Tutorial: Integração do Azure Active Directory com o PolicyStat
 
@@ -55,7 +55,7 @@ Para configurar a integração do PolicyStat ao Azure AD, é necessário adicion
 
 **Para adicionar o PolicyStat por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
 
     ![Informações de logon único de Domínio e URLs do PolicyStat](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com/saml2/metadata/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.policystat.com/saml2/metadata/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do PolicyStat](http://www.policystat.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
     |------------------- | -------------------- |
     | uid | ExtractMailPrefix([mail]) |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
     
     ![image](common/new-save-attribute.png)
 
@@ -172,7 +172,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
    
     ![Configuração de Logon Único](./media/policystat-tutorial/ic808635.png "Configuração de Logon Único")
    
-     a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
+    a. Na caixa de texto **Atributo do Nome de Usuário**, digite **uid**.
 
     b. Na caixa de texto **Atributo de Nome**, digite o **firstname** do usuário **Brenda**.
 
@@ -186,7 +186,7 @@ Para configurar o logon único do Azure AD com o PolicyStat, realize as seguinte
    
     ![Configuração de Logon Único](./media/policystat-tutorial/ic808636.png "Configuração de Logon Único")
    
-     a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
+    a. Abra o arquivo de metadados baixado, copie o conteúdo e, depois, cole-o na caixa de texto **Metadados do Provedor de Identidade**.
 
     b. Clique em **Salvar Alterações**.
 
@@ -259,5 +259,5 @@ Ao clicar no bloco do PolicyStat no painel de acesso, você será conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

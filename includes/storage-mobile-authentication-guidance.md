@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4ecc237b56575f99844d3ec074225fadb69d3c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158598"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673221"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurar seu aplicativo para acessar o Armazenamento de Blob
 Há duas maneiras de autenticar o aplicativo para acessar os serviços de Armazenamento:
@@ -38,11 +38,11 @@ Veja um exemplo de cadeia de conexão usando a autenticação de Chave Compartil
 
 ### <a name="shared-access-signatures-sas"></a>SAS (Assinaturas de Acesso Compartilhado)
 Para um aplicativo móvel, o método recomendado para autenticar uma solicitação por um cliente em relação ao serviço de Armazenamento do Azure é usando uma SAS (Assinatura de Acesso Compartilhado). A SAS permite conceder a um cliente acesso a um recurso por um período de tempo especificado, com um conjunto de permissões especificado.
-Como proprietário da conta de armazenamento, você precisará gerar uma SAS a ser consumida por seus clientes móveis. Para gerar a SAS, provavelmente você desejará escrever um serviço separado que gere a SAS a ser distribuída a seus clientes. Para fins de teste, você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) ou o [Portal do Azure](https://portal.azure.com) para gerar um SAS. Ao criar a SAS, você pode especificar o intervalo de tempo em que a SAS é válida e as permissões que a SAS concede ao cliente.
+Como proprietário da conta de armazenamento, você precisará gerar uma SAS a ser consumida por seus clientes móveis. Para gerar a SAS, provavelmente você desejará escrever um serviço separado que gere a SAS a ser distribuída a seus clientes. Para fins de teste, você pode usar o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com) ou o [Portal do Azure](https://portal.azure.com) para gerar um SAS. Ao criar a SAS, você pode especificar o intervalo de tempo em que a SAS é válida e as permissões que a SAS concede ao cliente.
 
 O exemplo a seguir mostra como usar o Gerenciador de Armazenamento do Microsoft Azure para gerar uma SAS.
 
-1. Se você ainda não fez isso, [Instale o Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com)
+1. Se você ainda não fez isso, [Instale o Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com)
 2. Conecte-se à sua assinatura.
 3. Clique em sua conta de armazenamento e clique na guia "Ações" na parte inferior esquerda. Clique em "Get Shared Access Signature" (Obter Assinatura de Acesso Compartilhado) para gerar uma "cadeia de conexão" para a SAS.
 4. Aqui está um exemplo de uma cadeia de conexão de SAS que concede permissões leitura e gravação no serviço, contêiner e nível de objeto para o serviço Blob da conta de armazenamento.

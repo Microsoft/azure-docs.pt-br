@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: 547f74da303448e79602c60d7ec9125da2f456c6
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67078345"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172523"
 ---
 > [!div class="op_single_selector"]
 > * [Visão geral](../articles/hdinsight/hadoop/hdinsight-use-hive.md)

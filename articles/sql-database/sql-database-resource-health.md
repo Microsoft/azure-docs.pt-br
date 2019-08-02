@@ -12,18 +12,18 @@ ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c3b9fecd3ad404385732e55a9cf3aa65a6e388b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4757236d179e4d6ceb626f58f12cfe48799eed7a
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61482973"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854357"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Use o Resource Health para solucionar problemas de conectividade do Banco de Dados SQL do Azure
 
 ## <a name="overview"></a>Visão geral
 
-A [Resource Health](../service-health/resource-health-overview.md#getting-started) para o SQL Database ajuda você a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos SQL. Ele informa sobre a integridade atual e anterior de seus recursos e ajuda a reduzir os problemas. O Resource Health fornece suporte técnico quando você precisa de ajuda com problemas de serviço do Azure.
+A [Resource Health](../service-health/resource-health-overview.md#get-started) para o SQL Database ajuda você a diagnosticar e obter suporte quando um problema do Azure afeta seus recursos SQL. Ele informa sobre a integridade atual e anterior de seus recursos e ajuda a reduzir os problemas. O Resource Health fornece suporte técnico quando você precisa de ajuda com problemas de serviço do Azure.
 
 ![Visão geral](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
@@ -51,11 +51,11 @@ Um status **Indisponível** significa que o Resource Health detectou falhas de l
 
 ![Indisponível](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>Desconhecido
+### <a name="unknown"></a>Unknown
 
 O status de integridade de **Desconhecido** indica que o Resource Health não recebeu informações sobre esse recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva sobre o estado do recurso, é um ponto de dados importante no processo de solução de problemas. Se o seu recurso permanecer nesse estado por um período prolongado, entre em contato com o suporte. Se você está tendo problemas com o recurso, o status de integridade Desconhecido pode sugerir que um evento na plataforma está afetando o recurso.
 
-![Desconhecido](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
+![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informações de histórico
 

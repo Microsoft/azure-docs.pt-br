@@ -16,31 +16,41 @@
         - name: Enriquecer com IA (pesquisa cognitiva)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
-      items:
-        - name: 1 - Criar um índice
-          href: search-create-index-dotnet.md
-        - name: 2 - Carregar Dados
-          href: search-import-data-dotnet.md
-        - name: 3 - Pesquisar um índice
-          href: search-query-dotnet.md
+      href: search-get-started-dotnet.md
     - name: postman
-      href: search-fiddler.md
+      href: search-get-started-postman.md
     - name: PowerShell
-      href: search-create-index-rest-api.md
+      href: search-get-started-powershell.md
     - name: Python
       href: search-get-started-python.md
 - name: Tutoriais
   items:
+    - name: Crie seu primeiro aplicativo
+      items:
+        - name: 1 – Página de pesquisa básica
+          href: tutorial-csharp-create-first-app.md
+        - name: 2 – Adicione a paginação de resultados
+          href: tutorial-csharp-paging.md
+        - name: 3 – Adicione a digitação antecipada
+          href: tutorial-csharp-type-ahead-and-suggestions.md
+        - name: 4 – Adicione facetas
+          href: tutorial-csharp-facets.md
+        - name: 5 – Adicione ordem de resultados
+          href: tutorial-csharp-orders.md
     - name: Indexar Banco de Dados SQL do Azure
       href: search-indexer-tutorial.md
     - name: Indexar blobs JSON do Azure
       href: search-semi-structured-data.md
+    - name: Indexar várias fontes de dados do Azure
+      href: tutorial-multiple-data-sources.md
     - name: Enriquecer com IA (pesquisa cognitiva)
       items:
-        - name: REST
-          href: cognitive-search-tutorial-blob.md
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md
+        - name: REST
+          href: cognitive-search-tutorial-blob.md
+        - name: Python
+          href: cognitive-search-tutorial-blob-python.md
 - name: Exemplos
   items:
     - name: Exemplos de código do Azure
@@ -121,6 +131,8 @@
           href: search-what-is-an-index.md
         - name: Criar um índice (portal)
           href: search-create-index-portal.md
+        - name: Criar um índice de vários idiomas
+          href: search-language-support.md
         - name: Analisadores
           items:
             - name: Adicionando analisadores
@@ -183,8 +195,12 @@
           href: search-howto-schedule-indexers.md
         - name: Mapear campos
           href: search-indexer-field-mappings.md
+        - name: Conectar-se à Instância Gerenciada do SQL
+          href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Conectar-se às VMs do SQL Server
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
+        - name: Monitorar indexadores
+          href: search-howto-monitor-indexers.md
         - name: Solução de problemas comuns
           href: search-indexer-troubleshooting.md
     - name: Aprimorar com IA
@@ -215,7 +231,9 @@
           href: cognitive-search-resources-documentation.md
     - name: Repositório de conhecimento (versão prévia)
       items:
-        - name: Como começar
+        - name: Conectar usando o Power BI
+          href: knowledge-store-connect-powerbi.md
+        - name: Criar usando REST e Postman
           href: knowledge-store-howto.md
     - name: Consultar dados
       items:
@@ -318,8 +336,6 @@
           href: cognitive-search-skill-keyphrases.md
         - name: Detecção de Idioma
           href: cognitive-search-skill-language-detection.md
-        - name: Reconhecimento de Entidade Nomeada
-          href: cognitive-search-skill-named-entity-recognition.md
         - name: Reconhecimento de Entidade
           href: cognitive-search-skill-entity-recognition.md
         - name: Fusão de texto
@@ -328,6 +344,8 @@
           href: cognitive-search-skill-textsplit.md
         - name: Sentimento
           href: cognitive-search-skill-sentiment.md
+        - name: Tradução de texto
+          href: cognitive-search-skill-text-translation.md
         - name: Análise de imagens
           href: cognitive-search-skill-image-analysis.md
         - name: OCR
@@ -336,18 +354,23 @@
           href: cognitive-search-skill-shaper.md
         - name: Condicional
           href: cognitive-search-skill-conditional.md
-        - name: Habilidades preteridas
-          href: cognitive-search-skill-deprecated.md
     - name: Habilidades personalizadas
       items:
         - name: API Web personalizada
           href: cognitive-search-custom-skill-web-api.md
+    - name: Habilidades preteridas
+      href: cognitive-search-skill-deprecated.md
+      items:
+        - name: Reconhecimento de Entidade Nomeada
+          href: cognitive-search-skill-named-entity-recognition.md
 - name: Recursos
   items:
     - name: Suporte da Comunidade do Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
+    - name: Fórum de comentários (UserVoice)
+      href: 'https://feedback.azure.com/forums/263029-azure-search'
     - name: Sites de demonstração
       items:
         - name: Demonstração de arquivos financeiros

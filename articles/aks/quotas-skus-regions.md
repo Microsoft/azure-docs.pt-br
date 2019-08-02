@@ -2,17 +2,17 @@
 title: Cotas, SKUs e disponibilidade de região no serviço de Kubernetes do Azure (AKS)
 description: Saiba mais sobre as cotas padrão, a tamanhos de SKU de VM de nó restrito e a disponibilidade de região do serviço de Kubernetes do Azure (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: iainfou
-ms.openlocfilehash: 8d4ed8f791858747814972bcf16a9672a7f12610
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 318846cddecdf020e2e751d3a0b9e05fc83bba73
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65901446"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614544"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Cotas, restrições de tamanho de máquina virtual e a disponibilidade de região no serviço de Kubernetes do Azure (AKS)
 
@@ -51,7 +51,7 @@ Para obter a lista mais recente em que você pode implantar e executar clusters,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Determinados limites e cotas padrão podem ser aumentados. Se o recurso dá suporte a um aumento, solicitar o aumento por meio de um [solicitação de suporte do Azure] [ azure-support] (para **tipo de problema**, selecione **cota** ).
+Determinados limites e cotas padrão podem ser aumentados. Se o recurso dá suporte a um aumento, solicitar o aumento por meio de um [solicitação de suporte do Azure][azure-support] (para **tipo de problema**, selecione **cota**).
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

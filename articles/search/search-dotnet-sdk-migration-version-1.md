@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 3f47656bb13d08ea56cf25a2a29897722abb1cdb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 82823bae76521080634d4f7ff285d94ce8495fbf
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65024162"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>Atualizando para o SDK do .NET do Azure Search versão 1.1
-
-> [!Important]
-> Esse conteúdo ainda está em construção. Versão 9.0 do SDK do .NET do Azure Search está disponível no NuGet. Estamos trabalhando neste artigo para explicar como atualizar para o 9.0. 
-> 
 
 Se você estiver usando a visualização da versão 1.0.2 ou mais antiga do [SDK .NET do Azure Search](https://aka.ms/search-sdk), este artigo ajudará você a atualizar seu aplicativo para usar a versão 1.1.
 
@@ -178,7 +174,7 @@ Você poderá alterá-lo para corrigir os erros de compilação:
         };
 
 ### <a name="model-class-changes"></a>Alterações no modelo de classe
-Devido às alterações de assinatura descritas em [Alterações de método de operação](#OperationMethodChanges), várias classes no namespace `Microsoft.Azure.Search.Models` foram renomeadas ou removidas. Por exemplo: 
+Devido às alterações de assinatura descritas em [Alterações de método de operação](#OperationMethodChanges), várias classes no namespace `Microsoft.Azure.Search.Models` foram renomeadas ou removidas. Por exemplo:
 
 * `IndexDefinitionResponse` foi substituído por `AzureOperationResponse<Index>`
 * `DocumentSearchResponse` foi renomeado para `DocumentSearchResult`

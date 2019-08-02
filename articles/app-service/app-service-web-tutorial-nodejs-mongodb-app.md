@@ -141,7 +141,7 @@ Para o MongoDB, este tutorial usa o [BD Cosmos do Azure](/azure/documentdb/). O 
 
 No Cloud Shell, crie uma conta do Cosmos DB com o comando [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-No comando a seguir, substitua um nome do Cosmos DB exclusivo quando vir o espaço reservado *\<cosmosdb_name>*. Esse nome exclusivo é usado como parte do seu ponto de extremidade do Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, portanto, o nome precisa ser exclusivo em todas as contas do Cosmos DB no Azure. O nome deve conter somente letras minúsculas, números e o caractere hífen (-), e deve ter entre 3 e 50 caracteres.
+No comando a seguir, substitua um nome do Cosmos DB exclusivo quando vir o espaço reservado *\<cosmosdb_name>* . Esse nome exclusivo é usado como parte do seu ponto de extremidade do Cosmos DB, `https://<cosmosdb_name>.documents.azure.com/`, portanto, o nome precisa ser exclusivo em todas as contas do Cosmos DB no Azure. O nome deve conter somente letras minúsculas, números e o caractere hífen (-), e deve ter entre 3 e 50 caracteres.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb_name> --resource-group myResourceGroup --kind MongoDB
@@ -195,7 +195,7 @@ Copie o valor de `primaryMasterKey`. Essas informações serão necessárias na 
 <a name="devconfig"></a>
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Configurar a cadeia de conexão em seu aplicativo Node.js
 
-No repositório local do MEAN.js, na pasta _config/env/_, crie um arquivo chamado _local-production.js_. Por padrão, _.gitignore_ está configurado para manter esse arquivo fora do repositório. 
+No repositório local do MEAN.js, na pasta _config/env/_ , crie um arquivo chamado _local-production.js_. Por padrão, _.gitignore_ está configurado para manter esse arquivo fora do repositório. 
 
 Copie o seguinte código dentro dele. Substitua os dois espaços reservados *\<cosmosdb_name>* pelo nome de banco de dados do Cosmos DB e o espaço reservado *\<primary_master_key>* pela chave copiada na etapa anterior.
 
@@ -272,7 +272,7 @@ Por padrão, o projeto MEAN.js mantém _config/env/local-production.js_ fora do 
 
 Para definir as configurações do aplicativo, use o [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. 
 
-O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados  *\<app_name >*,  *\<cosmosdb_name >* e  *\<primary_master_key >*.
+O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` no aplicativo do Azure. Substitua os espaços reservados  *\<app_name >* ,  *\<cosmosdb_name >* e  *\<primary_master_key >* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -447,7 +447,7 @@ node server.js
 
 Navegue até `http://localhost:8443` em um navegador e certifique-se de que está conectado.
 
-Clique em **Admin > Gerenciar Artigos** e, em seguida, adicione um artigo selecionando o botão **+**.
+Clique em **Admin > Gerenciar Artigos** e, em seguida, adicione um artigo selecionando o botão **+** .
 
 Agora, você verá a nova caixa de texto `Comment`.
 

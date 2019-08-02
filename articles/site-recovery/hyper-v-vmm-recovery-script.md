@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362264"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64700454"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>Adicionar um script a um plano de recuperação
 
@@ -29,7 +29,7 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
     - Se ocorrer um erro, o restante do script não será executado.
     - Se ocorrer um erro quando você executa um failover não planejado, o plano de recuperação continuará.
     - Se ocorrer um erro quando você executa um failover planejado, o plano de recuperação será interrompido. Corrija o script, verifique se ele funciona conforme esperado e execute novamente o plano de recuperação.
-        - O comando `Write-Host` não funciona em um script de plano de recuperação. Se você usar o comando `Write-Host` em um script, o script falhará. Para criar, crie um script de proxy que por sua vez executa o script principal. Para colocar toda a saída no pipe, use o comando **\>\>**.
+        - O comando `Write-Host` não funciona em um script de plano de recuperação. Se você usar o comando `Write-Host` em um script, o script falhará. Para criar, crie um script de proxy que por sua vez executa o script principal. Para colocar toda a saída no pipe, use o comando **\>\>** .
         - O script expira se não retornar em até 600 segundos.
         - Se nada for escrito em STDERR, o script será classificado como com falha. Essa informação é exibida nos detalhes de execução do script.
 
@@ -45,11 +45,11 @@ Você pode usar scripts do PowerShell em seus planos de recuperação. Para pode
   
   1. Abra o Editor do Registro e vá para **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
 
-  1. Altere o valor de **ScriptLibraryPath** para  **\\\libserver2.contoso.com\share\\**. Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Esse é o nó raiz do compartilhamento. Para verificar o nó raiz, no VMM, vá para o nó raiz na biblioteca. O caminho que abre é a raiz do caminho. Esse é o caminho que você deve usar na variável.
+  1. Altere o valor de **ScriptLibraryPath** para  **\\\libserver2.contoso.com\share\\** . Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Esse é o nó raiz do compartilhamento. Para verificar o nó raiz, no VMM, vá para o nó raiz na biblioteca. O caminho que abre é a raiz do caminho. Esse é o caminho que você deve usar na variável.
 
   1. Teste o script usando uma conta de usuário com o mesmo nível de direitos de usuário da conta de serviço do VMM. O uso desses direitos de usuário verifica se os scripts autônomos testados são executados da mesma forma que são executados nos planos de recuperação. No servidor VMM, defina a política de execução a ser ignorada da seguinte maneira:
 
-      a. Abra o console do **Windows PowerShell de 64 bits** como um administrador.
+     a. Abra o console do **Windows PowerShell de 64 bits** como um administrador.
      
      b. Digite **Set-executionpolicy bypass**. Para saber mais, confira [Usando o cmdlet Set-ExecutionPolicy](https://technet.microsoft.com/library/ee176961.aspx).
 

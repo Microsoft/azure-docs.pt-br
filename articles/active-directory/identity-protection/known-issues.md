@@ -2,42 +2,33 @@
 title: Perguntas frequentes e problemas conhecidos com o Identity Protection (atualizada) no Azure Active Directory | Microsoft Docs
 description: Perguntas frequentes e problemas conhecidos com a proteção de identidade (atualizada) no Azure Active Directory.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/24/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 392b7a08d9422658c5620f60e9c1caca074bc85e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5d5aa50aec98b3944aed92b9da49182f0608f34c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60452664"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333894"
 ---
 # <a name="faqs-and-known-issues-with-identity-protection-refreshed-in-azure-active-directory"></a>Perguntas frequentes e problemas conhecidos com o Identity Protection (atualizado) no Azure Active Directory
-
 
 ## <a name="dismiss-user-risk-known-issues"></a>Ignorar problemas conhecidos de risco do usuário
 
 **Ignorar o risco de usuário** no Identity Protection clássico define o ator no histórico de risco do usuário no Identity Protection (atualizado) para o **Azure AD**.
 
-
 **Ignorar o risco de usuário** no Identity Protection (atualizado) define o ator no histórico de risco do usuário no Identity Protection (atualizado) para **\<nome do administrador com um hiperlink que aponta para a folha do usuário\>** .
 
 Há um problema conhecido atual causando latências no fluxo de descarte de risco de usuário. Se você tiver uma "política de risco do usuário", ela deixará de ser aplicada aos usuários descartados alguns minutos após clicar em "Ignorar o risco de usuário". No entanto, há atrasos conhecidos na experiência do usuário que atualizam o "Estado de risco" de usuários descartados. Como alternativa, atualize a página no nível do navegador para ver o "Estado de risco" mais recente do usuário.
 
-
-## <a name="risky-users-report-known-issues"></a>Problemas conhecidos de relatório de usuários arriscados
+## <a name="risky-users-report-known-issues"></a>Os usuários arriscados relatam problemas conhecidos
 
 As consultas no campo **nome de usuário** diferenciam maiúsculas de minúsculas, enquanto consultas no campo **nome** não diferenciam.
 
@@ -45,11 +36,9 @@ Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO 
 
 **Ignorar todos os eventos** no Identity Protection clássico define o status dos eventos de risco para **Fechado (resolvido)** .
 
-
-## <a name="risky-sign-ins-report-known-issues"></a>Relatório de entradas arriscadas problemas conhecidos
+## <a name="risky-sign-ins-report-known-issues"></a>Problemas conhecidos do relatório de entradas arriscadas
 
 **Resolver** em um evento de risco define o status como **Usuários passaram por MFA orientada por política com base no risco**.
-
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
@@ -57,11 +46,9 @@ Ativar/desativar **Mostrar datas como** oculta a coluna **ÚLTIMA ATUALIZAÇÃO 
 
 Os níveis de risco no Identity Protection baseiam-se na precisão da detecção e são alimentados por nosso aprendizado de máquina supervisionado. Para personalizar a quais experiências os usuários são apresentados, o administrador pode incluir/excluir determinados usuários/grupos das políticas de Risco de Usuário e Risco de Entrada.
 
-
 ### <a name="why-does-the-location-of-a-sign-in-not-match-where-the-user-truly-signed-in-from"></a>Por que o local de uma entrada não corresponde àquele de onde o usuário realmente entrou?
 
 O mapeamento de localização geográfica do IP é um desafio de toda a indústria. Se você achar que o local indicado no relatório de entradas não corresponde com o local real, entre em contato com o suporte. 
-
 
 ### <a name="how-do-the-feedback-mechanisms-in-identity-protection-work"></a>Como funcionam os mecanismos de comentários no Identity Protection?
 
@@ -82,8 +69,6 @@ O mapeamento de localização geográfica do IP é um desafio de toda a indústr
 
     > [!NOTE]
     > Se você achar que o usuário não foi comprometido, use **Ignorar o risco de usuário** no nível do usuário em vez de usar **Confirmado como seguro** no nível de entrada. Um comando **Ignorar o risco de usuário** no nível do usuário fecha o risco do usuário e todas as últimas entradas de risco e eventos de risco.
-
-
 
 ### <a name="why-am-i-seeing-a-user-with-a-low-or-above-risk-score-even-if-no-risky-sign-ins-or-risk-events-are-shown-in-identity-protection"></a>Por que estou vendo um usuário com uma pontuação de risco baixa (ou superior), mesmo se não há entradas arriscadas ou eventos de risco sendo mostrados no Identity Protection?
 

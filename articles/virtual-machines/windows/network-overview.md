@@ -4,7 +4,7 @@ description: Saiba mais sobre redes e como elas se relacionam aos fundamentos da
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: be472eb78646140baa1b6cc09d11f77fa5874513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1117f98730b59bdea54a72176edd606590446933
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66154809"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723141"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Redes virtuais e máquinas virtuais no Azure 
 

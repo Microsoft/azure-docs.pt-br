@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 14313567df69b26b000f9bddd98e009aeed2dcd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23791738635d4b8d3b8473e526a1a239be935bc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869613"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094671"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-people"></a>Tutorial: Integração do Azure Active Directory ao People
 
@@ -53,7 +53,7 @@ Para configurar a integração do People ao Azure AD, você precisará adicionar
 
 **Para adicionar o People por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o People, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do People](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.peoplehr.net`
 
     b. Na caixa **Identificador**, digite uma URL: `https://www.peoplehr.com`
 
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o People, execute as seguintes et
 
     ![Configurar o logon único](./media/people-tutorial/tutorial_people_002.png)
 
-4. Em **Carregar arquivo de metadados SAML de ‘Logon Único’**, clique em **Procurar** para carregar o arquivo de metadados baixado.
+4. Em **Carregar arquivo de metadados SAML de ‘Logon Único’** , clique em **Procurar** para carregar o arquivo de metadados baixado.
 
     ![Configurar o logon único](./media/people-tutorial/tutorial_people_003.png)
 
@@ -211,5 +211,5 @@ Ao clicar no bloco do People no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

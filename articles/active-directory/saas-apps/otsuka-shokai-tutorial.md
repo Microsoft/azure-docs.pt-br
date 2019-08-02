@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 06/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bec4cb17f2d25cd00ef115a78736c95eaf26d95f
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: bd06eafca2c508bc73fa2b327235621797be417c
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66752454"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274202"
 ---
 # <a name="tutorial-integrate-otsuka-shokai-with-azure-active-directory"></a>Tutorial: Integrar o Otsuka Shokai ao Azure Active Directory
 
@@ -29,7 +29,6 @@ Neste tutorial, você aprenderá a integrar o Otsuka Shokai ao Azure AD (Azure A
 
 * Controlar, no Azure AD, quem tem acesso ao Otsuka Shokai.
 * Permitir que seus usuários entrem automaticamente no Otsuka Shokai com suas contas do Azure AD.
-* Gerenciar suas contas em um local central: o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -112,17 +111,15 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     g. Clique em **Save** (Salvar).
 
-1. Na página **Configurar o Logon Único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no Bloco de Notas.
-
-   ![O link de download do Certificado](common/copy-metadataurl.png)
-
-1. Na seção **Configurar o Otsuka Shokai**, copie as URLs apropriadas de acordo com suas necessidades.
-
-   ![Copiar URLs de configuração](common/copy-configuration-urls.png)
-
 ### <a name="configure-otsuka-shokai"></a>Configurar o Otsuka Shokai
 
-Para configurar o logon único no lado do **Otsuka Shokai**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+1. Quando você conecta à Minha página do cliente pelo aplicativo SSO, o assistente de configuração de SSO é iniciado.
+
+2. Se a Otsuka ID não estiver registrada, vá para o novo registro de Otsuka-ID.   Se você tiver registrado a Otsuka-ID, vá para a configuração de vinculação.
+
+3. Continue até o final e, quando a tela superior for exibida depois de fazer logon na Minha página do cliente, as configurações de SSO foram concluídas.
+
+4. Na próxima vez que você se conectar à Minha página do cliente do aplicativo de SSO, depois que a tela de diretrizes abrir, a tela superior é exibida depois de fazer logon na Minha página do cliente.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -156,7 +153,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure per
 
 ### <a name="create-otsuka-shokai-test-user"></a>Criar usuário de teste do Otsuka Shokai
 
-Nesta seção, você criará um usuário chamado B. Fernandes no Otsuka Shokai. Trabalhe com a [equipe de suporte do Otsuka Shokai](mailto:Tatsuya.Satoh@otsuka-shokai.co.jp) para adicionar os usuários à plataforma do Otsuka Shokai. Os usuários devem ser criados e ativados antes de usar o logon único.
+O novo registro de conta de SaaS será executado no primeiro acesso ao Otsuka Shokai. Além disso, também associaremos as contas do Azure Active Directory e do SaaS no momento da criação de uma nova.
 
 ### <a name="test-sso"></a>Testar o SSO
 
@@ -168,4 +165,4 @@ Ao selecionar o bloco do Otsuka Shokai no Painel de Acesso, você deverá entrar
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

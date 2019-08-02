@@ -4,7 +4,7 @@ description: Saiba como instalar e configurar o PostgreSQL em uma máquina virtu
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: 1a747363-0cc5-4ba3-9be7-084dfeb04651
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: 5fe5e819c4f1079b6eb1fa8bb19d337ecfed600d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 086b36b347f214e1e9cdf44e4fb5a29fe501fa8b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955156"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667115"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Instalar e configurar o PostgreSQL no Azure
 PostgreSQL é um banco de dados avançado de código aberto semelhante ao Oracle e DB2. Ele inclui recursos corporativos como conformidade total com ACID, processamento transacional confiável e controle de simultaneidade de várias versões. Também oferece suporte a padrões como ANSI SQL e SQL/MED (inclusive wrappers de dados externos para Oracle, MySQL, MongoDB e muitos outros). Ele é altamente extensível com suporte para mais de 12 idiomas de procedimento, índices GIN e GiST, dados espaciais e vários recursos como NoSQL para aplicativos JSON ou de chave-valor.
@@ -126,7 +126,7 @@ Conecte-se à VM Linux criada via PuTTY. Se essa é a primeira vez que você est
    
     Você deverá receber o seguinte resultado:
 
-![image](./media/postgresql-install/no1.png)
+![imagem](./media/postgresql-install/no1.png)
 
 ## <a name="set-up-postgresql"></a>Configurar o PostgreSQL
 <!--    [postgres@ test ~]$ exit -->
@@ -143,7 +143,7 @@ Modifique duas variáveis no arquivo /etc/init.d/postgresql. O prefixo é defini
 
     # sed -i '35s#usr/local/pgsql/data#opt/pgsql_data#' /etc/init.d/postgresql
 
-![image](./media/postgresql-install/no2.png)
+![imagem](./media/postgresql-install/no2.png)
 
 Altere o arquivo para torná-lo executável:
 
@@ -159,7 +159,7 @@ Verifique se o ponto de extremidade do PostgreSQL está em:
 
 Você deve ver o seguinte resultado:
 
-![image](./media/postgresql-install/no3.png)
+![imagem](./media/postgresql-install/no3.png)
 
 ## <a name="connect-to-the-postgres-database"></a>Conectar-se ao banco de dados Postgres
 Alterne para o usuário do postgres mais uma vez:
@@ -190,11 +190,11 @@ Agora você configurou uma tabela de quatro colunas com os seguintes nomes e res
 
 Você deverá ver o seguinte se a tabela tiver sido criada com êxito:
 
-![image](./media/postgresql-install/no4.png)
+![imagem](./media/postgresql-install/no4.png)
 
 Você também pode verificar a estrutura da tabela usando o seguinte comando:
 
-![image](./media/postgresql-install/no5.png)
+![imagem](./media/postgresql-install/no5.png)
 
 ### <a name="add-data-to-a-table"></a>Adicionar dados a uma tabela
 Primeiro, insira as informações em uma linha:
@@ -203,7 +203,7 @@ Primeiro, insira as informações em uma linha:
 
 Você deverá ver este resultado:
 
-![image](./media/postgresql-install/no6.png)
+![imagem](./media/postgresql-install/no6.png)
 
 É possível adicionar algumas pessoas à tabela. Aqui estão algumas opções, ou você pode criar as suas próprias:
 
@@ -220,7 +220,7 @@ Use o seguinte comando para mostrar uma tabela:
 
 A saída é:
 
-![image](./media/postgresql-install/no7.png)
+![imagem](./media/postgresql-install/no7.png)
 
 ### <a name="delete-data-in-a-table"></a>Excluir dados de uma tabela
 Use o seguinte comando para excluir dados de uma tabela:
@@ -229,7 +229,7 @@ Use o seguinte comando para excluir dados de uma tabela:
 
 Isso exclui todas as informações na linha "John". A saída é:
 
-![image](./media/postgresql-install/no8.png)
+![imagem](./media/postgresql-install/no8.png)
 
 ### <a name="update-data-in-a-table"></a>Atualizar dados em uma tabela
 Use o seguinte comando para atualizar dados em uma tabela. Por esse motivo, Sandy confirmou que eles são participar, portanto, vamos alterar o RSVP de "N" para "Y":

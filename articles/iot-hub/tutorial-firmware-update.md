@@ -10,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2019
+ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: 57ec4990447070d1889f7476b89abb742296c056
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597531"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485823"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware de dispositivos
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -o table
+az iot hub show-connection-string --name $hubname -policy-name service -o table
 
 ```
 
@@ -95,8 +95,7 @@ az iot hub device-identity show-connection-string --device-id MyFirmwareUpdateDe
 ```
 
 > [!TIP]
-> Se você executar esses comandos em um prompt de comando do Windows ou prompt do PowerShell, confira a página [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips
-) para obter informações sobre como citar as cadeias de caracteres JSON.
+> Se você executar esses comandos em um prompt de comando do Windows ou prompt do PowerShell, confira a página [azure-iot-cli-extension tips](https://github.com/Azure/azure-iot-cli-extension/wiki/Tips) para obter informações sobre como citar as cadeias de caracteres JSON.
 
 ## <a name="start-the-firmware-update"></a>Iniciar a atualização do firmware
 
@@ -187,7 +186,7 @@ A captura de tela a seguir mostra a saída do aplicativo de back-end e destaca c
 
 ![Aplicativo de back-end](./media/tutorial-firmware-update/BackEnd2.png)
 
-Devido à latência no registro de identidade do dispositivo do Hub IoT, não será possível ver todos os status de atualização enviados para o aplicativo de back-end. Você também pode exibir as métricas no portal, na seção **Gerenciamento automático do dispositivo -> Configuração de dispositivo IoT** do seu Hub IoT:
+Como as configurações automáticas do dispositivo são executadas no momento da criação e a cada cinco minutos, pode ser que você não veja cada atualização de status ser enviada para o aplicativo de back-end. Você também pode exibir as métricas no portal, na seção **Gerenciamento automático do dispositivo -> Configuração de dispositivo IoT** do seu Hub IoT:
 
 ![Exibir configuração no portal](./media/tutorial-firmware-update/portalview.png)
 

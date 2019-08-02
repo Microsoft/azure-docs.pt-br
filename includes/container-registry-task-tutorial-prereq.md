@@ -4,12 +4,12 @@ ms.service: container-registry
 ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
-ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 40cc1856a5e943ca5596e7d11712febadd30e3ec
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66148980"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67133787"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,9 +27,12 @@ Para disparar uma tarefa em uma confirmação de um repositório Git, as Tarefas
 
 1. Navegue até a página de criação do PAT no GitHub em https://github.com/settings/tokens/new
 1. Digite uma breve **descrição** para o token, por exemplo, “Demonstração de tarefas do ACR”
-1. Em **repo**, habilite **repo:status** e **public_repo**
+1. Selecione os escopos do ACR para acessar o repositório. Para acessar um repositório público como neste tutorial, em **repositório**, habilite **repo:status** e **public_repo**
 
    ![Captura de tela da página de geração do Token de Acesso Pessoal no GitHub][build-task-01-new-token]
+
+   > [!NOTE]
+   > Para gerar um PAT e acessar um repositório *privado*, selecione o escopo completo de controle do **repositório**.
 
 1. Selecione o botão **Gerar token** (você pode ser solicitado a confirmar sua senha)
 1. Copie e salve o token gerado em um **local seguro** (use esse token quando você definir uma tarefa na seção a seguir)

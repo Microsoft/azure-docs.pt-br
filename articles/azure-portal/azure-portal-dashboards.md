@@ -1,10 +1,10 @@
 ---
 title: Criar e compartilhar painéis do Portal do Azure | Microsoft Docs
-description: Este artigo explica como criar e editar painéis no portal do Azure.
+description: Este artigo descreve como criar, personalizar, publicar e compartilhar painéis no portal do Azure.
 services: azure-portal
 documentationcenter: ''
 author: sewatson
-manager: doubeby
+manager: mtillman
 editor: tysonn
 ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.service: azure-portal
@@ -12,87 +12,165 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/06/2016
+ms.date: 07/01/2019
 ms.author: kfollis
-ms.openlocfilehash: 693e973fb988a57c15b4ea2fae47f16b4ff39011
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8dd1349ca9ab62484eb6693291e3b869ff079dc1
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60552490"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537342"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
-Você pode criar vários painéis e compartilhá-los com outras pessoas que tenham acesso às suas assinaturas do Azure.  Este artigo percorre as noções básicas da criação/edição, publicação e gerenciamento de acesso aos painéis.
 
-## <a name="create-a-dashboard"></a>Criar um painel
-Para criar um painel, selecione o botão **Novo painel** ao lado do nome do painel atual.  
+Os painéis fornecem uma maneira de criar uma exibição organizada e focada no portal do Azure de seus recursos de nuvem. Use painéis como um espaço de trabalho onde você pode iniciar as tarefas para as operações diárias e monitorar recursos rapidamente.  Crie painéis personalizados com base em projetos, tarefas ou funções de usuário, por exemplo.  O portal do Azure fornece um painel padrão como um ponto de partida. Você pode editar o painel padrão, criar e personalizar os painéis adicionais e publicar e compartilhar painéis para disponibilizá-las a outros usuários. Este artigo descreve como criar um novo painel, personalizar a interface e publicar e compartilhar dashboards.
 
-![criar painel](./media/azure-portal-dashboards/new-dashboard.png)
+## <a name="create-a-new-dashboard"></a>Crie um novo painel
 
-Essa ação cria um painel novo, vazio, privado e coloca você no modo de personalização onde é possível nomear seu painel e adicionar ou reorganizar blocos.  Nesse modo, a galeria de blocos recolhíveis assume o menu de navegação à esquerda.  A galeria de blocos permite que você encontre blocos para os recursos do Azure de várias maneiras: você pode procurar por [grupo de recursos](../azure-resource-manager/resource-group-overview.md#resource-groups), pelo tipo de recurso, por [marca](../azure-resource-manager/resource-group-using-tags.md) ou procurando por seus recursos por nome.  
+Neste exemplo, criamos um novo painel privado e atribua um nome. Siga estas etapas para começar a usar:
 
-![personalizar painel](./media/azure-portal-dashboards/customize-dashboard.png)
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Selecione **Dashboard** na seção superior da barra lateral esquerda. O modo de exibição padrão já pode ser definido para o painel.
+1. Selecione **+ novo painel**.
 
-Adicione blocos arrastando e soltando-os na superfície do painel onde você desejar.
+    ![Captura de tela do painel padrão](./media/azure-portal-dashboards/dashboard-new.png)
 
-Há uma nova categoria chamada **Geral** para blocos que não estejam associados a um recurso específico.  Neste exemplo, podemos fixar o bloco Markdown.  Use este bloco para adicionar conteúdo personalizado ao seu painel.  O bloco dá suporte a texto sem formatação, [sintaxe de Markdown](https://daringfireball.net/projects/markdown/syntax)e um conjunto limitado de HTML.  (Para segurança, você não pode fazer coisas como injetar marcas `<script>` ou usar um determinado elemento de estilo de CSS que podem interferir com o portal). 
+4. Essa ação abre o **Galeria de blocos**, do qual você selecionará o lado a lado e uma grade vazia onde você organizará os blocos.
 
-![adicionar markdown](./media/azure-portal-dashboards/add-markdown.png)
+    ![Captura de tela da Galeria de blocos e de grade vazia](./media/azure-portal-dashboards/dashboard-name.png)
+
+5. Selecione o **meu painel** texto no painel de controle de rótulo e digite um nome que ajudará você a identificar facilmente o painel personalizado.
+1. Selecione **personalização concluída** no cabeçalho da página para sair do modo de edição.
+
+O modo de exibição de painel agora mostra o painel vazio. Selecione na lista suspensa ao lado do nome do dashboard para ver os painéis disponíveis para você – a lista pode incluir painéis que outros usuários criados e compartilhados.
 
 ## <a name="edit-a-dashboard"></a>Editar um painel
-Depois de criar seu painel, você pode fixar blocos da galeria de blocos ou a representação de bloco de folhas. Vamos fixar a representação do nosso grupo de recursos. Você pode fixar ao procurar o item, ou da folha do grupo de recursos. As duas abordagens resultam na fixação da representação do bloco do grupo de recursos.
 
-![Fixar no painel](./media/azure-portal-dashboards/pin-to-dashboard.png)
+Agora, vamos editar o painel para adicionar, redimensionar e organizar lado a lado que representam os recursos do Azure.
 
-Depois de fixar o item, ele aparecerá em seu painel.
+### <a name="add-tiles"></a>Adicionar blocos
 
-![exibir painel](./media/azure-portal-dashboards/view-dashboard.png)
+Para adicionar blocos em um painel, siga estas etapas:
+1. Selecione ![ícone Editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **editar** do cabeçalho da página.
 
-Agora que temos um bloco Markdown e um grupo de recursos fixado ao painel, podemos redimensionar e reorganizar os blocos em um layout adequado.
+    ![Captura de tela do painel de edição de realce](./media/azure-portal-dashboards/dashboard-edit.png)
 
-Ao passar o mouse e selecionar "…" ou clicar com o botão direito do mouse em um bloco, você poderá ver todos os comandos contextuais do bloco. Por padrão, há dois itens:
+2. Procurar o **Galeria de blocos** ou use o campo de pesquisa para localizar o bloco que você deseja.
+1. Selecione **adicionar** para adicionar automaticamente no bloco ao painel de controle com um tamanho e local padrão. Ou, arraste o bloco na grade e colocá-lo onde desejar.
 
-1. **Desafixar do painel** – remove o bloco do painel
-2. **Personalizar** – entra no modo de personalização
+Muitas páginas de recurso (também conhecido como "folhas") incluem um ícone de tachinha na barra de comandos. Se você selecionar o ícone, um bloco que representa a página de código-fonte é fixado no painel que está ativo no momento. Esse método é uma maneira alternativa para adicionar blocos em seu painel.
 
-![personalizar bloco](./media/azure-portal-dashboards/customize-tile.png)
+![Captura de tela da barra de comandos de página com ícone de pino](./media/azure-portal-dashboards/dashboard-pin-blade.png)
 
-Selecionando Personalizar, você pode redimensionar e reorganizar blocos. Para redimensionar uma imagem, selecione o novo tamanho no menu contextual, conforme mostrado na imagem a seguir.
+> [!TIP]
+> Se você trabalha com mais de uma organização, adicione a **identidade da organização** bloco ao painel para mostrar claramente qual organização os recursos pertencem a.
+>
+>
+### <a name="resize-or-rearrange-tiles"></a>Redimensionar ou reorganizar os blocos
+Para alterar o tamanho de um bloco ou reorganizar os blocos em um painel, siga estas etapas:
 
-![redimensionar bloco](./media/azure-portal-dashboards/resize-tile.png)
+1. Selecione ![ícone Editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **editar** do cabeçalho da página.
+1. Selecione o menu de contexto no canto superior direito de um bloco. Em seguida, escolha um tamanho de bloco. Blocos que oferecem suporte a qualquer tamanho também incluem um "identificador" no canto inferior direito que permite que você arraste o bloco para o tamanho desejado.
 
-Ou, se o bloco der suporte a qualquer tamanho, você poderá arrastar o canto inferior direito para o tamanho desejado.
+   ![Captura de tela do painel de controle com o menu de tamanho de bloco aberto](./media/azure-portal-dashboards/dashboard-tile-resize.png)
 
-![redimensionar bloco](./media/azure-portal-dashboards/resize-corner.png)
+3. Selecione um bloco e arraste-o para um novo local na grade para organizar seu painel.
 
-Depois de redimensionar os blocos, exiba o painel.
+### <a name="additional-tile-configuration"></a>Configuração de imagem lado a lado
 
-![bloco de exibição](./media/azure-portal-dashboards/view-tile.png)
+Alguns blocos talvez seja necessário mais de configuração para mostrar as informações desejadas. Por exemplo, o **gráfico de métricas** lado a lado deve ser configurado para exibir uma métrica de **do Azure Monitor**. Você também pode personalizar os dados do bloco para substituir configurações de hora padrão do painel.
 
-Quando tiver concluído a personalização de um painel, basta selecionar **Personalização concluída** para sair no modo de personalização ou pressione o botão direito do mouse e selecione **Personalização concluída** no menu de contexto.
+Qualquer bloco que precisa ser configurado exibe uma **configurar bloco** até que você personalize o bloco do banner. Selecione essa faixa, em seguida, fazer a configuração necessária.
 
-## <a name="publish-a-dashboard-and-manage-access-control"></a>Publicar um painel e gerenciar o controle de acesso
-Quando você cria um painel, ele será privado por padrão, o que significa que você é a única pessoa que pode vê-lo.  Para torná-lo visível para outras pessoas, use o botão **Compartilhar** exibido juntamente com os outros comandos do painel.
+![Captura de tela do bloco que requer configuração](./media/azure-portal-dashboards/dashboard-configure-tile.png)
 
-![compartilhar painel](./media/azure-portal-dashboards/share-dashboard.png)
+> [!NOTE]
+> Um bloco de markdown permite exibir o conteúdo personalizado e estático em seu painel. Isso poderia ser instruções básicas, uma imagem, um conjunto de hiperlinks ou até mesmo informações de contato. Para obter mais informações sobre como usar um bloco de markdown, consulte [usar um bloco de markdown personalizada](azure-portal-markdown-tile.md).
+>
+>
+### <a name="customize-tile-data"></a>Personalizar dados do bloco
 
-Será solicitado que você escolha uma assinatura e o grupo de recursos para que seu painel seja publicado. Para integrar totalmente os painéis ao ecossistema, implementamos painéis compartilhados como recursos do Azure (e, por isso, não é possível compartilhar ao digitar um endereço de email).  O acesso às informações exibidas pela maioria dos blocos no portal é controlado pelo [Controle de Acesso Baseado em Função do Azure](../role-based-access-control/role-assignments-portal.md). Do ponto de vista do controle de acesso, os painéis compartilhados não são diferentes de uma máquina virtual ou de uma conta de armazenamento.  
+Dados no painel mostram automaticamente a atividade nas últimas 24 horas. Para mostrar um período de tempo diferente para apenas esse bloco, siga estas etapas:
 
-Digamos que você tenha uma assinatura do Azure e membros de sua equipe receberam as funções de **proprietário**, **colaborador** ou **leitor** da assinatura.  Os usuários que são proprietários ou colaboradores podem listar, exibir, criar, modificar ou excluir painéis na assinatura.  Os usuários que são os leitores podem listar e exibir os painéis, mas não podem modificá-los ou excluí-los.  Os usuários com acesso de leitor podem fazer edições locais em um painel compartilhado, mas não podem publicar essas alterações no servidor.  No entanto, eles podem fazer uma cópia privada do painel para seu próprio uso.  Como sempre, os blocos individuais no painel impõem suas próprias regras de controle de acesso com base nos recursos aos quais eles correspondem.  
+1. Selecione o ![ícone de filtro](./media/azure-portal-dashboards/dashboard-filter.png) ícone de filtro no canto superior esquerdo do bloco ou selecione **personalizar dados de bloco** no menu de contexto.
 
-Para sua conveniência, a experiência de publicação do portal guia você por um padrão onde você coloca painéis em um grupo de recursos chamado **painéis**.  
+   ![Captura de tela do menu de contexto do bloco](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
 
-![painel de publicação](./media/azure-portal-dashboards/publish-dashboard.png)
+2. Selecione a caixa de seleção **substituem as configurações de tempo do painel de controle no nível de bloco**.
 
-Você pode optar por publicar um painel em um determinado grupo de recursos.  O controle de acesso para esse painel corresponde ao controle de acesso para o grupo de recursos.  Os usuários que podem gerenciar os recursos desse grupo de recursos também têm acesso aos painéis.
+   ![Captura de tela da caixa de diálogo para definir configurações de tempo de bloco](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
 
-![painel de publicação para o grupo de recursos](./media/azure-portal-dashboards/publish-to-resource-group.png)
+3. Escolha o período de tempo para ser mostrado para esse bloco. Você pode escolher entre os últimos 30 minutos para os últimos 30 dias ou definir um intervalo personalizado.
+1. Escolha a granularidade de tempo para exibir. Você pode mostrar em qualquer lugar de incrementos de um minuto para um mês.
+1. Escolha **Aplicar**.
 
-Depois que o painel é publicado, o painel de controle **Compartilhamento + acesso** será atualizado e mostrará informações sobre o painel publicado, incluindo um link para gerenciar o acesso de usuário ao painel.  Isso inicia a folha Controle de Acesso Baseado em Função padrão usada para gerenciar o acesso a qualquer recurso do Azure.  Você sempre pode voltar a esta exibição ao selecionar **Compartilhar**.
+## <a name="delete-a-tile"></a>Excluir um bloco
 
-![gerenciar o controle de acesso](./media/azure-portal-dashboards/manage-access.png)
+Para remover um bloco de um painel, siga estas etapas:
+
+* Selecione o menu de contexto no canto superior direito do bloco e selecione **remover do dashboard**. Ou,
+* Selecione ![ícone Editar](./media/azure-portal-dashboards/dashboard-edit-icon.png) **editar** para entrar no modo de personalização. Passe o mouse no canto superior direito do bloco e, em seguida, selecione a ![excluir ícone](./media/azure-portal-dashboards/dashboard-delete-icon.png) excluir ícone para remover o bloco do painel.
+
+   ![Captura de tela mostrando como remover o bloco de painel](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+
+## <a name="clone-a-dashboard"></a>Clonar um painel
+
+Para usar um painel existente como modelo para um novo painel, siga estas etapas:
+
+1. Certifique-se de que a exibição do painel está mostrando o painel que você deseja copiar.
+1. No cabeçalho da página, selecione ![ícone de clone](./media/azure-portal-dashboards/dashboard-clone.png) **Clone**.
+1. Uma cópia do painel, denominado "clonar da *seu nome do painel*" é aberto no modo de edição. Use as etapas anteriores neste artigo para renomear e personalizar o painel.
+
+## <a name="publish-and-share-a-dashboard"></a>Publicar e compartilhar um dashboard
+
+Quando você cria um painel, é privado por padrão, o que significa que você está a única pessoa que pode vê-lo. Para disponibilizar a outros painéis, você pode compartilhá-los com outros usuários. Primeiro, você precisa publicar o painel como um recurso do Azure. Para publicar e compartilhar um painel personalizado, siga estas etapas:
+
+1. Selecione ![ícone compartilhar](./media/azure-portal-dashboards/dashboard-share-icon.png) **compartilhar** do cabeçalho da página. O **compartilhamento + controle de acesso** formulário é exibido.
+1. Verifique se o nome do painel correto é mostrado.
+1. Selecione uma **o nome da assinatura**. Os usuários com acesso à assinatura podem usar o painel compartilhado. Acesso aos recursos representados por blocos individuais é determinado pelo controle de acesso baseado em função do Azure.
+1. Marque a caixa de seleção para publicar esse painel para o grupo de recursos 'painéis' para a assinatura selecionada. Ou, desmarque a caixa de seleção e escolha publicar em um grupo de recursos existente em vez disso.
+1. Escolha um local para o recurso do painel. É recomendável que você localize o dashboard com outros recursos. Observação: se você escolher de grupos de recursos existentes, o painel está localizado automaticamente com o grupo de recursos.
+1. Selecione **Publicar**.
+
+   ![Captura de tela da caixa de diálogo de publicação do painel](./media/azure-portal-dashboards/dashboard-publish.png)
+
+### <a name="set-access-control-on-a-shared-dashboard"></a>Configurar o controle de acesso em um painel compartilhado
+
+Depois que o painel é publicado, gerencie quem tem acesso ao painel seguindo estas etapas:
+
+1. No **compartilhamento + controle de acesso** painel, selecione **gerenciar usuários**.
+
+   ![Captura de tela do painel de compartilhamento + acesso controle caixa de diálogo](./media/azure-portal-dashboards/dashboard-share-access-control.png)
+
+2. O **controle de acesso** página será aberta. Nessa página, você pode revisar o nível de acesso para alguém ou adicionar uma nova atribuição de função. Quando você adiciona uma atribuição de função, você está concedendo permissões para o painel.
+
+> [!NOTE]
+> Os blocos são representativos modos de exibição de recursos em sua organização. Acesso a recursos é gerenciado por meio da atribuição de controle de acesso baseado em função e as permissões são herdadas da assinatura até o recurso. Fornecendo acesso a um painel automaticamente não atribuir permissões para os recursos mostrados no painel. Para obter mais informações sobre as permissões para os painéis compartilhados e controle de acesso baseado em função para recursos, consulte [compartilhar dashboards com controle de acesso baseado em função](azure-portal-dashboard-share-access.md).
+
+### <a name="open-a-shared-dashboard"></a>Abrir um painel compartilhado
+
+Para localizar e abrir um painel compartilhado, siga estas etapas:
+
+1. Selecione na lista suspensa ao lado do nome do dashboard.
+1. Selecione na lista exibida de painéis ou **procurar todos os painéis** se o painel que você deseja abrir não estiver listado.
+
+   ![Captura de tela do menu de seleção do painel](./media/azure-portal-dashboards/dashboard-browse.png)
+
+3. No **tipo** campo, selecione **painéis compartilhados**.
+1. Selecione uma ou mais assinaturas. Você também pode inserir texto para filtrar os painéis de controle por nome.
+1. Selecione um dashboard na lista de painéis compartilhados.
+
+## <a name="delete-a-dashboard"></a>Excluir um painel
+
+Para excluir permanentemente um painel compartilhado ou particular, siga estas etapas:
+
+1. Selecione o painel que você deseja excluir na lista suspensa ao lado do nome do dashboard.
+1. Selecione ![ícone Excluir](./media/azure-portal-dashboards/dashboard-delete-icon.png) **excluir** do cabeçalho da página.
+1. Para um painel privado, selecione **Okey** na caixa de diálogo de confirmação para remover o painel. Para um painel compartilhado, na caixa de diálogo de confirmação, selecione a caixa de seleção para confirmar que o painel publicado deixará de ser visualizado por outras pessoas. Depois, selecione **OK**.
+
+   ![Captura de tela de confirmação de exclusão](./media/azure-portal-dashboards/dashboard-delete-dash.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para gerenciar recursos, consulte [gerenciar recursos do Azure usando o portal do Azure](../azure-resource-manager/manage-resources-portal.md).
-* Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
+* [Compartilhar dashboards com controle de acesso baseado em função](azure-portal-dashboard-share-access.md)
+* [Criar programaticamente os painéis do Azure](azure-portal-dashboards-create-programmatically.md)

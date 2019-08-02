@@ -4,7 +4,7 @@ description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: ''
@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: aff00978178f63b7324168e9aca765b77decf2b4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 02dd1b293d250b1adf09325fa36e01f176722599
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922896"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708459"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 
@@ -105,7 +105,7 @@ Para criar e anexar um novo disco a uma máquina virtual existente, utilize o co
 az vm disk attach \
     --resource-group myResourceGroupDisk \
     --vm-name myVM \
-    --disk myDataDisk \
+    --name myDataDisk \
     --size-gb 128 \
     --sku Premium_LRS \
     --new
@@ -254,7 +254,7 @@ Use o comando [az vm disk attach](/cli/azure/vm/disk#az-vm-disk-attach) para ane
 az vm disk attach \
    –g myResourceGroupDisk \
    --vm-name myVM \
-   --disk $datadisk
+   --name $datadisk
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

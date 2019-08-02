@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b85b06552dcd0fc419302882f05814adbd454f46
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65555890"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542557"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientação de migração para passar dos Serviços de Mídia v2 para v3
 
@@ -60,6 +60,7 @@ E se você tiver um serviço de vídeo desenvolvido hoje em dia sobre as [APIs h
 * Para Ativos criados com a v3, o Media Services suporta apenas a criptografia de [armazenamento do lado do servidor do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
     * É possível usar APIs v3 com ativos criados com APIs v2 que tinham [criptografia de armazenamento](../previous/media-services-rest-storage-encryption.md) (AES 256) fornecida pelo Serviços de Mídia do Microsoft Azure.
     * Você não pode criar novos Ativos com a criptografia de [armazenamento AES 256 legada](../previous/media-services-rest-storage-encryption.md) usando APIs v3.
+* Propriedades do ativo na v3 diferem do v2, consulte [como mapeiam as propriedades](assets-concept.md#map-v3-asset-properties-to-v2).
 * Os v3 SDKs agora são desacoplados do Storage SDK, o que lhe dá mais controle sobre a versão do Storage SDK que você deseja usar e evita problemas de versão. 
 * Nas APIs da v3, todas as taxas de bits de codificação estão em bits por segundo. Isso é diferente das predefinições do v2 Media Encoder Standard. Por exemplo, o bitrate em v2 seria especificado como 128 (kbps), mas em v3 seria 128000 (bits / segundo). 
 * Entidades AssetFiles, AccessPolicies e IngestManifests não existem na v3.
@@ -80,7 +81,7 @@ A API de v3 tem as seguintes falhas de recurso em relação a API v2. Fechar as 
 
 * O [Codificador Premium](../previous/media-services-premium-workflow-encoder-formats.md) e os legados [processadores analíticos de mídia](../previous/media-services-analytics-overview.md) (Visualização do Azure Media Indexer 2, API de Detecção Facial, etc.) não podem ser acessados pela v3.<br/>Os clientes que desejam migrar da visualização do Indexador de Mídia 1 ou 2 podem usar imediatamente a predefinição AudioAnalyzer na API v3.  Essa nova predefinição contém mais recursos que o antigo Indexador de Mídia 1 ou 2. 
 * Muitas da [recursos avançados do Media Encoder Standard no v2](../previous/media-services-advanced-encoding-with-mes.md) APIs atualmente não estão disponíveis na v3, tais como:
-    * Recorte (para cenários sob demanda e ao vivo)
+  
     * A união de ativos
     * Sobreposições
     * Corte

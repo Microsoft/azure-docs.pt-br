@@ -59,7 +59,7 @@
       href: virtual-network-ip-addresses-overview-arm.md
     - name: Prefixo de IP público
       href: public-ip-address-prefix.md
-    - name: IPv6 para a VNET do Azure
+    - name: IPv6 para a VNet do Azure
       href: ipv6-overview.md
     - name: Proteção contra DDOS
       href: ddos-protection-overview.md
@@ -91,7 +91,7 @@
           href: virtual-network-tcpip-performance-tuning.md
     - name: Implantar
       items:
-        - name: IPv6 para a VNET do Azure
+        - name: IPv6 para a VNet – Load Balancer Básico
           items:
             - name: Azure PowerShell
               href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
@@ -99,6 +99,14 @@
               href: virtual-network-ipv4-ipv6-dual-stack-cli.md
             - name: Modelo do Resource Manager
               href: ipv6-configure-template-json.md
+        - name: IPv6 para a VNet – Standard Load Balancer
+          items:
+            - name: Azure PowerShell
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+            - name: CLI do Azure
+              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+            - name: Modelo do Resource Manager
+              href: ipv6-configure-standard-load-balancer-template-json.md
         - name: Grupos de segurança de rede
           items:
             - name: Azure PowerShell
@@ -363,6 +371,8 @@
       href: 'https://azure.microsoft.com/blog/topics/networking'
     - name: Fórum de rede
       href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork'
+    - name: Comentários sobre a rede
+      href: 'https://feedback.azure.com/forums/217313-networking?category_id=77469'
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/virtual-network'
     - name: Calculadora de preço

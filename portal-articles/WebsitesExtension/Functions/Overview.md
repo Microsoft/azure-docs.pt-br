@@ -4,16 +4,16 @@ description: Visão geral do conteúdo da Ajuda para Azure Functions no portal d
 services: functions
 author: sewatson
 manager: lwelicki
-ms.service: functions
+ms.service: azure-functions
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: cc37fbe218dd94da865e61e4b4275a7171fdbe7a
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6ece125cbbaf13062bc7c5e8b313784b4d52c726
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64708105"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605195"
 ---
 # <a name="azure-functions-documentation"></a>Documentação do Azure Functions
 

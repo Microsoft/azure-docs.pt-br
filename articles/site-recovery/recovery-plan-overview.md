@@ -8,19 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: ea2399572177cc10006a5d9ee715190fff4a347b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0df9e4b41ff89dd295fe644900b78640a083e985
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471452"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514573"
 ---
 # <a name="about-recovery-plans"></a>Sobre planos de recuperação
 
 Este artigo descreve os planos de recuperação no [Azure Site Recovery](site-recovery-overview.md).
 
-Um plano de recuperação reúne computadores em grupos de recuperação. É possível personalizar um plano, adicionando ordem, instruções e tarefas ao plano. Após definir um plano, você poderá executar um failover nele.
-
+Um plano de recuperação reúne computadores em grupos de recuperação. É possível personalizar um plano, adicionando ordem, instruções e tarefas ao plano. Após definir um plano, você poderá executar um failover nele.  As máquinas podem ser referenciadas em vários planos de recuperação, no qual planos subsequentes vai ignorar a implantação/inicialização do computador se ele tiver sido implantado anteriormente por meio de outro plano de recuperação.
 
 
 ## <a name="why-use-a-recovery-plan"></a>Por que usar um plano de recuperação?

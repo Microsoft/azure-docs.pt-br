@@ -5,26 +5,27 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a0530739428e18d01209f94345ae53dfb743d80b
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 629b484d27d863727d180bb3e2d01b605ca539a6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239678"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850131"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
 
-O Azure IoT Edge pode tornar sua solução de IoT mais eficiente movendo cargas de trabalho da nuvem para a borda. Esse recurso funciona bem para serviços que processam muitos dados, como modelos visuais computacionais. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite criar classificadores de imagem personalizados e implantá-los em dispositivos como contêineres. Juntos, esses dois serviços permitem a você encontrar insights em imagens ou fluxos de vídeo sem a necessidade de primeiro transferir todos os dados do local. A Visão Personalizada fornece um classificador que compara uma imagem com um modelo treinado para gerar insights. 
+O Azure IoT Edge pode tornar sua solução de IoT mais eficiente movendo cargas de trabalho da nuvem para a borda. Esse recurso funciona bem para serviços que processam muitos dados, como modelos visuais computacionais. O [Serviço de Visão Personalizada](../cognitive-services/custom-vision-service/home.md) permite criar classificadores de imagem personalizados e implantá-los em dispositivos como contêineres. Juntos, esses dois serviços permitem a você encontrar insights em imagens ou fluxos de vídeo sem a necessidade de primeiro transferir todos os dados do local. A Visão Personalizada fornece um classificador que compara uma imagem com um modelo treinado para gerar insights.
 
-Por exemplo, a Visão Personalizada em um dispositivo do IoT Edge conseguiu determinar se uma estrada está com tráfego acima ou abaixo do normal, ou se uma garagem de estacionamento tem vagas disponíveis em sequência. Essas informações podem ser compartilhadas com outro serviço que atuará em relação a elas. 
+Por exemplo, a Visão Personalizada em um dispositivo do IoT Edge conseguiu determinar se uma estrada está com tráfego acima ou abaixo do normal, ou se uma garagem de estacionamento tem vagas disponíveis em sequência. Essas informações podem ser compartilhadas com outro serviço que atuará em relação a elas.
 
-Neste tutorial, você aprenderá como: 
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
+>
 > * Criar um classificador de imagem com a Visão Personalizada.
 > * Desenvolver um módulo do IoT Edge que consulta o servidor Web da Visão Personalizada em seu dispositivo.
 > * Enviar os resultados do classificador de imagem para o Hub IoT.
@@ -72,10 +73,11 @@ Depois que seu classificador de imagem for criado e treinado, você poderá expo
    | ----- | ----- |
    | NOME | Forneça um nome para o projeto, como **EdgeTreeClassifier**. |
    | DESCRIÇÃO | Descrição do projeto opcional. |
-   | Grupo de recursos | Aceite o padrão **Avaliação limitada**. |
+   | Grupo de recursos | Selecione um dos seus grupos de recursos do Azure que inclua um Recurso de Serviço de Visão Personalizada, ou **crie um novo** se você ainda não tiver adicionado um. |
    | Tipos de projeto | **Classificação** |
-   | Tipos de classificação | **Multiclasses (uma marca por imagem)** | 
+   | Tipos de classificação | **Multiclasses (uma marca por imagem)** |
    | Domínios | **Geral (compacto)** |
+   | Exportar funcionalidades | **Plataformas básicas (Tensorflow, CoreML, ONNX,...)** |
 
 5. Selecione **Criar projeto**.
 
@@ -139,17 +141,9 @@ Uma solução é uma maneira lógica de desenvolver e organizar vários módulos
 
 1. No Visual Studio Code, selecione **Exibir** > **Terminal** para abrir o terminal integrado do Visual Studio Code.
 
-2. No terminal integrado, digite o seguinte comando para instalar (ou atualizar) **cookiecutter**, que você pode usar para criar o modelo de módulo de Python do IoT Edge no VS Code:
+1. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Verifique se o diretório onde o cookiecutter será instalado está no `Path` do seu ambiente para que seja possível invocá-lo em um prompt de comando.
-
-3. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
-
-4. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
+1. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: nova solução do IoT Edge**. Na paleta de comandos, forneça as seguintes informações para criar sua solução: 
 
    | Campo | Valor |
    | ----- | ----- |

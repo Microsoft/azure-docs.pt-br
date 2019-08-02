@@ -2,18 +2,18 @@
 title: Solucionar erros com o Gerenciamento de Atualizações
 description: Aprenda a solucionar problemas com o Gerenciamento de Atualizações
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9bcc871ecc9413f02545e6aec4caa6342d563b44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23139755af812f99bce8c2c255805eaf9e30b2da
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66474580"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477069"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Resolução de problemas com o Gerenciamento de Atualizações
 

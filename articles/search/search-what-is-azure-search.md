@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 7ba653795791f0e6a2c3d3c73ff574a3ed31f314
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65539329"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485227"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na nuvem que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada para conteúdo privado e heterogêneo em aplicativos Web, móveis e empresariais. A execução de consulta ocorre sobre um índice definido pelo usuário.
@@ -134,7 +134,7 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 3. Avance com o código usando a API REST ou .NET:
 
    + [Como usar o SDK do .NET](search-howto-dotnet-sdk.md) demonstra o fluxo de trabalho principal no código gerenciado.  
-   + [Introdução à API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra as mesmas etapas usando a API REST. Também é possível usar este início rápido para chamar APIs REST do Postman ou Fiddler: [Explorar APIs REST do Azure Search](search-fiddler.md).
+   + [Introdução à API REST](https://github.com/Azure-Samples/search-rest-api-getting-started) mostra as mesmas etapas usando a API REST. Também é possível usar este início rápido para chamar APIs REST do Postman ou Fiddler: [Explorar APIs REST do Azure Search](search-get-started-postman.md).
 
 ## <a name="watch-this-video"></a>Assista a este vídeo
 

@@ -1,21 +1,21 @@
 ---
 title: Personalização da Tradução - API de Tradução de Texto
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use o Hub do Microsoft Translator para compilar seu próprio sistema de tradução automática usando seu estilo e sua terminologia preferenciais.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: cb15ae375f412a66b9d7939b6a580ebb95f2f7a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: e6771a0d72592f1952853642ceea196b02774ada
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66515114"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595316"
 ---
 # <a name="customize-your-text-translations"></a>Personalizar suas traduções de texto
 
@@ -27,7 +27,7 @@ O recurso também pode ser usado para personalizar a tradução de fala quando u
 
 Com o Tradutor Personalizado, você pode compilar sistemas de tradução neural que entendam a terminologia usada na sua própria empresa e setor. O sistema de tradução personalizada então se integrará aos aplicativos, fluxos de trabalho e sites existentes.
 
-### <a name="how-does-it-work"></a>Como ele funciona?
+### <a name="how-does-it-work"></a>Como funciona?
 
 Use seus documentos traduzidos anteriormente (panfletos, páginas da Web, documentação etc.) para criar um sistema de tradução que reflita o estilo e a terminologia específica do domínio melhor do que um sistema de tradução genérico. Os usuários podem fazer upload de documentos TMX XLIFF, TXT, DOCX e XLSX.  
 
@@ -43,7 +43,7 @@ Para obter mais detalhes sobre os vários níveis de personalização com base n
 ## <a name="microsoft-translator-hub"></a>Hub do Microsoft Translator
 
 > [!NOTE]
-> O Microsoft Translator Hub legado será desativado em 17 de maio de 2019. [Exibir informações de migração importantes e datas](https://www.microsoft.com/translator/business/hub/).  
+> O Hub herdado do Microsoft Translator será desativado em 17 de maio de 2019. [Exiba datas e informações importantes de migração](https://www.microsoft.com/translator/business/hub/).  
 
 ## <a name="custom-translator-versus-hub"></a>Tradutor Personalizado versus Hub
 

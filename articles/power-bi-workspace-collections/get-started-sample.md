@@ -2,18 +2,18 @@
 title: Comece com uma amostra
 description: Neste artigo, apresentaremos a você o exemplo de introdução de Coleções de Workspaces do Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: 6cf78bf9c83df0a1255c14499bbd2036a2be5ed6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b45dd6bcc9aa3abf2d5078b54e51531cae4ec5f
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64714510"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669111"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemplo de introdução às Coleções de Workspaces do Power BI
 
@@ -38,7 +38,7 @@ Vamos orientar você sobre como configurar seu ambiente de desenvolvimento do Vi
 
 1. Baixe e descompacte o exemplo [Coleções de Workspaces do Power BI – Integrar um relatório a um aplicativo Web](https://go.microsoft.com/fwlink/?LinkId=761493) no GitHub.
 2. Abra **PowerBI-embedded.sln** no Visual Studio. Talvez seja necessário executar o comando **Update-Package** no Console do Gerenciador de Pacotes do NuGet para atualizar os pacotes usados nesta solução.
-3. Compilar a solução.
+3. Compile a solução.
 4. Execute o aplicativo de console **ProvisionSample** . No aplicativo de console de exemplo, você provisiona um workspace e importa um arquivo PBIX.
 5. Para provisionar um novo **Workspace**, selecione a opção 1, **Gerenciamento de coleção** e selecione a opção 6, **Provisionar um novo workspace**
 6. Para importar um novo **Relatório**, selecione a opção 2, **Gerenciamento de relatório** e selecione a opção 3, **Importar arquivo PBIX da Área de Trabalho em um workspace**.
@@ -130,9 +130,9 @@ A cadeia de conexão deve estar no seguinte formato:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-Usar atributos comuns de servidor e de banco de dados falhará. Por exemplo: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+Usar atributos comuns de servidor e de banco de dados falhará. Por exemplo:  Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
 
-### <a name="view"></a>Visualizar
+### <a name="view"></a>Exibir
 
 A **Exibição** gerencia a exibição de **Relatórios** do Power BI e de um **Relatório** do Power BI.
 
@@ -140,7 +140,7 @@ A **Exibição** gerencia a exibição de **Relatórios** do Power BI e de um **
 
 | Parte | DESCRIÇÃO |
 | --- | --- |
-| Title |Nome do Relatório. |
+| Título |Nome do Relatório. |
 | QueryString |Um link para a ID de Relatório. |
 ```cshtml
 <div id="reports-nav" class="panel-collapse collapse">

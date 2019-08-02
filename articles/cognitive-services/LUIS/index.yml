@@ -6,7 +6,7 @@ metadata:
   title: 'Reconhecimento vocal (LUIS) – Tutoriais, guias de início rápido, referência de API'
   description: Saiba como usar o serviço de reconhecimento vocal para permitir que seu aplicativo entenda o que uma pessoa quer com suas próprias palavras.
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0319cef9048d3013325285b0b8ca3d4c8de5e841
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6300734964881eeb5427ef63436fa117c99038b1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859504"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107465"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-abintegro"></a>Tutorial: Integração do Azure Active Directory com o Abintegro
 
@@ -54,7 +54,7 @@ Para configurar a integração do Abintegro ao Azure AD, você precisará adicio
 
 **Para adicionar o Abintegro da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 

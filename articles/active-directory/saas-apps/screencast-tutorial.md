@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 836ef454e5bdb14fcc3f519f9c6d9f6dfb4b5703
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73a29e106424fe87596bf196c16e9ea190da2d72
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686305"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Tutorial: Integração do Azure Active Directory com o Screencast-O-Matic
 
@@ -218,4 +218,4 @@ Ao clicar no bloco Screencast-O-Matic no Painel de Acesso, você deve ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

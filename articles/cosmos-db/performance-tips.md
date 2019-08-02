@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: c8907f1b1c8069a3a3e92d01a5fa6341c06ec952
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21886c11bea6ff09cf97362e06c6d304aaa0d8cc
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688811"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68250053"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Dicas de desempenho para o Azure Cosmos DB e .NET
 
@@ -38,7 +38,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
    * Modo Direto
 
-     O modo direto oferece suporte à conectividade por meio de protocolos TCP e HTTPS. Se você estiver usando a versão mais recente do SDK do .NET, o modo de conectividade direta é suportado no .NET Standard 2.0 e do .NET framework. Ao usar o Modo Direto, há duas opções de protocolo disponíveis:
+     O modo direto oferece suporte à conectividade por meio de protocolos TCP e HTTPS. Se você estiver usando a versão mais recente do SDK do .NET, o modo de conectividade direta terá suporte no .NET Standard 2,0 e no .NET Framework. Ao usar o Modo Direto, há duas opções de protocolo disponíveis:
 
      * TCP
      * HTTPS
@@ -47,8 +47,8 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
      |Modo da conexão  |Protocolo com Suporte  |SDKs com suporte  |Porta/serviço de API  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Direta    |    HTTPS     |  SDK do .NET e Java    |   Portas dentro do intervalo de 10.000-20.000    |
+     |Gateway  |   HTTPS    |  Todos os SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabela (443), Cassandra (10350), grafo (443)    |
+     |Direta    |    HTTPS     |  SDK do .NET e do Java    |   Portas dentro do intervalo de 10.000-20.000    |
      |Direta    |     TCP    |  SDK .NET    | Portas dentro do intervalo de 10.000-20.000 |
 
      O Cosmos DB oferece um modelo de programação RESTful simples e aberto via HTTPS. Além disso, ele oferece um protocolo TCP eficiente que também é RESTful em seu modelo de comunicação e está disponível por meio do SDK do cliente .NET. Tanto TCP direto quanto HTTPS usam SSL para criptografar tráfego e autenticação inicial. Para ter um melhor desempenho, use o protocolo TCP quando possível.
@@ -86,9 +86,9 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     Como as chamadas ao Azure Cosmos DB são feitas pela rede, talvez seja necessário variar o grau de paralelismo das solicitações, de forma que o aplicativo cliente aguarde um tempo mínimo entre as solicitações. Por exemplo, se você estiver usando a [Biblioteca de Paralelismo de 100s de Tarefas](https://msdn.microsoft.com//library/dd460717.aspx) do .NET, crie centenas de tarefas de leitura ou gravação no Azure Cosmos DB.
 
-5. **Habilitar a rede acelerada**
+5. **Habilitar rede acelerada**
 
-   Para reduzir a latência e Tremulação de CPU, é recomendável que as máquinas virtuais de cliente são rede aceleradas habilitada. Consulte a [criar uma máquina virtual do Windows com rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [criar uma máquina virtual Linux com rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md) artigos para habilitar a rede acelerada.
+   Para reduzir a latência e a tremulação da CPU, recomendamos que as máquinas virtuais do cliente sejam habilitadas para rede acelerada. Consulte a artigos [criar uma máquina virtual do Windows com rede acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md) ou [criar uma máquina virtual Linux com rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md) para habilitar a rede acelerada.
 
 
 ## <a name="sdk-usage"></a>Uso do SDK
@@ -142,15 +142,15 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
    Para reduzir o número de idas e vindas na rede necessárias para recuperar todos os resultados aplicáveis, você pode aumentar o tamanho da página para até 1000 usando o cabeçalho de solicitação [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). Nos casos em que você precisa exibir apenas alguns resultados, por exemplo, se a interface do usuário ou a API do aplicativo retornar apenas 10 resultados de uma vez, também será possível diminuir o tamanho da página para 10 para reduzir a taxa de transferência consumida pelas leituras e consultas.
 
    > [!NOTE] 
-   > A propriedade maxItemCount não deve ser usada apenas para fins de paginação. Ele é o principal uso para melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
+   > A propriedade maxItemCount não deve ser usada apenas para fins de paginação. É o principal uso para melhorar o desempenho das consultas, reduzindo o número máximo de itens retornados em uma única página.  
 
-   Você também pode definir o tamanho da página usando os SDKs disponíveis para o Azure Cosmos DB. O [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) propriedade no FeedOptions permite que você defina o número máximo de itens a serem retornados na operação de enmuration. Quando `maxItemCount` é definido como -1, o SDK localiza automaticamente o valor ideal, dependendo do tamanho do documento. Por exemplo:
+   Você também pode definir o tamanho da página usando os SDKs de Azure Cosmos DB disponíveis. A propriedade [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) no feedoptions permite que você defina o número máximo de itens a serem retornados na operação enmuration. Quando `maxItemCount` é definido como-1, o SDK localiza automaticamente o valor ideal dependendo do tamanho do documento. Por exemplo:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   Quando uma consulta é executada, os dados resultantes são enviados dentro de um pacote TCP. Se você especificar um valor muito baixo para `maxItemCount`, o número de corridas necessários para enviar os dados dentro do pacote TCP é alto, o que afeta o desempenho. Portanto, se você não tiver certeza de qual valor deve ser definido para `maxItemCount` propriedade, é melhor defini-lo como -1 e permitir que o SDK, escolha o valor padrão. 
+   Quando uma consulta é executada, os dados resultantes são enviados em um pacote TCP. Se você especificar um valor muito baixo `maxItemCount`para, o número de corridas necessárias para enviar os dados no pacote TCP será alto, o que afetará o desempenho. Portanto, se você não tiver certeza de qual valor definir `maxItemCount` para propriedade, é melhor defini-lo como-1 e permitir que o SDK escolha o valor padrão. 
 
 10. **Aumentar o número de threads/tarefas**
 
@@ -172,7 +172,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
  
 1. **Excluir caminhos não utilizados da indexação para ter gravações mais rápidas**
 
-    A política de indexação do Cosmos DB também permite que você especifique quais caminhos de documento serão incluídos ou excluídos da indexação, aproveitando os Caminhos de Indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados.  Por exemplo, o código a seguir mostra como excluir uma seção inteira dos documentos (uma subárvore) de indexação usando o "*" curinga.
+    A política de indexação do Cosmos DB também permite que você especifique quais caminhos de documento serão incluídos ou excluídos da indexação, aproveitando os Caminhos de Indexação (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso dos caminhos de indexação pode oferecer um melhor desempenho de gravação e menor armazenamento de índices para os cenários nos quais os padrões da consulta são conhecidos com antecedência, pois os custos da indexação estão correlacionados diretamente com o número de caminhos exclusivos indexados.  Por exemplo, o código a seguir mostra como excluir uma seção inteira dos documentos (uma subárvore) da indexação usando o curinga "*".
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -194,7 +194,7 @@ Assim, se você estiver se perguntando "Como posso melhorar o desempenho do meu 
 
     A complexidade de uma consulta afeta a quantidade de Unidades de Solicitação que são consumidas para uma operação. O número de predicados, natureza dos predicados, número de UDFs e tamanho do conjunto de dados de origem influenciam o custo das operações de consulta.
 
-    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), examine o cabeçalho [x-ms-request-charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade RequestCharge equivalente em ResourceResponse<T> ou FeedResponse<T> no SDK do .NET) para medir o número de unidades de solicitação consumidas por essas operações.
+    Para medir a sobrecarga de qualquer operação (criar, atualizar ou excluir), inspecione o cabeçalho [x-MS-Request-encharge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (ou a propriedade RequestCharge equivalente em ResourceResponse\<T > ou FeedResponse\<t > no SDK do .net) para Meça o número de unidades de solicitação consumidas por essas operações.
 
     ```csharp
     // Measure the performance (request units) of writes

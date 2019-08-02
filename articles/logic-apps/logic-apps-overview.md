@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 6/29/2018
-ms.openlocfilehash: 2892dc3b8f25624e7925c9b4aa86110c167ad616
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: f25ade0e984c98b9cbc8c4efa93f300c3ed93b14
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299121"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385472"
 ---
 # <a name="what-is-azure-logic-apps"></a>O que são Aplicativos Lógicos do Azure?
 
@@ -29,7 +29,7 @@ Por exemplo, eis algumas cargas de trabalho que você pode automatizar com aplic
 * Mova arquivos carregados de um servidor SFTP ou FTP para o Armazenamento do Azure. 
 * Monitore tweets sobre um assunto específico, analise o sentimento e crie alertas ou tarefas de itens que exigem revisão.
 
-Para criar soluções de integração empresarial com os Aplicativos Lógicos do Azure, você pode escolha de uma galeria cada vez maior que já conta com [mais de 200 conectores](../connectors/apis-list.md), que inclui serviços como o Barramento de Serviço do Azure, Functions e Armazenamento; SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, compartilhamentos de arquivos e muito mais. [Conectores](#logic-app-concepts) fornecem [gatilhos](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para a criação de aplicativos lógicos que acessam dados e os processam em tempo real.
+Para criar soluções de integração empresarial com os Aplicativos Lógicos do Azure, você pode escolha de uma galeria cada vez maior que já conta com [centenas de conectores prontos para uso](../connectors/apis-list.md), que inclui serviços como o Barramento de Serviço do Azure, Functions e Armazenamento; SQL, Office 365, Dynamics, Salesforce, BizTalk, SAP, Oracle DB, compartilhamentos de arquivos e muito mais. [Conectores](#logic-app-concepts) fornecem [gatilhos](#logic-app-concepts), [ações](#logic-app-concepts) ou ambos para a criação de aplicativos lógicos que acessam dados e os processam em tempo real.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Introducing-Azure-Logic-Apps/player]
 
@@ -96,7 +96,7 @@ Indo na outra direção, BizTalk Server pode se conectar e se comunicar com apli
 
 ### <a name="write-once-reuse-often"></a>Gravar uma vez, reutilizar frequentemente
 
-Crie seus aplicativos lógicos como modelos para que você possa [implantar e reconfigurar os aplicativos](../logic-apps/logic-apps-create-deploy-template.md) em vários ambientes e regiões.
+Crie seus aplicativos lógicos como modelos do Azure Resource Manager para que você possa [automatizar a implantação de aplicativos lógicos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) em vários ambientes e regiões.
 
 ### <a name="built-in-extensibility"></a>Extensibilidade integrada
 

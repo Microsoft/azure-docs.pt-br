@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 6/27/2019
 ms.author: mayg
-ms.openlocfilehash: bf4cce8a224db81b8db7fae6a69b8b578bb3d47a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35fa26112a6026ab05bd59b38621de7ee802c715
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60772291"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491907"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>ExpressRoute do Azure com recuperação do site do Azure
 
@@ -25,20 +25,15 @@ Este artigo descreve como você pode usar o Azure ExpressRoute com o Azure Site 
 
 Um circuito do ExpressRoute representa uma conexão lógica entre a infraestrutura local e os serviços de nuvem da Microsoft por meio de um provedor de conectividade. É possível solicitar vários circuitos do ExpressRoute. Os circuitos podem estar na mesma região ou em regiões diferentes, bem como podem ser conectados aos seus locais por meio de diferentes provedores de conectividade. Saiba mais sobre os circuitos do ExpressRoute [aqui](../expressroute/expressroute-circuit-peerings.md).
 
-## <a name="expressroute-routing-domains"></a>Domínios de roteamento do ExpressRoute
-
-Um circuito do ExpressRoute tem vários domínios de roteamento associados a ele:
--   [Os serviços de computação](../expressroute/expressroute-circuit-peerings.md#privatepeering) do Azure, isto é, máquinas virtuais (IaaS) e serviços de nuvem (PaaS), implantados em uma rede virtual podem ser conectados por meio do domínio de emparelhamento privado. O domínio de peering privado é considerado uma extensão confiável da sua rede principal no Microsoft Azure.
--   [ Azure Public peering ](../expressroute/expressroute-circuit-peerings.md#publicpeering) - Serviços como o armazenamento do Azure, bancos de dados SQL e sites da Web são oferecidos em endereços IP públicos. Você pode se conectar de modo privado a serviços hospedados em endereços IP públicos (incluindo VIPs de seus serviços de nuvem) por meio do domínio de roteamento de emparelhamento público. Emparelhamento público foi substituído para criações de novo e comutação Microsoft deve ser usada para serviços de PaaS do Azure.
--   [Comutação Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) - A conectividade com os serviços on-line da Microsoft (Office 365, Dynamics 365 e serviços do Azure PaaS) é feita através da comutação da Microsoft. Emparelhamento da Microsoft é o domínio de roteamento recomendado para se conectar aos serviços de PaaS do Azure.
-
-Saiba mais sobre os domínios de roteamento do ExpressRoute[aqui](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
+Um circuito do ExpressRoute tem vários domínios de roteamento associados a ele. Saiba mais sobre os domínios de roteamento do ExpressRoute[aqui](../expressroute/expressroute-circuit-peerings.md#peeringcompare).
 
 ## <a name="on-premises-to-azure-replication-with-expressroute"></a>Replicação no local para o Azure com o ExpressRoute
 
 O Azure Site Recovery permite a recuperação de desastres e migração para o Azure para o local [máquinas virtuais Hyper-V](hyper-v-azure-architecture.md), [máquinas virtuais VMware](vmware-azure-architecture.md), e [servidores físicos](physical-azure-architecture.md). Para todos os locais para cenários do Azure, os dados de replicação são enviados e armazenados em uma conta de armazenamento do Azure. Durante a replicação, não é necessário pagar todos os encargos de máquina virtual. Ao executar um failover no Azure, o Site Recovery cria automaticamente as máquinas virtuais da IaaS do Azure.
 
-O Site Recovery replica dados para uma conta do Armazenamento do Azure em um ponto de extremidade público. Para usar o ExpressRoute para replicação do Site Recovery, você pode utilizar [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) (preterido para novas criações) ou [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Assegure que os [Requisitos de Rede](vmware-azure-configuration-server-requirements.md#network-requirements) também sejam atendidos para replicação. Após fazer failover das Máquinas Virtuais do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering). Não há suporte para a replicação sobre emparelhamento privado.
+Site Recovery replica dados para uma conta de armazenamento do Azure ou o disco gerenciado no destino de região do Azure de réplica em um ponto de extremidade público. Para usar o ExpressRoute para tráfego de replicação do Site Recovery, você pode utilizar [emparelhamento da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) ou um existente [emparelhamento público](../expressroute/expressroute-circuit-peerings.md#publicpeering) (preterido para novas criações). Emparelhamento da Microsoft é o domínio de roteamento recomendado para replicação. Observe que a replicação não tem suporte por meio do emparelhamento privado.
+
+Certifique-se de que o [requisitos de rede](vmware-azure-configuration-server-requirements.md#network-requirements) para servidor de configuração também são atendidos. Conectividade com URLs específicas é exigida pelo servidor de configuração para orquestração de replicação do Site Recovery. ExpressRoute não pode ser usado para essa conectividade. 
 
 No caso de você usar o proxy no local e deseja usar o ExpressRoute para o tráfego de replicação, você precisa definir a lista de bypass de Proxy no servidor de configuração e servidores de processo. Siga as etapas abaixo:
 
@@ -48,6 +43,8 @@ No caso de você usar o proxy no local e deseja usar o ExpressRoute para o tráf
 - Na lista de bypass, adicione a URL de armazenamento do Azure *. blob.core.windows.net
 
 Isso garantirá que apenas o tráfego de replicação flui por meio do ExpressRoute, enquanto a comunicação pode passar pelo proxy.
+
+Após fazer failover das Máquinas Virtuais do Azure, será possível acessá-las, utilizando o [emparelhamento privado](../expressroute/expressroute-circuit-peerings.md#privatepeering). 
 
 O cenário combinado é representado no diagrama a seguir: ![Local-para-o Azure com o ExpressRoute](./media/concepts-expressroute-with-site-recovery/site-recovery-with-expressroute.png)
 

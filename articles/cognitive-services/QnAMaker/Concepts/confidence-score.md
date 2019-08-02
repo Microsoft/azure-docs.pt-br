@@ -3,20 +3,20 @@ title: Pontuação de confiança – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Essa pontuação de confiança indica que a resposta é a correspondência ideal da consulta do usuário.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
-ms.author: tulasim
+ms.date: 06/17/2019
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c14c607e4c563bbeeaff02b2c2478cc4b4d96ee5
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65792740"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165131"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de usuário é comparada com uma base de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Essa pontuação indica a confiança de que a resposta é a correspondência ideal da consulta do usuário. 
@@ -46,7 +46,7 @@ A tabela a seguir indica a confiança típica associada a uma determinada pontua
 |0|Nenhuma correspondência, portanto, a resposta não é retornada.|"Quanto custa o serviço"|
 
 ## <a name="choose-a-score-threshold"></a>Escolher um limite de pontuação
-A tabela acima mostra as pontuações que são esperadas na maioria das Bases de conhecimento. No entanto, como cada base é diferente e tem diferentes tipos de palavras, intenções e metas, recomendamos que você teste e escolha o limite que melhor funciona para você. Por padrão o limite é definido como 0, para que todas as respostas possíveis são retornadas. O limite recomendado que deve funcionar para a maioria dos KBs, está **50**.
+A tabela acima mostra as pontuações que são esperadas na maioria das Bases de conhecimento. No entanto, uma vez que cada KB é diferente e tem tipos diferentes de palavras, as intenções e metas-é recomendável que você teste e escolha o limite que melhor funciona para você. Por padrão o limite é definido como 0, para que todas as respostas possíveis são retornadas. O limite recomendado que deve funcionar para a maioria dos KBs, está **50**.
 
 Ao escolher seu limite, tenha em mente o equilíbrio entre Precisão e Cobertura e ajuste seu limite com base em seus requisitos.
 
@@ -56,6 +56,12 @@ Ao escolher seu limite, tenha em mente o equilíbrio entre Precisão e Cobertura
 
 > [!NOTE]
 > As versões mais recentes do QnA Maker incluem melhorias na lógica de pontuação e poderão afetar seu limite. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limite, se necessário. Você pode verificar a versão do Serviço QnA [aqui](https://www.qnamaker.ai/UserSettings) e saber como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).
+
+## <a name="set-threshold"></a>Limite definido 
+
+Definir a pontuação de limite como uma propriedade do [corpo JSON da API de GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Isso significa que você pode defini-lo para cada chamada para GenerateAnswer. 
+
+Da estrutura bot, definir a pontuação como parte do objeto com opções [ C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [Node. js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
 Para melhorar a pontuação de confiança de uma resposta específica a uma consulta de usuário, você poderá adicionar a consulta do usuário à base de dados de conhecimento como uma pergunta alternativa na resposta. Você também pode usar [alterações de palavra](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) que não diferenciam maiúsculas de minúsculas para adicionar sinônimos a palavras-chave em sua base de conhecimento.

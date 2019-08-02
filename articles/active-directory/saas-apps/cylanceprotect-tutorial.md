@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1f493120431481423892706fa2a9352b322c500
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 82da2aec617841643d083662639ebde1b4513ed0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880790"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cylanceprotect"></a>Tutorial: Integração do Azure Active Directory ao CylancePROTECT
 
@@ -53,7 +53,7 @@ Para configurar a integração do CylancePROTECT ao Azure AD, você precisa adic
 
 **Para adicionar o CylancePROTECT da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o CylancePROTECT, execute as segu
 
     ![Informações de logon único de Domínio do CylancePROTECT e URLs](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite a URL:
+    a. Na caixa de texto **Identificador**, digite a URL:
     
     | Região | Valor de URL |
     |----------|---------|
@@ -210,5 +210,5 @@ Ao clicar no bloco do CylancePROTECT no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

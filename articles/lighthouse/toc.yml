@@ -1,0 +1,63 @@
+- name: Documentação do Azure Lighthouse
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Azure Lighthouse?
+      displayName: 'management at scale, service providers'
+      href: overview.md
+- name: Exemplos
+  items:
+    - name: Índice
+      displayName: 'template, sample'
+      href: ./samples/index.md
+- name: Conceitos
+  items:
+    - name: Gerenciamento de recursos delegados do Azure
+      displayName: delegation
+      href: ./concepts/azure-delegated-resource-management.md
+    - name: Experiências de gerenciamento entre locatários
+      displayName: scenarios
+      href: ./concepts/cross-tenant-management-experience.md
+    - name: Ofertas de Serviços Gerenciados no Azure Marketplace
+      displayName: 'managed services offer, azure marketplace'
+      href: ./concepts/managed-services-offers.md
+    - name: Práticas de segurança recomendadas
+      displayName: 'mfa, authentication, secure, group'
+      href: ./concepts/recommended-security-practices.md
+    - name: Considerações sobre o programa Provedor de Soluções na Nuvem
+      displayName: 'csp, aobo, partner'
+      href: ./concepts/cloud-solution-provider.md
+- name: Guias de instruções
+  items:
+    - name: Integrar um cliente no gerenciamento de recursos delegados do Azure
+      displayName: resource management
+      href: ./how-to/onboard-customer.md
+    - name: Publicar ofertas de Serviços Gerenciados no Azure Marketplace
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/publish-managed-services-offers.md
+    - name: Exibir e gerenciar clientes
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-customers.md
+    - name: Exibir e gerenciar provedores de serviços
+      displayName: 'managed services offer, azure marketplace, publish'
+      href: ./how-to/view-manage-service-providers.md
+- name: Referência
+  items:
+    - name: SDK do Azure para .NET
+      href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet'
+    - name: SDK do Azure para .NET (NuGet)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/'
+    - name: SDK do Azure para Python
+      href: 'https://docs.microsoft.com/python/api/azure-mgmt-managedservices'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/managedservices/'
+    - name: OpenAPI
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview'
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/922753'

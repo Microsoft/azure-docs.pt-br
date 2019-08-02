@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 00fa1128df03befda8b15be2d7f2c527f65f9973
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61075800"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341069"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar um Banco de Dados SQL do Azure ou fazer failover para um secundário
 
@@ -34,7 +34,7 @@ Para saber mais sobre os cenários de continuidade dos negócios e os recursos c
 > Se você estiver usando pools ou banco de dados Comercialmente Crítico ou Premium com redundância de zona, o processo de recuperação é automatizado e o restante deste material não se aplica.
 
 > [!NOTE]
-> Os bancos de dados primário e secundário devem ter a mesma camada de serviço. É também é altamente recomendável que o banco de dados secundário é criado com o mesmo computação tamanho (DTUs ou vCores) como o primário. Para obter mais informações, consulte [fazer a atualização ou downgrade como banco de dados primário](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Os bancos de dados primário e secundário devem ter a mesma camada de serviço. É também é altamente recomendável que o banco de dados secundário é criado com o mesmo computação tamanho (DTUs ou vCores) como o primário. Para obter mais informações, consulte [fazer a atualização ou downgrade como banco de dados primário](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Use um ou vários grupos de failover para gerenciar o failover de vários bancos de dados.

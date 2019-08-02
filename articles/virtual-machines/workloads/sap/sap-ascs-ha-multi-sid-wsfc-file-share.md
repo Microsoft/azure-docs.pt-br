@@ -4,7 +4,7 @@ description: Alta disponibilidade de vários SIDs para instâncias do SAP ASCS c
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 32905f6d505f83ead805550205df0daf6be501e5
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60651552"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710124"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -256,7 +256,7 @@ Você deve preparar a infraestrutura no cluster ASCS/SCS existente para um segun
 * Crie um nome de host virtual para a instância do SAP ASCS/SCS clusterizada no servidor DNS.
 * Adicione um endereço IP a um balanceador de carga interno do Azure existente usando o PowerShell.
 
-Estas etapas são descritas em [Preparação da infraestrutura para um cenário de vários SIDs do SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
+Essas etapas são descritas em [preparação da infraestrutura para um cenário multi-SID do SAP][sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare].
 
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Prepare a infraestrutura em um cluster SOFS usando o Host Global do SAP existente
@@ -463,8 +463,8 @@ Instale os servidores de aplicativos SAP e DBMS conforme descrito anteriormente.
 
 * [Instalar uma instância do ASCS/SCS em um cluster de failover sem discos compartilhados][sap-official-ha-file-share-document]: Diretrizes de SAP oficiais para um compartilhamento de arquivo de HA
 
-* [Espaços de armazenamento direto no Windows Server 2016][s2d-in-win-2016]
+* [Espaços de armazenamento diretos no Windows Server 2016][s2d-in-win-2016]
 
-* [Visão geral do servidor de arquivos de escalabilidade horizontal para dados de aplicativo][sofs-overview]
+* [Servidor de arquivos de escalabilidade horizontal para visão geral de dados de aplicativo][sofs-overview]
 
-* [O que há de novo no Armazenamento no Windows Server 2016][new-in-win-2016-storage]
+* [O que há de novo no armazenamento no Windows Server 2016][new-in-win-2016-storage]

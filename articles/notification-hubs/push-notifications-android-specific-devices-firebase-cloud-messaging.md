@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/30/2019
 ms.author: jowargo
-ms.openlocfilehash: f4a0da5d3ef0dd2d5ae04a2cc1b07ddb0a649bef
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0192326feeab3063c6e03376f565590728ba2a02
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205386"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227563"
 ---
 # <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-firebase-cloud-messaging-fcm"></a>Tutorial: Enviar notificações por push para dispositivos Android específicos usando os Hubs de Notificação do Azure e o Google FCM (Firebase Cloud Messaging)
 
@@ -217,7 +217,7 @@ A primeira etapa é adicionar os elementos da interface do usuário na atividade
 
         mainActivity = this;
 
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         notifications = new Notifications(this, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
         notifications.subscribeToCategories(notifications.retrieveCategories());
     }
@@ -329,7 +329,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 Neste tutorial, você enviou notificações de notícias a dispositivos específicos Android que foram registrados para as categorias. Para saber como enviar notificações por push a usuários específicos, avance ao seguinte tutorial:
 
 > [!div class="nextstepaction"]
->[Notificações por push para usuários específicos](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[Notificações por push para usuários específicos](push-notifications-android-specific-users-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

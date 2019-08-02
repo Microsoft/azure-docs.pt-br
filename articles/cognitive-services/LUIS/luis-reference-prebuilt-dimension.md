@@ -1,6 +1,6 @@
 ---
-title: Entidades de dimensão predefinidas
-titleSuffix: Azure
+title: Entidades predefinidas da dimensão – LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações de entidade predefinida de dimensão em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 ms.custom: seodec18
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e77cd2290981de62ba7fce7f04174cd0c5ec2af3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a2654947ab43000613cb1076b41d2ff5c2180e9
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072195"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560264"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Entidade de dimensão predefinida para um aplicativo LUIS
 A entidade de dimensão predefinida detecta vários tipos de dimensões, independentemente da cultura do aplicativo do LUIS. Como essa entidade já está treinada, não é necessário adicionar expressões contendo dimensões às intenções do aplicativo. A entidade de dimensão tem suporte em [muitas culturas](luis-reference-prebuilt-entities.md). 
@@ -60,9 +60,9 @@ O exemplo a seguir mostra a resolução da entidade **builtin.dimension**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de visualização 3. x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O JSON a seguir é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -87,7 +87,7 @@ O JSON a seguir é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O JSON a seguir é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

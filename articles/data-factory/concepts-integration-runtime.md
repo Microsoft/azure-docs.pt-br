@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7c86577abe1e8e158299e3a6aee2cff7f3568241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427144"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875268"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (tempo de execução de integração) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
 
-- **Fluxo de dados**: Executar uma [fluxo de dados](concepts-data-flow-overview.md) no ambiente de computação gerenciada do Azure.  
+- **Fluxo de dados**: Execute um [fluxo de dados](concepts-data-flow-overview.md) no ambiente de computação gerenciado do Azure.  
 - **Movimentação de dados**: Copie os dados entre os armazenamentos de dados na rede pública e armazenamento de dados na rede privada (rede local ou privada virtual). Ele fornece suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados de alto desempenho e escalonáveis.
-- **Expedição de atividade**:  Expedir e monitorar atividades de transformação executadas em uma variedade de serviços de computação como Azure Databricks, Azure HDInsight, Machine Learning do Azure, banco de dados SQL, SQL Server e muito mais.
+- **Expedição de atividade**:  Despache e monitore atividades de transformação em execução em uma variedade de serviços de computação, como Azure Databricks, Azure HDInsight, Azure Machine Learning, banco de dados SQL do Azure, SQL Server e muito mais.
 - **Execução de pacote SSIS**: Execute nativamente pacotes do SSIS (SQL Server Integration Services) em um ambiente de computação gerenciada do Azure.
 
-No Data Factory, uma atividade define a ação a ser realizada. Um serviço vinculado define um armazenamento de dados de destino ou um serviço de computação. Um Integration Runtime fornece a ponte entre a atividade e os serviços vinculados.  Ele é referenciado pelo serviço vinculado ou atividade e fornece o ambiente de computação em que a atividade é executado em ou é expedida. Desse modo, a atividade pode ser executada na região mais próxima possível do serviço de computação ou armazenamento de dados de destino, da maneira que proporciona o mais alto desempenho e atendendo às necessidades de segurança e de conformidade.
+No Data Factory, uma atividade define a ação a ser realizada. Um serviço vinculado define um armazenamento de dados de destino ou um serviço de computação. Um Integration Runtime fornece a ponte entre a atividade e os serviços vinculados.  Ele é referenciado pelo serviço vinculado ou pela atividade e fornece o ambiente de computação no qual a atividade é executada ou expedida do. Desse modo, a atividade pode ser executada na região mais próxima possível do serviço de computação ou armazenamento de dados de destino, da maneira que proporciona o mais alto desempenho e atendendo às necessidades de segurança e de conformidade.
 
 ## <a name="integration-runtime-types"></a>Tipos de Integration Runtime
 O Data Factory oferece três tipos de Integration Runtime e você deve escolher o tipo que melhor atende as funcionalidades de integração de dados e as necessidades de ambiente de rede pelas quais você está procurando.  Esses três tipos são:
@@ -40,7 +40,7 @@ A tabela a seguir descreve as funcionalidades e o suporte de rede para cada um d
 
 Tipo de IR | Rede pública | Rede privada
 ------- | -------------- | ---------------
-Azure | Fluxo de dados<br/>Movimentação de dados<br/>Expedição de atividade | &nbsp;
+Azure | Fluxo de Dados<br/>Movimentação de dados<br/>Expedição de atividade | &nbsp;
 Auto-hospedado | Movimentação de dados<br/>Expedição de atividade | Movimentação de dados<br/>Expedição de atividade
 Azure-SSIS | Execução de pacote SSIS | Execução de pacote SSIS
 
@@ -51,12 +51,12 @@ O diagrama a seguir mostra como os diferentes tempos de execução de integraç�
 ## <a name="azure-integration-runtime"></a>Integration Runtime do Azure
 Um Integration Runtime do Azure é capaz de:
 
-- Fluxos de dados em execução no Azure 
+- Executando fluxos de dados no Azure 
 - Executar a atividade de cópia entre armazenamentos de dados de nuvem
-- Distribua as seguintes atividades de transformação na rede pública: Notebook do Databricks / Jar / atividade do Python, atividade de Hive do HDInsight, atividade de Pig do HDInsight, atividade de MapReduce do HDInsight, atividade do Spark do HDInsight, atividade de Streaming do HDInsight, atividade de execução de lote do Machine Learning, o recurso de atualização do Machine Learning as atividades, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .NET, atividade da Web, atividade de pesquisa e obter metadados atividade.
+- Distribua as seguintes atividades de transformação na rede pública: Atividade do databricks Notebook/jar/Python, atividade de hive do hdinsight, atividade do HDInsight Pig, atividade de MapReduce do HDInsight, atividade do HDInsight Spark, atividade de streaming do HDInsight, atividade de execução de Machine Learning em lote, recurso de atualização de Machine Learning atividades, atividade de procedimento armazenado, Data Lake Analytics atividade U-SQL, atividade personalizada .NET, atividade da Web, atividade de pesquisa e atividade obter metadados.
 
 ### <a name="azure-ir-network-environment"></a>Ambiente de rede do IR do Azure
-Tempo de execução de integração do Azure dá suporte à conexão a armazenamentos de dados e serviços de computação com pontos de extremidade públicos acessíveis. Use um Integration Runtime auto-hospedado para o ambiente de Rede Virtual do Azure.
+O Azure Integration Runtime dá suporte à conexão com armazenamentos de dados e serviços de computação com pontos de extremidade acessíveis públicos. Use um Integration Runtime auto-hospedado para o ambiente de Rede Virtual do Azure.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Recurso de computação e dimensionamento do IR do Azure
 O Integration Runtime do Azure fornece uma computação totalmente gerenciada e sem servidor no Azure.  Você não precisa se preocupar sobre provisionamento de infraestrutura, instalação de software, aplicação de patch ou dimensionamento de capacidade.  Além disso, você só paga pela duração da utilização real.
@@ -68,13 +68,13 @@ A expedição de atividade é uma operação simples para rotear a atividade par
 Para obter informações sobre como criar e configurar um IR do Azure, consulte Como criar e configurar o IR do Azure nos guias de instruções. 
 
 > [!NOTE] 
-> Tempo de execução de integração do Azure tem propriedades relacionadas ao runtime de fluxo de dados, que define a infraestrutura de computação subjacentes que seria usada para executar os fluxos de dados no. 
+> O tempo de execução de integração do Azure tem propriedades relacionadas ao tempo de execução de fluxo de dados, que definem a infraestrutura de computação subjacente que seria usada para executar os fluxos de dados no. 
 
 ## <a name="self-hosted-integration-runtime"></a>Tempo de execução de integração auto-hospedado
 Um IR auto-hospedado é capaz de:
 
 - Executar a atividade de cópia entre um armazenamento de dados de nuvem e um armazenamento de dados na rede privada.
-- Distribua as atividades de transformação a seguir contra os recursos do computador no local ou Rede Virtual do Microsoft Azure: Atividade de Hive do HDInsight (BYOC – traga seu próprio Cluster), a atividade de Pig de HDInsight (BYOC), a atividade de MapReduce do HDInsight (BYOC), atividade do HDInsight Spark (BYOC), HDInsight atividade de Streaming (BYOC), atividade de execução de lote do Machine Learning, Machine Learning Atividades de recurso, atividade de procedimento armazenado, atividade U-SQL do Data Lake Analytics, atividade personalizada do .NET, atividade de pesquisa e atividade de obter metadados de atualização.
+- Distribua as atividades de transformação a seguir contra os recursos do computador no local ou Rede Virtual do Microsoft Azure: Atividade do hive do HDInsight (BYOC-traga seu próprio cluster), BYOC (Pig de atividades do HDInsight), atividade de MapReduce do HDInsight (BYOC), atividade do HDInsight Spark (BYOC), atividade de streaming do HDInsight (BYOC), atividade de execução de Machine Learning em lote Machine Learning Atualize atividades de recurso, atividade de procedimento armazenado, Data Lake Analytics atividade U-SQL, atividade personalizada (execuções no lote do Azure), atividade de pesquisa e atividade obter metadados.
 
 > [!NOTE] 
 > Use o Integration Runtime auto-hospedado para dar suporte a armazenamentos de dados que requer traga seu próprio driver como SAP Hana, MySQL, etc.  Para obter mais informações, consulte [fontes de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -85,7 +85,7 @@ Se você deseja realizar a integração de dados com segurança em um ambiente d
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>Recurso de computação e dimensionamento do IR auto-hospedado
 O IR auto-hospedado precisa ser instalado em um computador local ou em uma máquina virtual dentro de uma rede privada. Atualmente, só há suporte para a execução do IR auto-hospedado em um sistema operacional Windows.  
 
-Para alta disponibilidade e escalabilidade, você pode expandir o IR auto-hospedado associando a instância lógica a vários computadores locais no modo ativo-ativo.  Para obter mais informações e detalhes, veja o artigo correspondente nos guias de instruções, Como criar e configurar IR auto-hospedado.
+Para alta disponibilidade e escalabilidade, você pode expandir o IR auto-hospedado associando a instância lógica a vários computadores locais no modo ativo-ativo.  Para obter mais informações, consulte o artigo como [criar e configurar o ir auto-hospedado](create-self-hosted-integration-runtime.md) em como guias para obter detalhes.
 
 ## <a name="azure-ssis-integration-runtime"></a>Integration Runtime do Azure-SSIS
 Para fazer lift-and-shift da carga de trabalho existente do SSIS, você pode criar um IR Azure-SSIS para executar pacotes do SSIS nativamente.
@@ -114,16 +114,16 @@ A localização do IR define a localização da respectiva computação de back-
 ### <a name="azure-ir-location"></a>Localização do IR do Azure
 Você pode definir um determinado local de um IR do Azure, onde a movimentação de dados ou a expedição de atividade ocorrerá nessa região específica. 
 
-Se você optar por usar o **resolver automaticamente IR do Azure** que é o padrão 
+Se você optar por usar a **resolução automática Azure ir** que é o padrão, 
 
 - Para a atividade de cópia, o ADF fará um melhor esforço para detectar automaticamente o armazenamento de dados do coletor e da fonte para escolher o melhor local na mesma região, se disponível, ou o mais próximo na mesma geografia. Ou, se não for detectável, usar a região do data factory como alternativa.
 
-- Para a execução da atividade GetMetadata/pesquisa/exclusão (também conhecido como atividades de Pipeline), atividade de transformação expedição (também conhecido como externas atividades) e criação de operações (conexão de teste, lista de pastas de navegação e lista de tabelas, visualizar dados), ADF ele usará o IR na região da fábrica de dados.
+- Para pesquisa/GetMetadata/excluir execução de atividade (também conhecida como atividades de pipeline), expedição de atividade de transformação (também conhecida como atividades externas) e operações de criação (conexão de teste, lista de pastas de pesquisa e lista de tabelas, Visualizar dados), ADF usará o IR na região de data factory.
 
-- Para o fluxo de dados, o ADF usará o IR na região da fábrica de dados. 
+- Para o fluxo de dados, o ADF usará o IR na região de data factory. 
 
   > [!TIP] 
-  > Uma prática recomendada seria garantir que o fluxo de dados é executado na mesma região que seus armazenamentos de dados correspondente (se possível). Você pode fazer isso, resolver automaticamente IR do Azure (se o local do repositório de dados é o mesmo que a localização do Data Factory), ou criando uma nova instância do IR do Azure na mesma região que seus armazenamentos de dados e, em seguida, execute o fluxo de dados nele. 
+  > Uma prática recomendada seria garantir que o fluxo de dados seja executado na mesma região que os armazenamentos de dados correspondentes (se possível). Você pode fazer isso por meio da resolução automática de Azure IR (se o local do repositório de dados for o mesmo Data Factory local) ou criando uma nova instância Azure IR na mesma região que os armazenamentos de dados e, em seguida, executar o fluxo de dados nele. 
 
 Você pode monitorar quais locais do IR entram em vigor durante a execução da atividade na exibição do monitoramento de atividades de pipeline na interface do usuário ou no conteúdo de monitoramento de atividades.
 
@@ -166,7 +166,7 @@ Cada atividade de transformação tem um serviço vinculado de computação de d
 
 ### <a name="data-flow-activity"></a>Atividade de fluxo de dados
 
-Atividade de fluxo de dados é executada no tempo de execução de integração associado a ela. 
+A atividade de fluxo de dados é executada no Integration Runtime associado a ela. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira os seguintes artigos:

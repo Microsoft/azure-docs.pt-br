@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f6126d6bf172a35a284e92b65b1c3ef449949e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7cf1b583189810b61ea349a29698ff6f12c39699
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900172"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106739"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Tutorial: Integração do Azure Active Directory ao Asana
 
@@ -55,7 +55,7 @@ Para configurar a integração do Asana ao Azure AD, você precisará adicionar 
 
 **Para adicionar o Asana da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o Asana, execute as seguintes eta
 
     ![Informações de logon único de Domínio e URLs do Asana](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL: `https://app.asana.com/`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://app.asana.com/`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL: `https://app.asana.com/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://app.asana.com/`
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Asana, execute as seguintes eta
 
     ![Definições de Configurar Organização de Logon Único](./media/asana-tutorial/tutorial_asana_10.png)  
 
-     a. Na caixa de texto **URL da página de entrada**, cole a **URL de logon**.
+    a. Na caixa de texto **URL da página de entrada**, cole a **URL de logon**.
 
     b. Clique com o botão direito do mouse no certificado baixado no portal do Azure e, em seguida, abra o arquivo de certificado usando o Bloco de notas ou seu editor de texto preferido. Copie o conteúdo entre o início e o final do título do certificado e cole-o na caixa de texto **Certificado X.509**.
 
@@ -220,6 +220,6 @@ Ao clicar no bloco do Asana no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](asana-provisioning-tutorial.md)

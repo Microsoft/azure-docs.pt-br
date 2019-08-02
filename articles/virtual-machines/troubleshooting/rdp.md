@@ -4,7 +4,7 @@ description: Solucione problemas com RDP em VMs do Windows no Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 96e0b0b03643143064e52d1f05ee37b58559f607
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 877f882d95b52e559630c0834fb37fffb58fb0a7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306995"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710212"
 ---
 # <a name="troubleshoot-rdp-issues"></a>Solucionar problemas com RDP
 

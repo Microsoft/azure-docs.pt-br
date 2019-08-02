@@ -2,23 +2,23 @@
 title: Guia de Início Rápido para exibir os grupos e membros - Azure Active Directory | Microsoft Docs
 description: Instruções sobre como pesquisar e exibir os grupos da sua organização e seus membros atribuídos.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8eef6f7a363fe7b020a3ef18ae26799d7d5452ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bd3719e63b19066d61647b90ccae03ed841f3c6c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881003"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561898"
 ---
 <!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 

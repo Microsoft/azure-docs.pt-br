@@ -1,5 +1,5 @@
 ---
-title: Nós de compra para a solução VMware por CloudSimple - Azure
+title: Provisionar nós para a solução VMware por CloudSimple - Azure
 description: Saiba como adicionar nós ao seu VMWare com implantação CloudSimple
 author: dikamath
 ms.author: dikamath
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9f5108207c4f8debc65b9d1fe625ae7033ca4e70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33de07663c91f12d4e10c4661b841cd2dbe5a162
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577174"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165247"
 ---
-# <a name="purchase-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Nós de compra para a solução VMware por CloudSimple - Azure
+# <a name="provision-nodes-for-vmware-solution-by-cloudsimple---azure"></a>Provisionar nós para a solução VMware por CloudSimple - Azure
 
 Provisionar nós no portal do Azure. Em seguida, você pode definir pagamento medida que acesse a capacidade para o seu ambiente de nuvem privada CloudSimple.
 
-## <a name="add-a-purchased-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó comprado para sua nuvem privada de CloudSimple
+## <a name="add-a-provisioned-node-to-your-cloudsimple-private-cloud"></a>Adicionar um nó provisionado para sua nuvem privada de CloudSimple
 
 1. Selecione **Todos os serviços**.
 2. Pesquise **CloudSimple nós**.
@@ -31,7 +31,7 @@ Provisionar nós no portal do Azure. Em seguida, você pode definir pagamento me
 
     ![Adicionar nós CloudSimple](media/create-cloudsimple-node-add.png)
 
-5. Selecione a assinatura em que você deseja comprar CloudSimple nós.
+5. Selecione a assinatura onde você deseja provisionar nós CloudSimple.
 6. Selecione o grupo de recursos para os nós. Para adicionar um novo grupo de recursos, clique em **criar novo**.
 7. Insira o prefixo para identificar os nós.
 8. Selecione o local para os recursos do nó.

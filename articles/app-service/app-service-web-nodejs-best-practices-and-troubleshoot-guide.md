@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60853018"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67719787"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guia de solução de problemas e práticas recomendadas para aplicativos de nó no Serviço de Aplicativo do Azure Windows
 
@@ -94,7 +94,7 @@ Uma lista separada por ponto e vírgula de arquivos que são observados para alt
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-O valor padrão é falso. Se habilitado, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_CONTROL\_PIPE) e enviar uma mensagem de "reciclagem". Isso fará com que w3wp seja reciclado normalmente.
+O valor padrão é false. Se habilitado, o aplicativo de nó pode se conectar a um pipe nomeado (variável de ambiente IISNODE\_CONTROL\_PIPE) e enviar uma mensagem de "reciclagem". Isso fará com que w3wp seja reciclado normalmente.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -106,7 +106,7 @@ O valor padrão é 0, o que significa que esse recurso está desabilitado. Quand
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-O valor padrão é falso. Se configurado como verdadeiro, o iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP que enviar ao valor do cabeçalho `iisnode-debug` como URL. Peças individuais de informações de diagnóstico podem ser obtidas observando o fragmento de URL, no entanto, uma visualização está disponível ao abrir a URL em um navegador.
+O valor padrão é false. Se configurado como verdadeiro, o iisnode adicionará um cabeçalho de resposta HTTP `iisnode-debug` a cada resposta HTTP que enviar ao valor do cabeçalho `iisnode-debug` como URL. Peças individuais de informações de diagnóstico podem ser obtidas observando o fragmento de URL, no entanto, uma visualização está disponível ao abrir a URL em um navegador.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -114,7 +114,7 @@ Essa configuração controla o registro em log de stdout e stderr por iisnode. I
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-O valor padrão é falso. Quando definido como true, iisnode exibirá o código de status HTTP e o código de erro Win32 no navegador. O código win32 será útil na depuração de certos tipos de problemas.
+O valor padrão é false. Quando definido como true, iisnode exibirá o código de status HTTP e o código de erro Win32 no navegador. O código win32 será útil na depuração de certos tipos de problemas.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled (não habilitar em sites de produção ativos)
 
@@ -281,7 +281,7 @@ NODE.exe tem uma configuração chamada `NODE_PENDING_PIPE_INSTANCES`. Em Servi�
 Siga estes links para saber mais sobre aplicativos do node.js no Serviço de Aplicativo do Azure.
 
 * [Get started with Node.js web apps in Azure App Service (Introdução aos aplicativos Web do Node.js no Serviço de Aplicativo do Azure)](app-service-web-get-started-nodejs.md)
-* [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Como depurar um aplicativo Web Node.js no Serviço de Aplicativo do Azure](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [Usando Módulos no Node.js com aplicativos do Microsoft Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Aplicativos Web do Serviço de Aplicativo do Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centro de desenvolvedores do Node. js](../nodejs-use-node-modules-azure-apps.md)

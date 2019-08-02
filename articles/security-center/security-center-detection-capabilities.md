@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8cd76909c9ce15a97de4ea5af3b21ac120058dd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac3d1a55a707349873132befb25a38358b563138
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60705829"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875570"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Recursos de detecção da Central de Segurança do Azure
 Este documento aborda os recursos de detecção avançada da Central de Segurança do Azure, que ajuda a identificar ameaças ativas aos recursos do Microsoft Azure, Windows e Linux e fornece as informações necessárias para uma resposta rápida.
@@ -34,7 +34,7 @@ Esta abordagem levou a um nível de profissionalismo nas classificações do inv
 
 Em resposta, as organizações geralmente implantam várias soluções pontuais, com foco em defender o perímetro ou os pontos de extremidade da empresa procurando assinaturas de ataques conhecidos. Essas soluções tendem a gerar um alto volume de alertas de baixa fidelidade, que exigem que um analista de segurança faça a triagem e investigue. A maioria das organizações não têm o tempo e o conhecimento necessário para responder a esses alertas; vários ficam sem investigação.  Enquanto isso, os invasores têm evoluído seus métodos para examinar as várias defesas baseadas em assinatura e [adaptar-se a ambientes em nuvem](https://azure.microsoft.com/blog/detecting-threats-with-azure-security-center/). Novas abordagens são necessárias para identificar ameaças emergentes e agilizar a detecção e a resposta mais rapidamente.
 
-## <a name="how-azure-security-center-detects-and-responds-to-threats"></a>Como a Central de Segurança do Azure detecta e responde às ameaças
+## Como a central de segurança do Azure detecta e responde às ameaças<a name="asc-detects"></a>
 Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Eles têm acesso a um conjunto expansivo de telemetria obtida com a presença global da Microsoft na nuvem e localmente. Esta coleção diversa e abrangente de conjuntos de dados permite que a Microsoft descubra novos padrões de ataque e tendências em seus produtos de consumidor e empresariais no local, bem como em serviços on-line. Como resultado, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
 
 A detecção de ameaças da Central de Segurança funciona coletando informações de segurança de seus recursos do Azure, de rede e de soluções de parceiros conectados automaticamente. Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças. Os alertas de segurança são priorizados na Central de Segurança, juntamente com recomendações sobre como corrigir a ameaça.
@@ -48,14 +48,14 @@ A Central de Segurança emprega análise de segurança avançada, que vai além 
 * **Detecção de anomalias**: usa estatísticas de criação de perfil para criar uma linha de base histórica. Ela o alertará sobre desvios das linhas de base estabelecidas em conformidade com um vetor de possível ataque.
 
 ### <a name="threat-intelligence"></a>Inteligência contra ameaças
-A Microsoft tem uma grande quantidade de inteligência contra ameaças globais. A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a DCU (Unidade de Crimes Digitais da Microsoft) e o Microsoft Security Response Center (MSRC). Os pesquisadores também recebem informações de inteligência de ameaça que são compartilhadas entre os principais provedores de serviços de nuvem e assinam feeds de inteligência contra ameaças de terceiros. A Central de Segurança do Azure pode usar essas informações para alertá-lo de ameaças vindas de maus atores conhecidos. Alguns exemplos incluem:
+A Microsoft tem uma grande quantidade de inteligência contra ameaças globais. A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a DCU (Unidade de Crimes Digitais da Microsoft) e o Microsoft Security Response Center (MSRC). Os pesquisadores também recebem informações de inteligência de ameaça que são compartilhadas entre os principais provedores de serviços de nuvem e assinam feeds de inteligência contra ameaças de terceiros. A Central de Segurança do Azure pode usar essas informações para alertá-lo de ameaças vindas de maus atores conhecidos. Eis alguns exemplos:
 
-* **Comunicação de saída para um endereço IP mal-intencionado**: o tráfego de saída para um botnet ou darknet conhecido provavelmente indica que o recurso foi comprometido e um invasor está tentando executar comandos de sistema ou exfiltrar dados. A Central de Segurança do Azure compara o tráfego de rede com o banco de dados de ameaças globais da Microsoft e o alerta se detecta uma comunicação com um endereço IP mal-intencionado.
+* **Comunicação de saída para um endereço IP mal-intencionado**: o tráfego de saída para um botnet ou Darknet conhecido provavelmente indica que o recurso foi comprometido e um invasor está tentando executar comandos no sistema ou nos dados do exfiltrar. A Central de Segurança do Azure compara o tráfego de rede com o banco de dados de ameaças globais da Microsoft e o alerta se detecta uma comunicação com um endereço IP mal-intencionado.
 
 ## <a name="behavioral-analytics"></a>Análise comportamental
 A análise de comportamento é uma técnica que analisa e compara dados em uma coleção de padrões conhecidos. No entanto, esses padrões não são assinaturas simples. Eles são determinados por meio de algoritmos de aprendizado de máquina complexos que são aplicados a grandes conjuntos de dados. Eles também são determinados pela análise cuidadosa de comportamentos mal-intencionados por analistas especialistas. A Central de Segurança do Azure pode usar a análise de comportamento para identificar recursos comprometidos baseado na análise dos logs de máquina virtual, dos logs de dispositivo de rede virtual, dos logs da malha, dos despejos de memória e de outras fontes.
 
-Além disso, há uma correlação com outros sinais para verificar se há suporte a evidências de uma campanha generalizada. Essa correlação ajuda a identificar os eventos que são consistentes com os indicadores de comprometimento estabelecidos. Alguns exemplos incluem:
+Além disso, há uma correlação com outros sinais para verificar se há suporte a evidências de uma campanha generalizada. Essa correlação ajuda a identificar os eventos que são consistentes com os indicadores de comprometimento estabelecidos. Eis alguns exemplos:
 
 * **Execução de processo suspeito**: Os invasores empregam várias técnicas para executar um software mal-intencionado sem detecção. Por exemplo, um invasor pode dar os mesmos nomes de arquivos do sistema legítimos ao malware, mas colocar esses arquivos em locais alternativos, usar um nome que é muito semelhante a um arquivo benigno ou mascarar a extensão verdadeira do arquivo. Os modelos da Central de Segurança processam comportamentos e monitoram execuções de processo para detectar exceções como essas.  
 * **Malware oculto e tentativas de exploração**: O malware sofisticado é capaz de escapar dos produtos antimalware tradicionais não gravando no disco ou criptografando os componentes do software armazenados no disco.  No entanto, esse tipo de malware pode ser detectado usando a análise de memória, já que o malware deve deixar rastreamentos na memória para poder funcionar. Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha.  Analisando a memória no despejo, a Central de Segurança do Azure pode detectar técnicas usadas para explorar vulnerabilidades no software, acessar dados confidenciais e se manter em uma máquina comprometida de maneira furtiva sem afetar o desempenho do seu computador.
@@ -84,7 +84,7 @@ Neste documento, você aprendeu como funcionam os recursos de detecção da Cent
 * [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md)
 * [Gerenciando e respondendo a alertas de segurança na Central de segurança do Azure](security-center-managing-and-responding-alerts.md)
 * [Alertas de Segurança por Tipo na Central de Segurança do Azure](security-center-alerts-type.md)
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) – saiba como monitorar a integridade dos recursos do Azure.
+* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md) : saiba como monitorar a integridade dos recursos do Azure.
 * [Monitorando as soluções de parceiros com a Central de Segurança do Azure](security-center-partner-solutions.md) – saiba como monitorar o status de integridade de suas soluções de parceiros.
 * [Perguntas frequentes da Central de Segurança do Azure](security-center-faq.md) : encontre as perguntas frequentes sobre como usar o serviço.
 * [Blog de Segurança do Azure](https://blogs.msdn.com/b/azuresecurity/) : encontre postagens no blog sobre conformidade e segurança do Azure.

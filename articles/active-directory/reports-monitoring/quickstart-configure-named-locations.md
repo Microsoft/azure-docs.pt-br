@@ -16,12 +16,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71b21c4727e7679c25dc2574a6506f8d3932aec2
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d12991813f68a42f9846c1c9c9c31c01d371d1d4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434782"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107646"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>Início Rápido: Configurar locais nomeados no Azure Active Directory
 
@@ -37,7 +37,7 @@ Para concluir este início rápido, você precisa de:
 
 * Um locatário do Azure AD. Inscreva-se para uma [avaliação gratuita](https://azure.microsoft.com/trial/get-started-active-directory/). 
 * Um usuário, que é um administrador global para o locatário.
-* Um intervalo de IP que é estabelecido e confiável na sua organização. O intervalo de IP precisa estar no formato **CIDR (Roteamento entre Domínios sem Classe)**.
+* Um intervalo de IP que é estabelecido e confiável na sua organização. O intervalo de IP precisa estar no formato **CIDR (Roteamento entre Domínios sem Classe)** .
 
 ## <a name="configure-named-locations"></a>Configurar localizações nomeadas
 
@@ -45,7 +45,7 @@ Para concluir este início rápido, você precisa de:
 
 2. No painel esquerdo, selecione **Azure Active Directory**, em seguida, selecione **Acesso condicional** da seção **Segurança**.
 
-    ![Guia Acesso condicional](./media/quickstart-configure-named-locations/entrypoint.png)
+    ![Guia Acesso Condicional](./media/quickstart-configure-named-locations/entrypoint.png)
 
 3. Na página **Acesso condicional**, selecione **Locais nomeados** e selecione **Novo local**.
 

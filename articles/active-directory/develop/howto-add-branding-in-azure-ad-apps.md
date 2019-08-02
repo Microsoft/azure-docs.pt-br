@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14572210b80ac1415d129c5810f0e5443012c9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540096"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483024"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de identidade visual para aplicativos
 
@@ -41,7 +41,7 @@ Neste artigo, você vai:
 A Microsoft gerencia dois tipos de contas de usuário:
 
 - **Contas pessoais** (anteriormente conhecidas como Windows Live ID). Essas contas representam a relação entre usuários *individuais* e a Microsoft e são usadas para acessar serviços e dispositivos do cliente da Microsoft. Essas contas são destinadas a uso pessoal.
-- **Contas comerciais ou de estudante.**  Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
+- **Contas comerciais ou de estudante.** Essas contas são gerenciadas pela Microsoft em nome de organizações que usam o Azure Active Directory. Essas contas são usadas para fazer logon no Office 365 e em outros serviços comerciais da Microsoft.
 
 As contas comerciais ou de estudante da Microsoft  normalmente são atribuídas aos usuários finais (funcionários, estudantes e funcionários federais) por suas organizações (empresa, escola, órgão do governo). Essas contas são dominadas diretamente na nuvem (na plataforma do Azure AD) ou sincronizadas para o Azure AD de um diretório local, como o Active Directory do Windows Server. A Microsoft tem a *custódia* das contas comerciais ou de estudante, mas as contas são de propriedade e controladas pela organização.
 
@@ -60,7 +60,7 @@ Em uma versão anterior dessas diretrizes, recomendamos usar uma imagem de "crac
 
 Seu aplicativo pode apresentar caminhos separados para inscrição e login, e as seções a seguir fornecem orientação visual para os dois cenários.
 
-**Se o aplicativo der suporte à inscrição do usuário final (por exemplo, grátis para avaliação ou modelo freemium)**: Você pode mostrar um botão de **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
+**Se o aplicativo der suporte à inscrição do usuário final (por exemplo, grátis para avaliação ou modelo freemium)** : Você pode mostrar um botão de **entrar** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou conta pessoal. O Azure AD mostrará um prompt de consentimento da primeira vez que acessar seu aplicativo.
 
 **Se o aplicativo exige permissões com as quais somente os administradores podem consentir ou se o aplicativo exige licenciamento organizacional**: Aquisição de administrador separada de entrada do usuário. O **botão "obter esse aplicativo"** redirecionará os administradores para entrar e pedir que eles concedam autorização em nome dos usuários em sua organização, o que tem o benefício adicional da supressão de solicitações de consentimento do usuário final para seu aplicativo.
 
@@ -70,9 +70,9 @@ O link "obtenha o aplicativo" deve redirecionar o usuário para a página de con
 
 Depois que os administradores derem consentimento ao seu aplicativo, eles podem optar por adicioná-lo à experiência do inicializador de aplicativos do Office 365 de seus usuários (acessível do waffle e de [https://portal.office.com/myapps](https://portal.office.com/myapps)). Se você deseja anunciar essa funcionalidade, você pode usar termos como "Adicione esse aplicativo para sua organização" e mostrar um botão como o exemplo a seguir:
 
-![Cenários e tipos de aplicativos](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![Botão que mostra o logotipo da Microsoft e o texto "Adicionar à minha organização"](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo: 
+No entanto, recomendamos que você escreva um texto explicativo em vez de depender de botões. Por exemplo:
 
 > *Se você já usa o Office 365 ou outro serviço corporativo da Microsoft, pode conceder o acesso <nome_aplicativo> aos dados de sua organização. Isso permitirá que os usuários acessem o <nome_aplicativo> com suas contas de trabalho existentes.*
 
@@ -80,7 +80,7 @@ Para baixar o logotipo oficial da Microsoft para uso em seu aplicativo, clique c
 
 | Ativo                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Logotipo da Microsoft  | ![Logotipo da Microsoft em PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logotipo da Microsoft em SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
+| Logotipo da Microsoft  | ![Logotipo da Microsoft para download no formato PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Logotipo da Microsoft para download no formato SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
 ## <a name="visual-guidance-for-sign-in"></a>Orientação visual para logon
 
@@ -92,16 +92,16 @@ Seu aplicativo deve exibir um botão de logon que redireciona os usuários ao po
 
 O diagrama a seguir mostra as linhas vermelhas recomendadas da Microsoft ao usar os ativos com seu aplicativo. As linhas vermelhas se aplicam a “Entrar com a conta da Microsoft” ou à versão mais curta “Entrar”.
 
-![Linhas vermelhas de Entrar com a Microsoft](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
+![Mostra as linhas vermelhas de "Entrar com a conta da Microsoft"](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
 Para baixar as imagens oficiais para uso em seu aplicativo, clique com o botão direito do mouse naquela que você deseja usar e salve-o em seu computador.
 
 | Ativo                                | Formato PNG | Formato SVG |
 | ------------------------------------ | ---------- | ---------- |
-| Entrar com a Microsoft (tema escuro)  | ![PNG do tema escuro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![SVG do tema escuro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
-| Entrar com a Microsoft (tema claro) | ![PNG do tema claro do botão Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG do tema claro do botão Entrar com a conta da Microsoft](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
-| Entrar (tema escuro)                 | ![PNG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG do tema escuro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
-| Entrar (tema claro)                | ![PNG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG do tema claro do botão curto Entrar](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
+| Entrar com a Microsoft (tema escuro)  | ![PNG do tema escuro do botão "Entrar com a conta da Microsoft" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![SVG do tema escuro do botão "Entrar com a conta da Microsoft" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Entrar com a Microsoft (tema claro) | ![PNG do tema claro do botão "Entrar com a conta da Microsoft" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![SVG do tema claro do botão "Entrar com a conta da Microsoft" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Entrar (tema escuro)                 | ![PNG do tema escuro do botão curto "Entrar" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![SVG do tema escuro do botão curto "Entrar" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Entrar (tema claro)                | ![PNG do tema claro do botão curto "Entrar" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![SVG do tema claro do botão curto "Entrar" para download](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 ## <a name="branding-dos-and-donts"></a>Regras de identidade visual
 

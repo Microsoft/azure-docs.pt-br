@@ -2,18 +2,18 @@
 title: Conectando-se a uma fonte de dados nas Coleções de Workspaces do Power BI | Microsoft Docs
 description: Saiba como se conectar a uma fonte de dados dentro de Coleções de Workspaces do Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 721458c5725e912d801b307ac05f3fde0776580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ce666a017c1e5ac25b11fe1c22cdb37746f75df
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708765"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669150"
 ---
 # <a name="connect-to-a-data-source"></a>Conectar-se a uma fonte de dados
 
@@ -39,7 +39,7 @@ Com as Coleções de Workspaces do Power BI, você pode usar o DirectQuery com f
 * Banco de Dados SQL do Azure
 * SQL Data Warehouse do Azure
 
-**Importaçãoação**
+**Importarar**
 
 É possível importar usando todas as fontes de dados disponíveis dentro do Power BI Desktop. **Não** é possível atualizar esses dados dentro de Coleções de Workspaces do Power BI. É necessário carregar as alterações feitas no arquivo PBIX nas Coleções de Workspaces do Power BI. Isso ocorre quando não há gateways disponíveis.
 
@@ -65,7 +65,7 @@ Há algumas limitações no uso do **DirectQuery**:
 ## <a name="directquery-and-measures"></a>DirectQuery e medidas
 Para garantir que as consultas enviadas à fonte de dados subjacente tenham um desempenho aceitável, limitações são impostas para as medidas. Ao usar o **Power BI Desktop**, usuários avançados podem optar por ignorar essa limitação, escolhendo **Arquivo > Opções e configurações > Opções**. Na caixa de diálogo **Opções**, escolha **DirectQuery** e selecione a opção **Permitir medidas irrestritas no modo DirectQuery**. Quando essa opção estiver selecionada, qualquer expressão DAX válida para uma determinada medida poderá ser usada. No entanto, os usuários devem estar cientes de algumas expressões que funcionam bem quando os dados são importados podem resultar em consultas lentas para a origem de back-end no modo **DirectQuery**. 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 * [Introdução às Coleções de Workspaces do Microsoft Power BI](get-started.md)
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)

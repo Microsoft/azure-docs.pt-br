@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c4eab02ed0c7c09fe9b5893bbaaf7cbe1c8028f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867316"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: Integração do Azure Active Directory com o Silverback
 
@@ -53,7 +53,7 @@ Para configurar a integração do Silverback ao Microsoft Azure Active Directory
 
 **Para adicionar o Silverback por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Silverback, execute as seguinte
 
     ![Informações de logon único em Domínio e URLs do Silverback](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<YOURSILVERBACKURL>.com/ssp`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `<YOURSILVERBACKURL>.com`
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o Silverback, execute as seguinte
 
     ![O administrador](./media/silverback-tutorial/tutorial_silverback_admin.png)
 
-     a.  Clique em **Importar da URL**.
+    a.  Clique em **Importar da URL**.
 
     b.  Cole a URL de metadados copiados e clique em **OK**.
 
@@ -211,13 +211,13 @@ Para habilitar os usuários do Microsoft Azure Active Directory no Silverback, d
 
     ![O usuário](./media/silverback-tutorial/tutorial_silverback_user.png)
 
-     a. Na caixa de texto **Nome de usuário**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome de usuário**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
     c. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 
-    d. Na caixa de texto **Endereço de Email**, insira o email do usuário como **Brittasimon@contoso.com**.
+    d. Na caixa de texto **Endereço de Email**, insira o email do usuário como **Brittasimon@contoso.com** .
 
     e. Na caixa de texto **Senha**, insira sua senha.
 
@@ -240,5 +240,5 @@ Ao clicar no bloco do Silverback no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

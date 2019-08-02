@@ -3,38 +3,37 @@ title: Visão geral dos Gêmeos Digitais do Azure | Microsoft Docs
 description: Saiba mais sobre os Gêmeos Digitais do Azure, uma solução de IoT do Azure para inteligência espacial.
 author: julieseto
 ms.author: jseto
-ms.date: 12/14/2018
+ms.date: 05/31/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0bbbb924cace93e44af84fd96926a2d7153dd5f8
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437105"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67459015"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Visão geral dos Gêmeos Digitais do Azure
 
-Os Gêmeos Digitais do Azure são um serviço de IoT do Azure que cria modelos abrangentes do ambiente físico. Eles podem criar grafos de inteligência espacial para modelar relações e interações entre pessoas, espaços e dispositivos.
+A versão prévia dos Gêmeos Digitais do Azure são um serviço de IoT do Azure que cria modelos abrangentes do ambiente físico. Eles podem criar grafos de inteligência espacial para modelar relações e interações entre pessoas, espaços e dispositivos.
 
-Com os Gêmeos Digitais do Azure, você pode consultar dados de um espaço físico em vez de vários sensores diferentes. Esse serviço ajuda você a criar experiências reutilizáveis, altamente escalonáveis e com reconhecimento espacial que vinculam os dados de streaming entre o mundo digital e o mundo físico. Seus aplicativos são aprimorados por esses recursos contextuais exclusivamente relevantes. Os Gêmeos Digitais do Azure podem ser usados nas seguintes tarefas de exemplo para:
+Com os Gêmeos Digitais do Azure, você pode consultar dados de um espaço físico em vez de vários sensores diferentes. Esse serviço ajuda você a criar experiências reutilizáveis, altamente escalonáveis e com reconhecimento espacial que vinculam os dados de streaming entre o mundo digital e o mundo físico. Seus aplicativos são aprimorados por esses recursos contextuais exclusivamente relevantes. 
+
+Os Gêmeos Digitais do Azure se aplicam a todos os tipos de ambientes, como, depósitos, escritórios, escolas, hospitais e bancos. Eles ainda podem ser usados em estádios, fábricas, estacionamentos, parques, grades inteligentes e cidades. Veja a seguir alguns cenários nos quais os Gêmeos Digitais do Azure podem ser úteis:
 
 - Prever as necessidades de manutenção de uma fábrica.
 - Analisar os requisitos de energia de uma rede elétrica em tempo real.
 - Otimizar o uso de espaço disponível de um escritório.
-
-Os Gêmeos Digitais do Azure se aplicam a todos os tipos de ambientes. Alguns exemplos incluem armazéns, escritórios, escolas, hospitais e bancos. Eles ainda podem ser usados em estádios, fábricas, estacionamentos, parques, grades inteligentes e cidades. Os Gêmeos Digitais do Azure podem ser usados nos seguintes cenários de exemplo para:
-
 - Controlar a temperatura diária em vários estados.
 - Monitorar caminhos de drone ocupados.
 - Identificar veículos autônomos.
 - Analisar os níveis de ocupação de um prédio.
 - Localizar a caixa registradora mais usada na sua loja.
 
-Seja qual for seu cenário comercial no mundo real, uma instância digital correspondente pode ser provisionada com os Gêmeos Digitais do Azure.
+Seja qual for seu cenário comercial, é provável que uma instância digital correspondente possa ser provisionada com os Gêmeos Digitais do Azure.
 
 O vídeo a seguir examina mais detalhadamente os Gêmeos Digitais do Azure.
 
@@ -46,13 +45,13 @@ Os Gêmeos Digitais do Azure tem estes recursos principais.
 
 ### <a name="spatial-intelligence-graph"></a>Grafo de inteligência espacial
 
-O [*grafo de inteligência espacial*](./concepts-objectmodel-spatialgraph.md), ou *grafo espacial*, é uma representação virtual do ambiente físico. Você pode usá-lo para modelar as relações entre pessoas, lugares e dispositivos.
+O [*grafo de inteligência espacial*](./concepts-objectmodel-spatialgraph.md#graph), ou *grafo espacial*, é uma representação virtual do ambiente físico. Você pode usá-lo para modelar as relações entre pessoas, lugares e dispositivos.
 
 Pense em um aplicativo de serviços essenciais inteligente que envolva vários medidores de uso de energia conectados em uma vizinhança. A empresa de serviços essenciais inteligente deve monitorar e prever o uso e a cobrança de uso de energia com precisão. Cada dispositivo e sensor deve ser modelado com contexto sobre o local e o cliente que está sendo cobrado. Você pode usar o grafo de inteligência espacial para modelar esses tipos de relações complexas.
 
 ### <a name="digital-twin-object-models"></a>Modelos de objeto dos Gêmeos Digitais
 
-Os [modelos de objeto dos Gêmeos Digitais](./concepts-objectmodel-spatialgraph.md) são protocolos de dispositivo e esquema de dados predefinidos. Eles se alinham às necessidades específicas do domínio de sua solução para acelerar e simplificar o desenvolvimento.
+Os [modelos de objeto dos Gêmeos Digitais](./concepts-objectmodel-spatialgraph.md#model) são protocolos de dispositivo e esquema de dados predefinidos. Eles se alinham às necessidades específicas do domínio de sua solução para acelerar e simplificar o desenvolvimento.
 
 Por exemplo, um aplicativo de ocupação de espaço pode usar tipos predefinidos de espaço, como campus, prédio, andar e sala.
 

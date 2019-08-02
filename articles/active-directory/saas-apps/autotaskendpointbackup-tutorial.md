@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db6140d69e96c4923a7d0f0d197d5db76f826460
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e0b14138940c240dc674eb733bfe46b7f5d4c1e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857464"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106612"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-endpoint-backup"></a>Tutorial: Tutorial: Integração do Azure Active Directory ao Autotask Endpoint Backup
 
@@ -53,7 +53,7 @@ Para configurar a integração do Autotask Endpoint Backup ao Azure AD, você pr
 
 **Para adicionar o Autotask Endpoint Backup da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Autotask Endpoint Backup, execu
 
     ![Domínio de backup do Autotask Endpoint e informações de logon único de URLs](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.backup.autotask.net/singlesignon/saml/SSO`
 
@@ -148,7 +148,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

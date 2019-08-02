@@ -4,19 +4,19 @@ description: Entenda como manipular a Grade de Eventos no Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: e11446b961727663961e4d3fa295a9b7f64860c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f48eced2ebcc4ad92c5124194ed2e2df92f64f11
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059660"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480655"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de Grade de Eventos para o Azure Functions
 
@@ -213,6 +213,7 @@ Aqui está o código Python:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(event: func.EventGridEvent):
     logging.info("Python Event Grid function processed a request.")

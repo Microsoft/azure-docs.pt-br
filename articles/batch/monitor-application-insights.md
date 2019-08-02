@@ -3,7 +3,7 @@ title: Monitorar Lote com o Azure Application Insights | Microsoft Docs
 description: Aprenda como instrumentar um aplicativo .NET do Lote do Azure usando a biblioteca do Azure Application Insights.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: .NET
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: c527b0b10a2b9a351b242d0858fdbe64687970a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595294"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322577"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Monitorar e depurar um aplicativo .NET do Lote do Azure com o Application Insights
 

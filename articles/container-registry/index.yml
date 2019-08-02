@@ -5,14 +5,12 @@ metadata:
   title: Documentação de Registro de Contêiner do Azure - Tutoriais | Microsoft Docs
   description: 'O Registro de Contêiner do Azure permite que você armazene e gerencie imagens para todos os tipos de implantação de contêiner. Saiba como usar o Registro de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.'
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'O Registro de Contêiner do Azure permite que você armazene e gerencie imagens para todos os tipos de implantação de contêiner. Saiba como usar o Registro de Contêiner do Azure com esses guias de início rápido, tutoriais e exemplos.'
 sections:

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e6d641109bafdc3dba05a30fd627a3246c7edef5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 85eae936cf86d144f0baf91623b7be9f69eb4dbb
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002758"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697538"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Usando Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição.
+Também é necessário ter o [ponto de extremidade e a chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada para você durante a inscrição.
 
 <a name="Detect"></a>
 

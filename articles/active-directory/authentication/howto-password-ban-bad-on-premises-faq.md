@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b4879093ed80a554219b053cc5a2bc895126725
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917655"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702887"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Proteção por senha do Azure AD local – perguntas frequentes
 
@@ -26,7 +26,7 @@ ms.locfileid: "64917655"
 
 A diretriz atual da Microsoft sobre este tópico pode ser encontrada no seguinte link:
 
-[Diretrizes de Senha da Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Diretrizes de Senha da Microsoft](https://www.microsoft.com/research/publication/password-guidance)
 
 **P: Há suporte para a proteção por senha do Azure AD local em nuvens não públicas?**
 
@@ -43,6 +43,10 @@ Uma alteração de senha é quando um usuário escolhe uma nova senha depois de 
 Um conjunto de senha (às vezes chamado de uma redefinição de senha) é quando um administrador substitui a senha em uma conta com uma nova senha, por exemplo, usando a ferramenta de gerenciamento de computadores e usuários do Active Directory. Esta operação requer um alto nível de privilégio (normalmente, o administrador de domínio) e a pessoa que realiza a operação geralmente não tem conhecimento da senha antiga. Cenários de assistência técnica faz isso com frequência, por exemplo quando ajudar um usuário que esqueceu a senha. Você também verá senha definir eventos quando uma nova conta de usuário está sendo criada pela primeira vez com uma senha.
 
 A política de validação de senha se comporta da mesma, independentemente se estiver sendo feito uma alteração de senha ou um conjunto. O serviço do agente de controlador de domínio de proteção de senha do Azure AD registrar eventos diferentes para informá-lo se uma alteração de senha ou a operação set foi feita.  Ver [proteção de senha do Azure AD, monitoramento e registro em log](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**P: Por que os eventos de rejeição de duplicados senha registrados durante a tentativa de definir uma senha fraca estão usando o snap-in Gerenciamento computadores e usuários do Active Directory?**
+
+O snap-in de gerenciamento de computadores e usuários do Active Directory tentará primeiro definir a nova senha usando o protocolo Kerberos. Em caso de falha o snap-in fará uma segunda tentativa de definir a senha usando um protocolo (SAM RPC) herdado (os protocolos específicos usados não são importantes). Se a nova senha é considerada fraca pela proteção de senha do Azure AD, isso resultará em dois conjuntos de eventos de rejeição de redefinição de senha que está sendo registrados.
 
 **P: Há suporte para instalação da proteção por senha do Azure AD lado a lado com outros produtos baseados em filtro de senha?**
 
@@ -76,7 +80,7 @@ Esse requisito é causado pelo comportamento principal do Windows.
 
 **P: Há alguma maneira de configurar um agente de controlador de domínio para usar um servidor proxy específico?**
 
-Não. Uma vez que o servidor proxy é sem estado, não é importante saber qual servidor proxy específico é usado.
+Nº Uma vez que o servidor proxy é sem estado, não é importante saber qual servidor proxy específico é usado.
 
 **P: Não tem problema implantar o serviço de Proxy de Proteção de Senha do Azure AD lado a lado com outros serviços, como o Azure AD Connect?**
 
@@ -96,19 +100,19 @@ No entanto se os controladores de domínio atuais já estão executando em níve
 
 **P: Desejo testar a proteção de senha do Azure AD em apenas alguns controladores de domínio em meu domínio. É possível forçar alterações de senha de usuário para usar esses controladores de domínio específicos?**
 
-Não. O sistema operacional de cliente do Windows controla qual controlador de domínio é usado quando um usuário altera sua senha. O controlador de domínio é selecionado com base em fatores como atribuições de site e sub-rede do Active Directory, configuração de rede específicas do ambiente etc. A proteção de senha do Azure AD controla esses fatores e não pode influenciar qual controlador de domínio é selecionado para alterar a senha do usuário.
+Nº O sistema operacional de cliente do Windows controla qual controlador de domínio é usado quando um usuário altera sua senha. O controlador de domínio é selecionado com base em fatores como atribuições de site e sub-rede do Active Directory, configuração de rede específicas do ambiente etc. A proteção de senha do Azure AD controla esses fatores e não pode influenciar qual controlador de domínio é selecionado para alterar a senha do usuário.
 
 Uma maneira de parcialmente atingir essa meta seria implantar a proteção de senha do Azure AD em todos os controladores de domínio em um determinado site do Active Directory. Essa abordagem fornecerá cobertura razoável para os clientes do Windows atribuídos a esse site e, portanto, também para os usuários que estão fazendo logon nesses clientes e alterando suas senhas.
 
 **P: Se eu instalar o serviço de agente do controlador de domínio de proteção de senha do Azure AD apenas no domínio do PDC (controlador primário), todos os outros controladores de domínio no domínio também serão protegidos?**
 
-Não. Quando uma senha do usuário for alterada em um controlador de domínio do PDC não fornecido, a senha com texto não criptografado nunca será enviada ao PDC (essa ideia é uma percepção incorreta comum). Depois que uma nova senha é aceita em um determinado controlador de domínio, esse controlador de domínio a usa para criar vários hashes específicos de protocolo de autenticação dessa senha e, em seguida, manter esses hashes no diretório. A senha com texto não criptografado não é persistente. Os hashes atualizados então são replicados para o controlador de domínio primário. As senhas de usuário podem, em alguns casos, ser alteradas diretamente no PDC dependendo de vários fatores, como topologia de rede e design de site do Active Directory. (Confira a pergunta anterior.)
+Nº Quando uma senha do usuário for alterada em um controlador de domínio do PDC não fornecido, a senha com texto não criptografado nunca será enviada ao PDC (essa ideia é uma percepção incorreta comum). Depois que uma nova senha é aceita em um determinado controlador de domínio, esse controlador de domínio a usa para criar vários hashes específicos de protocolo de autenticação dessa senha e, em seguida, manter esses hashes no diretório. A senha com texto não criptografado não é persistente. Os hashes atualizados então são replicados para o controlador de domínio primário. As senhas de usuário podem, em alguns casos, ser alteradas diretamente no PDC dependendo de vários fatores, como topologia de rede e design de site do Active Directory. (Confira a pergunta anterior.)
 
 Em resumo, a implantação do serviço de Agente de Controlador de Domínio de Proteção por Senha do Azure AD no PDC é necessária para alcançar 100% de cobertura de segurança do recurso em domínio. Implantar o recurso no PDC apenas não oferece benefícios de segurança de proteção por senha do Azure AD para todos os demais controladores de domínio no domínio.
 
 **P: Um pacote de gerenciamento do System Center Operations Manager está disponível para a proteção por senha do Azure AD?**
 
-Não.
+Nº
 
 **P: Por que é Azure ainda rejeitar senhas fracas, embora eu configurei a política para estar no modo de auditoria?**
 

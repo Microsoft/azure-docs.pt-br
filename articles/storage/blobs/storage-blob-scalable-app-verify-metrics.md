@@ -1,21 +1,18 @@
 ---
 title: Verificar as métricas de taxa de transferência e latência para uma conta de armazenamento no portal do Azure | Microsoft Docs
 description: Saiba como verificar as métricas de taxa de transferência e latência para uma conta de armazenamento no portal.
-services: storage
 author: roygara
 ms.service: storage
-ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: rogarana
-ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 2fde9b2b88b4c758065ba4b38da48724bfbfcd75
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: dc0f8171e18598e4f805a03a4bc6d17de220fbe1
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250088"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698982"
 ---
 # <a name="verify-throughput-and-latency-metrics-for-a-storage-account"></a>Verificar as métricas de taxa de transferência e de latência para uma conta de armazenamento
 

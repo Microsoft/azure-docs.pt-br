@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 30f431c1806c6a0697a6b74b43f1cc35660fc85e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e2842561a6ee16cca42e59cb42f49238849537c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869725"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094821"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Tutorial: Integração do Azure Active Directory com o Pantheon
 
@@ -53,7 +53,7 @@ Para configurar a integração do Pantheon ao Azure AD, você precisa adicionar 
 
 **Para adicionar o Pantheon da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Pantheon, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Pantheon](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:auth0:pantheon:<orgname>-SSO`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `urn:auth0:pantheon:<orgname>-SSO`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://pantheon.auth0.com/login/callback?connection=<orgname>-SSO`
 
@@ -221,5 +221,5 @@ Ao clicar no bloco do Pantheon no Painel de Acesso, você será conectado automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

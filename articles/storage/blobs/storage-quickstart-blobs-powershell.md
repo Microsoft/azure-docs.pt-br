@@ -8,16 +8,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: tamram
-ms.openlocfilehash: c0a5f7271628e11dbc8fa8b18b21358923f567cc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b0e9cc37f6269c3b878e16b754ec3a49aee13f72
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149397"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698995"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>Início Rápido: Carregar, baixar e listar blobs usando o Azure PowerShell
 
 Use o módulo do Azure PowerShell para criar e gerenciar recursos do Azure. Criar ou gerenciar recursos do Azure pode ser feito da linha de comando do PowerShell ou em scripts. Este guia descreve o uso do PowerShell para transferir arquivos entre o disco local e o Armazenamento de Blobs do Azure.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +39,7 @@ Defina o nome do contêiner e, em seguida, crie o contêiner usando [New-AzStora
 
 ```powershell
 $containerName = "quickstartblobs"
-new-AzStoragecontainer -Name $containerName -Context $ctx -Permission blob
+New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
 ```
 
 ## <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
@@ -50,13 +52,13 @@ Os exemplos a seguir carregam a *Image001.jpg* e *Image002.png* da pasta *D:\\_T
 
 ```powershell
 # upload a file
-set-AzStorageblobcontent -File "D:\_TestImages\Image001.jpg" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image001.jpg" `
   -Container $containerName `
   -Blob "Image001.jpg" `
   -Context $ctx 
 
 # upload another file
-set-AzStorageblobcontent -File "D:\_TestImages\Image002.png" `
+Set-AzStorageBlobContent -File "D:\_TestImages\Image002.png" `
   -Container $containerName `
   -Blob "Image002.png" `
   -Context $ctx
@@ -80,13 +82,13 @@ Este exemplo baixa os blobs para *D:\\_TestImages\Downloads* no disco local.
 
 ```powershell
 # download first blob
-Get-AzStorageblobcontent -Blob "Image001.jpg" `
+Get-AzStorageBlobContent -Blob "Image001.jpg" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx 
 
 # download another blob
-Get-AzStorageblobcontent -Blob "Image002.png" `
+Get-AzStorageBlobContent -Blob "Image002.png" `
   -Container $containerName `
   -Destination "D:\_TestImages\Downloads\" `
   -Context $ctx

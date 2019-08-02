@@ -1,28 +1,29 @@
 ---
-title: Extração de frases-chave usando a API REST de Análise de Texto | Microsoft Docs
+title: Extração de frases-chave usando a API REST de Análise de Texto
+titleSuffix: Azure Cognitive Services
 description: Saiba como extrair frases-chave usando a API REST de Análise de Texto dos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
-ms.topic: sample
-ms.date: 04/16/2019
-ms.author: aahi
-ms.openlocfilehash: 9cb6a40e6ce53a6d82d4129db876a1b24269f166
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.topic: article
+ms.date: 07/29/2019
+ms.author: raymondl
+ms.openlocfilehash: 1d94cff3eb3299692fc4172f5bb5211532ef1002
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997709"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697831"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave na Análise de Texto
 
-A [API de Extração de Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave. 
+A [API de Extração de Frases-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avalia o texto desestruturado e para cada documento JSON, retorna uma lista de frases-chave.
 
 Esse recurso é útil se você precisar identificar rapidamente os principais pontos de estratégias em uma coleção de documentos. Por exemplo, para o texto de entrada dado "A comida estava deliciosa e a equipe era maravilhosa", o serviço retorna os principais pontos de discussão: "comida" e "equipe maravilhosa".
 
-Atualmente, a Extração de Frases-chave dá tem suporte em inglês, alemão, espanhol e japonês. Os idiomas estão em versão prévia. Para obter mais informações, consulte [Linguagens com suporte](../text-analytics-supported-languages.md).
+Para obter mais informações, consulte [Linguagens com suporte](../text-analytics-supported-languages.md).
 
 > [!TIP]
 > A Análise de Texto também fornece uma imagem de contêiner do Docker baseado em Linux para extração de frases-chave, para que você possa [instalar e executar o contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) perto de seus dados.
@@ -31,9 +32,9 @@ Atualmente, a Extração de Frases-chave dá tem suporte em inglês, alemão, es
 
 A extração de frase-chave funciona melhor quando você concede trechos maiores de texto com os quais ela pode trabalhar. Isso é o oposto da análise de sentimento, que executa melhor em blocos de texto menores. Para obter os melhores resultados de ambas as operações, considere a reestruturação de entradas adequadamente.
 
-Você deve ter documentos JSON neste formato: id, texto, idioma
+Você deve ter documentos JSON neste formato: ID, texto, idioma
 
-O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. O exemplo a seguir é uma ilustração do conteúdo que você pode enviar para extração de frase-chave.
+O tamanho do documento precisa ter 5.120 caracteres ou menos por documento, e você pode ter até 1.000 itens (IDs) por coleção. A coleção é enviada no corpo da solicitação. O exemplo a seguir é uma ilustração do conteúdo que você pode enviar para extração de frase-chave.
 
 ```json
     {
@@ -57,7 +58,7 @@ O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e vo
                 "language": "en",
                 "id": "4",
                 "text": "It was foggy so we missed the spectacular views, but the trail was ok. Worth checking out if you are in the area."
-            },                
+            },
             {
                 "language": "en",
                 "id": "5",
@@ -65,17 +66,17 @@ O tamanho do documento precisa ter menos de 5.120 caracteres por documento, e vo
             }
         ]
     }
-```    
-    
+```
+
 ## <a name="step-1-structure-the-request"></a>Etapa 1: Estruturar a solicitação
 
-Detalhes sobre a definição de solicitação podem ser encontrados em [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
+Para saber mais sobre a definição de solicitação, confira [Como chamar a API de Análise de Texto](text-analytics-how-to-call-api.md). Os seguintes pontos são redeclarados para conveniência:
 
-+ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Frases-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)
++ Criar uma solicitação de **Postagem**. Examine a documentação da API para esta solicitação: [API de Frases-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
-+ Defina o ponto de extremidade HTTP para extração de frases-chave, usando um recurso de análise de texto no Azure ou um instanciado [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md). Deve incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
++ Defina o ponto de extremidade HTTP para extração de frases-chave usando um recurso de Análise de Texto no Azure ou um [contêiner de Análise de Texto](text-analytics-how-to-install-containers.md) instanciado. Ele precisa incluir o recurso `/keyPhrases`: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`.
 
-+ Defina um cabeçalho de solicitação para incluir a chave de acesso para operações de Análises de Texto do Azure Machine Learning. Para obter mais informações, consulte [Como localizar pontos de extremidade e chaves de acesso](text-analytics-how-to-access-key.md).
++ Defina um cabeçalho de solicitação para incluir a [chave de acesso](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) para operações de análise de texto.
 
 + No corpo da solicitação, forneça a coleção de documentos JSON preparada para esta análise
 
@@ -84,7 +85,7 @@ Detalhes sobre a definição de solicitação podem ser encontrados em [Como cha
 
 ## <a name="step-2-post-the-request"></a>Etapa 2: Postar a solicitação
 
-A análise é executada após o recebimento da solicitação. O serviço aceita até 100 solicitações por minuto. Cada solicitação pode ter um máximo de 1 MB.
+A análise é executada após o recebimento da solicitação. Para saber mais sobre o tamanho e o número de solicitações que você pode enviar por minuto ou por segundo, confira a seção [limites de dados](../overview.md#data-limits) na visão geral.
 
 Lembre-se de que o serviço é sem estado. Nenhum dado é armazenado em sua conta. Os resultados são retornados imediatamente na resposta.
 
@@ -97,66 +98,69 @@ A saída é retornada imediatamente. Você pode transmitir os resultados para um
 Um exemplo de saída para extração de frase-chave é mostrado aqui:
 
 ```json
-    "documents": [
-        {
-            "keyPhrases": [
-                "year",
-                "trail",
-                "trip",
-                "views"
-            ],
-            "id": "1"
-        },
-        {
-            "keyPhrases": [
-                "marked trails",
-                "Worst hike",
-                "goners"
-            ],
-            "id": "2"
-        },
-        {
-            "keyPhrases": [
-                "trail",
-                "small children",
-                "family"
-            ],
-            "id": "3"
-        },
-        {
-            "keyPhrases": [
-                "spectacular views",
-                "trail",
-                "area"
-            ],
-            "id": "4"
-        },
-        {
-            "keyPhrases": [
-                "places",
-                "beautiful views",
-                "favorite trail"
-            ],
-            "id": "5"
-        }
+    {
+        "documents": [
+            {
+                "keyPhrases": [
+                    "year",
+                    "trail",
+                    "trip",
+                    "views"
+                ],
+                "id": "1"
+            },
+            {
+                "keyPhrases": [
+                    "marked trails",
+                    "Worst hike",
+                    "goners"
+                ],
+                "id": "2"
+            },
+            {
+                "keyPhrases": [
+                    "trail",
+                    "small children",
+                    "family"
+                ],
+                "id": "3"
+            },
+            {
+                "keyPhrases": [
+                    "spectacular views",
+                    "trail",
+                    "area"
+                ],
+                "id": "4"
+            },
+            {
+                "keyPhrases": [
+                    "places",
+                    "beautiful views",
+                    "favorite trail"
+                ],
+                "id": "5"
+            }
+        ],
+        "errors": []
+    }
 ```
 
-Conforme observado, o analisador localiza e descarta as palavras não essenciais e mantém termos ou frases únicas para serem o assunto ou o objeto de uma sentença. 
+Conforme observado, o analisador localiza e descarta as palavras não essenciais e mantém frases ou termos únicos que parecem ser o sujeito ou o objeto de uma sentença.
 
 ## <a name="summary"></a>Resumo
 
-Neste artigo, você aprendeu os conceitos e fluxo de trabalho de extração de frase-chave usando a análise de texto em Serviços Cognitivos. Em resumo:
+Neste artigo, você aprendeu os conceitos e o fluxo de trabalho de extração de frases-chave usando a Análise de Texto nos Serviços Cognitivos. Em resumo:
 
 + [API de extração de frase-chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) está disponível para os idiomas selecionados.
-+ Documentos JSON no corpo da solicitação incluem um código de idioma, texto e id.
-+ Solicitação POST é um `/keyphrases` ponto de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](text-analytics-how-to-access-key.md) que é válido para sua assinatura.
-+ Saída de resposta, que consiste em palavras e frases chave para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceita JSON, incluindo o Excel e Power BI, para citar alguns.
++ Documentos JSON no corpo da solicitação incluem um código de idioma, texto e ID.
++ A solicitação POST é um `/keyphrases` ponto de extremidade, usando uma [chave de acesso personalizada e um ponto de extremidade](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que é válido para sua assinatura.
++ A saída de resposta, que consiste em palavras e frases-chave para cada ID do documento, pode ser transmitida para qualquer aplicativo que aceita JSON, incluindo o Microsoft Office Excel e o Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Consulte também
 
- [Visão geral da Análise de Texto](../overview.md)  
- [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
- [Página de produto de Análise de Texto do Azure Machine Learning](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Visão geral da Análise de Texto](../overview.md) [Perguntas frequentes](../text-analytics-resource-faq.md)</br>
+ [Página de produto de Análise de Texto do Azure Machine Learning](//go.microsoft.com/fwlink/?LinkID=759712)
 
 ## <a name="next-steps"></a>Próximas etapas
 

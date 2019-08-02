@@ -12,27 +12,24 @@ ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: b7eb9ecd6b94aad263346ad6b5c45b694e0bd46f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c5304c62b29d842f9beeadb34eba1cb53048d179
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699965"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302292"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>Determinar o endereço IP do ponto de extremidade de gerenciamento
 
 O cluster virtual da Instância Gerenciada do Banco de Dados SQL do Azure contém um ponto de extremidade de gerenciamento que a Microsoft usa para operações de gerenciamento. O ponto de extremidade de gerenciamento é protegido com um firewall interno no nível da rede e verificação de certificado mútua no nível do aplicativo. Você pode determinar o endereço IP do ponto de extremidade de gerenciamento, mas não pode acessar esse ponto de extremidade.
 
-## <a name="determine-ip-address"></a>Determinar o endereço IP
+Para determinar o endereço IP de gerenciamento, faça uma pesquisa de DNS no FQDN da instância `mi-name.zone_id.database.windows.net`gerenciada:. Isso retornará uma entrada DNS como `trx.region-a.worker.vnet.database.windows.net`essa. Em seguida, você pode fazer uma pesquisa de DNS nesse FQDN com a ". vnet" removida. Isso retornará o endereço IP de gerenciamento. 
 
-Vamos supor que o host de Instância Gerenciada seja `mi-demo.xxxxxx.database.windows.net`. Execute `nslookup` usando o nome do host.
-
-![Resolução de nome de host interno](./media/sql-database-managed-instance-management-endpoint/01_find_internal_host.png)
-
-Agora faça outra `nslookup` para remover o nome realçado no segmento `.vnet.`. Quando você executa esse comando, você obterá o endereço IP público.
-
-![Resolução de endereço IP público](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
-## <a name="next-steps"></a>Próximas etapas
+Esse PowerShell fará tudo por você se você substituir \<o FQDN\> de mi pela entrada DNS da sua instância gerenciada: `mi-name.zone_id.database.windows.net`:
+  
+``` powershell
+  $MIFQDN = "<MI FQDN>"
+  resolve-dnsname $MIFQDN | select -first 1  | %{ resolve-dnsname $_.NameHost.Replace(".vnet","")}
+```
 
 Para obter mais informações sobre Instâncias Gerenciadas e conectividade, veja [Arquitetura de Conectividade da Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance-connectivity-architecture.md).

@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb49048fa9200b8970f37a4f187ca995d208cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 502407bbf1cdb47fc8105ed0220babcd9f292faa
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474054"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382703"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>Adicionar suas contas Microsoft pessoais
+
 Adicione suas contas Microsoft pessoais, tais como para o Outlook.com ou o Xbox LIVE, ao aplicativo Microsoft Authenticator para verificação de dois fatores e o método de entrada por celular sem senha.
 
 - **Método de verificação padrão de dois fatores.** Digite seu nome de usuário e senha no dispositivo no qual você está fazendo logon e, em seguida, escolha se o aplicativo Microsoft Authenticator envia uma notificação ou se você prefere copiar o código de verificação associado da tela **Contas** do aplicativo Microsoft Authenticator.
@@ -30,6 +31,7 @@ Adicione suas contas Microsoft pessoais, tais como para o Outlook.com ou o Xbox 
 >Antes de poder adicionar sua conta, você deverá baixar e instalar o aplicativo Microsoft Authenticator. Se você ainda não tiver feito isso, siga as etapas no artigo [Baixar e instalar o aplicativo](user-help-auth-app-download-install.md).
 
 ## <a name="add-your-personal-microsoft-account"></a>Adicionar sua conta Microsoft pessoal
+
 Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificação de dois fatores e, em seguida, adicionando a conta ao aplicativo.
 
 >[!Note]
@@ -37,7 +39,7 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
 ### <a name="turn-on-two-factor-verification"></a>Ativar a verificação de dois fatores
 
-1. No seu computador, vá para a página [Noções básicas sobre segurança](https://account.microsoft.com/security) e entre usando sua conta Microsoft pessoal. Por exemplo: alain@outlook.com.
+1. No seu computador, vá para a página [Noções básicas sobre segurança](https://account.microsoft.com/security) e entre usando sua conta Microsoft pessoal. Por exemplo, alain@outlook.com.
 
 2. Na parte inferior da página **Noções básicas de segurança**, escolha o link **mais opções de segurança**.
 
@@ -68,6 +70,6 @@ Você pode adicionar sua conta Microsoft pessoal ativando primeiro a verificaç�
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 
-- Se você estiver tendo problemas ao obter o código de verificação para sua conta pessoal da Microsoft, consulte o **solução de problemas de código de verificação** seção o [& verificação de informações de segurança de conta Microsoft códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artigo.
+- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção Solucionando problemas de **código de verificação** do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Para dispositivos que executam o iOS, você também pode fazer backup das credenciais da sua conta e das configurações de aplicativos relacionadas, tais como a ordem de suas contas, na nuvem. Para obter mais informações, confira [Fazer backup e recuperar informações com o aplicativo Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

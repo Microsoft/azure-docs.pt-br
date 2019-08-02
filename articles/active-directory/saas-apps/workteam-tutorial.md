@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: a59e7d9177834790b6df0f1c45a60849d3fdca0e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 697f5c06d2c1d6b669cfa244f0328f4fb86aeea2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086826"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workteam"></a>Tutorial: Integração do Azure Active Directory com o Workteam
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Workteam, execute as seguintes 
 
      ![Workteam SAML](./media/workteam-tutorial/tutorial_workteam_saml.png)
 
-     a. Selecione o **IdP do SAML** como **Azure AD**.
+    a. Selecione o **IdP do SAML** como **Azure AD**.
 
     b. Na caixa de texto **URL de Logon Único do SAML**, cole o valor da **URL de Logon**, copiado do portal do Azure.
 
@@ -218,7 +218,7 @@ Para permitir que os usuários do Azure AD entrem no Workteam, eles precisam ser
 
     ![Novo usuário do Workteam](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
-     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brendafernandes**.
+    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brendafernandes**.
 
     b. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
@@ -236,5 +236,5 @@ Ao clicar no bloco do Workteam no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

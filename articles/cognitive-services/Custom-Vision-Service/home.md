@@ -1,6 +1,6 @@
 ---
 title: O que é a Visão Personalizada do Azure?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Aprenda a usar o Serviço de Visão Personalizada para criar classificadores de imagem personalizada na nuvem do Azure.
 services: cognitive-services
 author: PatrickFarley
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: overview
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350455"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560960"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 
-A Visão Personalizada do Azure é um serviço cognitivo que permite compilar, implantar e aprimorar seus próprios classificadores de imagem. Um classificador de imagem é um serviço de inteligência artificial que aplica rótulos (que representam _classes_) a imagens de acordo com suas características visuais. Ao contrário do serviço [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a Visão Personalizada permite que você determine quais rótulos aplicar.
+A Visão Personalizada do Azure é um serviço cognitivo que permite compilar, implantar e aprimorar seus próprios classificadores de imagens. Um classificador de imagem é um serviço de inteligência artificial que aplica rótulos (que representam _classes_) a imagens de acordo com suas características visuais. Ao contrário do serviço [Pesquisa Visual Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), a Visão Personalizada permite que você determine quais rótulos aplicar.
 
 ## <a name="what-it-does"></a>O que faz
 
@@ -31,9 +31,9 @@ A funcionalidade de Visão Personalizada pode ser dividida em dois recursos. A *
 
 ### <a name="optimization"></a>Otimização
 
-O Serviço de Visão Personalizada é otimizado para reconhecer rapidamente as principais diferenças entre imagens. Isso permite que você inicie a criação de protótipos seu modelo com uma pequena quantidade de dados. Geralmente, 50 imagens por marca são um bom começo. No entanto, isso significa que o serviço não é ideal para detectar diferenças sutis em imagens (por exemplo, detectando fendas pequenas ou estão mais em cenários de garantia de qualidade).
+O Serviço de Visão Personalizada foi otimizado para reconhecer rapidamente as principais diferenças entre imagens, de modo que você possa começar a criar protótipos do modelo com uma pequena quantidade de dados. Geralmente, 50 imagens por marca são um bom começo. No entanto, o serviço não é ideal para detectar diferenças sutis em imagens (por exemplo, detectar pequenas rachaduras ou depressões em cenários de garantia de qualidade).
 
-Além disso, você pode escolher entre diversas variedades do algoritmo da Visão Personalizada que são otimizadas para determinados assuntos, por exemplo, pontos de referência ou itens de varejo. Consulte o guia [Criar um classificador](getting-started-build-a-classifier.md) guia para obter mais informações sobre eles.
+Além disso, você pode escolher entre diversas variedades do algoritmo da Visão Personalizada que são otimizadas para determinados assuntos, por exemplo, pontos de referência ou itens de varejo. Para obter mais informações, confira o guia [Criar um classificador](getting-started-build-a-classifier.md).
 
 ## <a name="what-it-includes"></a>O que inclui
 

@@ -3,7 +3,7 @@ title: Executar uma carga de trabalho paralela - .NET do Lote do Azure
 description: 'Tutorial: transcodificar arquivos de mídia em paralelo com ffmpeg no Lote do Azure usando a biblioteca de cliente .NET do Lote'
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: e450ca0ff2578c4ec2ce95c14a17735860044b59
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 4350cc215c776317d3bde24c7561c317a31fb4c3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595250"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321864"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Lote do Azure usando a API do .NET
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Navegue até o diretório que contém o arquivo da solução Visual Studio `BatchDotNetFfmpegTutorial.sln`.
 
-Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo: 
+Abra o arquivo da solução no Visual Studio e atualize as cadeias de caracteres da credencial `Program.cs` com os valores obtidos para suas contas. Por exemplo:
 
 ```csharp
 // Batch account credentials

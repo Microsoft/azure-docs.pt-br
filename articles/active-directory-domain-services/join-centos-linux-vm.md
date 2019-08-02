@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Unir uma VM do CentOS a um domí
 description: Ingressar uma máquina virtual CentOS Linux aos Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 23046dc356097a7b8cdbbc91c05a6419fc52d19f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: c4a04f55f4f69521f00ed450a2d3d1a80b56761c
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246068"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234087"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do CentOS Linux em um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual CentOS Linux no Azure a um domínio gerenciado do Azure AD Domain Services.
@@ -57,24 +57,25 @@ Siga as instruções no artigo [Como fazer logon em uma máquina virtual que exe
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurar o arquivo de hosts na máquina virtual Linux
 Em seu terminal SSH, edite o arquivo /etc/hosts e atualize o endereço IP e o nome do host do computador.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 No arquivo de hosts, digite o seguinte valor:
 
-```
+```console
 127.0.0.1 contoso-centos.contoso100.com contoso-centos
 ```
+
 Aqui, “contoso100.com” é o nome de domínio DNS do seu domínio gerenciado. 'contoso-centos' é o nome do host da máquina virtual CentOS que você está adicionado ao domínio gerenciado.
 
 
 ## <a name="install-required-packages-on-the-linux-virtual-machine"></a>Instalar os pacotes necessários na máquina virtual do Linux
 Em seguida, instale os pacotes necessários para o ingresso no domínio na máquina virtual. Em seu terminal SSH, digite o seguinte comando para instalar os pacotes necessários:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
+```
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>Ingressar a máquina virtual do Linux no domínio gerenciado
@@ -82,7 +83,7 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
 
 1. Descubra o domínio gerenciado dos Serviços de Domínio do AAD. No terminal SSH, digite o seguinte comando:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -97,9 +98,8 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     > [!TIP]
     > * Especifique um usuário que pertença ao grupo 'Administradores do DC do AAD’.
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, o kinit falhará.
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -107,9 +107,8 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
 
     > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior ('kinit').
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -120,17 +119,20 @@ Você deverá receber uma mensagem ("Computador registrado com êxito no realm")
 Verifique se o computador ingressou com êxito no domínio gerenciado. Conecte-se à VM CentOS ingressada no domínio usando uma conexão SSH diferente. Use uma conta de usuário de domínio e, em seguida, verifique se a conta de usuário é resolvida corretamente.
 
 1. No seu terminal SSH, digite o seguinte comando para se conectar à máquina virtual CentOS ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo, 'bob@CONTOSO100.COM' neste caso).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
     ```
 
 2. No terminal do SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.
-    ```
+   
+    ```console
     pwd
     ```
 
 3. No seu terminal SSH, digite o seguinte comando para ver se as associações de grupo estão sendo resolvidas corretamente.
-    ```
+    
+    ```console
     id
     ```
 

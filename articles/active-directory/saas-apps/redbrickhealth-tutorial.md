@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec8ffebbbe339e00431f510978f1d3155f1bc4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3d9ff6daf954c4c5293223d6a92522163d17973
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868561"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>Tutorial: Integração do Azure Active Directory com RedBrick Health
 
@@ -57,7 +57,7 @@ Para configurar a integração do RedBrick Health ao Microsoft Azure AD, será n
 
 **Para adicionar o RedBrick Health da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o RedBrick Health, execute as seg
 
     ![Informações de logon único de Domínio e URLs do RedBrick Health](common/idp-relay.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://www.redbrickhealth.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://www.redbrickhealth.com`
 
     b. Na caixa de texto **URL de Resposta**, insira uma URL: `https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o RedBrick Health, execute as seg
     > [!NOTE]
     > Estes valores são apenas para fins de referência. Você precisa definir os atributos de acordo com os requisitos da sua organização. Entre em contato com [Equipe de suporte do RedBrick Health](https://home.redbrickhealth.com/contact/) para obter mais informações sobre as declarações necessárias.
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -240,5 +240,5 @@ Ao clicar no bloco do RedBrick Health no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: 790df60f973e6f86bd4424173909159fdd81ee0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66356474"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integração do Azure Active Directory ao HRworks Single Sign-On
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o HRworks Single Sign-On, execute
 
     ![Configurar o logon único](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
-     a. Marque a caixa **Usar o Single Sign-on**.
+    a. Marque a caixa **Usar o Single Sign-on**.
 
     b. Selecione **Metadados XML** como **Método de entrada de metadados**.
 
@@ -158,7 +158,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite o nome de usuário como BrittaSimon@contoso.com.
 
@@ -224,5 +224,5 @@ Ao clicar no bloco do HRworks Single Sign-On no Painel de Acesso, você deverá 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

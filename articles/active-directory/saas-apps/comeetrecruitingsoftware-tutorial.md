@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d042569647ae2182353779821cd6a0165a7443f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ac7c0d82f1fbb314630573d15f70af5e3a115590
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57847307"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comeet-recruiting-software"></a>Tutorial: Integração do Azure Active Directory com o Comeet Recruiting Software
 
@@ -53,7 +53,7 @@ Para configurar a integração do Comeet Recruiting Software ao Azure AD, você 
 
 **Para adicionar o Comeet Recruiting Software da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
     ![Comeet Recruiting Software Domínio e URLs de conexão única](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.comeet.co/adfs_auth/acs/<UNIQUEID>/`
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Comeet Recruiting Software, exe
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -232,5 +232,5 @@ Ao clicar no bloco do Comeet Recruiting Software no Painel de Acesso, você deve
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

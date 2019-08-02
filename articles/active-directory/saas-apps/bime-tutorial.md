@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c0d595bcd96bb38021a2128138f7ee49f9b8354
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900862"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>Tutorial: Integração do Azure Active Directory com o Bime
 
@@ -53,7 +53,7 @@ Para configurar a integração do Bime ao Azure AD, você precisará adicionar o
 
 **Para adicionar o Bime por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Bime, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do Bime](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.Bimeapp.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.Bimeapp.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.Bimeapp.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<tenant-name>.Bimeapp.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte ao cliente do Bime](https://bime.zendesk.com/hc/categories/202604307-Support-tech-notes-and-tips-) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -138,11 +138,11 @@ Para configurar o logon único do Azure AD com o Bime, execute as seguintes etap
   
     ![Admin](./media/bime-tutorial/ic775558.png "Admin")
 
-3. Na página de configuração da conta, execute as seguintes etapas: 
+3. Na página de configuração da conta, execute as seguintes etapas:
   
     ![Configurar Logon Único](./media/bime-tutorial/ic775559.png "Configurar Logon Único")
 
-     a. Selecione **Habilitar autenticação SAML**.
+    a. Selecione **Habilitar autenticação SAML**.
 
     b. Na caixa de texto **URL de Logon Remoto**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -221,7 +221,7 @@ Para que possam fazer logon no Bime, os usuários do Azure AD deverão ser provi
 
     ![Detalhes do Usuário](./media/bime-tutorial/ic775563.png "Detalhes do Usuário")
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
@@ -244,5 +244,5 @@ Ao clicar no bloco do Bime no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

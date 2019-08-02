@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Java'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Comece a usar a API REST de Verificação Ortográfica do Bing para verificar a ortografia e a gramática.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 0d6ea62f1d2c1e15dff13aa45c4923717dd9c2c4
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6680ddd65ce43a71873acb823f8ae57b449a56be
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390188"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423530"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Início Rápido: Verificar a ortografia com a API REST de Verificação Ortográfica do Bing e o Java
 
@@ -101,8 +101,9 @@ Use este Início Rápido para fazer sua primeira chamada à API REST de Verifica
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         return gson.toJson(json);
     }
+    ```
 
-1. Create a `BufferedReader` and read the response from the API. Print it to the console.
+1. Crie um `BufferedReader` e leia a resposta da API. Imprima-a no console.
     
     ```java
     BufferedReader in = new BufferedReader(

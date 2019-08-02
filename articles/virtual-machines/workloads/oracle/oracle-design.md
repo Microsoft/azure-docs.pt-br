@@ -4,7 +4,7 @@ description: Projete e implemente um banco de dados Oracle no seu ambiente do Az
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,18 +15,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: c5a76b9cee8fd6eb09ee4d24c1380202fd17cc6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ebe6f27818df8407504e4254f16d952aa298b6cc
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836197"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348311"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Projete e implemente um banco de dados Oracle no Azure
 
 ## <a name="assumptions"></a>Suposições
 
 - Você está planejando a migração de um banco de dados Oracle do local para o Azure.
+- Você tem o [pacote de diagnóstico](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) para o Oracle Database que pretende migrar
 - Você tem uma compreensão das várias métricas dos relatórios do Oracle AWR.
 - Você tem uma compreensão das linha de base do desempenho de aplicativo e da utilização da plataforma.
 
@@ -51,7 +52,7 @@ A tabela a seguir lista algumas das diferenças entre uma implementação local 
 > | **Resiliência** |MTBF (tempo médio entre falhas) |MTTR (tempo médio para recuperação)|
 > | **Manutenção planejada** |Aplicação de patch/upgrades|[Conjuntos de disponibilidade](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (aplicação de patch/upgrades gerenciados pelo Azure) |
 > | **Recurso** |Dedicado  |Compartilhado com outros clientes|
-> | **Regiões** |Datacenters |[Pares de regiões](https://docs.microsoft.com/azure/virtual-machines/windows/regions-and-availability)|
+> | **Regiões** |Datacenters |[Pares de regiões](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
 > | **Armazenamento** |SAN/discos físicos |[Armazenamento gerenciado pelo Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
 > | **Escala** |Escala vertical |Escala horizontal|
 
@@ -72,11 +73,11 @@ Há quatro áreas possíveis que você pode ajudar para melhorar o desempenho em
 
 ### <a name="generate-an-awr-report"></a>Gerar um relatório AWR
 
-Se você tiver um banco de dados Oracle existente e estiver planejando a migração para o Azure, terá várias opções. Você pode executar o relatório do Oracle AWR para obter as métricas (IOPS, Mbps, GiBs etc.). Em seguida, escolha a VM com base nas métricas que você coletou. Ou então, contate sua equipe de infraestrutura para obter informações semelhantes.
+Se você tiver um banco de dados Oracle existente e estiver planejando a migração para o Azure, terá várias opções. Se você tiver o [pacote de diagnóstico](https://www.oracle.com/technetwork/oem/pdf/511880.pdf) para suas instâncias do Oracle, poderá executar o relatório AWR da Oracle para obter as métricas (IOPS, Mbps, GiBs e assim por diante). Em seguida, escolha a VM com base nas métricas que você coletou. Ou então, contate sua equipe de infraestrutura para obter informações semelhantes.
 
 Considere a execução do relatório AWR durante cargas de trabalho regulares e de pico para poder comparar a diferença. Com base nesses relatórios, você pode dimensionar as VMs com base na carga de trabalho média ou na carga de trabalho máxima.
 
-Veja a seguir um exemplo de como gerar um relatório AWR:
+Veja a seguir um exemplo de como gerar um relatório AWR (gerar seus relatórios AWR usando o Oracle Enterprise Manager, se a instalação atual tiver um):
 
 ```bash
 $ sqlplus / as sysdba
@@ -143,6 +144,10 @@ Com base nos requisitos de largura de banda de sua rede, há vários tipos de ga
 
 - A latência de rede é maior em comparação com uma implantação local. Reduzir as viagens de ida e volta da rede pode melhorar significativamente o desempenho.
 - Para reduzir as viagens de ida e volta, consolide os aplicativos que têm transações alta ou aplicativos “comunicativos” na mesma máquina virtual.
+- Use máquinas virtuais com [rede acelerada](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para melhorar o desempenho da rede.
+- Para determinados distrubutions do Linux, considere habilitar o [suporte a corte/desmapeamento](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Instale o [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) em uma máquina virtual separada.
+- As páginas enormes não são habilitadas no Linux por padrão. Considere habilitar páginas enormes e definir `use_large_pages = ONLY` no Oracle DB. Isso pode ajudar a aumentar o desempenho. Mais informações podem ser encontradas [aqui](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
 ### <a name="disk-types-and-configurations"></a>Tipos e configurações de disco
 
@@ -183,20 +188,21 @@ Quando você tiver uma visão clara dos requisitos de E/S, poderá escolher a co
 - Use a compactação de dados para reduzir E/S (para dados e índices).
 - Separe os logs da fase refazer, sistema e temps e desfaça o TS em discos de dados separados.
 - Não coloque arquivos de aplicativo em discos do SO padrão (/dev/sda). Esses discos são otimizados inicializações rápidas de VM, e talvez não forneçam um bom desempenho para seu aplicativo.
+- Ao usar VMs da série M no armazenamento Premium, habilite [acelerador de gravação](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) no disco de logs de restauração.
 
 ### <a name="disk-cache-settings"></a>Configurações de cache de disco
 
 Há três opções para o cache de host:
 
-- *Somente leitura*: Todas as solicitações são armazenadas em cache para leituras futuras. Todas as gravações são persistidas diretamente no armazenamento de Blobs do Azure.
+- *ReadOnly*: Todas as solicitações são armazenadas em cache para leituras futuras. Todas as gravações são persistidas diretamente no armazenamento de Blobs do Azure.
 
-- *Leitura-gravação*: Este é um algoritmo de “leitura antecipada”. As leituras e gravações são armazenadas em cache para futuras leituras. Gravações não write-through são persistidas no cache local primeiro. Para o SQL Server, as gravações são persistidas no Armazenamento do Azure porque ele usa write-through. Ele também fornece a menor latência de disco para cargas de trabalho leves.
+- *ReadWrite*: Este é um algoritmo de “leitura antecipada”. As leituras e gravações são armazenadas em cache para futuras leituras. Gravações não write-through são persistidas no cache local primeiro. Ele também fornece a menor latência de disco para cargas de trabalho leves. Usar o cache ReadWrite com um aplicativo que não manipule a persistência dos dados necessários pode levar à perda de dados no caso de falha da VM.
 
 - *Nenhum* (desabilitado): Com essa opção, você pode ignorar o cache. Todos os dados são transferidos para o disco e persistidos para o Armazenamento do Azure. Esse método fornece a mais alta taxa de E/S para cargas de trabalho intensivas de E/S. Você também precisa levar o "custo de transação" em consideração.
 
 **Recomendações**
 
-Para maximizar a taxa de transferência, recomendamos começar com **Nenhum** para o cache de host. Para o Armazenamento Premium, lembre-se de que você deve desabilitar as "barreiras" ao montar o sistema de arquivos com as opções **ReadOnly** ou **Nenhum**. Atualize o arquivo /etc/fstab com o UUID para os discos.
+Para maximizar a taxa de transferência, recomendamos que você inicie com **nenhum** para o cache de host. Para o Armazenamento Premium, lembre-se de que você deve desabilitar as "barreiras" ao montar o sistema de arquivos com as opções **ReadOnly** ou **Nenhum**. Atualize o arquivo /etc/fstab com o UUID para os discos.
 
 ![Captura de tela da página de disco gerenciado](./media/oracle-design/premium_disk02.png)
 
@@ -206,12 +212,11 @@ Para maximizar a taxa de transferência, recomendamos começar com **Nenhum** pa
 
 Após a gravação da configuração de disco de dados, não será possível alterar a configuração de cache de host, a menos que você desmonte a unidade no nível do SO e remonte-a após a alteração.
 
-
 ## <a name="security"></a>Segurança
 
 Depois de instalar e configurar seu ambiente do Azure, a próxima etapa será proteger sua rede. Veja algumas recomendações:
 
-- *Política de NSG*: O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso no nível de sub-rede para segurança e para roteamento forçado para elementos como o firewall do aplicativo.
+- *Política de NSG*: O NSG pode ser definido por uma sub-rede ou NIC. É mais simples controlar o acesso no nível de sub-rede, tanto para segurança quanto para roteamento de força para coisas como firewalls de aplicativo.
 
 - *Jumpbox*: Para um acesso mais seguro, os administradores não devem se conectar diretamente ao serviço de aplicativo ou ao banco de dados. Um jumpbox é usado como um intermediário entre o computador do administrador e os recursos do Azure.
 ![Captura de tela da página de topologia do Jumpbox](./media/oracle-design/jumpbox.png)

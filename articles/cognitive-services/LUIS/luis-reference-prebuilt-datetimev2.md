@@ -1,6 +1,6 @@
 ---
-title: Adicionar DatetimeV2 predefinidas
-titleSuffix: Azure
+title: Entidades predefinidas do DatetimeV2 – LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de datetimeV2 em LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e7577dcf4859b1192121fe0406d0efb63a9f5990
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a19ab6e02249bad689f1a05c5761150b7a817df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148646"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560278"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>Entidade DatetimeV2 predefinida para um aplicativo LUIS
 
@@ -82,14 +82,14 @@ Cada elemento da matriz `values` pode ter os seguintes campos:
 |Nome da propriedade|Descrição da propriedade|
 |--|--|
 |timex|hora, data ou intervalo de datas expressado no formato TIMEX que segue o [padrão ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) e os atributos TIMEX3 para anotação usando a linguagem TimeML. Essa anotação é descrita nas [diretrizes TIMEX](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
-|type|O subtipo, que pode ser um dos seguintes itens: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
+|type|O subtipo, `datetime`que pode ser um dos seguintes itens: `date` `time`,,, `set` `daterange` `timerange` `datetimerange`,,, `duration`,.|
 |value|**Opcional** Um objeto datetime no formato yyyy:MM:dd (date), HH:mm:ss (time) yyyy:MM:dd HH:mm:ss (datetime). Se `type` for `duration`, o valor será o número de segundos (duration) <br/> Usado somente se `type` for `datetime` ou `date`, `time` ou `duration.|
 
 ## <a name="valid-date-values"></a>Valores de data válidos
 
 O **datetimeV2** é compatível com datas entre os seguintes intervalos:
 
-| Min | max |
+| Min. | Máx |
 |----------|-------------|
 | 1º de janeiro de 1900   | 31 de dezembro de 2099 |
 
@@ -206,15 +206,15 @@ O exemplo a seguir mostra como o LUIS usa **datetimeV2** para resolver o enuncia
   ]
 ```
 
-## <a name="preview-api-version-3x"></a>Versão de API de visualização 3. x
+## <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-Resposta JSON DatetimeV2 foi alterado no API V3. 
+A resposta JSON DatetimeV2 foi alterada na API v3. 
 
-Alterações da API V2:
-* `datetimeV2.timex.type` propriedade não é retornada porque ela é retornada no nível do pai, `datetimev2.type`. 
-* O `datetimeV2.timex` propriedade foi renomeada para `datetimeV2.value`.
+Alterações da API v2:
+* `datetimeV2.timex.type`a propriedade não é mais retornada porque é retornada no nível pai, `datetimev2.type`. 
+* A `datetimeV2.timex` Propriedade foi renomeada para `datetimeV2.value`.
 
-Para a declaração `8am on may 2nd 2017`, a versão V3 DatetimeV2 está:
+Para o expressão, `8am on may 2nd 2017`, a versão V3 do DatetimeV2 é:
 
 ```JSON
 {
@@ -244,7 +244,7 @@ Para a declaração `8am on may 2nd 2017`, a versão V3 DatetimeV2 está:
 }
 ```
 
-O JSON a seguir é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {

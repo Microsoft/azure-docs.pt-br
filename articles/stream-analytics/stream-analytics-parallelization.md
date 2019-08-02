@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 0b68819ba032d7655433aadd30fe2852941096ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5eba5601a50640261fa1b488d959f606d4514737
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478871"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612212"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Aproveitar a paralelização de consultas no Azure Stream Analytics
 Este artigo mostra como tirar proveito da paralelização no Azure Stream Analytics. Aprenda a dimensionar trabalhos do Stream Analytics configurando partições de entrada e ajustando a definição da consulta de análise.
 Como pré-requisito, convém estar familiarizado com a noção de Unidade de Streaming descrita em [Compreender e ajustar as Unidades de Streaming](stream-analytics-streaming-unit-consumption.md).
 
 ## <a name="what-are-the-parts-of-a-stream-analytics-job"></a>Quais são as partes de um trabalho do Stream Analytics?
-Uma definição de trabalho de Stream Analytics inclui entradas, consulta e saída. As entradas são de onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados e a saída é para onde são enviados os resultados do trabalho.  
+Uma definição de trabalho de Stream Analytics inclui entradas, consulta e saída. As entradas são de onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados e a saída é para onde são enviados os resultados do trabalho.
 
 Um trabalho requer pelo menos uma fonte de entrada para streaming de dados. A fonte de entrada do fluxo de dados pode ser armazenada em um Hub de eventos do Barramento de Serviço do Azure ou um armazenamento de Blobs do Azure. Para saber mais, veja [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md) e [Começar a usar o Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md).
 
@@ -38,7 +38,7 @@ Todas as entradas do Azure Stream Analytics podem tirar proveito do particioname
 
 Quando você trabalha com o Stream Analytics, você pode tirar proveito do particionamento nas saídas:
 -   Armazenamento do Azure Data Lake
--   Funções do Azure
+-   Verificação de
 -   tabela do Azure
 -   Armazenamento de Blob (é possível definir a chave de partição explicitamente)
 -   Azure Cosmos DB (é preciso definir a chave de partição explicitamente)
@@ -60,7 +60,7 @@ Um trabalho *embaraçosamente paralelo* é o cenário mais escalonável que temo
 
 1. Se sua lógica de consulta for dependente da mesma chave que está sendo processada pela mesma instância de consulta, você deverá garantir que os eventos sejam encaminhados para a mesma partição da entrada. Para Hubs de Eventos ou o Hub IoT, isso significa que os dados do evento devem ter o conjunto de valores **PartitionKey**. Como alternativa, você pode usar os remetentes particionados. Para armazenamento de Blobs, isso significa que os eventos são enviados à mesma pasta de partição. Se sua lógica de consulta não exigir que a mesma chave seja processada pela mesma instância de consulta, você pode ignorar esse requisito. Um exemplo disso seria uma consulta simples de seleção/projeto/filtro.  
 
-2. Depois que os dados são dispostos como precisam ser no lado da saída, você precisa garantir que a consulta seja particionada. Isso exige que você use **PARTITION BY** em todas as etapas. Várias etapas são permitidas, mas todas elas devem ser particionadas pela mesma chave. Atualmente, a chave de particionamento deve ser definida como **PartitionId** para que o trabalho seja totalmente paralelo.  
+2. Depois que os dados são dispostos como precisam ser no lado da saída, você precisa garantir que a consulta seja particionada. Isso exige que você use **PARTITION BY** em todas as etapas. Várias etapas são permitidas, mas todas elas devem ser particionadas pela mesma chave. No nível de compatibilidade 1.0 e 1.1, a chave de particionamento deve ser definida como **PartitionId** para que o trabalho seja totalmente paralelo. Para trabalhos com o nível de compatibilidade 1.2 e posterior, coluna personalizada pode ser especificada como chave de partição nas configurações de entrada e o trabalho será automoatically paralellized mesmo sem a cláusula PARTITION BY.
 
 3. A maioria da saída pode tirar proveito do particionamento, no entanto, se você usar um tipo de saída que não dá suporte ao particionamento, seu trabalho não será totalmente paralelo. Consulte a [seção de saída](#outputs) para obter mais detalhes.
 
@@ -87,7 +87,7 @@ Consulta:
     WHERE TollBoothId > 100
 ```
 
-Essa consulta é um filtro simples. Portanto, nós não precisamos se preocupar sobre particionamento da entrada que está sendo enviada para o hub de eventos. Observe que a consulta inclui **PARTITION BY PartitionId**, portanto, ela preenche o requisito nº 2 anterior. Para a saída, é necessário configurar a saída de Hubs de Eventos no trabalho para ter a chave de partição definida como **PartitionId**. Uma última verificação é certificar-se de que o número de partições de entrada é igual ao número de partições de saída.
+Essa consulta é um filtro simples. Portanto, nós não precisamos se preocupar sobre particionamento da entrada que está sendo enviada para o hub de eventos. Observe que com nível de compatibilidade de trabalhos antes de 1.2 deve incluir **PARTITION BY PartitionId** cláusula, portanto, ela preenche o requisito #2 anterior. Para a saída, é necessário configurar a saída de Hubs de Eventos no trabalho para ter a chave de partição definida como **PartitionId**. Uma última verificação é certificar-se de que o número de partições de entrada é igual ao número de partições de saída.
 
 ### <a name="query-with-a-grouping-key"></a>Consulta com chave de agrupamento
 
@@ -142,6 +142,26 @@ Como você pode ver, a segunda etapa usa **TollBoothId** como a chave de partici
 
 Os exemplos anteriores mostram alguns trabalhos do Stream Analytics que está de acordo com (ou não) em uma topologia em paralela. Se eles estão em conformidade, eles têm o potencial para expansão máxima. Para trabalhos que não se encaixam em nenhum desses perfis, as diretrizes de expansão estarão disponíveis em atualizações futuras. Por enquanto, use as diretrizes gerais nas seções a seguir.
 
+### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>Nível de compatibilidade 1.2 - consulta de várias etapas com diferentes valores por partição 
+* Entrada: Hub de eventos com 8 partições
+* Saída: Hub de eventos com 8 partições
+
+Consulta:
+
+```SQL
+    WITH Step1 AS (
+    SELECT COUNT(*) AS Count, TollBoothId
+    FROM Input1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+    )
+
+    SELECT SUM(Count) AS Count, TollBoothId
+    FROM Step1
+    GROUP BY TumblingWindow(minute, 3), TollBoothId
+```
+
+Nível de compatibilidade 1.2 habilita a execução paralela da consulta por padrão. Por exemplo, a consulta da seção anterior será parttioned desde que a coluna "TollBoothId" é definida como chave de partição de entrada. Cláusula de partição a ParttionId não é necessária.
+
 ## <a name="calculate-the-maximum-streaming-units-of-a-job"></a>Calcule o máximo de unidades de um trabalho de streaming
 O número total de unidades de streaming que pode ser usado por um trabalho de Análise de fluxo depende do número de etapas da consulta definida para o trabalho e o número de partições para cada etapa.
 
@@ -180,7 +200,7 @@ Quando uma consulta for particionada, os eventos de entrada serão processados e
 Todas as etapas não particionadas juntas podem escalar verticalmente até seis unidades de Streaming (SUs) para um trabalho de Stream Analytics. Além disso, você pode adicionar 6 SUs para cada partição em uma etapa particionada.
 Veja alguns **exemplos** na tabela a seguir.
 
-| Consulta                                               | Máxima quantidade de SUs para o trabalho |
+| Consultar                                               | Máxima quantidade de SUs para o trabalho |
 | --------------------------------------------------- | ------------------- |
 | <ul><li>A consulta contém uma única etapa.</li><li>A etapa não está particionada.</li></ul> | 6 |
 | <ul><li>O fluxo de dados de entrada é particionado por 16.</li><li>A consulta contém uma única etapa.</li><li>A etapa é particionada.</li></ul> | 96 partições (6 * 16 partições) |
@@ -228,17 +248,71 @@ Esta consulta pode ser escalada verticalmente para até 24 SUs.
 > 
 > 
 
+## <a name="achieving-higher-throughputs-at-scale"></a>Alcançar taxas de transferência mais alta em escala
 
+Uma [embaraçosamente paralelos](#embarrassingly-parallel-jobs) trabalho é necessária, mas não é suficiente para manter uma taxa de transferência maior em grande escala. Cada sistema de armazenamento e sua saída correspondente do Stream Analytics tem variações sobre como alcançar a taxa de transferência melhor gravação possíveis. Como com qualquer cenário em escala, há alguns desafios que podem ser resolvidos usando as configurações corretas. Esta seção discute as configurações para algumas saídas comuns e fornece exemplos para sustentar as taxas de ingestão de 1K, K 5 e 10 mil eventos por segundo.
 
+As observações a seguir usam um trabalho do Stream Analytics com consulta sem monitoração de estado (passagem), um UDF do JavaScript que grava no Cosmos DB, BD SQL do Azure ou Hub de eventos basic.
 
+#### <a name="event-hub"></a>Hub de evento
+
+|Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de saída  |
+|--------|---------|---------|
+| 1K     |    1    |  2 TU   |
+| 5 MIL     |    6    |  6 TU   |
+| 10.000    |    12   |  10 TU  |
+
+O [Hub de eventos](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-eventhubs) solução é dimensionado linearmente em termos de streaming as SU (unidades) e taxa de transferência, tornando-o mais eficiente e modo de alto desempenho para analisar e transmitir dados para fora do Stream Analytics. Trabalhos podem ser dimensionados para até 192 SU, que basicamente resulta em processamento até 200 MB/s ou 19 trilhões de eventos por dia.
+
+#### <a name="azure-sql"></a>SQL do Azure
+|Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de saída  |
+|---------|------|-------|
+|    1K   |   3  |  S3   |
+|    5 MIL   |   18 |  P4   |
+|    10.000  |   36 |  P6   |
+
+[SQL Azure](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql) oferece suporte à gravação em paralelo, chamado herdam particionamento, mas ele não está habilitado por padrão. No entanto, a habilitação herdam o particionamento, junto com uma consulta totalmente paralela, pode não ser suficiente para alcançar taxas de transferência mais alta. Taxas de transferência de gravação SQL dependerá muito do seu esquema de configuração e a tabela de banco de dados do SQL Azure. O [desempenho de saída SQL](./stream-analytics-sql-output-perf.md) artigo traz mais detalhes sobre os parâmetros que podem maximizar a taxa de transferência de gravação. Conforme observado na [saída do Azure Stream Analytics para o banco de dados SQL](./stream-analytics-sql-output-perf.md#azure-stream-analytics) artigo, essa solução não são dimensionadas linearmente, como um pipeline totalmente paralelo além dos 8 partições e talvez seja necessário reparticionar antes da saída do SQL (consulte [ EM](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)). SKUs premium são necessários para sustentar altas taxas de e/s, juntamente com a sobrecarga de backups de log acontecendo cada alguns minutos.
+
+#### <a name="cosmos-db"></a>Cosmos DB
+|Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de saída  |
+|-------|-------|---------|
+|  1K   |  3    | 20K RU  |
+|  5 MIL   |  24   | 60K RU  |
+|  10.000  |  48   | 120K RU |
+
+[O cosmos DB](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb) saída do Stream Analytics foi atualizada para usar a integração nativa sob [nível de compatibilidade 1.2](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12). Nível de compatibilidade 1.2 permite significativamente maior taxa de transferência e reduz o consumo de RU em relação a 1.1, que é o nível de compatibilidade padrão para novos trabalhos. A solução usa contêineres do cosmos DB particionados na /deviceId e o restante da solução está configurado de forma idêntica.
+
+Todos os [Streaming em exemplos de escala do azure](https://github.com/Azure-Samples/streaming-at-scale) usar um Hub de eventos alimentado por carga para simular clientes de teste como entrada. Cada evento de entrada é um documento JSON de 1KB, que converte as taxas de ingestão configurado para as taxas de transferência (1MB/s, 5MB/s e 10MB/s) com facilidade. Eventos de simular um dispositivo de IoT, enviar os seguintes dados JSON (em uma forma abreviada) para dispositivos de até 1 K:
+
+```
+{
+    "eventId": "b81d241f-5187-40b0-ab2a-940faf9757c0",
+    "complexData": {
+        "moreData0": 51.3068118685458,
+        "moreData22": 45.34076957651598
+    },
+    "value": 49.02278128887753,
+    "deviceId": "contoso://device-id-1554",
+    "type": "CO2",
+    "createdAt": "2019-05-16T17:16:40.000003Z"
+}
+```
+
+> [!NOTE]
+> As configurações estão sujeitos a alterações devido a vários componentes usados na solução. Para obter uma estimativa mais precisa, personalize os exemplos para ajustar seu cenário.
+
+### <a name="identifying-bottlenecks"></a>Identificando afunilamentos
+
+Use o painel de métricas no trabalho do Azure Stream Analytics para identificar gargalos no seu pipeline. Revisão **eventos de entrada/saída** taxa de transferência e ["Atraso de marca d'água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos com lista de pendências** para ver se o trabalho está acompanhando a taxa de entrada. Para métricas do Hub de eventos, procure **solicitações limitadas** e ajustar as unidades de limite adequadamente. Para métricas do Cosmos DB, examine **máximo de RU/s consumidas por intervalo de chaves de partição** na taxa de transferência para garantir que sua partição de intervalos de chaves são consumidos uniformemente. Para o Azure SQL DB, monitore **e/s de Log** e **CPU**.
 
 ## <a name="get-help"></a>Obter ajuda
+
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 
 <!--Image references-->

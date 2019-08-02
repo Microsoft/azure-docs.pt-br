@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: fc0ef38193bbd6e5044764a26a5793a4d115348d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c97b09690885057370910c0c1ec062d6b3f37363
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278132"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101587"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-grovo"></a>Tutorial: Integração do Azure Active Directory com Grovo
 
@@ -54,7 +54,7 @@ Para configurar a integração do Grovo ao Azure AD, você precisa adicionar o G
 
 **Para adicionar o Grovo da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Grovo, execute as seguintes eta
 
     ![Informações de logon único em Domínio e URLs do Grovo](common/idp-relay.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.grovo.com/sso/saml2/saml-assertion`
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Grovo, execute as seguintes eta
     | Endereço de Email       | user.mail    |
     | employeeID          | user.employeeid |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -184,7 +184,7 @@ Para configurar o logon único do Azure AD com o Grovo, execute as seguintes eta
 
     ![Configuração do Grovo](./media/grovo-tutorial/tutorial_grovo_saml.png)
 
-     a. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
+    a. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
     b. Na caixa de texto **Ponto de extremidade do serviço de logon único**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
@@ -210,7 +210,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -264,5 +264,5 @@ Quando clicar no bloco do Grovo no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

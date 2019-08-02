@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-08-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ddc09d3d2475afe9be90cf1d5585697b9c36cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5e1d1973dd51068e6f3e0746ee988a51f375899f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866821"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588011"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>Tutorial: Integração do Azure Active Directory com SpringCM
 
@@ -54,7 +54,7 @@ Para configurar a integração do SpringCM ao Azure AD, você precisará adicion
 
 **Para adicionar o SpringCM da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -137,11 +137,11 @@ Para configurar o logon único do Azure AD com o SpringCM, execute as seguintes 
    
     ![Configuração do Provedor de Identidade](./media/spring-cm-tutorial/ic797052.png "Configuração do Provedor de Identidade")
     
-     a. Para carregar seu certificado baixado do Azure Active Directory, clique em **Selecionar Certificado do Emissor** ou **Alterar Certificado do Emissor**.
+    a. Para carregar seu certificado baixado do Azure Active Directory, clique em **Selecionar Certificado do Emissor** ou **Alterar Certificado do Emissor**.
     
     b. Na caixa de texto **Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
     
-    c. Na caixa de texto **Ponto de Extremidade Iniciado pelo SP (Provedor de Serviços)**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    c. Na caixa de texto **Ponto de Extremidade Iniciado pelo SP (Provedor de Serviços)** , cole o valor da **URL de Logon** copiado do portal do Azure.
             
     d. Selecione **SAML Habilitado** como **Habilitar**.
 
@@ -239,5 +239,5 @@ Ao clicar no bloco do SpringCM no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

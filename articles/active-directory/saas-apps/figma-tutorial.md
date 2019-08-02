@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: d58da4781a7c5c93d897e0efd7cf3d5aee612d78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b91ab53ba7b5ce30c1dfa4a2bd90390875b8615
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65861897"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102688"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Tutorial: Integração do Azure Active Directory ao Figma
 
@@ -57,7 +57,7 @@ Para configurar a integração do Figma ao Azure AD, você precisa adicionar o F
 
 **Para adicionar o Figma da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o Figma, execute as seguintes eta
 
     ![Informações de logon único de Domínio e URLs do Figma](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.figma.com/saml/<TENANT ID>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.figma.com/saml/<TENANT ID>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.figma.com/saml/<TENANT ID>/consume`
 
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o Figma, execute as seguintes eta
     | `givenName` | `givenName` |
     | `userName` | `user.userprincipalname` |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -231,5 +231,5 @@ Ao clicar no bloco do Figma no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

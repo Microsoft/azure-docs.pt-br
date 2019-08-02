@@ -16,16 +16,16 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8463ffcb9d9983ff435c01f75dd48f68bde31767
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b48ec72a1f0a4178dad66ed31c544399e90c5293
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545595"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484509"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutorial: Criar uma imagem personalizada e executá-la no Serviço de Aplicativo por meio de um registro particular
 
-O [Serviço de Aplicativo](app-service-linux-intro.md) fornece imagens internas do Docker no Linux com suporte para versões específicas, como PHP 7.0 e Node.js 4.5. O Serviço de Aplicativo usa a tecnologia de contêiner do Docker para hospedar imagens internas e personalizadas como uma plataforma como serviço. Neste tutorial, você aprenderá a criar uma imagem personalizada e executá-la no Serviço de Aplicativo. Esse padrão é útil quando as imagens internas não incluem a linguagem de sua escolha ou quando seu aplicativo requer uma configuração específica que não é fornecida nas imagens internas.
+O [Serviço de Aplicativo](app-service-linux-intro.md) fornece imagens internas do Docker no Linux com suporte para versões específicas, como PHP 7.3 e Node.js 10.14. O Serviço de Aplicativo usa a tecnologia de contêiner do Docker para hospedar imagens internas e personalizadas como uma plataforma como serviço. Neste tutorial, você aprenderá a criar uma imagem personalizada e executá-la no Serviço de Aplicativo. Esse padrão é útil quando as imagens internas não incluem a linguagem de sua escolha ou quando seu aplicativo requer uma configuração específica que não é fornecida nas imagens internas.
 
 Neste tutorial, você aprenderá como:
 
@@ -155,7 +155,7 @@ Confirme se o logon foi bem-sucedido.
 
 ### <a name="push-image-to-azure-container-registry"></a>Enviar imagem por push ao Registro de Contêiner do Azure
 
-Marque a imagem local para o Registro de Contêiner do Azure. Por exemplo: 
+Marque a imagem local para o Registro de Contêiner do Azure. Por exemplo:
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```
@@ -278,7 +278,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Para habi
     > [!NOTE]
     > Essa configuração não permite conexões externas com o contêiner. O SSH está disponível apenas por meio do Site do Kudu/SCM. O site do Kudu/SCM é autenticado com sua conta do Azure.
 
-* O [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copia o [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) para o diretório */etc/ssh/*.
+* O [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) cópias o arquivo [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) no repositório para o diretório */etc/ssh/* .
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

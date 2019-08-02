@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: b45c88ddf3e4a5781e48641d26a9487e5861880c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5f083178ca7e28831bf4f60940c3ced73a427dda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890040"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>Tutorial: Integração do Azure Active Directory com o RightAnswers
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o RightAnswers, execute as seguin
 
     ![Informações de logon único de Domínio e URLs do RightAnswers](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.rightanswers.com/portal/ss/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.rightanswers.com/portal/ss/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.rightanswers.com:<identifier>/portal`
 
@@ -205,4 +205,4 @@ Ao clicar no bloco do RightAnswers no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

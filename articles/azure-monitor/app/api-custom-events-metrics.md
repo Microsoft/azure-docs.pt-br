@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 5194b9e6f40dbcd5e48b33c12db4b3cd94f75de3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ec3b620138c4ae0487c29e38062c044a5210572
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66478408"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314800"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -50,6 +50,7 @@ Se você ainda não tem uma referência no SDK do Application Insights:
 * Adicione o SDK do Application Insights a seu projeto:
 
   * [Projeto do ASP.NET](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core projeto](../../azure-monitor/app/asp-net-core.md)
   * [Projeto Java](../../azure-monitor/app/java-get-started.md)
   * [Projeto do Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript em cada página da Web](../../azure-monitor/app/javascript.md) 
@@ -153,7 +154,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 A telemetria está disponível na tabela `customEvents` na [Análise do Application Insights](analytics.md). Cada linha representa uma chamada para `trackEvent(..)` em seu aplicativo.
 
-Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackEvent(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de eventos personalizados, você deve, portanto, use códigos como `customEvents | summarize sum(itemCount)`.
+Se a [amostragem](../../azure-monitor/app/sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor maior que 1. Para exemplo itemCount==10 significa que de 10 chamadas para trackEvent(), o processo de amostragem somente transmitirá um deles. Para obter uma contagem correta de eventos personalizados, você deve, portanto, usar um `customEvents | summarize sum(itemCount)`código como.
 
 ## <a name="getmetric"></a>GetMetric
 
@@ -249,7 +250,7 @@ namespace User.Namespace.Example01
 ## <a name="trackmetric"></a>TrackMetric
 
 > [!NOTE]
-> O Microsoft.ApplicationInsights.TelemetryClient.TrackMetric foi preterido no SDK do .NET. As métricas devem sempre ser agregadas previamente em um período de tempo antes de serem enviadas. Use uma das sobrecargas GetMetric(..) para obter um objeto de métrica para acessar as funcionalidades de pré-agregação do SDK. Se você estiver implementando sua própria lógica de pré-agregação, use o método de controle (ITelemetry metricTelemetry) para enviar as agregações resultantes. Se o aplicativo exigir o envio de um item de telemetria separado em cada ocasião sem agregação ao longo do tempo, esse provavelmente será um caso de uso de telemetria de evento. Confira TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
+> Microsoft. ApplicationInsights. TelemetryClient. TrackMetric não é o método preferencial para enviar métricas. As métricas devem sempre ser agregadas previamente em um período de tempo antes de serem enviadas. Use uma das sobrecargas GetMetric(..) para obter um objeto de métrica para acessar as funcionalidades de pré-agregação do SDK. Se você estiver implementando sua própria lógica de pré-autenticação, poderá usar o método TrackMetric () para enviar as agregações resultantes. Se o aplicativo exigir o envio de um item de telemetria separado em cada ocasião sem agregação ao longo do tempo, esse provavelmente será um caso de uso de telemetria de evento. Confira TelemetryClient.TrackEvent (Microsoft.ApplicationInsights.DataContracts.EventTelemetry).
 
 O Application Insights pode traçar o gráfico de métrica que não estão associadas a eventos específicos. Por exemplo, você pode monitorar um comprimento de fila em intervalos regulares. Com as métricas, as medidas individuais são menos interessantes que as variações e tendências, então gráficos estatísticos são úteis.
 
@@ -712,7 +713,7 @@ dependencies
 
 ## <a name="flushing-data"></a>Liberando dados
 
-Normalmente, o SDK envia dados a intervalos fixos (normalmente de 30 segundos) ou sempre que o buffer está completa (normalmente de 500 itens). No entanto, em alguns casos, você talvez queira liberar o buffer - por exemplo, se estiver usando o SDK em um aplicativo que é desligado.
+Normalmente, o SDK envia dados em intervalos fixos (normalmente 30 segundos) ou sempre que o buffer estiver cheio (normalmente 500 itens). No entanto, em alguns casos, você talvez queira liberar o buffer - por exemplo, se estiver usando o SDK em um aplicativo que é desligado.
 
 *C#*
 
@@ -950,7 +951,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();
@@ -1084,7 +1085,7 @@ TelemetryConfiguration.Active.TelemetryChannel.DeveloperMode = True
 
 *Node.js*
 
-Para Node. js, você pode habilitar o modo de desenvolvedor, habilitando o registro em log interno por meio `setInternalLogging` e definindo `maxBatchSize` como 0, que faz com que a telemetria a serem enviados assim que ele é coletado.
+Para o Node. js, você pode habilitar o modo de desenvolvedor habilitando `setInternalLogging` o log `maxBatchSize` interno via e definindo como 0, o que faz com que a telemetria seja enviada assim que for coletada.
 
 ```js
 applicationInsights.setup("ikey")
@@ -1205,7 +1206,7 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 
 * *Que exceções podem ser lançadas por chamadas Track_()?*
 
-    Nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
+    nenhuma. Você não precisa encapsulá-las em cláusulas try-catch. Se o SDK encontrar problemas, ele registrará mensagens em log na saída do console de depuração e (se elas passarem despercebidas) na Pesquisa de Diagnóstico.
 * *Há uma API REST para obter dados do portal?*
 
     Sim, a [API de acesso a dados](https://dev.applicationinsights.io/). Outras maneiras de extrair dados incluem [exportar do Analytics para o Power BI](../../azure-monitor/app/export-power-bi.md ) e a [exportação contínua](../../azure-monitor/app/export-telemetry.md).

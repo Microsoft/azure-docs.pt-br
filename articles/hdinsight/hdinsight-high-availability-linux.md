@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 6cb72730ef3dbef81e2b2c9bc1c5cfd3bbd88b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1828efb410849677e859d341e4e16e4f5d4ca681
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704933"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405982"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilidade e confiabilidade dos clusters Apache Hadoop em HDInsight
 
@@ -94,7 +94,7 @@ Você pode se conectar a nós que não estão diretamente acessíveis pela Inter
 
 * **Túnel SSH**: Caso precise acessar um serviço Web hospedado em um dos nós que não esteja exposto à Internet, será necessário usar um túnel SSH. Para saber mais, consulte o documento [Usar túnel SSH com HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-* **Rede Virtual do Azure**: Caso o cluster HDInsight faça parte de uma Rede Virtual do Azure, qualquer recurso contido na mesma Rede Virtual poderá acessar diretamente todos os nós no cluster. Para saber mais, confira o documento [Estender o HDInsight usando a Rede Virtual do Azure](hdinsight-extend-hadoop-virtual-network.md).
+* **Rede Virtual do Azure**: Caso o cluster HDInsight faça parte de uma Rede Virtual do Azure, qualquer recurso contido na mesma Rede Virtual poderá acessar diretamente todos os nós no cluster. Para obter mais informações, consulte o documento [planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md) .
 
 ## <a name="how-to-check-on-a-service-status"></a>Como verificar o status do serviço
 
@@ -108,48 +108,48 @@ Ao chegar na página Ambari, os serviços instalados serão listados à esquerda
 
 ![Serviços instalados](./media/hdinsight-high-availability-linux/services.png)
 
-Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o status. Todos os alertas relacionados a um serviço podem ser visualizados usando o link **Alertas** na parte superior da página.  Ambari oferece vários alertas predefinidos.
+Há uma série de ícones que podem aparecer ao lado de um serviço para indicar o status. Todos os alertas relacionados a um serviço podem ser visualizados usando o link **Alertas** na parte superior da página.  O Ambari oferece vários alertas predefinidos.
 
-Os seguintes alertas ajudam a monitorar a disponibilidade de um cluster:
+Os alertas a seguir ajudam a monitorar a disponibilidade de um cluster:
 
-| Nome do alerta                               | DESCRIÇÃO                                                                                                                                                                                  |
+| Nome do Alerta                               | Descrição                                                                                                                                                                                  |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Status do Monitor de métrica                    | Esse alerta indica o status do processo de Monitor de métricas, conforme determinado pelo script de status do monitor.                                                                                   |
-| Pulsação do agente do Ambari                   | Este alerta é disparado se o servidor perdeu contato com um agente.                                                                                                                        |
-| Processo de servidor do zooKeeper                 | Este alerta de nível de host é disparado se o processo do servidor ZooKeeper não puder ser determinado esteja ativo e ouvindo na rede.                                                               |
-| Status do servidor IOCache metadados           | Esse alerta de nível de host é disparado se o servidor de metadados IOCache não puder ser determinado como backup e respondendo a solicitações de cliente                                                            |
-| Interface do usuário da Web JournalNode                       | Este alerta de nível de host é disparado se a interface do usuário da Web de JournalNode está inacessível.                                                                                                                 |
-| Servidor Thrift Spark2                     | Este alerta de nível de host é disparado se o servidor de Thrift Spark2 não puder ser determinado devem estar ativos.                                                                                                |
-| Processo do servidor de histórico                   | Este alerta de nível de host é disparado se o processo do servidor de histórico não pode ser estabelecido esteja ativo e escuta na rede.                                                                |
-| Interface do usuário de Web de servidor de histórico                    | Este alerta de nível de host é disparado se a interface do usuário do histórico de servidor Web está inacessível.                                                                                                              |
-| Interface do usuário da Web de ResourceManager                   | Este alerta de nível de host é disparado se a interface do usuário do ResourceManager Web está inacessível.                                                                                                             |
-| Resumo de integridade do NodeManager               | Esse nível de serviço de alerta é disparada se não houver NodeManagers não íntegro                                                                                                                    |
-| Aplicativo Web de linha do tempo da interface do usuário                      | Esse alerta de nível de host será acionada se a IU da Web do aplicativo de linha do tempo do servidor está inacessível.                                                                                                         |
-| Resumo de integridade DataNode                  | Esse nível de serviço de alerta é disparada se não houver DataNodes não íntegro                                                                                                                       |
-| Interface do usuário da Web NameNode                          | Este alerta de nível de host é disparado se a interface do usuário do NameNode na Web está inacessível.                                                                                                                    |
-| Processo de Failover de controlador do zooKeeper    | Este alerta de nível de host é disparado se o processo do controlador de Failover do ZooKeeper não pode ser confirmada esteja ativo e escuta na rede.                                                   |
-| Interface do usuário da Web de servidor Oozie                      | Este alerta de nível de host é disparado se o servidor Web da interface do usuário do Oozie está inacessível.                                                                                                                |
-| Oozie Server Status                      | Este alerta de nível de host é disparado se o servidor Oozie não puder ser determinado como backup e respondendo às solicitações do cliente.                                                                      |
-| Processo de Metastore do hive                   | Este alerta de nível de host é disparado se o processo de Metastore do Hive não puder ser determinado esteja ativo e ouvindo na rede.                                                                 |
-| Processo do HiveServer2                      | Este alerta de nível de host é disparado se o HiveServer não puder ser determinado como backup e respondendo às solicitações do cliente.                                                                        |
-| Status do servidor WebHCat                    | Este alerta de nível de host é disparado se o status do servidor templeton não está íntegro.                                                                                                            |
-| Porcentagem de ZooKeeper servidores disponíveis      | Este alerta é disparado se o número de servidores do ZooKeeper no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do ZooKeeper.     |
-| Spark2 Livy Server                       | Este alerta de nível de host é disparado se o servidor Livy2 não puder ser determinado devem estar ativos.                                                                                                        |
-| Servidor de histórico de Spark2                    | Este alerta de nível de host é disparado se o servidor de histórico Spark2 não puder ser determinado devem estar ativos.                                                                                               |
-| Processo do coletor de métricas                | Este alerta é disparado se o coletor de métricas não pode ser confirmada esteja ativo e ouvindo na porta configurada para o número de segundos iguais ao limite.                                 |
-| Coletor de métricas - HBase Master processo | Este alerta é disparado se processos de mestre de HBase do coletor de métricas não podem ser confirmada esteja ativo e escuta na rede para o limite crítico configurado, fornecido em segundos. |
-| Monitores de porcentagem de métricas disponíveis       | Este alerta é disparado se um percentual do Monitor de métricas de processos não estão funcionando e escuta na rede para os limites críticos e de aviso configurado.                             |
-| Porcentagem NodeManagers disponíveis           | Este alerta é disparado se o número de baixo NodeManagers no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do NodeManager.        |
-| Integridade do NodeManager                       | Esse alerta de nível de host verifica a propriedade de integridade de nó disponível do componente NodeManager.                                                                                              |
-| IU da Web do NodeManager                       | Este alerta de nível de host é disparado se a IU da Web do NodeManager está inacessível.                                                                                                                 |
-| Integridade da disponibilidade alta NameNode        | Esse nível de serviço de alerta é disparada se o Active Directory NameNode ou NameNode em espera não estiver executando.                                                                                     |
-| Processo de DataNode                         | Este alerta de nível de host é disparado se os processos de DataNode individuais não podem ser estabelecida esteja ativo e ouvindo na rede.                                                         |
-| Interface do usuário da Web DataNode                          | Este alerta de nível de host é disparado se a interface do usuário da Web de DataNode está inacessível.                                                                                                                    |
-| Porcentagem JournalNodes disponíveis           | Este alerta é disparado se o número de baixo JournalNodes do cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo JournalNode.        |
-| Porcentagem DataNodes disponíveis              | Este alerta é disparado se o número de baixo DataNodes do cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo DataNode.              |
-| Status do servidor Zeppelin                   | Este alerta de nível de host é disparado se o servidor do Zeppelin não puder ser determinado como backup e respondendo às solicitações do cliente.                                                                   |
-| Processo interativo do HiveServer2          | Este alerta de nível de host é disparado se o HiveServerInteractive não puder ser determinado como backup e respondendo às solicitações do cliente.                                                             |
-| Aplicativo LLAP                         | Este alerta é disparado se o aplicativo LLAP não puder ser determinado esteja operante e respondendo a solicitações.                                                                                    |
+| Status do monitor de métrica                    | Esse alerta indica o status do processo de monitor de métricas conforme determinado pelo script de status do monitor.                                                                                   |
+| Pulsação do agente Ambari                   | Esse alerta será disparado se o servidor tiver perdido o contato com um agente.                                                                                                                        |
+| Processo do servidor ZooKeeper                 | Esse alerta no nível do host será disparado se o processo do servidor ZooKeeper não puder ser determinado como ativo e escutando na rede.                                                               |
+| Status do servidor de metadados IOCache           | Esse alerta no nível do host será disparado se o servidor de metadados IOCache não puder ser determinado para ser ativado e responder às solicitações do cliente                                                            |
+| Interface do usuário da Web do amJournalNode                       | Esse alerta no nível do host será disparado se a interface do usuário da Web do amJournalNode estiver inacessível.                                                                                                                 |
+| Servidor Spark2 thrift                     | Esse alerta em nível de host será disparado se o servidor Spark2 Thrift não puder ser determinado como ativo.                                                                                                |
+| Processo do servidor de histórico                   | Esse alerta em nível de host será disparado se o processo do servidor de histórico não puder ser estabelecido como ativo e escutando na rede.                                                                |
+| IU da Web do servidor de histórico                    | Esse alerta no nível do host será disparado se a interface do usuário da Web do servidor de histórico estiver inacessível.                                                                                                              |
+| Interface do usuário da Web do ResourceManager                   | Esse alerta no nível do host será disparado se a interface do usuário da Web do ResourceManager estiver inacessível.                                                                                                             |
+| Resumo de integridade do NodeManager               | Esse alerta de nível de serviço é disparado se houver NodeManagers não íntegros                                                                                                                    |
+| Linha do tempo de aplicativo da Web                      | Esse alerta no nível do host será disparado se a interface do usuário da Web do servidor de linha do tempo do aplicativo estiver inacessível.                                                                                                         |
+| Resumo de integridade do datanode                  | Esse alerta de nível de serviço é disparado se houver datanodes não íntegros                                                                                                                       |
+| Interface do usuário da Web do amNameNode                          | Esse alerta no nível do host será disparado se a interface do usuário da Web do amNameNode estiver inacessível.                                                                                                                    |
+| Processo do controlador de failover ZooKeeper    | Esse alerta em nível de host será disparado se o processo do controlador de failover ZooKeeper não puder ser confirmado para estar ativo e escutando na rede.                                                   |
+| Interface do usuário da Web do Oozie Server                      | Esse alerta no nível do host será disparado se a interface do usuário da Web do Oozie Server estiver inacessível.                                                                                                                |
+| Status do servidor Oozie                      | Esse alerta no nível do host será disparado se o servidor Oozie não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                      |
+| Processo de metastore do hive                   | Esse alerta em nível de host será disparado se o processo de metastore do hive não puder ser determinado como ativo e escutando na rede.                                                                 |
+| Processo de HiveServer2                      | Esse alerta no nível do host será disparado se o HiveServer não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                        |
+| Status do servidor WebHCat                    | Esse alerta em nível de host será disparado se o status do servidor Templeton não estiver íntegro.                                                                                                            |
+| Porcentagem de servidores ZooKeeper disponíveis      | Esse alerta será disparado se o número de servidores ZooKeeper no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do ZooKeeper.     |
+| Servidor Spark2 Livy                       | Esse alerta no nível do host será disparado se o servidor Livy2 não puder ser determinado como ativo.                                                                                                        |
+| Servidor de histórico do Spark2                    | Esse alerta em nível de host será disparado se o servidor de histórico Spark2 não puder ser determinado como ativo.                                                                                               |
+| Processo do coletor de métricas                | Esse alerta será disparado se o coletor de métricas não puder ser confirmado para estar ativo e escutando na porta configurada por um número de segundos igual ao limite.                                 |
+| Coletor de métricas – processo de HBase Master | Esse alerta será disparado se os processos do HBase Master do coletor de métricas não puderem ser confirmados como ativos e escutando na rede o limite crítico configurado, fornecido em segundos. |
+| Percentual de monitores de métricas disponíveis       | Esse alerta será disparado se uma porcentagem de processos de monitor de métricas não estiver ativa e escutando na rede para o aviso e os limites críticos configurados.                             |
+| Porcentagem de NodeManagers disponíveis           | Esse alerta será disparado se o número de NodeManagers inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do NodeManager.        |
+| Integridade do NodeManager                       | Esse alerta no nível do host verifica a propriedade de integridade do nó disponível no componente NodeManager.                                                                                              |
+| Interface do usuário da Web do NodeManager                       | Esse alerta em nível de host será disparado se a interface do usuário da Web NodeManager não estiver acessível.                                                                                                                 |
+| Integridade de alta disponibilidade do NameNode        | Esse alerta de nível de serviço será disparado se o NameNode ativo ou o NameNode em espera não estiverem em execução.                                                                                     |
+| Processo do datanode                         | Esse alerta em nível de host será disparado se os processos individuais de datanode não puderem ser estabelecidos para serem ativados e escutando na rede.                                                         |
+| Interface do usuário da Web do datanode                          | Esse alerta no nível do host será disparado se a interface do usuário da Web do datanode estiver inacessível.                                                                                                                    |
+| Porcentagem de JournalNodes disponíveis           | Esse alerta será disparado se o número de JournalNodes inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados das verificações de processo do JournalNode.        |
+| Porcentagem de datanodes disponíveis              | Esse alerta será disparado se o número de datanodes inativos no cluster for maior que o limite crítico configurado. Ele agrega os resultados de verificações de processo de datanode.              |
+| Status do servidor Zeppelin                   | Esse alerta no nível do host será disparado se o servidor Zeppelin não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                                   |
+| Processo interativo do HiveServer2          | Esse alerta no nível do host será disparado se o HiveServerInteractive não puder ser determinado como ativo e respondendo às solicitações do cliente.                                                             |
+| Aplicativo LLAP                         | Esse alerta será disparado se o aplicativo LLAP não puder ser determinado como ativo e respondendo a solicitações.                                                                                    |
 
 Você pode selecionar cada serviço para exibir mais informações sobre ele.
 
@@ -222,7 +222,7 @@ Cada nó de cabeçalho pode ter entradas de log exclusivo, portanto você deve v
 
 Também é possível se conectar ao nó de cabeçalho usando o Protocolo FTP do SSH ou SFTP e baixar os arquivos de log diretamente.
 
-Semelhante ao uso de um cliente SSH, ao se conectar com o cluster, é necessário fornecer o nome de conta de usuário SSH e o endereço SSH do cluster. Por exemplo: `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a senha da conta quando solicitado ou uma chave pública usando o parâmetro `-i`.
+Semelhante ao uso de um cliente SSH, ao se conectar com o cluster, é necessário fornecer o nome de conta de usuário SSH e o endereço SSH do cluster. Por exemplo, `sftp username@mycluster-ssh.azurehdinsight.net`. Forneça a senha da conta quando solicitado ou uma chave pública usando o parâmetro `-i`.
 
 Depois de conectado, você verá um prompt `sftp>` . Neste prompt, é possível alterar os diretórios, além de carregar e baixar arquivos. Por exemplo, os seguintes comandos alteram os diretórios para o diretório **/var/log/hadoop/hdfs** e baixam todos os arquivos no diretório em seguida.
 
@@ -247,15 +247,15 @@ Na interface de usuário da Web do Ambari, selecione o serviço do qual você de
 
 O tamanho de um nó só pode ser selecionado durante a criação do cluster. Você pode encontrar uma lista de diferentes tamanhos de VM disponíveis para o HDInsight na [página de preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientação sobre como especificar o tamanho usando o [portal do Azure][preview-portal], [módulo Azure PowerShell Az][azure-powershell], e o [CLI do Azure][azure-cli]:
+Ao criar um cluster, você pode especificar o tamanho dos nós. As informações a seguir fornecem orientações sobre como especificar o tamanho usando o [portal do Azure][preview-portal], [Azure PowerShell module Az][azure-powershell]e o [CLI do Azure][Azure-CLI]:
 
 * **Portal do Azure**: Ao criar um cluster, você pode definir o tamanho dos nós usados pelo cluster:
 
     ![Imagem do Assistente de criação de cluster com a seleção de tamanho do nó](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **CLI do Azure**: Ao usar o [criar hdinsight az](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) de comando, você pode definir o tamanho do cabeçalho, trabalho e nós do ZooKeeper usando as `--headnode-size`, `--workernode-size`, e `--zookeepernode-size` parâmetros.
+* **CLI do Azure**: Ao usar o comando [AZ hdinsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `--headnode-size`parâmetros, `--workernode-size`e `--zookeepernode-size` .
 
-* **Azure PowerShell**: Ao usar o [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet, você pode definir o tamanho do cabeçalho, trabalho e nós do ZooKeeper usando as `-HeadNodeSize`, `-WorkerNodeSize`, e `-ZookeeperNodeSize` parâmetros.
+* **Azure PowerShell**: Ao usar o cmdlet [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) , você pode definir o tamanho dos nós de cabeçalho, trabalho e ZooKeeper usando os `-HeadNodeSize`parâmetros, `-WorkerNodeSize`e `-ZookeeperNodeSize` .
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -263,7 +263,7 @@ Use os links a seguir para saber mais sobre os tópicos mencionados neste docume
 
 * [Referência REST do Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Instalar e configurar a CLI do Azure.](https://docs.microsoft.com//cli/azure/install-azure-cli?view=azure-cli-latest)
-* [Instalar e configurar o módulo do Azure PowerShell Az](/powershell/azure/overview)
+* [Instalar e configurar o módulo de Azure PowerShell AZ](/powershell/azure/overview)
 * [Gerenciar clusters HDInsight usando o Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provisionar os clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 

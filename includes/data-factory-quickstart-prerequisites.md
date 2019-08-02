@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/01/2018
+ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: dc12d77e9a57938051300277940b6e5107e45496
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66119341"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234520"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -21,15 +21,17 @@ ms.locfileid: "66119341"
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ### <a name="azure-roles"></a>Funções do Azure
-Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, portal do Azure, selecione seu nome de usuário no canto superior direito e selecione **Permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada. 
+Para criar instâncias de Data Factory, a conta de usuário usada para entrar no Azure deve ser um membro das funções *colaborador* ou *proprietário*, ou um *administrador* da assinatura do Azure. Para exibir as permissões que você tem na assinatura, acesse o [portal do Azure](https://portal.azure.com), selecione seu nome de usuário no canto superior direito e selecione **Mais opções** (...) e, em seguida, selecione **Minhas permissões**. Se tiver acesso a várias assinaturas, selecione a que for adequada.
 
 Para criar e gerenciar recursos filho para o Data Factory – incluindo conjuntos de dados, serviços vinculados, pipelines, gatilhos e tempos de execução de integração –, os requisitos a seguir são aplicáveis:
+
 - Para criar e gerenciar recursos filho no portal do Azure, você precisa pertencer à função **Colaborador do Data Factory** no nível do grupo de recursos ou superior.
 - Para criar e gerenciar recursos filho com o PowerShell ou o SDK, a função de **colaborador** no nível do recurso ou superior é suficiente.
 
 Para obter instruções de exemplo sobre como adicionar um usuário a uma função, confira o artigo [Adicionar funções](../articles/billing/billing-add-change-azure-subscription-administrator.md).
 
 Para obter mais informações, confira os seguintes artigos:
+
 - [Função Colaborador do Data Factory](../articles/role-based-access-control/built-in-roles.md#data-factory-contributor)
 - [Funções e permissões para o Azure Data Factory](../articles/data-factory/concepts-roles-permissions.md)
 
@@ -39,51 +41,41 @@ Use uma Conta de Armazenamento do Azure de uso geral (especificamente o Armazena
 #### <a name="get-the-storage-account-name-and-account-key"></a>Obter o nome da conta de armazenamento e a chave da conta
 Você precisará do nome e da chave de sua conta de armazenamento do Azure neste início rápido. O procedimento a seguir fornece as etapas para obter o nome e a chave da sua conta de armazenamento: 
 
-1. Em um navegador Web, acesse o [portal do Azure](https://portal.azure.com). Conecte-se usando seu nome de usuário e senha do Azure. 
-2. Selecione **Todos os serviços** no menu esquerdo, filtre pela palavra-chave **Armazenamento** e selecione **Contas de armazenamento**.
-
-   ![Pesquisar por uma conta de armazenamento](media/data-factory-quickstart-prerequisites/search-storage-account.png)
-3. Na lista de contas de armazenamento, filtre pela sua conta de armazenamento (se necessário) e, em seguida, selecione a sua conta de armazenamento. 
-4. Na página da **Conta de armazenamento**, selecione **Chaves de acesso** no menu.
+1. Em um navegador da Web, vá para o [portal do Azure](https://portal.azure.com) e entre usando seu nome de usuário e senha do Azure.
+2. Selecione **Todos os serviços** > **Armazenamento** > **Contas de armazenamento**.
+3. Na página **Contas de armazenamento**, filtre pela sua conta de armazenamento (se necessário) e selecione a sua conta de armazenamento. 
+4. Na barra lateral da página *\<Nome da conta>*  - **Conta de armazenamento**, vá para o rótulo **Configurações** e selecione **Chaves de acesso**. O *\<Nome da conta>*  - **Chaves de acesso** é exibido.
 
    ![Obter nome e chave da conta de armazenamento](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
 5. Copie os valores para as caixas **Nome da conta de armazenamento** e **chave1** para a área de transferência. Cole-os em um Bloco de notas ou qualquer outro editor e salve-os. Você pode usá-los mais tarde neste guia de início rápido.   
 
-#### <a name="create-the-input-folder-and-files"></a>Criar os arquivos e pasta de entrada
-Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no armazenamento de Blobs do Azure. Você cria uma pasta chamada **entrada** no contêiner e, em seguida, carrega um arquivo de exemplo na pasta de entrada. 
+#### <a name="create-a-blob-container"></a>Criar um contêiner de blob
+Nesta seção, você cria um contêiner de blobs chamado **adftutorial** no armazenamento de Blobs do Azure.
 
-1. Na janela **Conta de armazenamento**, alterne para **Visão geral** e depois selecione **Blobs**. 
+1. Na barra lateral da página *\<Nome da conta>*  - **Chaves de acesso**, selecione **Visão geral** > **Blobs**.
+2. Na barra de ferramentas da página *\<Nome da conta>*  - **Blobs**, selecione **Contêiner**.
+3. Na caixa de diálogo **Novo contêiner**, insira **adftutorial** como o nome e selecione **OK**. A página *\<Nome da conta>*  - **Blobs** é atualizada para incluir **adftutorial** na lista de contêineres.
 
-   ![Selecione a opção Blobs](media/data-factory-quickstart-prerequisites/select-blobs.png)
-2. Na página **Serviço Blob**, selecione **+ Contêiner** na barra de ferramentas. 
+   ![Lista de contêineres](media/data-factory-quickstart-prerequisites/list-of-containers.png)
 
-   ![Botão Adicionar contêiner](media/data-factory-quickstart-prerequisites/add-container-button.png)    
-3. Na caixa de diálogo **Novo contêiner**, insira **adftutorial** como o nome e selecione **OK**. 
+#### <a name="add-an-input-folder-and-file-for-the-blob-container"></a>Adicionar uma pasta de entrada e um arquivo ao contêiner de blob
+Nesta seção, você cria uma pasta chamada **entrada** no contêiner que acabou de criar e, em seguida, carrega um arquivo de exemplo na pasta de entrada. Antes de começar, abra um editor de texto como o **Bloco de Notas** e crie um arquivo chamado **emp.txt** com o seguinte conteúdo:
 
-   ![Inserir o nome do contêiner](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
-4. Selecione **adftutorial** na lista de contêineres. 
+```emp.txt
+John, Doe
+Jane, Doe
+```
 
-   ![Selecione o contêiner](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
-5. Na página **Contêiner**, selecione **Carregar** na barra de ferramentas.  
+Salve o arquivo na pasta **C:\ADFv2QuickStartPSH**. (Se a pasta ainda não existir, crie-a.) Então volte ao portal do Azure e siga estas etapas:
 
-   ![Botão Carregar](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)
-6. Na página **Carregar blob**, selecione **Avançado**.
+1. Na página *\<Nome da conta>*  - **Blobs** em que você parou, selecione **adftutorial** na lista atualizada de contêineres. (Se você tiver fechado a janela ou passado para outra página, entre no [portal do Azure](https://portal.azure.com) novamente, selecione **Todos os serviços** > **Armazenamento** > **Contas de armazenamento**, selecione sua conta de armazenamento e, em seguida, selecione **Blobs** > **adftutorial**.)
+2. Na barra de ferramentas da página de contêiner do **adftutorial**, selecione **Carregar**.
+3. Na página **Carregar blob**, selecione a caixa **Arquivos** e, em seguida, navegue até o arquivo **emp.txt** e selecione-o.
+4. Expanda o título **Avançado**. A página agora será exibida como mostrado:
 
    ![Selecione o link Avançado](media/data-factory-quickstart-prerequisites/upload-blob-advanced.png)
-7. Inicie o **Bloco de notas** e crie um arquivo chamado **emp.txt** com o seguinte conteúdo. Salve-o na pasta **c:\ADFv2QuickStartPSH**. Crie a pasta **ADFv2QuickStartPSH** se ela ainda não existir.
-    
-   ```
-   John, Doe
-   Jane, Doe
-   ```    
-8. No Portal do Azure, na página **Carregar blob**, procure e selecione o arquivo **emp.txt** para a caixa **Arquivos**. 
-9. Insira **entrada** como um valor da caixa **Carregar para a pasta**. 
+5. Na caixa **Carregar para a pasta**, insira **entrada**.
+6. Selecione o botão **Carregar**. O arquivo **emp.txt** e o status do carregamento devem estar na lista.
+7. Selecione o ícone **Fechar** (um **X**) para fechar a página **Carregar blob**.
 
-    ![Carregar configurações de blob](media/data-factory-quickstart-prerequisites/upload-blob-settings.png)    
-10. Confirme que a pasta é **entrada** e o arquivo é **emp.txt** e selecione **Carregar**.
-    
-    O arquivo **emp.txt** e o status do carregamento devem estar na lista. 
-12. Feche a página **Carregar blob** clicando no **X** no canto superior. 
-
-    ![Fechar a página Carregar blob](media/data-factory-quickstart-prerequisites/close-upload-blob.png)
-1. Mantenha a página **Contêiner** aberta. Você a usa para verificar a saída no final do guia de início rápido.
+Mantenha a página do contêiner **adftutorial** aberta. Você a usa para verificar a saída no final do guia de início rápido.

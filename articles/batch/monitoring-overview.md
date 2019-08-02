@@ -3,7 +3,7 @@ title: Monitoramento do Lote do Azure | Microsoft Docs
 description: Saiba mais sobre os serviços de monitoramento, métrica, logs de diagnóstico do Azure e outros recursos de monitoramento para Lote do Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77fcfed125104588e27e6a0e80cdb4a92a744083
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128848"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322445"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorar soluções do Lote
 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d705993c7cd3816e89da21625dc5b003435b9128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22c12d3233d85a02f6eef8d63e5a4494b4f0cdfa
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822725"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273710"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
-Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Assim, o uso dos Hubs de Eventos geralmente aumenta após o início do uso do serviço. Tal uso exige o aumento das [unidades de produtividade](event-hubs-features.md#throughput-units) predeterminadas para dimensionar os Hubs de Eventos e manipular taxas de transferência maiores. O recurso **inflar automaticamente** dos Hubs de Eventos escala verticalmente automaticamente aumentando o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:
+Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Assim, o uso dos Hubs de Eventos geralmente aumenta após o início do uso do serviço. Tal uso exige o aumento das [unidades de produtividade](event-hubs-scalability.md#throughput-units) predeterminadas para dimensionar os Hubs de Eventos e manipular taxas de transferência maiores. O recurso **inflar automaticamente** dos Hubs de Eventos escala verticalmente automaticamente aumentando o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:
 
 * As taxas de entrada de dados excedem as unidades de taxa de transferência definidas.
 * As taxas de solicitação de saída de dados excedem as unidades de taxa de transferência definidas.
@@ -32,7 +32,7 @@ O serviço de Hubs de Eventos aumenta a taxa de transferência quando a carga au
 
 ## <a name="how-auto-inflate-works"></a>Como o Inflar automaticamente funciona
 
-O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-features.md#throughput-units). Uma única unidade de taxa de transferência permite o ingresso de 1 MB por segundo e duas vezes essa quantidade de saída. Hubs de evento Standard podem ser configurados com 1 a 20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias que você escolher. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
+O tráfego dos Hubs de Eventos é controlado por [unidades de produtividade](event-hubs-scalability.md#throughput-units). Uma única unidade de taxa de transferência permite o ingresso de 1 MB por segundo e duas vezes essa quantidade de saída. Hubs de evento Standard podem ser configurados com 1 a 20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias que você escolher. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
 
 - Um mecanismo eficiente de colocação em escala para começar pequeno e escalar verticalmente conforme o crescimento.
 - Dimensione automaticamente para o limite superior especificado sem problemas de limitação.

@@ -2,7 +2,7 @@
 title: Exibições do sistema - SQL Data Warehouse do Azure | Microsoft Docs
 description: Links para a documentação para exibições do sistema compatíveis no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6687a279b9992d31e3529aaf47054b3cb5c6d0eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3db694a74c87ff0b45e4e9ad7aa52945acda2c5e
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873444"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479404"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Exibições do sistema compatíveis com o SQL Data Warehouse do Azure
 Links para a documentação para instruções T-SQL compatíveis no SQL Data Warehouse do Azure.
@@ -26,6 +26,9 @@ Links para a documentação para instruções T-SQL compatíveis no SQL Data War
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
 * [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
+* [_materialized_view_column_distribution_properties sys. PDW](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql?view=azure-sqldw-latest) Apresentação
+* [_materialized_view_distribution_properties sys. PDW](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql?view=azure-sqldw-latest) Apresentação
+* [_materialized_view_mappings sys. PDW](/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest) Apresentação
 * [sys.pdw_nodes_column_store_dictionaries](https://msdn.microsoft.com/library/mt203902.aspx)
 * [sys.pdw_nodes_column_store_row_groups](https://msdn.microsoft.com/library/mt203880.aspx)
 * [sys.pdw_nodes_column_store_segments](https://msdn.microsoft.com/library/mt203916.aspx)
@@ -38,8 +41,8 @@ Links para a documentação para instruções T-SQL compatíveis no SQL Data War
 * [sys.pdw_table_distribution_properties](https://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](https://msdn.microsoft.com/library/mt203876.aspx)
 * [sys.resource_governor_workload_groups](/sql/relational-databases/system-catalog-views/sys-resource-governor-workload-groups-transact-sql)
-* [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) (Preview)
-* [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) (visualização)
+* [Sys. workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) Apresentação
+* [Sys. workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) Apresentação
 
 ## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Exibições de gerenciamento dinâmico (DMVs) do SQL Data Warehouse
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)

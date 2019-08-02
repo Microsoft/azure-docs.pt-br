@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58f18995d46ca61ae68a7b226bbfc9a286e73a0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4288ff4aba216a214d10c56ba448fc03e13b81f2
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544106"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693942"
 ---
 # <a name="logging"></a>Registro em log
 Os aplicativos da MSAL (Biblioteca de Autenticação da Microsoft) geram mensagens de log que podem ajudar a diagnosticar problemas e fornecer detalhes. Um aplicativo pode configurar o registro em log com algumas linhas de código, ter um controle personalizado sobre o nível de detalhes e determinar se dados pessoais e organizacionais serão registrados. É recomendável que você defina um retorno de chamada de registro em log da MSAL e forneça uma maneira para os usuários enviarem logs quando estiverem com problemas de autenticação.
@@ -69,7 +69,7 @@ class Program
                       .Build();
 
     AuthenticationResult result = application.AcquireTokenInteractive(scopes)
-                                             .ExecuteAsnc();
+                                             .ExecuteAsync().Result;
   }
  }
  ```

@@ -2,18 +2,18 @@
 title: Introdução às Coleções de Workspaces do Microsoft Power BI
 description: As Coleções de Workspaces do Power BI são um serviço do Azure que permite que os desenvolvedores de aplicativos adicionem relatórios interativos do Power BI a seus próprios aplicativos.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: d1011a8fd8f181233be8e1fa27c3bfaea3d86141
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b3381166e40f6d9586306e351b5f3ea77cc2ad8
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64685164"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669137"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introdução às Coleções de Workspaces do Microsoft Power BI
 
@@ -107,7 +107,7 @@ Você pode criar conjuntos de dados nas Coleções de Workspaces do Power BI usa
 
 Você pode criar um relatório de um conjunto de dados diretamente em seu aplicativo usando a API de JavaScript. Para saber mais, confira [Criar um novo relatório de um conjunto de dados nas Coleções de Workspaces do Power BI](create-report-from-dataset.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Introdução a exemplos](get-started-sample.md)  
 [Autenticando e autorizando em Coleções de Workspaces do Power BI](app-token-flow.md)  

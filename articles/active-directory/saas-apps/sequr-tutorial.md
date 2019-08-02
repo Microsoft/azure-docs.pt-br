@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dace26f9eb4948a8cfd06be568ab9ec471765d1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2eed00aab4296cb5352e74d9e6bfc014f2340646
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922162"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091077"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sequr"></a>Tutorial: Integração do Azure Active Directory ao Sequr
 
@@ -112,7 +112,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Sequr, 
 
     ![image](common/both-advanced-urls.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL: `https://login.sequr.io`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://login.sequr.io`
 
     b. Na caixa de texto **Estado de retransmissão**, você obterá esse valor, que é explicado posteriormente no tutorial.
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Sequr, 
 
     ![Configuração do Sequr](./media/sequr-tutorial/configure3.png)
 
-     a. Na caixa de texto **URL de logon único de provedor de identidade**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    a. Na caixa de texto **URL de logon único de provedor de identidade**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
     b. Arraste e solte o arquivo do **Certificado** que você faz o download pelo portal do Azure ou insira manualmente o conteúdo do certificado.
 
@@ -220,5 +220,5 @@ Ao clicar no bloco Sequr no Painel de Acesso, você deve ser conectado automatic
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

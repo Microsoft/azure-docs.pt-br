@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 07/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 2905cae6d5d97062d5a2fc1da41d55290d89fb4a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b749df7c5b3badbc6e7eccd885cb953ab3d0afa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924514"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277379"
 ---
 # <a name="what-is-azure-data-box-gateway"></a>O que é o Azure Data Box Gateway?
 
@@ -90,12 +90,7 @@ A solução Data Box Gateway é composta pelo recurso de Data Box Gateway, dispo
 
 O dispositivo físico Data Box Gateway, o recurso do Azure e a conta de armazenamento de destino para a qual os dados são transferidos não precisam estar todos na mesma região.
 
-- **Disponibilidade de recursos** – para esta versão, o recurso Data Box Gateway está disponível nas seguintes regiões que dão suporte à nuvem pública:
-    - **Estados Unidos** – Leste dos EUA
-    - **União Europeia** – Europa Ocidental
-    - **Pacífico Asiático** – Sudeste Asiático
-
-    O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+- **Disponibilidade de recursos** – para obter uma lista de todas as regiões em que o recurso do Data Box Edge está disponível, vá para [Produtos do Azure disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). O Data Box Gateway também pode ser implantado na Nuvem do Azure Governamental. Para obter mais informações, confira [O que é o Azure Governamental?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 - **Contas de Armazenamento de destino** – as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure.
 

@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6053313c6971f1bcf66bc447b4f4f5fe5817666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6a0ff4190a1712b91bf58fafd80a03fc2737e7a4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475431"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383007"
 ---
 # <a name="manage-your-organizations-from-the-my-profile-preview-portal"></a>Gerenciar suas organizações no portal Meu Perfil (versão prévia)
+
 Você pode gerenciar suas organizações na página **Organizações** do portal **Meu Perfil**.
 
 Há dois tipos de organizações mostrados na página **Organizações**:
@@ -31,6 +32,7 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
 ## <a name="view-your-organizations"></a>Exibir suas organizações
+
 1. Entre em sua conta corporativa ou de estudante e vá para a página https://myprofile.microsoft.com/.
 
 2. Escolha **Organizações** no painel de navegação à esquerda ou escolha o link **Gerenciar organizações** no bloco **Organizações**.
@@ -41,9 +43,10 @@ Há dois tipos de organizações mostrados na página **Organizações**:
 
     ![Página Organizações](media/myprofile-portal/myprofile-portal-organization-page.png)
 
-3. Examine suas outras organizações associadas e verifique se você reconhece todas as organizações que estão conectadas à conta.
+4. Examine suas outras organizações associadas e verifique se você reconhece todas as organizações que estão conectadas à conta.
 
 ## <a name="leave-an-organization"></a>Sair da organização
+
 Você pode sair de qualquer organização que não seja a organização inicial.
 
 >[!Important]
@@ -57,4 +60,4 @@ Você pode sair de qualquer organização que não seja a organização inicial.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Depois de visualizar suas organizações, você pode selecionar para exibir ou gerenciar seu [informações de segurança](user-help-security-info-overview.md)conectadas [dispositivos](myprofile-portal-devices-page.md), ou modo de exibição como sua organização [usa os dados](myprofile-portal-privacy-page.md).
+- Depois de exibir suas organizações, você pode optar por exibir ou gerenciar suas [informações de segurança](user-help-security-info-overview.md), [dispositivos](myprofile-portal-devices-page.md)conectados ou exibir como sua organização [usa seus dados](myprofile-portal-privacy-page.md).

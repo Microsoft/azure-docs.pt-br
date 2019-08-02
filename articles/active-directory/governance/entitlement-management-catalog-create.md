@@ -1,10 +1,10 @@
 ---
-title: Criar e gerenciar um catálogo no gerenciamento de direitos do AD do Azure (visualização) – Azure Active Directory
-description: Saiba como criar um novo contêiner de recursos e pacotes de acesso no gerenciamento de direitos do Active Directory do Azure (visualização).
+title: Criar e gerenciar um catálogo no gerenciamento de direitos do Azure AD (versão prévia)-Azure Active Directory
+description: Saiba como criar um novo contêiner de recursos e pacotes de acesso no gerenciamento de direitos Azure Active Directory (versão prévia).
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6d9220cd2162b4c8cb77c1e7abd0372052f5454
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e563d86abe3817e4c77cc0d5c8df928e41563f8
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64541609"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489080"
 ---
-# <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Criar e gerenciar um catálogo no gerenciamento de direitos do AD do Azure (visualização)
+# <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>Criar e gerenciar um catálogo no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
 > No momento, o gerenciamento de direitos do Azure AD (Azure Active Directory) está em versão prévia pública.
@@ -32,15 +32,15 @@ ms.locfileid: "64541609"
 
 ## <a name="create-a-catalog"></a>Criar um catálogo
 
-Um catálogo é um contêiner de recursos e pacotes de acesso. Quando você deseja agrupar recursos relacionados e acessar os pacotes, você cria um catálogo. Pessoa que cria o catálogo se torna o proprietário do catálogo primeiro. Um proprietário do catálogo pode adicionar os proprietários de catálogo adicionais.
+Um catálogo é um contêiner de recursos e pacotes de acesso. Você cria um catálogo quando deseja agrupar recursos relacionados e pacotes de acesso. Qualquer pessoa que criar o catálogo se tornará o primeiro proprietário do catálogo. Um proprietário de catálogo pode adicionar proprietários de catálogos adicionais.
 
-**Função de pré-requisito:** Usuário administrador ou criador de catálogo
+**Função de pré-requisito:** Administrador de usuário ou criador de catálogo
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Clique em **Azure Active Directory** e, em seguida, clique em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **catálogos**.
+1. No menu à esquerda, clique em catálogos.
 
     ![Catálogos de gerenciamento de direitos no portal do Azure](./media/entitlement-management-catalog-create/catalogs.png)
 
@@ -48,85 +48,67 @@ Um catálogo é um contêiner de recursos e pacotes de acesso. Quando você dese
 
 1. Insira um nome exclusivo para o catálogo e forneça uma descrição.
 
-    Os usuários verão essas informações em detalhes do acesso de um pacote.
+    Os usuários verão essas informações nos detalhes do pacote de acesso.
 
-1. Se você quiser que os pacotes de acesso nesse catálogo disponível para que os usuários solicitem assim que eles são criados, defina **Enabled** à **Sim**.
+1. Se você quiser que os pacotes de acesso nesse catálogo estejam disponíveis para que os usuários solicitem assim que eles forem criados, defina **habilitado** como **Sim**.
 
-1. Se você quiser permitir que os usuários em diretórios externos selecionados para ser capaz de solicitar acesso pacotes nesse catálogo, defina **habilitada para usuários externos** à **Sim**.
+1. Se você quiser permitir que os usuários em diretórios externos selecionados possam solicitar pacotes de acesso neste catálogo, defina **habilitado para usuários externos** como **Sim**.
 
-    ![Novo painel de catálogo](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![Painel novo catálogo](./media/entitlement-management-catalog-create/new-catalog.png)
 
 1. Clique em **criar** para criar o catálogo.
 
 ## <a name="add-resources-to-a-catalog"></a>Adicionar recursos a um catálogo
 
-Para incluir recursos em um pacote de acesso, os recursos devem existir em um catálogo. Os tipos de recursos que você pode adicionar são grupos, aplicativos e sites do SharePoint Online.
+Para incluir recursos em um pacote do Access, os recursos devem existir em um catálogo. Os tipos de recursos que você pode adicionar são grupos, aplicativos e sites do SharePoint Online. Os grupos podem ser grupos do Office 365 criados na nuvem ou grupos de segurança do Azure AD criados na nuvem. Os aplicativos podem ser aplicativos corporativos do Azure AD, incluindo aplicativos SaaS e seus próprios aplicativos federados para o Azure AD. Os sites podem ser sites do SharePoint Online ou coleções de sites do SharePoint Online.
 
-**Função de pré-requisito:** Usuário administrador ou proprietário do catálogo
+**Função de pré-requisito:** Consulte [funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo que você deseja adicionar recursos ao.
+1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo ao qual você deseja adicionar recursos.
 
 1. No menu à esquerda, clique em **recursos**.
 
-1. Clique em **adicionar recursos**.
+1. Clique em **Adicionar recursos**.
 
-1. Clique em um tipo de recurso: **Grupos**, **Applications**, ou **sites do SharePoint**.
+1. Clique em um tipo de recurso: **Grupos**, **aplicativos**ou **sites do SharePoint**.
 
-    Se você for um criador de catálogo, você pode adicionar qualquer grupo do Office 365 ou o grupo de segurança de AD do Azure, que sua para seu catálogo. Se houver um grupo que você deseja atribuir aos usuários, mas você não possui o grupo, você precisará ter um administrador do usuário inclua esse grupo ao seu catálogo.
-
-    Se você for um criador de catálogo, você pode adicionar qualquer aplicativo do enterprise do Azure AD você possui, incluindo aplicativos SaaS e seus próprios aplicativos federados ao Azure AD, para seu catálogo. Se houver um aplicativo que você deseja atribuir aos usuários, mas não possuem, você precisará ter um administrador de usuário adicionar esse aplicativo para seu catálogo. Depois que o aplicativo faz parte do catálogo, você pode selecionar qualquer uma das funções do aplicativo em um pacote de acesso.
+    Se você não vir um recurso que deseja adicionar ou não puder adicionar um recurso, verifique se você tem a função de gerenciamento de direitos e funções de diretório do Azure AD necessária. Talvez seja necessário ter alguém com as funções necessárias para adicionar o recurso ao seu catálogo. Para obter mais informações, consulte [funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Selecione um ou mais recursos do tipo que você deseja adicionar ao catálogo.
 
-1. Quando terminar, clique em **adicionar**.
+1. Quando terminar, clique em **Adicionar**.
 
-    Esses recursos podem ser incluídos em pacotes de acesso no catálogo.
+    Esses recursos agora podem ser incluídos em pacotes do Access no catálogo.
 
 ## <a name="remove-resources-from-a-catalog"></a>Remover recursos de um catálogo
 
-Você pode remover os recursos de um catálogo. Um recurso só pode ser removido de um catálogo se não estiver sendo usado em qualquer um dos pacotes de acesso do catálogo.
+Você pode remover recursos de um catálogo. Um recurso só poderá ser removido de um catálogo se não estiver sendo usado em nenhum dos pacotes de acesso do catálogo.
 
-**Função de pré-requisito:** Usuário administrador ou proprietário do catálogo
+**Função de pré-requisito:** Consulte [funções necessárias para adicionar recursos a um catálogo](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo que você deseja remover os recursos do.
+1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo do qual você deseja remover os recursos.
 
 1. No menu à esquerda, clique em **recursos**.
 
 1. Selecione os recursos que você deseja remover.
 
-1. Clique em **remova** (ou clique no botão de reticências ( **...** ) e, em seguida, clique em **remover recurso**).
-
-## <a name="add-catalog-owners-or-access-package-managers"></a>Adicionar proprietários de catálogo ou acessar gerenciadores de pacotes
-
-Se você deseja delegar o gerenciamento de catálogo ou os pacotes de acesso no catálogo, você pode adicionar proprietários de catálogo ou acessar gerenciadores de pacotes. Quem cria um catálogo se torna o proprietário do catálogo primeiro.
-
-**Função de pré-requisito:** Usuário administrador ou proprietário do catálogo
-
-1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
-
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo que você deseja adicionar os administradores.
-
-1. No menu à esquerda, clique em **funções e os administradores**.
-
-1. Clique em **adicionar proprietários** ou **adicionar gerenciadores de pacotes de acesso** para selecionar os membros para essas funções.
-
-1. Clique em **selecionar** para adicionar esses membros.
+1. Clique em **remover** (ou clique nas reticências ( **...** ) e, em seguida, clique em **remover recurso**).
 
 ## <a name="edit-a-catalog"></a>Editar um catálogo
 
-Você pode editar o nome e descrição para um catálogo. Os usuários veem essas informações em detalhes do acesso de um pacote.
+Você pode editar o nome e a descrição de um catálogo. Os usuários veem essas informações nos detalhes de um pacote de acesso.
 
-**Função de pré-requisito:** Usuário administrador ou proprietário do catálogo
+**Função de pré-requisito:** Administrador do usuário ou proprietário do catálogo
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo que você deseja editar.
+1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo que você deseja editar.
 
-1. Sobre o catálogo **visão geral** , clique em **editar**.
+1. Na página **visão geral** do catálogo, clique em **Editar**.
 
 1. Edite o nome ou a descrição do catálogo.
 
@@ -134,18 +116,19 @@ Você pode editar o nome e descrição para um catálogo. Os usuários veem essa
 
 ## <a name="delete-a-catalog"></a>Excluir um catálogo
 
-Você pode excluir um catálogo, mas somente se ele não tem quaisquer pacotes de acesso.
+Você pode excluir um catálogo, mas somente se ele não tiver nenhum pacote de acesso.
 
-**Função de pré-requisito:** Usuário administrador ou proprietário do catálogo
+**Função de pré-requisito:** Administrador do usuário ou proprietário do catálogo
 
 1. No portal do Azure, clique em **Azure Active Directory** e, em seguida, em **Governança de Identidade**.
 
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo que você deseja excluir.
+1. No menu à esquerda, clique  em catálogos e, em seguida, abra o catálogo que você deseja excluir.
 
-1. Sobre o catálogo **visão geral**, clique em **excluir**.
+1. Na **visão geral**do catálogo, clique em **excluir**.
 
 1. Na caixa de mensagem que é exibida, clique em **Sim**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Adicionar um criador de catálogo](entitlement-management-delegate.md#add-a-catalog-creator)
 - [Criar e gerenciar um pacote de acesso](entitlement-management-access-package-create.md)

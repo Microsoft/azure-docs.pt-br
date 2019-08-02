@@ -43,7 +43,7 @@ az group create --name myresourcegroup --location westus
 ```
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar um Banco de Dados do Azure para o servidor MySQL
-Crie um servidor de Banco de Dados do Azure para MySQL com o comando **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)**. Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
+Crie um servidor de Banco de Dados do Azure para MySQL com o comando **[az mysql server create](/cli/azure/mysql/server#az-mysql-server-create)** . Um servidor pode gerenciar vários bancos de dados. Normalmente, um banco de dados separado é usado para cada projeto ou para cada usuário.
 
 **Configuração** | **Valor de exemplo** | **Descrição**
 ---|---|---
@@ -78,7 +78,7 @@ az mysql server create --resource-group myresourcegroup --name mydemoserver  --l
 > 
 
 ## <a name="configure-firewall-rule"></a>Configurar regra de firewall
-Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MySQL com o comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)**. Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando **mysql.exe** ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço Azure MySQL. 
+Crie uma regra de firewall no nível de servidor do Banco de Dados do Azure para MySQL com o comando **[az mysql server firewall-rule create](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create)** . Uma regra de firewall no nível de servidor permite que um aplicativo externo, como a ferramenta de linha de comando **mysql.exe** ou o MySQL Workbench, conecte-se ao servidor por meio do firewall do serviço Azure MySQL. 
 
 O exemplo a seguir cria uma regra de firewall chamada `AllowMyIP`, que permite conexões de um endereço IP específico, 192.168.0.1. Substituir no endereço IP ou intervalo dos endereços IP que correspondem a onde você vai se conectar. 
 
@@ -223,7 +223,7 @@ Se não precisar desses recursos para outro início rápido/tutorial, você pode
 az group delete --name myresourcegroup
 ```
 
-Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)**.
+Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando **[az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete)** .
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```

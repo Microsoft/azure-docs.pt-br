@@ -9,12 +9,12 @@ ms.date: 06/26/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0fb3551b14a2239f26c54f639b90400277fab25
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148924"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501940"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para sua conta de armazenamento do Azure
 
@@ -34,10 +34,10 @@ A tabela a seguir mostra algumas URLs de amostra para dados de blobs localizados
 
 | Tipo de recurso | URL padrão | URL de domínio personalizada |
 | --- | --- | --- |
-| Conta de armazenamento | http://mystorageaccount.blob.core.windows.net | http://www.contoso.com |
-| Blob |http://mystorageaccount.blob.core.windows.net/mycontainer/myblob | http://www.contoso.com/mycontainer/myblob |
-| Contêiner raiz | http://mystorageaccount.blob.core.windows.net/myblob ou http://mystorageaccount.blob.core.windows.net/ $root/myblob| http://www.contoso.com/myblob ou http://www.contoso.com/ $root/myblob |
-| Web |  http://mystorageaccount.[zone].web.core.windows.net/$web/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/[indexdoc] ou http://mystorageaccount.[zone].web.core.windows.net/$web ou http://mystorageaccount.[zone].web.core.windows.net/ | http://www.contoso.com/ $web ou http://www.contoso.com/ ou http://www.contoso.com/ $web/[indexdoc] ou  http://www.contoso.com/ [indexdoc] |
+| Conta de armazenamento | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
+| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
+| Contêiner raiz | http:\//mystorageaccount.blob.core.windows.net/myblob ou http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob ou http:\//www.contoso.com/$ raiz/myblob |
+| Web |  http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web/[indexdoc] ou http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/[indexdoc] ou http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/$Web ou http:\//mystorageaccount. [ Zone].Web.Core.Windows.NET/ | http:\/web de $ /www.contoso.com/ ou http:\//www.contoso.com/ ou http:\//www.contoso.com/ web de $/ [indexdoc] ou http:\//www.contoso.com/ [indexdoc] |
 
 > [!NOTE]  
 > Conforme mostrado nas seções a seguir, todos os exemplos para o terminal de serviço de blob também se aplicam ao terminal de serviço da web.

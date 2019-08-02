@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 120be3ef7299391e611dc393e70af697c1daf2ba
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a5ec603b65161f3b0b2d9c88224aef0004cc686a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896839"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobicontrol"></a>Tutorial: Integração do Azure Active Directory ao MobiControl
 
@@ -53,7 +53,7 @@ Para configurar a integração do MobiControl ao Azure AD, é necessário adicio
 
 **Para adicionar o MobiControl da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o MobiControl, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do MobiControl](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.corp.soti.net/mobicontrol`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.mobicontrolcloud.com/mobicontrol`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do cliente MobiControl](https://www.soti.net/about/contact-us/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/23/2019
-ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/18/2019
+ms.openlocfilehash: 6549892bfd04065bf83ab50fa5f5b439c35c4238
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696653"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190538"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Armazenar backups do Banco de Dados SQL do Azure por um período de até 10 anos
 
@@ -59,8 +59,8 @@ W=12 semanas (84 dias), M=12 meses (365 dias), Y=10 anos (3650 dias), WeekOfYear
 
 Se você modificar a política acima e definisse w=0 (sem backups semanais), a cadência das cópias de backup serão alterados conforme mostrado na tabela acima pelas datas destacadas. A as quantidade de armazenamento necessária para manter esses backups reduziria adequadamente. 
 
-> [!NOTE]
-> O tempo dos backups LTR individuais é controlado por banco de dados SQL. Manualmente, você não pode criar um backup do LTR ou controlar o tempo da criação do backup.
+> [!IMPORTANT]
+> O tempo dos backups LTR individuais é controlado por banco de dados SQL. Manualmente, você não pode criar um backup do LTR ou controlar o tempo da criação do backup. Depois de configurar uma política LTR, pode levar até 7 dias antes que o primeiro backup LTR aparecerá na lista de backups disponíveis.  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Replicação geográfica e retenção de backup de longo prazo

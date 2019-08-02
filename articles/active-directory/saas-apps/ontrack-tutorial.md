@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c1da9ec6098864d4f17ac668db6411c1dd0e3afe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59262917"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integração do Azure Active Directory ao OnTrack
 
@@ -53,7 +53,7 @@ Para configurar a integração do OnTrack com o Azure AD, você precisará adici
 
 **Para adicionar o OnTrack pela galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o OnTrack, realize as seguintes e
 
     ![Informações de logon único de URLs e Domínio do OnTrack](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**:
+    a. Na caixa de texto **Identificador**:
 
     Para o ambiente de teste, digite a URL:`https://staging.insigniagroup.com/sso`
 
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o OnTrack, realize as seguintes e
     > [!NOTE]
     > Os atributos **função do usuário** e **código Hyperion** são mapeados com a função do usuário do Autonation e o código do revendedor, respectivamente. Esses valores são apenas exemplos. Use o código correto para a integração. Você pode entrar em contato com o [suporte da Autonation](mailto:CustomerService@insigniagroup.com) para obter esses valores.
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -237,5 +237,5 @@ Ao clicar no bloco do OnTrack no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

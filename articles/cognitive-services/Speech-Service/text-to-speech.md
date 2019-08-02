@@ -1,87 +1,112 @@
 ---
-title: Texto em fala com os serviços de fala do Azure
+title: Conversão de texto em fala-serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Texto para fala a fala dos serviços do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades.
+description: O recurso de conversão de texto em fala no serviço de fala é um recurso que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha entre as vozes padrão e neural ou crie sua própria voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em 4 idiomas e localidades.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 06/24/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 84e8eedfb206e28f245128a4e30aba44e96277ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d2c3e2bf693f763db13d90961a31e871aa25235
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072428"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68558869"
 ---
-# <a name="what-is-text-to-speech"></a>O que é o texto em fala?
+# <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
-Texto para fala a fala dos serviços do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos converter texto em fala natural de sintetizada humana. Escolher entre standard e neurais vozes ou criar sua própria voz personalizada exclusivos ao seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades e vozes neurais 5 estão disponíveis em 4 de idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
+Conversão de texto em fala dos serviços de fala do Azure é um serviço que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada semelhante à humana. Escolha entre as vozes padrão e neural ou crie sua própria voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em 4 idiomas e localidades. Para obter uma lista completa, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
-Tecnologia de texto para fala permite que os criadores de conteúdo interagir com seus usuários de diferentes maneiras. Texto para fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo de forma audível. Se o usuário tem uma deficiência visual, uma deficiência de aprendizagem, ou exige informações de navegação enquanto dirige, uma experiência existente pode melhorar o texto para fala. Texto em fala também é um complemento valioso para bots de voz e assistentes virtuais.
+A tecnologia de conversão de texto em fala permite que os criadores de conteúdo interajam com seus usuários de maneiras diferentes. A conversão de texto em fala pode melhorar a acessibilidade, fornecendo aos usuários uma opção para interagir com o conteúdo forma audível. Se o usuário tem um deficiência visual, uma deficiência de aprendizado ou requer informações de navegação enquanto conduz, a conversão de texto em fala pode melhorar uma experiência existente. Conversão de texto em fala também é um complemento valioso para bots de voz e assistentes virtuais.
+
+
+Ao aproveitar a linguagem de marcação de síntese de fala (SSML), uma linguagem de marcação baseada em XML, os desenvolvedores que usam o serviço de conversão de texto em fala podem especificar como o texto de entrada é convertido em fala sintetizada. Com a SSML, você pode ajustar a densidade, a pronúncia, a taxa de fala, o volume e muito mais. Para obter mais informações, consulte [SSML](#speech-synthesis-markup-language-ssml).
 
 ### <a name="standard-voices"></a>Vozes padrão
 
-Vozes padrão são criadas usando técnicas de síntese paramétrica estatísticos e/ou síntese de concatenação. Esses vozes são altamente inteligível e parecer bastante naturais. Você pode habilitar facilmente seus aplicativos falar em mais de 45 idiomas, com uma ampla variedade de opções de voz. Esses vozes fornecem precisão pronúncia alta, incluindo suporte para abreviações, expansões de acrônimos, interpretações de data/hora, polyphones e muito mais. Use voz padrão para melhorar a acessibilidade de seus aplicativos e serviços, permitindo que os usuários interajam com seu conteúdo de forma audível.
+As vozes padrão são criadas usando as técnicas de síntese paramétricas estatística e/ou síntese de concatenação. Essas vozes são altamente inteligível e sólidas. Você pode facilmente permitir que seus aplicativos falem em mais de 45 idiomas, com uma ampla gama de opções de voz. Essas vozes fornecem alta precisão de pronúncia, incluindo suporte para abreviações, expansões de acrônimo, interpretações de data/hora, telefones e muito mais. Use voz padrão para aprimorar a acessibilidade para seus aplicativos e serviços, permitindo que os usuários interajam com o conteúdo forma audível.
 
 ### <a name="neural-voices"></a>Vozes neurais
 
-Vozes neurais usam redes neurais profundas para superar os limites dos sistemas tradicionais de texto em fala na correspondência de padrões de estresse e entonação no idioma falado e resumir as unidades de conversão de fala em uma voz de computador. Texto em fala padrão divide-se a métrica em análise linguística separado e etapas de previsão acústico controladas por modelos independentes. Isso pode resultar na síntese de voz muffled, buzzy. Nossa funcionalidade neural faz síntese de voz e previsão de métrica simultaneamente, o que resulta em uma voz mais fluida e alarme natural.
+As vozes neurais usam redes neurais profundas para superar os limites de sistemas de conversão de texto em fala tradicionais na correspondência dos padrões de estresse e intonation na linguagem falada e no sintetizamento das unidades de fala em uma voz de computador. A conversão de texto em fala padrão prosody em análise linguística separada e etapas de previsão acústica que são governadas por modelos independentes, o que pode resultar em síntese de voz muffled. Nosso recurso neural Prosody a previsão e a síntese de voz simultaneamente, o que resulta em uma voz mais fluida e de som natural.
 
-Vozes neurais podem ser usadas para interagir com chatbots e assistentes virtuais de forma mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros, e aprimorar sistemas de navegação de carros. Com a métrica de natural humana e clara Articulação das palavras, vozes neurais reduzem significativamente fadiga escuta ao interagir com sistemas de inteligência Artificial. 
+Vozes neurais podem ser usadas para interagir com chatbots e assistentes virtuais de forma mais natural e participativa para converter textos digitais, como livros eletrônicos, em audiolivros, e aprimorar sistemas de navegação de carros. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia.
 
-Vozes neurais dão suporte a estilos diferentes, como neutra e alegre. Por exemplo, a voz Jessa (en-US) pode falar cheerfully, que é otimizado para conversas de passiva, feliz. Você pode ajustar a saída de voz, como tom, tom e acelere o aprendizado usando [linguagem de marcação de síntese de fala](speech-synthesis-markup.md). Para obter uma lista completa das vozes disponíveis, consulte [idiomas com suporte](language-support.md#text-to-speech).
+As vozes neurais dão suporte a diferentes estilos, como neutral e cheerful. Por exemplo, a voz Jessa (en-US) pode falar cheerfully, que é otimizado para uma conversa boa e feliz. Você pode ajustar a saída de voz, como Tom, densidade e velocidade usando a [linguagem de marcação de síntese de fala](speech-synthesis-markup.md). Para obter uma lista completa de vozes disponíveis, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
-Para saber mais sobre os benefícios de vozes neurais, consulte [novo serviço texto em fala neural da Microsoft ajuda a máquinas falar como pessoas](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
+Para saber mais sobre os benefícios das vozes neurais, consulte [o novo serviço de conversão de texto em fala do neural da Microsoft ajuda as máquinas a falarem como pessoas](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
 ### <a name="custom-voices"></a>Vozes personalizadas
 
-Personalização de voz lhe permite criar uma voz reconhecível, um de tipo para sua marca. Para criar sua fonte de voz personalizada, você fazer uma gravação studio e carrega os scripts associados como os dados de treinamento. Em seguida, o serviço cria um modelo de voz exclusivo ajustado para a gravação. Você pode usar essa fonte de voz personalizadas para sintetizador de fala. Para obter mais informações, consulte [vozes personalizadas](how-to-customize-voice-font.md).
+A personalização de voz permite que você crie uma voz de um tipo reconhecível para sua marca. Para criar sua fonte de voz personalizada, você faz uma gravação no estúdio e carrega os scripts associados como os dados de treinamento. Em seguida, o serviço cria um modelo de voz exclusivo ajustado para a gravação. Você pode usar essa fonte de voz personalizada para sintetizar a fala. Para obter mais informações, consulte [vozes personalizadas](how-to-customize-voice-font.md).
+
+## <a name="speech-synthesis-markup-language-ssml"></a>Linguagem de marcação de síntese de fala (SSML)
+
+A linguagem de marcação de síntese de fala (SSML) é uma linguagem de marcação baseada em XML que permite aos desenvolvedores especificar como o texto de entrada é convertido em fala sintetizada usando o serviço de conversão de texto em fala. Em comparação com o texto sem formatação, o SSML permite que os desenvolvedores ajustem a densidade, a pronúncia, a taxa de fala, o volume e muito mais da saída de conversão de texto em fala. Pontuação normal, como pausar após um período ou usar o intonation correto quando uma frase termina com um ponto de interrogação é manipulada automaticamente.
+
+Todas as entradas de texto enviadas ao serviço de conversão de texto em fala devem ser estruturadas como SSML. Para obter mais informações, consulte [linguagem de marcação de síntese de fala](speech-synthesis-markup.md).
+
+### <a name="pricing-note"></a>Nota de preços
+
+Ao usar o serviço de conversão de texto em fala, você será cobrado por cada caractere convertido em fala, incluindo pontuação. Embora o documento SSML em si não seja Faturável, elementos opcionais usados para ajustar como o texto é convertido em fala, como fonemas e pitch, são contados como caracteres faturáveis. Aqui está uma lista do que é Faturável:
+
+* Texto passado para o serviço de conversão de texto em fala no corpo de SSML da solicitação
+* Todas as marcações dentro do campo de texto do corpo da solicitação no formato SSML, `<speak>` exceto `<voice>` para marcas e
+* Letras, pontuação, espaços, tabulações, marcação e todos os caracteres de espaço em branco
+* Cada ponto de código definido no Unicode
+
+Para obter informações detalhadas, consulte [preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+> [!IMPORTANT]
+> Cada caractere de idioma chinês, japonês e coreano é contado como dois caracteres para cobrança.
 
 ## <a name="core-features"></a>Principais recursos
 
-Esta tabela lista os principais recursos de texto em fala:
+Esta tabela lista os principais recursos para conversão de texto em fala:
 
-| Caso de uso | . | REST |
+| Caso de uso | SDK | REST |
 |----------|-----|------|
-| Converta texto em fala. | Sim | Sim |
-| Carrega conjuntos de dados para a adaptação de voz. | Não | Sim\* |
-| Criar e gerenciar modelos de fonte de voz. | Não | Sim\* |
-| Criar e gerenciar implantações de fonte de voz. | Não | Sim\* |
+| Converter texto em fala. | Sim | Sim |
+| Carregar conjuntos de valores para adaptação de voz. | Não | Sim\* |
+| Crie e gerencie modelos de fonte de voz. | Não | Sim\* |
+| Crie e gerencie implantações de fontes de voz. | Não | Sim\* |
 | Criar e gerenciar testes de fonte de voz. | Não | Sim\* |
-| Gerencie assinaturas. | Não | Sim\* |
+| Gerenciar assinaturas. | Não | Sim\* |
 
-\* *Esses serviços estão disponíveis usando o ponto de extremidade cris.ai. Ver [Swagger referência](https://westus.cris.ai/swagger/ui/index). Esses treinamento de voz personalizadas e as APIs de gerenciamento de implementam a limitação que limitar as solicitações a 25 por 5 segundos, enquanto a síntese de fala, API em si implementa a limitação que permite a 200 solicitações por segundo, o mais alto. Quando a limitação ocorre, você será notificado por meio de cabeçalhos de mensagem.*
+\**Esses serviços estão disponíveis usando o ponto de extremidade Cris.ai. Consulte [referência do Swagger](https://westus.cris.ai/swagger/ui/index). Essas APIs de treinamento e gerenciamento de voz personalizadas implementam a limitação que limita as solicitações a 25 por 5 segundos, enquanto a própria API de síntese de fala implementa a limitação que permite 200 solicitações por segundo como a mais alta. Quando a limitação ocorrer, você será notificado por meio de cabeçalhos de mensagem.*
 
-## <a name="get-started-with-text-to-speech"></a>Introdução ao texto em fala
+## <a name="get-started-with-text-to-speech"></a>Introdução ao texto para fala
 
-Nós oferecemos guias de início rápido foi projetados para ter está executando código em menos de 10 minutos. Essa tabela inclui uma lista de texto em fala guias de início rápido organizados por idioma.
+Oferecemos guias de início rápido projetados para que você execute códigos em menos de 10 minutos. Esta tabela inclui uma lista de guias de início rápido de conversão de texto em fala organizadas por idioma.
 
 ### <a name="sdk-quickstarts"></a>Guias de início rápido do SDK
 
-| Guia de início rápido (SDK) | Plataforma | Referência de API |
+| Início rápido (SDK) | Plataforma | Referência da API |
 |------------|----------|---------------|
-| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [C#, .NET Core](quickstart-text-to-speech-dotnetcore.md) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](quickstart-text-to-speech-dotnet-windows.md) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](quickstart-text-to-speech-csharp-uwp.md) | Windows | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Procurar](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Procurar](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Procurar](https://aka.ms/csspeech/cppref) |
 
-### <a name="rest-quickstarts"></a>Guias de início rápido REST
+### <a name="rest-quickstarts"></a>Guias de início rápido do REST
 
-| Guia de início rápido (REST) | Plataforma | Referência de API |
+| Início rápido (REST) | Plataforma | Referência da API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Janela, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Windows, macOS, Linux | [Procurar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
-## <a name="sample-code"></a>Exemplo de código
+## <a name="sample-code"></a>Código de exemplo
 
-Código de exemplo de texto em fala está disponível no GitHub. Esses exemplos abrangem a conversão de texto em fala em linguagens de programação mais populares.
+O código de exemplo para conversão de texto em fala está disponível no GitHub. Esses exemplos abordam a conversão de texto em fala nas linguagens de programação mais populares.
 
-* [Exemplos de texto em fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Exemplos de conversão de texto em fala (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Exemplos de conversão de texto em fala (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Documentos de Referência

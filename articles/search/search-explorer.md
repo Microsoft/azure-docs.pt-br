@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 392699182859a090c13304f63d28a78b95a65ec7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87e5ec82299ef9ddc8bc8756196bb2ace3d1f6f3
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024032"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414229"
 ---
 # <a name="search-explorer-for-querying-data-in-azure-search"></a>Gerenciador de pesquisa para consultar dados no Azure Search 
 
@@ -85,7 +85,7 @@ Adicione **$select** para limitar os resultados aos campos nomeados explicitamen
 O Azure Search retorna as primeiras 50 correspondências com base na classificação da pesquisa. Para obter o próximo conjunto de documentos correspondentes, acrescente **$top=100,&$skip=50** para aumentar o conjunto de resultados para 100 documentos (o padrão é 50, o máximo é 1000), ignorando os primeiros 50 documentos. Lembre-se de que você precisa fornecer critérios de pesquisa, como um termo ou expressão de consulta, para obter os resultados classificados. Observe que as pontuações de pesquisa diminuem quanto mais você avança nos resultados da pesquisa.
 
    ```Input
-   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100,&$skip=50
+   search=seattle condo&$select=listingId,beds,baths,description,street,city,price&$count=true&$top=100&$skip=50
    ```
 
    **Resultados**
@@ -94,13 +94,25 @@ O Azure Search retorna as primeiras 50 correspondências com base na classifica�
 
 ## <a name="filter-expressions-greater-than-less-than-equal-to"></a>Expressões de filtro (maior que, menor que, igual a)
 
-Use o parâmetro **$filter** quando desejar especificar critérios precisos em vez de pesquisa de texto livre. Este exemplo pesquisa quartos maiores que 3: `search=seattle condo&$filter=beds gt 3&$count=true`
+Use o parâmetro **$filter** quando desejar especificar critérios precisos em vez de pesquisa de texto livre. Este exemplo pesquisa quartos maior que 3:
+
+   ```Input
+   search=seattle condo&$filter=beds gt 3&$count=true
+   ```
+   
+   **Resultados**
 
    ![Expressão de filtro](./media/search-explorer/search-explorer-example-filter.png "Filtrar pelos critérios")
 
 ## <a name="order-by-expressions"></a>Expressões orderby
 
-Adicione **$orderby** para classificar os resultados por outro campo além da pontuação de pesquisa. Uma expressão de exemplo que você pode usar para testar isso é `search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc`
+Adicione **$orderby** para classificar os resultados por outro campo além da pontuação de pesquisa. Uma expressão de exemplo que você pode usar para testar isso é:
+
+   ```Input
+   search=seattle condo&$select=listingId,beds,price&$filter=beds gt 3&$count=true&$orderby=price asc
+   ```
+   
+   **Resultados**
 
    ![Expressão orderby](./media/search-explorer/search-explorer-example-ordery.png "Alterar a ordem de classificação")
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Balanceamento de carga entre as configurações de IP primárias e secundárias.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,13 +12,13 @@ ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: 0cf5aa45e1e8a28dfcdadac0ea32658e5993d06c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591707"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274727"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o Portal do Azure
 
@@ -194,4 +194,4 @@ Como a última etapa, configure os registros de recurso DNS para apontar para os
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
-- Saiba como você pode usar diferentes tipos de logs para gerenciar e solucionar problemas do balanceador de carga no [logs do Azure Monitor para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
+- Saiba como você pode usar diferentes tipos de logs para gerenciar e solucionar problemas do balanceador de carga em [logs de Azure monitor para Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).

@@ -2,20 +2,20 @@
 title: 'Início Rápido: Aumentar a computação no SQL Data Warehouse do Azure – PowerShell | Microsoft Docs'
 description: Dimensionar a computação no SQL Data Warehouse do Azure no PowerShell. Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: bd137b71cab4a345afce835effd2ecb0c03df312
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c3be507fd544ec86790f820830c2275e7703564
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66167020"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68641075"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-powershell"></a>Início Rápido: Dimensionar a computação no SQL Data Warehouse do Azure no PowerShell
 
@@ -68,10 +68,10 @@ Siga estas etapas para localizar informações de local de seu Data Warehouse.
 
 No SQL Data Warehouse, você pode aumentar ou diminuir os recursos de computação ao ajustar as unidades de data warehouse. O [Criar e conectar – portal](create-data-warehouse-portal.md) criou o **mySampleDataWarehouse** e o inicializou com 400 DWUs. As seguintes etapas ajustam as DWUs do **mySampleDataWarehouse**.
 
-Para alterar as unidades de data warehouse, use o cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) do PowerShell. O exemplo a seguir define as unidades de data warehouse do banco de dados **mySampleDataWarehouse** como DW300, que é hospedado no Grupo de recursos **myResourceGroup** no servidor **mynewserver-20180430**.
+Para alterar as unidades de data warehouse, use o cmdlet [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) do PowerShell. O exemplo a seguir define as unidades de data warehouse como DW300c para o banco de dados **mySampleDataWarehouse**, que é hospedado no Grupo de recursos **myResourceGroup** no servidor **mynewserver-20180430**.
 
 ```Powershell
-Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300"
+Set-AzSqlDatabase -ResourceGroupName "myResourceGroup" -DatabaseName "mySampleDataWarehouse" -ServerName "mynewserver-20171113" -RequestedServiceObjectiveName "DW300c"
 ```
 
 ## <a name="check-data-warehouse-state"></a>Verifique o estado do data warehouse
@@ -98,7 +98,7 @@ MaxSizeBytes                  : 263882790666240
 Status                        : Online
 CreationDate                  : 11/20/2017 9:18:12 PM
 CurrentServiceObjectiveId     : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
-CurrentServiceObjectiveName   : DW300
+CurrentServiceObjectiveName   : DW300c
 RequestedServiceObjectiveId   : 284f1aff-fee7-4d3b-a211-5b8ebdd28fea
 RequestedServiceObjectiveName :
 ElasticPoolName               :

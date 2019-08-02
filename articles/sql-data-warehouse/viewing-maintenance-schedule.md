@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 61537a4cb8ca1e6e98f2fa04959861eb03480fe9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0b9b59ec09445a170d1f93181c2b432eafb60bf
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474855"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839977"
 ---
 # <a name="view-a-maintenance-schedule"></a>Exibir um agendamento de manutenção 
 
@@ -27,7 +27,7 @@ Para exibir o agendamento de manutenção que foi aplicado ao seu data warehouse
 
 1.  Entre no [Portal do Azure](https://portal.azure.com/).
 2.  Selecione o data warehouse que você deseja exibir. 
-3.  O data warehouse selecionado abre a folha de visão geral. O agendamento de manutenção é aplicado para o data warehouse é exibida abaixo do **Agendamento de manutenção (visualização)** .
+3.  O data warehouse selecionado abre a folha de visão geral. O agendamento de manutenção é aplicado para o data warehouse é exibida abaixo **agendamento de manutenção**.
 
 ![Folha de visão geral](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 

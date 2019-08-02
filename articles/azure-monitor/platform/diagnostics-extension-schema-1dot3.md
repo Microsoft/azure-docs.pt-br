@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: fa03017c35c76d986139eeee00eea8a9b4a00e62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60238061"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Esquema de configuração 1.3 e posterior do Diagnóstico do Azure
@@ -31,7 +31,7 @@ Esta página é válida para as versões 1.3 e mais recentes (SDK 2.4 e mais rec
 
 O arquivo de configuração descrito aqui é usado para definir as configurações de diagnóstico quando o monitor de diagnóstico é iniciado.  
 
-A extensão é usada em conjunto com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e Log Analytics.
+A extensão é usada em conjunto com outros produtos de diagnóstico da Microsoft, como Azure Monitor, que inclui Application Insights e Log Analytics.
 
 
 
@@ -418,9 +418,9 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
 
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**PublicConfig**|Obrigatório. Veja a descrição em outro lugar nesta página.|  
+|**PublicConfig**|Obrigatória. Veja a descrição em outro lugar nesta página.|  
 |**PrivateConfig**|Opcional. Veja a descrição em outro lugar nesta página.|  
 |**IsEnabled**|Booliano. Veja a descrição em outro lugar nesta página.|  
 
@@ -429,9 +429,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Descreve a configuração de diagnóstico pública.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**WadCfg**|Obrigatório. Veja a descrição em outro lugar nesta página.|  
+|**WadCfg**|Obrigatória. Veja a descrição em outro lugar nesta página.|  
 |**StorageAccount**|O nome da conta do Armazenamento do Azure para armazenar os dados. Pode ser especificado como um parâmetro ao executar o cmdlet Set-AzureServiceDiagnosticsExtension.|  
 |**StorageType**|Pode ser *Table*, *Blob* ou *TableAndBlob*. Tabela é o padrão. Quando TableAndBlob for escolhido, os dados de diagnóstico serão gravados duas vezes, uma vez para cada tipo.|  
 |**LocalResourceDirectory**|O diretório na máquina virtual em que o Agente de Monitoramento armazena dados de evento. Caso contrário, o diretório padrão definido será usado:<br /><br /> Para uma função de Trabalho/da Web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para uma Máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Os atributos obrigatórios são:<br /><br /> - **path** - o diretório no sistema a ser usado pelo Diagnóstico do Azure.<br /><br /> - **expandEnvironment** - controla se as variáveis de ambiente estão expandidas ou não no nome do caminho.|  
@@ -445,9 +445,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="diagnosticmonitorconfiguration-element"></a>Elemento DiagnosticMonitorConfiguration
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Obrigatório
+ Necessário
 
-|Atributos|DESCRIÇÃO|  
+|Atributos|Descrição|  
 |----------------|-----------------|  
 | **overallQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser consumido pelos diversos tipos de dados de diagnóstico coletados pelo Diagnóstico do Azure. A configuração padrão é 4096 MB.<br />
 |**useProxyServer** | Configure o Diagnóstico do Azure para usar as configurações de servidor proxy como definido nas configurações do IE.|
@@ -456,7 +456,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 <br /> <br />
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**CrashDumps**|Veja a descrição em outro lugar nesta página.|  
 |**DiagnosticInfrastructureLogs**|Habilite a coleta de logs gerados pelo Diagnóstico do Azure. Os logs de infraestrutura de diagnóstico são úteis para solucionar problemas de sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - configura o nível de severidade mínimo dos logs coletados.<br /><br /> - **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
@@ -474,15 +474,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Habilite a coleção de despejos de memória.  
 
-|Atributos|DESCRIÇÃO|  
+|Atributos|Descrição|  
 |----------------|-----------------|  
 |**containerName**|Opcional. O nome do contêiner de blobs em sua conta do Armazenamento do Azure para ser usado para armazenar despejos de memória.|  
 |**crashDumpType**|Opcional.  Configura o Diagnóstico do Azure para coletar minidespejos de memória ou despejos de memória completos.|  
 |**directoryQuotaPercentage**|Opcional.  Configura o percentual de **overallQuotaInMB** a ser reservado para despejos de memória na VM.|  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|Obrigatório. Define os valores de configuração para cada processo.<br /><br /> O atributo a seguir também é obrigatório:<br /><br /> **processName** - o nome do processo para o qual você deseja que o Diagnóstico do Azure colete um despejo de memória.|  
+|**CrashDumpConfiguration**|Obrigatória. Define os valores de configuração para cada processo.<br /><br /> O atributo a seguir também é obrigatório:<br /><br /> **processName** - o nome do processo para o qual você deseja que o Diagnóstico do Azure colete um despejo de memória.|  
 
 ## <a name="directories-element"></a>Elemento Directories
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Directories*
@@ -491,7 +491,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Atributo **scheduledTransferPeriod** opcional. Veja a explicação anterior.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**IISLogs**|A inclusão deste elemento na configuração habilita a coleta de logs do IIS:<br /><br /> **containerName** - o nome do contêiner de blobs na sua conta do Armazenamento do Azure a ser usado para armazenar os logs do IIS.|   
 |**FailedRequestLogs**|A inclusão desse elemento na configuração habilita a coleta de logs sobre solicitações com falha para um site ou aplicativo do IIS. Você também deve habilitar as opções de rastreamento em **system.WebServer** em **Web.config**.|  
@@ -505,9 +505,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Uma lista de diretórios para monitorar.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|Obrigatório. Atributo obrigatório:<br /><br /> **containerName** - o nome do contêiner de blob no armazenamento do Azure na conta a ser usada para armazenar os arquivos de log.|  
+|**DirectoryConfiguration**|Obrigatória. Atributo obrigatório:<br /><br /> **containerName** - o nome do contêiner de blob no armazenamento do Azure na conta a ser usada para armazenar os arquivos de log.|  
 
 
 
@@ -518,7 +518,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Pode incluir o elemento **Absolute** ou **LocalResource**, mas não ambos.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**Absolute**|O caminho absoluto para o diretório a ser monitorado. Os atributos a seguir são obrigatórios:<br /><br /> - **Path** - o caminho absoluto para o diretório a ser monitorado.<br /><br /> - **expandEnvironment** - configura se as variáveis de ambiente em Path são expandidas ou não.|  
 |**LocalResource**|O caminho relativo a um recurso local a ser monitorado. Os atributos obrigatórios são:<br /><br /> - **Name** - o recurso local que contém o diretório a ser monitorado<br /><br /> - **relativePath** - o caminho relativo a Name que contém o diretório a ser monitorado|  
@@ -530,7 +530,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configura a coleta de eventos ETW do EventSource e/ou os provedores baseados no Manifesto ETW.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|Configura a coleta de eventos gerados desde a [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Atributo obrigatório:<br /><br /> **provider** - o nome da classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Atributo obrigatório:<br /><br /> **provider** - o GUID do provedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **scheduledTransferLogLevelFilter** - o nível mínimo de severidade a transferir para sua conta de armazenamento.<br /><br /> - **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o Armazenamento do Azure arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
@@ -542,7 +542,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Configura a coleta de eventos gerados desde a [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination** - o nome da tabela para armazenar os eventos|  
 |**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
@@ -552,7 +552,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 ## <a name="etwmanifestproviderconfiguration-element"></a>Elemento EtwManifestProviderConfiguration  
  *Árvore: Raiz - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
 |**Evento**|Atributo obrigatório:<br /><br /> **id** - a id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - o nome da tabela para armazenar os eventos|  
@@ -566,7 +566,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  O atributo **resourceId** é necessário.  A ID de recurso da Máquina Virtual ou Conjunto de Dimensionamento de Máquinas Virtuais na qual o Diagnóstico do Azure está sendo implantado. Obtenha o **resourceID** do [portal do Azure](https://portal.azure.com). Selecione **Procurar** -> **Grupos de Recursos** ->  **<Nome\>** . Clique no bloco **Propriedades** e copie o valor do campo **ID**.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**MetricAggregation**|Atributo obrigatório:<br /><br /> **scheduledTransferPeriod** - o intervalo entre transferências agendadas para o armazenamento, arredondado para o minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
@@ -581,9 +581,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Atributo **scheduledTransferPeriod** opcional. Veja a explicação anterior.
 
-|Elemento filho|DESCRIÇÃO|  
+|Elemento filho|Descrição|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo: `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador.|
+|**PerformanceCounterConfiguration**|Os atributos a seguir são obrigatórios:<br /><br /> - **counterSpecifier** - o nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu host, execute o comando `typeperf`.<br /><br /> - **sampleRate** - Com que frequência o contador deve ser testado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - a unidade de medida do contador.|
 |**coletores** | Adicionado em 1.5. Opcional. Aponta para um local de coletor para também enviar dados de diagnóstico. Por exemplo, o Azure Monitor ou o os Hubs de Eventos.|    
 
 
@@ -596,7 +596,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Atributo **scheduledTransferPeriod** opcional. Veja a explicação anterior.  
 
-|Elemento filho|DESCRIÇÃO|  
+|Elemento filho|Descrição|  
 |-------------------|-----------------|  
 |**DataSource**|Os logs de Eventos do Windows a serem coletados. Atributo obrigatório:<br /><br /> **name** - a consulta XPath que descreve os eventos do windows a serem coletados. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para coletar todos os eventos, especifique "*"|  
 
@@ -610,7 +610,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define a configuração de buffer para logs básicos do Azure.  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|**string**|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
@@ -622,7 +622,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Adicionado na versão 1.9.
 
-|Nome do elemento|DESCRIÇÃO|  
+|Nome do elemento|Descrição|  
 |------------------|-----------------|  
 |**Stats**|Informa ao sistema para coletar estatísticas para contêineres do Docker|  
 
@@ -631,7 +631,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Uma lista de locais para enviar dados de diagnóstico e a configuração associada a esses locais.  
 
-|Nome do elemento|DESCRIÇÃO|  
+|Nome do elemento|Descrição|  
 |------------------|-----------------|  
 |**Coletor**|Veja a descrição em outro lugar nesta página.|  
 
@@ -642,11 +642,11 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**name**|cadeia de caracteres|Uma cadeia de caracteres que identifica o nome do coletor.|  
 
-|Elemento|Type|DESCRIÇÃO|  
+|Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|cadeia de caracteres|Usado somente durante o envio de dados para o Application Insights. Contém a Chave de Instrumentação para uma conta ativa do Application Insights a que você tem acesso.|  
 |**Channels**|cadeia de caracteres|Uma para cada filtragem adicional que o fluxo que você|  
@@ -658,7 +658,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define filtros para fluxos de dados de log que passam por um coletor.  
 
-|Elemento|Type|DESCRIÇÃO|  
+|Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Canal**|cadeia de caracteres|Veja a descrição em outro lugar nesta página.|  
 
@@ -669,7 +669,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Define os locais para os quais os dados de diagnóstico devem ser enviados. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Type|DESCRIÇÃO|  
+|Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**, que transfere todos os logs. Outros possíveis valores (na ordem de mais informações para menos) são **Detalhado**, **Informações**, **Aviso**, **Erro**, e **Crítico**.|  
 |**name**|**string**|Um nome exclusivo do canal que será mencionado|  
@@ -684,7 +684,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Armazena os detalhes privados da conta de armazenamento (nome, chave e ponto de extremidade). Essa informação é enviada para a máquina virtual, mas não pode ser recuperada dela.  
 
-|Elementos filho|DESCRIÇÃO|  
+|Elementos filho|Descrição|  
 |--------------------|-----------------|  
 |**StorageAccount**|A conta de armazenamento a ser usada. Os atributos a seguir são necessários<br /><br /> - **name** - o nome da conta de armazenamento.<br /><br /> - **chave** - a chave para a conta de armazenamento.<br /><br /> - **ponto de extremidade** - o ponto de extremidade para acessar a conta de armazenamento. <br /><br /> -**sasToken** (adicionado na versão 1.8.1)- Você pode especificar um token SAS em vez de uma chave de conta de armazenamento na configuração privada. Se for fornecida, a chave da conta de armazenamento será ignorada. <br />Requisitos para o Token SAS: <br />– Oferece suporte apenas ao token SAS da conta <br />Os tipos de serviço - *b*, *t* são obrigatórios. <br /> As permissões - *a*, *c*, *u*, *w* são obrigatórias. <br /> Os tipos de recurso - *c*, *o* são obrigatórios. <br /> – Oferece suporte somente ao protocolo HTTPS <br /> – A hora de início e de expiração deve ser válida.|  
 

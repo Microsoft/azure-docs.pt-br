@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 2dea1dcd2f6ecef580d65a95d1227380901213eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c46b096b1182b3f2a998f992f72e6127dfe0888
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866538"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089548"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Tutorial: Integração do Azure Active Directory ao Sugar CRM
 
@@ -53,7 +53,7 @@ Para configurar a integração do Sugar CRM ao Azure AD, você precisará adicio
 
 **Para adicionar o Sugar CRM da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o Sugar CRM, execute as seguintes
 
     ![Autenticação SAML](./media/sugarcrm-tutorial/ic795891.png "Autenticação SAML")  
 
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
   
     b. Na caixa de texto **URL de SLO**, cole o valor da **URL de Logoff** copiado do portal do Azure.
   
@@ -240,7 +240,7 @@ Para permitir que os usuários do Azure AD entrem no Sugar CRM, eles precisam se
 
     ![Novo Usuário](./media/sugarcrm-tutorial/ic795896.png "Novo Usuário")
 
-     a. Digite a senha na caixa de texto relacionada.
+    a. Digite a senha na caixa de texto relacionada.
 
     b. Clique em **Save** (Salvar).
 
@@ -259,5 +259,5 @@ Ao clicar no bloco do Sugar CRM no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

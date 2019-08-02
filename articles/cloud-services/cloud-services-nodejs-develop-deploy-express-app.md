@@ -3,23 +3,18 @@ title: Criar e implantar um aplicativo Node.js Express para Serviços de Nuvem d
 description: Criar e implantar um aplicativo Express.js para Serviços de Nuvem do Microsoft Azure
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 24f8e7ef-e90d-4554-9b1e-a9b31d5824e5
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
-ms.openlocfilehash: b212eaffb977846d40270a5f2abc76192aee4c0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: b3d8e364a982f85ad9df6e48dc4d28da1e8efb40
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60528148"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359056"
 ---
 # <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
 
@@ -98,7 +93,7 @@ Agora modifique a exibição para exibir a mensagem “Bem-vindo ao Express no A
    
    ![O conteúdo do arquivo index.jade.](./media/cloud-services-nodejs-develop-deploy-express-app/getting-started-19.png)
    
-   Jade é o mecanismo de exibição padrão usado por aplicativos do Express. Para obter mais informações sobre o mecanismo de exibição Jade, confira [http://jade-lang.com][http://jade-lang.com].
+   Jade é o mecanismo de exibição padrão usado por aplicativos do Express. Para obter mais informações sobre o mecanismo de exibição do [http://jade-lang.com][http://jade-lang.com]Jade, consulte.
 2. Modifique a última linha de texto acrescentando **no Azure**.
    
    ![No arquivo index.jade, a última linha diz: p Bem-vindo ao \#{título} no Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node31.png)

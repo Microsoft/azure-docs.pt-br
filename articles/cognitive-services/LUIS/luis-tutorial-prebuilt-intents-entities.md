@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
-ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 189514c51451dedfaab7b07f28d79f674b32f83a
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086608"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277542"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Tutorial: Identificar intenções e entidades comuns
 
@@ -61,7 +61,7 @@ O LUIS oferece várias intenções predefinidas para ajudar com intenções do c
    * Utilities.StartOver
    * Utilities.Stop
 
-     Essas intenções são úteis para determinar em que ponto da conversa o usuário está e o que ele está solicitando que seja feito. 
+     Essas intenções são úteis para determinar em que ponto da conversa o usuário está e o que ele está solicitando que seja feito. Essas intenções incluem o uso de entidades. Essas entidades são adicionadas automaticamente ao aplicativo LUIS: Number, ordinal e Utilities.DirectionalReference. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Adicionar as entidades predefinidas para ajudar com a extração de tipo de dados comuns

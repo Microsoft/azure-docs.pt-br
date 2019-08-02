@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: a18971125724e6e2fdc6b37de15894efb8b9071a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e6deb8b31559b8c5add06f1771cd69df0c1f136
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867635"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091359"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Azure Active Directory com o SD Elements
 
@@ -53,7 +53,7 @@ Para configurar a integração de SD Elements ao Azure AD, você precisa adicion
 
 **Para adicionar SD Elements da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SD Elements, execute as seguint
 
     ![Informações de domínio e de URLs do SD Elements para logon único](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<tenantname>.sdelements.com/sso/saml2/acs/`
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o SD Elements, execute as seguint
     | nome |user.givenname |
     | sobrenome |user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -170,7 +170,7 @@ Para configurar o logon único do Azure AD com o SD Elements, execute as seguint
 
     ![Configurar o logon único](./media/sd-elements-tutorial/tutorial_sd-elements_10.png)
 
-     a. Como **Tipo de SSO**, selecione **SAML**.
+    a. Como **Tipo de SSO**, selecione **SAML**.
 
     b. Na caixa de texto **ID da Entidade do Provedor de Identidade**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
 
@@ -249,7 +249,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no SD Ele
 
     ![Criar um usuário de teste de elementos de SD](./media/sd-elements-tutorial/tutorial_sd-elements_13.png) 
 
-     a. Na caixa de texto **Email**, insira o email do usuário, como **brittasimon@contoso.com**.
+    a. Na caixa de texto **Email**, insira o email do usuário, como **brittasimon@contoso.com** .
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -271,4 +271,4 @@ Ao clicar no bloco do SD Elements no Painel de Acesso, você será conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

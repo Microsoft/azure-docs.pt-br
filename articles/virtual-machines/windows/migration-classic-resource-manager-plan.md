@@ -4,7 +4,7 @@ description: Planejamento da migração de recursos de IaaS do clássico para o 
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: d3e1995682569e5ef7b356bd85ad6c7dba6cdbdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26766be8b2468da0df44fa42655db0ee04db45a2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64689484"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327065"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração.
@@ -32,7 +32,7 @@ Há quatro fases gerais da jornada de migração:<br>
 
 ![Fases da migração](../media/virtual-machines-windows-migration-classic-resource-manager/plan-labtest-migrate-beyond.png)
 
-## <a name="plan"></a>Plano
+## <a name="plan"></a>Planejamento
 
 ### <a name="technical-considerations-and-tradeoffs"></a>Considerações técnicas e compensações
 
@@ -114,7 +114,7 @@ Veja a seguir os problemas descobertos em muitas das migrações de maior porte.
 
 - **Conjuntos de disponibilidade** – para que uma VNET (rede virtual) seja migrada para o Azure Resource Manager, todas as VMs recipientes da implantação Clássica (ou seja, o serviço de nuvem) devem estar em um único conjunto de disponibilidade ou não devem estar em nenhum conjunto de disponibilidade. Ter mais de um conjunto de disponibilidade no serviço de nuvem não é compatível com o Azure Resource Manager e interromperá a migração.  Além disso, não pode haver algumas VMs em um conjunto de disponibilidade e outras VMs que não estão em um conjunto de disponibilidade. Para resolver isso, você precisará corrigir ou reorganizar o serviço de nuvem.  Planeje de forma adequada, pois isso pode ser demorado.
 
-- **Implantações de função web/de trabalho** – Serviços de Nuvem que contém funções web e de trabalho não podem migrar para o Azure Resource Manager. As funções web/de trabalho devem primeiro ser removidas da rede virtual para que a migração possa ser iniciada.  Uma solução típica é apenas mover as instâncias de função web/de trabalho para uma rede virtual Clássica separada que também está vinculada a um circuito do ExpressRoute ou migrar o código para Serviços de Aplicativo de PaaS mais novos (essa discussão está além do escopo deste documento). No primeiro caso de reimplantação, crie uma nova rede virtual Clássica, mova/reimplante as funções web/de trabalho nessa nova rede virtual e, depois, exclua as implantações da rede virtual que está sendo movida. Não é necessário alterar o código. A nova funcionalidade [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md) pode ser usada para emparelhar a rede virtual clássica que contém as funções web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está sendo migrada (**após a conclusão da migração da rede virtual, já que redes virtuais emparelhadas não podem ser migradas**), fornecendo as mesmas funcionalidades, sem perda de desempenho e sem penalidades de latência/largura de banda. Considerando a adição do [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md), as implantações de função web/de trabalho agora podem ser facilmente atenuadas e não impedem a migração para o Azure Resource Manager.
+- **Implantações de função web/de trabalho** – Serviços de Nuvem que contém funções web e de trabalho não podem migrar para o Azure Resource Manager. Para migrar o conteúdo de suas funções Web e de trabalho, você precisará migrar o próprio código para serviços de aplicativo PaaS mais recentes (essa discussão está além do escopo deste documento). Se você quiser deixar as funções Web/de trabalho como estão, mas migrar VMs clássicas para o modelo de implantação do Gerenciador de recursos, as funções Web/de trabalho devem primeiro ser removidas da rede virtual antes que a migração possa ser iniciada.  Uma solução típica é apenas mover instâncias de função Web/de trabalho para uma rede virtual clássica separada que também esteja vinculada a um circuito de ExpressRoute. No primeiro caso de reimplantação, crie uma nova rede virtual clássica, mova/reimplante as funções Web/de trabalho para essa nova rede virtual e, em seguida, exclua as implantações da rede virtual que está sendo movida. Não é necessário alterar o código. A nova funcionalidade [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md) pode ser usada para emparelhar a rede virtual clássica que contém as funções web/de trabalho e outras redes virtuais na mesma região do Azure, como a rede virtual que está sendo migrada (**após a conclusão da migração da rede virtual, já que redes virtuais emparelhadas não podem ser migradas**), fornecendo as mesmas funcionalidades, sem perda de desempenho e sem penalidades de latência/largura de banda. Considerando a adição do [Emparelhamento de Rede Virtual](../../virtual-network/virtual-network-peering-overview.md), as implantações de função web/de trabalho agora podem ser facilmente atenuadas e não impedem a migração para o Azure Resource Manager.
 
 - **Cotas do Azure Resource Manager** – as regiões do Azure têm cotas/limites separados para o Clássico e o Azure Resource Manager. Mesmo que em um cenário de migração o novo hardware não esteja sendo consumido *(estamos trocando VMs existentes do Clássico para o Azure Resource Manager)* , as cotas do Azure Resource Manager ainda precisam estar em vigor com capacidade suficiente antes que a migração possa ser iniciada. Veja abaixo uma lista dos principais limites que observamos que causam problemas.  Abra um tíquete de suporte de cota para aumentar os limites.
 

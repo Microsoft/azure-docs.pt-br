@@ -52,11 +52,11 @@ sections:
           - image:
               src: media/index/storm_r.svg
             text: Apache Storm
-            href: /azure/hdinsight/storm/apache-storm-tutorial-get-started-linux
+            href: /azure/hdinsight/storm/apache-storm-quickstart
           - image:
               src: media/index/ml-server_r.svg
             text: ML Services
-            href: /azure/hdinsight/r-server/r-server-get-started
+            href: /azure/hdinsight/r-server/machine-learning-services-quickstart-job-rstudio
   - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
@@ -64,7 +64,6 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: 'Apache Hadoop &#58; <a href="/azure/hdinsight/hdinsight-analyze-flight-delay-data-linux">Executar operações de ETL</a> | <a href="/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf">Criar clusters sob demanda</a>'
           - html: 'Apache Spark &#58; <a href="/azure/hdinsight/spark/apache-spark-load-data-run-query">Executar consultas interativas</a> | <a href="/azure/hdinsight/spark/apache-spark-use-bi-tools">Visualizar dados</a> | <a href="/azure/hdinsight/spark/apache-spark-ipython-notebook-machine-learning">Aprendizado de máquina</a>'
           - html: 'Apache Kafka &#58; <a href="/azure/hdinsight/hdinsight-apache-kafka-spark-structured-streaming">Streaming estruturado com Kafka</a> | <a href="/azure/hdinsight/hdinsight-apache-storm-with-kafka">Usar com o Storm no HDInsight</a> | <a href="/azure/hdinsight/kafka/apache-kafka-producer-consumer-api">Usar APIs do Produtor e Consumidor do Kafka</a>'
           - html: 'Apache HBase &#58; <a href="/azure/hdinsight/hbase/apache-hbase-provision-vnet">Criar clusters HBase em uma VNET</a> | <a href="/azure/hdinsight/hdinsight-phoenix-in-hdinsight">Usar o Apache Phoenix</a> | <a href="/azure/hdinsight/hdinsight-using-spark-query-hbase">Conectar ao Spark</a>'

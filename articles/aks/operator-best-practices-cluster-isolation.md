@@ -2,17 +2,17 @@
 title: Melhores práticas do operador - Isolamento de cluster no Azure Kubernetes Services (AKS)
 description: Aprenda as práticas recomendadas do operador de cluster para isolamento no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 8150e184f0c7533d5a6e7e4847bf126206f5e6c6
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60465268"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614925"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para isolamento de cluster no Azure Kubernetes Service (AKS)
 
@@ -26,19 +26,19 @@ Este artigo de práticas recomendadas se concentra no isolamento para operadores
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Design de clusters para multi locação
 
-O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, com o escopo definido para os recursos de que cada equipe precisa. Um [espaço para nome][k8s-namespaces] no Kubernetes cria um limite de isolamento lógico. Recursos e considerações adicionais do kubernetes para isolamento e multi locação incluem as seguintes áreas:
+O Kubernetes fornece recursos que permitem isolar logicamente equipes e cargas de trabalho no mesmo cluster. O objetivo deve ser fornecer o menor número de privilégios, com o escopo definido para os recursos de que cada equipe precisa. Um [Namespace][k8s-namespaces] no Kubernetes cria um limite de isolamento lógico. Recursos e considerações adicionais do kubernetes para isolamento e multi locação incluem as seguintes áreas:
 
-* **O agendamento** inclui o uso de recursos básicos, como cotas de recursos e orçamentos de interrupção de conjuntos. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos básicos do agendador no AKS][aks-best-practices-scheduler].
-  * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para recursos avançados do agendador no AKS][aks-best-practices-advanced-scheduler].
+* **O agendamento** inclui o uso de recursos básicos, como cotas de recursos e orçamentos de interrupção de conjuntos. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para recursos do Agendador básica no AKS][aks-best-practices-scheduler].
+  * Os recursos mais avançados do planejador incluem manchas e tolerâncias, seletores de nó e afinidade de nó e pod ou antiafinidade. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para recursos avançados do Agendador no AKS][aks-best-practices-advanced-scheduler].
 * **Rede** inclui o uso de políticas de rede para controlar o fluxo de tráfego dentro e fora dos pods.
-* **Autenticação e autorização** incluem o usuário de RBAC (controle de acesso baseado em função) e integração do Azure Active Directory (AD), identidades de conjuntos e segredos no Cofre de Chaves do Azure. Para obter mais informações sobre esses recursos, consulte [Práticas recomendadas para autenticação e autorização no AKS][aks-best-practices-identity].
+* **Autenticação e autorização** incluem o usuário de RBAC (controle de acesso baseado em função) e integração do Azure Active Directory (AD), identidades de conjuntos e segredos no Cofre de Chaves do Azure. Para obter mais informações sobre esses recursos, consulte [práticas recomendadas para autenticação e autorização no AKS][aks-best-practices-identity].
 * **Contêineres** incluem políticas de segurança do pod, contextos de segurança do pod, imagens de varredura e tempos de execução para vulnerabilidades. Envolve também o uso do App Armor ou do Seccomp (Secure Computing) para restringir o acesso ao contêiner ao nó subjacente.
 
 ## <a name="logically-isolate-clusters"></a>Isolar logicamente clusters
 
 **Orientação sobre práticas recomendadas**: use isolamento lógico para separar equipes e projetos. Tente minimizar o número de clusters AKS físicos que você implanta para isolar equipes ou aplicativos.
 
-Com o isolamento lógico, um único cluster AKS pode ser usado para várias cargas de trabalho, equipes ou ambientes. Os [namespaces][k8s-namespaces] do Kubernetes formam o limite de isolamento lógico para cargas de trabalho e recursos.
+Com o isolamento lógico, um único cluster AKS pode ser usado para várias cargas de trabalho, equipes ou ambientes. Kubernetes [Namespaces][k8s-namespaces] formam o limite de isolamento lógico para cargas de trabalho e recursos.
 
 ![Isolamento lógico de um cluster do Kubernetes em AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 

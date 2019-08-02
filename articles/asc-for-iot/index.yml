@@ -1,35 +1,35 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Central de Segurança do Azure para documentação da versão prévia da IoT
+title: Documentação da Central de Segurança do Azure para IoT
 metadata:
-  title: 'Central de Segurança do Azure para documentação da versão prévia da IoT – Tutoriais, Guias de início rápido | Microsoft Doc'
-  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  title: 'Documentação da Central de Segurança do Azure para IoT – Tutoriais, inícios rápidos | Microsoft Docs'
+  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
   services: asc-for-iot
   author: mlottner
   manager: rkarlin
-  ms.service: ascforiot
+  ms.service: asc-for-iot
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 03/26/19
+  ms.date: 07/23/19
   ms.author: rkarlin
 abstract:
-  description: "Use a ASC (Central de Segurança do Azure) para a Versão Prévia da IoT para ampliar sua exibição de segurança cibernética existente para toda a sua solução da IoT. Obtenha uma exibição panorâmica verdadeira da segurança de todos os seus recursos relacionados ao Azure. Opções rápidas de implantação e integração total com os módulos gêmeos do Hub IoT oferecem uma ampla variedade de opções de personalização e fácil integração com as ferramentas atuais de gerenciamento de dispositivo.\_"
+  description: "Use a Central de Segurança do Azure para IoT para estender sua exibição de segurança cibernética existente para toda sua solução de IoT. Obtenha uma exibição panorâmica verdadeira da segurança de todos os seus recursos relacionados ao Azure. Opções rápidas de implantação e integração total com os módulos gêmeos do Hub IoT oferecem uma ampla variedade de opções de personalização e fácil integração com as ferramentas atuais de gerenciamento de dispositivo.\_"
 sections:
   - title: Guia de início rápido de 5 minutos
     items:
       - type: paragraph
-        text: 'Saiba como habilitar o Hub IoT para ASC para IoT, instalar o ASC para agentes IoT e obter visibilidade de seus dados e possíveis ameaças.'
+        text: 'Saiba como habilitar o Hub IoT para a Central de Segurança do Azure para IoT, instalar agentes de segurança e obter visibilidade sobre possíveis ameaças.'
       - type: list
         style: icon48
         items:
           - image:
               src: media/index/deploy.svg
-            text: Habilitar ASC para IoT
+            text: Habilitar a Central de Segurança do Azure para IoT
             href: /azure/asc-for-iot/quickstart-onboard-iot-hub
           - image:
               src: media/index/get-started.svg
-            text: Introdução ao ASC para IoT
+            text: Introdução à Segurança do Azure para IoT
             href: /azure/asc-for-iot/getting-started
   - title: Guias de instruções
     items:
@@ -38,7 +38,7 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detecte ameaças com o ASC para IoT</a>
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Detectar ameaças com a Central de Segurança do Azure para IoT</a>
   - title: Desenvolva suas habilidades com o Microsoft Learn
     items:
       - type: list
@@ -50,8 +50,17 @@ sections:
             image:
               src: media/index/tutorial.svg
               href: 'https://docs.microsoft.com/learn/azure'
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Mais aprendizado interativo...</a>
+  - title: Vídeos da Central de Segurança do Azure para IoT
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Central de Segurança do Microsoft Azure para IoT – Visão geral
+            href: 'https://youtu.be/pq5uSp9u_x0'
+            image:
+              src: 'https://docs.microsoft.com/media/common/i_video.svg'
+              href: 'https://youtu.be/pq5uSp9u_x0'
   - title: Referência
     items:
       - type: list

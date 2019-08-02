@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 841c55e9aa05e6b627716b084ad7685683f9faec
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60900882"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498346"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Acompanhar operações personalizadas com o SDK do .NET do Application Insights
 
@@ -51,7 +51,10 @@ Neste exemplo, o contexto de rastreamento é propagado de acordo com o [protocol
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -207,20 +210,7 @@ public async Task Process(BrokeredMessage message)
 O exemplo a seguir mostra como acompanhar operações da [fila de Armazenamento do Azure](../../storage/queues/storage-dotnet-how-to-use-queues.md) e correlacionar telemetria entre o produtor, o consumidor e o Armazenamento do Azure. 
 
 A fila de Armazenamento tem uma API HTTP. Todas as chamadas à fila são rastreadas pelo coletor de dependência do Application Insights para solicitações HTTP.
-Certifique-se de que `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` esteja em `applicationInsights.config`. Se você não tem, adicione-o programaticamente, conforme descrito em [Filtragem e pré-processamento no SDK do Azure Application Insights](../../azure-monitor/app/api-filtering-sampling.md).
-
-Se você configurar o Application Insights manualmente, certifique-se de criar e inicializar `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` de maneira similar a:
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.windows.net");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+Ele é configurado por padrão em aplicativos ASP.NET e ASP.NET Core, com outros tipos de aplicativo, você pode consultar a [documentação de aplicativos de console](../../azure-monitor/app/console.md)
 
 Também convém correlacionar a ID da operação do Application Insights à ID de solicitação de Armazenamento. Para obter informações sobre como definir e obter um cliente de solicitação de Armazenamento e uma ID de solicitação do servidor, consulte [Monitorar, diagnosticar e solucionar problemas do Armazenamento do Azure](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
@@ -494,6 +484,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operações de ApplicationInsights vs System. Diagnostics. Activity
+`System.Diagnostics.Activity`representa o contexto de rastreamento distribuído e é usado por estruturas e bibliotecas para criar e propagar o contexto dentro e fora do processo e correlacionar os itens de telemetria. A atividade funciona junto `System.Diagnostics.DiagnosticSource` com o mecanismo de notificação entre a estrutura/biblioteca para notificar sobre eventos interessantes (solicitações de entrada ou de saída, exceções, etc.).
+
+As atividades são cidadãos de primeira classe no Application insights, e a coleção de solicitações e a dependência automática depende muito `DiagnosticSource` delas junto com os eventos. Se você criar atividade em seu aplicativo, ele não resultará na criação de Application Insights telemetria. Application Insights precisa receber eventos de diagnóstico e conhecer os nomes de eventos e as cargas para converter a atividade na telemetria.
+
+Cada operação de Application insights (solicitação ou dependência) `Activity` envolve- `StartOperation` se-quando é chamado, ele cria a atividade abaixo. `StartOperation`é a maneira recomendada para controlar a telemetrias de solicitação ou dependência manualmente e garantir que tudo esteja correlacionado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

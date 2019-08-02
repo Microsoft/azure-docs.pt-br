@@ -3,18 +3,18 @@ title: Referência do mecanismo de regras CDN do Azure | Microsoft Docs
 description: Documentação de referência para recursos e condições de correspondência do mecanismo de regras da CDN do Azure.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: a04fcd3eaaed5c3e43f631ad1fbb6fed93ea29fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fc611af75a7f733576f9343a4375fb56cacc030
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481678"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67593156"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>A Azure CDN da referência do mecanismo de regras de Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-reference"></a>Referência do mecanismo de regras da CDN do Azure da Verizon Premium
 
 Este artigo lista as descrições detalhadas dos recursos e condições de correspondência disponíveis para o mecanismo de regras da [CDN (Rede de Distribuição de Conteúdo)](cdn-verizon-premium-rules-engine.md).
 
@@ -51,7 +51,7 @@ Um símbolo de porcentagem é usado para indicar a codificação de URL (por exe
 
 O texto que é interpretado como um valor de caractere curinga atribui significado adicional a caracteres especiais. A tabela a seguir descreve como o seguinte conjunto de caracteres é interpretado:
 
-Character | DESCRIÇÃO
+Character | Descrição
 ----------|------------
 \ | Uma barra invertida é usada para funcionar como escape para qualquer um dos caracteres especificados nesta tabela. Uma barra invertida deve ser especificada diretamente antes do caractere especial que deve ter escape.<br/>Por exemplo, a seguinte sintaxe ignora um asterisco: `\*`
 % | Um símbolo de porcentagem é usado para indicar a codificação de URL (por exemplo, `%20`).
@@ -63,10 +63,10 @@ Espaço | Um caractere de espaço indica que uma condição de correspondência 
 
 Expressões regulares definem um padrão que é pesquisado dentro de um valor de texto. A notação de expressão regular define significados específicos para uma variedade de símbolos. A tabela a seguir indica como os caracteres especiais são tratados por condições de correspondência e recursos que dão suporte a expressões regulares.
 
-Caractere especial | DESCRIÇÃO
+Caractere especial | Descrição
 ------------------|------------
 \ | Uma barra invertida escapa ao caractere que o segue, fazendo com que esse caractere seja tratado como um valor literal em vez de assumir o significado de expressão regular. Por exemplo, a seguinte sintaxe ignora um asterisco: `\*`
-% | O significado de um símbolo de porcentagem depende de seu uso.<br/><br/> `%{HTTPVariable}`: Essa sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Essa sintaxe usa um símbolo de porcentagem para identificar uma variável HTTP e como um delimitador.<br />`\%`: O escape de um símbolo de porcentagem permite que ele seja usado como um valor literal ou para indicar a codificação de URL (por exemplo, `\%20`).
+% | O significado de um símbolo de porcentagem depende de seu uso.<br/><br/> `%{HTTPVariable}`: Essa sintaxe identifica uma variável HTTP.<br/>`%{HTTPVariable%Pattern}`: Essa sintaxe usa um símbolo de porcentagem para identificar uma variável HTTP e como um delimitador.<br />`\%`: Escapar um símbolo de porcentagem permite que ele seja usado como um valor literal ou para indicar a codificação de URL (por `\%20`exemplo,).
 \* | Um asterisco permite que o caractere precedente corresponda a zero ou mais vezes.
 Espaço | Normalmente, um caractere de espaço é tratado como um caractere literal.
 'valor' | Aspas simples são tratadas como caracteres literais. Um conjunto de aspas simples não tem significado especial.

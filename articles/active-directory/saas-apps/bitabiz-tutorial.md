@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19e46c77d3204cc6cd037e5ef8252aa7598d624d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e52b5478bc4b483b793f155eab2f41246552d49
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880697"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bitabiz"></a>Tutorial: integração do Azure Active Directory com o BitaBIZ
 
@@ -53,7 +53,7 @@ Para configurar a integração do BitaBIZ ao Azure AD, você precisará adiciona
 
 **Para adicionar o BitaBIZ a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -146,13 +146,13 @@ Para configurar o logon único do Azure AD com o BitaBIZ, execute as seguintes e
 
     ![Configuração do BitaBIZ](./media/bitabiz-tutorial/settings3.png)
 
-     a. Copie o valor da caixa de texto **ID da Entidade (“Identificador” no Azure AD)** e cole-o na caixa e texto **Identificador** na seção **Configuração Básica do SAML** do portal do Azure. 
+    a. Copie o valor da caixa de texto **ID da Entidade (“Identificador” no Azure AD)** e cole-o na caixa e texto **Identificador** na seção **Configuração Básica do SAML** do portal do Azure. 
 
     b. Na caixa de texto **URL de Serviço de Logon Único do Azure AD**, cole a **URL de Logon** copiada do portal do Azure.
 
     c. Na caixa de texto **ID da Entidade do SAML do Azure AD**, cole o **Identificador do Azure AD** copiado do portal do Azure.
 
-    d. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, em seguida, cole-o na caixa de texto **Certificado de autenticação do Azure AD (codificação Base64)**.
+    d. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, em seguida, cole-o na caixa de texto **Certificado de autenticação do Azure AD (codificação Base64)** .
 
     e. Adicione seu nome de domínio de email corporativo, ou seja, minhaempresa.com na caixa de texto **Nome de domínio** para atribuir o SSO aos usuários em sua empresa com este domínio de email (OPCIONAL).
 
@@ -178,7 +178,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -236,7 +236,7 @@ No caso do BitaBIZ, o provisionamento é uma tarefa manual.
 
     ![Adicionar usuário no BitaBIZ](./media/bitabiz-tutorial/user3.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como Brenda.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como Fernandes.
 

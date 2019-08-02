@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/14/2016
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 198fedbbd1e97dcda15c9124109e50664f58f8e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d31a6ee13965aa326ab8a71b5b5435025bc26057
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66139712"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705738"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>Clonagem de aplicativo do Serviço de Aplicativo do Azure usando o Azure PowerShell
 
@@ -28,7 +28,7 @@ ms.locfileid: "66139712"
 
 Com o lançamento do Microsoft Azure PowerShell versão 1.1.0, uma nova opção foi adicionada ao `New-AzWebApp` que lhe permite clonar um aplicativo de Serviço existente como um aplicativo recém-criado em uma região diferente ou na mesma região. Essa opção permitirá que os clientes implantem vários aplicativos em diferentes regiões de forma rápida e fácil.
 
-A clonagem de aplicativo atualmente só tem suporte para planos de serviço de aplicativos de camada Premium. O novo recurso usa as mesmas limitações que o recurso de Backup de Serviço de Aplicativo; veja [Fazer backup de um aplicativo no Serviço de Aplicativo do Azure](manage-backup.md).
+Há suporte para clonagem de aplicativo para planos de serviço de aplicativo Standard, Premium, Premium V2 e isolado. O novo recurso usa as mesmas limitações que o recurso de Backup de Serviço de Aplicativo; veja [Fazer backup de um aplicativo no Serviço de Aplicativo do Azure](manage-backup.md).
 
 ## <a name="cloning-an-existing-app"></a>Clonagem de um aplicativo existente
 Cenário: Um aplicativo existente na região Centro-Sul dos EUA que você quer clonar o conteúdo em um novo aplicativo na região Centro-Norte dos EUA. Isso pode ser feito usando a versão do cmdlet do PowerShell do Azure Resource Manager para criar um novo aplicativo com a opção `-SourceWebApp`.
@@ -130,6 +130,7 @@ Estas são as restrições conhecidas da clonagem de aplicativos:
 * As regras de TiP não são clonadas
 * O conteúdo do banco de dados não é clonado
 * Os endereços IP de saída são alterados em caso de clonagem para uma unidade de escala diferente
+* Não está disponível para aplicativos Linux
 
 ### <a name="references"></a>Referências
 * [Clonagem de Serviço de Aplicativo](app-service-web-app-cloning.md)

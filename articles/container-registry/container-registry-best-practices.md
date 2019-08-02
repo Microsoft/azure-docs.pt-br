@@ -3,16 +3,17 @@ title: Melhores práticas no Registro de Contêiner do Azure
 description: Saiba como usar o registro de contêiner do Azure efetivamente seguindo estas melhores práticas.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: danlep
-ms.openlocfilehash: 2cf64c7c4f99a57c4a4a6cf03e68e8af803ceca9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1ab010300d3f7bec3aeb5969a9a09fa9ee9a6a5
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787336"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309761"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas para o Registro de Contêiner do Azure
 
@@ -50,11 +51,11 @@ Como os registros de contêiner são recursos que são usados em vários hosts d
 
 Embora seja possível fazer experiências com um tipo de host específico, como Instâncias de Contêiner do Azure, você provavelmente desejará excluir a instância de contêiner quando terminar. No entanto, você também poderá manter a coleção de imagens que enviou por push para o Registro de Contêiner do Azure. Ao colocar o registro em seu próprio grupo de recursos, você minimiza o risco de excluir acidentalmente a coleção de imagens no registro quando exclui o grupo de recursos de instância do contêiner.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Ao se autenticar com um registro de contêiner do Azure, há dois cenários principais: autenticação individual e autenticação de serviço (ou "sem periférico"). A tabela a seguir fornece uma visão geral sobre esses cenários e o método de autenticação recomendado para cada.
 
-| Type | Cenário de exemplo | Método recomendado |
+| Tipo | Cenário de exemplo | Método recomendado |
 |---|---|---|
 | Identidade individual | Um desenvolvedor que efetua o pull de imagens de ou para seu computador de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Sem periférico/serviço identidade | Pipelines de implantação e compilação em que o usuário não está diretamente envolvido. | [Entidade de serviço](container-registry-authentication.md#service-principal) |
@@ -63,9 +64,9 @@ Para obter informações detalhadas sobre a autenticação de Registro de Contê
 
 ## <a name="manage-registry-size"></a>Gerenciar o tamanho do registro
 
-As restrições de armazenamento de cada [SKU de registro de contêiner][container-registry-skus] são projetados para se alinhar com um cenário típico: **Básico** para começar, **Standard** para a maioria dos aplicativos de produção e **Premium** para o desempenho de hiperdimensionamento e [replicação geográfica][container-registry-geo-replication]. Durante a vida útil do registro, você deve gerenciar o tamanho periodicamente excluindo conteúdo não utilizado.
+As restrições de armazenamento de cada [SKU de registro de contêiner][container-registry-skus] devem se alinhar com um cenário típico: **Básico** para introdução, **Standard** para a maioria dos aplicativos de produção e **Premium** para desempenho de hiperescala e [replicação geográfica][container-registry-geo-replication]. Durante a vida útil do registro, você deve gerenciar o tamanho periodicamente excluindo conteúdo não utilizado.
 
-Use o comando da CLI do Azure [az acr show-usage][az-acr-show-usage] para exibir o tamanho atual do registro:
+Use o comando CLI do Azure [AZ ACR show-Usage][az-acr-show-usage] para exibir o tamanho atual do registro:
 
 ```console
 $ az acr show-usage --resource-group myResourceGroup --name myregistry --output table

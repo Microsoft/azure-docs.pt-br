@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: b6bba4ed45530ba66a1adde274022a80091cd199
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60747888"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626183"
 ---
 # <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics 
 Este artigo mostra como transmitir dados para os Hubs de Eventos habilitados para Kafka e processá-los com o Azure Stream Analytics. Este artigo apresenta as seguintes etapas: 
@@ -163,14 +163,14 @@ A consulta no trabalho do Stream Analytics passa pelos dados sem executar quaisq
  
 
 ### <a name="define-a-query"></a>Definir uma consulta
-Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de entrada, a próxima etapa é criar uma transformação que analisa os dados em tempo real. Defina a consulta de transformação usando a [Linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). Neste passo a passo, você define uma consulta que passa pelos dados sem executar nenhuma transformação.
+Depois configurar um trabalho do Stream Analytics para ler um fluxo de dados de entrada, a próxima etapa é criar uma transformação que analisa os dados em tempo real. Defina a consulta de transformação usando a [Linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Neste passo a passo, você define uma consulta que passa pelos dados sem executar nenhuma transformação.
 
 1. Selecione **Consulta**.
 2. Na janela de consulta, substitua `[YourOutputAlias]` pelo alias de saída criado anteriormente.
 3. Substitua `[YourInputAlias]` pelo alias de entrada criado anteriormente. 
 4. Selecione **Salvar** na barra de ferramentas. 
 
-    ![Consulta](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![Consultar](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Executar o trabalho do Stream Analytics

@@ -1,42 +1,38 @@
 ---
-title: Compreender os termos na sua encargos CSV e o uso do Azure para um contrato de cliente da Microsoft | Microsoft Docs
-description: Saiba como ler e entender as seções do CSV de encargos para o perfil de cobrança e uso do Azure
-services: ''
-documentationcenter: ''
+title: Termos no arquivo de uso e os encargos do Azure para um contrato de cliente da Microsoft
+description: Saiba como ler e entender as seções do CSV de encargos para o perfil de cobrança e uso do Azure.
 author: bandersmsft
-manager: alherz
-editor: ''
+manager: jureid
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d11e31366ea5aa15cf7a790eaee800fa2ea6dabe
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371301"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490622"
 ---
-# <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Compreender os termos na sua encargos CSV e o uso do Azure para um contrato de cliente da Microsoft
+# <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Termos no arquivo de uso e os encargos do Azure para um contrato de cliente da Microsoft
 
 Este artigo se aplicam a uma conta de cobrança para um contrato de cliente da Microsoft. [Verifique se você tem acesso a um contrato de cliente do Microsoft](#check-access-to-a-microsoft-customer-agreement).
 
-O arquivo CSV de uso e encargos do Azure contém os encargos de nível de uso diário e medidor para o período de cobrança atual.
+O arquivo CSV de uso e encargos do Azure contém os encargos de uso diário e nível de medidor para o período de cobrança atual.
 
-Para obter o arquivo de uso e os encargos do Azure, consulte [modo de exibição e download de uso do Azure e encargos para o contrato de cliente da Microsoft](billing-download-azure-daily-usage.md).
-Ele está disponível em um formato de arquivo .csv (valores separados por vírgulas) que pode ser aberto em um aplicativo de planilhas.
+Para obter o arquivo de uso e os encargos do Azure, consulte [modo de exibição e download de uso do Azure e encargos para o contrato de cliente da Microsoft](billing-download-azure-daily-usage.md). Ele está disponível em um formato de arquivo .csv (valores separados por vírgulas) que pode ser aberto em um aplicativo de planilhas.
 
 Encargos de uso são o total de encargos **mensais** em uma assinatura. Os encargos de uso não levam em consideração nenhum crédito nem desconto.
 
-## <a name="changes-in-the-enterprise-agreement-azure-usage-and-charges-csv"></a>Alterações no uso do Enterprise Agreement do Azure e os encargos de CSV
+## <a name="changes-from-azure-ea-usage-and-charges"></a>Alterações de uso de EA do Azure e os encargos
 
-Se você fosse um cliente EA, você observará que os termos no perfil de cobrança arquivo CSV de uso do Azure são diferentes de termos no arquivo CSV de uso do EA Azure. Aqui está um mapeamento dos termos de uso EA para termos de uso do perfil de cobrança:
+Se você fosse um cliente EA, você observará que os termos do arquivo CSV de uso do Azure de cobrança perfil diferem dos termos no arquivo CSV de uso do Azure EA. Aqui está um mapeamento dos termos de uso EA para termos de uso do perfil de cobrança:
 
-| CSV de uso do EA Azure | Uso do Microsoft Azure contrato de cliente e encargos de CSV |
+| Uso EA do Azure CSV | Uso do Microsoft Azure contrato de cliente e encargos de CSV |
 | --- | --- |
 | Data | date |
 | Mês| date |
@@ -49,7 +45,7 @@ Se você fosse um cliente EA, você observará que os termos no perfil de cobran
 | MeterRegion | meterRegion |
 | MeterName | meterName |
 | ConsumedQuantity | quantidade |
-| ResourceRate | effectivePrice | <!-- this was highlighted -->
+| ResourceRate | effectivePrice |
 | ExtendedCost | cost |
 | ResourceLocation | resourceLocation |
 | ConsumedService | consumedService |
@@ -59,17 +55,15 @@ Se você fosse um cliente EA, você observará que os termos no perfil de cobran
 | AdditionalInfo | additionalInfo |
 | tags | marcas |
 | StoreServiceIdentifier | N/D |
-| DepartmentName | invoiceSection | <!-- this was highlighted -->
+| DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
 | ResourceGroup | resourceGroup |
-| ChargesBilledSeparately | isAzureCreditEligible | <!-- this was highlighted -->
+| ChargesBilledSeparately | isAzureCreditEligible |
 
-<!-- TO DO: Marketplace CSV? -->
+## <a name="detailed-terms-and-descriptions"></a>Descrições e termos detalhados
 
-## <a name="detailed-terms-and-descriptions-in-your-azure-usage-and-charges-file"></a>Descrições em seu arquivo de uso e os encargos do Azure e termos detalhados
-
-A seção a seguir descreve os termos importantes mostrados no arquivo de uso e os encargos do Azure.
+Os seguintes termos são mostrados no arquivo de uso e os encargos do Azure.
 
 Termo | DESCRIÇÃO
 --- | ---
@@ -120,16 +114,16 @@ serviceInfo2 | Campo herdado que captura os metadados específicos do serviço o
 additionalInfo | Metadados adicionais de específicos do serviço.
 marcas | Atribuir ao recurso de marcas
 
-### <a name="how-do-i-make-sure-that-the-charges-in-my-azure-usage-and-charges-file-are-correct"></a>Como para ter certeza de que os encargos em meu arquivo de uso e os encargos do Azure estão corretos?
+### <a name="make-sure-that-charges-are-correct"></a>Certifique-se de que os encargos estão corretos
 
-Se há um encargo em seu arquivo de uso detalhado que você deseja obter mais detalhes, consulte [entender os encargos na fatura do seu perfil de cobrança](billing-mca-understand-your-bill.md)
+Se você quiser garantir que os encargos em seu arquivo de uso detalhado estão corretos, você pode verificá-los. Consulte [entender os encargos na fatura do seu perfil de cobrança](billing-mca-understand-your-bill.md)
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso a um contrato de cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Próximas etapas
 

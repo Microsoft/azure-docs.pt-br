@@ -260,6 +260,9 @@
     - name: Compreender os efeitos da Política
       displayName: 'order, evaluation'
       href: ./concepts/effects.md
+    - name: Azure Policy para Kubernetes
+      displayName: 'aks, rego, k8s, opa, open policy agent, gatekeeper'
+      href: ./concepts/rego-for-aks.md
     - name: Auditar VMs com configuração de convidado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
@@ -271,6 +274,9 @@
     - name: Criar políticas para propriedades de matriz
       displayName: 'array property, alias, aliases, in, notIn, type, defaultValue'
       href: ./how-to/author-policies-for-arrays.md
+    - name: Criar uma política de configuração de convidado
+      displayName: 'powershell, dsc, chef, linux, windows'
+      href: ./how-to/guest-configuration-create.md
     - name: Obter dados de conformidade
       displayName: 'evaluation, scan, summarize, query, events, log analytics'
       href: ./how-to/get-compliance-data.md

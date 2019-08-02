@@ -1,5 +1,5 @@
 ---
-title: Problema ao configurar o logon único federado para um aplicativo na Galeria do Azure AD | Microsoft Docs
+title: Problemas ao configurar o logon único federado para aplicativos da galeria do Azure AD | Microsoft Docs
 description: Aborda alguns dos problemas comuns que você pode encontrar ao configurar o logon único federado usando o SAML para aplicativos que estão listados na Galeria do Aplicativo Azure AD
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 554fb73ea7bf4f866eda3e9f3d629f871cb5e582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781159"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381213"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único federado para um aplicativo na Galeria do Azure AD
 

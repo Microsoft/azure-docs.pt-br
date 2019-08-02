@@ -3,8 +3,8 @@ title: Custos do software de Reservas do Azure | Microsoft Docs
 description: Saiba quais medidores de software do Windows não estão incluídos nos custos de Instância de Máquina Virtual Reservada.
 services: billing
 documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
+author: yashar
+manager: yashar
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 52e2e2503303c2a7525a3a6c156f648c097b27dd
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371165"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478619"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Custos do software do Windows não incluídos nas Instâncias de VM Reservadas do Azure
 
-Se você não tiver um benefício do híbrido do Azure em suas instâncias de máquina virtual reservada, você é cobrado pelos medidores do software listados na seção a seguir.
+A instância reservada da máquina virtual e os descontos de capacidade reservada do SQL aplicam-se apenas aos custos de infraestrutura e não aos custos de software. Se você usar a VM do Windows e não tiver um Benefício Híbrido do Azure em suas instâncias de máquina virtual reservada, você será cobrado pelos medidores de software listados na seção a seguir. Para implantações de PaaS do SQL, o custo IP continuará a ser cobrado usando um medidor separado se Benefício Híbrido do Azure não estiver selecionado.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Medidores de software do Windows não está incluídos no custo de reserva
 
-| MeterId | MeterName no arquivo de utilização | Utilizado por VM |
+| Id do Medidor | MeterName no arquivo de utilização | Utilizado por VM |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reservation-Windows Svr Intermitente (1 Núcleo) | Série B |
 | cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reservation-Windows Svr Intermitente (2 Núcleos) | Série B |
@@ -52,7 +52,7 @@ Se você não tiver um benefício do híbrido do Azure em suas instâncias de m�
 
 ## <a name="cloud-services-software-meters-not-included-in-reservation-cost"></a>Medidores de software de serviços de nuvem não estão incluídos no custo de reserva
 
-| MeterId | MeterName no arquivo de utilização |
+| Id do Medidor | MeterName no arquivo de utilização |
 | ------- | ------------------------|
 |ac9d47ff-ff68-4afc-a145-0c321cf8d0d5|Licença de 1 vCPU dos Serviços de Nuvem|
 |e0434559-19ee-4132-9c46-05ad4044f3f7|Licença de 2 vCPU dos Serviços de Nuvem|
@@ -69,15 +69,15 @@ Se você não tiver um benefício do híbrido do Azure em suas instâncias de m�
 Você pode obter o custo de cada um desses medidores por meio da API RateCard do Azure. Para obter informações sobre como obter as taxas de um medidor do Azure, consulte [Obter informações sobre preço e metadados para recursos usados em uma assinatura do Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre reservas para o Azure, consulte os seguintes artigos:
+Para saber mais sobre reservas do Azure, consulte os seguintes artigos:
 
-- [Quais são as reservas para o Azure?](billing-save-compute-costs-reservations.md)
+- [O que são reservas para o Azure?](billing-save-compute-costs-reservations.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gerenciar reservas para o Azure](billing-manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)
 - [Entender o uso de reserva para seu registro de empresa](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Fale conosco
+## <a name="need-help-contact-us"></a>Precisa de ajuda? Contate-nos
 
-Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).

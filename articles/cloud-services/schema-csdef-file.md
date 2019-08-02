@@ -3,22 +3,17 @@ title: Esquema de definição (arquivo .csdef) dos Serviços de Nuvem do Azure |
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: b7735dbf-8e91-4d1b-89f7-2f17e9302469
 caps.latest.revision: 42
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: ea373c7b35ef82496690f213b92cc97f3536c57a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: b832723fdf773ff06c0b03b9aa80f542279cd309
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66356143"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360622"
 ---
 # <a name="azure-cloud-services-definition-schema-csdef-file"></a>Esquema de definição (arquivo .csdef) dos Serviços de Nuvem do Azure
 O arquivo de definição de serviço define o modelo de serviço para um aplicativo. O arquivo contém as definições das funções disponíveis para um serviço de nuvem, especifica os pontos de extremidade de serviço e estabelece as definições de configuração para o serviço. Os valores de definição de configuração são definidos no arquivo de configuração de serviço, conforme descrito pelo [Esquema de configuração do Serviço de Nuvem (clássico)](/previous-versions/azure/reference/ee758710(v=azure.100)).
@@ -67,9 +62,9 @@ O elemento `ServiceDefinition` é o elemento de nível superior do arquivo de de
 
 A tabela a seguir descreve os atributos do elemento `ServiceDefinition`.
 
-| Atributo               | DESCRIÇÃO |
+| Atributo               | Descrição |
 | ----------------------- | ----------- |
-| name                    |Obrigatório. O nome do serviço. O nome deve ser exclusivo dentro da conta de serviço.|
+| name                    |Obrigatória. O nome do serviço. O nome deve ser exclusivo dentro da conta de serviço.|
 | topologyChangeDiscovery | Opcional. Especifica o tipo de notificação de alteração de topologia. Os valores possíveis são:<br /><br /> -   `Blast` – Envia a atualização assim que possível para todas as instâncias de função. Se você escolher uma opção, a função deverá ser capaz de lidar com a atualização da topologia sem ser reiniciada.<br />-   `UpgradeDomainWalk` – Envia a atualização para cada instância de função de maneira sequencial depois que a instância anterior tiver aceitado a atualização com sucesso.|
 | schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permitirá que o Visual Studio selecione as ferramentas do SDK corretas para usar para a validação de esquema se mais de uma versão do SDK for instalada lado a lado.|
-| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização entre quais funções neste serviço são alocadas. As instâncias de função são alocadas para um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [uma função de serviço de nuvem ou implantação de atualização](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [gerenciar a disponibilidade de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) e [o que é um modelo de serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> É possível especificar até 20 domínios de atualização. Se não especificado, o número padrão de domínios de atualização é 5.|
+| upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização entre quais funções neste serviço são alocadas. As instâncias de função são alocadas para um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [atualizar uma função ou implantação de serviço de nuvem](cloud-services-how-to-manage-portal.md#update-a-cloud-service-role-or-deployment), [gerenciar o disponibilidade de máquinas virtuais](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) e [o que é um modelo de serviço de nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-model-and-package).<br /><br /> É possível especificar até 20 domínios de atualização. Se não especificado, o número padrão de domínios de atualização é 5.|

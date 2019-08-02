@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: e1951a65c48c32f2ce4af722400d03c20dfa684b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e624520a9d1f39bc8115ac72e9df0398065928f1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565386"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fluxx-labs"></a>Tutorial: Integração do Azure Active Directory com o Fluxx Labs
 
@@ -53,7 +53,7 @@ Para configurar a integração do Fluxx Labs ao Microsoft Azure Active Directory
 
 **Para adicionar o Fluxx Labs da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Fluxx Labs, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do Fluxx Labs](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     | Ambiente | Padrão de URL|
     |-------------|------------|
@@ -152,15 +152,15 @@ Para configurar o logon único do Azure AD com o Fluxx Labs, execute as seguinte
 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config3.png)
 
-     a. Marque a caixa de seleção **SSO do SAML**.
+    a. Marque a caixa de seleção **SSO do SAML**.
 
     b. Na caixa de texto **Caminho de solicitação**, digite **/auth/saml**.
 
     c. Na caixa de texto **Caminho de retorno de chamada**, digite **/auth/saml/callback**.
 
-    d. Na caixa de texto **URL do Serviço do Consumidor de Declaração (URL de Logon Único)**, insira o valor da **URL de Resposta** que você inseriu no portal do Azure.
+    d. Na caixa de texto **URL do Serviço do Consumidor de Declaração (URL de Logon Único)** , insira o valor da **URL de Resposta** que você inseriu no portal do Azure.
 
-    e. Na caixa de texto **Público (ID da Entidade SP)**, insira o valor de **Identificador**, que você inseriu no portal do Azure.
+    e. Na caixa de texto **Público (ID da Entidade SP)** , insira o valor de **Identificador**, que você inseriu no portal do Azure.
 
     f. Na caixa de texto **URL de Destino de SSO do Provedor de Identidade**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -243,7 +243,7 @@ Para permitir que os usuários do Azure AD entrem no Fluxx Labs, eles precisam s
 
     ![Configuração do Fluxx Labs](./media/fluxxlabs-tutorial/config5.png)
 
-     a. O Fluxx Labs usa email como identificador exclusivo para logons únicos. Preencha o campo **UID do SSO** com o endereço de email do usuário, que corresponde ao endereço de email, que estão usando como logon com o SSO.
+    a. O Fluxx Labs usa email como identificador exclusivo para logons únicos. Preencha o campo **UID do SSO** com o endereço de email do usuário, que corresponde ao endereço de email, que estão usando como logon com o SSO.
 
     b. Clique em **Save** (Salvar).
 

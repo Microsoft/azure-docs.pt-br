@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0e38a431970613f34ee3af0fdb0eb55c5ad344bb
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 647ea3bdeb914b97fe131d32078ddb610d4d163e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509739"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835469"
 ---
 # <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início Rápido: Configurar a entrada para um aplicativo ASP.NET usando o Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**.
 - Uma conta social do Facebook, Google, Microsoft ou Twitter.
 - [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub.
 
@@ -41,8 +41,8 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 ## <a name="run-the-application-in-visual-studio"></a>Executar o aplicativo no Visual Studio
 
 1. Na pasta de projeto do aplicativo de exemplo, abra a solução **B2C-WebAPI-DotNet.sln** no Visual Studio.
-2. Para este início rápido, você executa os projetos **TaskWebApp** e **TaskService** ao mesmo tempo. Clique com botão direito do mouse na solução **B2C-WebAPI-DotNet** no Gerenciador de Soluções e selecione **Definir Projetos de Inicialização**. 
-3. Selecione **Vários projetos de inicialização** e altere a **Ação** de ambos os projetos para **Iniciar**. 
+2. Para este início rápido, você executa os projetos **TaskWebApp** e **TaskService** ao mesmo tempo. Clique com botão direito do mouse na solução **B2C-WebAPI-DotNet** no Gerenciador de Soluções e selecione **Definir Projetos de Inicialização**.
+3. Selecione **Vários projetos de inicialização** e altere a **Ação** de ambos os projetos para **Iniciar**.
 4. Clique em **OK**.
 5. Pressione **F5** para executar os dois aplicativos. Cada aplicativo é aberto em sua própria guia do navegador:
 
@@ -53,37 +53,37 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 1. Clique em **Inscrever-se/Entrar** no aplicativo Web ASP.NET para iniciar o fluxo de trabalho.
 
-    ![Aplicativo Web ASP.NET de exemplo](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
+    ![Aplicativo Web ASP.NET de exemplo no navegador com o link de inscrição/entrada realçado](media/active-directory-b2c-quickstarts-web-app/web-app-sign-in.png)
 
     O exemplo dá suporte a várias opções de inscrição, incluindo o uso de um provedor de identidade social ou a criação de uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter.
 
 2. O Azure AD B2C apresenta uma página de entrada personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade que você deseja usar.
 
-    ![Provedor de criar conta ou entrar](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
+    ![Página de entrada ou inscrição mostrando os botões do provedor de identidade](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    Você se autentica (entra) usando as credenciais de sua conta social e autoriza o aplicativo a ler as informações da sua conta social. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade. 
+    Você se autentica (entra) usando as credenciais de sua conta social e autoriza o aplicativo a ler as informações da sua conta social. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade.
 
 3. Conclua o processo de entrada para o provedor de identidade.
 
 ## <a name="edit-your-profile"></a>Editar o perfil
 
-O Azure Active Directory B2C fornece funcionalidade para permitir que usuários atualizem seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de perfil de edição do Azure AD B2C no fluxo de trabalho. 
+O Azure Active Directory B2C fornece funcionalidade para permitir que usuários atualizem seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de perfil de edição do Azure AD B2C no fluxo de trabalho.
 
 1. Na barra de menus do aplicativo, clique no nome do perfil e selecione **Editar perfil** para editar o perfil criado.
 
-    ![Editar perfil](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
+    ![Aplicativo Web de exemplo no navegador com o link Editar perfil realçado](media/active-directory-b2c-quickstarts-web-app/edit-profile-web.png)
 
-2. Altere o **Nome de exibição** ou **Cidade**e clique em **Continuar** para atualizar seu perfil. 
+2. Altere o **Nome de exibição** ou **Cidade**e clique em **Continuar** para atualizar seu perfil.
 
     A alteração é exibida na parte superior direita da home page do aplicativo Web.
 
 ## <a name="access-a-protected-api-resource"></a>Acessar um recurso de API protegido
 
-1. Clique em **Lista de tarefas pendentes** para inserir e modificar os itens da lista de tarefas pendentes. 
+1. Clique em **Lista de tarefas pendentes** para inserir e modificar os itens da lista de tarefas pendentes.
 
 2. Insira texto na caixa de texto **Novo Item**. Clique em **Adicionar** para chamar a API Web protegida do Azure AD B2C que adiciona um item de lista de tarefas pendentes.
 
-    ![Adicionar um item de lista de tarefas pendentes](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
+    ![Aplicativo Web de exemplo no navegador com Adicionar um item de lista de tarefas pendentes](media/active-directory-b2c-quickstarts-web-app/add-todo-item-web.png)
 
     O aplicativo Web ASP.NET inclui um token de acesso do Azure AD na solicitação para a recurso da API Web protegido para executar operações em itens de lista de tarefas pendentes do usuário.
 

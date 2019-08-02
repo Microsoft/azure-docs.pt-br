@@ -6,18 +6,18 @@ ms.service: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d9f9b7fe7aafa927f023e1d4e30e079a26f7fab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c11e3f623817894cea801173239cc386c6c3313
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431035"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165829"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planejar seu ambiente de GA de Insights de série de tempo do Azure
 

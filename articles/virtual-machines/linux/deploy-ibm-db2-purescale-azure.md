@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
-ms.author: njray
-ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: edprice
+ms.openlocfilehash: 68fde09b1ee5f18aa784793cc19e9f547b19ed43
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60716040"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871891"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implantar o IBM DB2 pureScale no Azure
 
@@ -78,7 +78,7 @@ O repositório do GitHub inclui o DB2server.rsp, um arquivo de resposta (.rsp) q
 > [!NOTE]
 > Um arquivo de resposta de amostra, DB2server.rsp, está incluso no repositório [DB2onAzure](https://aka.ms/db2onazure) no GitHub. Se você usar esse arquivo, deverá editá-lo antes que ele funcione em seu ambiente.
 
-| Nome da tela               | Campo                                        | Value                                                                                                 |
+| Nome da tela               | Campo                                        | Valor                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
 | Bem-Vindo                   |                                              | Nova instalação                                                                                           |
 | Escolha um produto          |                                              | Versão do DB2 11.1.3.3. Edições de servidor com o DB2 pureScale                                              |

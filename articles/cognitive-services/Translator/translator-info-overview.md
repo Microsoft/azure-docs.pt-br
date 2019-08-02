@@ -3,20 +3,20 @@ title: O que é a API de Tradução de Texto? - API de Tradução de Texto
 titlesuffix: Azure Cognitive Services
 description: Integre a API de Tradução de Texto a seus aplicativos, sites, ferramentas e outras soluções para fornecer experiências de usuário em vários idiomas.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: overview
 ms.date: 06/04/2019
-ms.author: erhopf
+ms.author: swmachan
 ms.custom: seodec18
-ms.openlocfilehash: 89b836109818f7a4c1aafdbc9a1b3a72fe806269
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 8cdd52963f89041ea97b018fd3756c925308e641
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515038"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443272"
 ---
 # <a name="what-is-the-translator-text-api"></a>O que é a API de Tradução de Texto?
 

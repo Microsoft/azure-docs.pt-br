@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 88051c45f21bdf11807ffcc63d8248cba81ae70b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f86a8465bcbd3d88ffb7909cac53c3fd38c3af6
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66137067"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489445"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -30,7 +30,7 @@ Este artigo apresenta perguntas frequentes (FAQs) sobre problemas de configuraç
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Há limitações que devo estar atento se eu quiser mover os recursos do Serviço de Aplicativo?
 
-Se você planeja mover os recursos do Serviço de Aplicativo para um novo grupo de recursos ou assinatura, há algumas limitações a serem consideradas. Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Se você planeja mover os recursos do Serviço de Aplicativo para um novo grupo de recursos ou assinatura, há algumas limitações a serem consideradas. Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Como usar um nome de domínio personalizado para meu aplicativo Web?
 
@@ -56,11 +56,11 @@ Para saber como adquirir e configurar um certificado SSL para seu aplicativo web
 
 No momento, o Azure Application Insights não oferece suporte para a operação de movimentação. Se o grupo de recursos original inclui um recurso do Application Insights, você não pode mover esse recurso. Se você incluir o recurso Application Insights ao tentar mover um aplicativo do Serviço de Aplicativo, toda a operação de movimentação falhará. No entanto, o Application Insights e o plano do Serviço de Aplicativo não precisam residir no mesmo grupo de recursos que o aplicativo para que o aplicativo funcione corretamente.
 
-Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+Para saber mais informações, consulte [Limitações do Serviço de Aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Onde posso encontrar uma lista de verificação de orientação e saber mais sobre o recurso para mover operações?
 
-[Limitações do Serviço de Aplicativo](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) mostra como mover recursos para uma nova assinatura ou para um novo grupo de recursos na mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos, saber quais serviços de suporte para a operação de movimentação e saber mais sobre as limitações do Serviço de Aplicativo e outros tópicos.
+[Limitações do Serviço de Aplicativo](../azure-resource-manager/move-limitations/app-service-move-limitations.md) mostra como mover recursos para uma nova assinatura ou para um novo grupo de recursos na mesma assinatura. Você pode obter informações sobre a lista de verificação de movimentação de recursos, saber quais serviços de suporte para a operação de movimentação e saber mais sobre as limitações do Serviço de Aplicativo e outros tópicos.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Como definir o fuso horário do servidor para o meu aplicativo web?
 
@@ -152,12 +152,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 A exceção foi causada por um problema com o Gerenciador de Conexões Híbridas que desde então foi corrigido. Certifique-se de [atualizar o Gerenciador de Conexões Híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver esse problema.
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Como adicionar ou editar uma regra de regravação de URL?
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>Como fazer adicionar uma regra de regravação de URL?
 
-Para adicionar ou editar uma regra de regravação de URL:
-
-1. Configure o Gerenciador de Serviços de Informações da Internet (IIS) para que ele se conecte ao seu aplicativo web do Serviço de Aplicativo. Para saber como conectar o Gerenciador do IIS para o Serviço de Aplicativo, consulte [Administração remota de sites do Azure usando o Gerenciador do IIS](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. No Gerenciador do IIS, adicione ou edite uma regra de regravação de URL. Para saber como adicionar ou editar uma regra de regravação de URL, consulte [Criar regras de regravação para o módulo de regravação de URL](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+Para adicionar uma regra de reescrita de URL, crie um arquivo Web. config com as entradas de configuração relevantes na pasta **wwwroot** . Para obter mais informações, [consulte serviços de Azure App: Entendendo a regravação](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)de URL.
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Como controlar o tráfego de entrada para o Serviço de Aplicativo?
 

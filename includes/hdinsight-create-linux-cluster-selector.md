@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/25/2018
 ms.author: jasonh
 ms.openlocfilehash: 22c71aaa444d105995ee21c6c255542c2edf77af
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118661"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171652"
 ---
 > [!div class="op_single_selector"]
 > * [Visão geral](../articles/hdinsight/hdinsight-hadoop-provision-linux-clusters.md)

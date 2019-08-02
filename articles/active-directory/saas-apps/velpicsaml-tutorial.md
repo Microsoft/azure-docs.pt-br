@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc8431e2c45cc3bfdfa08dd0078220ab2d290309
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 883620d6aa25f71a454c7add6d60e38b4974facf
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905390"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087660"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory com o Velpic SAML
 
@@ -54,7 +54,7 @@ Para configurar a integração do Velpic SAML ao Azure AD, você precisa adicion
 
 **Para adicionar o Velpic SAML da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Velpic SAML, execute as seguint
 
     ![Informações de logon único em Domínio e URLs do Velpic SAML](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.velpicsaml.net`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<sub-domain>.velpicsaml.net`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://auth.velpic.com/saml/v2/<entity-id>/login`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://auth.velpic.com/saml/v2/<entity-id>/login`
 
     > [!NOTE]
     > Observe que a URL de Logon será fornecida pela equipe do Velpic SAML e o valor do Identificador estará disponível quando você configurar o Plug-in do SSO no lado do Velpic SAML. É preciso copiar esse valor na página do aplicativo Velpic SAML e colá-lo aqui.
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Velpic SAML, execute as seguint
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_1.png)
 
-3. Clique no botão **"Adicionar plug-in"**.
+3. Clique no botão **"Adicionar plug-in"** .
     
     ![Plug-in](./media/velpicsaml-tutorial/velpic_2.png)
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o Velpic SAML, execute as seguint
     
     ![Plug-in](./media/velpicsaml-tutorial/velpic_3.png)
 
-5. Insira o nome do novo plug-in SAML e clique no botão **"Adicionar"**.
+5. Insira o nome do novo plug-in SAML e clique no botão **"Adicionar"** .
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_4.png)
 
@@ -151,13 +151,13 @@ Para configurar o logon único do Azure AD com o Velpic SAML, execute as seguint
 
     ![Plug-in](./media/velpicsaml-tutorial/velpic_5.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do plug-in SAML.
+    a. Na caixa de texto **Nome**, digite o nome do plug-in SAML.
 
     b. Na caixa de texto **URL do Emissor**, cole o **Identificador do Azure AD** que copiou da janela **Configurar logon** no portal do Azure.
 
     c. Em **Configuração dos Metadados do Provedor**, faça upload do arquivo XML de Metadados que você baixou no portal do Azure.
 
-    d. Você também pode optar por habilitar o SAML apenas durante o provisionamento, habilitando a caixa de seleção **"Criar automaticamente novos usuários"**. Se um usuário não existir no Velpic e esse sinalizador não estiver habilitado, o logon no Azure falhará. Se o sinalizador estiver habilitado, o usuário será provisionado automaticamente no Velpic no momento do logon. 
+    d. Você também pode optar por habilitar o SAML apenas durante o provisionamento, habilitando a caixa de seleção **"Criar automaticamente novos usuários"** . Se um usuário não existir no Velpic e esse sinalizador não estiver habilitado, o logon no Azure falhará. Se o sinalizador estiver habilitado, o usuário será provisionado automaticamente no Velpic no momento do logon. 
 
     e. Copie a **URL de logon único** da caixa de texto e cole-a no portal do Azure.
     
@@ -223,11 +223,11 @@ Entre no site da empresa do seu Velpic SAML como um administrador e execute as s
 
     ![adicionar usuário](./media/velpicsaml-tutorial/velpic_7.png)
 
-2. Na página da caixa de diálogo **"Criar Novo Usuário"**, execute as etapas que se seguem.
+2. Na página da caixa de diálogo **"Criar Novo Usuário"** , execute as etapas que se seguem.
 
     ![usuário](./media/velpicsaml-tutorial/velpic_8.png)
     
-     a. Na caixa de texto **Nome**, digite o nome Brenda.
+    a. Na caixa de texto **Nome**, digite o nome Brenda.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome Fernandes.
 

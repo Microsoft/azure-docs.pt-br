@@ -1,38 +1,39 @@
 ---
-title: Criar um classificador – Serviço de Visão Personalizada
-titlesuffix: Azure Cognitive Services
-description: Saiba como usar o site Visão Personalizada para criar um modelo de classificação de imagem.
+title: Início Rápido Criar um classificador – Serviço de Visão Personalizada
+titleSuffix: Azure Cognitive Services
+description: Neste início rápido, você aprenderá a usar o site Visão Personalizada para criar um modelo de classificação de imagem.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
-ms.topic: conceptual
-ms.date: 04/03/2019
+ms.topic: quickstart
+ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 3cb67b57f406774b4bcaf57c24b8e7741068ced6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: dfc137375e35d0d13a34ff45b0c6639bcf6784df
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66497316"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561055"
 ---
-# <a name="how-to-build-a-classifier-with-custom-vision"></a>Como compilar um classificador com Visão Personalizada
+# <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>Início Rápido: Como compilar um classificador com Visão Personalizada
 
-Para usar o Serviço de Visão Personalizada para classificação de imagens, primeiramente você deve criar um modelo de classificador. Neste guia, você aprenderá a criar um classificador usando o site Visão Personalizada.
+Neste início rápido, você aprenderá a criar um classificador usando o site Visão Personalizada. Depois de criar um modelo de classificador, você poderá usar o Serviço de Visão Personalizada para classificação de imagens.
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma assinatura válida do Azure. [Criar uma conta](https://azure.microsoft.com/free/) gratuitamente.
 - Um conjunto de imagens com o qual treinar o seu classificador. Veja abaixo as dicas sobre como escolher imagens.
 
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de Visão Personalizada no portal do Azure
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Criar recursos de visão personalizada no portal do Azure
-Para usar o serviço de visão personalizada, você precisará criar recursos de treinamento de visão personalizada e previsão na [portal do Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Isso criará um recurso de treinamento e previsão. 
+Para usar o serviço de Visão Personalizada, você precisará criar recursos de treinamento e previsão de Visão Personalizada no portal do Azure. Preencha a janela da caixa de diálogo na página [Criar Visão Personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) para criar um recurso de treinamento e de previsão. 
 
 ## <a name="create-a-new-project"></a>Criar um novo projeto
 
-No navegador da Web, navegue até o [site Visão Personalizada](https://customvision.ai) e selecione __Entrar__. Entrar com a mesma conta usada para entrar no portal do Azure.
+No navegador da Web, navegue até o [site Visão Personalizada](https://customvision.ai) e selecione __Entrar__. Entre com a mesma conta usada para entrar no portal do Azure.
 
 ![Imagem da página de entrada](./media/browser-home.png)
 
@@ -44,7 +45,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 1. Insira um nome e uma descrição para o projeto. Selecione um Grupo de Recursos. Se a sua conta conectada estiver associada a uma conta do Azure, a lista suspensa Grupo de Recursos exibirá todos os seus Grupos de Recursos do Azure que contêm um Recurso do Serviço de Visão Personalizada. 
 
    > [!NOTE]
-   > Se nenhum grupo de recursos está disponível, confirme que você fez logon na [customvision.ai](https://customvision.ai) com a mesma conta que é usada para fazer logon na [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo “Diretório” no portal de Visão Personalizada que o diretório no portal do Azure onde se encontram seus recursos de Visão Personalizada. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
+   > Se nenhum grupo de recursos estiver disponível, confirme se você fez logon em [customvision.ai](https://customvision.ai) com a mesma conta que foi usada para fazer logon no [portal do Azure](https://portal.azure.com/). Além disso, confirme se você selecionou o mesmo “Diretório” no portal de Visão Personalizada que o diretório no portal do Azure onde se encontram seus recursos de Visão Personalizada. Em ambos os sites, é possível selecionar seu diretório no menu suspenso de conta no canto superior direito da tela. 
 
 1. Selecione __Classificação__ em __Tipos de Projeto__. Em __Tipos de Classificação__, escolha **Multirótulo** ou **Multiclasse**, dependendo do seu caso de uso. A classificação multirótulo aplica qualquer número de marcas a uma imagem (zero ou mais), enquanto a classificação multiclasse agrupa as imagens em categorias únicas (cada imagem enviada será classificada de acordo com a marca mais provável). Você pode alterar o tipo de classificação posteriormente, se desejar.
 
@@ -62,21 +63,7 @@ No navegador da Web, navegue até o [site Visão Personalizada](https://customvi
 
 ## <a name="choose-training-images"></a>Escolher imagens de treinamento
 
-É recomendável usar pelo menos 30 imagens por marca no conjunto de treinamento inicial. Também é conveniente coletar algumas imagens adicionais para testar o seu modelo após o treinamento.
-
-Para treinar o seu modelo com eficiência, use imagens com variedade de visual. Selecione imagens com essa variação por:
-* ângulo da câmera
-* iluminação
-* background
-* estilo do visual
-* assuntos individuais/agrupados
-* size
-* type
-
-Além disso, certifique-se de que todas as suas imagens de treinamento atendam aos seguintes critérios:
-* formato .jpg, .png ou .bmp
-* não ultrapasse 6 MB em tamanho (4 MB para imagens de previsão)
-* não tenha menos de 256 pixels na borda mais curta; qualquer imagem menor que isso será escalada verticalmente de maneira automática pelo Serviço de Visão Personalizada
+[!INCLUDE [choose training images](includes/choose-training-images.md)]
 
 ## <a name="upload-and-tag-images"></a>Carregar e marcar imagens
 
@@ -118,9 +105,7 @@ Depois que o treinamento estiver concluído, o desempenho do modelo será estima
 
 ### <a name="probability-threshold"></a>Limite de probabilidade
 
-Observe o controle deslizante **Limite de Probabilidade** no painel à esquerda da guia **Desempenho**. Esse é o limite para que uma probabilidade prevista seja considerada correta no cálculo da precisão e da recuperação.
-
-Interpretar chamadas de previsão com um limite alto de probabilidade tende a retornar resultados com alta precisão às custas da recuperação (as classificações encontradas estão corretas, mas muitas não são encontradas); um limite baixo de probabilidade faz o oposto (a maioria das classificações reais é encontrada, mas há falsos positivos nesse conjunto). Com isso em mente, você deve definir o limite de probabilidade de acordo com as necessidades específicas do seu projeto. Posteriormente, no lado do cliente, você deve usar o mesmo valor de limite de probabilidade como um filtro ao receber os resultados de previsão do modelo.
+[!INCLUDE [probability threshold](includes/probability-threshold.md)]
 
 ## <a name="manage-training-iterations"></a>Gerenciar iterações de treinamento
 
@@ -128,7 +113,8 @@ Toda vez que você treina o classificador, cria uma nova _iteração_ com as sua
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia, você aprendeu a criar e treinar um modelo de classificação de imagem usando o site Visão Personalizada. A seguir, saiba mais sobre o processo iterativo para melhorar o seu modelo.
+Neste início rápido, você aprendeu a criar e treinar um modelo de classificação de imagem usando o site Visão Personalizada. A seguir, saiba mais sobre o processo iterativo para melhorar o seu modelo.
 
-[Testar e readaptar um modelo](test-your-model.md)
+> [!div class="nextstepaction"]
+> [Testar e readaptar um modelo](test-your-model.md)
 

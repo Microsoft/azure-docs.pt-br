@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150731"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172588"
 ---
 Configure o software parceiro para se conectar ao cliente. Para se conectar ao software parceiro, normalmente, você precisará das seguintes informações (que podem variar) obtidas na página **Conectar e copiar** da interface do usuário da Web local na etapa anterior:
 

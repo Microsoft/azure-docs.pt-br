@@ -1,21 +1,18 @@
 ---
 title: Visão geral do disco gerenciado do Armazenamento em Disco do Azure para VMs Windows | Microsoft Docs
 description: Visão geral dos discos gerenciados do Azure, que lidam com as contas de armazenamento para você ao usar as VMs do Windows no Azure
-services: virtual-machines-windows,storage
 author: roygara
 ms.service: virtual-machines-windows
-ms.workload: storage
-ms.tgt_pltfrm: vm-windows
 ms.topic: overview
 ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fb1ee8556935b141dfee6a18c96ecafb476aa584
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f86937feb7061950084a8b5bdb532075c7f93869
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725825"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68693714"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 

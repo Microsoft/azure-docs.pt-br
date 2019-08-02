@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 019c4a8f77f2664c68dcc6499fb2f27cc0d1447c
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533486"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326919"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Tutorial: Implantar do GitHub para o Serviço de Aplicativo do Azure com implantação e integração contínua do Jenkins
 
@@ -122,7 +122,7 @@ Em seguida, crie a entidade de serviço do Azure que o Jenkins usa para autentic
 
 ## <a name="create-service-principal"></a>Criar uma entidade de serviço
 
-Em uma seção posterior, você deverá criar um trabalho de pipeline do Jenkins para compilar seu aplicativo do GitHub e implantá-lo no Serviço de Aplicativo do Azure. Para que o Jenkins acesse o Azure sem inserir suas credenciais, crie uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) no Azure Active Directory para o Jenkins. Uma entidade de serviço é uma identidade separada que o Jenkins pode usar para autenticar o acesso a recursos do Azure. Para criar essa entidade de serviço, execute o comando da CLI do Azure [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) em sua linha de comando local ou no Azure Cloud Shell, por exemplo: 
+Em uma seção posterior, você deverá criar um trabalho de pipeline do Jenkins para compilar seu aplicativo do GitHub e implantá-lo no Serviço de Aplicativo do Azure. Para que o Jenkins acesse o Azure sem inserir suas credenciais, crie uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) no Azure Active Directory para o Jenkins. Uma entidade de serviço é uma identidade separada que o Jenkins pode usar para autenticar o acesso a recursos do Azure. Para criar essa entidade de serviço, execute o comando da CLI do Azure [ **`az ad sp create-for-rbac`** ](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) em sua linha de comando local ou no Azure Cloud Shell, por exemplo: 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
@@ -130,7 +130,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
 Use aspas para delimitar o nome da entidade de serviço. Além disso, crie uma senha forte com base nas [restrições e regras de senha do Azure Active Directory](/azure/active-directory/active-directory-passwords-policy). Se você não fornecer uma senha, a CLI do Azure criará uma. 
 
-Veja a saída gerada pelo comando **`create-for-rbac`**: 
+Veja a saída gerada pelo comando **`create-for-rbac`** : 
 
 ```json
 {
@@ -152,7 +152,7 @@ Veja a saída gerada pelo comando **`create-for-rbac`**:
 
 1. No painel principal do Jenkins, escolha **Credenciais** > **Sistema**. 
 
-1. Na página **Sistema**, em **Domínio**, escolha **Credenciais globais (irrestritas)**.
+1. Na página **Sistema**, em **Domínio**, escolha **Credenciais globais (irrestritas)** .
 
 1. No menu à esquerda, escolha **Adicionar Credenciais**.
 
@@ -169,7 +169,6 @@ Veja a saída gerada pelo comando **`create-for-rbac`**:
    | **Segredo do Cliente** | <*yourSecurePassword*> | O valor `password` ou "segredo" fornecido para a entidade de serviço do Azure | 
    | **ID do locatário** | <*yourAzureActiveDirectoryTenant-ID*> | O valor do GUID `tenant` do locatário do Azure Active Directory | 
    | **ID** | <*yourAzureServicePrincipalName*> | O valor `displayName` da entidade de serviço do Azure | 
-   |||| 
 
 1. Para confirmar que a entidade de serviço funciona, escolha **Verificar Entidade de Serviço**. Quando terminar, escolha **OK**.
 

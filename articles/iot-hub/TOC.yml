@@ -5,6 +5,7 @@
     - name: O que é o Hub IoT do Azure?
       href: about-iot-hub.md
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Enviar telemetria
       items:
@@ -36,7 +37,7 @@
           href: quickstart-control-device-android.md
     - name: Comunicação usando fluxos do dispositivo (versão prévia)
       items:
-        - name: 'C#'
+        - name: .NET
           href: quickstart-device-streams-echo-csharp.md
         - name: Node.js
           href: quickstart-device-streams-echo-nodejs.md
@@ -44,7 +45,7 @@
           href: quickstart-device-streams-echo-c.md
     - name: SSH/RDP usando fluxos do dispositivo (versão prévia)
       items:
-        - name: 'C#'
+        - name: .NET
           href: quickstart-device-streams-proxy-csharp.md
         - name: Node.js
           href: quickstart-device-streams-proxy-nodejs.md
@@ -90,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: Alta disponibilidade e recuperação de desastres
       href: iot-hub-ha-dr.md
+    - name: Compreendendo o endereço IP do hub IoT
+      href: iot-hub-understand-ip-address.md
     - name: Dar suporte a protocolos adicionais
       href: iot-hub-protocol-gateway.md
     - name: Comparar mensagem e roteamento de eventos
@@ -159,6 +162,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Segurança
       items:
+        - name: Recomendações
+          href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Segurança desde o início
           href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
         - name: Práticas recomendadas de segurança
@@ -245,7 +250,7 @@
               href: iot-hub-python-python-module-twin-getstarted.md
             - name: C
               href: iot-hub-c-c-module-twin-getstarted.md
-            - name: Nó
+            - name: Node.js
               href: iot-hub-node-node-module-twin-getstarted.md
         - name: Introdução ao gerenciamento de dispositivos
           items:
@@ -438,7 +443,7 @@
     - name: Exemplos de IoT do Azure para a plataforma iOS
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-ios/'
     - name: Catálogo de dispositivos Azure Certified para IoT
-      href: 'https://catalog.azurazureiotsolutionseiotsuite.com/'
+      href: 'https://catalog.azureiotsolutions.com/'
     - name: Centro de Desenvolvedores do IoT do Azure
       href: 'https://azure.microsoft.com/develop/iot/'
     - name: Solicitações de dados do cliente

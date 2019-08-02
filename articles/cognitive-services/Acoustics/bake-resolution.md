@@ -7,15 +7,15 @@ author: KyleStorck
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: KyleStorck
-ms.openlocfilehash: 7dbf63ba39c5dcdebb363cfc37a45f0216a07497
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kylesto
+ms.openlocfilehash: c4f4581beb26eb63392644b40b1e5f16dae0481d
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61335419"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849948"
 ---
 # <a name="project-acoustics-bake-resolution"></a>Resolução do projeto acústica tortas
 Esta visão geral conceitual descreve a diferença entre resoluções grosso e bem ao mesmo tempo, trazendo acústica. Você escolher essa configuração durante a etapa de investigações de padaria do fluxo de trabalho.

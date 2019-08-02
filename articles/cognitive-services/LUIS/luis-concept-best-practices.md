@@ -1,6 +1,6 @@
 ---
-title: Práticas recomendadas
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Práticas recomendadas-LUIS
+titleSuffix: Azure Cognitive Services
 description: Conheça as melhores práticas do LUIS para obter os melhores resultados do seu modelo de aplicativo do LUIS.
 services: cognitive-services
 author: diberry
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a2802bd4daa1a009c610688120c9a56583b054f
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812922"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639283"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Melhores práticas para criação de um aplicativo de reconhecimento vocal com os Serviços Cognitivos
-Use o processo de criação de aplicativos para criar seu aplicativo LUIS. 
+Use o processo de criação de aplicativos para criar seu aplicativo LUIS: 
 
 * Criar modelo de linguagem
 * Adicione alguns exemplos de declaração de treinamento (10-15 por intenção)
@@ -27,7 +27,7 @@ Use o processo de criação de aplicativos para criar seu aplicativo LUIS.
 * Testar do ponto de extremidade 
 * Adicionar recursos
 
-Quando seu aplicativo for [publicado](luis-how-to-publish-app.md), use o ciclo de criação de adicionar recursos, publicar e testar do ponto de extremidade. Não comece o próximo ciclo de criação adicionando mais declarações de exemplo. Isso não permite que o LUIS aprenda seu modelo com declarações de usuário do mundo real. 
+Depois que seu aplicativo for [publicado](luis-how-to-publish-app.md), use o ciclo de criação para adicionar recursos, publicar e testar do ponto de extremidade. Não comece o próximo ciclo de criação adicionando mais declarações de exemplo. Isso não permite que o LUIS aprenda seu modelo com declarações de usuário do mundo real. 
 
 Para o LUIS ser eficiente em seu trabalho de aprendizado, não expanda as declarações até que o conjunto atual de declarações de exemplo e de ponto de extremidade esteja retornando pontuações confiantes e de alta previsão. Melhore as pontuações usando [aprendizado ativo](luis-concept-review-endpoint-utterances.md), [padrões](luis-concept-patterns.md) e [lista de frase](luis-concept-feature.md). 
 
@@ -78,7 +78,7 @@ Para mais informações:
 
 ## <a name="do-add-phrase-lists-and-patterns-in-later-iterations"></a>Adicione listas de frase e padrões em iterações posteriores
 
-Recomenda-se não aplicar essas práticas antes de seu aplicativo ser testado. Você deve compreender como o aplicativo se comporta antes de adicionar listas de frase e padrões, porque esses recursos são ponderados mais pesada do que as declarações de exemplo e distorção confiança. 
+Recomenda-se não aplicar essas práticas antes de seu aplicativo ser testado. Você deve entender como o aplicativo se comporta antes de adicionar [listas de frases](luis-concept-feature.md) e [padrões](luis-concept-patterns.md) , pois esses recursos são ponderados de forma mais intensa do que o exemplo declarações e distorcerá a confiança. 
 
 Depois de compreender como o seu aplicativo se comporta sem elas, adicione cada um desses recursos que se aplicam ao seu aplicativo. Você não precisa adicionar esses recursos a cada [iteração](luis-concept-app-iteration.md) nem alterá-los a cada versão. 
 

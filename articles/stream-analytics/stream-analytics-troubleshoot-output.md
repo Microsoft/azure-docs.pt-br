@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 92cb427149e6e6cbddfb96c6e4488017641e6482
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a07ac40ad3adda486b5216e83d683e00ec93265d
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761736"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620785"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Solucionar problemas de saídas do Azure Stream Analytics
 
@@ -79,7 +79,7 @@ Para ver os detalhes, no portal do Azure, selecione o trabalho de streaming e se
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Aviso de violação de chave com a saída do Banco de Dados SQL do Azure
 
-Ao configurar o Banco de Dados SQL do Azure como saída para um trabalho do Stream Analytics, o volume insere registros na tabela de destino. Em geral, o Azure Stream Analytics garante [pelo menos uma vez a entrega]( https://msdn.microsoft.com/azure/stream-analytics/reference/event-delivery-guarantees-azure-stream-analytics) para o coletor de saída, ainda pode-se obter [EOD (exactly-once-delivery)]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para saída do SQL quando a tabela do SQL tiver uma restrição exclusiva definida. 
+Ao configurar o Banco de Dados SQL do Azure como saída para um trabalho do Stream Analytics, o volume insere registros na tabela de destino. Em geral, o Azure Stream Analytics garante [pelo menos uma vez a entrega](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) para o coletor de saída, ainda pode-se obter [EOD (exactly-once-delivery)]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para saída do SQL quando a tabela do SQL tiver uma restrição exclusiva definida. 
 
 Quando as restrições de chave exclusivas são definidas na tabela SQL e existem registros duplicados sendo inseridos na tabela do SQL, o Azure Stream Analytics remove o registro duplicado. Ele divide os dados em lotes e recursivamente insere os lotes até que um único registro duplicado seja encontrado. Se o trabalho de streaming tem um número considerável de linhas duplicadas, ele divide e insere o processo para ignorar as duplicatas uma por uma, que é menos eficiente e demorado. Se visualizar várias mensagens de advertência de violação da chave no log de atividades na última hora, é provável que a saída do SQL esteja retardando o trabalho inteiro. 
 
@@ -91,6 +91,10 @@ Observe as observações a seguir ao configurar IGNORE_DUP_KEY para vários tipo
 * É possível definir a opção IGNORE_DUP_KEY utilizando ALTER INDEX para um índice exclusivo, que é diferente da restrição PRIMARY KEY/UNIQUE e criada utilizando a definição CREATE INDEX ou INDEX.  
 * IGNORE_DUP_KEY não é aplicável para índices de repositório de coluna porque não é possível impor a exclusividade desses índices.  
 
+## <a name="column-names-are-lower-cased-by-azure-stream-analytics"></a>Nomes de coluna são letras minúsculas pelo Azure Stream Analytics
+Ao usar o nível de compatibilidade original (1.0), Azure Stream Analytics é usado para alterar os nomes de coluna para letras minúsculas. Esse comportamento foi corrigido em níveis de compatibilidade mais recente. Para preservar o caso, aconselhamos que os clientes a migrarem para o nível de compatibilidade 1.1 e posterior. Você pode encontrar mais informações sobre [nível de compatibilidade para trabalhos do Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+
+
 ## <a name="get-help"></a>Obter ajuda
 
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
@@ -100,5 +104,5 @@ Para obter mais assistência, experimente nosso [fórum do Stream Analytics do A
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

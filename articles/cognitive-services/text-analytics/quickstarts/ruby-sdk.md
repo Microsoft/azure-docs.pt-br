@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: tasharm
-ms.openlocfilehash: 688887826fa803b616ca737bc8558aa17ed80e37
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 3f18b77fe436328e79df351b9c5edcf6dc289ad7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297769"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697260"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-ruby-sdk"></a>Início Rápido: Chamar o serviço de Análise de Texto usando o SDK do Ruby
 
@@ -32,8 +32,6 @@ Consulte as [definições da API](//go.microsoft.com/fwlink/?LinkID=759346) para
 * O [SDK de Análise de Texto para Ruby](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
  
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição. 
 
 <a name="RubyProject"></a>
 

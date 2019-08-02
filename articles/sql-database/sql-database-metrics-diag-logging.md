@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/21/2019
+ms.openlocfilehash: 6824a7151a0c007d6fe4ba021f274886a3cf0dcb
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791958"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447818"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico
 
-Neste tópico, você aprenderá como configurar logs de telemetria de diagnóstico para o banco de dados SQL por meio do portal do Azure, PowerShell, CLI do Azure, API de REST do Azure Monitor e modelo do Resource Manager. Estes diagnósticos podem ser usados para medir a utilização de recursos e as estatísticas de execução de consulta. 
+Neste tópico, você aprenderá como configurar logs de telemetria de diagnóstico para o banco de dados SQL por meio do portal do Azure, PowerShell, CLI do Azure, API de REST do Azure Monitor e modelo do Resource Manager. Estes diagnósticos podem ser usados para medir a utilização de recursos e as estatísticas de execução de consulta.
 
 Bancos de dados individuais, bancos de dados em pool em pools elásticos e bancos de dados de instância em uma instância gerenciada podem transmitir logs de diagnóstico e métricas para facilitar o monitoramento de desempenho. Você pode configurar um banco de dados para transmitir o uso de recursos, trabalhos e sessões e conectividade para um dos seguintes recursos do Azure:
 
@@ -119,7 +119,7 @@ Para habilitar o streaming de telemetria de diagnóstico para recursos de um poo
 1. Além disso, configure a transmissão de telemetria de diagnóstico para cada banco de dados dentro do pool Elástico que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
-> Além de configurar a telemetria de diagnóstico para um pool Elástico, você também precisa configurar a telemetria de diagnóstico para cada banco de dados no pool Elástico, como documentado abaixo. 
+> Além de configurar a telemetria de diagnóstico para um pool Elástico, você também precisa configurar a telemetria de diagnóstico para cada banco de dados no pool Elástico, como documentado abaixo.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>Configurar a transmissão de telemetria de diagnóstico para um único banco de dados ou banco de dados no pool Elástico
 
@@ -181,7 +181,7 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de inst
 1. Além disso, configure a transmissão de telemetria de diagnóstico para cada instância de banco de dados dentro da instância gerenciada que você deseja monitorar, seguindo as etapas descritas na próxima seção.
 
 > [!IMPORTANT]
-> Além de configurar a telemetria de diagnóstico para uma instância gerenciada, você também precisa configurar a telemetria de diagnóstico para cada banco de dados de instância, como documentado abaixo. 
+> Além de configurar a telemetria de diagnóstico para uma instância gerenciada, você também precisa configurar a telemetria de diagnóstico para cada banco de dados de instância, como documentado abaixo.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>Configurar a transmissão de telemetria de diagnóstico por exemplo, bancos de dados
 
@@ -261,6 +261,7 @@ Insira a ID de recurso do workspace \<$WSID\> como um parâmetro ao executar o s
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
+
    Substitua \<subID\> pela ID de assinatura \<RG_NAME\> com o nome do grupo de recursos e \<WS_NAME\> com o nome do workspace.
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -396,10 +397,6 @@ Um nome de blob para armazenar dados de um pool elástico se parece com:
 ```powershell
 insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-
-### <a name="download-metrics-and-logs-from-storage"></a>Fazer download de métricas e logs do Armazenamento
-
-Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).
 
 ## <a name="data-retention-policy-and-pricing"></a>Política de retenção de dados e preços
 
@@ -719,5 +716,3 @@ Para saber mais sobre os Hubs de Evento, leia:
 
 - [O que é Hub de Eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introdução aos Hubs de Evento](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-Para saber mais sobre o Armazenamento do Azure, veja como [baixar métricas e logs de diagnóstico do Armazenamento](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application).

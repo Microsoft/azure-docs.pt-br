@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
+ms.reviewer: genemi, ayolubek, jrasnick
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 9704acee2ca8bad7437ae22ff5041e2253916dce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: bb38f73308fb1eb67be310120cb589cb9412e737
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160799"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461821"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Alias do DNS para Banco de Dados SQL do Azure
 
@@ -30,6 +30,7 @@ Alguns usos comuns para um alias do DNS incluem os seguintes casos:
 - Criar um nome fácil de lembrar para um servidor do SQL Server do Azure.
 - Durante o desenvolvimento inicial, seu alias pode se referir a um servidor de teste do Banco de Dados SQL. Quando o aplicativo for lançado, você poderá modificar o alias para se referir ao servidor de produção. A transição de teste para a produção não exige nenhuma modificação nas configurações dos vários clientes que se conectam ao servidor de banco de dados.
 - Suponha que único banco de dados em seu aplicativo seja movido para outro servidor do Banco de Dados SQL. Aqui você pode modificar o alias sem a necessidade de modificar as configurações dos vários clientes.
+- Durante uma interrupção regional você usar a restauração geográfica para recuperar seu banco de dados em um servidor diferente e uma região. Você pode modificar seu alias existente para apontar para o novo servidor para que o aplicativo de cliente existentes novamente pode se conectar a ele. 
 
 ## <a name="domain-name-system-dns-of-the-internet"></a>DNS (Sistema de Nomes de Domínio) da Internet
 
@@ -49,7 +50,7 @@ Depois, quando o novo sistema for lançado em produção, você poderá atualiza
 
 ### <a name="cross-region-support"></a>Suporte entre regiões
 
-Uma recuperação de desastre pode mudar seu servidor do Banco de Dados SQL para uma região geográfica diferente. Um sistema que estava usando um alias do DNS pode evitar a necessidade de localizar e atualizar as cadeias de conexão de todos os clientes. Em vez disso, você pode atualizar um alias para se referir ao novo servidor do Banco de Dados SQL que agora hospeda o seu banco de dados.
+Uma recuperação de desastre pode mudar seu servidor do Banco de Dados SQL para uma região geográfica diferente. Para um sistema que estava usando um alias DNS, a necessidade de localizar e atualizar todas as cadeias de conexão para todos os clientes pode ser evitada. Em vez disso, você pode atualizar um alias para se referir ao novo servidor do Banco de Dados SQL que agora hospeda o seu banco de dados.
 
 ## <a name="properties-of-a-dns-alias"></a>Propriedades de um alias do DNS
 
@@ -67,13 +68,6 @@ As propriedades a seguir se aplicam a cada alias de DNS do seu servidor do Banco
 Os cmdlets do PowerShell e das APIs REST estão disponíveis para que você possa gerenciar seus aliases de DNS de forma programática.
 
 ### <a name="rest-apis-for-managing-your-dns-aliases"></a>APIs REST para gerenciar seus aliases de DNS
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 A documentação das APIs REST está disponível perto do seguinte local:
 
@@ -111,7 +105,7 @@ Atualmente, um alias de DNS tem as seguintes limitações:
 - *Atraso de até 2 minutos:* Leva até 2 minutos para um alias do DNS ser atualizado ou removido.
   - Independentemente de qualquer breve atraso, o alias interrompe imediatamente as conexões de cliente que fazem referência ao servidor herdado.
 - *Pesquisa de DNS:* Atualmente, a única maneira autoritativa de verificar a qual servidor um dado alias do DNS faz referência é realizando uma [Pesquisa de DNS](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Não há suporte para auditoria de tabela](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* Não é possível usar um alias do DNS em um servidor do Banco de Dados SQL do Azure que tenha *auditoria de tabela* habilitada em um banco de dados.
+- _Não há suporte para a auditoria de tabela:_ Não é possível usar um alias do DNS em um servidor do Banco de Dados SQL do Azure que tenha *auditoria de tabela* habilitada em um banco de dados.
   - A auditoria de tabela foi preterida.
   - É recomendável que você mude para a [Auditoria de Blob](sql-database-auditing.md).
 

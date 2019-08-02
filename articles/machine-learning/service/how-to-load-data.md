@@ -10,32 +10,32 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 02/22/2019
+ms.date: 07/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: fef3281f1f4e727b58878439e3f6456fee3b6241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd60d9f9bee55ef1342fe344e8b4f2f64e313331
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752942"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360980"
 ---
-# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carregar e ler os dados com o SDK do Azure Machine Learning Data Prep
-Neste artigo, você aprenderá a diferentes métodos de carregamento de dados usando o SDK do Azure Machine Learning Data Prep.  O SDK suporta vários recursos de ingestão de dados, incluindo:
+# <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carregar e ler dados com o SDK de preparação de dados Azure Machine Learning
+Neste artigo, você aprende diferentes métodos de carregamento de dados usando o SDK do Azure Machine Learning data Prep.  O SDK suporta vários recursos de ingestão de dados, incluindo:
 
 * Carregar de muitos tipos de arquivos com inferência de parâmetros de análise (codificação, separador, cabeçalhos)
 * Conversão de tipos usando inferência durante o carregamento de arquivos
 * Suporte de conexão para o MS SQL Server e o Azure Data Lake Storage
 
 > [!Important]
-> Se você estiver criando uma nova solução, tente as [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (visualização) para preparação e exploração de dados. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de inteligência Artificial a preparação de dados.
-> Se você usar o `azureml-dataprep` pacote para criar um fluxo de dados com transformações em vez de usar o `azureml-datasets` pacote para criar um conjunto de dados, você não poderá usar instantâneos ou conjuntos de dados com controle de versão posterior.
+> Se você estiver criando uma nova solução, experimente os [conjuntos](how-to-explore-prepare-data.md) de dados do Azure Machine Learning (versão prévia) para exploração e preparação de dado. Os conjuntos de dados são a próxima versão do data Prep SDK, oferecendo funcionalidade expandida para gerenciar conjuntos de dados em soluções de ia.
 
-A tabela a seguir mostra uma seleção de funções usadas para carregamento de dados de tipos de arquivo comuns.
+
+A tabela a seguir mostra uma seleção de funções usadas para carregar dados de tipos de arquivo comuns.
 
 | Tipo de arquivo | Função | Link de referência |
 |-------|-------|-------|
-|Qualquer|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
-|Text|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-lines-path--filepath--header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
+|Any|`auto_read_file()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#auto-read-file-path--filepath--include-path--bool---false-----azureml-dataprep-api-dataflow-dataflow)|
+|Texto|`read_lines()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-lines-path--filepath--header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-none--0---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |CSV|`read_csv()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-csv-path--filepath--separator--str--------header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---quoting--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---comment--str---none--include-path--bool---false--archive-options--azureml-dataprep-api--archiveoption-archiveoptions---none--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |Excel|`read_excel()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-excel-path--filepath--sheet-name--str---none--use-column-headers--bool---false--inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
 |Largura fixa|`read_fwf()`|[reference](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep#read-fwf-path--filepath--offsets--typing-list-int---header--azureml-dataprep-api-dataflow-promoteheadersmode----promoteheadersmode-constantgrouped--3---encoding--azureml-dataprep-api-engineapi-typedefinitions-fileencoding----fileencoding-utf8--0---inference-arguments--azureml-dataprep-api-builders-inferencearguments---none--skip-rows--int---0--skip-mode--azureml-dataprep-api-dataflow-skipmode----skipmode-none--0---include-path--bool---false--infer-column-types--bool---false--verify-exists--bool---true-----azureml-dataprep-api-dataflow-dataflow)|
@@ -57,7 +57,7 @@ Essa função é útil para detectar automaticamente o tipo de arquivo, a codifi
 * Ignorar registros vazios na parte superior do arquivo
 * Inferir e definir a linha de cabeçalho
 
-Como alternativa, se você souber o arquivo Digite antecipadamente e quiser controlar explicitamente a maneira que ele é analisado, use as funções específicas do arquivo.
+Como alternativa, se você souber o tipo de arquivo antecipadamente e quiser controlar explicitamente a maneira como ele é analisado, use as funções específicas do arquivo.
 
 ## <a name="load-text-line-data"></a>Carregar dados da linha de texto
 
@@ -101,7 +101,7 @@ Para excluir linhas durante o carregamento, defina o parâmetro `skip_rows`. Est
 
 ```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
-                          skip_rows=1)
+                       skip_rows=1)
 dflow.head(5)
 ```
 
@@ -128,7 +128,7 @@ Saída:
 
 Por padrão, o Azure Machine Learning Data Prep SDK não altera seu tipo de dados. A fonte de dados da qual você está lendo é um arquivo de texto, portanto, o SDK lê todos os valores como strings. Para este exemplo, colunas numéricas devem ser analisadas como números. Defina o `inference_arguments` parâmetro para `InferenceArguments.current_culture()` para inferir e converter automaticamente os tipos de colunas durante a leitura do arquivo.
 
-```
+```python
 dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv',
                           skip_rows=1,
                           inference_arguments=dprep.InferenceArguments.current_culture())
@@ -162,26 +162,28 @@ dflow.head(5)
 |0|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
 |1|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
 |2|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum|Nenhum| |
-|3|RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^| |
+|3|Classificar|Título|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^| |
 |4|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|5|
 
 A saída mostra que os dados na segunda folha tinham três linhas vazias antes dos cabeçalhos. A função `read_excel()` contém parâmetros opcionais para pular linhas e usar cabeçalhos. Execute o seguinte código para pular as três primeiras linhas e use a quarta linha como os cabeçalhos.
 
 ```python
-dflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
+dflow = dprep.read_excel(path='./data/excel.xlsx',
+                         sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
-||RANK|Title|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|
+||Classificar|Título|Estúdio|Worldwide|Domestic / %|Coluna1|Overseas / %|Coluna2|Year^|
 |------|------|------|-----|------|-----|-------|----|-----|-----|
 |0|1|Avatar|Fox|2788|760.5|0.273|2027.5|0.727|2009^|
 |1|2|Titanic|Par.|2186,8|658. 7|0,301|1528,1|0. 699|1997^|
 
 ## <a name="load-fixed-width-data-files"></a>Carregar arquivos de dados de largura fixa
 
-Para carregar arquivos de largura fixa, você deve especificar uma lista de deslocamentos de caracteres. A primeira coluna é sempre assumida para iniciar no deslocamento zero.
+Para carregar arquivos de largura fixa, você especifica uma lista de deslocamentos de caracteres. A primeira coluna é sempre assumida para iniciar no deslocamento zero.
 
 ```python
-dflow = dprep.read_fwf('./data/fixed_width_file.txt', offsets=[7, 13, 43, 46, 52, 58, 65, 73])
+dflow = dprep.read_fwf('./data/fixed_width_file.txt',
+                       offsets=[7, 13, 43, 46, 52, 58, 65, 73])
 dflow.head(5)
 ```
 
@@ -195,8 +197,8 @@ Para evitar a detecção de cabeçalho e analisar os dados corretos, passe `Prom
 
 ```python
 dflow = dprep.read_fwf('./data/fixed_width_file.txt',
-                          offsets=[7, 13, 43, 46, 52, 58, 65, 73],
-                          header=dprep.PromoteHeadersMode.NONE)
+                       offsets=[7, 13, 43, 46, 52, 58, 65, 73],
+                       header=dprep.PromoteHeadersMode.NONE)
 ```
 
 ||Coluna1|Coluna2|Coluna3|Coluna4|Coluna5|Coluna6|Coluna7|Coluna8|Coluna9|
@@ -207,7 +209,7 @@ dflow = dprep.read_fwf('./data/fixed_width_file.txt',
 
 ## <a name="load-sql-data"></a>Carregar dados do SQL
 
-O SDK também pode carregar dados de uma fonte de SQL. Atualmente, somente o Microsoft SQL Server é suportado. Para ler dados de um SQL server, crie uma [ `MSSQLDataSource` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) objeto que contém os parâmetros de conexão. O parâmetro de senha do `MSSQLDataSource` aceita um [ `Secret` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) objeto. Você pode construir um objeto secreto de duas maneiras:
+O SDK também pode carregar dados de uma fonte de SQL. Atualmente, somente o Microsoft SQL Server é suportado. Para ler dados de um SQL Server, crie um [`MSSQLDataSource`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.mssqldatasource?view=azure-dataprep-py) objeto que contenha os parâmetros de conexão. O parâmetro password de `MSSQLDataSource` aceita um [`Secret`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep?view=azure-dataprep-py#register-secret-value--str--id--str---none-----azureml-dataprep-api-engineapi-typedefinitions-secret) objeto. Você pode construir um objeto secreto de duas maneiras:
 
 * Registre o segredo e seu valor no mecanismo de execução.
 * Crie o segredo com apenas `id` (se o valor secreto já estiver registrado no ambiente de execução) usando `dprep.create_secret("[SECRET-ID]")`.
@@ -228,7 +230,7 @@ dflow = dprep.read_sql(ds, "SELECT top 100 * FROM [SalesLT].[Product]")
 dflow.head(5)
 ```
 
-| |ProductID|NOME|ProductNumber|Cor|StandardCost|ListPrice|Tamanho|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
+| |ProductID|Nome|ProductNumber|Cor|StandardCost|ListPrice|Tamanho|Peso|ProductCategoryID|ProductModelID|SellStartDate|SellEndDate|DiscontinuedDate|ThumbNailPhoto|ThumbnailPhotoFileName|rowguid|ModifiedDate| |
 |-|---------|----|-------------|-----|------------|---------|----|------|-----------------|--------------|-------------|-----------|----------------|--------------|----------------------|-------|------------|-|
 |0|680|HL Road Frame - Black, 58|FR-R92B-58|Preto|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|Nenhum|Nenhum|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|43dd68d6-14a4-461f-9069-55309d90ea7e|2008-03-11 |0:01:36.827000+00:00|
 |1|706|HL Road Frame - Red, 58|FR-R92R-58|Vermelho|1059.3100|1431.50|58|1016.04|18|6|2002-06-01 00:00:00+00:00|Nenhum|Nenhum|b'GIF89aP\x001\x00\xf7\x00\x00\x00\x00\x00\x80...|no_image_available_small.gif|9540ff17-2712-4c90-a3d1-8ce5568b2462|2008-03-11 |10:01:36.827000+00:00|
@@ -294,15 +296,18 @@ servicePrincipalAppId = "8dd38f34-1fcb-4ff9-accd-7cd60b757174"
 
 ### <a name="acquire-an-oauth-access-token"></a>Adquirir um token de acesso do OAuth
 
-Use o `adal` pacote (`pip install adal`) para criar um contexto de autenticação no locatário da MSFT e adquirir um token de acesso do OAuth. Para o ADLS, o recurso na solicitação de token deve ser para ' https:\//datalake.azure.net', que é diferente da maioria dos outros recursos do Azure.
+Use o `adal` pacote (`pip install adal`) para criar um contexto de autenticação no locatário da MSFT e adquirir um token de acesso do OAuth. Para ADLS, o recurso na solicitação de token deve ser para "https:\//datalake.Azure.net", que é diferente da maioria dos outros recursos do Azure.
 
 ```python
 import adal
 from azureml.dataprep.api.datasources import DataLakeDataSource
 
-ctx = adal.AuthenticationContext('https://login.microsoftonline.com/microsoft.onmicrosoft.com')
-token = ctx.acquire_token_with_client_certificate('https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
-dflow = dprep.read_csv(path = DataLakeDataSource(path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
+ctx = adal.AuthenticationContext(
+    'https://login.microsoftonline.com/microsoft.onmicrosoft.com')
+token = ctx.acquire_token_with_client_certificate(
+    'https://datalake.azure.net/', servicePrincipalAppId, certificate, certThumbprint)
+dflow = dprep.read_csv(path=DataLakeDataSource(
+    path='adl://dpreptestfiles.azuredatalakestore.net/farmers-markets.csv', accessToken=token['accessToken']))
 dflow.to_pandas_dataframe().head()
 ```
 
@@ -316,4 +321,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte o SDK do Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obter um exemplo de resolver um cenário específico
+* Consulte o [tutorial](tutorial-data-prep.md) Azure Machine Learning data Prep SDK para obter um exemplo de como resolver um cenário específico

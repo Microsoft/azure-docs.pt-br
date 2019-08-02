@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: db646c48c1332f986840d54127729c766ffb6dd7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c13c6ab180a172c034d25ac84781f5d3f83ae186
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920322"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086632"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: integração do Azure Active Directory com o Workstars
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Workstars, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Workstars](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://workstars.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://workstars.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.workstars.com/saml/login_check`
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o Workstars, execute as seguintes
     
     ![SAML do Workstars](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
-     a. Na caixa de texto **Nome do Provedor de Identidade**, digite **Office 365**.
+    a. Na caixa de texto **Nome do Provedor de Identidade**, digite **Office 365**.
 
     b. Na caixa de texto **ID da Entidade do Provedor de Identidade**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
 
@@ -224,5 +224,5 @@ Ao clicar no bloco do Workstars no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

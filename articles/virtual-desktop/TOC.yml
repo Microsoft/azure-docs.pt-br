@@ -8,9 +8,9 @@
   items:
     - name: 1. Criar um locatário na Área de Trabalho Virtual do Windows
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Criar entidades de serviço e atribuições de função com o PowerShell
+    - name: 2. Criar entidades de serviço e atribuições de função usando o PowerShell
       href: create-service-principal-role-powershell.md
-    - name: 3. Criar um pool de host com o Azure Marketplace
+    - name: 3. Criar um pool de host usando o Azure Marketplace
       href: create-host-pools-azure-marketplace.md
     - name: 4. Gerenciar grupos de aplicativos
       href: manage-app-groups.md
@@ -44,6 +44,8 @@
       href: configure-vm-gpu.md
     - name: Dimensionar automaticamente hosts da sessão
       href: set-up-scaling-script.md
+    - name: Personalizar o feed para usuários da Área de Trabalho Virtual do Windows
+      href: customize-feed-for-virtual-desktop-users.md
     - name: Personalizar as propriedades RDP
       href: customize-rdp-properties.md
 - name: Conceitos
@@ -56,6 +58,8 @@
       href: host-pool-load-balancing.md
     - name: Contêineres de perfil FSLogix e arquivos do Azure
       href: fslogix-containers-azure-files.md
+    - name: Integrações de parceiro
+      href: partners.md
 - name: Solucionar problemas
   items:
     - name: 'Visão geral da solução de problemas, comentários e suporte'
@@ -80,3 +84,5 @@
   items:
     - name: Grupo de suporte técnico da comunidade
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
+    - name: Fórum do UserVoice
+      href: 'https://windowsvirtualdesktop.uservoice.com/forums/921118-general'

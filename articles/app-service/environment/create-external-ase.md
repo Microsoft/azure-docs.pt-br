@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e04dfa4148213e88aa46e464a31cdd9b6125e0bf
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60768964"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705774"
 ---
 # <a name="create-an-external-app-service-environment"></a>Como criar um ambiente externo do Serviço de Aplicativo
 
@@ -33,13 +33,13 @@ Há duas maneiras de implantar um ASE (ambiente do serviço de aplicativo):
 - Com um VIP em um endereço IP externo, geralmente chamado de ASE externo.
 - Com o VIP em um endereço IP interno, geralmente chamado de ASE ILB devido ao ponto de extremidade interno ser um Balanceador de Carga Interno (ILB).
 
-Este artigo mostra como criar um ASE Externo. Para obter uma visão geral do ASE, confira [Uma introdução ao ambiente do serviço de aplicativo][Intro]. Para obter informações sobre como criar uma ASE ILB, confira [Criação e uso de uma ASE ILB][MakeILBASE].
+Este artigo mostra como criar um ASE Externo. Para obter uma visão geral do ASE, consulte [uma introdução ao ambiente do serviço de aplicativo][Intro]. For information on how to create an ILB ASE, see [Create and use an ILB ASE][MakeILBASE].
 
 ## <a name="before-you-create-your-ase"></a>Antes de criar seu ASE
 
 Depois de criar o seu ASE, você não pode alterar os seguintes itens:
 
-- Local padrão
+- Location
 - Assinatura
 - Grupo de recursos
 - VNET usada
@@ -56,7 +56,7 @@ Há três maneiras de criar uma ASE:
 
 - **Durante a criação de um plano do serviço de aplicativo**. Esse método cria o ASE e o plano do serviço de aplicativo em uma única etapa.
 - **Como uma ação autônoma**. Este método cria um ASE autônomo, que é um ASE em branco. Esse método é um processo de criação de ASE mais avançado. Você pode usá-lo para criar um ASE com um ILB.
-- **De um modelo do Azure Resource Manager**. Esse método é para usuários avançados. Para obter mais informações, confira [Como criar um ASE a partir de um modelo][MakeASEfromTemplate].
+- **De um modelo do Azure Resource Manager**. Esse método é para usuários avançados. Para obter mais informações, consulte [criar um ASE usando um modelo][MakeASEfromTemplate].
 
 Um ASE externo tem um VIP público, o que significa que todo o tráfego HTTP/HTTPS para os aplicativos do ASE atinge um endereço IP acessível pela Internet. Um ASE com um ILB tem um endereço IP de sub-rede usado pelo ASE. Os aplicativos hospedados em um ASE ILB não são expostos diretamente à Internet.
 
@@ -72,7 +72,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 2. Selecione sua assinatura. O aplicativo e o ASE são criados nas mesmas assinaturas.
 
-3. Selecione ou crie um grupo de recursos. Você pode usar os grupos de recursos para gerenciar recursos relacionados do Azure como uma unidade. Os grupos de recursos são úteis quando deseja estabelecer regras de controle de acesso baseado em função nos seus aplicativos. Para saber mais, confira [Visão geral do Azure Resource Manager][ARMOverview].
+3. Selecione ou crie um grupo de recursos. Você pode usar os grupos de recursos para gerenciar recursos relacionados do Azure como uma unidade. Os grupos de recursos são úteis quando deseja estabelecer regras de controle de acesso baseado em função nos seus aplicativos. Para saber mais informações, confira [Visão geral do Azure Resource Manager][ARMOverview].
 
 4. Selecione seu sistema operacional (Windows, Linux ou Docker). 
 
@@ -96,7 +96,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
     b. Digite um novo nome de sub-rede.
 
-    c. Selecionar o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos `/25`, que tem 128 endereços e pode manipular um ASE de tamanho máximo. Não recomendamos `/28`, por exemplo, porque tem somente 16 endereços disponíveis. A infraestrutura usa pelo menos sete endereços e a Rede do Azure usa outros 5. Em uma sub-rede `/28`, você fica com um dimensionamento máximo de 4 instâncias do Plano do Serviço de Aplicativo para uma ASE externa e apenas 3 instâncias do Plano do Serviço de Aplicativo para uma ASE ILB.
+    c. Selecionar o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos `/24`, que tem 128 endereços e pode manipular um ASE de tamanho máximo. Não recomendamos `/28`, por exemplo, porque tem somente 16 endereços disponíveis. A infraestrutura usa pelo menos sete endereços e a Rede do Azure usa outros 5. Em uma sub-rede `/28`, você fica com um dimensionamento máximo de 4 instâncias do Plano do Serviço de Aplicativo para uma ASE externa e apenas 3 instâncias do Plano do Serviço de Aplicativo para uma ASE ILB.
 
     d. Selecione o intervalo de IP da sub-rede.
 
@@ -110,7 +110,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
 1. Selecione sua assinatura. O aplicativo e o ASE são criados nas mesmas assinaturas.
 
-1. Selecione ou crie um grupo de recursos. Você pode usar os grupos de recursos para gerenciar recursos relacionados do Azure como uma unidade. Os grupos de recursos são úteis quando deseja estabelecer regras de controle de acesso baseado em função nos seus aplicativos. Para saber mais, confira [Visão geral do Azure Resource Manager][ARMOverview].
+1. Selecione ou crie um grupo de recursos. Você pode usar os grupos de recursos para gerenciar recursos relacionados do Azure como uma unidade. Os grupos de recursos são úteis quando deseja estabelecer regras de controle de acesso baseado em função nos seus aplicativos. Para saber mais informações, confira [Visão geral do Azure Resource Manager][ARMOverview].
 
 1. Clique no plano do serviço de aplicativo e, em seguida, selecione **Criar Novo**. Aplicativos web do Linux e aplicativos web do Windows não podem estar no mesmo Plano de Serviço de Aplicativo, mas podem estar no mesmo Ambiente de Serviço de Aplicativo. 
 
@@ -132,7 +132,7 @@ Para criar um ASE durante a criação de um plano do serviço de aplicativo:
 
     b. Digite um novo nome de sub-rede.
 
-    c. Selecionar o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos `/25`, que tem 128 endereços e pode manipular um ASE de tamanho máximo. Não recomendamos `/28`, por exemplo, porque tem somente 16 endereços disponíveis. A infraestrutura usa pelo menos sete endereços e a Rede do Azure usa outros 5. Em uma sub-rede `/28`, você fica com um dimensionamento máximo de 4 instâncias do Plano do Serviço de Aplicativo para uma ASE externa e apenas 3 instâncias do Plano do Serviço de Aplicativo para uma ASE ILB.
+    c. Selecionar o tamanho da sub-rede. *Não se esqueça de selecionar um tamanho grande o suficiente para acomodar o crescimento futuro do seu ASE.* Recomendamos `/24`, que tem 128 endereços e pode manipular um ASE de tamanho máximo. Não recomendamos `/28`, por exemplo, porque tem somente 16 endereços disponíveis. A infraestrutura usa pelo menos sete endereços e a Rede do Azure usa outros 5. Em uma sub-rede `/28`, você fica com um dimensionamento máximo de 4 instâncias do Plano do Serviço de Aplicativo para uma ASE externa e apenas 3 instâncias do Plano do Serviço de Aplicativo para uma ASE ILB.
 
     d. Selecione o intervalo de IP da sub-rede.
 
@@ -156,7 +156,7 @@ Se você criar um ASE autônomo, ele estará vazio. Um ASE vazio ainda incorrer�
 
 1. Selecione sua assinatura. Todos os aplicativos no ASE também usarão essa mesma assinatura. Você não pode colocar o seu ASE em uma VNet que está em outra assinatura.
 
-1. Selecione ou especifique um novo grupo de recursos. Use o mesmo grupo de recursos no seu ASE que você usou na sua VNet. Se você selecionar uma VNet existente, a seleção do grupo de recursos para o ASE será atualizada para refletir a sua VNet. *Para criar um ASE com um grupo de recursos diferente do grupo de recursos da VNet, use um modelo do Resource Manager.* Para criar um ASE com base em um modelo, confira [Como criar um ambiente do serviço de aplicativo com base em um modelo][MakeASEfromTemplate].
+1. Selecione ou especifique um novo grupo de recursos. Use o mesmo grupo de recursos no seu ASE que você usou na sua VNet. Se você selecionar uma VNet existente, a seleção do grupo de recursos para o ASE será atualizada para refletir a sua VNet. *Para criar um ASE com um grupo de recursos diferente do grupo de recursos da VNet, use um modelo do Resource Manager.* Para criar um ASE a partir de um modelo, consulte [criar um ambiente do serviço de aplicativo de um modelo][MakeASEfromTemplate].
 
     ![Seleção de grupo de recursos][6]
 
@@ -164,19 +164,19 @@ Se você criar um ASE autônomo, ele estará vazio. Um ASE vazio ainda incorrer�
 
     * Se selecionar uma VNet nova, você poderá especificar um nome e local. 
     
-    * A VNet nova tem o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada padrão. A sub-rede é definida como 192.168.250.0/24. Você só pode selecionar uma VNet do Resource Manager. A seleção do **Tipo de VIP** determina se o ASE pode ser acessado diretamente pela Internet (Externo) ou se ele usa um ILB. Para saber mais estas opções, confira [Como criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo][MakeILBASE]. 
+    * A VNet nova tem o intervalo de endereços 192.168.250.0/23 e uma sub-rede denominada padrão. A sub-rede é definida como 192.168.250.0/24. Você só pode selecionar uma VNet do Resource Manager. A seleção do **Tipo de VIP** determina se o ASE pode ser acessado diretamente pela Internet (Externo) ou se ele usa um ILB. Para saber mais sobre essas opções, consulte [criar e usar um balanceador de carga interno com um ambiente do serviço de aplicativo][MakeILBASE]. 
 
       * Se selecionar um **tipo de VIP** **externo**, você poderá selecionar com quantos endereços IP externos o sistema será criado para fins do SSL baseado em IP. 
     
       * Ao selecionar **Interno** para o **Tipo de VIP**, você deve especificar o domínio usado pelo seu ASE. Você pode implantar um ASE em uma VNet que usa os intervalos de endereço público ou privado. Para usar uma VNet com um intervalo de endereços públicos, você precisa criar a VNet antecipadamente. 
     
-    * Ao selecionar uma VNet existente, uma nova sub-rede é criada quando o ASE é criado. *Você não pode usar uma sub-rede criada previamente no portal. Você pode criar um ASE com uma sub-rede existente se usar um modelo do Resource Manager.* Para criar um ASE com base em um modelo, confira [Como criar um ambiente do serviço de aplicativo com base em um modelo][MakeASEfromTemplate].
+    * Ao selecionar uma VNet existente, uma nova sub-rede é criada quando o ASE é criado. *Você não pode usar uma sub-rede criada previamente no portal. Você pode criar um ASE com uma sub-rede existente se usar um modelo do Resource Manager.* Para criar um ASE a partir de um modelo, consulte [criar um ambiente de serviço de aplicativo de um modelo][MakeASEfromTemplate].
 
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicativo v1
 
 Você ainda pode criar instâncias da primeira versão do ambiente do serviço de aplicativo (ASEv1). Para iniciar esse processo, pesquise o Marketplace para **ambiente do serviço de aplicativo v1**. Para criar o ASE basta usar o mesmo método de criação do ASE autônomo. Quando ele for concluído, o ASEv1 tem dois front-ends e dois trabalhos. Com o ASEv1, você precisa gerenciar os front-ends e os trabalhos. Eles não são adicionados automaticamente durante a criação dos planos do serviço de aplicativo. Os front-ends atuam como os pontos de extremidade HTTP/HTTPS e enviam o tráfego para os trabalhos. Os trabalhos são as funções que hospedam seus aplicativos. Você pode ajustar a quantidade de front-ends e trabalhos depois de criar o seu ASE. 
 
-Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro]. Para obter mais informações sobre o dimensionamento, gerenciamento e monitoramento do ASEv1, confira [Como configurar um ambiente do serviço de aplicativo][ConfigureASEv1].
+Para saber mais sobre o ASEv1, consulte [introdução para o ambiente do serviço de aplicativo v1][ASEv1Intro]. For more information on scaling, managing, and monitoring ASEv1, see [How to configure an App Service Environment][ConfigureASEv1].
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png

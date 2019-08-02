@@ -55,7 +55,8 @@
     - name: Percorrer as imagens
       href: paging-images.md
     - name: Miniaturas de redimensionamento e corte
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Atualizar de v5 para v7
       href: bing-image-upgrade-guide-v5-to-v7.md
 - name: Conceitos
@@ -79,7 +80,7 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python'
         - name: Node.js
@@ -114,6 +115,7 @@
     - name: Suporte de idioma e região
       href: language-support.md
     - name: Análise da API de Pesquisa de Imagem do Bing
-      href: bing-image-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

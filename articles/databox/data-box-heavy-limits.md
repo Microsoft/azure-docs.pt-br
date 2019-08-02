@@ -6,17 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 05/21/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: da518de4702925ebad29727e2bdce99e67d40249
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 021aedc94b59f73e18679783cfc8b981924769c3
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427751"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592356"
 ---
-# <a name="azure-data-box-heavy-limits-preview"></a>Limites de pesada de caixa de dados do Azure (visualização)
-
+# <a name="azure-data-box-heavy-limits"></a>Limites de pesada de caixa de dados do Azure
 
 Considere esses limites, como implantar e operar seu dispositivo pesada de caixa de dados do Azure. A tabela a seguir descreve esses limites para o Data Box.
 

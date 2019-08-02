@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b35ef5ca3aaa7ad4169f99e2830ebea76d2759e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 267872f2036a0e697f4b2da65064805a0cfbd2b7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074941"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358728"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação para treinamento de modelo 
 
 Com o Serviço do Azure Machine Learning, você pode treinar seu modelo em uma variedade de recursos ou ambientes, coletivamente denominados [__destinos de computação__](concept-azure-machine-learning-architecture.md#compute-targets). Um destino de computação pode ser um computador local ou um recurso de nuvem, como Computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  Você também pode criar destinos de computação para a implantação de modelo conforme descrito em ["em que local e como implantar seus modelos"](how-to-deploy-and-where.md).
 
-Você pode criar e gerenciar um destino de computação usando o SDK do Azure Machine Learning, o portal do Azure, a extensão de CLI do Azure ou Azure Machine Learning VS Code. Se você tiver destinos de computação criados por meio de outro serviço (por exemplo, um cluster HDInsight), poderá usá-los anexando-os ao workspace de serviço do Azure Machine Learning.
+Você pode criar e gerenciar um destino de computação usando a extensão Azure Machine Learning SDK, portal do Azure, CLI do Azure ou Azure Machine Learning VS Code. Se você tiver destinos de computação criados por meio de outro serviço (por exemplo, um cluster HDInsight), poderá usá-los anexando-os ao workspace de serviço do Azure Machine Learning.
  
 Neste artigo, você aprende a usar vários destinos de computação para treinamento do modelo.  As etapas para todos os destinos de computação seguem o mesmo fluxo de trabalho:
 1. Escolha __Criar__ um destino de computação se você ainda não tiver um.
@@ -75,7 +75,7 @@ O código a seguir está um exemplo de configuração de execuções de treiname
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/runconfig.py?name=run_user_managed)]
   
-## <a name="set-up-in-python"></a>Configurar em Python
+## <a name="set-up-in-python"></a>Configurar no Python
 
 Use as seções a seguir para configurar estes destinos de computação:
 
@@ -111,7 +111,7 @@ A Computação do Machine Learning do Azure tem limites padrão como o número d
 É possível criar a Computação do Azure Machine Learning como um destino de computação em tempo de execução. A computação é criada automaticamente para a sua execução. A computação é excluída automaticamente depois de a execução ser concluída. 
 
 > [!NOTE]
-> Para especificar o número máximo de nós a serem usados, você normalmente definiria `node_count` para o número de nós. Atualmente, não há (04/04/2019) um bug que impede que esse trabalho. Como alternativa, use o `amlcompute._cluster_max_node_count` propriedade da configuração de execução. Por exemplo: `run_config.amlcompute._cluster_max_node_count = 5`.
+> Para especificar o número máximo de nós a serem usados, você normalmente definiria `node_count` como o número de nós. Atualmente, há (04/04/2019) um bug que impede que isso funcione. Como alternativa, use a `amlcompute._cluster_max_node_count` propriedade da configuração de execução. Por exemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > A criação baseada em execução da computação do Azure Machine Learning atualmente está em Versão Prévia. Não use a criação baseada em execução se você estiver usando o ajuste de hiperparâmetro ou o aprendizado de máquina automatizado. Para usar o ajuste de hiperparâmetro ou aprendizado de máquina automatizados, crie um destino de [computação persistente](#persistent) em vez disso.
@@ -237,13 +237,13 @@ Agora que você anexou um computador e configurou sua execução, a próxima eta
 
 ### <a id="azbatch"></a>Lote do Azure 
 
-O lote do Azure é usado para executar aplicativos em larga escala paralelas e de alto desempenho HPC (computação) com eficiência na nuvem. AzureBatchStep pode ser usado em um Pipeline de aprendizado de máquina do Azure para enviar trabalhos para um pool de lote do Azure de máquinas.
+O lote do Azure é usado para executar aplicativos de HPC (computação de alto desempenho) e paralelos em grande escala com eficiência na nuvem. AzureBatchStep pode ser usado em um pipeline Azure Machine Learning para enviar trabalhos para um pool de computadores do lote do Azure.
 
-Para anexar o lote do Azure como um destino de computação, você deve usar o SDK do Azure Machine Learning e forneça as seguintes informações:
+Para anexar o lote do Azure como um destino de computação, você deve usar o SDK do Azure Machine Learning e fornecer as seguintes informações:
 
 -   **Nome de computação do lote do Azure**: Um nome amigável a ser usado para a computação no espaço de trabalho
--   **Nome de conta do lote do Azure**: O nome da conta do lote do Azure
--   **Grupo de recursos**: O grupo de recursos que contém a conta do lote do Azure.
+-   **Nome da conta do lote do Azure**: O nome da conta do lote do Azure
+-   **Grupo de Recursos**: O grupo de recursos que contém a conta do lote do Azure.
 
 O código a seguir demonstra como anexar o lote do Azure como um destino de computação:
 
@@ -251,19 +251,23 @@ O código a seguir demonstra como anexar o lote do Azure como um destino de comp
 from azureml.core.compute import ComputeTarget, BatchCompute
 from azureml.exceptions import ComputeTargetException
 
-batch_compute_name = 'mybatchcompute' # Name to associate with new compute in workspace
+# Name to associate with new compute in workspace
+batch_compute_name = 'mybatchcompute'
 
 # Batch account details needed to attach as compute to workspace
-batch_account_name = "<batch_account_name>" # Name of the Batch account
-batch_resource_group = "<batch_resource_group>" # Name of the resource group which contains this account
+batch_account_name = "<batch_account_name>"  # Name of the Batch account
+# Name of the resource group which contains this account
+batch_resource_group = "<batch_resource_group>"
 
 try:
     # check if the compute is already attached
     batch_compute = BatchCompute(ws, batch_compute_name)
 except ComputeTargetException:
     print('Attaching Batch compute...')
-    provisioning_config = BatchCompute.attach_configuration(resource_group=batch_resource_group, account_name=batch_account_name)
-    batch_compute = ComputeTarget.attach(ws, batch_compute_name, provisioning_config)
+    provisioning_config = BatchCompute.attach_configuration(
+        resource_group=batch_resource_group, account_name=batch_account_name)
+    batch_compute = ComputeTarget.attach(
+        ws, batch_compute_name, provisioning_config)
     batch_compute.wait_for_completion()
     print("Provisioning state:{}".format(batch_compute.provisioning_state))
     print("Provisioning errors:{}".format(batch_compute.provisioning_errors))
@@ -367,9 +371,9 @@ Você pode acessar os destinos de computação associados ao seu workspace usand
 
 Para obter mais informações, veja [Gerenciamento de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
-## <a name="set-up-with-vs-code"></a>Configurar o VS Code
+## <a name="set-up-with-vs-code"></a>Configurar com VS Code
 
-Você pode acessar, criar e gerenciar os destinos de computação que estão associados ao seu espaço de trabalho usando o [extensão do VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para o serviço de Azure Machine Learning.
+Você pode acessar, criar e gerenciar os destinos de computação associados ao seu espaço de trabalho usando a [extensão de vs Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para Azure Machine Learning Service.
 
 ## <a id="submit"></a>Enviar execução de treinamento
 
@@ -380,9 +384,9 @@ Depois de criar uma configuração de execução, você pode usá-la para execut
 1. Aguarde a conclusão da execução.
 
 > [!IMPORTANT]
-> Quando você envia a execução de treinamento, um instantâneo do diretório que contém seus scripts de treinamento é criado e enviado para o destino de computação. Ele também é armazenado como parte do experimento no seu espaço de trabalho. Se você alterar os arquivos e enviar a execução novamente, apenas os arquivos alterados serão carregados.
+> Quando você envia a execução de treinamento, um instantâneo do diretório que contém seus scripts de treinamento é criado e enviado para o destino de computação. Ele também é armazenado como parte do experimento em seu espaço de trabalho. Se você alterar os arquivos e enviar a execução novamente, somente os arquivos alterados serão carregados.
 >
-> Para impedir que arquivos sejam incluídos no instantâneo, crie uma [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` arquivo no diretório e adicione os arquivos para ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões como o [. gitignore](https://git-scm.com/docs/gitignore) arquivo. Se os dois arquivos existem, o `.amlignore` arquivo terá precedência.
+> Para impedir que arquivos sejam incluídos no instantâneo, crie um arquivo [. gitignore](https://git-scm.com/docs/gitignore) ou `.amlignore` no diretório e adicione os arquivos a ele. O `.amlignore` arquivo usa a mesma sintaxe e padrões que o arquivo [. gitignore](https://git-scm.com/docs/gitignore) . Se ambos os arquivos existirem `.amlignore` , o arquivo terá precedência.
 > 
 > Para obter mais informações, veja [cópias de sombra](concept-azure-machine-learning-architecture.md#snapshots).
 
@@ -412,11 +416,11 @@ Ou você pode:
 
 * Enviar o teste com um objeto `Estimator` conforme mostrado em [Treinar modelos de ML com estimadores](how-to-train-ml-models.md).
 * Enviar um experimento [usando a extensão da CLI](reference-azure-machine-learning-cli.md#experiments).
-* Enviar um teste por meio de [extensão do VS Code](how-to-vscode-tools.md#train-and-tune-models).
+* Envie um experimento por meio da [extensão vs Code](how-to-vscode-tools.md#train-and-tune-models).
 
-## <a name="github-tracking-and-integration"></a>Integração e acompanhamento do GitHub
+## <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
 
-Quando você inicia uma execução em que o diretório de origem é um repositório Git local de treinamento, informações sobre o repositório são armazenadas no histórico de execução. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
+Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
 
 ## <a name="notebook-examples"></a>Exemplos de notebook
 
@@ -429,7 +433,7 @@ Veja estes notebooks para obter exemplos de treinamento com vários destinos de 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um destino de computação gerenciado para treinar um modelo.
-* Saiba como [ajustar os hiperparâmetros com eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.
+* Saiba como ajustar os hiperparâmetros com [eficiência](how-to-tune-hyperparameters.md) para criar modelos melhores.
 * Quando você tiver um modelo treinado, aprenda [como e em que local implantar modelos](how-to-deploy-and-where.md).
 * Exiba a referência do SKD da [classe RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
 * [Usar o Serviço do Azure Machine Learning com redes virtuais do Azure](how-to-enable-virtual-network.md)

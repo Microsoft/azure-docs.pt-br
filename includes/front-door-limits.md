@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: e1f5a1c8229544d97d9ff64748390f0d5237ab97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238755"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67333364"
 ---
 | Resource | Limite máximo/padrão |
 | --- | --- |
@@ -25,6 +25,15 @@ ms.locfileid: "66238755"
 | Padrões de caminho para corresponder a uma regra de roteamento | 25 |
 | Regras de firewall do aplicativo Web personalizadas por política | 10 |
 | Política do firewall do aplicativo Web por recurso | 100 |
+| Condições de correspondência de firewall de aplicativo Web por regra personalizada | 10 |
+| Condição de correspondência de intervalos de endereços IP do Web application firewall por | 600 |
+| Valores de correspondência de cadeia de caracteres do Web application firewall por condição de correspondência | 10 |
+| Comprimento do valor do Web application firewall cadeia de caracteres correspondência | 256 |
+| Firewall do aplicativo Web comprimento do nome de parâmetro de corpo de POSTAGEM | 256 |
+| Firewall do aplicativo Web comprimento do nome de cabeçalho HTTP | 256 |
+| Comprimento do nome de cookie do Web application firewall | 256 |
+| Tamanho de corpo da solicitação no Web application firewall HTTP inspecionado | 128 KB |
+| Comprimento do corpo de resposta personalizada do Web application firewall | 2 KB |
 
 ### <a name="timeout-values"></a>Valores de tempo limite
 #### <a name="client-to-front-door"></a>Cliente para o Front Door
@@ -42,3 +51,6 @@ ms.locfileid: "66238755"
 | ---- | ------- | ------- |
 | **Baixar** | Não há nenhum limite no tamanho do download. | Não há nenhum limite no tamanho do download. |
 | **Upload** |  Não há nenhum limite desde que cada carregamento CTE for menor que 2 GB. | O tamanho não pode ser maior que 2 GB. |
+
+### <a name="other-limits"></a>Outros limites
+- Tamanho máximo da URL - 8.192 bytes - especifica o comprimento máximo da URL bruta (esquema + nome de host + porta + caminho + cadeia de caracteres da URL de consulta) - tamanho da cadeia de caracteres de consulta máximo - 4.096 bytes - especifica o comprimento máximo da cadeia de caracteres de consulta, em bytes.

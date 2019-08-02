@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf2576aa112d58e499f0c4a16bf8e9261114974b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0f2a0560163f9806053f49944cbec0db2b1a9de8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105470"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Tutorial: Integração do Azure Active Directory ao Clear Review
 
@@ -54,7 +54,7 @@ Para configurar a integração do Clear Review com o Azure AD, você precisará 
 
 **Para adicionar o Clear Review por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
     ![Informações de logon único em Domínio e URLs do Clear Review](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/metadata/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<customer name>.clearreview.com/sso/acs/`
 
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
 7. Na caixa de diálogo **Atributos de Usuário**, realize as seguintes etapas:
 
-     a. Clique no **ícone de edição** à direita do **valor do identificador de nome**.
+    a. Clique no **ícone de edição** à direita do **valor do identificador de nome**.
 
     ![image](./media/clearreview-tutorial/attribute02.png)
 
@@ -165,7 +165,7 @@ Para configurar o logon único do Azure AD com o Clear Review, execute as seguin
 
     ![Botão Salvar em Configurar Logon Único](./media/clearreview-tutorial/tutorial_clearreview_app_admin3.png)
 
-     a. Na caixa de texto **URL do Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **URL do Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
     b. Na caixa de texto **Ponto de extremidade do SAML**, cole o valor da **URL de Logon** copiado do portal do Azure.  
 
@@ -242,5 +242,5 @@ Ao clicar no bloco do Clear Review no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

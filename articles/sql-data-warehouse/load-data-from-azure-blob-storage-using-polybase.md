@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f2830b524c554a6988bfc873cd0f6c54e5c56a4
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242972"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839673"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados dos táxis de Nova York para o SQL Data Warehouse do Azure
 
@@ -67,7 +67,7 @@ Siga estas etapas para criar um SQL data warehouse em branco.
 
 4. Clique em **Servidor** para criar e configurar um novo servidor para o novo banco de dados. Preencha o **formulário Novo servidor** com as seguintes informações: 
 
-    | Configuração | Valor sugerido | DESCRIÇÃO | 
+    | Configuração | Valor sugerido | Description | 
     | ------- | --------------- | ----------- |
     | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -150,9 +150,9 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
     | Nome do servidor | O nome do servidor totalmente qualificado | O nome deve ser semelhante a este: **mynewserver-20180430.database.windows.net**. |
-    | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
-    | Logon | A conta do administrador do servidor | Esta é a conta que você especificou quando criou o servidor. |
-    | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
+    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configuramos neste tutorial. |
+    | Logon | A conta do administrador do servidor | Essa é a conta que você especificou quando criou o servidor. |
+    | Senha | A senha de sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
     ![conectar-se ao servidor](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
@@ -603,7 +603,7 @@ Carregar usando o PolyBase e autenticando por meio de identidades gerenciadas é
         
    1. Consulte normalmente usando [tabelas externas](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Consulte os seguintes [documentação] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview ) se você quiser configurar pontos de extremidade de serviço de rede virtual para o SQL Data Warehouse. 
+Consulte os seguintes [documentação](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) se você quiser configurar pontos de extremidade de serviço de rede virtual para o SQL Data Warehouse. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -3,17 +3,18 @@ title: Instâncias de Contêiner do Azure e orquestração de contêiner
 description: Entender como as Instâncias de Contêiner do Azure interagem com orquestradores de contêiner.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c83648124f616670423b2ef459530c191d7e17e4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072983"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325772"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
 
@@ -60,7 +61,7 @@ Para dimensionar rapidamente as cargas de trabalho do aplicativo em um cluster d
 
 Os nós virtuais atualmente dão suporte a instâncias de contêiner do Linux. Comece com os nós virtuais usando a [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou o [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 
-Nós virtuais usam software livre [Virtual Kubelet] [ aci-connector-k8s] para imitar o Kubernetes [kubelet] [ kubelet-doc] registrando-se como um nó com capacidade ilimitada. O Virtual Kubelet expede a criação de [pods][pod-doc] como grupos de contêineres em Instâncias de Contêiner do Azure.
+Os nós virtuais usam o [Kubelet][aci-connector-k8s] to mimic the Kubernetes [kubelet][kubelet-doc] virtual de software livre registrando-se como um nó com capacidade ilimitada. O Kubelet virtual despacha a [criação de um][documento Pod-doc] como grupos de contêineres em instâncias de contêiner do Azure.
 
 Consulte o projeto [Virtual Kubelet](https://github.com/virtual-kubelet/virtual-kubelet) para obter exemplos adicionais de estender a API do Kubernetes em plataformas de contêiner sem servidor.
 

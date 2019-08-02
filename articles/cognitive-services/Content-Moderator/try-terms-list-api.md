@@ -1,6 +1,6 @@
 ---
 title: Modere textos com listas de termos personalizados – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use a API de Gerenciamento de Lista para criar listas de termos personalizadas para usar com a API de Moderação de Texto.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 28029fe92a207dba85e2ab5a22c08879b7172925
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a4e9b7925c2309a9682156934e9d94fa83c0d4b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097939"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564400"
 ---
 # <a name="moderate-with-custom-term-lists-in-the-api-console"></a>Moderar com as listas de termos personalizadas no console de API
 

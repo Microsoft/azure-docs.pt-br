@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 4b7a9409052d8255bbad00b38217bcff030e8620
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9ba42f780c93486409077383750d0635637e99b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869498"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>Tutorial: Integração do Azure Active Directory ao Perception United States (não UltiPro)
 
@@ -53,7 +53,7 @@ Para configurar a integração do Perception United States (não UltiPro) ao Azu
 
 **Para adicionar o Perception United States (não UltiPro) pela galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração do Perception United States (não UltiPro) ao Azu
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Perception United States (não UltiPro)**, selecione **Perception United States (não UltiPro)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Perception United States (não UltiPro)** , selecione **Perception United States (não UltiPro)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Perception United States (não UltiPro) na lista de resultados](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Perception United States (não UltiPro), execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Perception United States (não UltiPro)**, clique em **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Perception United States (não UltiPro)** , clique em **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -105,11 +105,11 @@ Para configurar o logon único do Azure AD com o Perception United States (não 
 
     ![Informações sobre logon único de domínio e URLs do Perception United States (não UltiPro)](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://perception.kanjoya.com/sp`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://perception.kanjoya.com/sp`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-    c. O aplicativo **Perception United States (não UltiPro)** exige o valor do **Identificador do Azure AD** como <entity_id>, que será obtido na seção **Configurar o Perception United States (não UltiPro)**, seja codificado no URI. Para obter o valor codificado no URI, use o seguinte link: **http://www.url-encode-decode.com/**.
+    c. O aplicativo **Perception United States (não UltiPro)** exige o valor do **Identificador do Azure AD** como <entity_id>, que será obtido na seção **Configurar o Perception United States (não UltiPro)** , seja codificado no URI. Para obter o valor codificado no URI, use o seguinte link: **http://www.url-encode-decode.com/** .
 
     d. Depois de obter o valor codificado em URI, combine-o com a **URL de resposta** conforme mencionado abaixo -
 
@@ -121,7 +121,7 @@ Para configurar o logon único do Azure AD com o Perception United States (não 
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Perception United States (não UltiPro)**, copie as URLs corretas de acordo com seus requisitos.
+6. Na seção **Configurar o Perception United States (não UltiPro)** , copie as URLs corretas de acordo com seus requisitos.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o Perception United States (não 
 
     ![Usuário do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_account.png)
 
-     a. Na caixa de texto **Nome da empresa**, digite o nome da **Empresa**.
+    a. Na caixa de texto **Nome da empresa**, digite o nome da **Empresa**.
     
     b. Na caixa de texto **Nome da conta**, digite o nome da **Conta**.
 
@@ -155,7 +155,7 @@ Para configurar o logon único do Azure AD com o Perception United States (não 
 
     ![SSOConfig do Perception United States (não UltiPro)](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_ssoconfig.png)
 
-     a. Selecione **Tipo de SAML NameID** como **EMAIL**.
+    a. Selecione **Tipo de SAML NameID** como **EMAIL**.
 
     b. Na caixa de texto **Nome da configuração de SSO**, digite o nome da sua **Configuração**.
     
@@ -195,11 +195,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você habilitará Brenda Fernandes a usar o logon único do Azure, concedendo acesso ao Perception United States (não UltiPro).
 
-1. No portal do Azure, escolha **Aplicativos empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Perception United States (não UltiPro)**.
+1. No portal do Azure, escolha **Aplicativos empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Perception United States (não UltiPro)** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Perception United States (não UltiPro)**.
+2. Na lista de aplicativos, selecione **Perception United States (não UltiPro)** .
 
     ![O link do Perception United States (não UltiPro) na lista de aplicativos](common/all-applications.png)
 
@@ -233,5 +233,5 @@ Ao clicar no bloco Perception United States (não UltiPro) no Painel de Acesso, 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

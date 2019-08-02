@@ -1,157 +1,171 @@
 ---
-title: Configure a Replicação de Entrada de Dados para replicar dados no Banco de Dados do Azure para o MariaDB.
-description: Este artigo descreve como configurar a Replicação de entrada de dados para o Banco de Dados do Azure para o MariaDB.
+title: Configurar a replicação de dados no banco de dados do Azure para MariaDB | Microsoft Docs
+description: Este artigo descreve como configurar dados de replicação no banco de dados do Azure para MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 39c5efee0958fdfc8fa647f5acaf929f559f7bf7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 21e8a88cc6f03b4d54a6c5299b0b6be36cc32d6d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065658"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444801"
 ---
-# <a name="how-to-configure-azure-database-for-mariadb-data-in-replication"></a>Como configurar o banco de dados do Azure para replicação de entrada de dados do MariaDB
+# <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configurar a replicação de dados no banco de dados do Azure para MariaDB
 
-Neste artigo, você aprenderá como configurar a Replicação de Dados no banco de dados do Azure para o serviço MariaDB, configurando os servidores mestre e de réplica. A Replicação de Entrada de Dados permite sincronizar dados de um servidor MariaDB mestre em execução no local, em máquinas virtuais ou serviços de banco de dados hospedados por outros provedores de nuvem em uma réplica no serviço Banco de Dados do Azure para MariaDB. Podemos recommanded você configurar a replicação de dados com o [ID de transação Global](https://mariadb.com/kb/en/library/gtid/) quando a versão do seu servidor mestre é 10.2 ou acima.
+Este artigo descreve como definir dados de replicação no banco de dados do Azure para MariaDB, configure os servidores mestre e de réplica. Este artigo pressupõe que você tenha alguma experiência anterior com MariaDB servidores e bancos de dados.
 
-Este artigo pressupõe que você tenha pelo menos alguma experiência anterior com servidores e bancos de dados MariaDB.
+Para criar uma réplica no banco de dados do Azure para o serviço do MariaDB, replicação de dados sincroniza os dados de um mestre MariaDB server no local, em máquinas virtuais (VMs) ou em serviços de nuvem do banco de dados.
 
-## <a name="create-a-mariadb-server-to-be-used-as-replica"></a>Crie um servidor MariaDB para ser usado como réplica
+> [!NOTE]
+> Se seu servidor mestre é a versão 10.2 ou mais recente, é recomendável que você defina a duplicação de dados usando [ID de transação Global](https://mariadb.com/kb/en/library/gtid/).
 
-1. Criar um novo banco de dados do Azure para o servidor MariaDB
 
-   Crie um novo servidor MariaDB (ex. "replica.mariadb.database.azure.com"). Consulte [Criar um Banco de Dados do Azure para o servidor MariaDB usando o portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md) para criação do servidor. Esse servidor é o servidor de "réplica" da replicação nos dados.
+## <a name="create-a-mariadb-server-to-use-as-a-replica"></a>Criar um servidor do MariaDB para usar como uma réplica
+
+1. Crie um novo banco de dados do Azure para MariaDB (por exemplo, replica.mariadb.database.azure.com). O servidor é o servidor de réplica em replicação de dados.
+
+    Para saber mais sobre a criação do servidor, consulte [criar um banco de dados do Azure para MariaDB usando o portal do Azure](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
    > [!IMPORTANT]
-   > O Banco de Dados do Azure para o servidor MariaDB deve ser criado nas camadas de preços General Purpose ou Memory Optimized.
-   > 
+   > Você deve criar o banco de dados do Azure para MariaDB nas camadas de preço de uso geral ou com otimização de memória.
 
-2. Criar as mesmas contas de usuário e os privilégios correspondentes
-
-   Contas de usuário não são replicadas do servidor mestre para o servidor de réplica. Se você planeja fornecer aos usuários acesso ao servidor de réplica, é necessário criar manualmente todas as contas e os privilégios correspondentes nesse banco de dados do Azure recém-criado para o servidor MariaDB.
+2. Crie contas de usuário idênticas e privilégios correspondentes.
+    
+    Contas de usuário não são replicadas do servidor mestre para o servidor de réplica. Para fornecer acesso de usuário para o servidor de réplica, você deve criar manualmente todas as contas e privilégios correspondentes no banco de dados do Azure criado recentemente para o servidor MariaDB.
 
 ## <a name="configure-the-master-server"></a>Configurar o servidor mestre
-As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, em uma máquina virtual ou serviço de banco de dados hospedado por outros provedores de nuvem para replicação de entrada de dados. Esse servidor é o "mestre" em replicação de dados. 
 
-1. Ligar o registro em log binário
+As etapas a seguir preparar e configurar o MariaDB server hospedado no local, em uma VM ou em um serviço de banco de dados de nuvem para replicação de dados. O servidor MariaDB é o mestre em replicação de dados.
 
-   Verifique se o log binário foi ativado no mestre executando o seguinte comando: 
+1. Ative o log binário.
+    
+    Para ver se o log binário está habilitado no mestre, digite o seguinte comando:
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Se a variável [`log_bin`](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) é retornada com o valor "ON", o registro em log binário está habilitado no servidor. 
+   Se a variável [ `log_bin` ](https://mariadb.com/kb/en/library/replication-and-binary-log-server-system-variables/#log_bin) retorna o valor `ON`, log binário está habilitado no seu servidor.
 
-   Se `log_bin` é retornado com o valor "OFF", ligue o registro em log binário editando o arquivo my.cnf para que `log_bin=ON` e reinicie o servidor para que a alteração tenha efeito.
+   Se `log_bin` retorna o valor `OFF`, edite o **cnf** arquivo, de modo que `log_bin=ON` ativará o log binário. Reinicie o servidor para que as alterações entrem em vigor.
 
-2. Configurações do servidor mestre
+2. Configurações do servidor mestre.
 
-   A replicação de entrada de dados exige que o parâmetro `lower_case_table_names` seja consistente entre os servidores mestre e de réplica. Esse parâmetro é 1 por padrão no banco de dados do Azure para MariaDB. 
+    Replicação de dados requer que o parâmetro `lower_case_table_names` para ser consistente entre os servidores mestre e de réplica. O `lower_case_table_names` parâmetro é definido como `1` por padrão no banco de dados do Azure para MariaDB.
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Criar uma nova função de replicação e configurar permissão
+3. Criar uma nova função de replicação e configurar as permissões.
 
-   Crie uma conta de usuário no servidor mestre que é configurado com privilégios de replicação. Isso pode ser feito por meio de comandos SQL ou de uma ferramenta como o Workbench do MySQL. Leve em conta se você planeja replicar com SSL, pois isso precisa ser especificado na criação do usuário. Consulte a documentação do MariaDB para entender como [adicionar contas de usuário](https://mariadb.com/kb/en/library/create-user/) ao seu servidor mestre. 
+   Crie uma conta de usuário no servidor mestre que é configurado com privilégios de replicação. Você pode criar uma conta usando comandos SQL ou MySQL Workbench. Se você planeja replicar com SSL, você deverá especificar isso quando você cria a conta de usuário.
+   
+   Para saber como adicionar contas de usuário em seu servidor mestre, consulte o [MariaDB documentação](https://mariadb.com/kb/en/library/create-user/).
 
-   Nos comandos abaixo, a nova função de replicação criada é capaz de acessar o mestre de qualquer máquina, não apenas da máquina que hospeda o próprio mestre. Isso é feito especificando "syncuser\@'%'" no comando create user. Consulte a documentação do MariaDB para saber mais sobre [especificando nomes de conta](https://mariadb.com/kb/en/library/create-user/#account-names).
+   Usando os comandos a seguir, a nova função de replicação pode acessar o mestre de qualquer computador, não apenas a máquina que hospeda o mestre em si. Esse acesso, especifique **syncuser\@'% s'** no comando para criar um usuário.
+   
+   Para saber mais sobre a documentação do MariaDB, consulte [especificando nomes de conta](https://mariadb.com/kb/en/library/create-user/#account-names).
 
    **Comando SQL**
 
-   *Replicação com SSL*
+   - Replicação com SSL
 
-   Para exigir SSL em todas as conexões de usuário, use o seguinte comando para criar um usuário: 
+       Para exigir SSL para todas as conexões de usuário, digite o seguinte comando para criar um usuário:
 
-   ```sql
-   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
-   ```
+       ```sql
+       CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+       GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%' REQUIRE SSL;
+       ```
 
-   *Replicação sem SSL*
+   - Replicação sem SSL
 
-   Se o SSL não é exigido para todas as conexões, use o seguinte comando para criar um usuário:
-
-   ```sql
-   CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
-   GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
-   ```
+       Se o SSL não é necessária para todas as conexões, digite o seguinte comando para criar um usuário:
+    
+       ```sql
+       CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
+       GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
+       ```
 
    **Workbench do MySQL**
 
-   Para criar a função de replicação no Workbench do MySQL, abra o painel **Usuários e Privilégios** do painel **Gerenciamento**. Em seguida, clique em **Adicionar Conta**. 
+   Para criar a função de replicação no MySQL Workbench, nos **Management** painel, selecione **usuários e privilégios**. Em seguida, selecione **adicionar conta**.
  
    ![Privilégios e usuários](./media/howto-data-in-replication/users_privileges.png)
 
-   Digite o nome de usuário no campo **Nome de Logon**. 
+   Insira um nome de usuário na **nome de logon** campo.
 
    ![Sincronizar usuário](./media/howto-data-in-replication/syncuser.png)
  
-   Clique no painel **Funções Administrativas** painel e selecione **Replicação Subordinada** na lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar a função de replicação.
+   Selecione o **funções administrativas** painel e, em seguida, na lista de **privilégios Global**, selecione **Replication Slave**. Selecione **aplicar** para criar a função de replicação.
 
    ![Replicação subordinada](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Configure o servidor mestre para o modo somente leitura
+4. Configure o servidor mestre para o modo somente leitura.
 
-   Antes de começar a despejar o banco de dados, o servidor precisa ser colocado no modo somente leitura. No modo somente leitura, o mestre será capaz de processar todas as transações de gravação. Avalie o impacto em seus negócios e agende a janela de somente leitura em um horário fora de pico, se necessário.
+   Antes de você despejar um banco de dados, o servidor deve ser colocado no modo somente leitura. No modo somente leitura, o mestre não pode processar todas as transações de gravação. Para ajudar a evitar o impacto nos negócios, agendar a janela de somente leitura durante um horário de pico.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
    SET GLOBAL read_only = ON;
    ```
 
-5. Obter o nome e o deslocamento do arquivo de log binário
+5. Obtenha o nome do arquivo de log binário atual e o deslocamento.
 
-   Execute o comando [`show master status`](https://mariadb.com/kb/en/library/show-master-status/) para determinar o nome e o deslocamento do arquivo de log binário atual.
+   Para determinar o nome do arquivo de log binário atual e o deslocamento, execute o comando [ `show master status` ](https://mariadb.com/kb/en/library/show-master-status/).
     
    ```sql
    show master status;
    ```
-   Os resultados devem ser assim. Anote o nome de arquivo binário, pois ele será usado em etapas posteriores.
-
-   ![Resultados de status do mestre](./media/howto-data-in-replication/masterstatus.png)
+   Os resultados devem ser semelhantes a tabela a seguir:
    
-6. Obtenha a posição de GTID (opcional, necessário para replicação com GTID)
+   ![Resultados de status do mestre](./media/howto-data-in-replication/masterstatus.png)
 
-   Executar a função [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) comando para obter a posição de GTID para o nome de arquivo binlog correspondente e o deslocamento.
+   Anote o nome de arquivo binário, porque será usado em etapas posteriores.
+   
+6. Obtenha a posição de GTID (opcional, necessários para a replicação com GTID).
+
+   Executar a função [ `BINLOG_GTID_POS` ](https://mariadb.com/kb/en/library/binlog_gtid_pos/) para obter a posição de GTID para o nome do arquivo binlog correspondente e o deslocamento.
   
     ```sql
     select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);
     ```
  
 
-## <a name="dump-and-restore-master-server"></a>Despejar e restaurar o servidor principal
+## <a name="dump-and-restore-the-master-server"></a>Despejar e restaurar o servidor mestre
 
-1. Descarregar todos os bancos de dados do servidor mestre
+1. Despeje todos os bancos de dados do servidor mestre.
 
-   Você pode usar o mysqldump para despejar bancos de dados do seu mestre. Para obter detalhes, consulte [Despejar e restaurar](howto-migrate-dump-restore.md). Não é necessário despejar as bibliotecas normal e de teste do MySQL.
+   Use mysqldump ao despejar todos os bancos de dados do servidor mestre. Não é necessário para a biblioteca de MySQL de despejo e biblioteca de teste.
 
-2. Definir o servidor mestre para o modo de leitura/gravação
+    Para obter mais informações, consulte [Dump e restore](howto-migrate-dump-restore.md).
 
-   Uma vez que o banco de dados foi esvaziado, mude o servidor MariaDB mestre de volta para o modo de leitura / gravação.
+2. Configure o servidor mestre para o modo de leitura/gravação.
+
+   Depois que o banco de dados foram colocado, alterar o mestre MariaDB volta de servidor para o modo de leitura/gravação.
 
    ```sql
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
 
-3. Restaurar arquivo de despejo no novo servidor
+3. Restaure o arquivo de despejo para o novo servidor.
 
-   Restaure o arquivo de despejo para o servidor criado no banco de dados do Azure para o serviço MariaDB. Consulte [Dump & Restore](howto-migrate-dump-restore.md) para saber como restaurar um arquivo de despejo para um servidor MariaDB. Se o arquivo de despejo é grande, carregue-o em uma máquina virtual do Azure na mesma região do servidor de réplica. Restaure o banco de dados do Azure para servidor MariaDB a máquina virtual.
+   Restaure o arquivo de despejo para o servidor criado no banco de dados do Azure para o serviço MariaDB. Ver [despejar e restaurar](howto-migrate-dump-restore.md) para saber como restaurar um arquivo de despejo para um servidor do MariaDB.
 
-## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>Vincular servidores mestre e de réplica para iniciar a replicação de dados
+   Se o arquivo de despejo é grande, carregue-a uma VM no Azure na mesma região que o servidor de réplica. Restaure o banco de dados do Azure para servidor MariaDB a VM.
 
-1. Definir o servidor mestre
+## <a name="link-the-master-and-replica-servers-to-start-data-in-replication"></a>Vincule os servidores mestre e de réplica para iniciar a replicação de dados
 
-   Todas as funções de replicação nos dados são feitas por procedimentos armazenados. Você pode encontrar todos os procedimentos em [Procedimentos armazenados de replicação nos dados](reference-data-in-stored-procedures.md). Os procedimentos armazenados podem ser executados no shell do MySQL ou no Workbench do MySQL.
+1. Configure o servidor mestre.
 
-   Para vincular dois servidores e iniciar a replicação, faça logon no servidor de réplica de destino no DB do Azure para o serviço MariaDB e defina a instância externa como o servidor mestre. Isso é feito usando o `mysql.az_replication_change_master` ou `mysql.az_replication_change_master_with_gtid` procedimento armazenado no BD do Azure para servidor MariaDB.
+   Todas as funções de replicação nos dados são feitas por procedimentos armazenados. Você pode encontrar todos os procedimentos em [Procedimentos armazenados de replicação nos dados](reference-data-in-stored-procedures.md). Procedimentos armazenados podem ser executados no shell do MySQL ou o MySQL Workbench.
+
+   Para vincular os dois servidores e iniciar a replicação, entrar no servidor de réplica de destino no BD do Azure para o serviço do MariaDB. Em seguida, defina a instância externa como o servidor mestre usando o `mysql.az_replication_change_master` ou `mysql.az_replication_change_master_with_gtid` procedimento armazenado no BD do Azure para servidor MariaDB.
 
    ```sql
    CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
@@ -169,43 +183,45 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
    - master_log_file: nome de arquivo de log binário de `show master status` em execução
    - master_log_pos: posição de log binário de `show master status` em execução
    - master_gtid_pos: Posição GTID execução `select BINLOG_GTID_POS('<binlog file name>', <binlog offset>);`
-   - master_ssl_ca: Contexto do Certificado de Autoridade de Certificação. Se não estiver usando SSL, passe em uma cadeia de caracteres vazia.
-       - É recomendável passar esse parâmetro como uma variável. Confira os exemplos a seguir para obter mais informações.
+   - master_ssl_ca: Contexto do Certificado de Autoridade de Certificação. Se você não estiver usando SSL, passe um string.* vazio
+    
+    
+    \* É recomendável passar no parâmetro master_ssl_ca como uma variável. Para obter mais informações, confira os exemplos a seguir.
 
    **Exemplos**
 
-   *Replicação com SSL*
+   - Replicação com SSL
 
-   A variável `@cert` é criada executando os seguintes comandos: 
+       Crie a variável `@cert` executando os comandos a seguir:
 
-   ```sql
-   SET @cert = '-----BEGIN CERTIFICATE-----
-   PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
-   -----END CERTIFICATE-----'
-   ```
+       ```sql
+       SET @cert = '-----BEGIN CERTIFICATE-----
+       PLACE YOUR PUBLIC KEY CERTIFICATE’S CONTEXT HERE
+       -----END CERTIFICATE-----'
+       ```
 
-   A replicação com SSL é configurada entre um servidor mestre hospedado no domínio “companya.com” e um servidor de réplica hospedado no Banco de Dados do Azure para o MariaDB. Esse procedimento armazenado é executado na réplica. 
+       A replicação com o SSL é configurada entre um servidor mestre hospedado no companya.com domínio e um servidor de réplica hospedado no banco de dados do Azure para MariaDB. Esse procedimento armazenado é executado na réplica.
+    
+       ```sql
+       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
+       ```
+   - Replicação sem SSL
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, @cert);
-   ```
-   *Replicação sem SSL*
+       Configurar a replicação sem SSL entre um servidor mestre hospedado no companya.com domínio e um servidor de réplica hospedado no banco de dados do Azure para MariaDB. Esse procedimento armazenado é executado na réplica.
 
-   A replicação sem SSL é configurada entre um servidor mestre hospedado no domínio “companya.com” e um servidor de réplica hospedado no Banco de Dados do Azure para o MariaDB. Esse procedimento armazenado é executado na réplica.
+       ```sql
+       CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
+       ```
 
-   ```sql
-   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mariadb-bin.000016', 475, '');
-   ```
+2. Inicie a replicação.
 
-2. Iniciar replicação
-
-   Chame o procedimento armazenado `mysql.az_replication_start` para iniciar a replicação.
+   Chamar o `mysql.az_replication_start` procedimento armazenado para iniciar a replicação.
 
    ```sql
    CALL mysql.az_replication_start;
    ```
 
-3. Verificar status de replicação
+3. Verificar o status de replicação.
 
    Chame o comando [`show slave status`](https://mariadb.com/kb/en/library/show-slave-status/) no servidor de réplica para exibir o status de replicação.
     
@@ -213,11 +229,13 @@ As etapas a seguir preparam e configuram o servidor MariaDB hospedado no local, 
    show slave status;
    ```
 
-   Se os estados de `Slave_IO_Running` e `Slave_SQL_Running` são "yes" e o valor de `Seconds_Behind_Master` é "0", a replicação está funcionando bem. `Seconds_Behind_Master` indica o atraso da réplica. Se o valor não é "0", isso significa que a réplica está processando as atualizações. 
+   Se `Slave_IO_Running` e `Slave_SQL_Running` estão no estado `yes`e o valor de `Seconds_Behind_Master` é `0`, a replicação está funcionando. `Seconds_Behind_Master` indica o atraso da réplica. Se o valor não for `0`, em seguida, a réplica está processando as atualizações.
 
-4. Atualização correspondem a variáveis de servidor para tornar os dados de replicação mais segura (necessária apenas para replicação sem GTID)
+4. Atualize as variáveis de servidor correspondente para tornar os dados de replicação mais segura (necessária somente para replicação sem GTID).
     
-    Devido a uma limitação de replicação nativa do MariaDB, será necessário instalar [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variáveis em replicação sem o cenário de GTID. Podemos recommand você verificar do seu servidor subordinado `sync_master_info` e `sync_relay_log_info` variáveis e alterá-los ot `1` para certificar-se de que a replicação de dados é estável.
+    Devido a uma limitação de replicação nativa no MariaDB, você deve definir [ `sync_master_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_master_info) e [ `sync_relay_log_info` ](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#sync_relay_log_info) variáveis em replicação sem o cenário GTID.
+
+    Verificação do seu servidor subordinado `sync_master_info` e `sync_relay_log_info` variáveis para se certificar de que a replicação de dados estáveis e defina as variáveis para `1`.
     
 ## <a name="other-stored-procedures"></a>Outros procedimentos armazenados
 
@@ -229,21 +247,21 @@ Para interromper a replicação entre o servidor primário e o de réplica, use 
 CALL mysql.az_replication_stop;
 ```
 
-### <a name="remove-replication-relationship"></a>Remover relação de replicação
+### <a name="remove-the-replication-relationship"></a>Remova a relação de replicação
 
-Para remover o relacionamento entre o servidor mestre e o servidor de réplica, use o seguinte procedimento armazenado:
+Para remover a relação entre o servidor mestre e de réplica, use o procedimento armazenado a seguir:
 
 ```sql
 CALL mysql.az_replication_remove_master;
 ```
 
-### <a name="skip-replication-error"></a>Ignorar erro de replicação
+### <a name="skip-the-replication-error"></a>Ignorar o erro de replicação
 
-Para ignorar um erro de replicação e permitir que a replicação continue, use o seguinte procedimento armazenado:
+Para ignorar um erro de replicação e permitir a replicação, use o procedimento armazenado a seguir:
     
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [Replicação de entrada de dados](concepts-data-in-replication.md) para o Banco de Dados do Azure para o MariaDB.
+Saiba mais sobre [Replicação de entrada de dados](concepts-data-in-replication.md) para o Banco de Dados do Azure para o MariaDB.

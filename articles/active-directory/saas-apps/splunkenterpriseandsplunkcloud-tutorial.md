@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28b98a5001d5b02c61fab1bc6ce06a8f08eaf0e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10422088ccfdf9a70d7e7b6641186a527ef1db73
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Active Directory ao Splunk Enterprise e Splunk Cloud
 
@@ -53,7 +53,7 @@ Para configurar a integração do Splunk Enterprise e do Splunk Cloud com o Azur
 
 **Para adicionar o Splunk Enterprise e o Splunk Cloud por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Splunk Enterprise e Splunk Clou
 
     ![Informações de logon único de Domínio e URLs do Splunk Enterprise e Splunk Cloud](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<splunkserverUrl>/en-US/app/launcher/home`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<splunkserverUrl>/en-US/app/launcher/home`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `<splunkserverUrl>`
 

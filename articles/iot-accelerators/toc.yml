@@ -137,6 +137,8 @@
           href: overview-opc-twin.md
         - name: O que é um cofre OPC?
           href: overview-opc-vault.md
+        - name: O que é o OPC Publisher?
+          href: overview-opc-publisher.md
         - name: O que é Fábrica conectada?
           href: iot-accelerators-connected-factory-features.md
     - name: Guia de início rápido
@@ -153,8 +155,6 @@
           items:
             - name: Usar o painel
               href: iot-accelerators-connected-factory-dashboard.md
-            - name: Usar publicador OPC
-              href: 'https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md'
             - name: Configurar o acelerador de solução
               href: iot-accelerators-connected-factory-configure.md
             - name: Configurar o acelerador de solução
@@ -177,6 +177,12 @@
                   href: howto-opc-vault-deploy-existing-client-server-communication.md
             - name: Implantar o cofre OPC do zero
               href: howto-opc-vault-deploy-scratch.md
+        - name: OPC Publisher
+          items:
+            - name: Configurar o OPC Publisher
+              href: howto-opc-publisher-configure.md
+            - name: Executar o OPC Publisher
+              href: howto-opc-publisher-run.md
     - name: Recursos
       items:
         - name: Repositório GitHub

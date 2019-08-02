@@ -1,6 +1,6 @@
 ---
 title: Guia de solução de problemas de desempenho de arquivos do Azure
-description: Problemas de desempenho com compartilhamentos de arquivos do Azure premium (visualização) e soluções alternativas associadas conhecidos.
+description: Problemas de desempenho com compartilhamentos de arquivos do Azure e soluções alternativas associadas conhecidos.
 services: storage
 author: gunjanj
 ms.service: storage
@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c35501f3afbeed519fb5304229f25be1cbd5f9b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190048"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445666"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Solucionar problemas de desempenho do arquivos do Azure
 
-Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de arquivos do Azure premium (visualização). Ele fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
+Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de arquivos do Azure. Ele fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Problemas de desempenho geral de alta latência e baixa taxa de transferência
 
 ### <a name="cause-1-share-experiencing-throttling"></a>Causa 1: Compartilhar a limitação está enfrentando
 
-A cota padrão em um compartilhamento é 100 GiB, que fornece a linha de base de 100 IOPS (com um potencial de intermitente até 300 por uma hora). Para obter mais informações sobre provisionamento e sua relação com a IOPS, consulte o [provisionado compartilhamentos](storage-files-planning.md#provisioned-shares) seção do guia de planejamento.
+A cota padrão em um compartilhamento de premium é 100 GiB, que fornece a linha de base de 100 IOPS (com um potencial de intermitente até 300 por uma hora). Para obter mais informações sobre provisionamento e sua relação com a IOPS, consulte o [provisionado compartilhamentos](storage-files-planning.md#provisioned-shares) seção do guia de planejamento.
 
 Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar as métricas do Azure no portal.
 
@@ -39,7 +39,7 @@ Para confirmar se o compartilhamento está sendo limitado, você pode aproveitar
 
 1. Selecione **transações** como a métrica.
 
-1. Adicione um filtro para **ResponseType** e verifique se todas as solicitações têm um código de resposta **SuccessWithThrottling**.
+1. Adicione um filtro para **ResponseType** e verifique se todas as solicitações têm um código de resposta **SuccessWithThrottling** (para o protocolo SMB) ou **ClientThrottlingError** (por REST).
 
 ![Opções de métricas para compartilhamentos de arquivos do premium](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -72,11 +72,11 @@ Se o aplicativo que está sendo usado pelo cliente é single-threaded, isso pode
 
 ### <a name="cause"></a>Causa
 
-VM cliente poderia estar localizado em uma região diferente que o compartilhamento de arquivos de premium.
+A VM do cliente pode estar localizado em uma região diferente que o compartilhamento de arquivos.
 
 ### <a name="solution"></a>Solução
 
-- Execute o aplicativo de uma VM que está localizada na mesma região que o compartilhamento de arquivos de premium.
+- Execute o aplicativo de uma VM que está localizada na mesma região que o compartilhamento de arquivos.
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Não é possível obter a taxa de transferência máxima com suporte pela rede do cliente
 
@@ -121,6 +121,10 @@ Não há suporte para a profundidade de e/s maior que um no CentOS/RHEL.
 
 - Atualizar para o 8 de CentOS / RHEL 8.
 - Altere para o Ubuntu.
+
+## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia de arquivos bidirecional lenta dos Arquivos do Azure no Linux
+
+Se você estiver tendo a cópia de arquivo lenta para e dos arquivos do Azure, dê uma olhada a [lenta a cópia de arquivos do Azure no Linux arquivos](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) guia de seção de solução de problemas do Linux.
 
 ## <a name="jitterysaw-tooth-pattern-for-iops"></a>Padrão de trêmulo/saw-tooth para IOPS
 

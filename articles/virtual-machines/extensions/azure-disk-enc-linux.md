@@ -4,7 +4,7 @@ description: Implante o Azure Disk Encryption na máquina virtual do Linux usand
 services: virtual-machines-linux
 documentationcenter: ''
 author: ejarvi
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 4b5b1f24fb22ff0922c362bd9911ad5c42236ee6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d544aae33faf60be00a2b4ea0a45f405efcedb39
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051722"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706136"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Azure Disk Encryption para Linux (Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -34,7 +34,7 @@ Para obter uma lista completa dos pré-requisitos, consulte [Pré-requisitos do 
 
 ### <a name="operating-system"></a>Sistema operacional
 
-O Azure Disk Encryption tem suporte nas versões selecionadas do servidor Linux.  Consulte as [perguntas frequentes sobre o Azure Disk Encryption](../../security/azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) para a lista de distribuições do Linux que têm suporte.
+O Azure Disk Encryption tem suporte nas versões selecionadas do servidor Linux.  Consulte o [sistemas operacionais com suporte do Azure Disk Encryption: Linux](../../security/azure-security-disk-encryption-prerequisites.md#linux) para a lista de distribuições do Linux que têm suporte.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -138,23 +138,23 @@ Usando `AADClientCertificate`:
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.Azure.Security | cadeia de caracteres |
-| type | AzureDiskEncryptionForLinux | cadeia de caracteres |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (esquema de 0,1) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (esquema de 0,1) AADClientSecret | password | cadeia de caracteres |
-| (esquema de 0,1) AADClientCertificate | impressão digital | cadeia de caracteres |
+| (esquema de 0,1) AADClientSecret | password | string |
+| (esquema de 0,1) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | Dicionário JSON |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | cadeia de caracteres | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | cadeia de caracteres |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
 | KeyEncryptionKeyURL | url | cadeia de caracteres |
 | (opcional) KeyVaultURL | url | cadeia de caracteres |
-| Senha | password | cadeia de caracteres | 
-| SequenceVersion | uniqueidentifier | cadeia de caracteres |
-| VolumeType | Sistema operacional, Dados, Tudo | cadeia de caracteres |
+| Passphrase | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | Sistema operacional, Dados, Tudo | string |
 
 ## <a name="template-deployment"></a>Implantação de modelo
 

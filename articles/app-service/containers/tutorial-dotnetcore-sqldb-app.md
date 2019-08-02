@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 4837867188721b13b3f4cb64245ae85a1e32fe50
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547820"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656633"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Criar um aplicativo ASP.NET Core e do Banco de Dados SQL no Serviço de Aplicativo do Azure no Linux
 
@@ -129,7 +129,7 @@ Quando o servidor lógico do Banco de Dados SQL é criado, a CLI do Azure mostra
 
 ### <a name="configure-a-server-firewall-rule"></a>Configurar uma regra de firewall de servidor
 
-Crie uma [regra de firewall no nível de servidor de Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) usando o comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
+Crie uma [regra de firewall no nível de servidor do Banco de Dados SQL do Azure](../../sql-database/sql-database-firewall-configure.md) usando o comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Quando o IP inicial e o IP final estiverem definidos como 0.0.0.0, o firewall estará aberto somente para outros recursos do Azure. 
 
 ```azurecli-interactive
 az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -179,7 +179,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Em seguida, defina a configuração de aplicativo `ASPNETCORE_ENVIRONMENT` como _Produção_. Essa configuração permite saber se o aplicativo está em execução no Azure, porque você usa o SQLite para o ambiente de desenvolvimento local e o Banco de Dados SQL para o ambiente do Azure.
 
-O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` no aplicativo do Azure. Substitua o espaço reservado *\<app-name>*.
+O exemplo a seguir define uma configuração de aplicativo `ASPNETCORE_ENVIRONMENT` no aplicativo do Azure. Substitua o espaço reservado *\<app-name>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -362,7 +362,7 @@ Observe que todos os itens de tarefas existentes ainda são exibidos. Quando voc
 
 ## <a name="stream-diagnostic-logs"></a>Logs de diagnóstico de fluxo
 
-O projeto de exemplo já segue as diretrizes em [Registro do ASP.NET Core no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) com duas alterações de configuração:
+O projeto de exemplo já segue as diretrizes em [Registro do ASP.NET Core no Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) com duas alterações de configuração:
 
 - Inclui uma referência a `Microsoft.Extensions.Logging.AzureAppServices` em *DotNetCoreSqlDb.csproj*.
 - Chamadas `loggerFactory.AddAzureWebAppDiagnostics()` em *Startup.cs*.

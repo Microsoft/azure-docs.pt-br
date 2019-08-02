@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
-ms.openlocfilehash: daec6e169805c193b48781dfecbabd9349bdc59b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dd4eab2d8e877cac468097c0a6ed6aa3cfb750b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565624"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>Tutorial: Integração do Azure Active Directory ao Five9 Plus Adapter (CTI, Contact Center Agents)
 
@@ -53,7 +53,7 @@ Para configurar a integração do Five9 Plus Adapter (CTI, Contact Center Agents
 
 **Para adicionar o Five9 Plus Adapter (CTI, Contact Center Agents) por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração do Five9 Plus Adapter (CTI, Contact Center Agents
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Five9 Plus Adapter (CTI, Contact Center Agents)**, selecione **Five9 Plus Adapter (CTI, Contact Center Agents)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Five9 Plus Adapter (CTI, Contact Center Agents)** , selecione **Five9 Plus Adapter (CTI, Contact Center Agents)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Five9 Plus Adapter (CTI, Contact Center Agents) na lista de resultados](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contact Center Agents), execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Five9 Plus Adapter (CTI, Contact Center Agents)**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Five9 Plus Adapter (CTI, Contact Center Agents)** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contac
 
     ![Informações de logon único de Domínio e URLs do Five9 Plus Adapter (CTI, Contact Center Agents)](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     
     |    Ambiente      |       URL      |
     | :-- | :-- |
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contac
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-7. Na seção **Configurar o Five9 Plus Adapter (CTI, Contact Center Agents)**, copie as URLs apropriadas de acordo com suas necessidades.
+7. Na seção **Configurar o Five9 Plus Adapter (CTI, Contact Center Agents)** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Five9 Plus Adapter (CTI, Contac
 
 ### <a name="configure-five9-plus-adapter-cti-contact-center-agents-single-sign-on"></a>Configurar o logon único do Five9 Plus Adapter (CTI, Contact Center Agents)
 
-1. Para configurar o logon único no lado do **Five9 Plus Adapter (CTI, Contact Center Agents)**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas para a [equipe de suporte do Five9 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact). Além disso, para configurar o SSO adicional, siga as etapas abaixo de acordo com o adaptador:
+1. Para configurar o logon único no lado do **Five9 Plus Adapter (CTI, Contact Center Agents)** , é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas para a [equipe de suporte do Five9 Plus Adapter (CTI, Contact Center Agents)](https://www.five9.com/about/contact). Além disso, para configurar o SSO adicional, siga as etapas abaixo de acordo com o adaptador:
 
     a. Guia do Administrador “Five9 Plus Adapter for Agent Desktop Toolkit”: [https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
@@ -173,11 +173,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Five9 Plus Adapter (CTI, Contact Center Agents).
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, **Five9 Plus Adapter (CTI, Contact Center Agents)**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, selecione **Todos os aplicativos** e, em seguida, **Five9 Plus Adapter (CTI, Contact Center Agents)** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Five9 Plus Adapter (CTI, Contact Center Agents)**.
+2. Na lista de aplicativos, selecione **Five9 Plus Adapter (CTI, Contact Center Agents)** .
 
     ![O link do Five9 Plus Adapter (CTI, Contact Center Agents) na lista Aplicativos](common/all-applications.png)
 
@@ -211,5 +211,5 @@ Ao clicar no bloco do Five9 Plus Adapter (CTI, Contact Center Agents) no Painel 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

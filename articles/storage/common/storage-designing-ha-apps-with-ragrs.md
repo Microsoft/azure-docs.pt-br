@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f38f6aae11f7bf806b7bad76db8f739fb2823d
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65951303"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357076"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Projetar aplicativos altamente disponíveis usando RA-GRS
 
@@ -213,7 +213,34 @@ Neste exemplo, suponha que o cliente alterne para leitura da região secundária
 
 Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode usar o valor da *Hora da Última Sincronização*, que você pode obter a qualquer momento consultando um serviço de armazenamento. Isso indica a hora em que os dados na região secundária estiveram consistentes pela última vez e quando o serviço aplicou todas as transações antes desse ponto no tempo. No exemplo mostrado acima, após o serviço inserir a entidade **funcionário** na região secundária, a Hora da Última Sincronização é definida como *T1*. Ela permanece em *T1* até que as atualizações de serviço da entidade **funcionário** na região secundária, quando ela é definida como *T6*. Se o cliente recupera a hora da última sincronização ao ler a entidade em *T5*, pode compará-la ao carimbo de data/hora na entidade. Se o carimbo de data/hora na entidade é posterior à hora da última sincronização, a entidade está em um estado potencialmente inconsistente, e você pode tomar a ação apropriada para o aplicativo. Usar esse campo requer que você saiba quando a última atualização do primário foi concluída.
 
-## <a name="testing"></a>Testando
+## <a name="getting-the-last-sync-time"></a>Obtendo a hora da última sincronização
+
+Você pode usar o PowerShell ou CLI do Azure para recuperar a hora da última sincronização para determinar quando os dados foi gravados pela última vez no secundário.
+
+### <a name="powershell"></a>PowerShell
+
+Para obter a hora da última sincronização da conta de armazenamento usando o PowerShell, verifique a conta de armazenamento **GeoReplicationStats.LastSyncTime** propriedade. Lembre-se de substituir os valores de espaço reservado com seus próprios valores:
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>CLI do Azure
+
+Para obter a hora da última sincronização da conta de armazenamento usando a CLI do Azure, verifique a conta de armazenamento **geoReplicationStats.lastSyncTime** propriedade. Use o `--expand` parâmetro para retornar valores para as propriedades aninhadas abaixo **geoReplicationStats**. Lembre-se de substituir os valores de espaço reservado com seus próprios valores:
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
+
+## <a name="testing"></a>Testes
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 

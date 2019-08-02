@@ -51,6 +51,9 @@
   items:
     - name: Gerenciar
       items:
+        - name: Contas
+          displayName: subscription
+          href: media-services-account-concept.md
         - name: Entidades
           items:
             - name: .NET
@@ -251,7 +254,7 @@
         - name: Tratar operações de execução longa
           href: media-services-dotnet-long-operations.md
         - name: Especificação de ingestão dinâmica de MP4 fragmentado
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Introdução
           href: media-services-azure-media-clipper-getting-started.md
         - name: Carregar vídeos
@@ -455,11 +458,11 @@
     - name: Especificações
       items:
         - name: Ingestão dinâmica – especificação de ingestão dinâmica de MP4 fragmentado
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
         - name: Ingestão a vivo – a sinalização atingiu o tempo de metadados na transmissão ao vivo
-          href: media-services-specifications-live-timed-metadata.md
+          href: ../media-services-specifications-live-timed-metadata.md
         - name: Smooth Streaming HEVC
-          href: media-services-specifications-ms-sstr-amendment-hevc.md
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Mídia do Azure

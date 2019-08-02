@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 03bec71cca445d580605c1b0f4705e619933000a
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: c32803fec6107e39a0b8329adaee072e3e291575
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729126"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68567065"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Amostras do Azure PowerShell para o Banco de Dados SQL do Azure
 
@@ -40,10 +39,11 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |**Configurar a replicação geográfica e o failover**||
 | [Configurar e fazer failover de um banco de dados individual usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure e faz o failover desse banco de dados para a réplica secundária. |
 | [Configurar e fazer failover de um banco de dados em pool usando replicação geográfica ativa](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura a replicação geográfica ativa para um único Banco de Dados SQL do Azure em um pool elástico SQL e faz o failover dele para a réplica secundária. |
-| [Configurar e fazer failover de um grupo de failover para um banco de dados individual](scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell configura um grupo de failover para uma instância de servidor do Banco de Dados SQL do Azure, adiciona um banco de dados ao grupo de failover e realiza o failover dele para o servidor secundário |
+|**Configurar um grupo de failover**||
+| [Configurar um grupo de failover para um banco de dados individual](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell cria um banco de dados e um grupo de failover, adiciona o banco de dados ao grupo de failover e testa o failover no servidor secundário. | 
 |**Dimensionar um banco de dados individual e um pool elástico**||
 | [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um Banco de Dados SQL do Azure, dimensiona-o para um tamanho da computação mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
-| [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um pool elástico do Banco de Dados SQL do Azure, dimensiona-o para um tamanho da computação mais alto e cria uma regra de alerta em uma das métricas de desempenho.  |
+| [Dimensionar um pool elástico](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell monitora as métricas de desempenho de um pool elástico do Banco de Dados SQL do Azure, dimensiona-o para um tamanho da computação mais alto e cria uma regra de alerta em uma das métricas de desempenho. |
 | **Auditoria e detecção de ameaças** |
 | [Configurar auditoria e detecção de ameaças](scripts/sql-database-auditing-and-threat-detection-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Esse script do PowerShell configura políticas de detecção de ameaças e auditoria para um Banco de Dados SQL do Azure. |
 | **Restaurar, copiar e importar um banco de dados**||
@@ -67,6 +67,7 @@ A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para 
 |**Criar e configurar instâncias gerenciadas**||
 | [Criar e gerenciar uma Instância Gerenciada](scripts/sql-database-create-configure-managed-instance-powershell.md) | Este script do PowerShell mostra como criar e gerenciar uma instância gerenciada usando o Azure PowerShell |
 | [Criar e gerenciar uma Instância Gerenciada usando o modelo do Azure Resource Manager](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script do PowerShell mostra como criar e gerenciar uma Instância Gerenciada usando o Azure PowerShell e o modelo do Azure Resource Manager.|
+| [Restaurar um banco de dados em uma Instância Gerenciada em outra região geográfica](scripts/sql-managed-instance-restore-geo-backup.md) | Este script do PowerShell faz um backup de um banco de dados e o restaura em outra região. Isso é conhecido como cenário de recuperação de desastre de restauração geográfica. |
 | **Configurar TDE (Transparent Data Encryption)**||
 | [Gerenciar Transparent Data Encryption em uma Instância Gerenciada usando sua própria chave do Azure Key Vault](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script do PowerShell configura a TDE (Transparent Data Encryption) no cenário de Bring Your Own Key para instância gerenciada do SQL usando uma chave do Azure Key Vault|
 |||

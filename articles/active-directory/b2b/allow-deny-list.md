@@ -1,23 +1,23 @@
 ---
-title: Permitir ou bloquear convites para organizações específicas - Azure Active Directory | Microsoft Docs
+title: Permitir ou bloquear convites para organizações específicas – Azure Active Directory | Microsoft Docs
 description: Mostra como um administrador pode usar o Portal do Azure ou o PowerShell para definir um acesso ou negar lista para permitir ou impedir usuários B2B de determinados domínios.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 07/15/2018
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa975446c19db3176fdb89ccfb1a987b1fda049d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113232"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233889"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir ou bloquear convites para usuários B2B de organizações específicas
 
@@ -27,8 +27,9 @@ Você pode usar uma lista de permissões ou uma lista de negações para permiti
 
 - Você pode criar uma lista de permissões ou uma lista de negações. Você não pode configurar os dois tipos de listas. Por padrão, qualquer domínio que ão esteja na lista de permissão ou na lista de negação, e vice-versa. 
 - Você pode criar apenas uma política por organização. Você pode atualizar a política para incluir mais domínios ou você pode excluir a política para criar uma nova. 
+- O número de domínios que você pode adicionar a uma lista de permissões ou lista de negações é limitado apenas pelo tamanho da política. O tamanho máximo de toda a política é 25 KB (25.000 caracteres), que inclui a lista de permissões ou a lista de negações e quaisquer outros parâmetros configurados para outros recursos.
 - Esta lista funciona independentemente das listas de permissão/bloqueio do OneDrive for Business e SharePoint Online. Se você quiser restringir o compartilhamento de arquivos no SharePoint Online, será necessário configurar uma lista de permissão ou negação para o One Drive for Business e para o SharePoint Online. Para obter mais informações, consulte [Compartilhamento de domínios restritos no SharePoint Online e OneDrive for Business ](https://support.office.com/article/restricted-domains-sharing-in-sharepoint-online-and-onedrive-for-business-5d7589cd-0997-4a00-a2ba-2320ec49c4e9).
-- Essa lista não se aplica a usuários externos que já resgataram o convite. A lista será aplicada depois que for configurada. Se um convite do usuário estiver em um estado pendente e você definir uma política que bloqueia seu domínio, a tentativa do usuário para resgatar o convite falhará.
+- A lista não se aplica a usuários externos que já resgataram o convite. A lista será aplicada depois que for configurada. Se um convite do usuário estiver em um estado pendente e você definir uma política que bloqueia seu domínio, a tentativa do usuário para resgatar o convite falhará.
 
 ## <a name="set-the-allow-or-deny-list-policy-in-the-portal"></a>Configure a lista de permissão ou negação no portal
 
@@ -157,7 +158,7 @@ Remove-AzureADPolicy -Id $currentpolicy.Id
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter uma visão geral do Azure AD B2B, consulte [O que é a colaboração do Azure AD B2B?](what-is-b2b.md)
-- Para obter informações sobre a colaboração B2B e de acesso condicional, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).
+- Para obter informações sobre acesso condicional e colaboração B2B, consulte [acesso condicional para usuários de colaboração B2B](conditional-access.md).
 
 
 

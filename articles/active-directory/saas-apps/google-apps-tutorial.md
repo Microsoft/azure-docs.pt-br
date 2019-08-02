@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8196576c4b419fdfc8f7e3adf5c474ef128ebbf6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898752"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Azure Active Directory com o G Suite
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
@@ -165,7 +165,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Informações de logon único de Domínio e URLs do G Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     
@@ -189,7 +189,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
     | ---------------| --------------- |
     | Identificador Exclusivo do Usuário | User.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -237,7 +237,7 @@ Para configurar o logon único do Microsoft Azure AD com o G Suite, execute as s
 
     ![Configure o SSO][12]
 
-     a. Selecione **Configurar SSO com um provedor de identidade de terceiros**.
+    a. Selecione **Configurar SSO com um provedor de identidade de terceiros**.
 
     b. No campo **URL da página de entrada** no G Suite, cole o valor da **URL de logon** que você copiou do portal do Azure.
 

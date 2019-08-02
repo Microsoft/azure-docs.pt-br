@@ -7,12 +7,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 55db43bf3037fcba59e7ad783c6d8c06f1886bdb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8227ff0c56e147db66c4cdc93083d671b08d1d98
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142822"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433408"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux
 
@@ -26,7 +26,7 @@ Saiba como usar o Apache Oozie com o Apache Hadoop no Azure HDInsight. O Oozie �
 Você também pode usar o Oozie para agendar trabalhos específicos para um sistema, como programas Java ou scripts de shell.
 
 > [!NOTE]  
-> Outra opção para definir fluxos de trabalho com HDInsight é usar o Azure Data Factory. Para saber mais sobre o Azure Data Factory, consulte [Usar o Apache Pig e Apache Hive com Data Factory][azure-data-factory-pig-hive]. Para usar o Oozie em clusters com o Enterprise Security Package, consulte [Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
+> Outra opção para definir fluxos de trabalho com HDInsight é usar o Azure Data Factory. Para saber mais sobre o Data Factory, consulte [usar o Apache Pig e Apache Hive com o Data Factory][azure-data-factory-pig-hive]. Para usar o Oozie em clusters com o Enterprise Security Package, consulte [Executar o Apache Oozie em clusters do HDInsight Hadoop com o Enterprise Security Package](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -56,10 +56,10 @@ O fluxo de trabalho usado neste documento contém duas ações. Ações são def
 
     Para obter mais informações sobre o Hive, consulte [Usar Apache Hive com HDInsight][hdinsight-use-hive].
 
-2. Uma ação do Sqoop exporta o conteúdo da nova tabela Hive para uma tabela criada em um Banco de Dados SQL do Azure. Para obter mais informações sobre o Sqoop, consulte [Usar Apache Sqoop com HDInsight][hdinsight-use-sqoop].
+2. Uma ação do Sqoop exporta o conteúdo da nova tabela Hive para uma tabela criada em um Banco de Dados SQL do Azure. Para obter mais informações sobre o Sqoop, confira [usar o Apache Sqoop com HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]  
-> Para obter as versões do Oozie com suporte em clusters HDInsight, confira [Novidades nas versões de clusters Hadoop fornecidas pelo HDInsight][hdinsight-versions].
+> Para versões do Oozie com suporte em clusters de HDInsight, consulte [o que há de novo nas versões de cluster Hadoop fornecidas pelo HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>Criar o diretório de trabalho
 
@@ -127,7 +127,7 @@ Use as etapas a seguir para criar um script de HiveQL (linguagem de consulta Hiv
 
    * `${hiveDataFolder}`: Contém o local para armazenar os arquivos de dados para a tabela.
 
-     O arquivo de definição do fluxo de trabalho, workflow.xml neste tutorial, transmite esses valores para o script HiveQL no tempo de execução.
+     O arquivo de definição de fluxo de trabalho, Workflow. XML neste artigo, passa esses valores para o script HiveQL em tempo de execução.
 
 4. Para salvar o arquivo, selecione Ctrl+X, digite `Y`e selecione **Enter**.  
 
@@ -708,12 +708,12 @@ Por exemplo, para o trabalho neste documento, você usaria o seguinte procedimen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a definir um fluxo de trabalho do Oozie e a executar um trabalho do Oozie. Para saber mais sobre como trabalhar com o HDInsight, consulte os seguintes artigos:
+Neste artigo, você aprendeu como definir um fluxo de trabalho do Oozie e como executar um trabalho do Oozie. Para saber mais sobre como trabalhar com o HDInsight, consulte os seguintes artigos:
 
 * [Carregar dados para trabalhos do Apache Hadoop no HDInsight][hdinsight-upload-data]
 * [Usar o Apache Sqoop com o Apache Hadoop no HDInsight][hdinsight-use-sqoop]
-* [Usar Apache Hive com Apache Hadoop no HDInsight][hdinsight-use-hive]
-* [Usar Apache Pig com Apache Hadoop no HDInsight][hdinsight-use-pig]
+* [Use o Apache Hive com o Apache Hadoop no HDInsight][hdinsight-use-hive]
+* [Use o Apache Pig com o Apache Hadoop no HDInsight][hdinsight-use-pig]
 * [Desenvolver programas Java MapReduce para HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563

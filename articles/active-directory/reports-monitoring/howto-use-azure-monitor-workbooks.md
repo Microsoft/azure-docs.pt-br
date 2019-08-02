@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6d461725d0d4c86ee7aa5b450d42c01ca77ffb16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9433714c06dfad09270a6033f38a99471bcd517a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107672"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67513611"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios do Active Directory do Azure
 
@@ -57,7 +57,7 @@ Para acessar as pastas de trabalho:
 
 2. No painel de navegação à esquerda, selecione **Azure Active Directory**.
 
-3. No **Monitoring** seção, selecione **Insights**. 
+3. No **Monitoring** seção, selecione **pastas de trabalho**. 
 
     ![Selecione Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
@@ -93,7 +93,7 @@ Você pode filtrar cada tendência por categorias a seguir:
 
 Para cada tendência, você pode obter uma análise nas categorias seguintes:
 
-- Local padrão
+- Location
 
     ![Entradas por local](./media/howto-use-azure-monitor-workbooks/45.png)
 

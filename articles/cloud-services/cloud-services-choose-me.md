@@ -2,23 +2,17 @@
 title: O que são os Serviços de Nuvem do Azure | Microsoft Docs
 description: Saiba mais sobre o que são os Serviços de Nuvem do Azure.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-ms.assetid: ed7ad348-6018-41bb-a27d-523accd90305
+author: georgewallace
 ms.service: multiple
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ce88dcaedf32f293fc121cda2a088388c99badee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 61369d51056607d8176d301afa945c7c77895b12
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337504"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359713"
 ---
 # <a name="overview-of-azure-cloud-services"></a>Visão geral dos Serviços de Nuvem do Azure
 Os Serviços de Nuvem do Azure são um exemplo de uma [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (Plataforma como Serviço). Como o [Serviço de Aplicativo do Azure](../app-service/overview.md), essa tecnologia foi desenvolvida para dar suporte aos aplicativos escalonáveis, confiáveis e baratos de operar. Da mesma forma que o Serviço de Aplicativo é hospedado em máquinas virtuais (VMs), os Serviços de Nuvem do Azure também são. No entanto, você tem mais controle sobre as VMs. Você pode instalar seu próprio software em VMs que usam os Serviços de Nuvem do Azure acessá-las remotamente.
@@ -44,7 +38,7 @@ Com os Serviços de Nuvem do Azure, você não cria máquinas virtuais. Em vez d
 
 Um aplicativo dos Serviços de Nuvem do Azure geralmente é disponibilizado aos usuários por um processo de duas etapas. Primeiro, o desenvolvedor [carrega o aplicativo](cloud-services-how-to-create-deploy-portal.md) na área de preparo da plataforma. Quando o desenvolvedor estiver pronto para ativar o aplicativo, ele usará o Portal do Azure para trocar o preparo pela produção. Essa [troca entre o preparo e a produção](cloud-services-how-to-manage-portal.md#swap-deployments-to-promote-a-staged-deployment-to-production) pode ser feita sem tempo de inatividade, o que permite que um aplicativo em execução seja atualizado para uma nova versão sem perturbar seus usuários.
 
-## <a name="monitoring"></a>Monitoramento
+## <a name="monitoring"></a>Monitorando
 Os Serviços de Nuvem do Azure também fornecem monitoramento. Assim como as Máquinas Virtuais, ele detecta um servidor físico com falha e reinicia as VMs que estavam em execução nesse servidor em um novo computador. Mas os Serviços de Nuvem do Azure também detectam as VMs e os aplicativos com falha, não apenas as falhas de hardware. Diferentemente das Máquinas Virtuais, os Serviços têm um representante dentro de cada função Web e de trabalho, de modo que podem iniciar novas instâncias de aplicativo e VMs quando uma falha ocorre.
 
 A natureza da PaaS dos Serviços de Nuvem do Azure tem outras implicações também. Uma das mais importantes é que os aplicativos com base nessa tecnologia devem ser escritos para serem executados corretamente quando houver falha de alguma instância da função de trabalho ou da Web. Para isso, um aplicativo dos Serviços de Nuvem do Azure não deve manter o estado de suas próprias VMs no sistema de arquivos. Ao contrário das VMs criadas com Máquinas Virtuais, gravações feitas para VMs de Serviços de Nuvem do Azure não são persistentes. Não há nada como um disco de dados de Máquinas Virtuais. Um aplicativo dos Serviços de Nuvem do Azure deve gravar explicitamente todo o estado no Banco de Dados SQL do Azure, em blobs, tabelas ou em algum outro armazenamento externo. Criar aplicativos dessa forma facilita o dimensionamento deles e os torna mais resistente a falhas, que são metas importantes dos Serviços de Nuvem do Azure.

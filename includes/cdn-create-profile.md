@@ -3,17 +3,17 @@ title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8aa6cb3f10b86a6821cd93190ecc2135508739cb
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66125548"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594006"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil CDN
 
@@ -35,7 +35,7 @@ Um perfil CDN é um contêiner para pontos de extremidade CDN e especifica um ti
     | -------- | ----- |
     | **Nome** | Insira *my-cdn-profile-123* como nome de perfil. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, você pode inserir um nome diferente. |
     | **Assinatura** | Selecione uma assinatura do Azure na lista suspensa. |
-    | **Grupo de recursos** | Selecione **Criar novo** e insira *my-resource-group-123* como o nome para seu novo grupo de recursos. Esse nome deve ser globalmente exclusivo. Caso ele já esteja em uso, é possível inserir um nome diferente ou selecionar **Usar existente** e depois **my-resource-group-123** na lista suspensa. | 
+    | **Grupo de recursos** | Selecione **Criar novo** e insira *my-resource-group-123* como o nome para seu novo grupo de recursos. Caso ele já esteja em uso, é possível inserir um nome diferente ou selecionar **Usar existente** e depois **my-resource-group-123** na lista suspensa. | 
     | **Localização do grupo de recursos** | Selecione **Centro dos EUA** na lista suspensa. |
     | **Tipo de preços** | Selecione **Verizon Standard** na lista suspensa. |
     | **Criar um novo ponto de extremidade CDN** | Deixe não selecionado. |  

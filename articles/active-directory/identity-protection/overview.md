@@ -2,31 +2,25 @@
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d9b0c80522a988447b2753953c0c51b058fdd43
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: MT
+ms.openlocfilehash: 99a542d3208d5871d88c966fffc65cf16e0fbeee
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "66015209"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335400"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>O que é Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection permite que as organizações configurem as respostas automatizadas para detectar ações suspeitas relacionadas a identidades de usuário.
+O Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection permite que as organizações configurem respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário.
 
 ## <a name="get-started"></a>Introdução
 
@@ -37,12 +31,11 @@ A grande maioria das violações de segurança ocorre quando os invasores conseg
 Como consequência, você precisa:
 
 - Proteger todas as identidades, independentemente do nível de privilégio
-
 - Agir proativamente para evitar o uso de identidades comprometidas
 
 Descobrir identidades comprometidas não é uma tarefa fácil. O Azure Active Directory usa algoritmos de aprendizado de máquina e heurística adaptáveis para detectar anomalias e incidentes suspeitos que indicam identidades potencialmente comprometidas. Usando esses dados, o Identity Protection gera relatórios e alertas que permitem avaliar os problemas detectados e tomar as devidas ações de mitigação ou correção.
 
-O Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. Para proteger as identidades da sua organização, você pode configurar políticas de risco que respondem automaticamente a problemas detectados quando um nível de risco especificado foi alcançado. Essas políticas, entre outros controles de acesso condicional fornecidos pelo Azure Active Directory e pelo EMS ([Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/)), podem bloquear ou iniciar automaticamente ações de correção adaptáveis que incluem redefinições de senha e a imposição de autenticação multifator.
+O Azure Active Directory Identity Protection é mais do que apenas uma ferramenta de monitoramento e criação de relatórios. Para proteger as identidades da sua organização, você pode configurar políticas de risco que respondem automaticamente a problemas detectados quando um nível de risco especificado foi alcançado. Essas políticas, entre outros Controles de Acesso condicional fornecidos pelo Azure Active Directory e pelo EMS ([Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/)), podem bloquear ou iniciar automaticamente ações de correção adaptáveis que incluem redefinições de senha e a imposição de autenticação multifator.
 
 ### <a name="identity-protection-capabilities"></a>Recursos do Identity Protection
 
@@ -59,7 +52,7 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 - Fornecer fluxos de trabalho básicos para acompanhar as investigações
 - Fornecer acesso fácil às ações de correção, tais como redefinição de senha
 
-**Políticas de acesso condicional baseadas em risco:**
+**Políticas de Acesso Condicional baseadas em risco:**
 
 - Política para reduzir entradas arriscadas ao bloquear entradas ou exigir desafios de autenticação multifator
 - Política para bloquear ou proteger contas de usuário arriscadas

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: c0c1b9c1e9afc84e9702f6c1897d372a017be868
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d014785a0e866301e228458fe3742b899bd1f192
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629891"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606967"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Java
 
@@ -30,7 +30,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="create-the-java-project"></a>Criar o projeto Java
 
-1. Crie um novo aplicativo Java de linha de comando em seu IDE e adicione uma classe **Main** com um método **main**.
+1. Crie um aplicativo Java de linha de comando no IDE e adicione uma classe **Main** com um método **main**.
 1. Importe as bibliotecas a seguir para seu projeto Java. Se você usar o Maven, as coordenadas do Maven serão fornecidas para cada biblioteca.
    - [Cliente do Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
    - [Núcleo do Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
@@ -159,7 +159,7 @@ Diretamente abaixo do código anterior, adicione o seguinte bloco, que converte 
 
 ## <a name="run-the-app"></a>Execute o aplicativo
 
-Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detecção Facial em um formato JSON legível na janela do console. Por exemplo: 
+Compile o código e execute-o. Uma resposta bem-sucedida exibirá dados de Detecção Facial em um formato JSON legível na janela do console. Por exemplo:
 
 ```json
 [{

@@ -4,22 +4,17 @@ description: Saiba o que fazer no caso uma interrupção de serviço do Azure qu
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 976bb43fd3e6d6fdb19c733affd4afa2e49e482c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967674"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359663"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>O que fazer no caso de uma interrupção de serviço do Azure que afete os Serviços de Nuvem do Azure
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis quando você precisar deles. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas.
@@ -51,7 +46,7 @@ Para obter mais detalhes sobre como criar e implantar um aplicativo de serviço 
 Dependendo das fontes de dados do aplicativo, você precisa verificar os procedimentos de recuperação para a fonte de dados do aplicativo.
 
 * Para obter as fontes de dados do Armazenamento do Azure, confira [Replicação de Armazenamento do Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) para conhecer as opções disponíveis com base no modelo de replicação escolhido para o aplicativo.
-* Para fontes de banco de dados SQL, leia [visão geral: Recuperação de desastres banco de dados e continuidade de negócios com o banco de dados SQL na nuvem](../sql-database/sql-database-business-continuity.md) para verificar as opções que estão disponíveis com base no modelo de replicação escolhido para seu aplicativo.
+* Para fontes de banco de dados [SQL, leia Visão geral: Continuidade de negócios de nuvem e recuperação de desastre](../sql-database/sql-database-business-continuity.md) de banco de dados com o banco de dados SQL para verificar as opções disponíveis com base no modelo de replicação escolhido para seu aplicativo.
 
 
 ## <a name="option-3-wait-for-recovery"></a>Opção 3: Aguardar a recuperação

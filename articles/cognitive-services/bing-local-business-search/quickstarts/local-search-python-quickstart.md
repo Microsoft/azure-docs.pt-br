@@ -1,5 +1,5 @@
 ---
-title: Início rápido - Envie uma consulta para a API de pesquisa do Bing Local Business em Python | Microsoft Docs
+title: Início Rápido – Enviar uma consulta para a API da Pesquisa de Negócios Locais do Bing no Python
 titleSuffix: Azure Cognitive Services
 description: Use este artigo para começar a usar a API de Pesquisa de Empresa Local do Bing em Python.
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: a8a21c0904bd750cdb59c03a36d23a8c32c9e8cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.author: rosh
+ms.openlocfilehash: c6da3c9a169f3b6e5885499d3a7bc5347902782e
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051536"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423314"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Início Rápido: Enviar uma consulta para a API de Pesquisa de Empresas Locais do Bing no Python
 

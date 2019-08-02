@@ -1,19 +1,18 @@
 ---
 title: Backup de compartilhamentos de arquivos do Azure
 description: Este artigo fornece detalhes sobre como fazer backup e restaurar seus compartilhamentos de arquivos do Azure e explica as tarefas de gerenciamento.
-services: backup
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 01/31/2019
+author: dcurwin
+ms.author: dacurwin
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 30544a49f49714eeefbf54d70e54275d2cf9a7ef
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9cb0150efcb4860af98b47aa5da4cfd24d2e9de9
+ms.sourcegitcommit: 15f7b641a67f3d6cf4fb4b4c11eaee18cf335923
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243544"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68602020"
 ---
 # <a name="back-up-azure-file-shares"></a>Backup de compartilhamentos de arquivos do Azure
 Este artigo explica como usar o Portal do Azure para fazer backup e restaurar [compartilhamentos de arquivos do Azure](../storage/files/storage-files-introduction.md) no Azure.
@@ -32,15 +31,17 @@ Antes de fazer backup de um compartilhamento de arquivos do Azure, verifique se 
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações do backup do compartilhamento de arquivos do Azure durante a versão prévia
 O backup para compartilhamentos de arquivos do Azure está em versão prévia. Há suporte para compartilhamentos de arquivos do Azure em contas de armazenamento de uso geral v1 e de uso geral v2. Não há suporte para os cenários de backup a seguir para compartilhamentos de arquivos do Azure:
+- O suporte para Backup de Compartilhamentos de Arquivos do Azure em Contas de Armazenamento com replicação de ZRS ([armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md)) está limitado no momento a [estas regiões](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
 - Não é possível proteger compartilhamentos de arquivos no Azure em contas de armazenamento que têm redes virtuais ou firewall habilitados.
 - Não há nenhuma CLI disponível para a proteção de Arquivos do Azure usando o Backup do Azure.
+- No momento, o Backup do Azure é compatível com a configuração de backups agendados uma vez por dia do Compartilhamento de Arquivos do Azure.
 - A quantidade máxima de backups agendados por dia é de um.
 - A quantidade máxima de backups sob demanda por dia é de quatro.
 - Use [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) na conta de armazenamento para impedir a exclusão acidental de backups em seu cofre dos Serviços de Recuperação.
 - Não exclua os instantâneos criados pelo Backup do Azure. A exclusão de instantâneos pode resultar na perda de pontos de recuperação e/ou em falhas de restauração.
-- Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivos e, portanto, perderá todos os pontos de restauração
+- Não exclua os compartilhamentos de arquivos protegidos pelo Backup do Azure. A solução atual excluirá todos os instantâneos tirados pelo Backup do Azure após a exclusão do compartilhamento de arquivo e, portanto, perderá todos os pontos de restauração.
 
-O backup para Compartilhamentos de Arquivos do Azure nas contas de armazenamento com replicação de [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) (ZRS) está disponível apenas no Centro dos EUA (CUS), Leste dos EUA (EUS), Leste dos EUA 2 (EUS2), Europa Setentrional (NE), Sudeste Asiático (SEA), Europa Ocidental (WE) e Oeste dos EUA 2 (WUS2).
+
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Configurar o backup para um compartilhamento de arquivos do Azure
 Este tutorial presume que você já estabeleceu um compartilhamento de arquivos do Azure. Para fazer o backup do compartilhamento de arquivos do Azure:
@@ -49,7 +50,7 @@ Este tutorial presume que você já estabeleceu um compartilhamento de arquivos 
 
     ![Escolha o compartilhamento de arquivos do Azure como meta de Backup](./media/backup-file-shares/overview-backup-page.png)
 
-2. No menu **Meta de Backup**, em **Do que deseja fazer backup?** , escolha o Compartilhamento de Arquivos do Azure.
+2. No menu **Meta de backup**, em **Do que deseja fazer backup?** , escolha o Compartilhamento de Arquivos do Azure.
 
     ![Escolha o compartilhamento de arquivos do Azure como meta de Backup](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -192,6 +193,6 @@ Você pode excluir o backup de um compartilhamento de arquivos durante a interru
 O procedimento a seguir pressupõe que o trabalho de backup da máquina virtual foi interrompido. Depois que o trabalho de backup for interrompido, as opções Retomar Backup e Excluir Dados do Backup ficam disponíveis no painel de itens do backup. Clique em Excluir Dados de Backup e digite o nome do compartilhamento de arquivos para confirmar a exclusão. Como opção, forneça um Motivo para a exclusão ou Comentário.
 
 ## <a name="see-also"></a>Veja também
-Para obter mais informações sobre compartilhamentos de arquivos do Azure, consulte
+Para saber mais sobre os compartilhamentos de arquivos do Azure, confira
 - [Perguntas frequentes para o backup do compartilhamento de arquivos do Azure](backup-azure-files-faq.md)
 - [Solucionar problemas de backup de compartilhamento de arquivos do Azure](troubleshoot-azure-files.md)

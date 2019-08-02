@@ -11,38 +11,25 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 12/13/2018
-ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/17/2019
+ms.openlocfilehash: 674c5d48dad5d3cfd138853d7ea38ae4a216c93d
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700390"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309873"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configurar DNS personalizado para Instância Gerenciada do Banco de Dados SQL do Azure
 
-Uma Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantada em uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Há alguns cenários (por exemplo, db mail, servidores vinculados a outras instâncias do SQL em seu ambiente de nuvem ou híbrido) que exigem nomes de hosts privados para serem resolvidos da Instância Gerenciada. Nesse caso, você precisa configurar um DNS personalizado dentro do Azure. Uma vez que a Instância Gerenciada usa o mesmo DNS para seu funcionamento interno, a configuração de DNS da rede virtual deverá ser compatível com a Instância Gerenciada.
+Uma Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantada em uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Há alguns cenários (por exemplo, db mail, servidores vinculados a outras instâncias do SQL em seu ambiente de nuvem ou híbrido) que exigem nomes de hosts privados para serem resolvidos da Instância Gerenciada. Nesse caso, você precisa configurar um DNS personalizado dentro do Azure. 
+
+Como Instância Gerenciada usa o mesmo DNS para seus trabalhos internos, você precisa configurar o servidor DNS personalizado para que ele possa resolver nomes de domínio públicos.
 
    > [!IMPORTANT]
    > Sempre use FQDNs (nomes de domínio totalmente qualificados) para os servidores de email, SQL Servers e outros serviços, mesmo que eles estejam dentro da zona DNS privado. Por exemplo, use `smtp.contoso.com` para o servidor de email porque `smtp` simples não será resolvido corretamente.
 
-Para tornar uma configuração personalizada do DNS compatível com a Instância Gerenciada, é necessário:
-
-- Configurar o servidor DNS personalizado para que ele seja capaz de resolver nomes de domínio público
-- Colocar o endereço IP de DNS 168.63.129.16 do resolvedor recursivo do Azure no final da lista DNS de rede virtual
-
-## <a name="setting-up-custom-dns-servers-configuration"></a>Definir uma configuração de servidores DNS personalizada
-
-1. No portal do Azure, encontre opção de DNS personalizado para sua rede virtual.
-
-   ![opção de DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
-
-2. Alterne para Personalizado e insira o endereço IP do servidor DNS personalizado, bem como o endereço IP de resolvedores recursivos do Azure, 168.63.129.16.
-
-   ![opção de DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
-
    > [!IMPORTANT]
-   > Não definir o resolvedor recursivo do Azure na lista de DNS pode fazer com que a Instância Gerenciada entre em um estado de falha quando os servidores DNS personalizados estão indisponíveis por algum motivo. A recuperação desse estado pode exigir a criação de uma nova instância em uma VNet com as políticas de rede compatíveis, recriar dados em nível de instância e restaurar os bancos de dados. Definir o resolvedor recursivo do Azure como a última entrada na lista de DNS garante que os nomes públicos ainda poderão ser resolvidos, mesmo quando todos os servidores DNS personalizados falharem.
+   > A atualização de servidores DNS de rede virtual não afetará Instância Gerenciada imediatamente. Instância Gerenciada configuração do DNS será atualizada após a concessão do DHCP expirar ou após a upgarade da plataforma, o que ocorrer primeiro. **Os usuários são aconselhados a definir sua configuração de DNS de rede virtual antes de criar o primeiro Instância Gerenciada.**
 
 ## <a name="next-steps"></a>Próximas etapas
 

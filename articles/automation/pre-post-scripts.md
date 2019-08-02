@@ -4,17 +4,17 @@ description: Este artigo descreve como configurar e gerenciar pré-scripts e pó
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a11602919a8b68a078b0b2690411358b4b5f814
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 94ec7c54e8e49685ad0289102f092516bcb0acfc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063503"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478248"
 ---
 # <a name="manage-pre-and-post-scripts"></a>Gerenciar scripts pré e pós
 

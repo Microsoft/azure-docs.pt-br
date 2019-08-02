@@ -526,6 +526,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
     - name: Executar pacotes SSIS no Azure
       items:
+        - name: Executar pacotes SSIS no Azure do SSDT
+          href: how-to-invoke-ssis-package-ssdt.md
         - name: Executar pacotes SSIS com a atividade Executar pacote do SSIS
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: Executar pacotes SSIS com a atividade de Procedimento Armazenado
@@ -548,8 +550,6 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: Limpar logs do SSISDB com Trabalhos do Banco de Dados Elástico
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: Solução de problemas de execução de pacote no Azure-SSIS IR
-          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: Criar gatilhos
       items:
         - name: Criar gatilho baseado em eventos
@@ -558,6 +558,8 @@
           href: how-to-create-schedule-trigger.md
         - name: Criar um gatilho de janela em cascata
           href: how-to-create-tumbling-window-trigger.md
+        - name: Criar uma dependência de gatilho de janela em cascata
+          href: tumbling-window-trigger-dependency.md
     - name: Modelos
       items:
         - name: Visão geral de modelos
@@ -566,12 +568,22 @@
           href: solution-template-copy-files-multiple-containers.md
         - name: Copiar novos arquivos por LastModifiedDate
           href: solution-template-copy-new-files-lastmodifieddate.md
-        - name: Cópia em massa com uma tabela de controle
+        - name: Cópia em massa do banco de dados
           href: solution-template-bulk-copy-with-control-table.md
-        - name: Cópia delta com uma tabela de controle
+        - name: Cópia delta do banco de dados
           href: solution-template-delta-copy-with-control-table.md
+        - name: Mover arquivos
+          href: solution-template-move-files.md
         - name: Transformar dados com o Databricks
           href: solution-template-databricks-notebook.md
+    - name: Guia de Solução de Problemas
+      items:
+        - name: Solução de problemas da atividade
+          href: data-factory-troubleshoot-guide.md
+        - name: Solução de problemas de gerenciamento do Azure-SSIS IR
+          href: ssis-integration-runtime-management-troubleshoot.md
+        - name: Solução de problemas de execução de pacote no Azure-SSIS IR
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: Referência
   items:
     - name: .NET

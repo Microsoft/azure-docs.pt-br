@@ -7,18 +7,18 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 419c533aabd67637efa64777387c491dd890596e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35beb55d7326b954a568a377b73696fe598742c5
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024633"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348304"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
-Limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem se você [provisionar o Azure Search](search-create-service-portal.md) na **gratuito**, **básica**,  **Standard**, ou **otimizados para armazenamento** tipos de preço.
+Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou otimizado para **armazenamento** .
 
 + **Gratuito** é um serviço compartilhado multilocatário fornecido com sua assinatura do Azure.
 
@@ -26,10 +26,10 @@ Limites máximos de armazenamento, cargas de trabalho e quantidades de índices,
 
 + **Standard** é executado em computadores dedicados, com mais capacidade de armazenamento e processamento em cada nível. Standard é fornecido em quatro níveis: S1, S2, S3 e S3 HD.
 
-+ **Armazenamento otimizado** é executado em computadores dedicados, com mais armazenamento total, largura de banda de armazenamento e memória do que **padrão**. Armazenamento otimizado é fornecido em dois níveis: L1 e L2
++ O **armazenamento otimizado** é executado em computadores dedicados com mais armazenamento total, largura de banda de armazenamento e memória do que o **padrão**. O armazenamento otimizado vem em dois níveis: L1 e L2
 
 > [!NOTE]
-> As camadas de serviço com otimização de armazenamento estão atualmente disponíveis como uma visualização a um preço com desconto para fins de teste e experimentação com o objetivo de coletar comentários. Preço final será anunciado posteriormente quando essas camadas são geralmente disponíveis. É recomendável usar essas camadas para aplicativos de produção.
+> A partir de 1º de julho, todas as camadas estão geralmente disponíveis, incluindo a camada de armazenamento otimizado. Todos os preços podem ser encontrados na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) .
 
   O S3 HD (S3 de Alta Densidade) foi projetado para cargas de trabalho específicas: [multilocatário](search-modeling-multitenant-saas-applications.md) e grandes quantidades de índices pequenos (um milhão de documentos por índice, três mil índices por serviço). Essa camada não fornece o [recurso de indexador](search-indexer-overview.md). No S3 HD, a ingestão de dados deve aproveitar a abordagem de push, usando chamadas à API para efetuar push de dados da origem para o índice. 
 
@@ -47,18 +47,18 @@ Limites máximos de armazenamento, cargas de trabalho e quantidades de índices,
 
 ## <a name="index-limits"></a>Limites de índice
 
-| Resource | Grátis | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Recurso | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |10 |10 |
-| Máximo de campos simple por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Campos de coleção complexa máximo por índice |40 |40 |40 |40 |40 |40 |40 |40 |
+| Máximo de campos simples por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Máximo de campos de coleta complexos por índice |40 |40 |40 |40 |40 |40 |40 |40 |
 | Máximo de elementos em todas as coleções complexas por documento |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
-| Profundidade máxima dos campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
+| Profundidade máxima de campos complexos |10 |10 |10 |10 |10 |10 |10 |10 |
 | Número máximo de [encarregados da sugestão](https://docs.microsoft.com/rest/api/searchservice/suggesters) por índice |1 |1 |1 |1 |1 |1 |1 |1 |
 | Número máximo de [perfis de pontuação](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) por índice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Máximo de funções por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) em índices. A camada tipo Básico é a única SKU com um limite inferior de 100 campos por índice.
+<sup>1</sup> os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) em índices. A camada tipo Básico é a única SKU com um limite inferior de 100 campos por índice.
 
 <a name="document-limits"></a>
 
@@ -75,16 +75,16 @@ Para determinar se o serviço tem limites de documentos, verifique o bloco Uso n
 Se o portal indicar um limite de documentos, significa que o serviço foi criado antes do final de 2017 ou foi criado em um datacenter usando clusters de baixa capacidade para hospedar serviços do Azure Search:
 
 + Leste da Austrália
-+ Ásia Oriental
-+ Índia Central
++ Leste da Ásia
++ Centro da Índia
 + Oeste do Japão
 + Centro-Oeste dos EUA
 
 Para serviços sujeitos a limites de documentos, aplicam-se os limites máximos a seguir:
 
-|  Grátis | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10\.000 |1&nbsp;milhões |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 bilhão por serviço |1 milhão por serviço, 200 milhões por partição |
+|  10.000 |1&nbsp;milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 bilhão por serviço |1 milhão por serviço, 200 milhões por partição |
 
 Se o serviço tiver limites que estejam causando bloqueio, crie um novo serviço e, em seguida, publique novamente todo o conteúdo desse serviço. Não há mecanismo para reprovisionar o serviço em um novo hardware nas cenas.
 
@@ -102,24 +102,24 @@ Para reduzir o tamanho do documento, lembre-se de excluir dados não consultáve
 
 ## <a name="indexer-limits"></a>Limites de indexador
 
-Tempos de execução máximo existem para fornecer o equilíbrio e estabilidade para o serviço como um todo, mas conjuntos de dados maiores, talvez seja necessário indexação mais tempo do que o máximo permitido. Se um trabalho de indexação não puder ser concluído no tempo máximo permitido, tente executá-lo de forma agendada. O agendador mantém monitora o status da indexação. Se um trabalho de indexação agendado for interrompido por algum motivo, o indexador poderá continuar de onde parou na próxima execução agendada.
+Existem tempos de execução máximos para fornecer balanceamento e estabilidade ao serviço como um todo, mas conjuntos de dados maiores podem precisar de mais tempo de indexação do que o máximo permitido. Se um trabalho de indexação não puder ser concluído no tempo máximo permitido, tente executá-lo de forma agendada. O agendador mantém monitora o status da indexação. Se um trabalho de indexação agendado for interrompido por algum motivo, o indexador poderá continuar de onde parou na próxima execução agendada.
 
 
-| Resource | Gratuito&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Recurso | Gratuito&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/D |10 |10 |
 | Máximo de fontes de dados |3 |5 ou 15 |50 |200 |200 |N/D |10 |10 |
 | Número máximo de conjuntos de habilidades <sup>4</sup> |3 |5 ou 15 |50 |200 |200 |N/D |10 |10 |
-| Carga de indexação máxima por invocação |10\.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D |Sem limite |Sem limite |
-| Agenda mínimo | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
+| Carga de indexação máxima por invocação |10.000 documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |Limitado apenas pelo máximo de documentos |N/D |Sem limite |Sem limite |
+| Agenda mínima | 5 Minutos |5 Minutos |5 Minutos |5 Minutos |5 Minutos |5 Minutos |5 Minutos | 5 Minutos |
 | Tempo de execução máximo <sup>5</sup> | 1 a 3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
 | Tempo de execução máximo de conjuntos de habilidades da pesquisa cognitiva ou de indexação de blobs com análise de imagens <sup>5</sup> | 3 a 10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
-| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32\.000 |64\.000 |4&nbsp;milhões |4&nbsp;milhões |4&nbsp;milhões |N/D |4&nbsp;milhões |4&nbsp;milhões |
+| Indexador de blob: número máximo de caracteres de conteúdo extraído de um blob |32.000 |64.000 |4&nbsp;milhões |4&nbsp;milhões |4&nbsp;milhões |N/D |4&nbsp;milhões |4&nbsp;milhões |
 
-<sup>1</sup> Os serviços gratuitos têm um tempo máximo de execução do indexador de 3 minutos para fontes do blob e 1 minuto para todas as outras fontes de dados. Para IA indexação que chama em serviços Cognitivos, serviços gratuitos são limitados a 20 transações gratuitas por dia, em que a transação é definida como um documento aprovado com êxito por meio do pipeline enriquecimento.
+<sup>1</sup> Os serviços gratuitos têm um tempo máximo de execução do indexador de 3 minutos para fontes do blob e 1 minuto para todas as outras fontes de dados. Para a indexação de ia que chama serviços cognitivas, os serviços gratuitos são limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito pelo pipeline de enriquecimento.
 
-<sup>2</sup> serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) em indexadores, fontes de dados e conjuntos de habilidades.
+<sup>2</sup> os serviços básicos criados antes de dezembro de 2017 têm limites mais baixos (5 em vez de 15) em indexadores, fontes de dados e habilidades.
 
 <sup>3</sup> Os serviços do S3 HD não incluem suporte ao indexador.
 
@@ -133,11 +133,11 @@ As estimativas QPS devem ser desenvolvidas independentemente por cada cliente. T
 
 As previsões são mais previsíveis quando calculada em serviços em execução em recursos dedicados (camadas Básico e Standard). No nível padrão, é possível estimar melhor o QPS, porque você tem controle sobre mais parâmetros. Para obter orientação sobre como a estimativa da abordagem, consulte [desempenho e otimização do Azure Search](search-performance-optimization.md).
 
-Para as camadas de armazenamento otimizado, você deve esperar uma taxa de transferência menor de consulta e uma latência maior do que as camadas Standard.  A metodologia para estimar o desempenho de consulta que você enfrentará é o mesmo que as camadas Standard.
+Para as camadas de armazenamento otimizado, você deve esperar uma taxa de transferência de consulta inferior e uma latência mais alta do que as camadas padrão.  A metodologia para estimar o desempenho da consulta que você experimentará é a mesma das camadas padrão.
 
 ## <a name="data-limits-cognitive-search"></a>Limites de dados (pesquisa cognitiva)
 
-Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas a um recurso de Análise de Texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), [análise de sentimento](cognitive-search-skill-sentiment.md) e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser 50.000 caracteres conforme medido por `String.Length`. Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
+Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas a um recurso de Análise de Texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), [análise de sentimento](cognitive-search-skill-sentiment.md) e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-lo ao analisador de sentimentos, use a [habilidade Text Split](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>Limites de solicitação de API
 * Máximo de 16 MB por solicitação <sup>1</sup>
@@ -153,7 +153,7 @@ Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz c
 * Máximo de 100 sugestões retornadas por solicitação de Sugerir API
 
 ## <a name="api-key-limits"></a>Limites de chave de API
-Chaves de API são usadas para autenticação de serviço. Há dois tipos. Chaves de administração são especificadas no cabeçalho da solicitação e concedem acesso completo de leitura/gravação ao serviço. Chaves de consulta são somente leitura, especificadas na URL, e, geralmente, são distribuídas para aplicativos cliente.
+As chaves de API são usadas para autenticação de serviço. Há dois tipos. Chaves de administração são especificadas no cabeçalho da solicitação e concedem acesso completo de leitura/gravação ao serviço. Chaves de consulta são somente leitura, especificadas na URL, e, geralmente, são distribuídas para aplicativos cliente.
 
 * Máximo de duas chaves de administração por serviço
 * Máximo de 50 chaves de consulta por serviço

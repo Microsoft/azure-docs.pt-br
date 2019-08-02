@@ -2,18 +2,18 @@
 title: 'Tutorial: Analisar eventos de configuração de Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como visualizar e analisar eventos dos espaços dos Gêmeos Digitais do Azure, com o Azure Time Series Insights, usando as etapas neste tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 12/18/2018
-ms.author: dkshir
-ms.openlocfilehash: 0c441974b40f35bcc39aec05e5ffe66b68e46c10
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: alinast
+ms.openlocfilehash: 3f6111457d3438b80ace8cd557747ab8c799efd3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542260"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484746"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Tutorial: Visualizar e analisar eventos de espaços dos Gêmeos Digitais do Azure usando o Time Series Insights
 
@@ -52,7 +52,7 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 
 1. Insira um **Nome** para o namespace dos Hubs de Eventos. Escolha **Standard** como **Tipo de preço**, sua **Assinatura**, o **Grupo de recursos** que você usou para sua instância dos Gêmeos Digitais e o **Local**. Selecione **Criar**.
 
-1. Na implantação do namespace dos Hubs de Eventos, selecione o namespace em **RECURSO**.
+1. Na implantação de namespace dos Hubs de eventos, selecione o painel **Visão geral** e, em seguida, selecione **Ir para o recurso**.
 
     ![Namespace dos Hubs de Eventos após a implantação](./media/tutorial-facilities-analyze/open-event-hub-ns.png)
 
@@ -132,17 +132,19 @@ Você pode usar o serviço [Hubs de Eventos](../event-hubs/event-hubs-about.md) 
 
 1. Pesquise e selecione um novo recurso do **Time Series Insights**. Selecione **Criar**.
 
-1. Insira um **Nome** para a instância do Time Series Insights e selecione a **Assinatura**. Selecione o **Grupo de recursos** que você usou para a instância dos Gêmeos Digitais e seu **Local**. Selecione **Criar**.
+1. Insira um **Nome** para a instância do Time Series Insights e selecione a **Assinatura**. Selecione o **Grupo de recursos** que você usou para a instância dos Gêmeos Digitais e seu **Local**. Selecione **Avançar: Botão Origem do evento** ou a guia **Origem do evento**.
 
     ![Seleções para criar uma instância do Time Series Insights](./media/tutorial-facilities-analyze/create-tsi.png)
 
-1. Depois que a instância é implantada, abra o ambiente do Time Series Insights e abra seu painel **Fontes de Evento**. Selecione o botão **Adicionar** na parte superior para adicionar um grupo de consumidores.
-
-1. No painel **Nova origem do evento**, insira um **Nome** e verifique se os outros valores são selecionados corretamente. Selecione **ManageSend** como o **Nome de política do hub de eventos** e selecione o grupo de consumidores criado na seção anterior como o **Grupo de consumidores do hub de eventos**. Selecione **Criar**.
+1. Na guia **Origem do evento**, insira um **nome**, selecione **Hub de eventos** como o **Tipo de fonte** e verifique se os outros valores estão selecionados corretamente. Selecione **ManageSend** como o **Nome de política de acesso do hub de eventos** e selecione o grupo de consumidores criado na seção anterior como o **Grupo de consumidores do hub de eventos**. Selecione **Examinar + criar**.
 
     ![Seleções para criar uma fonte de evento](./media/tutorial-facilities-analyze/tsi-event-source.png)
 
-1. Abra o painel **Visão geral** para seu ambiente Time Series Insights e selecione o botão **Ir para o ambiente** na parte superior. Se você receber um aviso de acesso a dados, abra o painel **Políticas de acesso de dados** da instância do Time Series Insights, selecione **Adicionar**, selecione **Colaborador** como a função e selecione o usuário apropriado.
+1. No painel **Revisar + criar**, examine as informações inseridas e selecione **Criar**.
+
+1. No painel de implantação, selecione o recurso de Time Series Insights que você acabou de criar. Ele abre o painel **Visão geral** do ambiente do Time Series Insights.
+
+1. Selecione o botão **Ir para o ambiente** na parte superior. Se você receber um aviso de acesso a dados, abra o painel **Políticas de acesso de dados** da instância do Time Series Insights, selecione **Adicionar**, selecione **Colaborador** como a função e selecione o usuário apropriado.
 
 1. O botão **Ir para o ambiente** abre o [explorador do Time Series Insights](../time-series-insights/time-series-insights-explorer.md). Se ele não mostrar eventos, simule eventos de dispositivo navegando até o projeto **device-connectivity** do exemplo dos Gêmeos Digitais e execute `dotnet run`.
 

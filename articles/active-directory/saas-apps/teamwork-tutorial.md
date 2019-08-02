@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08-04-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b0c6fc9ed196a1b3ddd3d8e67887e2340ddbcda
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d0b407f29e4dda532ef12019f8d0a2a273832987
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888441"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595246"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory ao Teamwork.com
 
@@ -54,7 +54,7 @@ Para configurar a integração do Teamwork.com ao Azure Active Directory, você 
 
 **Para adicionar o Teamwork.com a partir da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Teamwork.com, execute as seguin
 
     ![Informações de logon único de Domínio e URLs do Teamwork.com](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.teamwork.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.teamwork.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL:
 
     | | |
     |-|-|
@@ -202,4 +202,4 @@ Ao clicar no bloco do Teamwork.com no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -2,18 +2,18 @@
 title: Inserir um relatório nas Coleções de Workspaces do Power BI do Azure | Microsoft Docs
 description: Saiba como inserir um relatório que está nas Coleções de Workspaces do Power BI no seu aplicativo.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e125e57c290688d5a65f6d70143100cbd3462cb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724603"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67669057"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Inserir um relatório nas Coleções de Workspaces do Power BI
 

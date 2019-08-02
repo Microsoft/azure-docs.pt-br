@@ -1,5 +1,5 @@
 ---
-title: Autenticação de serviço a serviço do Azure Active Directory que usa a especificação de rascunho On-Behalf-Of do OAuth2.0 | Microsoft Docs
+title: Especificação de rascunho em nome de do OAuth 2.0 de autenticação serviço a serviço do Azure AD | Microsoft Docs
 description: Este artigo descreve como usar mensagens HTTP para implementar a autenticação de serviço a serviço usando o fluxo On-Behalf-Of do OAuth2.0.
 services: active-directory
 documentationcenter: .net
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc352c6867779fd8f4487acdb1d11c0fabe4b9f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7381a0dfb8f780900d8c2c8ba0637dcd232bdb9f
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110985"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68380898"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Chamadas de serviço a serviço que usam a identidade do usuário delegado no fluxo On-Behalf-Of
 
@@ -38,7 +38,7 @@ O fluxo OBO (On-Behalf-Of) do OAuth 2.0 permite que um aplicativo que invoca um 
 
 O fluxo OBO é iniciado após o usuário ter sido autenticado em um aplicativo que usa o [fluxo de concessão de código de autorização OAuth 2.0](v1-protocols-oauth-code.md). Nesse ponto, o aplicativo envia um token de acesso (token A) para a API Web da camada intermediária (API A) que contém as declarações do usuário e o consentimento para acessar a API A. Em seguida, a API A faz uma solicitação autenticada para a API Web downstream (API B).
 
-Essas etapas compõem o fluxo On-Behalf-Of: ![Fluxo On-Behalf-Of do OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+Essas etapas compõem o fluxo On-Behalf-Of: ![Mostra as etapas no fluxo em nome de do OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. O aplicativo cliente faz uma solicitação para API A com o token A.
 1. A API A se autentica no ponto de extremidade de emissão de token do Azure AD e solicita um token para acessar a API B.
@@ -58,32 +58,32 @@ Registre o aplicativo de camada intermediária e o aplicativo cliente no Azure A
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione sua conta e examine a lista **Diretório** para selecionar um locatário do Active Directory para seu aplicativo.
 1. Selecione **Mais Serviços** no painel esquerdo e escolha **Azure Active Directory**.
-1. Selecione **registros de aplicativo** e, em seguida **novo registro**.
+1. Selecione **registros de aplicativo** e, em seguida, **novo registro**.
 1. Insira um nome amigável para o aplicativo e selecione o tipo de aplicativo.
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Defina o URI de redirecionamento para a URL base.
 1. Selecione **Registrar** para criar o aplicativo.
 1. Gere um segredo do cliente antes de sair do portal do Azure.
-1. No portal do Azure, escolha o seu aplicativo e selecione **certificados e segredos**.
-1. Selecione **novo segredo do cliente** e adicionar um segredo com uma duração de um ano ou dois anos.
-1. Quando você salva esta página, o portal do Azure exibe o valor do segredo. Copie e salve o valor do segredo em um local seguro.
+1. Na portal do Azure, escolha seu aplicativo e selecione **certificados & segredos**.
+1. Selecione **novo segredo do cliente** e adicione um segredo com uma duração de um ano ou dois anos.
+1. Quando você salvar essa página, a portal do Azure exibirá o valor secreto. Copie e salve o valor secreto em um local seguro.
 
 > [!IMPORTANT]
-> É necessário o segredo para definir as configurações de aplicativo em sua implementação. Esse valor secreto não seja exibido novamente, e não é possível recuperá-la por outros meios. Registre-o assim que ele ficar visível no portal do Azure.
+> Você precisa do segredo para definir as configurações do aplicativo em sua implementação. Esse valor secreto não é exibido novamente e não é recuperável por nenhum outro meio. Registre-o assim que ele ficar visível no portal do Azure.
 
 ### <a name="register-the-client-application"></a>Registrar o aplicativo cliente
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 1. Na barra superior, selecione sua conta e examine a lista **Diretório** para selecionar um locatário do Active Directory para seu aplicativo.
 1. Selecione **Mais Serviços** no painel esquerdo e escolha **Azure Active Directory**.
-1. Selecione **registros de aplicativo** e, em seguida **novo registro**.
+1. Selecione **registros de aplicativo** e, em seguida, **novo registro**.
 1. Insira um nome amigável para o aplicativo e selecione o tipo de aplicativo.
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 1. Defina o URI de redirecionamento para a URL base.
 1. Selecione **Registrar** para criar o aplicativo.
-1. Configurar permissões para seu aplicativo. Na **permissões de API**, selecione **adicionar uma permissão** e, em seguida, **Minhas APIs**.
+1. Configurar permissões para seu aplicativo. Em **permissões de API**, selecione **Adicionar uma permissão** e, em seguida, **minhas APIs**.
 1. Digite o nome do serviço de camada intermediária no campo de texto.
-1. Escolher **selecionar permissões** e, em seguida, selecione **Access <service name>** .
+1. Escolha **selecionar permissões** e, em seguida, selecione **nome do serviço de \<acesso >** .
 
 ### <a name="configure-known-client-applications"></a>Configurar aplicativos cliente conhecidos
 
@@ -109,7 +109,7 @@ O aplicativo cliente é protegido por um segredo compartilhado ou por um certifi
 
 Ao usar um segredo compartilhado, uma solicitação de token de acesso de serviço para serviço contém estes parâmetros:
 
-| Parâmetro |  | DESCRIÇÃO |
+| Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Uma solicitação OBO usa um JWT (Token Web JSON), de modo que o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |obrigatório | O valor do token de acesso usado na solicitação. |
@@ -143,7 +143,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Uma solicitação de token de acesso de serviço para serviço com certificado contém estes parâmetros:
 
-| Parâmetro |  | DESCRIÇÃO |
+| Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Uma solicitação OBO usa um token de acesso JWT, de modo que o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |obrigatório | O valor do token usado na solicitação. |
@@ -181,7 +181,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 Uma resposta bem-sucedida é uma resposta JSON do OAuth 2.0 com os parâmetros a seguir:
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para saber mais sobre os tokens de portador, confira [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo do acesso concedido no token. |
@@ -213,7 +213,7 @@ O exemplo a seguir mostra uma resposta bem-sucedida a uma solicitação para um 
 
 ### <a name="error-response-example"></a>Exemplo de resposta de erro
 
-O ponto de extremidade de token do Azure AD retorna uma resposta de erro ao tentar adquirir um token de acesso para a API downstream que é definida com uma política de acesso condicional (por exemplo, a autenticação multifator). O serviço de camada intermediária deve revelar esse erro para o aplicativo cliente para que o aplicativo cliente possa fornecer a interação do usuário para atender à política de acesso condicional.
+O ponto de extremidade de token do Azure AD retorna uma resposta de erro quando tenta adquirir um token de acesso para uma API downstream que é definida com uma política de acesso condicional (por exemplo, autenticação multifator). O serviço de camada intermediária deve enfileirar esse erro para o aplicativo cliente para que o aplicativo cliente possa fornecer a interação do usuário para atender à política de acesso condicional.
 
 ```
 {
@@ -253,7 +253,7 @@ Alguns serviços Web baseados em OAuth precisam acessar outras APIs de serviços
 
 Uma solicitação de serviço a serviço para obter uma declaração SAML contém os seguintes parâmetros:
 
-| Parâmetro |  | DESCRIÇÃO |
+| Parâmetro |  | Descrição |
 | --- | --- | --- |
 | grant_type |obrigatório | O tipo da solicitação de token. Para uma solicitação que usa um JWT, o valor deve ser **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |obrigatório | O valor do token de acesso usado na solicitação.|
@@ -272,7 +272,7 @@ A resposta contém um token SAML codificado em Base64url e UTF8.
 
 ### <a name="response-with-saml-assertion"></a>Resposta com declaração SAML
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 | --- | --- |
 | token_type |Indica o valor do tipo de token. O único tipo com suporte do Azure AD é **Portador**. Para saber mais sobre os tokens de portador, confira [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |O escopo do acesso concedido no token. |

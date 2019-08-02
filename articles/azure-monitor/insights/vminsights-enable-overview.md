@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 06/28/2019
 ms.author: magoedte
-ms.openlocfilehash: 3f93318dedb8a4667d32bcc97eb6a697ccebfcc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fb7e6b9611b28dab856209aaf03aa93c25d3968
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122573"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478045"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>Habilitar o Azure Monitor para visão geral de máquinas virtuais (versão prévia)
 
@@ -41,11 +41,11 @@ O Azure Monitor para VMs oferece suporte a um espaço de trabalho do Log Analyti
 
 - Centro-Oeste dos EUA
 - Oeste dos EUA 2<sup>1</sup>
-- Leste dos EUA
-- Canada Central<sup>1</sup>
-- Sul do Reino Unido<sup>1</sup>
+- East US
+- Canadá Central
+- Sul do Reino Unido
 - Europa Ocidental
-- Sudeste Asiático<sup>1</sup>
+- Sudeste Asiático
 
 <sup>1</sup> Atualmente, essa região não dá suporte ao recurso Integridade do Azure Monitor para VMs.
 
@@ -86,10 +86,14 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux que dá suporte
 |Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
 |Ubuntu 14.04, 16.04, 18.04 | X | X | X |
 |CentOS Linux 6, 7 | X | X | X |
-|SUSE Linux Enterprise Server (SLES) 11, 12 | X | X | X |
+|SLES (SUSE Linux Enterprise Server) 12 | X | X | X |
 |Debian 8, 9.4 | X<sup>1</sup> | | X |
 
 <sup>1</sup> O recurso Desempenho do Azure Monitor para VMs está disponível somente no Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
+
+>[!NOTE]
+>O recurso de integridade do Monitor do Azure para VMs não suporta [virtualização aninhada](../../virtual-machines/windows/nested-virtualization.md) em uma VM do Azure.
+>
 
 >[!NOTE]
 >No sistema operacional Linux:
@@ -123,16 +127,10 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux que dá suporte
 
 | Versão do SO | Versão do kernel |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.* |
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
-
-#### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
-
-| Versão do SO | Versão do kernel
-|:--|:--|
-|11 SP4 | 3.0.* |
 
 #### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
@@ -140,6 +138,8 @@ A tabela a seguir lista os sistemas operacionais Windows e Linux que dá suporte
 |:--|:--|
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
+|12 SP4 | 4.4.* |
+|12 SP4 | Kernel ajustado pelo Azure |
 
 ### <a name="the-microsoft-dependency-agent"></a>Microsoft Dependency Agent
 

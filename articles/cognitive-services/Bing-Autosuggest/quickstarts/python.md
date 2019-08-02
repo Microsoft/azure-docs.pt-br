@@ -1,21 +1,21 @@
 ---
 title: 'Início Rápido: Sugerir consultas de pesquisa com a API de REST de Sugestão Automática do Bing e o Python'
-titlesuffix: Azure Cognitive Services
-description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Sugestão Automática do Bing.
+titleSuffix: Azure Cognitive Services
+description: Saiba como começar rapidamente sugerindo termos de pesquisa em tempo real com a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 38cc9440e3cb5492ef1f45b3907fd2c00867f350
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 5f6d92037bd588f96e9345ad1c7bc2e1f49e580c
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385009"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564648"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Início Rápido: Sugerir consultas de pesquisa com a API de REST de Sugestão Automática do Bing e o Python
 

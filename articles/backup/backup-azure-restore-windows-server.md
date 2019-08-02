@@ -1,19 +1,18 @@
 ---
 title: Restaurar dados no Azure para um computador ou servidor com Windows
 description: Saiba como restaurar os dados armazenados no Azure para um computador ou servidor com Windows.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: d58b51f06c21c787e4aa720c803ab6533544d55c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e22db587c698594170c3b08ea04ff6699b6a61c8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60238451"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465675"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Restaurar arquivos no Windows usando o modelo de implantação do Azure Resource Manager
 
@@ -48,7 +47,7 @@ Se você excluiu acidentalmente um arquivo e deseja restaurá-lo para o mesmo co
 
     ![Captura de tela da página Introdução ao Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_gettingstarted_instantrestore.png)
 
-4. Sobre o **Selecionar modo de recuperação** , escolha **arquivos e pastas individuais** > **próximo**.
+4. Na página **selecionar modo de recuperação** , escolha **arquivos e pastas** > individuais **em seguida**.
 
     ![Captura de tela da página Selecionar Modo de Recuperação do Assistente para Recuperar Dados](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
    > [!IMPORTANT]
@@ -97,7 +96,7 @@ Essas etapas incluem a seguinte terminologia:
 * *Cofre de exemplo*: o cofre dos Serviços de Recuperação no qual a máquina de origem e a máquina de destino estão registradas. <br/>
 
 > [!NOTE]
-> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito em um computador com Windows 7 pode ser restaurado em um computador com Windows 8 (ou mais recente). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
+> Os backups não podem ser restaurados em um computador de destino que esteja executando uma versão anterior do sistema operacional. Por exemplo, um backup feito de um computador com Windows 7 pode ser restaurado em um computador com Windows 7 (ou posterior). Um backup feito em um computador com Windows 8 não pode ser restaurado em um computador com Windows 7.
 >
 >
 

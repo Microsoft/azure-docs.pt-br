@@ -2,24 +2,25 @@
 title: O que é a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
 description: Saiba mais sobre a Central de segurança do Azure para o serviço e os recursos de IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 7efe32039f926ea9b5be3c24fa967dede72cd081
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e454d3be536d908003ad9163a44089eb3a5eb99
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192503"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618054"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Apresentando a Central de segurança do Azure para IoT
 
@@ -41,15 +42,15 @@ Central de segurança (ASC) do Azure para IoT simplifica a proteção de carga d
 
 ### <a name="unified-visibility-and-control"></a>Visibilidade e controle unificados
 
-Obtenha uma visão unificada de segurança em todos os seus locais e na nuvem cargas de trabalho, incluindo sua solução de IoT do Azure. Descobrir automaticamente e integrados novos dispositivos e aplicar políticas de segurança de suas cargas de trabalho (dispositivos de folha, dispositivos de borda, Hub IOT) para garantir a conformidade com padrões de segurança.
+Obtenha uma exibição unificada da segurança de todas as cargas de trabalho locais e na nuvem, incluindo a solução de IoT do Azure. Descubra e integre de maneira automática novos dispositivos e aplique políticas de segurança às cargas de trabalho (dispositivos folha, dispositivos Edge e Hub IoT) para assegurar a conformidade com os padrões de segurança.
 
 ### <a name="adaptive-threat-prevention"></a>Prevenção de ameaças adaptável
 
-Use o ASC para IoT para monitorar continuamente a segurança de computadores, redes e serviços do Azure, incluindo sua solução de IoT do Azure dos dispositivos de borda para aplicativos. Você pode optar por usar de centenas de avaliações de segurança internas ou criar suas próprias no ASC central para o painel do IoT Hub. Otimizar as configurações de segurança e melhorar a sua pontuação de segurança com recomendações viáveis em máquinas virtuais, redes, aplicativos e dados. Com os recursos de IoT recém-adicionada, agora você pode reduzir a superfície de ataque para sua solução de IoT do Azure e corrigir problemas antes que elas podem ser exploradas.
+Use o ASC para IoT para monitorar continuamente a segurança de computadores, redes e serviços do Azure, incluindo sua solução de IoT do Azure dos dispositivos de borda para aplicativos. Você pode optar por usar de centenas de avaliações de segurança internas ou criar suas próprias no ASC central para o painel do IoT Hub. Otimize suas configurações de segurança e melhore seu índice de segurança com recomendações práticas em máquinas virtuais, redes, aplicativos e dados. Com recursos de IoT recém-adicionados, agora é possível reduzir a superfície de ataque da sua solução de IoT do Azure e corrigir problemas antes que eles possam ser explorados.
 
 ### <a name="intelligent-threat-detection-and-response"></a>Detecção de ameaças inteligente e resposta
 
-Use análise avançada e o Microsoft Intelligent Security Graph para obter uma vantagem sobre ataques cibernéticos em evolução. Análise comportamental interna e aprendizado de máquina identificam ataques e explorações de dia zero. Monitorar sua solução de IoT para ataques e atividade pós-violação. Simplifique a investigação de dispositivo e correção com ferramentas interativas e inteligência contextual contra ameaças.
+Use análise avançada e o Microsoft Intelligent Security Graph para obter uma vantagem sobre ataques cibernéticos em evolução. Análise comportamental interna e aprendizado de máquina identificam ataques e explorações de dia zero. Monitore sua solução de IoT para ataques recebidos e atividades pós-violação. Simplifique a investigação de dispositivo e correção com ferramentas interativas e inteligência contextual contra ameaças.
 
 ## <a name="next-steps"></a>Próximas etapas
 

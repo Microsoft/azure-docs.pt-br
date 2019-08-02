@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: bcad6232de7fa257b58fe6d84f2c2ff794b64589
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 63165da69815c77afb8692e1e68c1710beb8df8c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902306"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090835"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silkroad-life-suite"></a>Tutorial: Integração do Azure Active Directory com SilkRoad Life Suite
 
@@ -53,7 +53,7 @@ Para configurar a integração do SilkRoad Life Suite com o AD do Azure, você p
 
 **Para adicionar o SilkRoad Life Suite por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o SilkRoad Life Suite, realize as
     > [!NOTE]
     > Você obterá o **arquivo de metadados do provedor de serviços** explicado posteriormente neste tutorial.
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![image](common/upload-metadata.png)
 
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o SilkRoad Life Suite, realize as
 
     ![Informações de logon único de URLs e Domínio do SilkRoad Life Suite](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<subdomain>.silkroad-eng.com/Authentication/`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão:
 
@@ -187,7 +187,7 @@ Para configurar o logon único do Azure AD com o SilkRoad Life Suite, realize as
 
     ![Logon Único do AD do Azure](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
-     a. Em **Opção 2 – Arquivo de Metadados**, clique em **Procurar** para carregar o arquivo de metadados baixado a partir do portal do Azure.
+    a. Em **Opção 2 – Arquivo de Metadados**, clique em **Procurar** para carregar o arquivo de metadados baixado a partir do portal do Azure.
   
     b. Clique em **Criar Provedor de Identidade usando Dados de Arquivo**.
 
@@ -199,7 +199,7 @@ Para configurar o logon único do Azure AD com o SilkRoad Life Suite, realize as
 
     ![Logon Único do AD do Azure](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
-     a. Para **Habilitado**, selecione **Sim**.
+    a. Para **Habilitado**, selecione **Sim**.
 
     b. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
 
@@ -286,4 +286,4 @@ Ao clicar no bloco do SilkRoad Life Suite no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

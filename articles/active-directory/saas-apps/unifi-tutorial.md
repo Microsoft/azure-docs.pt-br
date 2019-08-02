@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27028a4e95abd2f190dd1f37bb877ed28fe8aade
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67a26207e4b031cd93be8c7e5eec43c72582fcda
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838112"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Tutorial: Integração do Azure Active Directory ao UNIFI
 
@@ -54,7 +54,7 @@ Para configurar a integração do UNIFI com o Azure AD, você precisará adicion
 
 **Para adicionar o UNIFI por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o UNIFI, execute as seguintes eta
 
     ![Configurar o logon único](./media/unifi-tutorial/app3.png) 
 
-     a. Na caixa de texto **Nome do Provedor**, digite o nome do Provedor de Identidade.
+    a. Na caixa de texto **Nome do Provedor**, digite o nome do Provedor de Identidade.
 
     b. Na caixa de texto **URL do Provedor**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -170,7 +170,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

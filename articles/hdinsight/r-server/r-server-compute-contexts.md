@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a2c66c5c4f1abe535eb51dba9101757ce6d26157
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681779"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444337"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto de computação para o ML Services no HDInsight
 
@@ -76,6 +76,5 @@ Você também pode consultar a [visão geral da computação distribuída](https
 Neste artigo você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight. Para saber mais sobre como usar os ML Services em clusters HDInsight, consulte os seguintes tópicos:
 
 * [Visão geral dos serviços ML para o Apache Hadoop](r-server-overview.md)
-* [Introdução aos serviços de ML para o Apache Hadoop](r-server-get-started.md)
 * [Opções de Armazenamento do Microsoft Azure para ML Services no HDInsight](r-server-storage.md)
 

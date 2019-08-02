@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: snehaa
-ms.openlocfilehash: f90140e9464ee72e9ceae8ca140bd060c51aade8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b45a158569b3be8250728293c1bf73c1a860a0f6
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60597104"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67808017"
 ---
 # <a name="scale-migration-of-vms-using-azure-site-recovery"></a>Migração de dimensionamento de VMs usando o Azure Site Recovery
 
-Este artigo ajuda você a entender o processo de uso dos scripts para migrar um grande número de VMs usando o Azure Site Recovery. Esses scripts estão disponíveis para baixar no repositório [Exemplos do Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) no GitHub. Os scripts podem ser usados para migrar VMware, AWS, GCP VMs e servidores físicos para migração do Azure e o suporte para discos gerenciados. Também é possível usar esses scripts para migrar VMs Hyper-V, se você migrar as VMs como servidores físicos. Os scripts de aproveitam o PowerShell do Azure Site Recovery documentado [aqui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
+Este artigo ajuda você a entender como usar scripts para migrar um grande número de VMs usando o Azure Site Recovery. Esses scripts estão disponíveis para baixar no repositório [Exemplos do Azure PowerShell](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-with-site-recovery) no GitHub. Os scripts podem ser usados para migrar VMware, AWS, GCP VMs e servidores físicos para managed disks no Azure. Também é possível usar esses scripts para migrar VMs Hyper-V, se você migrar as VMs como servidores físicos. Os scripts que utilizam o Azure Site Recovery PowerShell estão documentados [aqui](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell).
 
 ## <a name="current-limitations"></a>Limitações atuais:
 - Compatível com especificação do endereço IP estático somente para o NIC principal da VM de destino
@@ -60,7 +60,7 @@ Quando o CSV estiver pronto, você poderá executar as etapas abaixo para realiz
 6 | asr_cleanuptestmigration.ps1 | Depois de validar manualmente as VMs que falharam o teste de failover, você pode usar esse script para limpar as VMs do teste de failover
 7 | asr_migration.ps1 | Realizar um failover não planejado para as VMs listadas no csv, o script cria uma saída CSV com os detalhes do trabalho para cada VM. O script não desliga as VMs locais antes de disparar o failover, para fins de consistência do aplicativo, é recomendável que você manualmente desligar as VMs antes de executar o script.
 8 | asr_completemigration.ps1 | Execute a operação de confirmação nas máquinas virtuais e exclui as entidades do Azure Site Recovery
-9 | asr_postmigration.ps1 | Se você planeja atribuir grupos de segurança de rede aos NICs após o failover, você pode usar esse script para fazer isso. Ele atribui um NSG a qualquer NIC na VM de destino.
+9 | asr_postmigration.ps1 | Se você planeja atribuir grupos de segurança de rede aos NICs após o failover, você pode usar esse script para fazer isso. Ele atribui um NSG a qualquer uma NIC na VM de destino.
 
 ## <a name="how-to-migrate-to-managed-disks"></a>Como migrar para discos gerenciados?
 Por padrão, o script migra as VMs em discos gerenciados no Azure. Se a conta de armazenamento de destino fornecida é uma conta de armazenamento premium, discos gerenciados premium são criados após migração. A conta de armazenamento de cache ainda pode ser uma conta padrão. Se a conta de armazenamento de destino for uma conta de armazenamento padrão, os discos standard são criados após a migração. 

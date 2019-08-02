@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/01/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: be9edd0497cca894e4daa87f97b037065379127f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: 836b6bb76ff608fed0f34e40fe450d593fec540a
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66398276"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514163"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Fazer failover e proteger novamente VMs do Azure entre regiões
 
@@ -46,7 +46,7 @@ Este tutorial descreve como fazer failover de uma máquina virtual (VM) do Azure
    * **Mais recente processado**: Reverte a máquina virtual para o ponto de recuperação mais recente que foi processado pelo serviço Site Recovery.
    * **Personalizado**: Faz failover para um determinado ponto de recuperação. Essa opção é útil para fazer um failover de teste.
 
-3. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das VMs de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. O Site Recovery não limpa a origem após o failover.
+3. Selecione **Desligar o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das VMs de origem antes de disparar o failover. O desligamento ajuda a evitar a perda de dados. O failover continuará mesmo o desligamento falhar. O Site Recovery não limpa a origem após o failover.
 
 4. Acompanhe o progresso do failover na página **Trabalhos**.
 

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97866a1f1299c028cdc8f86245308ae4a8b5db88
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64694217"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502686"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vincular ID de parceiro a suas contas do Azure
 
-Como parceiro, você pode controlar o impacto em seus compromissos com o cliente. Você pode vincular sua ID de parceiro para as contas que são usadas para gerenciar as funcionalidades de um cliente.
+Parceiros da Microsoft fornecem serviços que ajudam os clientes atingir os objetivos de negócios e missão usando produtos da Microsoft. Ao agir em nome do cliente de gerenciamento, configuração e suporte a serviços do Azure, os usuários do parceiro precisará ter acesso ao ambiente do cliente. Usando o Link de administração de parceiro, parceiros podem associar sua ID de rede do parceiro com as credenciais usadas para fornecimento de serviços.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -141,11 +141,11 @@ A vinculação está associada no nível da conta de usuário. Só você pode ed
 
 **Qual ID MPN devo usar se a minha empresa possui vários?**
 
-Você pode usar qualquer ID MPN válida, exceto organization(v-org) virtual ID MPN. A maioria dos parceiros optar por usar a ID do MPN para a localização geográfica em que o cliente baseia-se ou serviços estão sendo entregues.
+Contas de local de parceiro e associado identificações do MPN devem ser usadas para vincular a ID de parceiro.  Saiba mais sobre [contas de parceiros](https://docs.microsoft.com/partner-center/account-structure)
 
 **Onde posso encontrar relatórios para a ID de parceiro vinculada de receita influenciou?**
 
-Você pode encontrar a receita influenciou da emissão de relatórios [painel de informações de Meus](https://partner.microsoft.com/membership/reports/myinsights). Você precisa selecionar o Link de administração de parceiro como o tipo de associação de parceiro.
+Relatório de desempenho do produto com a nuvem está disponível para parceiros no Partner Center em [painel de informações de Meus](https://partner.microsoft.com/membership/reports/myinsights). Você precisa selecionar o Link de administração de parceiro como o tipo de associação de parceiro.
 
 **Por que não consigo ver meu cliente nos relatórios?**
 

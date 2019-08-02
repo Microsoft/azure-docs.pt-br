@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c32d9954b3c90a5f7e9c5475acdb141f7154cf76
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190059"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540351"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 [ Os arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do {SM} protocolo [de padrão do setor](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -73,10 +73,10 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="tier-options"></a>
   **Atualmente, quais camadas de armazenamento têm suporte no serviço Arquivos do Azure?**  
-    Atualmente, o serviço Arquivos do Azure dá suporte apenas à camada de armazenamento padrão. Não temos linhas do tempo a compartilhar para suporte ao armazenamento premium e ao armazenamento esporádico no momento. 
+    Os arquivos do Azure dá suporte a duas camadas de armazenamento: standard e premium. Compartilhamentos de arquivos padrão são criados em contas de armazenamento de uso (GPv1 ou de GPv2) e compartilhamentos de arquivos do premium são criados nas contas de armazenamento FileStorage. Saiba mais sobre como criar [compartilhamentos de arquivos padrão](storage-how-to-create-file-share.md) e [compartilhamentos de arquivos do premium](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > Você não pode criar compartilhamentos de Arquivos do Azure de contas de armazenamento somente para Blob ou de contas de armazenamento Premium.
+    > Não é possível criar compartilhamentos de arquivos de contas de armazenamento de Blob ou *premium* contas de armazenamento (GPv1 ou de GPv2) de uso geral. Compartilhamentos de arquivos padrão deve criado na *standard* compartilhamentos de arquivos do Azure premium e só devem ser criados no FileStorage apenas para contas de armazenamento de contas de uso geral. *Premium* contas de armazenamento (GPv1 e GPv2) de finalidade geral são blobs de páginas premium somente. 
 
 * <a id="give-us-feedback"></a>
   **Quero muito ver o recurso específico adicionado ao serviço Arquivos do Azure. Você pode adicioná-lo?**  
@@ -356,8 +356,8 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     Para obter informações sobre as metas de escalabilidade e desempenho do Arquivos do Azure, consulte [Metas de escalabilidade e desempenho do Arquivos do Azure](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**Preciso de um compartilhamento de arquivos maior que o oferecido atualmente pelo serviço Arquivos do Azure. Posso aumentar o tamanho do meu compartilhamento de arquivos do Azure?**  
-    Não. O tamanho máximo de um compartilhamento de arquivos do Azure é 5 TiB. Atualmente, esse é um limite fixo que não pode ser ajustado. Estamos trabalhando em uma solução para aumentar o tamanho do compartilhamento para 100 TiB, mas não temos uma previsão para compartilhar neste momento.
+**Quais são os tamanhos estão disponíveis para compartilhamentos de arquivos do Azure?**  
+    Tamanhos de compartilhamento de arquivos do Azure (standard e premium) podem dimensionar até 100 TiB. Tamanhos de compartilhamentos de arquivo Premium até 100 TiB estão disponíveis como uma oferta de GA. Tamanhos de compartilhamentos de arquivo padrão até 5 TiB estão disponíveis como um GA oferecendo, enquanto os tamanhos de até 100 TiB estão em visualização. Consulte a [Onboard para compartilhamentos de arquivos maiores (camada standard)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) seção do guia de planejamento para instruções de integração para o maior arquivo compartilha a visualização para a camada standard.
 
 * <a id="open-handles-quota"></a>
 **Quantos clientes podem acessar simultaneamente o mesmo arquivo?**    

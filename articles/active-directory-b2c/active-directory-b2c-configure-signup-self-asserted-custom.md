@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c15d315d186af5622d9fa988945750d93e8eb11f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae6d55180785c9407662776a95fcba31f8ba5275
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66507555"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835198"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -79,7 +79,7 @@ Os elementos a seguir são usados para definir a declaração:
 
 #### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
-![Captura de tela da opção de lista suspensa](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Mostrando várias opções de controle de lista suspensa de seleção única](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -96,7 +96,7 @@ Os elementos a seguir são usados para definir a declaração:
 
 #### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
-![Captura de tela de opção com seleção múltipla](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Mostrando várias opções de controle de caixa de seleção múltipla](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -235,7 +235,7 @@ Os elementos a seguir são usados para definir a declaração:
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Adicione a declaração `<OutputClaim ClaimTypeReferenceId="city" />` ao arquivo SignUporSignIn.xml para que essa declaração seja enviada ao aplicativo no token após um percurso do usuário bem-sucedido.
 
     ```xml

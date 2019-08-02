@@ -7,14 +7,14 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 7062bd2dbd8c375b8dd3fad348e5cc26de8f36d2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8275bceca1a18f49eb7eeece66a3866d77c47635
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595125"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796168"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
 
@@ -45,11 +45,7 @@ Na primeira inicialização, o Azure IoT Edge na VM do Ubuntu pré-instala a úl
 No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 LTS + tempo de execução do Azure IoT Edge** para iniciar o fluxo de trabalho de criação de VM. Em seguida, conclua as etapas 3 e 4 nas instruções "Implantar do Azure Marketplace" acima.
 
 ## <a name="deploy-from-azure-cli"></a>Implantar da CLI do Azure
-1. Se esta for sua primeira vez implantando uma máquina virtual a partir da CLI, será necessário habilitar a implantação programática para a assinatura do Azure:
-   1. Abrir a oferta do Marketplace [Azure IoT Edge no Ubuntu](https://aka.ms/azure-iot-edge-ubuntuvm)
-   1. Selecione **OBTER AGORA** e **Continuar** na caixa de diálogo subsequente
-   1. Selecione **Deseja implantar programaticamente? Introdução** na parte inferior da caixa de diálogo no portal
-   1. Clique no botão **Habilitar** na página **Configurar Implantação Programática** e, em seguida, clique em **Salvar**
+
 1. Se você estiver usando a CLI do Azure na área de trabalho, comece fazendo logon:
 
    ```azurecli-interactive
@@ -63,8 +59,9 @@ No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 
       az account list --output table
       ```
     
-   1. Copie o campo SubscriptionID da assinatura que você quer usar
-   1. Execute esse comando com a ID que você acabou de copiar:
+   1. Copie o campo SubscriptionID para a assinatura que você deseja usar.
+
+   1. Defina sua assinatura do trabalho com a ID que você acabou de copiar:
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -75,11 +72,17 @@ No portal do Azure, pesquise "Azure IoT Edge" e selecione **Ubuntu Server 16.04 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. Aceite os termos de uso para a máquina virtual. Se você quiser revisar os termos primeiro, siga as etapas em [implantar no Azure Marketplace](#deploy-from-the-azure-marketplace).
+
+   ```azurecli-interactive
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. Crie uma nova máquina virtual:
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. Defina a cadeia de conexão do dispositivo (você poderá seguir o guia de instruções [Registrar um novo dispositivo do Azure IoT Edge com a CLI do Azure](how-to-register-device-cli.md), se você não estiver familiarizado com esse processo):

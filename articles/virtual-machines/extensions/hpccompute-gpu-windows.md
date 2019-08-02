@@ -4,7 +4,7 @@ description: Extensão do Microsoft Azure para instalar os Drivers NVIDIA GPU em
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 004d6125de6762303db91f3a5ef9ffa16e6e501f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388668"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705950"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Extensão de Driver NVIDIA GPU para Windows
 
@@ -27,6 +27,7 @@ ms.locfileid: "60388668"
 
 Essa extensão instala drivers de GPU NVIDIA em VMs série N do Windows. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
+Instruções sobre a instalação manual dos drivers e as versões com suporte atuais estão disponíveis [aqui](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-driver-setup).
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Linux](hpccompute-gpu-linux.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,11 +36,11 @@ Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs
 
 A Extensão suporta os seguintes OS:
 
-| Distribuição | Version |
+| Distribuição | Versão |
 |---|---|
-| Windows 10 (até a versão 1803)| Núcleo |
-| Windows Server 2016 | Núcleo |
-| Windows Server 2012R2 | Núcleo |
+| Windows 10 | Core |
+| Windows Server 2016 | Core |
+| Windows Server 2012R2 | Core |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 
@@ -69,13 +70,13 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.HpcCompute | cadeia de caracteres |
-| type | NvidiaGpuDriverWindows | cadeia de caracteres |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -157,7 +158,7 @@ A saída de execução da extensão é registrada no seguinte local:
 C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 ```
 
-### <a name="error-codes"></a>Códigos do Erro
+### <a name="error-codes"></a>Códigos de erro
 
 | Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |

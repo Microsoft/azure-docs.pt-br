@@ -3,17 +3,17 @@ title: Como usar o provisionamento automático do Serviço de Provisionamento de
 description: Como usar o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT.
 author: liydu
 ms.author: liydu
-ms.date: 12/18/2018
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c809077b0ec14240d231e9b281285080f68596b3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122804"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439498"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Use o provisionamento automático do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para registrar o MXChip IoT DevKit com o Hub IoT
 
@@ -30,7 +30,7 @@ O [ Kit de Desenvolvimento da IoT para MXChip](https://aka.ms/iot-devkit) é uma
 
 Para concluir as etapas neste tutorial, faça primeiro as tarefas a seguir:
 
-* Configurar o Wi-Fi do seu kit de desenvolvimento e preparar seu ambiente de desenvolvimento, seguindo as etapas em [conectar IoT DevKit AZ3166 ao Hub do IoT do Azure na nuvem](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configurar o Wi-Fi do seu kit de desenvolvimento e prepare seu ambiente de desenvolvimento seguindo a seção "Preparar o ambiente de desenvolvimento" etapas em [conectar IoT DevKit AZ3166 ao Hub do IoT do Azure na nuvem](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment).
 * Atualize para o firmware mais recente (1.3.0 ou posterior) com o tutorial [Atualização do firmware do Kit de Desenvolvimento](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Crie e vincule um Hub IoT a uma instância do serviço de provisionamento de dispositivo seguindo as etapas em [Configurar o serviço de provisionamento de dispositivo do Hub IoT com o portal do Azure](/azure/iot-dps/quick-setup-auto-provision).
 

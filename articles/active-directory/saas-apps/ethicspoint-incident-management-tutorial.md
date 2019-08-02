@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 76a43acb1cf0c514111e89f1a3f4408f4c51e091
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103048"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Tutorial: Integração do Azure Active Directory com o EPIM (EthicsPoint Incident Management)
 
@@ -53,7 +53,7 @@ Para configurar a integração do EthicsPoint Incident Management (EPIM) ao Azur
 
 **Para adicionar o EthicsPoint Incident Management (EPIM) da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -65,7 +65,7 @@ Para configurar a integração do EthicsPoint Incident Management (EPIM) ao Azur
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **EPIM (EthicsPoint Incident Management)**, selecione **EPIM (EthicsPoint Incident Management)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **EPIM (EthicsPoint Incident Management)** , selecione **EPIM (EthicsPoint Incident Management)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![EPIM (EthicsPoint Incident Management) na lista de resultados](common/search-new-app.png)
 
@@ -89,7 +89,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o EPIM (EthicsPoint Incident Management), execute as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **EPIM (EthicsPoint Incident Management)**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **EPIM (EthicsPoint Incident Management)** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o EPIM (EthicsPoint Incident Mana
 
     ![Informações de logon único de Domínio e URLs do EPIM (EthicsPoint Incident Management)](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o EPIM (EthicsPoint Incident Mana
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o EPIM (EthicsPoint Incident Management)**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o EPIM (EthicsPoint Incident Management)** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o EPIM (EthicsPoint Incident Mana
 
 ### <a name="configure-ethicspoint-incident-management-epim-single-sign-on"></a>Configurar o logon único do EPIM (EthicsPoint Incident Management)
 
-Para configurar o logon único no lado do **EPIM (EthicsPoint Incident Management)**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do EPIM (EthicsPoint Incident Management)](https://www.navexglobal.com/company/contact-us). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **EPIM (EthicsPoint Incident Management)** , é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do EPIM (EthicsPoint Incident Management)](https://www.navexglobal.com/company/contact-us). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -155,7 +155,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -166,11 +166,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao EPIM (EthicsPoint Incident Management).
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **EPIM (EthicsPoint Incident Management)**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **EPIM (EthicsPoint Incident Management)** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **EthicsPoint Incident Management (EPIM)**.
+2. Na lista de aplicativos, selecione **EthicsPoint Incident Management (EPIM)** .
 
     ![O link do EPIM (EthicsPoint Incident Management) na lista Aplicativos](common/all-applications.png)
 
@@ -204,5 +204,5 @@ Ao clicar no bloco do EPIM (EthicsPoint Incident Management) no Painel de Acesso
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

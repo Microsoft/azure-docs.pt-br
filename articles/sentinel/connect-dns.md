@@ -7,19 +7,20 @@ author: rkarlin
 manager: rkarlin
 editor: ''
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6429568b33ece3ed4f26614e55e8c3069dd65d71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c79aad557efb85a8797584c33c74983ef645d07
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65204399"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67611306"
 ---
 # <a name="connect-your-domain-name-server"></a>Connect your domain name server
 
@@ -36,21 +37,33 @@ Quando você habilita a conexão do log DNS, você pode:
 - Exibir carga de solicitação em servidores DNS
 - Exibir falhas de registro de DNS dinâmico
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="connected-sources"></a>Fontes conectadas
 
-Conexão do DNS é feito pela instalação de um agente no computador do DNS. O agente recebe eventos do DNS e os passa para o Log Analytics.
+A seguinte tabela descreve as fontes conectadas que têm suporte nessa solução:
+
+| **Fonte conectada** | **Suporte** | **Descrição** |
+| --- | --- | --- |
+| [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Sim | A solução coleta informações de DNS dos agentes do Windows. |
+| [Agentes do Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não coleta informações de DNS dos agentes diretos do Linux. |
+| [Grupo de gerenciamento do System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sim | A solução coleta informações de DNS dos agentes em um grupo de gerenciamento conectado do Operations Manager. Não é necessária uma conexão direta entre o agente do Operations Manager e o Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho do Log Analytics. |
+| [Conta de armazenamento do Azure](../azure-monitor/platform/collect-azure-metrics-logs.md) | Não | O armazenamento do Azure não é usado pela solução. |
+
+### <a name="data-collection-details"></a>Detalhes da coleta de dados
+
+A solução coleta dados relacionados a eventos e ao inventário DNS dos servidores DNS, onde um agente do Log Analytics está instalado. Os dados relacionados ao inventário, como número de servidores DNS, zonas e registros de recursos, são coletados pela execução de cmdlets do PowerShell do DNS. Os dados são atualizados uma vez a cada dois dias. Os dados relacionados a eventos são coletados quase em tempo real dos [logs de análise e auditoria](https://technet.microsoft.com/library/dn800669.aspx#enhanc) fornecidos pelo log e diagnóstico avançado de DNS no Windows Server 2012 R2.
+
 
 ## <a name="connect-your-dns-appliance"></a>Conectar seu dispositivo de DNS
 
 1. No portal do Azure Sentinel, selecione **conectores de dados** e escolha o **DNS** lado a lado.
 1. Se suas máquinas DNS estão no Azure:
-    1. Clique em **baixar e instalar o agente para máquinas virtuais de Windows**.
+    1. Clique em **instalar o agente na máquina de virtual do Windows Azure**.
     1. No **máquinas virtuais** , selecione a máquina DNS que você deseja transmitir para o Azure Sentinel. Verifique se que esta é uma VM do Windows.
     1. Na janela que é aberta para a VM, clique em **Connect**.  
     1. Clique em **habilitar** na **conector DNS** janela. 
 
 2. Se sua máquina DNS não for uma VM do Azure:
-    1. Clique em **baixar e instalar o agente para máquinas do Windows Azure não**.
+    1. Clique em **instalar o agente em computadores não Azure**.
     1. No **agente direto** janela, selecione **agente baixar o Windows (64 bits)** ou **agente baixar o Windows (32 bits)** .
     1. Instale o agente em seu computador DNS. Cópia de **ID do espaço de trabalho**, **chave primária**, e **chave secundária** e usá-los quando solicitado durante a instalação.
 

@@ -4,15 +4,15 @@ description: Como criar um pool de host na visualização de área de trabalho V
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: a58e059e800b13d01ba8e50880bd75077d4418ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 374d5a8f51e28b8a10595842cfc301db503b6bed
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65833963"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613321"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um pool de host com o PowerShell
 

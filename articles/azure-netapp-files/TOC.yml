@@ -19,12 +19,20 @@
       href: azure-netapp-files-resource-limits.md
     - name: Métricas do Azure NetApp Files
       href: azure-netapp-files-metrics.md
-    - name: Parâmetros de comparação de desempenho para o Azure NetApp Files
-      href: azure-netapp-files-performance-benchmarks.md
+    - name: Desempenho
+      items:
+        - name: Parâmetros de comparação de desempenho para o Azure NetApp Files
+          href: azure-netapp-files-performance-benchmarks.md
+        - name: Considerações de desempenho para o Azure NetApp Files
+          href: azure-netapp-files-performance-considerations.md
+        - name: Teste de parâmetro de comparação para desempenho de volume e métricas usando o Azure NetApp Files
+          href: azure-netapp-files-performance-metrics-volumes.md
     - name: Modelo de custo para o Azure NetApp Files
       href: azure-netapp-files-cost-model.md
     - name: Diretrizes para planejamento de rede do Azure NetApp Files
       href: azure-netapp-files-network-topologies.md
+    - name: Arquiteturas da solução usando o Azure NetApp Files
+      href: azure-netapp-files-solution-architectures.md
     - name: Perguntas frequentes sobre o Azure NetApp Files
       href: azure-netapp-files-faqs.md
 - name: Guias de instruções
@@ -35,10 +43,12 @@
       href: azure-netapp-files-create-netapp-account.md
     - name: Configurar um pool de capacidade
       href: azure-netapp-files-set-up-capacity-pool.md
-    - name: Delegar uma sub-rede para Azure NetApp Files
+    - name: Delegar uma sub-rede ao Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
-    - name: Criar um volume para Azure NetApp Files
+    - name: Criar um volume NFS para o Azure NetApp Files
       href: azure-netapp-files-create-volumes.md
+    - name: Criar um volume SMB para o Azure NetApp Files
+      href: azure-netapp-files-create-volumes-smb.md
     - name: Configurar a política de exportação para um volume do NFS
       href: azure-netapp-files-configure-export-policy.md
     - name: Gerenciar volumes

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 15cfa025bde3367c57255ce50f95c69293b63f92
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 59d61eda7002fe46cf99fac63822b2333b2d64b5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905623"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integração do Azure Active Directory ao UserEcho
 
@@ -53,7 +53,7 @@ Para configurar a integração do UserEcho ao AD do Azure, você precisará adic
 
 **Para adicionar o UserEcho da galeria, execute as etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o UserEcho, execute as seguintes 
 
     ![Informações de logon único em Domínio e URLs do UserEcho](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.userecho.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.userecho.com/`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.userecho.com/saml/metadata/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.userecho.com/saml/metadata/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do UserEcho](https://feedback.userecho.com/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o UserEcho, execute as seguintes 
    
     ![Configurar o logon único](./media/userecho-tutorial/tutorial_userecho_07.png) 
 
-4. Clique em **site** e em **Logon único (SAML2)**.
+4. Clique em **site** e em **Logon único (SAML2)** .
    
     ![Configurar o logon único](./media/userecho-tutorial/tutorial_userecho_08.png) 
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o UserEcho, execute as seguintes 
    
     ![Configurar o logon único](./media/userecho-tutorial/tutorial_userecho_09.png)
     
-     a. Para **Habilitado para SAML**, selecione **Sim**.
+    a. Para **Habilitado para SAML**, selecione **Sim**.
     
     b. Cole a **URL de Logon**, copiada do portal do Azure, na caixa de texto **URL de SSO SAML**.
     
@@ -234,7 +234,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no UserEc
    
     ![Configurar o logon único](./media/userecho-tutorial/tutorial_userecho_13.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda Fernandes.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como Brenda Fernandes.
     
     b.  Na caixa de texto **Email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
     
@@ -252,5 +252,5 @@ Ao clicar no bloco do UserEcho no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

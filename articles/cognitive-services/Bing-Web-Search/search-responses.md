@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 47a573fd4ed4d058b9f9a265c8774f0856371b94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5380713af17a751ab695fee90895b4f6b0d2369b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390090"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542824"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Estrutura de resposta da API do Bing Web Search e tipos de resposta  
 
@@ -39,6 +39,8 @@ Quando você envia uma solicitação de pesquisa para a Pesquisa na Web do Bing,
 ```
 
 Normalmente, a Pesquisa na Web do Bing retorna um subconjunto das respostas. Por exemplo, se o termo da consulta foi *sailing dinghies* (botes de navegação), a resposta pode incluir `webPages`, `images` e `rankingResponse`. A menos que você tenha usado [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) para filtrar as páginas da Web, a resposta sempre incluirá as respostas `webpages` e `rankingResponse`.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## <a name="webpages-answer"></a>Resposta de páginas da Web
 
@@ -428,10 +430,6 @@ Se o Bing determinar que o usuário pode ter pretendido pesquisar algo diferente
     }]
 }, ...
 ```
-
-O exemplo a seguir mostra como o Bing usa a sugestão de ortografia.
-
-![Exemplo de sugestão de ortografia do Bing](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## <a name="response-headers"></a>Cabeçalhos de resposta
 

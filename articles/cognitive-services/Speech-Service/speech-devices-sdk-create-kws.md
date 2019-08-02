@@ -1,5 +1,5 @@
 ---
-title: Criar uma palavra de ativação personalizada – Serviços de Fala
+title: Criar uma palavra de ativação personalizada-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Seu dispositivo está sempre escutando uma palavra de ativação (ou frase). Quando o usuário diz que a palavra de ativação, o dispositivo envia todo o áudio subsequente para a nuvem até que o usuário pare de falar. Personalizar sua palavra de ativação é uma maneira eficiente de diferenciar o seu dispositivo e fortalecer sua identidade visual.
 services: cognitive-services
@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: 2280af4bf37fdb3cd12482da855f979a9180f0ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65020539"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68553103"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Criar uma palavra de ativação personalizada usando o serviço de Fala
 
@@ -47,26 +46,26 @@ Considere as seguintes diretrizes ao escolher uma palavra de ativação:
 
 ## <a name="create-your-wake-word"></a>Criar sua palavra de ativação
 
-Antes de usar uma palavra de ativação personalizado com seu dispositivo, você precisará criar uma palavra de ativação com o serviço Microsoft personalizado Wake Word geração. Depois de fornecer uma palavra de ativação, produz o serviço um arquivo que você implanta seu kit de desenvolvimento para habilitar a palavra de ativação em seu dispositivo.
+Antes de usar uma palavra de ativação personalizada com seu dispositivo, você precisará criar uma palavra de ativação com o serviço de geração de palavra de ativação personalizada da Microsoft. Depois de fornecer uma palavra de ativação, o serviço produz um arquivo que você implanta em seu kit de desenvolvimento para habilitar a palavra de ativação em seu dispositivo.
 
-1. Vá para o [Portal de serviços de fala personalizado](https://aka.ms/sdsdk-speechportal) e **entrar** ou se você não tiver uma assinatura de fala escolher [ **criar uma assinatura**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Acesse o [portal do serviço fala personalizada](https://aka.ms/sdsdk-speechportal) e **entre** ou, se você não tiver uma assinatura de fala, escolha [**criar uma assinatura**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
-    ![O Portal de serviços de fala personalizado](media/speech-devices-sdk/wake-word-4.png)
+    ![O portal do serviço de Fala Personalizada](media/speech-devices-sdk/wake-word-4.png)
 
-1. No [personalizado Wake Word](https://aka.ms/sdsdk-wakewordportal) página, digite a palavra de ativação de sua escolha e clique em **adicionar wake word**. Temos algumas [diretrizes](#choose-an-effective-wake-word) para ajudar a escolher uma palavra-chave em vigor. Atualmente, só há suporte para idioma en-US.
+1. No texto de página de [ativação personalizada](https://aka.ms/sdsdk-wakewordportal) , digite na palavra de ativação de sua escolha e clique em **Adicionar ativar palavra**. Temos algumas [diretrizes](#choose-an-effective-wake-word) para ajudar a escolher uma palavra-chave efetiva. Atualmente, damos suporte apenas ao idioma en-US.
 
     ![Insira sua palavra de ativação](media/speech-devices-sdk/wake-word-5.png)
 
-1. Três pronúncia alternativa da sua palavra de ativação será criada. Você pode escolher todos os a pronúncia que desejar. Em seguida, selecione **enviar** para gerar a palavra de ativação. Se você quiser alterar a palavra de ativação, remover o já existente em primeiro lugar, ao passar o mouse na linha de pronúncia aparecerá no ícone Excluir.
+1. Serão criadas três pronúncias alternativas de sua palavra de ativação. Você pode escolher todas as pronúncias que desejar. Em seguida, selecione **Enviar** para gerar a palavra de ativação. Se você quiser alterar a palavra de ativação, remova a primeira, quando passar o mouse sobre a linha de pronúncia, o ícone de exclusão será exibido.
 
-    ![Examine o word wake](media/speech-devices-sdk/wake-word-6.png)
+    ![Examine sua palavra de ativação](media/speech-devices-sdk/wake-word-6.png)
 
-1. Pode levar até um minuto para o modelo a ser gerado. Você será solicitado a baixar o arquivo.
+1. Pode levar até um minuto para que o modelo seja gerado. Você será solicitado a baixar o arquivo.
 
-    ![Baixe o word wake](media/speech-devices-sdk/wake-word-7.png)
+    ![Baixe sua palavra de ativação](media/speech-devices-sdk/wake-word-7.png)
 
-1. Salve o arquivo .zip no computador. Você precisará esse arquivo para implantar o word ativação personalizado para o kit de desenvolvimento.
+1. Salve o arquivo .zip no computador. Você precisará desse arquivo para implantar sua palavra de ativação personalizada no kit de desenvolvimento.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Testar sua palavra ativação personalizado com [início rápido do SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart).
+Teste a palavra de ativação personalizada com o guia de [início rápido do SDK de dispositivos de fala](https://aka.ms/sdsdk-quickstart).

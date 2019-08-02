@@ -8,24 +8,24 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
-ms.author: sahsan
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 06/03/2019
-ms.openlocfilehash: ba787ccd51bf5ea9ec8e06e341a0f698afb5a7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc82ace4c5bf1204075bfa5e34d0b1489a3acb98
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688078"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876282"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Fazer uma cópia consistente transicionalmente de um banco de dados SQL do Azure
 
-O Banco de Dados SQL do Azure fornece vários métodos para criar uma cópia transacionalmente consistente do Banco de Dados SQL do Azure existente no mesmo servidor ou em um servidor diferente. Você pode copiar um Banco de Dados SQL usando o Portal do Azure, o PowerShell ou o T-SQL. 
+O banco de dados SQL do Azure fornece vários métodos para criar uma cópia transacionalmente consistente de um banco de dados SQL do Azure existente ([banco de dados individual](sql-database-single-database.md)) no mesmo servidor ou em um servidor diferente. Você pode copiar um Banco de Dados SQL usando o Portal do Azure, o PowerShell ou o T-SQL. 
 
 ## <a name="overview"></a>Visão geral
 
-Uma cópia do banco de dados é um instantâneo do banco de dados de origem no momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou em um servidor diferente. Você pode optar por manter a sua camada de serviço de computação e tamanho ou use um tamanho de computação diferentes na mesma camada de serviço (edição). Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Neste ponto, é possível atualizar ou fazer o downgrade para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados independentemente.  
+Uma cópia do banco de dados é um instantâneo do banco de dados de origem no momento da solicitação de cópia. Você pode selecionar o mesmo servidor ou um servidor diferente. Além disso, você pode optar por manter sua camada de serviço e o tamanho da computação ou usar um tamanho de computação diferente dentro da mesma camada de serviço (edição). Após a conclusão da cópia, a cópia se tornará um banco de dados independente e totalmente funcional. Neste ponto, é possível atualizar ou fazer o downgrade para qualquer edição. Os logons, os usuários e as permissões podem ser gerenciados independentemente.  
 
 > [!NOTE]
 > [Backups de banco de dados automatizados](sql-database-automated-backups.md) são usados quando você cria uma cópia de banco de dados.
@@ -50,7 +50,7 @@ Para copiar um banco de dados usando o Portal do Azure, abra a página do banco 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para copiar um banco de dados usando o PowerShell, use o [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
+Para copiar um banco de dados usando o PowerShell, use o cmdlet [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) . 
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
@@ -90,14 +90,14 @@ Esse comando copia o Database1 no servidor 1- para um novo banco de dados chamad
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
     
 > [!IMPORTANT]
-> Firewalls de ambos os servidores devem ser configurados para permitir a conexão de entrada do IP do cliente emitir o comando de cópia de T-SQL.
+> Os firewalls de servidores devem ser configurados para permitir a conexão de entrada do IP do cliente que emite o comando de cópia T-SQL.
 
 ### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar um banco de dados SQL para uma assinatura diferente
 
-Você pode usar o descrbed etapas na seção anterior para copiar seu banco de dados para um servidor de banco de dados SQL em uma assinatura diferente. Verifique se você usar um logon que tem o mesmo nome e senha como o proprietário do banco de dados do banco de dados de origem e é um membro da função dbmanager ou é o logon principal no nível do servidor. 
+Você pode usar as etapas descritas na seção anterior para copiar seu banco de dados para um servidor de banco de dados SQL em uma assinatura diferente. Certifique-se de usar um logon que tenha o mesmo nome e senha que o proprietário do banco de dados de origem e ele é membro da função dbmanager ou é o logon da entidade de segurança no nível do servidor. 
 
 > [!NOTE]
-> O [portal do Azure](https://portal.azure.com) não oferece suporte de cópia para uma assinatura diferente, pois o Portal chama a API do ARM e usa os certificados de assinatura para ambos os servidores envolvidos na replicação geográfica de acesso.  
+> O [portal do Azure](https://portal.azure.com) não oferece suporte à cópia para uma assinatura diferente porque o portal chama a API do ARM e usa os certificados de assinatura para acessar os dois servidores envolvidos na replicação geográfica.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Monitorar o andamento da operação de cópia
 

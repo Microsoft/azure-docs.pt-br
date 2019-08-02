@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bf888b72cca806822ca7a37542e71a5be0c8d5c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153850"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443733"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Conceder acesso a dados de blob e fila do Azure com o RBAC, usando o PowerShell
 
@@ -30,7 +30,7 @@ Este artigo descreve como usar o Azure PowerShell para listar funções RBAC int
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>Determinar o escopo do recurso 
+## <a name="determine-resource-scope"></a>Determinar o escopo do recurso
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -54,9 +54,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Atribuir uma função RBAC a um usuário
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Atribuir uma função RBAC para uma entidade de segurança
 
-Para atribuir uma função RBAC a um usuário, use o [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. O formato do comando pode mudar com base no escopo da atribuição. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos.
+Para atribuir uma função RBAC a uma entidade de segurança, use o [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) comando. O formato do comando pode mudar com base no escopo da atribuição. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos, mas você pode usar o mesmo comando para atribuir uma função a qualquer entidade de segurança.
 
 ### <a name="container-scope"></a>Escopo do contêiner
 

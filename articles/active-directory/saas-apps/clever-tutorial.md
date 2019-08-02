@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4e128e7e8b39075d23d7d4fe2bdc856b030ea05
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3a0c0795ff859b6ecf95e1627693c4a7b066081a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899905"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: Integração do Azure Active Directory ao Clever
 
@@ -53,7 +53,7 @@ Para configurar a integração do Clever ao Azure AD, você precisará adicionar
 
 **Para adicionar o Clever da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Clever, siga estas etapas:
 
     ![Informações de logon único em Domínio e URLs do Clever](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://clever.com/in/<companyname>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://clever.com/in/<companyname>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://clever.com/oauth/saml/metadata.xml`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://clever.com/oauth/saml/metadata.xml`
 
     > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize o valor com a URL de Entrada real. Contate a [equipe de suporte ao cliente do Clever](https://clever.com/about/contact/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Clever, siga estas etapas:
     | Firstname  | user.givenname |
     | Sobrenome  | user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -162,7 +162,7 @@ Para configurar o logon único do Azure AD com o Clever, siga estas etapas:
     
       ![Logon Instantâneo](./media/clever-tutorial/ic798985.png "Logon Instantâneo")
     
-       a. Digite a **URL de Logon**.
+      a. Digite a **URL de Logon**.
     
       >[!NOTE]
       >A **URL de Logon** é um valor personalizado. Contate a [equipe de suporte ao cliente do Clever](https://clever.com/about/contact/) para obter esse valor.
@@ -245,5 +245,5 @@ Ao clicar no bloco do Clever no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

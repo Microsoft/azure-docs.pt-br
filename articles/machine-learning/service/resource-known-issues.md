@@ -11,33 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 206a8d9ba45dcb948dfffff86bab17b58a33e464
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149768"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358622"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e solução de problemas do serviço Azure Machine Learning
 
 Este artigo ajuda a localizar e corrigir os erros ou as falhas encontrados ao usar o serviço Azure Machine Learning.
 
-## <a name="visual-interface-issues"></a>Problemas da interface Visual
+## <a name="visual-interface-issues"></a>Problemas de interface visual
 
-Interface visual para problemas do serviço de aprendizado de máquina.
+Interface visual para problemas do serviço de Machine Learning.
 
-### <a name="long-compute-preparation-time"></a>Tempo de preparação de computação longos
+### <a name="long-compute-preparation-time"></a>Tempo de preparação de computação longa
 
-Criar nova computação ou evocar deixando computação leva tempo, talvez alguns minutos ou mais. A equipe está trabalhando para otimização.
+Criar nova computação ou evocar deixar computação leva tempo, pode ser de alguns minutos ou ainda mais. A equipe está trabalhando para otimização.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Não é possível executar um experimento contém apenas conjunto de dados 
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Não é possível executar um experimento somente contém DataSet 
 
-Você talvez queira executar um experimento contém apenas o conjunto de dados para visualizar o conjunto de dados. No entanto, ele não tem permissão para executar um experimento contém apenas conjunto de dados hoje mesmo. Estamos ativamente corrigindo o problema.
+Talvez você queira executar um experimento que contenha apenas o conjunto de um para visualizar o conjunto de um. No entanto, não é permitido executar um experimento apenas no momento. Estamos corrigindo ativamente esse problema.
  
-Antes da correção, é possível conectar o conjunto de dados a qualquer módulo de transformação de dados (Selecionar colunas no conjunto de dados, editar metadados, etc. de dados de divisão) e execute o teste. Em seguida, você pode visualizar o conjunto de dados. 
+Antes da correção, você pode conectar o conjunto de dados a qualquer módulo de Data Transformation (selecione as colunas no DataSet, editar metadados, dividir dados etc.) e executar o experimento. Em seguida, você pode visualizar o conjunto de os. 
 
-Abaixo da imagem mostra como: ![visulize dados](./media/resource-known-issues/aml-visualize-data.png)
+A imagem abaixo mostra como ![: visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
@@ -65,58 +65,66 @@ Caso veja `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <
 
 Não será possível implantar modelos em FPGAs até que você tenha solicitado e recebido aprovação para cota de FPGA. Para solicitar acesso, preencha o formulário de solicitação de cota: https://aka.ms/aml-real-time-ai
 
-## <a name="automated-machine-learning"></a>Machine Learning automatizado
+## <a name="automated-machine-learning"></a>Aprendizado de máquina automatizado
 
-Atualmente, o aprendizado de máquina do tensor Flow automatizada não oferece suporte para a versão do tensor flow 1.13. Instalar esta versão fará com que as dependências do pacote parar de funcionar. Estamos trabalhando para corrigir esse problema em uma versão futura. 
+O aprendizado de máquina automatizado do tensor Flow atualmente não dá suporte à versão 1,13 do fluxo do tensor. A instalação desta versão fará com que as dependências do pacote parem de funcionar. Estamos trabalhando para corrigir esse problema em uma versão futura. 
 
-### <a name="experiment-charts"></a>Gráficos de teste
+### <a name="experiment-charts"></a>Gráficos de experimento
 
-Gráficos de classificação binária (Obtenha o recolhimento de precisão, ROC, curva etc.) mostrados em iterações de teste automatizadas ML não são renderização corretamente na interface do usuário desde 4/12. Gráficos do gráfico estão mostrando resultados inversa, em que o melhor desempenho de modelos são mostrados com resultados inferiores. Uma resolução está sendo investigado.
+Os gráficos de classificação binária (recall de precisão, ROC, curva de lucro etc.) mostrados em iterações de experimento de ML automatizadas não são renderizados de uma interface de usuário, desde 4/12. Atualmente, as plotagens de gráfico estão mostrando resultados inversos, onde os modelos de melhor desempenho são mostrados com resultados mais baixos. Uma resolução está sob investigação.
 
 ## <a name="databricks"></a>Databricks
 
 Problemas do Databricks e do Azure Machine Learning.
 
-### <a name="failure-when-installing-packages"></a>Falha ao instalar os pacotes
+### <a name="failure-when-installing-packages"></a>Falha ao instalar pacotes
 
-Instalação do SDK de aprendizado de máquina do Azure falha no Azure Databricks quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao Databricks e não para o SDK do serviço de Azure Machine Learning. Você poderá enfrentar esse problema com outras bibliotecas, muito. Exemplo:
+A instalação do SDK do Azure Machine Learning falha em Azure Databricks quando mais pacotes são instalados. Alguns pacotes, como `psutil`, podem causar conflitos. Para evitar erros de instalação, instale pacotes congelando a versão da biblioteca. Esse problema está relacionado ao databricks e não ao SDK do serviço de Azure Machine Learning. Você também pode experimentar esse problema com outras bibliotecas. Exemplo:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
 ```
 
-Como alternativa, você pode usar scripts de inicialização, se você manter enfrentando problemas de instalação com bibliotecas Python. Essa abordagem não é oficialmente suportada. Para obter mais informações, consulte [scripts de inicialização no escopo do Cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+Como alternativa, você pode usar scripts de inicialização se continuar enfrentando problemas de instalação com bibliotecas do Python. Essa abordagem não tem suporte oficial. Para obter mais informações, consulte [scripts de inicialização no escopo do cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-### <a name="cancel-an-automated-machine-learning-run"></a>Cancelar uma execução de aprendizado de máquina automatizada
+### <a name="cancel-an-automated-machine-learning-run"></a>Cancelar uma execução de Machine Learning automatizada
 
-Quando você usa automatizado recursos de machine learning no Azure Databricks, para cancelar uma execução e iniciar um novo teste em execução, reinicie o cluster do Azure Databricks.
+Quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
 
-### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterações de aprendizado de máquina automatizado
+### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterações para o aprendizado de máquina automatizado
 
-Na máquina automatizada aprendizado configurações, se você tiver mais de 10 iterações, defina `show_output` para `False` quando você envia a execução.
+Em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações `show_output` , `False` defina como quando enviar a execução.
 
-### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para o aprendizado de máquina do Azure Machine Learning SDK/automatizada
+### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget para o SDK do Azure Machine Learning/Machine Learning automatizado
 
-O widget do SDK do Azure Machine Learning não tem suporte em um notebook do Databricks, porque os blocos de anotações não é possível analisar os widgets HTML. Você pode exibir o widget no portal usando esse código Python na célula de notebook do Databricks do Azure:
+O widget SDK do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>Erro de importação: Nenhum módulo chamado 'pandas.core.indexes'
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Erro de importação: Nenhum módulo chamado ' pandas. Core. Indexes '
 
-Se você vir esse erro quando você usa automatizada de aprendizado de máquina:
+Se você vir esse erro ao usar o aprendizado de máquina automatizado:
 
-1. Execute este comando para instalar dois pacotes em seu cluster do Azure Databricks: 
+1. Execute este comando para instalar dois pacotes no cluster de Azure Databricks: 
 
    ```
    scikit-learn==0.19.1
    pandas==0.22.0
    ```
 
-1. Desanexar e anexar novamente o cluster para o bloco de anotações. 
+1. Desanexe e anexe novamente o cluster ao seu bloco de anotações. 
 
 Se essas etapas não resolverem o problema, tente reiniciar o cluster.
+
+### <a name="failtosendfeather"></a>FailToSendFeather
+
+Se você vir um `FailToSendFeather` erro ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
+
+* Atualize `azureml-sdk[automl_databricks]` o pacote para a versão mais recente.
+* Adicione `azure-dataprep` a versão 1.1.8 ou superior.
+* Adicione `pyarrow` a versão 0,11 ou superior.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -124,7 +132,7 @@ Se você for diretamente exibir seu espaço de trabalho a partir de um link de c
 
 ## <a name="diagnostic-logs"></a>Logs de diagnóstico
 
-Às vezes, pode ser útil fornecer informações de diagnóstico ao pedir ajuda. Para ver alguns logs, visite [portal do Azure](https://portal.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > Executar > Logs**.
+Às vezes, pode ser útil fornecer informações de diagnóstico ao pedir ajuda. Para ver alguns logs, visite [portal do Azure](https://portal.azure.com) e vá para seu espaço de trabalho e selecione **espaço de trabalho > teste > executar logs do >** .
 
 ## <a name="resource-quotas"></a>Cotas de recursos
 

@@ -2,27 +2,21 @@
 title: Como planejar uma implementação de ingresso do Azure Active Directory híbrido no Azure Active Directory | Microsoft Docs
 description: Saiba como configurar dispositivos adicionados ao Azure Active Directory híbrido.
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: devices
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: conceptual
+ms.date: 06/28/2019
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54a1c349ae7cdd66c09db412331c344d6512ecd3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abb050eb527e65b4fd31f3251d37fef7d51e867e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110604"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655971"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planejar a sua implementação do ingresso do Azure Active Directory híbrido
 
@@ -83,7 +77,7 @@ Ingresso no Azure AD híbrido não é suportado atualmente se seu ambiente consi
 
 Ingresso no Azure AD híbrido não tem suporte atualmente ao usar a infraestrutura da área de trabalho virtual (VDI).
 
-Não há suporte para o Azure AD híbrido para TPMs compatíveis com FIPS. Se os dispositivos têm TPMs compatíveis com FIPS, você deve desabilitá-los antes de prosseguir com a junção do Azure AD híbrido. Microsoft não fornece as ferramentas para desabilitar o modo FIPS para TPMs conforme ele é dependente do fabricante do TPM. Entre em contato com seu hardware OEM para obter suporte.
+Não há suporte para o ingresso no Azure AD híbrido para TPMs compatíveis com FIPS. Se os dispositivos têm TPMs compatíveis com FIPS, você deve desabilitá-los antes de prosseguir com a junção do Azure AD híbrido. Microsoft não fornece as ferramentas para desabilitar o modo FIPS para TPMs conforme ele é dependente do fabricante do TPM. Entre em contato com seu hardware OEM para obter suporte.
 
 Não há suporte para o ingresso no Azure AD híbrido para o Windows Server que executa a função de controlador de domínio (DC).
 
@@ -93,19 +87,17 @@ Se você está confiando na ferramenta de preparação do sistema (Sysprep) e se
 
 Se você depender de um instantâneo de máquina Virtual (VM) para criar VMs adicionais, verifique se que esse instantâneo não é de uma VM que já está registrada com o Azure AD como o ingresso no Azure AD híbrido.
 
-Se os dispositivos incluídos no domínio do Windows 10 já estiverem [registrados pelo Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) em seu locatário, recomendamos remover esse estado antes de habilitar o ingresso no Azure AD Híbrido. No Windows 10 versão 1809, as seguintes alterações foram feitas para evitar esse estado duplo:
+Se os dispositivos incluídos no domínio do Windows 10 já estiverem [registrados pelo Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) em seu locatário, recomendamos remover esse estado antes de habilitar o ingresso no Azure AD Híbrido. No Windows 10 versão 1809, as seguintes alterações foram feitas para evitar esse estado duplo:
 
 - Qualquer estado existente registrado pelo Azure Active Directory será automaticamente removido depois que os dispositivos forem incluídos no Azure Active Directory Híbrido.
 - Você pode impedir que o dispositivo ingressado no domínio que está sendo o Azure AD registrado ao adicionar essa chave do registro - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = DWORD: 00000001.
 - Essa alteração está agora disponível para a versão do Windows 10 1803 com KB4489894 aplicado. No entanto, se você tiver Windows Hello para empresas configurada, o usuário é necessário para re-instalação do Windows Hello para empresas após o estado de duplo limpar.
-
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Examine a validação controlada de junção do Azure AD híbrido
 
 Quando todos os pré-requisitos estão em vigor, os dispositivos do Windows serão registrados automaticamente como dispositivos em seu locatário do Azure AD. O estado dessas identidades de dispositivo no Azure AD é conhecido como ingresso no Azure AD híbrido. Para obter mais informações sobre os conceitos abordados neste artigo podem ser encontradas nos artigos [Introdução ao gerenciamento de identidades de dispositivo no Azure Active Directory](overview.md) e [planejar seu ingresso no Azure Active Directory híbrido implementação](hybrid-azuread-join-plan.md).
 
 As organizações talvez queira fazer uma validação controlada de ingresso no Azure AD híbrido antes de habilitá-la em toda a sua organização ao mesmo tempo. Examine o artigo [controlado de validação de associação do Azure AD híbrido](hybrid-azuread-join-control.md) para entender como realizá-la.
-
 
 ## <a name="select-your-scenario-based-on-your-identity-infrastructure"></a>Selecione o seu cenário com base em sua infraestrutura de identidade
 
@@ -135,8 +127,6 @@ Com base no cenário que corresponda à sua infraestrutura de identidade, consul
 
 - [Configurar o ingresso no Azure Active Directory híbrido para o ambiente federado](hybrid-azuread-join-federated-domains.md)
 - [Configurar o ingresso no Azure Active Directory híbrido para ambiente gerenciado](hybrid-azuread-join-managed-domains.md)
-
-
 
 ## <a name="review-on-premises-ad-upn-support-for-hybrid-azure-ad-join"></a>Revisão de suporte de UPN do AD para o ingresso no Azure AD híbrido no local
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 90a9fec3dc5b7252a0eb9d4120336db168148583
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6c9235efe75c5ed16de01d950dcbec9746fbfa10
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902178"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090785"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-showpad"></a>Tutorial: Integração do Azure Active Directory ao Showpad
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Showpad, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Showpad](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<comapany-name>.showpad.biz/login`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<comapany-name>.showpad.biz/login`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<company-name>.showpad.biz`
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o Showpad, execute as seguintes e
 
     ![Configurar o logon único no lado do aplicativo](./media/showpad-tutorial/tutorial_showpad_003.png) 
 
-     a. Na caixa de texto **Nome**, digite o nome do Provedor do Identificador (por exemplo: o nome de sua empresa).
+    a. Na caixa de texto **Nome**, digite o nome do Provedor do Identificador (por exemplo: o nome de sua empresa).
 
     b. Como **Fonte de Metadados**, selecione **XML**.
 
@@ -220,5 +220,5 @@ Quando clicar no bloco do Showpad no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -2,19 +2,19 @@
 title: Detalhes do documento - Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: A página de lista de documentos mostra os primeiros 10 documentos no espaço de trabalho. Para cada um dos documentos, ela exibe o nome, pareamento, tipo, idioma, carimbo de data/hora do upload e endereço de email do usuário que carregou o documento.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 0995d65dc9723922a691ff31a422dfa55b35c82c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf0d96414c40784210723e315da5d885d61198c5
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384073"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595585"
 ---
 # <a name="view-document-details"></a>Exibir detalhes do documento
 

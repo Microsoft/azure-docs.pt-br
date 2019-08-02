@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eb2555cdc163ee0f88149248b9e7d83a51d34a1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42e983ead6f7562c6a31cf9ef4ad2d97d0ff9707
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150255"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673227"
 ---
-1. No [portal do Azure](http://portal.azure.com), selecione a Rede Virtual do Resource Manager para a qual você quer criar um gateway de rede virtual.
+1. No [portal do Azure](https://portal.azure.com), selecione a Rede Virtual do Resource Manager para a qual você quer criar um gateway de rede virtual.
 
 2. Na seção **Configurações** seção da página de rede virtual, selecione **Sub-redes** para expandir a página **Sub-redes**.
 

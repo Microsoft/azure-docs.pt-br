@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49e80c3fc8935064aceef8ef4e2bd3257c41e5e7
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65470239"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514186"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar seu ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -87,8 +87,7 @@ Para instalar o SDK e o pacote de execução associado via ferramenta da linha d
 4. Adicione a nova chave Gnu Privacy Guard (GnuPG ou GPG) ao arquivo de chaves APT.
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. Adicione a chave GPG oficial do Docker ao arquivo de chaves APT.
@@ -107,8 +106,8 @@ Para instalar o SDK e o pacote de execução associado via ferramenta da linha d
 7. Adicionar chave de JDK Azul ao seu token de autenticação APT e configurar seu repositório.
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. Atualize suas listas de pacote com base nos repositórios recém-adicionados.
@@ -179,8 +178,8 @@ O tempo de execução do Service Fabric que vem com a instalação anterior do S
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito do npm | mais recente |
-RHEL | - | OpenJDK 1.8 | Implícito do npm | mais recente |
+Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito do npm | latest |
+RHEL | - | OpenJDK 1.8 | Implícito do npm | latest |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
 Inicie um cluster local após a conclusão da instalação.
@@ -216,7 +215,7 @@ O Service Fabric fornece ferramentas de scaffolding que ajudam a criar aplicativ
 1. Instale o Node.js e o npm em seu computador.
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```
@@ -273,7 +272,7 @@ Você pode instalar o plug-in Eclipse do Service Fabric de dentro do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse em vez de usar um instalador de pacote (`apt` ou `apt-get`). Isso garante que você obtenha a versão mais atual do Eclipse. Você pode instalar o IDE do Eclipse para Desenvolvedores Java ou para Java EE para Desenvolvedores.
 
-1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Você pode atualizar Buildship usando as instruções em [Buildship do Eclipse: Plug-ins do Eclipse para o Gradle][buildship-update].
+1. No Eclipse, verifique se você instalou o Eclipse Neon ou posterior e o Buildship versão 2.2.1 ou posterior. Verifique as versões dos componentes instalados selecionando **Ajuda** > **Sobre o Eclipse** > **Detalhes da Instalação**. Você pode atualizar Buildship usando as instruções em [Buildship do Eclipse: Plug-ins do Eclipse para Gradle][buildship-update].
 
 2. Para instalar o plug-in Service Fabric, selecione**Ajuda** > **Instalar Novo Software**.
 

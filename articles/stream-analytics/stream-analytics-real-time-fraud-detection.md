@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cfb7dc8ef41c8829caebed6fff2d881093dbbe4d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c45c42077d6f07ef847d2b95d4c24310f51abca4
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076233"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621834"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introdução ao uso do Stream Analytics do Azure: Detecção de fraude em tempo real
 
@@ -207,7 +207,7 @@ Uma consulta simples pode apenas ler todos os dados de entrada. No entanto, gera
 
 As consultas que você criar aqui exibirão apenas os dados transformados na tela. Em uma seção posterior, você vai configurar um coletor de saída e uma consulta que grava os dados transformados para esse coletor.
 
-Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/dn834998.aspx).
+Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### <a name="get-sample-data-for-testing-queries"></a>Obter dados de exemplo para teste de consultas
 
@@ -289,11 +289,11 @@ Para essa transformação, você deseja uma sequência de janelas temporais que 
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    Essa consulta usa a palavra-chave `Timestamp By` na cláusula `FROM` para especificar qual campo de carimbo de data/hora no fluxo de entrada a ser usado para definir a janela em cascata. Nesse caso, a janela divide os dados em segmentos pelo campo `CallRecTime` em cada registro. (Se nenhum campo for especificado, a operação em janela usará a hora em que cada evento chegou ao hub de eventos. Consulte "Hora de chegada versus hora do aplicativo" na [Referência de linguagem de consulta de Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    Essa consulta usa a palavra-chave `Timestamp By` na cláusula `FROM` para especificar qual campo de carimbo de data/hora no fluxo de entrada a ser usado para definir a janela em cascata. Nesse caso, a janela divide os dados em segmentos pelo campo `CallRecTime` em cada registro. (Se nenhum campo for especificado, a operação em janela usará a hora em que cada evento chegou ao hub de eventos. Consulte "Hora de chegada versus hora do aplicativo" na [Referência de linguagem de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     A projeção inclui `System.Timestamp`, que retorna um carimbo de data/hora para o final de cada janela. 
 
-    Para especificar que você deseja usar uma janela em cascata, você deve usar o [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionar a `GROUP BY` cláusula. Na função, você especifica uma unidade de tempo (em qualquer lugar de um microssegundos a um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, para que você obterá uma contagem por país/região para cada segundos 5 de chamadas.
+    Para especificar que você deseja usar uma janela em cascata, você deve usar o [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) funcionar a `GROUP BY` cláusula. Na função, você especifica uma unidade de tempo (em qualquer lugar de um microssegundos a um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, para que você obterá uma contagem por país/região para cada segundos 5 de chamadas.
 
 2. Clique em **Testar** novamente. Nos resultados, observe que os carimbos de data/hora em **WindowEnd** estão em incrementos de 5 segundos.
 
@@ -404,7 +404,7 @@ No entanto, se estiver pronto e não precisar dos recursos que você criou, voc�
 5. Exclua o hub de evento.
 6. Exclua o namespace do hub de eventos.
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
@@ -418,5 +418,5 @@ Para obter mais informações sobre Stream Analytics em geral, leia estes artigo
 
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

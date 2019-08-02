@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 010/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 60a64758ae93320fc44a0705038e9db7e114b9bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 26e48d1af8e29c7d00a80910dcca62811da14822
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149505"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673212"
 ---
 No portal do Azure, você pode exibir o status da conexão para um gateway de VPN de rede virtual clássica navegando até a conexão. As etapas a seguir mostram uma maneira de navegar para a conexão e verificar.
 
-1. No [portal do Azure](http://portal.azure.com), clique em **Todos os recursos** e navegue até o gateway de rede virtual.
+1. No [portal do Azure](https://portal.azure.com), clique em **Todos os recursos** e navegue até o gateway de rede virtual.
 2. Na folha da rede virtual, clique em **Visão geral** para acessar a seção **Conexões VPN** da folha.
 3. No gráfico de conexões VPN, clique no site.
 

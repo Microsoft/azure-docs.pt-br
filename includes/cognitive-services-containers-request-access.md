@@ -1,15 +1,15 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/24/2019
-ms.openlocfilehash: 4cdcec850f32d7e94f33eb28e5bf7839e511f347
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/5/2019
+ms.openlocfilehash: 993b0e8cc5b1ec482b2f6041dfc970dc7e7409dd
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124575"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229289"
 ---
 Preencher e enviar o [formulário de solicitação de contêineres de visão de serviços Cognitivos](https://aka.ms/VisionContainersPreview) para solicitar acesso ao contêiner. O formulário solicita informações sobre você, sua empresa e o cenário do usuário para o qual você usará o contêiner. Depois de enviar o formulário, a equipe de serviços Cognitivos do Azure analisa-o para verificar se você atende os critérios para acesso ao registro de contêiner privado.
 

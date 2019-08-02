@@ -3,16 +3,17 @@ title: Armazenamento de imagens no Registro de Contêiner do Azure
 description: Detalhes sobre como as imagens de contêiner do Docker são armazenadas no Registro de Contêiner do Azure, incluindo segurança, redundância e capacidade.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: danlep
-ms.openlocfilehash: 55c84907ab41f6da9d7a0989c68a1c1f90c5e424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4517cc21ca0087358e750cd480288d4ec3718791
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60827265"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310529"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
@@ -34,19 +35,19 @@ Para cenários que exigem ainda mais garantia de alta disponibilidade, utilize o
 
 A tabela a seguir descreve os limites de armazenamento e imagem de contêiner em vigor para os registros de contêiner do Azure.
 
-| Resource | Limite |
+| Recurso | Limite |
 | -------- | :---- |
 | Repositórios | Sem limite |
 | Imagens | Sem limite |
 | Camadas | Sem limite |
-| tags | Sem limite|
+| Marcas | Sem limite|
 | Armazenamento | 5 TB |
 
 Números muito altos de repositórios e marcas podem afetar o desempenho do registro. Exclua periodicamente repositórios, marcas e imagens não utilizados como parte da rotina de manutenção de registro. Recursos de registro excluídos, como repositórios, imagens e marcas *não poderão* ser recuperados após a exclusão. Para obter mais informações sobre a exclusão de recursos de registro, consulte [Excluir imagens de contêiner no Registro de Contêiner do Azure](container-registry-delete.md).
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 
-Para obter detalhes completos sobre preços, consulte [preços de Registro de Contêiner do Azure][pricing].
+Para obter detalhes completos sobre os preços, consulte [preços do registro de contêiner do Azure][pricing].
 
 ## <a name="next-steps"></a>Próximas etapas
 

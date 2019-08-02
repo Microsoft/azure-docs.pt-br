@@ -1,5 +1,5 @@
 ---
-title: TCO (Custo Total de Propriedade) com o Azure Cosmos DB
+title: Custo total de propriedade (TCO) com o Azure Cosmos DB
 description: Este artigo compara o custo total de propriedade do Azure Cosmos DB com os bancos de dados locais e IaaS
 author: rimman
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 861aacb3e4c288ea7f55c5906534b728e9cd22b6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965596"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447215"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>TCO (Custo Total de Propriedade) com o Azure Cosmos DB
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Custo total de propriedade (TCO) com o Azure Cosmos DB
 
-O Azure Cosmos DB foi projetado com a multilocação refinada e o controle de recursos. Esse design permite que o Azure Cosmos DB opere com custos significativamente menores e ajuda os usuários a economizar. Atualmente, o Azure Cosmos DB oferece suporte a mais de 280 cargas de trabalho de cliente em um único computador com aumento contínuo da densidade, além de milhares de cargas de trabalho de cliente dentro de um cluster. Ele balanceia a carga de réplicas das cargas de trabalho de clientes entre computadores diferentes em um cluster e em vários clusters dentro de um data center. Para saber mais, consulte [Azure Cosmos DB: Enviar por push a fronteira dos bancos de dados distribuídos globalmente](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Devido ao controle de recursos, multilocação e integração nativa com o restante da infraestrutura do Azure, o Azure Cosmos DB é em média de 4 a 6 vezes mais barato do que o MongoDB, Cassandra ou outros NoSQL de OSS em execução na IaaS e até 10 vezes mais barato do que mecanismos de banco de dados em execução no local. Consulte o papel sobre [O custo total de (não) propriedade de um serviço de nuvem de banco de dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+O Azure Cosmos DB foi projetado com a multilocação refinada e o controle de recursos. Esse design permite que o Azure Cosmos DB opere com custos significativamente menores e ajuda os usuários a economizar. Atualmente, o Azure Cosmos DB oferece suporte a mais de 280 cargas de trabalho de cliente em um único computador com aumento contínuo da densidade, além de milhares de cargas de trabalho de cliente dentro de um cluster. Ele balanceia a carga de réplicas de cargas de trabalho dos clientes em computadores diferentes em um cluster e em vários clusters em um data center. Para obter mais informações, consulte [do Azure Cosmos DB: Enviar por push a fronteira dos bancos de dados distribuídos globalmente](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Devido ao controle de recursos, multilocação e integração nativa com o restante da infraestrutura do Azure, o Azure Cosmos DB é em média de 4 a 6 vezes mais barato do que o MongoDB, Cassandra ou outros NoSQL de OSS em execução na IaaS e até 10 vezes mais barato do que mecanismos de banco de dados em execução no local. Consulte o papel sobre [O custo total de (não) propriedade de um serviço de nuvem de banco de dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
 As soluções de banco de dados NoSQL de OSS, como Apache Cassandra, MongoDB, HBase, mecanismos foram projetadas para o local. Quando oferecidas como um serviço gerenciado, elas são equivalentes a um modelo do Resource Manager com um banco de dados de locatário para gerenciar os clusters provisionados e monitoramento de suporte. As arquiteturas NoSQL de OSS requerem sobrecarga operacional e as competências podem ser caras e difíceis de encontrar. Por outro lado, o Azure Cosmos DB é um serviço de nuvem totalmente gerenciado que permite aos desenvolvedores concentrarem-se na inovação de negócios em vez de focar no gerenciamento e manutenção da infraestrutura de banco de dados. 
 

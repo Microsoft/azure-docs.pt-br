@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: 1b55a2b053b86d3260fdca201357445d2556c444
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1c4005651518eb27eebde0005bd70b4adad6432
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60793967"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798359"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Filtrando e pré-processando a telemetria no SDK do Application Insights
 
@@ -53,62 +53,61 @@ Para filtrar a telemetria, escreva um processador de telemetria e registre-o no 
 
     Observe que os Processadores de Telemetria criam uma cadeia de processamento. Ao criar uma instância de um processador de telemetria, você transmite um link para o próximo processador na cadeia. Quando um ponto de dados de telemetria é transmitido para o método Process, ele faz seu trabalho e, em seguida, chama o próximo Processador de Telemetria da cadeia.
 
-    ```csharp
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.Extensibility;
+public class SuccessfulDependencyFilter : ITelemetryProcessor
+{
 
-    public class SuccessfulDependencyFilter : ITelemetryProcessor
-      {
+    private ITelemetryProcessor Next { get; set; }
 
-        private ITelemetryProcessor Next { get; set; }
+    // You can pass values from .config
+    public string MyParamFromConfigFile { get; set; }
 
-        // You can pass values from .config
-        public string MyParamFromConfigFile { get; set; }
+    // Link processors to each other in a chain.
+    public SuccessfulDependencyFilter(ITelemetryProcessor next)
+    {
+        this.Next = next;
+    }
+    public void Process(ITelemetry item)
+    {
+        // To filter out an item, just return
+        if (!OKtoSend(item)) { return; }
+        // Modify the item if required
+        ModifyItem(item);
 
-        // Link processors to each other in a chain.
-        public SuccessfulDependencyFilter(ITelemetryProcessor next)
-        {
-            this.Next = next;
-        }
-        public void Process(ITelemetry item)
-        {
-            // To filter out an item, just return
-            if (!OKtoSend(item)) { return; }
-            // Modify the item if required
-            ModifyItem(item);
-
-            this.Next.Process(item);
-        }
-
-        // Example: replace with your own criteria.
-        private bool OKtoSend (ITelemetry item)
-        {
-            var dependency = item as DependencyTelemetry;
-            if (dependency == null) return true;
-
-            return dependency.Success != true;
-        }
-
-        // Example: replace with your own modifiers.
-        private void ModifyItem (ITelemetry item)
-        {
-            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
-        }
+        this.Next.Process(item);
     }
 
-    ```
-3. Insira isto no ApplicationInsights.config:
+    // Example: replace with your own criteria.
+    private bool OKtoSend (ITelemetry item)
+    {
+        var dependency = item as DependencyTelemetry;
+        if (dependency == null) return true;
+
+        return dependency.Success != true;
+    }
+
+    // Example: replace with your own modifiers.
+    private void ModifyItem (ITelemetry item)
+    {
+        item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+    }
+}
+```
+
+3. Adicionar seu processador
+
+**Aplicativos ASP.NET** insira isto no applicationinsights. config:
 
 ```xml
-
-    <TelemetryProcessors>
-      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
-         <!-- Set public property -->
-         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
-      </Add>
-    </TelemetryProcessors>
-
+<TelemetryProcessors>
+  <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+     <!-- Set public property -->
+     <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+  </Add>
+</TelemetryProcessors>
 ```
 
 (Essa é a mesma seção em que você inicializa um filtro de amostragem).
@@ -123,40 +122,55 @@ Você pode transmitir valores de cadeia de caracteres do arquivo .config fornece
 **Como alternativa,** é possível inicializar o filtro no código. Em uma classe de inicialização adequada - por exemplo AppStart em Global.asax.cs - insira seu processador na cadeia:
 
 ```csharp
+var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+builder.Use((next) => new SuccessfulDependencyFilter(next));
 
-    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
-    builder.Use((next) => new SuccessfulDependencyFilter(next));
+// If you have more processors:
+builder.Use((next) => new AnotherProcessor(next));
 
-    // If you have more processors:
-    builder.Use((next) => new AnotherProcessor(next));
-
-    builder.Build();
-
+builder.Build();
 ```
 
 Os TelemetryClients criados depois desse ponto usarão seus processadores.
+
+**Aplicativos ASP.NET Core**
+
+> [!NOTE]
+> Usando o inicializador de adição `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core. 
+
+
+Para [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) aplicativos, adicionando um novo `TelemetryInitializer` é feito adicionando-o para o contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método de sua `Startup.cs` classe.
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
+
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
+    }
+```
 
 ### <a name="example-filters"></a>Filtros de exemplo
 #### <a name="synthetic-requests"></a>Solicitações sintéticas
 Filtre os bots e os testes Web. Embora o Metrics Explorer ofereça a opção para filtrar fontes sintéticas, essa opção reduz o tráfego filtrando-as no SDK.
 
 ```csharp
+public void Process(ITelemetry item)
+{
+  if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    public void Process(ITelemetry item)
-    {
-      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
-
-      // Send everything else:
-      this.Next.Process(item);
-    }
-
+  // Send everything else:
+  this.Next.Process(item);
+}
 ```
 
 #### <a name="failed-authentication"></a>Autenticação com falha
 Filtre as solicitações com uma resposta "401".
 
 ```csharp
-
 public void Process(ITelemetry item)
 {
     var request = item as RequestTelemetry;
@@ -170,7 +184,6 @@ public void Process(ITelemetry item)
     // Send everything else:
     this.Next.Process(item);
 }
-
 ```
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>Filtrar chamadas de dependência rápidas remotas
@@ -182,7 +195,6 @@ Se desejar diagnosticar chamadas lentas, filtre as rápidas.
 >
 
 ```csharp
-
 public void Process(ITelemetry item)
 {
     var request = item as DependencyTelemetry;
@@ -193,7 +205,6 @@ public void Process(ITelemetry item)
     }
     this.Next.Process(item);
 }
-
 ```
 
 #### <a name="diagnose-dependency-issues"></a>Diagnosticar problemas de dependência
@@ -214,71 +225,82 @@ Se você fornecer um inicializador de telemetria, ele é chamado sempre que qual
 *C#*
 
 ```csharp
+using System;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MvcWebRole.Telemetry
+namespace MvcWebRole.Telemetry
+{
+  /*
+   * Custom TelemetryInitializer that overrides the default SDK
+   * behavior of treating response codes >= 400 as failed requests
+   *
+   */
+  public class MyTelemetryInitializer : ITelemetryInitializer
+  {
+    public void Initialize(ITelemetry telemetry)
     {
-      /*
-       * Custom TelemetryInitializer that overrides the default SDK
-       * behavior of treating response codes >= 400 as failed requests
-       *
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
+        var requestTelemetry = telemetry as RequestTelemetry;
+        // Is this a TrackRequest() ?
+        if (requestTelemetry == null) return;
+        int code;
+        bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+        if (!parsed) return;
+        if (code >= 400 && code < 500)
         {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }
-            // else leave the SDK to set the Success property      
+            // If we set the Success property, the SDK won't change it:
+            requestTelemetry.Success = true;
+            // Allow us to filter these requests in the portal:
+            requestTelemetry.Context.Properties["Overridden400s"] = "true";
         }
-      }
+        // else leave the SDK to set the Success property      
     }
+  }
+}
 ```
 
-**Carregue seu inicializador**
+**Aplicativos do ASP.NET: Carregue seu inicializador**
 
 Em ApplicationInsights.config:
 
 ```xml
-    <ApplicationInsights>
-      <TelemetryInitializers>
-        <!-- Fully qualified type name, assembly name: -->
-        <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
-        ...
-      </TelemetryInitializers>
-    </ApplicationInsights>
+<ApplicationInsights>
+  <TelemetryInitializers>
+    <!-- Fully qualified type name, assembly name: -->
+    <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
+    ...
+  </TelemetryInitializers>
+</ApplicationInsights>
 ```
 
 *Como alternativa,* você pode instanciar o inicializador no código, por exemplo em Global.aspx.cs:
 
 ```csharp
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
-    }
+protected void Application_Start()
+{
+    // ...
+    TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+}
 ```
-
 
 [Ver mais deste exemplo.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-<a name="js-initializer"></a>
+**Aplicativos ASP.NET Core: Carregue seu inicializador**
+
+> [!NOTE]
+> Usando o inicializador de adição `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core. 
+
+Para [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) aplicativos, adicionando um novo `TelemetryInitializer` é feito adicionando-o para o contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método de sua `Startup.cs` classe.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
+```
 
 ### <a name="java-telemetry-initializers"></a>Inicializadores de telemetria do Java
 
@@ -295,7 +317,7 @@ Em seguida, registre o inicializador personalizado em seu arquivo applicationins
 
 ```xml
 <Add type="mypackage.MyConfigurableContextInitializer">
-<Param name="some_config_property" value="some_value" />
+    <Param name="some_config_property" value="some_value" />
 </Add>
 ```
 
@@ -305,43 +327,42 @@ Em seguida, registre o inicializador personalizado em seu arquivo applicationins
 Insira um inicializador de telemetria logo após o código de inicialização que você obteve do portal:
 
 ```JS
+<script type="text/javascript">
+    // ... initialization code
+    ...({
+        instrumentationKey: "your instrumentation key"
+    });
+    window.appInsights = appInsights;
 
-    <script type="text/javascript">
-        // ... initialization code
-        ...({
-            instrumentationKey: "your instrumentation key"
+
+    // Adding telemetry initializer.
+    // This is called whenever a new telemetry item
+    // is created.
+
+    appInsights.queue.push(function () {
+        appInsights.context.addTelemetryInitializer(function (envelope) {
+            var telemetryItem = envelope.data.baseData;
+
+            // To check the telemetry items type - for example PageView:
+            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                // this statement removes url from all page view documents
+                telemetryItem.url = "URL CENSORED";
+            }
+
+            // To set custom properties:
+            telemetryItem.properties = telemetryItem.properties || {};
+            telemetryItem.properties["globalProperty"] = "boo";
+
+            // To set custom metrics:
+            telemetryItem.measurements = telemetryItem.measurements || {};
+            telemetryItem.measurements["globalMetric"] = 100;
         });
-        window.appInsights = appInsights;
+    });
 
+    // End of inserted code.
 
-        // Adding telemetry initializer.
-        // This is called whenever a new telemetry item
-        // is created.
-
-        appInsights.queue.push(function () {
-            appInsights.context.addTelemetryInitializer(function (envelope) {
-                var telemetryItem = envelope.data.baseData;
-
-                // To check the telemetry item�s type - for example PageView:
-                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                    // this statement removes url from all page view documents
-                    telemetryItem.url = "URL CENSORED";
-                }
-
-                // To set custom properties:
-                telemetryItem.properties = telemetryItem.properties || {};
-                telemetryItem.properties["globalProperty"] = "boo";
-
-                // To set custom metrics:
-                telemetryItem.measurements = telemetryItem.measurements || {};
-                telemetryItem.measurements["globalMetric"] = 100;
-            });
-        });
-
-        // End of inserted code.
-
-        appInsights.trackPageView();
-    </script>
+    appInsights.trackPageView();
+</script>
 ```
 
 Para obter um resumo das propriedades não personalizadas disponíveis em telemetryItem, veja o [Modelo de dados de exportação do Application Insights](../../azure-monitor/app/export-data-model.md).

@@ -1,6 +1,6 @@
 ---
 title: Enviar solicitações para a API de Verificação Ortográfica do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre os modos de Verificação Ortográfica do Bing, as configurações e outras informações relacionadas à API.
 services: cognitive-services
 author: aahill
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: e9f691147b5dcb12a48a632ff01880f3fdff89c5
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: ef5d812b1e55713f30928582d9aa9e61bba7c7a6
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390272"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423532"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Enviar solicitações para a API de Verificação Ortográfica do Bing
 
 Para verificar se uma cadeia de caracteres de texto possui erros de gramática e ortografia, você poderia enviar uma solicitação GET para o ponto de extremidade a seguir:  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/spellcheck
 ```  
@@ -73,6 +73,8 @@ O exemplo a seguir mostra uma solicitação que inclui todos os cabeçalhos e pa
 
 O exemplo a seguir mostra a resposta à solicitação anterior. O exemplo também mostra os cabeçalhos de resposta específicos do Bing.
 
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
@@ -119,7 +121,7 @@ BingAPIs-Market: en-US
 }  
 ```  
 
-# <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [O que é API de Verificação Ortográfica do Bing?](../overview.md)
 - [Referência de API de Verificação Ortográfica do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

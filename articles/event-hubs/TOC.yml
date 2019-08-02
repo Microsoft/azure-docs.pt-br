@@ -28,20 +28,8 @@
       items:
         - name: .NET Core
           href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
         - name: Java
           href: event-hubs-java-get-started-send.md
-        - name: Python
-          href: event-hubs-python-get-started-send.md
-        - name: Node.js
-          href: event-hubs-node-get-started-send.md
-        - name: Go
-          href: event-hubs-go-get-started-send.md
-        - name: C (somente enviar)
-          href: event-hubs-c-getstarted-send.md
-        - name: Apache Storm (somente receber)
-          href: event-hubs-storm-getstarted-receive.md
     - name: Capturar eventos
       items:
         - name: Usar o portal do Azure para habilitar a Captura dos Hubs de Eventos
@@ -60,13 +48,94 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: Armazenar dados capturados em um SQL Data Warehouse
       href: store-captured-data-data-warehouse.md
+    - name: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics
+      href: event-hubs-kafka-stream-analytics.md
     - name: Transmitir dados para o Azure Databricks usando Hubs de Eventos
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
-    - name: Habilitar Integração de Redes Virtuais e Firewalls no Namespace dos Hubs de Eventos
-      href: event-hubs-tutorial-virtual-networks-firewalls.md
-    - name: Hubs de Eventos do Apache Kafka
+- name: Exemplos
+  href: event-hubs-samples.md
+- name: Conceitos
+  items:
+    - name: Terminologia dos Hubs de Eventos
+      href: event-hubs-features.md
+    - name: Host do processador de eventos
+      href: event-hubs-event-processor-host.md
+    - name: Disponibilidade e consistência
+      href: event-hubs-availability-and-consistency.md
+    - name: Escalabilidade
+      href: event-hubs-scalability.md
+    - name: Recuperação de desastre geográfico
       items:
+        - name: Recuperação de desastre geográfico e replicação geográfica
+          href: event-hubs-geo-dr.md
+    - name: Segurança
+      items:
+        - name: Identidade gerenciada para recursos do Azure
+          href: event-hubs-managed-service-identity.md
+        - name: Controle de Acesso Baseado em Função (versão prévia)
+          href: event-hubs-role-based-access-control.md
+        - name: Visão geral do modelo de segurança e autenticação
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: Atributos de segurança
+          href: event-hubs-security-attributes.md
+    - name: Guia do protocolo AMQP 1.0
+      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+      maintainContext: true
+- name: Guias de instruções
+  items:
+    - name: Desenvolver
+      items:
+        - name: Obter a cadeia de conexão dos Hubs de Eventos
+          href: event-hubs-get-connection-string.md
+        - name: Eventos do Exchange entre aplicativos que usam diferentes protocolos
+          href: event-hubs-exchange-events-different-protocols.md
+        - name: Guia de programação
+          href: event-hubs-programming-guide.md
+    - name: Processar dados
+      items:
+        - name: Processar dados usando o Azure Stream Analytics
+          href: process-data-azure-stream-analytics.md
+    - name: Usar bibliotecas de cliente
+      items:
+        - name: .NET Framework
+          items:
+            - name: Enviar e receber eventos usando o .NET Framework
+              href: event-hubs-dotnet-framework-getstarted-send.md
+        - name: Java
+          items:
+            - name: Criar um aplicativo Spring Cloud Stream Binder
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
+              maintainContext: true
+            - name: Usar o iniciador do Spring Boot para Apache Kafka
+              href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+              maintainContext: true
+        - name: Python
+          items:
+            - name: Enviar e receber eventos usando o Python
+              href: event-hubs-python-get-started-send.md
+            - name: 'Enviar, receber e capturar eventos usando o Python'
+              href: event-hubs-python.md
+        - name: Node.js
+          items:
+            - name: Enviar e receber eventos usando o Node.js
+              href: event-hubs-node-get-started-send.md
+        - name: Go
+          items:
+            - name: Enviar e receber eventos usando o Go
+              href: event-hubs-go-get-started-send.md
+        - name: C (somente enviar)
+          items:
+            - name: Enviar eventos usando o C
+              href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm (somente receber)
+          items:
+            - name: Receber eventos usando o Apache Storm
+              href: event-hubs-storm-getstarted-receive.md
+    - name: Integrar com o Apache Kafka
+      items:
+        - name: Criar hubs de eventos para Apache Kafka
+          href: event-hubs-create-kafka-enabled.md
         - name: Espelhar um agente do Kafka em um hub de eventos habilitado do Apache Kafka
           href: event-hubs-kafka-mirror-maker-tutorial.md
         - name: Conectar o Apache Spark a um hub de eventos habilitado do Apache Kafka
@@ -77,76 +146,30 @@
           href: event-hubs-kafka-connect-tutorial.md
         - name: Conectar o Akka Streams a um hub de eventos habilitado do Apache Kafka
           href: event-hubs-kafka-akka-streams-tutorial.md
-- name: Exemplos
-  href: event-hubs-samples.md
-- name: Conceitos
-  items:
-    - name: Recursos de Hubs de Eventos
-      href: event-hubs-features.md
-    - name: Visão geral do Host do Processador de Eventos
-      href: event-hubs-event-processor-host.md
-    - name: Guia de programação
-      href: event-hubs-programming-guide.md
-    - name: Segurança
-      items:
-        - name: Identidade gerenciada para recursos do Azure
-          href: event-hubs-managed-service-identity.md
-        - name: Controle de Acesso Baseado em Função (versão prévia)
-          href: event-hubs-role-based-access-control.md
-        - name: Recuperação de desastre geográfico e replicação geográfica
-          href: event-hubs-geo-dr.md
-        - name: Visão geral do modelo de segurança e autenticação
-          href: event-hubs-authentication-and-security-model-overview.md
-        - name: Atributos de segurança
-          href: event-hubs-security-attributes.md
-    - name: Disponibilidade e consistência
-      href: event-hubs-availability-and-consistency.md
-    - name: Guia do protocolo AMQP 1.0
-      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
-      maintainContext: true
-- name: Guias de instruções
-  items:
-    - name: 'Enviar, receber e capturar eventos usando o Python'
-      href: event-hubs-python.md
-    - name: Configuração dos logs de diagnóstico
-      href: event-hubs-diagnostic-logs.md
-    - name: Hubs de Eventos do Apache Kafka
-      items:
-        - name: Criar hubs de eventos para Apache Kafka
-          href: event-hubs-create-kafka-enabled.md
-        - name: Processar Apache Kafka para eventos dos Hubs de Eventos usando o Stream Analytics
-          href: event-hubs-kafka-stream-analytics.md
-    - name: Gerenciar
+    - name: Gerenciar e monitorar
       items:
         - name: Monitorar Hubs de Eventos com o Monitoramento do Azure
           href: event-hubs-metrics-azure-monitor.md
+        - name: Configuração dos logs de diagnóstico
+          href: event-hubs-diagnostic-logs.md
+        - name: Transmitir dados de Diagnóstico do Azure usando Hubs de Eventos
+          href: event-hubs-streaming-azure-diags-data.md
+        - name: Dimensionar automaticamente unidades de transferência
+          href: event-hubs-auto-inflate.md
         - name: Bibliotecas de gerenciamento dos Hubs de Eventos
           href: event-hubs-management-libraries.md
-    - name: Obter a cadeia de conexão dos Hubs de Eventos
-      href: event-hubs-get-connection-string.md
-    - name: Desenvolvimento Java
+    - name: Segurança
       items:
-        - name: Criar um aplicativo Spring Cloud Stream Binder
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub
-        - name: Usar o iniciador do Spring Boot para Apache Kafka
-          href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-kafka-azure-event-hub
+        - name: Usar firewalls
+          href: event-hubs-ip-filtering.md
+        - name: Usar pontos de extremidade de serviço de rede virtual
+          href: event-hubs-service-endpoints.md
+        - name: Habilitar Integração de Redes Virtuais e Firewalls no Namespace dos Hubs de Eventos
+          href: event-hubs-tutorial-virtual-networks-firewalls.md
     - name: Solucionar problemas
       items:
         - name: Exceções
           href: event-hubs-messaging-exceptions.md
-    - name: Usar firewalls
-      href: event-hubs-ip-filtering.md
-    - name: Usar pontos de extremidade de serviço de rede virtual
-      href: event-hubs-service-endpoints.md
-    - name: Dimensionar automaticamente unidades de transferência
-      href: event-hubs-auto-inflate.md
-    - name: Transmitir dados de Diagnóstico do Azure usando Hubs de Eventos
-      href: event-hubs-streaming-azure-diags-data.md
-    - name: Eventos do Exchange entre aplicativos que usam diferentes protocolos
-      href: event-hubs-exchange-events-different-protocols.md
-    - name: Criar um aplicativo Spring Cloud Stream Binder
-      href: /java/azure/spring-framework/configure-spring-cloud-stream-binder-java-app-azure-event-hub?view=azure-java-stable
-      maintainContext: true
 - name: Referência
   items:
     - name: Java

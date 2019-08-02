@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 11f75f53adc9e8ce1dbf78ef7a7d58742b6bc839
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1024f0c09d6ab67b412a8f65d8964f3ac9d43254
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Tutorial: Integração do Azure Active Directory ao Veracode
 
@@ -119,7 +119,7 @@ Para configurar o logon único do Azure AD com o Veracode, execute as seguintes 
     | sobrenome |User.surname |
     | email |User.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -165,7 +165,7 @@ Para configurar o logon único do Azure AD com o Veracode, execute as seguintes 
    
     ![Administração](./media/veracode-tutorial/ic802912.png "Administração")
    
-     a.  Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
+    a.  Na caixa de texto **Emissor**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
     
     b. Para carregar seu certificado baixado do Portal do Azure, clique em **Escolher Arquivo**.
    
@@ -175,7 +175,7 @@ Para configurar o logon único do Azure AD com o Veracode, execute as seguintes 
    
     ![Administração](./media/veracode-tutorial/ic802913.png "Administração")
    
-     a. Para **Ativação de Novo Usuário**, selecione **Sem Ativação Necessária**.
+    a. Para **Ativação de Novo Usuário**, selecione **Sem Ativação Necessária**.
    
     b. Para **Atualizações de Dados do Usuário**, selecione **Dados do Usuário de Preferência do Veracode**.
    
@@ -260,5 +260,5 @@ Ao clicar no bloco do Veracode no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

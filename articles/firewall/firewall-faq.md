@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/30/2019
+ms.date: 6/21/2019
 ms.author: victorh
-ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 933b4167f25db5a01cf1160f5e781a1fe31afc6b
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384667"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304590"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do Firewall do Azure
 
@@ -76,7 +76,6 @@ O serviço de Firewall do Azure complementa a funcionalidade de grupo de seguran
 
 Firewall do Azure é um serviço gerenciado com várias camadas de proteção, incluindo a proteção de plataforma com NSGs de nível de NIC (não visíveis).  Nível de sub-rede NSGs não são necessários na sub-rede de Firewall do Azure e estão desabilitados para garantir que nenhuma interrupção do serviço.
 
-
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como configurar o Firewall do Azure com meus pontos de extremidade de serviço?
 
 Para obter acesso seguro aos serviços de PaaS, recomendamos ponto de extremidade de serviço. Você pode optar por habilitar pontos de extremidade de serviço na sub-rede de Firewall do Azure e desabilitá-los nas redes virtuais spoke conectadas. Dessa forma você aproveita ambos os recursos – segurança de ponto de extremidade de serviço e o registro em log central para todo o tráfego.
@@ -123,6 +122,10 @@ Sim, você pode usar o Firewall do Azure em uma rede virtual de hub para encamin
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Firewall do Azure pode encaminhar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou em redes virtuais emparelhadas?
 
 Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes na mesma VNET requer atenção adicional. Embora o uso do intervalo de endereços de VNET como um prefixo de destino para a UDR seja suficiente, isso também roteia todo o tráfego de um computador para outro na mesma sub-rede por meio da instância do Firewall do Azure. Para evitar isso, inclua uma rota para a sub-rede na UDR com um tipo **VNET** de próximo salto. O gerenciamento dessas rotas pode ser complicado e passível de erros. O método recomendado para segmentação de rede interna é usar Grupos de Segurança de Rede, o que não exige UDRs.
+
+## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>É o SNAT de saída do Firewall do Azure entre redes privadas?
+
+Firewall do Azure não SNAT quando o endereço IP de destino é um intervalo IP privados por [IANA RFC 1918](https://tools.ietf.org/html/rfc1918). Se sua organização usa um intervalo de endereços IP públicos para redes privadas, Azure Firewall SNATs o tráfego para um de IP privado firewall endereços no AzureFirewallSubnet.
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>É forçado túnel/encadeamento para uma solução de virtualização de rede com suporte?
 

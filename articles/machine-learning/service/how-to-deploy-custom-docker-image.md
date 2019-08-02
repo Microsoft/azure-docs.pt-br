@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 06/05/2019
-ms.openlocfilehash: 02bc8835ddb163d81f389e13b21b88adca55cb2f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/11/2019
+ms.openlocfilehash: b8591fe750d4bb1441cdc28c488b2c860eb0bccb
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082619"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840062"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-image"></a>Implantar um modelo usando uma imagem personalizada do Docker
 
@@ -43,6 +43,7 @@ Este documento é dividido em duas seções:
 * Um grupo de trabalho de serviço do Azure Machine Learning. Para obter mais informações, consulte o [criar um espaço de trabalho](setup-create-workspace.md) artigo.
 * O Machine Learning do Azure SDK. Para obter mais informações, consulte a seção SDK do Python para o [criar um espaço de trabalho](setup-create-workspace.md#sdk) artigo.
 * O [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* O [extensão CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Uma [registro de contêiner do Azure](/azure/container-registry) ou outros registros do Docker que está acessível na internet.
 * As etapas neste documento pressupõem que você esteja familiarizado com a criação e uso de um __configuração de inferência__ objeto como parte da implantação de modelo. Para obter mais informações, consulte a seção "preparar para implantar" [onde implantar e como](how-to-deploy-and-where.md#prepare-to-deploy).
 
@@ -54,14 +55,14 @@ As informações nesta seção pressupõem que você está usando um registro de
 
     Quando usar imagens armazenados na __registro de contêiner para o espaço de trabalho__, você não precisa se autenticar no registro. Autenticação é manipulada pelo espaço de trabalho.
 
-    > [!TIP]
-    > O registro de contêiner para seu espaço de trabalho é criado na primeira vez, treinar ou implantar um modelo usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não treinado ou criou um modelo, nenhum registro de contêiner do Azure continuará a existir no espaço de trabalho.
+    > [!WARNING]
+    > É o Rzegistry de contêiner do Azure para seu espaço de trabalho __criado na primeira vez, treinar ou implantar um modelo__ usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não treinado ou criou um modelo, nenhum registro de contêiner do Azure continuará a existir no espaço de trabalho.
 
     Para obter informações sobre como recuperar o nome do registro de contêiner do Azure para seu espaço de trabalho, consulte o [nome do registro de contêiner Get](#getname) seção deste artigo.
 
     Quando usar imagens armazenados em uma __registro de contêiner autônoma__, você precisará configurar uma entidade de serviço que tem pelo menos acesso de leitura. Você, em seguida, forneça o ID da entidade de serviço (nome de usuário) e a senha para qualquer pessoa que usa imagens do registro. A exceção é se você tornar o registro de contêiner publicamente acessível.
 
-    Para obter informações sobre como criar um registro de contêiner privado do Azure, consulte [criar um registro de contêiner privado](/azure/container-registry/container-registery-get-started-azure-cli).
+    Para obter informações sobre como criar um registro de contêiner privado do Azure, consulte [criar um registro de contêiner privado](/azure/container-registry/container-registry-get-started-azure-cli).
 
     Para obter informações sobre como usar as entidades de serviço com o registro de contêiner do Azure, consulte [autenticação de registro de contêiner do Azure com entidades de serviço](/azure/container-registry/container-registry-auth-service-principal).
 
@@ -79,8 +80,8 @@ As informações nesta seção pressupõem que você está usando um registro de
 
 Nesta seção, saiba como obter o nome do registro de contêiner do Azure para seu espaço de trabalho do serviço de Azure Machine Learning.
 
-> [!TIP]
-> O registro de contêiner para seu espaço de trabalho é criado na primeira vez, treinar ou implantar um modelo usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não treinado ou criou um modelo, nenhum registro de contêiner do Azure continuará a existir no espaço de trabalho.
+> [!WARNING]
+> O registro de contêiner do Azure para seu espaço de trabalho é __criado na primeira vez, treinar ou implantar um modelo__ usando o espaço de trabalho. Se você tiver criado um novo espaço de trabalho, mas não treinado ou criou um modelo, nenhum registro de contêiner do Azure continuará a existir no espaço de trabalho.
 
 Se você já tiver treinado ou implantado modelos usando o serviço de Azure Machine Learning, um registro de contêiner foi criado para seu espaço de trabalho. Para localizar o nome deste registro de contêiner, use as seguintes etapas:
 
@@ -115,6 +116,9 @@ As etapas neste passo a passo de seção criar uma imagem personalizada do Docke
     ```text
     FROM ubuntu:16.04
 
+    ARG CONDA_VERSION=4.5.12
+    ARG PYTHON_VERSION=3.6
+
     ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
     ENV PATH /opt/miniconda/bin:$PATH
 
@@ -123,12 +127,12 @@ As etapas neste passo a passo de seção criar uma imagem personalizada do Docke
         apt-get clean && \
         rm -rf /var/lib/apt/lists/*
 
-    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh && \
+    RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-${CONDA_VERSION}-Linux-x86_64.sh -O ~/miniconda.sh && \
         /bin/bash ~/miniconda.sh -b -p /opt/miniconda && \
         rm ~/miniconda.sh && \
         /opt/miniconda/bin/conda clean -tipsy
 
-    RUN conda install -y python=3.6 && \
+    RUN conda install -y conda=${CONDA_VERSION} python=${PYTHON_VERSION} && \
         conda clean -aqy && \
         rm -rf /opt/miniconda/pkgs && \
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
@@ -152,9 +156,9 @@ As etapas neste passo a passo de seção criar uma imagem personalizada do Docke
     Run ID: cda was successful after 2m56s
     ```
 
-Para obter mais informações sobre a criação de imagens com um registro de contêiner do Azure, consulte [compilar e executar uma imagem de contêiner usando as tarefas de registro de contêiner do Azure](/docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli.md)
+Para obter mais informações sobre a criação de imagens com um registro de contêiner do Azure, consulte [compilar e executar uma imagem de contêiner usando as tarefas de registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-quickstart-task-cli)
 
-Para obter mais informações sobre como carregar imagens existentes para um registro de contêiner do Azure, consulte [envie sua primeira imagem para um registro de contêiner do Docker privado](/azure/container-registry/container-registry-get-started-docker-cli.md).
+Para obter mais informações sobre como carregar imagens existentes para um registro de contêiner do Azure, consulte [envie sua primeira imagem para um registro de contêiner do Docker privado](/azure/container-registry/container-registry-get-started-docker-cli).
 
 ## <a name="use-a-custom-image"></a>Usar uma imagem personalizada
 
@@ -163,7 +167,7 @@ Para usar uma imagem personalizada, você precisa ter as seguintes informações
 * O __nome da imagem__. Por exemplo, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` é o caminho para uma imagem do Docker básico fornecido pela Microsoft.
 * Se a imagem está em um __repositório privado__, você precisa das seguintes informações:
 
-    * O registro __endereço__. Por exemplo: `myregistry.azureecr.io`.
+    * O registro __endereço__. Por exemplo, `myregistry.azureecr.io`.
     * Uma entidade de serviço __nome de usuário__ e __senha__ que tenha acesso de leitura ao registro.
 
     Se você não tiver essas informações, converse com o administrador para o registro de contêiner do Azure que contém a imagem.

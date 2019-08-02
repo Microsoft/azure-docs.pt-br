@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 042c3c2925e9d537847f16f02d841d793456fb03
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58172811"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67080524"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>O que são aceleradores de solução do Azure IoT?
 
@@ -42,7 +42,7 @@ Use o [acelerador de solução de Monitoramento Remoto](iot-accelerators-remote-
 
 ### <a name="connected-factory"></a>Fábrica conectada
 
-Use o [acelerador de solução Alocador Conectado](iot-accelerators-connected-factory-sample-walkthrough.md) para coletar a telemetria de ativos industriais com uma interface de [Arquitetura Unificada OPC](https://opcfoundation.org/about/opc-technologies/opc-ua/) e para controlá-los. Os ativos industriais podem incluir montagem e teste de estações em uma linha de produção de fábrica.
+Use o [acelerador de solução Alocador Conectado](iot-accelerators-connected-factory-features.md) para coletar a telemetria de ativos industriais com uma interface de [Arquitetura Unificada OPC](https://opcfoundation.org/about/opc-technologies/opc-ua/) e para controlá-los. Os ativos industriais podem incluir montagem e teste de estações em uma linha de produção de fábrica.
 
 É possível usar o painel da fábrica conectada para monitorar e gerenciar seus dispositivos industriais:
 

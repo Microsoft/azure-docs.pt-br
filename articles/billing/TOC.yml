@@ -25,6 +25,8 @@
       href: billing-understand-your-invoice.md
     - name: Termos da fatura explicados – apenas o Contrato de Cliente Microsoft
       href: billing-mca-understand-your-invoice.md
+    - name: Como pagar sua fatura – apenas o Contrato de Cliente Microsoft
+      href: billing-how-to-pay-bill.md
     - name: Contas de cobrança para o Contrato de Cliente Microsoft
       href: billing-mca-overview.md
 - name: Gerenciar os custos
@@ -63,8 +65,14 @@
               href: ../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json
             - name: Banco de dados SQL
               href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+            - name: Azure Databricks
+              href: billing-prepay-databricks-reserved-capacity.md
+            - name: Serviço de Aplicativo
+              href: billing-prepay-app-service-isolated-stamp.md
             - name: Planos de software do Azure
               href: ../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json
+            - name: Renovar as reservas
+              href: billing-reservation-renew.md
         - name: Como o desconto é aplicado
           items:
             - name: Instâncias de máquina virtual reservada
@@ -75,13 +83,17 @@
               href: billing-understand-reservation-charges.md
             - name: SQL Data Warehouse
               href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
+            - name: Azure Databricks
+              href: billing-reservation-discount-databricks.md
+            - name: Serviço de Aplicativo
+              href: billing-reservation-discount-app-service-isolated-stamp.md
             - name: Planos de software do Azure
               href: billing-understand-suse-reservation-charges.md
-        - name: Custos do software não incluídos
+        - name: Custos do Windows e do SQL não incluídos
           href: billing-reserved-instance-windows-software-costs.md
-        - name: Uso de Pagamento Conforme o Uso
+        - name: Dados de uso para assinaturas individuais
           href: billing-understand-reserved-instance-usage.md
-        - name: Uso do Enterprise
+        - name: Dados de uso para clientes Enterprise
           href: billing-understand-reserved-instance-usage-ea.md
         - name: Trocas e reembolsos de reserva
           href: billing-azure-reservations-self-service-exchange-and-refund.md

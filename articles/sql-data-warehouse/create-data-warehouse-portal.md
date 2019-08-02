@@ -2,7 +2,7 @@
 title: 'Início Rápido: Criar e consultar SQL Data Warehouse do Azure – portal do Azure | Microsoft Docs'
 description: Criar e consultar um data warehouse com SQL Data Warehouse do Azure no portal do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 9072caf29be0ebf47207266b7313e989034c3a18
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 2864acca443e3135ea0023070da95accf97fe2e9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66428052"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479443"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Início Rápido: Criar e consultar um SQL Data Warehouse do Azure no portal do Azure
 

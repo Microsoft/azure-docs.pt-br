@@ -4,20 +4,22 @@ description: Use o portal do Azure para exportar um modelo do Azure Resource Man
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: ea9499da3dac67635a48704f439f6592c6ed467e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65515378"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296315"
 ---
 # <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Exportação de única e vários recurso para o modelo no portal do Azure
 
 Para ajudar com a criação de modelos do Azure Resource Manager, você pode exportar um modelo de recursos existentes. O modelo exportado o ajuda a entender a sintaxe JSON e propriedades que implantar seus recursos. Para automatizar as implantações futuras, comece com o modelo exportado e modificá-lo para seu cenário.
 
 O Gerenciador de recursos permite que você selecione um ou mais recursos para a exportação para um modelo. Você pode se concentrar em exatamente os recursos que necessários no modelo.
+
+Este artigo mostra como exportar modelos por meio do portal. Você também pode usar [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [do Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), ou [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
 ## <a name="choose-the-right-export-option"></a>Escolha a opção de exportação à direita
 
@@ -114,7 +116,7 @@ Você pode exportar o modelo que foi usado para implantar os recursos existentes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber o Azure Resource Manager, consulte [visão geral do Azure Resource Manager](./resource-group-overview.md).
+- Saiba como exportar modelos com [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [do Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), ou [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 - Para obter a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e sintaxe dos modelos do Azure Resource Manager](./resource-group-authoring-templates.md).
 - Para saber como desenvolver modelos, consulte o [tutoriais passo a passo](/azure/azure-resource-manager/).
 - Para exibir os esquemas de modelo do Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

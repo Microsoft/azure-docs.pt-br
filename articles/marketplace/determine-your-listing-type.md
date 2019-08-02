@@ -8,22 +8,19 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6fef64bae6462923da67fc41945871f5dcde3094
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938107"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450049"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
-A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. Mais importante, a seleção de opção de publicação e o tipo de oferta no Portal do Cloud Partner definem como será a interação dos usuários com sua oferta do Marketplace.
+A opção de publicação que você escolher para a oferta estará relacionada diretamente aos requisitos de qualificação e benefícios de GTM do Marketplace. Mais importante, a seleção de opção e o tipo de oferta de publicação define como os usuários irão interagir com sua oferta do marketplace.
 
-Você pode habilitar as opções de publicação selecionando um tipo de oferta e, em seguida, criar uma oferta do Marketplace no Portal do Cloud Partner. Para fazer isso, você precisará entender os seguintes conceitos principais do Marketplace: opções de publicação, tipos de oferta e de configuração e as chamadas de ação, que determinarão como e onde sua oferta será apresentada nas vitrines do Marketplace.
+Para configurar a sua oferta, você precisa entender os seguintes conceitos principais do marketplace: opções de publicação, tipos de configuração e chamadas de ação que será determinem como e onde sua oferta é apresentada nas vitrines do marketplace da oferta.
 
 ![](./media/marketplace-publishers-guide/storefronts_options_table.png)
-
->[!Note]
->A tabela acima descreve como sua solução ou serviço é mapeado para a vitrine, a opção de publicação e o tipo de oferta usado para apresentar sua oferta no Marketplace.
 
 
 Neste artigo, você aprenderá...
@@ -36,33 +33,28 @@ Neste artigo, você aprenderá...
 
 Antes de selecionar uma opção de publicação, é importante entender os requisitos de qualificação de vitrine para aplicativos, serviços e soluções do Marketplace:
 
-Os aplicativos do **Azure Marketplace** são soluções técnicas de "bloco de construção", integradas ao Azure ou criadas para ele. Serviços de consultoria do Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Azure, ou a aprenderem a usá-lo mais rápido.
+**O Azure Marketplace** aplicativos são técnica "base" soluções criadas no ou criados para o Azure e destinam-se um IT ou público de desenvolvedores. Serviços de consultoria do Azure Marketplace são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Azure, ou a aprenderem a usá-lo mais rápido.
 
-Os aplicativos da **AppSource** são soluções de linha de negócios que podem ser compiladas no Azure ou compiladas para: Dynamics 365, Office 365, PowerBI ou Power Apps. Serviços de consultoria do AppSource são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Dynamics 365 e o Power BI.
+Os aplicativos da **AppSource** são soluções de linha de negócios que podem ser compiladas no Azure ou compiladas para: Dynamics 365, Office 365, Power BI ou Power Apps. Serviços de consultoria do AppSource são ofertas de serviços profissionais que ajudam os clientes a começarem a usar o Dynamics 365 e o Power BI.
 
-Uma vez você se tiver se registrado para se tornar um editor e recebido acesso ao Portal do Cloud Partner para criar, configurar e publicar as ofertas do Marketplace, você:
-
-<ul>1.  Compreenderá como a vitrine para sua oferta será determinada</ul>
-<ul>2.  Escolherá uma opção de publicação para sua oferta</ul>
-<ul>3.  Selecionará um tipo de oferta e examinará os requisitos de qualificação</ul>
-<ul>4.  Criará e configurará a oferta para publicação no Portal do Cloud Partner</il></ul>
 
 ## <a name="understand-storefront-selection"></a>Entenderá a seleção de vitrines
 
-A vitrine em que a oferta será apresentada, o Azure Marketplace e/ou o AppSource, será determinada automaticamente pelos detalhes da oferta e pelo público-alvo, bem como pelas categorias e setores selecionados por você ao criar a oferta no Portal do Cloud Partner. 
+Vitrine onde sua oferta será apresentada, Azure Marketplace e/ou AppSource, será determinado automaticamente pelos detalhes da oferta e público-alvo, bem como as categorias e setores selecionados por você durante a criação de sua oferta. 
 
 >[!Note]
 >"Listagem de cruzada" (somente para aplicativos SaaS): quando uma lista ou oferta baseada em avaliação atende aos critérios tanto para um público de usuários técnicos quanto para os comerciais, sua oferta é listada em ambas as vitrines. Saiba mais sobre as opções de publicação abaixo.
 
 ## <a name="choose-a-publishing-option"></a>Selecione uma opção de publicação
 
-As opções de publicação disponíveis oferecem envolvimento do cliente diferenciado, dando-lhe acesso ao compartilhamento de leads e [benefícios do Go-To-Market](https://partner.microsoft.com/reach-customers/gtm). Selecione entre três opções possíveis de publicação antes de usar o Portal do Cloud Partner para criar uma oferta do Marketplace. Observe as chamadas de ação que correspondem à opção de publicação:
+As opções de publicação disponíveis oferecem envolvimento do cliente diferenciado, dando-lhe acesso ao compartilhamento de leads e [benefícios do Go-To-Market](https://partner.microsoft.com/reach-customers/gtm). Observe as chamadas de ação que correspondem à opção de publicação:
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|
 | **Lista** | Listagem simples de seu aplicativo ou serviço que permite que um usuário do Marketplace solicite a conexão com o cliente por meio da chamada de ação **Entre em Contato Comigo**. |
-| **Avaliação** | Use o Marketplace para melhorar a capacidade de descoberta e automatizar o provisionamento da experiência de avaliação do seu aplicativo, permitindo que os usuários em potencial usem sua experiência no aplicativo SaaS, IaaS ou da Microsoft sem nenhum custo, por tempo limitado, antes de comprar. As chamadas de ação usadas para a opção de publicação de avaliação são: **Avaliação gratuita** ou **Test Drive**. |
-| **Transação** | O aplicativo é executado no Azure e pode ser provisionado como um recurso diretamente na assinatura do Azure do cliente quando o cliente seleciona a chamada de ação Obter Agora. Suas taxas de licença de software, opcionalmente, podem ser compradas e cobradas pelo meio de pagamento e nas condições de escolha do cliente, e você pode optar por oferecer acesso por tempo limitado à sua **avaliação gratuita de software** (disponível apenas para o Azure Marketplace). |
+| **Avaliação** | Use o marketplace para melhorar a descoberta e automatizar o provisionamento de experiência de avaliação da sua solução, permitindo que os usuários em potencial usar sua experiência no aplicativo SaaS, IaaS ou da Microsoft sem nenhum custo por tempo limitado antes de comprar. As chamadas de ação usadas para a opção de publicação de avaliação são: **Avaliação gratuita** ou **Test Drive**. |
+|**BYOL**  |Use o marketplace para melhorar a descoberta e automatizar o provisionamento da sua solução e conclua a transação financeira separadamente. Tipos de oferta BYOL são ideais para o local para migrações de nuvem. É o plano de ação **obtê-lo agora**.
+| **Transação** | Seu aplicativo é executado no Azure e pode ser provisionado como um recurso diretamente na assinatura do Azure do cliente quando o cliente seleciona os **obtê-lo agora** chamar a ação. Suas taxas de licença de software, opcionalmente, podem ser compradas e cobradas pelo meio de pagamento e nas condições de escolha do cliente, e você pode optar por oferecer acesso por tempo limitado à sua **avaliação gratuita de software** (disponível apenas para o Azure Marketplace). |
 
 >[!Note]
 >Ao usar a opção de publicação de Transação, é importante entender as considerações de preços, cobrança, faturamento e pagamento antes de selecionar um tipo de oferta e criação de sua oferta. Examine o [artigo Cobrança do Marketplace e Considerações Comerciais para saber mais](./marketplace-commercial-transaction-capabilities-and-considerations.md).
@@ -72,6 +64,6 @@ As opções de publicação disponíveis oferecem envolvimento do cliente difere
 *   Após decidir sobre uma opção de publicação, você estará pronto para [selecionar o tipo de oferta](./publisher-guide-by-offer-type.md) que será usado para apresentar sua oferta.
 *   Examine os requisitos de qualificação nas opções de publicação pela seção de tipo de oferta para finalizar a seleção e a configuração de sua oferta.
 *   Examine os padrões de publicação por vitrine eletrônica para obter exemplos de como sua solução é mapeada para uma configuração e tipo de oferta.
-*   Faça logon no [Portal do Cloud Partner](https://cloudpartner.azure.com) para criar e configurar a oferta.
+
 
 

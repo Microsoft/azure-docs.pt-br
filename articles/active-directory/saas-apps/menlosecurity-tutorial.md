@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: c2964169996aa3b2ac18c9c2accf358b7213c1c1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8297b16ba5efa371adc4d9a20428f88a48545440
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901566"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-menlo-security"></a>Tutorial: Integração do Azure Active Directory ao Menlo Security
 
@@ -52,7 +52,7 @@ Para configurar a integração do Menlo Security ao Azure AD, você precisa adic
 
 **Para adicionar o Menlo Security da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o Menlo Security, realize as segu
 
     ![Informações de logon único de Domínio e URLs do Menlo Security](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.menlosecurity.com/account/login`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.menlosecurity.com/account/login`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.menlosecurity.com/safeview-auth-server/saml/metadata`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do cliente Menlo Security](https://www.menlosecurity.com/menlo-contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o Menlo Security, realize as segu
     
     ![Configurar o logon único](./media/menlosecurity-tutorial/menlo_user_setup.png)
 
-     a. Marque a caixa de seleção **Habilitar a autenticação de usuário usando o SAML**.
+    a. Marque a caixa de seleção **Habilitar a autenticação de usuário usando o SAML**.
 
     b. Selecione **Permitir o Acesso Externo** como **Sim**.
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Menlo Security, realize as segu
 
     d. **Ponto de extremidade SAML 2.0**: Cole a **URL de Logon** que você copiou do portal do Azure.
 
-    e. **Identificador de serviço (emissor)**: Cole o **identificador do Azure AD** que você copiou do portal do Azure.
+    e. **Identificador de serviço (emissor)** : Cole o **identificador do Azure AD** que você copiou do portal do Azure.
 
     f. **Certificado X.509**: Abra o **Certificado (Base64)** baixado do portal do Azure no bloco de notas e copie-o nesta caixa.
 
@@ -214,5 +214,5 @@ Quando você clica no bloco Menlo Security no Painel de Acesso, você deverá se
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

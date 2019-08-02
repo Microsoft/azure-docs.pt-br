@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/06/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b1280274122800147c442b73b360bc5141530a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86d48360e37f26d19d15c62a8109c030d421c661
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050588"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551896"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Coleta de dados na Central de Segurança do Azure
 A Central de segurança coleta dados de suas máquinas virtuais (VMs), conjuntos de dimensionamento de máquinas virtuais, contêineres de IaaS e computadores não Azure (incluindo local) para monitorar as ameaças e vulnerabilidades de segurança. Os dados são coletados usando o Microsoft Monitoring Agent, que lê várias configurações e logs de eventos relacionados à segurança do computador e copia os dados em seu workspace para serem analisados. Exemplos desses dados são: tipo e versão do sistema operacional, logs do sistema operacional (logs de eventos do Windows), processos em execução, nome do computador, endereços IP e usuário conectado. O agente Microsoft Monitoring Agent também copia os arquivos de despejo para seu espaço de trabalho.
@@ -46,12 +46,12 @@ Quando o provisionamento automático está ativado, a Central de segurança prov
 
 
 Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
-1. No menu principal da Central de segurança, selecione **Política de segurança**.
-2. Clique em **Editar configurações** na coluna Configurações da assinatura desejada na lista.
+1. Sob o menu principal da Central de segurança, selecione **preços & configurações**.
+2. Clique na assinatura aplicável
 
    ![Escolha a assinatura][7]
 
-3. Em **Política de segurança**, selecione **Coleta de Dados**.
+3. Selecione **coleta de dados**.
 4. Em **Provisionamento Automático**, selecione **Ativar** para habilitar o provisionamento automático.
 5. Clique em **Salvar**.
 
@@ -131,11 +131,11 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
 
 5. Selecione o tipo de preço para o workspace desejado que você pretende definir no Microsoft Monitoring Agent. <br>Para usar um workspace existente, defina o tipo de preço do workspace. Isso instalará uma solução da Central de Segurança no workspace, se ainda não existir.
 
-    a.  No menu principal da Central de Segurança, selecione **Política de segurança**.
+    a.  No menu principal do Central de segurança, selecione **preços & configurações**.
      
-    b.  Selecione o Espaço de Trabalho desejado no qual você pretende conectar o agente, clicando em **Editar configurações** na coluna Configurações da assinatura desejada na lista.
-        ![Selecione o workspace][8] c. Defina o tipo de preço.
-        ![Selecione o tipo de preço][9] 
+    b.  Selecione o workspace desejado ao qual você pretende conectar o agente.
+        ![Selecione o workspace][7] c. Defina o tipo de preço.
+        ![Selecione o tipo de preço][9]
    
    >[!NOTE]
    >Se o workspace já tiver uma solução de **Segurança** ou **SecurityCenterFree** habilitada, o preço será definido automaticamente. 
@@ -165,8 +165,8 @@ Esses conjuntos foram projetados para lidar com cenários típicos. Avalie qual 
 
 Para determinar os eventos que farão parte dos conjuntos de eventos **Comum** e **Mínimo**, trabalhamos com clientes e padrões do setor para saber mais sobre a frequência não filtrada de cada evento e seu uso. Neste processo, usamos as seguintes diretrizes:
 
-- **Mínimo** – Certificar-se de que esse conjunto aborde apenas os eventos que possam indicar uma violação com êxito e eventos importantes que tenham um volume muito baixo. Por exemplo, este conjunto conterá logon de usuário bem-sucedidos e malsucedidos (IDs de evento 4624 e 4625), mas não conterá o logout que seja importante para a auditoria, mas não seja significativo para a detecção e que tenha um volume relativamente alto. A maior parte do volume de dados desse conjunto é dos eventos de logon e do evento de criação de processo (ID de evento 4688).
-- **Comum** – fornecer uma trilha de auditoria de usuário completa neste conjunto. Por exemplo, este conjunto contém tanto os logons quanto os logoffs de usuário (ID de evento 4634). Incluímos ações de auditoria, como alterações de grupo de segurança, operações Kerberos do controlador de domínio de chave e outros eventos que são recomendados por organizações do setor.
+- **Mínimo** – Certificar-se de que esse conjunto aborde apenas os eventos que possam indicar uma violação com êxito e eventos importantes que tenham um volume muito baixo. Por exemplo, este conjunto contém logon usuário bem-sucedidas e com falha (evento IDs 4624 e 4625), mas ele não contém um sinal de saída que é importante para a auditoria, mas não é significativo para a detecção e tem um volume relativamente alto. A maior parte do volume de dados desse conjunto é dos eventos de logon e do evento de criação de processo (ID de evento 4688).
+- **Comum** – fornecer uma trilha de auditoria de usuário completa neste conjunto. Por exemplo, este conjunto contém logons de usuário e detalhes de logon do usuário (ID de evento 4634). Incluímos ações de auditoria, como alterações de grupo de segurança, operações Kerberos do controlador de domínio de chave e outros eventos que são recomendados por organizações do setor.
 
 Eventos que têm um volume muito baixo foram incluídos no conjunto Comum, pois a principal motivação para escolhê-los dentre todos os eventos era reduzir o volume e não filtrar eventos específicos.
 
@@ -191,7 +191,7 @@ Aqui está um detalhamento completo das IDs de eventos de Segurança e do AppLoc
 >
 
 Para escolher a política de filtragem:
-1. Na folha **Política de Segurança – Coleta de Dados**, selecione a política de filtragem em **Eventos de Segurança**.
+1. Sobre o **coleta de dados** , selecione a política de filtragem em **eventos de segurança**.
 2. Clique em **Salvar**.
 
    ![Escolher a política de filtragem][5]

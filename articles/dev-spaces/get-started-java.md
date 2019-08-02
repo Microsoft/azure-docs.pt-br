@@ -9,13 +9,13 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-manager: mmontwil
-ms.openlocfilehash: 0677eb4c65da242f8cfcb20754ec88ffb02c5929
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+manager: gwallace
+ms.openlocfilehash: ec1c2b385797b1219814e584a9db7da82d111e2d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393155"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704128"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Introdução ao Azure Dev Spaces com Java
 
@@ -56,7 +56,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster Kubernetes habilitado para Azure Dev Spaces
 
-No prompt de comando, crie o grupo de recursos em uma [região que dê suporte ao Azure Dev Spaces][supported-regions].
+No prompt de comando, crie o grupo de recursos em uma [região que dá suporte ao Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -137,18 +137,27 @@ Examine a saída do console para obter informações sobre a URL pública criada
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Abra essa URL em uma janela do navegador e você deverá ver o aplicativo Web ser carregado. Conforme o contêiner é executado, a saída de `stdout` e `stderr` é transmitida para a janela do terminal.
+Identifique a URL pública do serviço na saída do comando `up`. Termina em `.azds.io`. No exemplo acima, a URL pública é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Para ver seu aplicativo Web, abra a URL pública em um navegador. Além disso, observe que a saída de `stdout` e `stderr` é transmitida para a janela do terminal *azds trace* enquanto você interage com o aplicativo Web. Também é possível conferir informações de acompanhamento das solicitações HTTP à medida que elas passam pelo sistema. Isso facilita o acompanhamento de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pelo Dev Spaces fornece essa solicitação de acompanhamento.
 
 > [!Note]
-> Na primeira execução, pode demorar vários minutos para o DNS público estar pronto. Se a URL pública não resolver, você poderá usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. Para sua conveniência e para facilitar a interação com o serviço em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure. Você poderá voltar e experimentar a URL pública quando o registro DNS estiver pronto.
-> ### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
-> O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
+> Além da URL pública, você pode usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. O Azure Dev Spaces usa a funcionalidade de *encaminhamento de porta* do Kubernetes para mapear a porta do host local para o contêiner em execução no AKS. Isso facilita a interação com o serviço em seu computador local.
+
+### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
+O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
 
 1. Na janela do terminal, pressione `Ctrl+C` (para parar `azds up`).
-1. Abra o arquivo de código chamado `src/main/java/com/ms/sample/webfrontend/Application.java` e edite a mensagem de saudação: `return "Hello from webfrontend in Azure!";`
+1. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` e edite a mensagem de saudação na [linha 19](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19):
+
+    ```java
+    return "Hello from webfrontend in Azure!";
+    ```
+
 1. Salve o arquivo.
 1. Execute `azds up` na janela do terminal.
 
@@ -181,7 +190,7 @@ Isso adiciona a configuração de depuração para o Azure Dev Spaces na pasta `
 ![](media/get-started-java/debug-configuration.png)
 
 > [!Note]
-> Se você não vir comandos do Azure Dev Spaces na Paleta de Comandos, verifique se instalou a extensão do VS Code para o Azure Dev Spaces. Verifique se o workspace que você abriu no VS Code é a pasta que contém azds.yaml.
+> Se você não vir comandos do Azure Dev Spaces na Paleta de Comandos, verifique se instalou a extensão do VS Code para o Azure Dev Spaces. Verifique se o espaço de trabalho que você abriu no VS Code é a pasta que contém `azds.yaml`.
 
 ### <a name="debug-the-container-in-kubernetes"></a>Depurar o contêiner no Kubernetes
 Pressione **F5** para depurar seu código no Kubernetes.
@@ -189,7 +198,7 @@ Pressione **F5** para depurar seu código no Kubernetes.
 Assim como acontece com o comando `up`, o código está sincronizado com o espaço de desenvolvimento e um contêiner é criado e implantado no Kubernetes. Desta vez, é claro, o depurador está anexado ao contêiner remoto.
 
 > [!Tip]
-> A barra de status do VS Code exibirá uma URL clicável.
+> A barra de status do VS Code ficará laranja, indicando que o depurador está anexado. Ela também exibirá uma URL clicável, que pode ser usada para abrir o aplicativo.
 
 ![](media/common/vscode-status-bar-url.png)
 
@@ -207,9 +216,9 @@ public String greeting()
 }
 ```
 
-Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Atualizar**.
+Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Reiniciar**.
 
-![](media/get-started-java/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que houver edições de código, o que geralmente levará um tempo considerável, o Azure Dev Spaces recompilará incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 

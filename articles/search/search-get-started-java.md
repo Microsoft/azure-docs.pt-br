@@ -1,6 +1,6 @@
 ---
-title: Introdução ao Azure Search no Java – Azure Search
-description: Como criar um aplicativo de pesquisa hospedado na nuvem no Azure usando Java como linguagem de programação.
+title: 'Guia de início rápido de Java: Criar, carregar e consultar índices usando APIs de REST de pesquisa do Azure - Azure Search'
+description: Explica como criar um índice, carregar os dados e executar consultas usando o Java e as APIs de REST de pesquisa do Azure.
 services: search
 author: jj09
 manager: jlembicz
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83f41f248d99ce55daef40e168e5f7b175e08107
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61289671"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450095"
 ---
-# <a name="get-started-with-azure-search-in-java"></a>Introdução ao Azure Search em Java
+# <a name="quickstart-create-an-azure-search-index-in-java"></a>Início Rápido: Criar um índice de Azure Search em Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -25,7 +25,7 @@ ms.locfileid: "61289671"
 
 Aprenda a criar um aplicativo de pesquisa Java personalizado que usa o Azure Search para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
 
-Para executar este exemplo, você deve ter um serviço de Azure Search, no qual pode se inscrever no [Portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Azure Search no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
+Para executar este exemplo, você deve ter um serviço do Azure Search, no qual pode se inscrever no [portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Azure Search no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
 
 Para compilar e testar este exemplo, usamos o seguinte software:
 
@@ -36,7 +36,7 @@ Para compilar e testar este exemplo, usamos o seguinte software:
 ## <a name="about-the-data"></a>Sobre os dados
 Este exemplo de aplicativo usa dados do [Serviço Geológico dos Estados Unidos (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtrados no estado de Rhode Island, para reduzir o tamanho do conjunto de dados. Vamos usar esses dados para criar um aplicativo de pesquisa que retorna prédios de referência, como hospitais e escolas, bem como características geológicas como rios, lagos e picos.
 
-Neste aplicativo, o programa **SearchServlet.java** cria e carrega o índice usando uma construção [Indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx) , recuperando o conjunto de dados filtrado do USGS por meio de um Banco de dados SQL do Azure público. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
+Neste aplicativo, o **Searchservlet** programa cria e carrega o índice usando uma [indexador](https://msdn.microsoft.com/library/azure/dn798918.aspx) constructo, recuperando o conjunto de dados filtrado do USGS de um banco de dados do SQL Azure. Credenciais predefinidas e informações de conexão para a fonte de dados online são fornecidas no código do programa. Em termos de acesso a dados, nenhuma configuração adicional é necessária.
 
 > [!NOTE]
 > Aplicamos um filtro a esse conjunto de dados para permanecer abaixo do limite de 10.000 documentos da camada de preços gratuita. Se você usar a camada padrão, esse limite não se aplica e você pode modificar este código para usar um conjunto de dados maior. Para obter detalhes sobre a capacidade de cada camada de preços, consulte [Limites e restrições](search-limits-quotas-capacity.md).
@@ -51,13 +51,13 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 * SearchServiceClient.java: Manipula as solicitações HTTP
 * SearchServiceHelper.java: Uma classe auxiliar que fornece métodos estáticos
 * Document.java: Fornece o modelo de dados
-* config.properties: Define a URL e a chave de API do serviço de Pesquisa
+* config.properties: Define a URL do serviço de pesquisa e `api-key`
 * pom.xml: Uma dependência do Maven
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Localizar o nome do serviço e a chave de api do serviço de Azure Search
-Todas as chamadas da API REST no Azure Search exigem que você forneça a URL do serviço e uma chave de api. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Localizar o nome do serviço e `api-key` do seu serviço de Azure Search
+Todas as chamadas de API REST para o Azure Search exigem que você forneça a URL do serviço e um `api-key`. 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços do Azure Search provisionados para sua assinatura.
@@ -84,10 +84,10 @@ Todas as modificações de arquivos subsequentes e instruções de execução se
 3. Clique em **Concluir**.
 4. Use o **Gerenciador de Projetos** para exibir e editar os arquivos. Se não ainda estiver aberto, clique em **Janela** > **Exibição** > **Gerenciador de Projetos** ou use o atalho para abri-lo.
 
-## <a name="configure-the-service-url-and-api-key"></a>Configurar a URL de serviço e a chave de API
-1. Em **Gerenciador de Projetos**, clique duas vezes em **config.properties** para editar as definições de configuração que contêm o nome do servidor e a chave de Api.
-2. Consulte as etapas explicadas anteriormente neste artigo, em que você encontrou a URL de serviço e a chave de API no [Portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **config.properties**.
-3. Em **config.properties**, substitua "Chave Api" com a chave de Api para o serviço. Em seguida, o nome de serviço (o primeiro componente do URL) https://servicename.search.windows.net) substitui o "nome de serviço" no mesmo arquivo.
+## <a name="configure-the-service-url-and-api-key"></a>Configurar a URL do serviço e `api-key`
+1. Na **Explorador de projeto**, clique duas vezes em **Properties** para editar as definições de configuração que contém o nome do servidor e `api-key`.
+2. Consulte as etapas neste artigo, você encontra a URL do serviço e `api-key` no [portal do Azure](https://portal.azure.com), para obter os valores que você vai inserir agora em **Properties**.
+3. Na **config. properties**, substitua "Chave API" com o `api-key` para seu serviço. Em seguida, o nome de serviço (o primeiro componente do URL) https://servicename.search.windows.net) substitui o "nome de serviço" no mesmo arquivo.
    
     ![][5]
 

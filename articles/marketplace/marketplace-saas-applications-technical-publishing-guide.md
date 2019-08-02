@@ -6,13 +6,13 @@ author: keithcharlie
 ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-ms.openlocfilehash: 4501a343b406f07b4775f3ad0e84d71825412a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kevidal
+ms.openlocfilehash: 92c3452e07dee126666e6ee1fe0c46b1f8f6dfa4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66752731"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876531"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de Publicação da Oferta de Aplicativos SaaS
 
@@ -94,7 +94,7 @@ Além disso, o Azure Active Directory fornece um site para verificar se há atua
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Usar o Azure Active Directory para habilitar avaliações  
 
-A Microsoft autentica todos os usuários do Marketplace com o Azure AD, portanto, quando um usuário autenticado clicar na sua listagem de Avaliação no Marketplace e for redirecionado para seu ambiente de Avaliação, você poderá fornecer o usuário diretamente em uma Avaliação sem exigir uma etapa adicional de entrada. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
+A Microsoft autentica todos os usuários do Marketplace com o Azure AD, portanto, quando um usuário autenticado clica na sua listagem de avaliação no Marketplace e é redirecionado para seu ambiente de avaliação, você pode provisionar o usuário diretamente em uma avaliação sem a necessidade de um etapa de entrada adicional. O token que seu aplicativo recebe do Azure AD durante a autenticação inclui informações valiosas do usuário que podem ser usadas para criar uma conta para ele no seu aplicativo, permitindo que você automatize a experiência de provisionamento e aumente a probabilidade de conversão. Para obter mais informações sobre o token, confira [Tokens de exemplo](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou avaliação:  
 * Simplifica a experiência do cliente do Marketplace para Avaliação.  
@@ -104,7 +104,7 @@ Usar o Azure AD para habilitar a autenticação em 1 clique no aplicativo ou ava
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Certificar a integração do Azure AD para Marketplace  
 
-É possível certificar a integração do Azure AD de maneiras diferentes, de acordo com o tipo do aplicativo, locatário único ou multilocatário, e se você for novato no SSO (logon único) federado do Azure AD ou já oferecer suporte para isso.  
+Certificar sua integração do Azure AD de algumas maneiras diferentes, dependendo se seu aplicativo é de locatário único ou multilocatário e se você é novo no SSO (logon único) federado do Azure AD ou já dá suporte a ele.  
 
 **Para aplicativos multilocatários:**  
 
@@ -138,7 +138,7 @@ A Microsoft hospeda a transação comercial. A Microsoft cobra o cliente em seu 
 | API de assinatura | Você expõe um serviço que pode interagir com a Assinatura de SaaS para criar, atualizar e excluir um plano de serviço e uma conta de usuário. As alterações críticas na API devem ter suporte em até 24 horas. As alterações não críticas de API serão lançadas periodicamente. |  
 
 >[!Note]
->Cloud Solution Providers (CSP) parceiro canal participar agora está disponível.  Consulte [Cloud Solution Providers](./cloud-solution-providers.md) para obter mais informações sobre sua oferta por meio do Microsoft CSP de marketing de parceiros canais.
+>A aceitação do canal de parceiros do CSP (provedores de soluções na nuvem) já está disponível.  Consulte os [provedores de soluções de nuvem](./cloud-solution-providers.md) para obter mais informações sobre como comercializar sua oferta por meio dos canais de parceiros do Microsoft CSP.
 
 ## <a name="next-steps"></a>Próximas etapas
 Caso ainda não tenha feito isso,

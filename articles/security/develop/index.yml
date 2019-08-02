@@ -34,6 +34,13 @@ sections:
             image:
               src: /media/common/i_learn-about.svg
             title: Desenvolva suas habilidades com o Microsoft Learn
+  - title: Proteger aplicativos de amostra
+    items:
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/security/develop/secure-web-app">Aplicativo Web em um contêiner do Linux</a>
   - title: Conceitos
     items:
       - type: list

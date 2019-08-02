@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: mbullwin
 ms.openlocfilehash: 91141e314bf276d9138157c8a9d85d5262ac5907
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131022"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171680"
 ---
 Coleção de medidas personalizadas. Use esta coleção para relatar a medida nomeada associada ao item de telemetria. Os casos de uso típicos são:
 - o tamanho da carga de Telemetria de Dependência

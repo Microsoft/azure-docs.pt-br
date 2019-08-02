@@ -1,7 +1,7 @@
 ---
 title: 'Início Rápido: Executar um notebook na nuvem'
 titleSuffix: Azure Machine Learning service
-description: Introdução ao Serviço do Azure Machine Learning. Use um servidor de notebook gerenciado na nuvem para experimentar seu workspace.  Seu workspace é o bloco fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de machine learning.
+description: Este tutorial mostra a você uma introdução ao serviço do Azure Machine Learning usa um servidor de notebook gerenciado na nuvem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,29 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1124bb17abb9340b442d8d6075551ffe0dc681f7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "66015285"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68371046"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início Rápido: Usar um servidor do notebook baseado em nuvem para começar a usar o Azure Machine Learning
 
-Sem instalação necessária.  Introdução ao serviço do Azure Machine Learning usando um servidor do notebook gerenciado na nuvem. Se, em vez disso, você quiser instalar o SDK em seu próprio ambiente Python, confira [Início Rápido: Usar seu próprio servidor do notebook para começar a usar o Azure Machine Learning](quickstart-run-local-notebook.md).
+Este início rápido ensina a você como começar a usar o serviço do Azure Machine Learning usando um servidor de notebook gerenciado na nuvem. Nenhuma instalação é necessária. Se, em vez disso, você quiser instalar o SDK em seu próprio ambiente Python, confira [Início Rápido: Usar seu próprio servidor do notebook para começar a usar o Azure Machine Learning](quickstart-run-local-notebook.md).
 
-Este início rápido mostra como você pode usar o [espaço de trabalho de serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md) para acompanhar seus experimentos de aprendizado de máquina.  Você criará uma [VM do notebook (versão prévia)](how-to-configure-environment.md#notebookvm), uma estação de trabalho segura do Azure baseada na nuvem que fornece um servidor do Jupyter notebook, o JupyterLab e um ambiente totalmente preparado de ML. Assim, você pode executar um notebook do Python nessa VM que registra os valores no espaço de trabalho.
+Este início rápido mostra a você como usar o [workspace de serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md) para acompanhar seus experimentos de ML (aprendizado de máquina). Você faz isso criando uma [máquina virtual do notebook (versão prévia)](how-to-configure-environment.md#notebookvm): uma estação de trabalho segura do Azure baseada em nuvem que fornece um servidor do Jupyter Notebook, o JupyterLab e um ambiente de ML totalmente preparado. Assim, você pode executar um notebook Python nessa VM (máquina virtual) que registra os valores no workspace.
 
-Neste início rápido, você realiza as seguintes ações:
+Para fazer isso, execute as seguintes ações:
 
-* Criar um workspace
+* Crie um workspace.
 * Crie uma VM do notebook no seu espaço de trabalho.
-* Iniciar a interface da Web do Jupyter.
+* Abra a interface Web do Jupyter.
 * Abra um notebook que contém código para estimar o pi e registrar erros em cada iteração.
 * Execute o notebook.
-* Exiba os valores de erro registrados em log no workspace. Este exemplo mostra como o espaço de trabalho pode ajudar a manter o controle das informações geradas em um script.
+* Exiba os valores de erro registrados em log no workspace. O exemplo a seguir mostra como o workspace ajuda a manter o controle das informações geradas em um script.
 
-Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do Serviço do Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+Se você não tiver uma assinatura do Azure, crie uma conta gratuita antes de começar. Experimente a [versão gratuita ou paga do serviço do Azure Machine Learning](https://aka.ms/AMLFree).
 
 ## <a name="create-a-workspace"></a>Criar um workspace
 
@@ -42,41 +42,44 @@ Se você tiver um workspace do Serviço do Azure Machine Learning, passe para a 
 
 ## <a name="create-notebook"></a>Criar uma VM do notebook
 
- Em seu workspace, você cria um recurso de nuvem para começar a usar notebooks Jupyter. Esse recurso oferece uma plataforma baseada em nuvem pré-configurada com tudo de que você precisa para executar o serviço do Azure Machine Learning.
+ Em seu workspace, crie um recurso de nuvem para começar a usar Jupyter Notebooks. Esse recurso é uma plataforma baseada em nuvem pré-configurada com tudo o que você precisa para executar o serviço do Azure Machine Learning.
 
-1. Abra seu workspace na [portal do Azure](https://portal.azure.com/).  Se você não souber como localizar seu workspace no portal, veja como [localizar seu workspace](how-to-manage-workspace.md#view).
+1. Abra seu workspace na [portal do Azure](https://portal.azure.com/). Se você não souber direito como localizar seu workspace no portal, veja como [exibir seu workspace](how-to-manage-workspace.md#view).
 
-1. Na página do seu workspace no portal do Azure, selecione **VMs de Notebook** à esquerda.
+1. Na página do seu workspace, selecione **VMs de Notebook**, à esquerda.
 
-1. Selecione **+Novo** para criar uma VM de notebook.
+1. Selecione **+Novo** para criar uma VM de notebook.  
 
      ![Selecione Nova VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
 1. Forneça um nome para sua VM. Em seguida, selecione **Criar**.
 
     > [!NOTE]
-    > O nome da VM do seu Notebook deve ter entre 2 e 16 caracteres. Os caracteres válidos são letras, dígitos e o caractere -.  O nome também deve ser exclusivo em toda a sua assinatura do Azure.
+    > O nome da sua VM de Notebook deve ter entre 2 e 16 caracteres. Letras, dígitos e hifens são caracteres válidos. O nome deve ser exclusivo em toda a sua assinatura do Azure.
 
     ![Criar uma nova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Aguarde aproximadamente de 4 a 5 minutos, até que o status mude para **Executando**.
 
 
-## <a name="launch-jupyter-web-interface"></a>Iniciar interface da Web do Jupyter
+## <a name="open-the-jupyter-web-interface"></a>Abra a interface Web do Jupyter
 
-Depois que sua VM estiver em execução, use a seção **VMs de Notebook** para iniciar a interface da Web do Jupyter.
+Depois que sua VM estiver em execução, use a seção **VMs de Notebook** para abrir a interface Web do Jupyter.
 
 1. Selecione **Jupyter** na coluna **URI** para sua VM.  
 
     ![Iniciar o servidor do Jupyter notebook](./media/quickstart-run-cloud-notebook/start-server.png)
 
-    O link inicia seu servidor de notebook e abre a página da Web do Jupyter notebook em uma nova guia do navegador.  O link só funcionará para a pessoa que cria a VM.
+    O link inicia seu servidor de notebook e abre a página da Web do Jupyter notebook em uma nova guia do navegador.  O link só funcionará para a pessoa que cria a VM.  Cada usuário do workspace deve criar sua própria VM.
 
-1. Na página da Web do Jupyter notebook, o nome da pasta superior é o seu nome de usuário.  Selecione esta pasta.
+1. Na página da Web do Jupyter Notebook, o nome da pasta superior é o seu nome de usuário. Selecione esta pasta.
 
-1. O nome da pasta de amostras inclui um número de versão, por exemplo, **amostras-1.0.33.1**.  Selecione a pasta de amostras.
+    > [!TIP]
+    > Esta pasta está localizada no [contêiner de armazenamento](concept-workspace.md#resources) em seu espaço de trabalho, não na VM do notebook.  Você pode excluir a VM do notebook e ainda manter todo o seu trabalho.  Quando você criar uma nova VM do notebook posteriormente, ela será carregada dessa mesma pasta.  Se você compartilhar seu workspace com outras pessoas, elas verão sua pasta e você verá as pastas delas. 
 
-1. Selecione o notebook de **início rápido**.
+1. O nome da pasta de amostras inclui um número de versão (**por exemplo, amostras-1.0.33.1**). Selecione a pasta de amostras.
+
+1. Selecione a pasta **Início Rápido**.
 
 ## <a name="run-the-notebook"></a>Executar o notebook
 
@@ -84,12 +87,14 @@ Execute um notebook que estima o pi e registra o erro em seu workspace.
 
 1. Selecione **01.run experiment.ipynb** para abrir o notebook.
 
-1. Clique na primeira célula de código e selecione **Executar**.
+1. Se você vir um alerta de "Kernel não encontrado", selecione o kernel **Python 3.6 – AzureML** (localizado aproximadamente na metade da lista) e defina o kernel.
+
+1. Selecione a primeira célula de código e, em seguida, selecione **Executar**.
 
     > [!NOTE]
-    > As células de código têm colchetes antes delas. Se os colchetes estiverem vazios ( __[]__ ), o código não terá sido executado. Embora o código esteja em execução, você verá um asterisco ( __[*]__ ). Após a conclusão do código, um número **[1]** será exibido.  O número indica a ordem na qual as células foram executadas.
+    > As células de código têm colchetes antes delas. Se os colchetes estiverem vazios ( __[]__ ), o código não terá sido executado. Enquanto o código está em execução, um asterisco é exibido ( __[*]__ ). Após a conclusão do código, o número **[1]** é exibido.  O número indica a ordem na qual as células foram executadas.
     >
-    > Use **Shift-Enter** como um atalho para executar uma célula.
+    > Use **Shift + Enter** como um atalho para executar uma célula.
 
     ![Execute a primeira célula de código](media/quickstart-run-cloud-notebook/cell1.png)
 
@@ -97,27 +102,27 @@ Execute um notebook que estima o pi e registra o erro em seu workspace.
 
     ![Autenticar](media/quickstart-run-cloud-notebook/authenticate.png)
 
-1. Ao concluir, o número de célula __[2]__ será exibido.  Se você precisasse entrar, veria uma mensagem de autenticação bem-sucedida.   Se você não precisasse entrar, não veria nenhuma saída para essa célula, apenas o número seria exibido para mostrar que a célula foi executada com êxito.
+1. Quando a execução da célula de código for bem-sucedida, o número da célula __[2]__ será exibido. Se você precisasse entrar, veria uma mensagem de autenticação bem-sucedida.   Se não tiver que entrar, você não verá nenhuma saída para essa célula. Você verá apenas o número, que é exibido para mostrar que a célula foi executada com sucesso.
 
     ![Mensagem de êxito](media/quickstart-run-cloud-notebook/success.png)
 
-1. Execute o restante das células de código.  À medida que cada célula conclui a execução, você verá seu número de célula sendo exibido. Somente a última célula exibe qualquer outra saída.  
+1. Execute o restante das células de código. À medida que cada célula concluir a execução, o número de célula de cada uma delas será exibido. Somente a última célula exibe qualquer outra saída.  
 
-    Na maior célula de código, você vê `run.log` usado em vários lugares. Cada `run.log` adiciona seu valor ao seu workspace.
+    Na maior célula de código, `run.log` é exibido em vários lugares. Cada `run.log` adiciona seu valor ao seu workspace.
 
 ## <a name="view-logged-values"></a>Exibir valores registrados em log
 
-1. A saída da célula `run` contém um link para o portal do Azure para exibir os resultados do experimento em seu workspace.
+1. A saída da célula `run` contém um link de volta para o portal do Azure, no qual você pode exibir os resultados do experimento em seu workspace.
 
     ![Exibir experimentos](./media/quickstart-run-cloud-notebook/view-exp.png)
 
-1. Clique no **Link para o portal do Azure** para exibir informações sobre a execução em seu workspace.  Esse link abre seu workspace no portal do Azure.
+1. Selecione o **Link para o portal do Azure** para exibir informações sobre a execução em seu workspace. Esse link abre seu workspace no portal do Azure.
 
-1. Os gráficos dos valores registrados que você vê foram criados automaticamente no workspace. Sempre que registra diversos valores com o mesmo parâmetro de nome, um gráfico é gerado automaticamente para você.
+1. Os gráficos dos valores registrados que você vê foram criados automaticamente no workspace. Sempre que registra diversos valores com o mesmo parâmetro de nome, um gráfico é gerado automaticamente para você. Veja um exemplo:
 
    ![Exibir histórico](./media/quickstart-run-cloud-notebook/web-results.png)
 
-Já que o código para aproximar o pi usa valores aleatórios, seus gráficos mostrarão valores diferentes.  
+Já que o código para aproximar o pi usa valores aleatórios, seus gráficos poderão ser diferentes.  
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -143,16 +148,15 @@ Você também pode manter o grupo de recursos, mas excluir um único workspace. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você concluiu estas tarefas:
+Depois de concluir essas tarefas, acesse a página da Web do Jupyter Notebook. Na pasta **Início Rápido**, abra e execute o notebook **02.deploy-web-service.ipynb** para saber como implantar um serviço Web.
 
-* Criar um workspace
-* Criar uma VM de notebook.
-* Iniciar a interface da Web do Jupyter.
-* Abra um notebook que contém código para estimar o pi e registrar erros em cada iteração.
-* Execute o notebook.
-* Exiba os valores de erro registrados em log no workspace.  Este exemplo mostra como o espaço de trabalho pode ajudar a manter o controle das informações geradas em um script. 
+Quando quiser instalar outros pacotes do Python em seu ambiente Jupyter, use este código dentro de um notebook:
 
-Na página da Web do Jupyter Notebook, procure entre os outros notebooks da pasta de amostras para saber mais sobre o Serviço do Azure Machine Learning.
+```
+!source activate py36 && pip install <packagename>
+```
+
+Novamente na página da Web do Jupyter Notebook, procure entre os outros notebooks da pasta de exemplos para saber mais sobre o serviço do Azure Machine Learning.
 
 Para obter uma experiência de fluxo de trabalho detalhado, siga os tutoriais do Machine Learning para treinar e implantar um modelo:  
 

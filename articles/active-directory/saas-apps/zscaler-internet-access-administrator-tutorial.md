@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2265c4227601c5273f093af9768864a8c7e07b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b46b8644b9ba4f0dc6b0b97215a4a96b60d69c3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865050"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086029"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Administrador do Zscaler Internet Access
 
@@ -53,7 +53,7 @@ Para configurar a integração do Administrador do Zscaler Internet Access ao Az
 
 **Para adicionar o Administrador do Zscaler Internet Access da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
     ![Informações de logon único de Domínio e URLs do Administrador do Zscaler Internet Access](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL de acordo com seus requisitos:
+    a. Na caixa de texto **Identificador**, digite uma URL de acordo com seus requisitos:
 
     | |
     |--|
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
     | ---------| ------------ |
     | Função     | user.assignedroles |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](./common/new-save-attribute.png)
     
@@ -174,7 +174,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
     ![Administração](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administração")
 
-     a. Marque a opção **Habilitar Autenticação SAML**.
+    a. Marque a opção **Habilitar Autenticação SAML**.
 
     b. Clique em **Upload** para fazer upload do certificado de assinatura SAML do Azure que você baixou do portal do Azure para o **Certificado SSL Público**.
 
@@ -184,7 +184,7 @@ Para configurar o logon único do Azure AD com o Administrador do Zscaler Intern
 
     ![Administração](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
-     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
+    a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
     b. Clique em **Ativar**.
 

@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do v2 de Monitor de Status do Azure: Obter configuração | Microsoft Docs'
-description: Referência de API v2 de Monitor de status. Get-ApplicationInsightsMonitoringConfig. Monitorar o desempenho do site sem reimplantar o site. Funciona com aplicativos web do ASP.NET hospedados no local, em máquinas virtuais ou no Azure.
+title: 'Referência da API do Azure Status Monitor v2: Obter configuração | Microsoft Docs'
+description: Referência da API do Status Monitor v2. Get-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,28 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1f7061c9823ddc8ff7f8f42976041f1c9ff68fc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9e1b3242a96bfaadfe6f791e0ca9bf25262065e2
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514395"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326346"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>API de v2 do Monitor de status: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>API Status Monitor v2: Get-ApplicationInsightsMonitoringConfig
 
-Este artigo descreve um cmdlet que é um membro do [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço, e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>DESCRIÇÃO
 
 Obtém o arquivo de configuração e imprime os valores no console.
 
 > [!IMPORTANT] 
-> Esse cmdlet requer uma sessão do PowerShell com permissões de administrador.
+> Este cmdlet requer uma sessão do PowerShell com permissões de administrador.
 
 ## <a name="examples"></a>Exemplos
 
@@ -43,7 +38,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 ## <a name="parameters"></a>parâmetros
 
-Não há parâmetros necessários.
+Nenhum parâmetro é necessário.
 
 ## <a name="output"></a>Saída
 
@@ -61,16 +56,16 @@ Filters:
 ## <a name="next-steps"></a>Próximas etapas
 
   Exiba sua telemetria:
- - [Explorar métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e uso.
+ - [Explore](../../azure-monitor/app/metrics-explorer.md) as métricas para monitorar o desempenho e o uso.
 - [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
-- Use [analytics](../../azure-monitor/app/analytics.md) para obter mais informações de consultas avançadas.
+- Use a [análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
  
  Adicione mais telemetria:
- - [Criar testes da web](monitor-web-app-availability.md) para garantir que seu site permanece ativo.
-- [Adicione telemetria do cliente web](../../azure-monitor/app/javascript.md) para ver as exceções no código de página da web e para habilitar chamadas de rastreamento.
-- [Adicione o SDK do Application Insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir o rastreamento e registrar chamadas.
+ - [Crie testes da Web](monitor-web-app-availability.md) para garantir que seu site permaneça ativo.
+- [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
+- [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
  
- Faça mais com v2 de Monitor de Status:
- - Use nosso guia para [solucionar problemas de](status-monitor-v2-troubleshoot.md) v2 do Monitor de Status.
- - Alterar a configuração usando o [Set config](status-monitor-v2-api-set-config.md) cmdlet.
+ Faça mais com Status Monitor v2:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.
+ - Faça alterações na configuração usando o cmdlet [set config](status-monitor-v2-api-set-config.md) .

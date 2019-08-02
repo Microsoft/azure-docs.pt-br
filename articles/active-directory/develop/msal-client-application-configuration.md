@@ -1,6 +1,6 @@
 ---
-title: Configuração de aplicativo do cliente (biblioteca de autenticação da Microsoft) | Azure
-description: Saiba mais sobre as opções de configuração de cliente público e cliente confidencial aplicativos na autenticação biblioteca MSAL (Microsoft).
+title: Configuração de aplicativo cliente (biblioteca de autenticação da Microsoft) | Azure
+description: Saiba mais sobre as opções de configuração para clientes públicos e aplicativos cliente confidenciais na MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -12,124 +12,130 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 07/16/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5e175a8cdd1622add90bd80df63303fe914ab9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 767f7362a6c46d864ba17f23f6506bf6cdb71414
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430817"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304725"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicativo
 
-Em seu código, você inicializa um novo cliente público ou confidencial (ou o agente do usuário para a msal) o aplicativo para autenticar e obter tokens. Você pode definir várias opções de configuração quando você inicializa o aplicativo cliente na biblioteca de autenticação da Microsoft (MSAL). Essas opções se enquadram em dois grupos:
+No seu código, você inicializa um novo aplicativo cliente público ou confidencial (ou agente do usuário para MSAL. js) para autenticar e adquirir tokens. Você pode definir várias opções de configuração ao inicializar o aplicativo cliente na biblioteca de autenticação da Microsoft (MSAL). Essas opções se enquadram em dois grupos:
 
 - Opções de registro, incluindo:
-    - [Autoridade](#authority) (composta de provedor de identidade [instância](#cloud-instance) e entre [público-alvo](#application-audience) para o aplicativo e, possivelmente, a ID do Locatário).
+    - [Autoridade](#authority) (composto pela [instância](#cloud-instance) do provedor de identidade e pelo [público](#application-audience) de entrada para o aplicativo, e possivelmente pela ID do locatário).
     - [ID do cliente](#client-id).
-    - [URI de redirecionamento](#redirect-uri).
-    - [segredo do cliente](#client-secret) (para aplicativos de cliente confidencial).
-- [Opções de log](#logging), incluindo o nível de log, controle de dados pessoais e o nome do componente usando a biblioteca.
+    - [URI](#redirect-uri)de redirecionamento.
+    - [Segredo do cliente](#client-secret) (para aplicativos cliente confidenciais).
+- [Opções de log](#logging), incluindo nível de log, controle de dados pessoais e o nome do componente usando a biblioteca.
 
 ## <a name="authority"></a>Authority
-A autoridade é uma URL que indique um diretório que o MSAL pode solicitar tokens do. Autoridades comuns são:
+A autoridade é uma URL que indica um diretório do qual MSAL pode solicitar tokens. As autoridades comuns são:
 
-- https://login.microsoftonline.com/&lt ; locatário&gt; /, onde &lt; locatário&gt; é a ID de locatário do locatário do Azure Active Directory (Azure AD) ou um domínio associado a este locatário do Azure AD. Usado somente para entrada de usuários de uma organização específica.
-- https://login.microsoftonline.com/common/. Usado para conectar os usuários com contas pessoais da Microsoft ou o trabalho e contas de estudante.
-- https://login.microsoftonline.com/organizations/. Usado para conectar os usuários com contas corporativas e de estudante.
-- https://login.microsoftonline.com/consumers/. Usado para conectar os usuários com apenas contas pessoais da Microsoft (anteriormente conhecidas como contas do Windows Live ID).
+- https\://login.microsoftonline.com/\<locatário\>/, em &lt;que&gt; Tenant é a ID do locatário do locatário do Azure Active Directory (Azure AD) ou um domínio associado a este locatário do Azure AD. Usado somente para conectar usuários de uma organização específica.
+- https\://login.microsoftonline.com/Common/. Usado para conectar usuários com contas corporativas e de estudante ou contas pessoais da Microsoft.
+- https\://login.microsoftonline.com/Organizations/. Usado para conectar usuários com contas corporativas e de estudante.
+- https\://login.microsoftonline.com/consumers/. Usado para conectar usuários somente com contas pessoais da Microsoft (anteriormente conhecidas como contas do Windows Live ID).
 
-A configuração da autoridade precisa ser consistente com o que é declarado no portal de registro de aplicativo.
+A configuração de autoridade precisa ser consistente com o que é declarado no portal de registro de aplicativo.
 
-A URL de autoridade é composta de instância e o público-alvo.
+A URL da autoridade é composta pela instância e pelo público.
 
 A autoridade pode ser:
 - Uma autoridade de nuvem do Azure AD.
-- uma autoridade do Azure AD B2C. Ver [especificidades do B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
-- Uma autoridade de serviços de Federação do Active Directory (ADFS). Ver [dar suporte a ADFS](https://aka.ms/msal-net-adfs-support).
+- Uma autoridade de Azure AD B2C. Consulte as [especificações do B2C](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics).
+- Uma autoridade de Serviços de Federação do Active Directory (AD FS) (AD FS). Consulte [suporte a AD FS](https://aka.ms/msal-net-adfs-support).
 
-Autoridades de nuvem do Azure AD tem duas partes:
-- o provedor de identidade *instância*
-- Na entrada *público* para o aplicativo
+As autoridades de nuvem do Azure AD têm duas partes:
+- A *instância* do provedor de identidade
+- O *público-alvo* para o aplicativo
 
-A instância e o público-alvo podem ser concatenados e fornecidos como a URL de autoridade. Nas versões anteriores à MSAL 3 de MSAL.NET. *x*, você tinha que compõem a autoridade por conta própria, com base em nuvem, você quisesse de destino e o público entrar.  Este diagrama mostra como a URL de autoridade é composto por:
+A instância e o público podem ser concatenados e fornecidos como a URL da autoridade. Em versões do MSAL.NET anteriores à MSAL 3. *x*, você tinha que compor a autoridade por conta própria, com base na nuvem que deseja direcionar e o público-alvo da entrada.  Este diagrama mostra como a URL da autoridade é composta:
 
-![Como a URL de autoridade é composta](media/msal-client-application-configuration/authority.png)
+![Como a URL da autoridade é composta](media/msal-client-application-configuration/authority.png)
 
 ## <a name="cloud-instance"></a>Instância de nuvem
-O *instância* é usado para especificar se seu aplicativo está se conectando a usuários de nuvem pública do Azure ou de nuvens nacionais. Usando a MSAL em seu código, você pode definir a instância de nuvem do Azure usando uma enumeração ou passando a URL para o [instância de nuvem nacional](authentication-national-cloud.md#azure-ad-authentication-endpoints) como o `Instance` membro (se souber).
+A *instância* é usada para especificar se seu aplicativo está assinando usuários da nuvem pública do Azure ou de nuvens nacionais. Usando o MSAL em seu código, você pode definir a instância de nuvem do Azure usando uma enumeração ou passando a URL para a [instância de nuvem nacional](authentication-national-cloud.md#azure-ad-authentication-endpoints) como o `Instance` membro (se você souber).
 
-MSAL.NET lançará uma exceção explícita se os dois `Instance` e `AzureCloudInstance` são especificados.
+MSAL.NET gerará uma exceção explícita se `Instance` and `AzureCloudInstance` forem especificadas.
 
-Se você não especificar uma instância, seu aplicativo se destinará a instância de nuvem pública do Azure (a instância do URL `https://login.onmicrosoftonline.com`).
+Se você não especificar uma instância, seu aplicativo será direcionado para a instância de nuvem pública do Azure ( `https://login.onmicrosoftonline.com`a instância de URL).
 
 ## <a name="application-audience"></a>Público-alvo do aplicativo
 
-O público entrar depende das necessidades de negócios para seu aplicativo:
-- Se você for uma linha de desenvolvedor de negócios (LOB), você provavelmente produzirá um aplicativo de locatário único que será usado apenas em sua organização. Nesse caso, você precisa especificar a organização, por sua ID de locatário (ID da sua instância do AD do Azure) ou por um nome de domínio associado com a instância do AD do Azure.
-- Se você for um ISV, você talvez queira conectar usuários com suas contas corporativas e de estudantes em qualquer organização ou em algumas organizações (multilocatário app). Mas você também poderá ter usuários entrar com suas contas pessoais da Microsoft.
+O público-alvo depende das necessidades comerciais para seu aplicativo:
+- Se você for um desenvolvedor de LOB (linha de negócios), provavelmente produzirá um aplicativo de locatário único que será usado somente em sua organização. Nesse caso, você precisa especificar a organização, seja por sua ID de locatário (a ID da sua instância do Azure AD) ou por um nome de domínio associado à instância do Azure AD.
+- Se você for um ISV, talvez queira conectar usuários com suas contas corporativas e de estudante em qualquer organização ou em algumas organizações (aplicativo multilocatário). Mas talvez você também queira fazer com que os usuários entrem com suas contas pessoais da Microsoft.
 
 ### <a name="how-to-specify-the-audience-in-your-codeconfiguration"></a>Como especificar o público em seu código/configuração
-Usando o MSAL em seu código, você especificar o público-alvo, usando um dos seguintes valores:
-- A enumeração de público-alvo de autoridade do AD do Azure
+Usando o MSAL em seu código, você especifica o público usando um dos seguintes valores:
+- A enumeração de audiência da autoridade do Azure AD
 - A ID do locatário, que pode ser:
-  - Um GUID (ID da sua instância do AD do Azure), para aplicativos de locatário único
-  - Um nome de domínio associado com sua instância do AD do Azure (e também para aplicativos de locatário único)
-- Um desses espaços reservados como uma ID de locatário no lugar da enumeração de público-alvo de autoridade do Azure AD:
-    - `organizations` para um aplicativo multilocatário
-    - `consumers` para conectar usuários apenas com as respectivas contas pessoais
-    - `common` para conectar os usuários com seu trabalho e contas de estudante ou suas contas pessoais da Microsoft
+  - Um GUID (a ID da sua instância do Azure AD) para aplicativos de locatário único
+  - Um nome de domínio associado à sua instância do Azure AD (também para aplicativos de locatário único)
+- Um desses espaços reservados como uma ID de locatário no lugar da enumeração de audiência da autoridade do Azure AD:
+    - `organizations`para um aplicativo multilocatário
+    - `consumers`para conectar usuários somente com suas contas pessoais
+    - `common`para conectar usuários com suas contas corporativas e de estudante ou suas contas pessoais da Microsoft
 
-MSAL lançará uma exceção significativa se você especificar o público-alvo de autoridade do Azure AD e a ID de locatário.
+O MSAL gerará uma exceção significativa se você especificar o público da autoridade do Azure AD e a ID do locatário.
 
-Se você não especificar um público-alvo, seu aplicativo se destinará do Azure AD e contas pessoais da Microsoft como um público-alvo. (Ou seja, ele se comportará como se `common` foram especificadas.)
+Se você não especificar um público, seu aplicativo será direcionado ao Azure AD e às contas pessoais da Microsoft como um público. (Ou seja, ele se comportará `common` como se tivesse sido especificado.)
 
-### <a name="effective-audience"></a>Público-alvo efetiva
-O público-alvo em vigor para o seu aplicativo será o mínimo (se houver uma interseção) público definido em seu aplicativo e o público-alvo é especificado no registro de aplicativo. Na verdade, o [registros de aplicativo](https://aka.ms/appregistrations) experiência lhe permite especificar o público-alvo (os tipos de conta com suporte) para o aplicativo. Para saber mais, confira [Início Rápido: Registrar um aplicativo com a plataforma de identidade Microsoft](quickstart-register-app.md).
+### <a name="effective-audience"></a>Público-alvo efetivo
+O público efetivo para seu aplicativo será o mínimo (se houver uma interseção) do público que você definiu em seu aplicativo e o público especificado no registro do aplicativo. Na verdade, a experiência de [registros de aplicativo](https://aka.ms/appregistrations) permite especificar o público (os tipos de conta com suporte) para o aplicativo. Para obter mais informações, confira [Início Rápido: Registre um aplicativo com a plataforma](quickstart-register-app.md)de identidade da Microsoft.
 
-Atualmente, a única maneira de obter um aplicativo para conectar os usuários com apenas contas pessoais da Microsoft é configurar essas duas configurações:
-- Defina o público de registro de aplicativo como `Work and school accounts and personal accounts`.
-- Defina o público em seu código/configuração para `AadAuthorityAudience.PersonalMicrosoftAccount` (ou `TenantID` = "clientes").
+Atualmente, a única maneira de obter um aplicativo para conectar usuários com apenas contas pessoais da Microsoft é definir essas duas configurações:
+- Defina o público de registro do `Work and school accounts and personal accounts`aplicativo como.
+- Defina o público em seu código/configuração como `AadAuthorityAudience.PersonalMicrosoftAccount` (ou `TenantID` = "consumidores").
 
 ## <a name="client-id"></a>ID do cliente
-A ID do cliente é a ID de aplicativo exclusiva ao aplicativo (cliente) atribuída ao seu aplicativo pelo AD do Azure quando o aplicativo foi registrado.
+A ID do cliente é a ID exclusiva do aplicativo (cliente) atribuída ao seu aplicativo pelo Azure AD quando o aplicativo foi registrado.
 
 ## <a name="redirect-uri"></a>URI de redirecionamento
-O redirecionamento de URI é o provedor de identidade enviará de volta para os tokens de segurança.
+O URI de redirecionamento é o URI para o qual o provedor de identidade enviará os tokens de segurança.
 
-### <a name="redirect-uri-for-public-client-apps"></a>URI de redirecionamento para aplicativos de cliente público
-Se você for um desenvolvedor de aplicativos de cliente público que está usando a MSAL:
-- Você não precisa passar `RedirectUri` porque ele é calculado automaticamente pelo MSAL. Esse redirecionamento URI é definido como um destes valores, dependendo da plataforma:
-   - `urn:ietf:wg:oauth:2.0:oob` para todas as plataformas Windows
-   - `msal{ClientId}://auth` para Xamarin Android e iOS
+### <a name="redirect-uri-for-public-client-apps"></a>URI de redirecionamento para aplicativos cliente públicos
+Se você for um desenvolvedor de aplicativo cliente público que está usando o MSAL:
+- Você desejaria usar `.WithDefaultRedirectUri()` em aplicativos da área de trabalho ou UWP (MSAL.NET 4.1 +). Esse método definirá a propriedade URI de redirecionamento do aplicativo cliente público para o URI de redirecionamento recomendado padrão para aplicativos cliente públicos. 
 
-- Você precisa configurar o redirecionamento de URI na [registros de aplicativo](https://aka.ms/appregistrations):
+  Plataforma  | URI de redirecionamento  
+  ---------  | --------------
+  Aplicativo de desktop (FW .NET) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
+  UWP | valor de `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`. Isso habilita o SSO com o navegador definindo o valor como o resultado de WebAuthenticationBroker. GetCurrentApplicationCallbackUri () que você precisa registrar
+  .NET Core | `https://localhost`. Isso permite que o usuário use o navegador do sistema para autenticação interativa, já que o .NET Core não tem uma interface do usuário para a exibição da Web inserida no momento.
 
-   ![URI de redirecionamento em registros de aplicativo](media/msal-client-application-configuration/redirect-uri.png)
+- Você não precisará adicionar um URI de redirecionamento se estiver criando um aplicativo Xamarin Android e Ios que não dá suporte ao agente (o URI de `msal{ClientId}://auth` redirecionamento é definido automaticamente como para o Xamarin Android e Ios
 
-Você pode substituir o URI de redirecionamento usando o `RedirectUri` propriedade (por exemplo, se você usar agentes). Aqui estão alguns exemplos de URIs de redirecionamento para esse cenário:
+- Você precisa configurar o URI de redirecionamento no [registros de aplicativo](https://aka.ms/appregistrations):
+
+   ![URI de redirecionamento no Registros de aplicativo](media/msal-client-application-configuration/redirect-uri.png)
+
+Você pode substituir o URI de redirecionamento `RedirectUri` usando a propriedade (por exemplo, se você usar agentes). Aqui estão alguns exemplos de URIs de redirecionamento para esse cenário:
 
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
+- `RedirectUriOnIos`= $ "msauth. {Bundle. ID}://auth ";
 
-Para obter detalhes, consulte o [documentação do Android e iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
+Para obter detalhes, consulte a [documentação para Android e Ios](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
 
-### <a name="redirect-uri-for-confidential-client-apps"></a>URI de redirecionamento para aplicativos de cliente confidencial
-Para aplicativos web, o URI de redirecionamento (ou URI de resposta) é o URI que o Azure AD usará para enviar o token de volta para o aplicativo. Isso pode ser a URL da web aplicativo/API Web se o aplicativo confidencial é um deles. O redirecionamento de URI deve ser registrado no registro do aplicativo. Esse registro é especialmente importante quando você implanta um aplicativo que inicialmente testou localmente. Em seguida, você precisa adicionar a URL de resposta do aplicativo implantado no portal de registro do aplicativo.
+### <a name="redirect-uri-for-confidential-client-apps"></a>URI de redirecionamento para aplicativos cliente confidenciais
+Para aplicativos Web, o URI de redirecionamento (ou URI de resposta) é o URI que o AD do Azure usará para enviar o token de volta para o aplicativo. Esse URI pode ser a URL do aplicativo Web/API Web se o aplicativo confidencial for um desses. O URI de redirecionamento precisa ser registrado no registro do aplicativo. Esse registro é especialmente importante quando você implanta um aplicativo que você testou inicialmente localmente. Em seguida, você precisa adicionar a URL de resposta do aplicativo implantado no portal de registro de aplicativo.
 
 Para aplicativos de daemon, você não precisa especificar um URI de redirecionamento.
 
 ## <a name="client-secret"></a>Segredo do cliente
-Esta opção especifica o segredo do cliente para o aplicativo cliente confidencial. Esse segredo (senha de aplicativo) é fornecido pelo portal de registro do aplicativo ou fornecido para o Azure AD durante o registro de aplicativo com PowerShell AzureAD, PowerShell AzureRM ou CLI do Azure.
+Esta opção especifica o segredo do cliente para o aplicativo cliente confidencial. Esse segredo (senha de aplicativo) é fornecido pelo portal de registro de aplicativo ou fornecido ao Azure AD durante o registro do aplicativo com o PowerShell AzureAD, PowerShell AzureRM ou CLI do Azure.
 
 ## <a name="logging"></a>Registrando em log
-Opções de configuração Habilitar registro em log e solução de problemas. Consulte a [registro em log](msal-logging.md) para obter detalhes sobre como usá-los.
+As outras opções de configuração habilitam o registro em log e a solução de problemas. Consulte o artigo sobre [registro em log](msal-logging.md) para obter detalhes sobre como usá-los.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre [criando uma instância de aplicativos cliente usando MSAL.NET](msal-net-initializing-client-applications.md).
+Saiba mais sobre como [criar uma instância de aplicativos cliente usando o MSAL.net](msal-net-initializing-client-applications.md).
 
-Saiba mais sobre [criando uma instância de aplicativos cliente usando a msal](msal-js-initializing-client-applications.md).
+Saiba mais sobre como [criar uma instância de aplicativos cliente usando o MSAL. js](msal-js-initializing-client-applications.md).

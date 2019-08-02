@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8acc835a7f18ee673f0857f65d49eed59638a6d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0e005d794fa3c6c70edf3d3466b0f076e2007352
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898084"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração do Azure Active Directory ao InstaVR Viewer
 
@@ -54,7 +54,7 @@ Para configurar a integração do InstaVR Viewer com Azure AD, você precisará 
 
 **Para adicionar o InstaVR Viewer da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,12 +106,12 @@ Para configurar o logon único do Azure AD com o InstaVR Viewer, execute as segu
 
     ![Informações de logon único de domínio e URLs do InstaVR Viewer](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
 
     > [!NOTE]
     > Não há nenhum padrão fixo para a URL de Logon. Ela é gerada quando o cliente do InstaVR Viewer realiza o empacotamento da Web. Ela é exclusiva para cada cliente e pacote. Para obter a URL de Logon exata, você precisa fazer logon em sua instância do InstaVR Viewer e executar o empacotamento de Web.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
 
     > [!NOTE]
     > O valor do Identificador não é real. Atualize esse valor com o valor do Identificador real, que é explicado posteriormente neste tutorial.
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o InstaVR Viewer, execute as segu
 
     ![Configuração do InstaVR Viewer](media/instavr-viewer-tutorial/tutorial-instavr-viewer-configure.png)
 
-     a. Na caixa de texto **URL de SSO**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
+    a. Na caixa de texto **URL de SSO**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
     b. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiada do portal do Azure.
 
@@ -233,4 +233,4 @@ Nesta seção, é criado um usuário chamado Brenda Fernandes no InstaVR Viewer.
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

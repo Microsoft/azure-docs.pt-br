@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 08ef140eb860637cc0c09619abe7051cc007e99f
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797531"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540289"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
 
@@ -227,6 +227,14 @@ Criar um novo método para enviar uma mensagem na fila. Adicione o seguinte mét
    ```
 
 2. Salve o arquivo.
+
+Uma mensagem deve estar em um formato que possa ser incluído em uma solicitação XML com codificação UTF-8 e pode ter tamanho de até 64 KB. Se uma mensagem contém dados binários, recomendamos codificar a mensagem como Base64.
+
+Por padrão, a vida útil máxima de uma mensagem é definida como 7 dias. Você pode especificar qualquer número positivo para a vida útil da mensagem. Para adicionar uma mensagem que não expira, use `Timespan.FromSeconds(-1)` em sua chamada para **AddMessageAsync**.
+
+```csharp
+await theQueue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
+```
 
 ## <a name="dequeue-messages"></a>Remover mensagens da fila
 

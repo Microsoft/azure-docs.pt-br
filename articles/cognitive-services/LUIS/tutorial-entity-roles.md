@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 061bd94a839d83f75566412ac546ab3208543780
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149285"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68467641"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados relacionados ao contexto de um enunciado
 
@@ -91,7 +91,7 @@ A entidade predefinida, geographyV2, extrai informações de localização, incl
 1. Adicione duas funções, `Origin`, e `Destination`. 
 
     ![Adicionar funções à entidade predefinida](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
-1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **MoveEmployeeToCity**. Observe que os nomes das cidades são rotulados com a entidade predefinida **geogrpahyV2**.
+1. Selecione **Intenções** no painel de navegação à esquerda e, em seguida, selecione a intenção **MoveEmployeeToCity**. Observe que os nomes das cidades são rotulados com a entidade predefinida **geographyV2**.
 1. No primeiro enunciado da lista, selecione a localização de origem. Um menu suspenso será exibido. Selecione **geographyV2** na lista e, em seguida, siga o menu para selecionar **Origem**.
 1. Use o método da etapa anterior para marcar todas as funções de localizações em todos os enunciados. 
 

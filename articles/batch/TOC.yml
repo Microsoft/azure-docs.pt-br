@@ -27,6 +27,8 @@
       href: tutorial-rendering-batchexplorer-blender.md
     - name: Simulação R paralela
       href: tutorial-r-doazureparallel.md
+    - name: OCR com o Lote e o Functions
+      href: tutorial-batch-functions.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -59,6 +61,8 @@
           href: batch-account-create-portal.md
         - name: Gerenciar contas de Lote com o Batch Management .NET
           href: batch-management-dotnet.md
+        - name: Análise de custo e orçamentos
+          href: budget.md
     - name: Autenticar com o Azure AD
       items:
         - name: Azure AD com serviço de Lote

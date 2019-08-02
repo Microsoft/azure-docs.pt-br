@@ -15,6 +15,8 @@
               href: QuickStarts/csharp-detect-sdk.md
             - name: Python
               href: Tutorials/FaceAPIinPythonTutorial.md
+        - name: SDK do Python
+          href: QuickStarts/python-sdk.md
     - name: Usando a API REST
       items:
         - name: Detectar faces em uma imagem
@@ -77,6 +79,8 @@
           href: face-how-to-install-containers.md
         - name: Configurar contêineres
           href: face-resource-container-config.md
+        - name: Usar instâncias de contêiner
+          href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
     - name: Usar o conectado serviço da API de Detecção Facial
       href: vs-face-connected-service.md
 - name: Referência

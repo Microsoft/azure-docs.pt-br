@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: eb52169fc522ba323f82c42d9505571b18f49f1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b96b65b7dd38900fccb8d5d3a9133f37ee93949f
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244473"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595513"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Carregar dados da Contoso Retail para o SQL Data Warehouse do Azure
 
@@ -89,7 +89,7 @@ WITH
 > 
 
 ## <a name="2-configure-data-format"></a>2. Configurar o formato de dados
-Os dados são armazenados em arquivos de texto no armazenamento de blobs do Azure e cada campo é separado por um delimitador. No SSMS, execute o seguinte [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] comando para especificar o formato dos dados nos arquivos de texto. Os dados da Contoso são descompactados e delimitados por barra vertical.
+Os dados são armazenados em arquivos de texto no armazenamento de blobs do Azure e cada campo é separado por um delimitador. No SSMS, execute o seguinte [CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT] comando para especificar o formato dos dados nos arquivos de texto. Os dados da Contoso são descompactados e delimitados por barra vertical.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -213,7 +213,7 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. Carregar os dados em novas tabelas
-Para carregar dados de armazenamento de BLOBs do Azure para a tabela de data warehouse, use o [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instrução. Carregar com CTAS aproveita as tabelas externas fortemente tipadas que você criou. Para carregar os dados em novas tabelas, use um [CTAS] [ CTAS] instrução por tabela. 
+Para carregar dados de armazenamento de BLOBs do Azure para a tabela de data warehouse, use o [CREATE TABLE AS SELECT (Transact-SQL)][CREATE TABLE AS SELECT (Transact-SQL)] statement. Loading with CTAS leverages the strongly typed external tables you've created. To load the data into new tables, use one [CTAS][CTAS] instrução por tabela. 
  
 O CTAS cria uma nova tabela e a preenche com os resultados de uma instrução select. CTAS define a nova tabela para ter as mesmas colunas e tipos de dados como os resultados da instrução select. Se você selecionar todas as colunas de uma tabela externa, a nova tabela será uma réplica das colunas e dos tipos de dados na tabela externa.
 
@@ -276,7 +276,7 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Para obter mais informações sobre como manter os índices columnstore, confira o artigo [gerenciar índices columnstore][manage columnstore indexes].
+Para obter mais informações sobre como manter os índices columnstore, consulte o artigo [Gerenciar índices columnstore][manage columnstore indexes] .
 
 ## <a name="6-optimize-statistics"></a>6. Otimizar estatísticas
 É melhor criar estatísticas de coluna única imediatamente após um carregamento. Se você souber que determinadas colunas não será em predicados de consulta, você pode ignorar a criação de estatísticas nessas colunas. Se você criar estatísticas de coluna única em todas as colunas, pode levar muito tempo para recompilar todas as estatísticas. 

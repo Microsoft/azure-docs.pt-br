@@ -13,7 +13,7 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: A API de Pesquisa de Locais e Negócios do Bing permite que seus aplicativos encontrem informações de contato e localização sobre locais e negócios com base em consultas de pesquisa.
 sections:

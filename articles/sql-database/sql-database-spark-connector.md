@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 8e531de34302ef8aee571c960955d33a4832aa11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 192387958785e4032a1cb549d0ba071fa406a60e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60331496"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228216"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark para Banco de Dados SQL do Azure e SQL Server
 
@@ -28,13 +28,13 @@ Para começar, baixe conector Spark para BD SQL do [repositório azure-sqldb-spa
 
 ## <a name="official-supported-versions"></a>Versões oficiais compatíveis
 
-| Componente                            |Version                  |
+| Componente                            |Versão                  |
 | :----------------------------------- | :---------------------- |
 | Apache Spark                         |2.0.2 ou posterior           |
 | Scala                                |2.10 ou posterior            |
 | Microsoft JDBC Driver para SQL Server |6.2 ou posterior             |
 | Microsoft SQL Server                 |SQL Server 2008 ou posterior |
-| Banco de dados SQL do Azure                   |Com suporte                |
+| Banco de Dados SQL do Azure                   |Com suporte                |
 
 O conector Spark para Banco de Dados SQL do Azure e o SQL Server utilizam o Microsoft JDBC Driver para SQL Server para mover dados entre nós de trabalho Spark e Bancos de Dados SQL:
  
@@ -202,7 +202,6 @@ val bulkCopyConfig = Config(Map(
   "databaseName"      -> "MyDatabase",
   "user"              -> "username",
   "password"          -> "*********",
-  "databaseName"      -> "zeqisql",
   "dbTable"           -> "dbo.Clients",
   "bulkCopyBatchSize" -> "2500",
   "bulkCopyTableLock" -> "true",

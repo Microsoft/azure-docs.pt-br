@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: bd02a95f485f45c223fce4c24a72251481c2aa7e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24ee419e5c6eb4b8c148c61c232d2ab7ab07c74b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427888"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449588"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -28,7 +28,7 @@ Este artigo descreve como copiar dados para e do Azure SQL Data Warehouse. Para 
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Este conector de Blob do Azure é compatível com as seguintes atividades:
+Este conector de Azure Blob é compatível com as seguintes atividades:
 
 - [Atividade de cópia](copy-activity-overview.md) com [suporte para a matriz de origem/coletor](copy-activity-overview.md) tabela
 - [Mapeamento de fluxo de dados](concepts-data-flow-overview.md)
@@ -421,12 +421,12 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
     | Tipo de repositório de dados de origem com suporte | Tipo de autenticação de origem com suporte |
     |:--- |:--- |
-    | [Blob do Azure](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerenciada |
+    | [Azure Blob](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerenciada |
     | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Autenticação de entidade de serviço |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticação de chave de conta, autenticação de identidade gerenciada |
 
     >[!IMPORTANT]
-    >Se o armazenamento do Azure é configurado com o ponto de extremidade de serviço de rede virtual, você deve usar a autenticação de identidade gerenciada. Consulte [impacto do uso de pontos de extremidade de serviço de rede virtual com armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Se o armazenamento do Azure é configurado com o ponto de extremidade de serviço de rede virtual, você deve usar a autenticação de identidade gerenciada - consulte [impacto do uso de pontos de extremidade de serviço de rede virtual com armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Saiba as configurações necessárias no Data Factory do [BLOBs do Azure - autenticação de identidade gerenciada](connector-azure-blob-storage.md#managed-identity) e [Gen2 de armazenamento do Azure Data Lake - autenticação de identidade gerenciada](connector-azure-data-lake-storage.md#managed-identity) seção respectivamente.
 
 2. O **formato de dados de origem** é do **Parquet**, **ORC**, ou **texto delimitado por**, com as seguintes configurações:
 
@@ -470,9 +470,12 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
 ### <a name="staged-copy-by-using-polybase"></a>Cópia organizada usando PolyBase
 
-Quando os dados de origem não atendem aos critérios da seção anterior, ative a cópia de dados por meio de uma instância intermediária de armazenamento do Blur de armazenamento temporário do Azure. Não pode ser o Armazenamento Premium do Azure. Nesse caso, o Azure Data Factory executa automaticamente as transformações nos dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele usa o PolyBase para carregar os dados no SQL Data Warehouse. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Consulte [Cópia preparada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Blob do Azure de preparação.
+Quando os dados de origem não atendem aos critérios da seção anterior, ative a cópia de dados por meio de uma instância intermediária de armazenamento do Blur de armazenamento temporário do Azure. Não pode ser o Armazenamento Premium do Azure. Nesse caso, o Azure Data Factory executa automaticamente as transformações nos dados para atender aos requisitos de formato de dados do PolyBase. Em seguida, ele usa o PolyBase para carregar os dados no SQL Data Warehouse. Finalmente, ele limpa seus dados temporários do armazenamento de blobs. Consulte [Cópia preparada](copy-activity-performance.md#staged-copy) para obter detalhes sobre a cópia de dados por meio de uma instância de armazenamento de Azure Blob de preparação.
 
-Para usar esse recurso, crie um [ serviço vinculado do Armazenamento do Azure ](connector-azure-blob-storage.md#linked-service-properties) que se refira à conta de armazenamento do Azure com o armazenamento de blob provisório. Em seguida, especifique as propriedades `enableStaging` e `stagingSettings` para a atividade de cópia, conforme mostrado no código a seguir:
+Para usar esse recurso, crie uma [serviço vinculado do armazenamento de BLOBs do Azure](connector-azure-blob-storage.md#linked-service-properties) que se refere à conta de armazenamento do Azure com o armazenamento de BLOBs provisório. Em seguida, especifique o `enableStaging` e `stagingSettings` propriedades da atividade de cópia, conforme mostrado no código a seguir.
+
+>[!IMPORTANT]
+>Se o armazenamento do Azure de preparo é configurado com o ponto de extremidade de serviço de rede virtual, você deve usar a autenticação de identidade gerenciada - consulte [impacto do uso de pontos de extremidade de serviço de rede virtual com armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Saiba as configurações necessárias no Data Factory do [BLOBs do Azure - autenticação de identidade gerenciada](connector-azure-blob-storage.md#managed-identity).
 
 ```json
 "activities":[
@@ -542,7 +545,7 @@ A solução é desmarcar "**padrão de tipo de uso**" opção (como false) no co
 
 **Outros**
 
-Para mais problemas do PolyBase knonw, consulte [carga de solução de problemas do Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
+Para problemas mais conhecidos do PolyBase, consulte [carga de solução de problemas do Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de recursos do SQL Data Warehouse
 

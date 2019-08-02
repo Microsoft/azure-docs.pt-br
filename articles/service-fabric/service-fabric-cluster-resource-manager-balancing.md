@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 74fe4f7c4c231f80c7555f39f840a85baae310e9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ea95405f68938906ba010836753cd74ab0f775e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809390"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446745"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Balanceamento do cluster do Service Fabric
 O Gerenciador de Recursos de Cluster do Service Fabric oferece suporte a alterações de carga dinâmico, reagindo a inclusões ou remoções de nós ou serviços. Ele também corrige automaticamente as violações de restrição e, proativamente, balanceia novamente o cluster. Mas com que frequência essas ações são executadas, e o que as dispara?
@@ -36,9 +36,9 @@ O primeiro conjunto de controles de balanceamento são um conjunto de temporizad
 Cada um desses tipos diferentes de correções que o Gerenciador de Recursos de Cluster pode fazer é controlado por um temporizador diferente que rege sua frequência. Quando cada temporizador é acionado, a tarefa é agendada. Por padrão, o Resource Manager:
 
 * verifica o estado e aplica atualizações (como gravação de um nó estiver inativo) cada 1/10 de segundo
-* define o sinalizador de verificação de posicionamento 
+* Define o sinalizador de verificação de posicionamento por segundo
 * define o sinalizador de verificação de restrição a cada segundo
-* Define o sinalizador de balanceamento a cada cinco segundos.
+* Define o sinalizador de balanceamento a cada cinco segundos
 
 Veja a seguir exemplos de configuração que governam esses temporizadores:
 

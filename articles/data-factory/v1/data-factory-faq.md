@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 518e3fa842c5283dc20a6111773bd55451f026b6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f33a59105d1be94ccd4fb24ae3d962b36c2efbdd
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486816"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839348"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
@@ -35,7 +35,7 @@ O Data Factory permite que você crie fluxos de trabalho orientados a dados para
 Para obter mais informações, consulte [Visão geral e principais conceitos](data-factory-introduction.md).
 
 ### <a name="where-can-i-find-pricing-details-for-azure-data-factory"></a>Onde posso encontrar detalhes de preços do Data Factory do Azure?
-Confira a [página de Detalhes de Preços do Data Factory][adf-pricing-details] para ver os detalhes de preços para o Azure Data Factory.  
+Ver [página de detalhes de preços do Data Factory][adf-pricing-details] para os detalhes de preços para o Azure Data Factory.  
 
 ### <a name="how-do-i-get-started-with-azure-data-factory"></a>Como faço para começar a utilizar o Azure Data Factory?
 * Para obter uma visão geral do Azure Data Factory, confira [Introdução ao Azure Data Factory](data-factory-introduction.md).
@@ -51,15 +51,14 @@ Veja a seção **Limites do Azure Data Factory** do artigo [Limites, cotas e res
 ### <a name="what-is-the-authoringdeveloper-experience-with-azure-data-factory-service"></a>O que é a experiência de criação/desenvolvedor com o serviço Azure Data Factory?
 Você pode criar fábricas de dados usando um dos SDKs/ferramentas a seguir:
 
-* **Portal do Azure** As folhas do Data Factory no Portal do Azure fornecem uma interface do usuário avançada para que você crie serviços vinculados a anúncios de fábricas de dados. O **Editor Data Factory**, que também faz parte do portal, permite que você crie facilmente serviços vinculados, tabelas, conjuntos de dados e pipelines especificando definições de JSON para esses artefatos. Veja [Criar seu primeiro pipeline de dados usando o Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md) para obter um exemplo de como usar o portal/editor para criar e implantar um Data Factory.
 * **Visual Studio** Você pode usar o Visual Studio para criar uma fábrica de dados do Azure. Consulte [Criar seu primeiro pipeline de dados usando o Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) para obter detalhes.
-* **Azure PowerShell** Veja [Criar e monitorar o Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para ver um tutorial/passo a passo da criação de uma fábrica de dados usando o PowerShell. Confira o conteúdo de [Referência de cmdlets do Data Factory][adf-powershell-reference] na Biblioteca do MSDN para obter uma documentação abrangente de cmdlets de Data Factory.
-* **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Confira a [Referência da Biblioteca de Classes de Data Factory][msdn-class-library-reference] para obter uma documentação abrangente sobre o SDK do .NET de Data Factory.
-* **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Confira a [Referência da API REST de Data Factory][msdn-rest-api-reference] para obter uma documentação abrangente da API REST de Data Factory.
+* **Azure PowerShell** Veja [Criar e monitorar o Azure Data Factory usando o Azure PowerShell](data-factory-build-your-first-pipeline-using-powershell.md) para ver um tutorial/passo a passo da criação de uma fábrica de dados usando o PowerShell. Ver [referência de Cmdlet do Data Factory][adf-powershell-reference] conteúdo na biblioteca do MSDN para obter uma documentação abrangente de cmdlets do Data Factory.
+* **Biblioteca de classes .NET** Você pode criar fábricas de dados programaticamente usando o SDK do .NET de Data Factory. Confira [Criar, monitorar e gerenciar fábricas de dados usando o SDK do .NET](data-factory-create-data-factories-programmatically.md) para obter uma explicação sobre a criação de uma fábrica de dados usando o SDK do .NET. Ver [referência da biblioteca de classe do Data Factory][msdn-class-library-reference] para obter uma documentação abrangente do SDK do .NET do Data Factory.
+* **REST API** Você também pode usar a API REST exposta pelo serviço do Azure Data Factory para criar e implantar fábricas de dados. Ver [referência de API REST do Data Factory][msdn-rest-api-reference] para obter uma documentação abrangente da API REST do Data Factory.
 * **Modelo do Azure Resource Manager** Para obter detalhes, veja [Tutorial: Criar a sua primeira Azure Data Factory usando o modelo do Azure Resource Manager](data-factory-build-your-first-pipeline-using-arm.md).
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso renomear um Data Factory?
-Não. Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
+Nº Como outros recursos do Azure, o nome de uma Data Factory do Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura do Azure para outra?
 Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagrama a seguir:
@@ -69,7 +68,7 @@ Sim. Use o botão **Mover** na folha do data factory, conforme mostrado no diagr
 ### <a name="what-are-the-compute-environments-supported-by-data-factory"></a>Quais são os ambientes de computação com suporte do Data Factory?
 A tabela a seguir fornece uma lista dos ambientes de computação com suporte do Data Factory e as atividades que podem ser executadas neles.
 
-| Ambiente de computação | atividades |
+| Ambiente de computação | activities |
 | --- | --- |
 | [Cluster HDInsight sob demanda](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster HDInsight](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) |[DotNet](data-factory-use-custom-activities.md), [Hive](data-factory-hive-activity.md), [Pig](data-factory-pig-activity.md), [MapReduce](data-factory-map-reduce.md), [Hadoop Streaming](data-factory-hadoop-streaming-activity.md) |
 | [Lote do Azure](data-factory-compute-linked-services.md#azure-batch-linked-service) |[DotNet](data-factory-use-custom-activities.md) |
@@ -108,7 +107,7 @@ Consulte [Movimento de dados globalmente disponível](data-factory-data-movement
 
 ## <a name="hdinsight-activity---faq"></a>Atividade de HDInsight - Perguntas frequentes
 ### <a name="what-regions-are-supported-by-hdinsight"></a>O HDInsight dá suporte a quais regiões?
-Confira a seção de Disponibilidade Geográfica no artigo a seguir ou em [Detalhes de Preços do HDInsight][hdinsight-supported-regions].
+Consulte a seção disponibilidade geográfica no seguinte artigo: ou [detalhes de preços do HDInsight][hdinsight-supported-regions].
 
 ### <a name="what-region-is-used-by-an-on-demand-hdinsight-cluster"></a>Qual região é utilizada por um cluster HDInsight sob demanda?
 O cluster HDInsight sob demanda é criado na mesma região onde existe o armazenamento especificado para ser utilizado com o cluster existente.    
@@ -116,8 +115,8 @@ O cluster HDInsight sob demanda é criado na mesma região onde existe o armazen
 ### <a name="how-to-associate-additional-storage-accounts-to-your-hdinsight-cluster"></a>Como associar contas de armazenamento adicionais ao cluster HDInsight?
 Se você estiver usando seu próprio cluster HDInsight (BYOC – traga seu próprio Cluster), confira os tópicos a seguir:
 
-* [Usando um Cluster HDInsight com metastores e contas de armazenamento alternativas][hdinsight-alternate-storage]
-* [Usar contas de armazenamento adicionais com o HDInsight Hive][hdinsight-alternate-storage-2]
+* [Usando um Cluster de HDInsight com Metastores e contas de armazenamento alternativo][hdinsight-alternate-storage]
+* [Usar contas de armazenamento adicionais com o Hive do HDInsight][hdinsight-alternate-storage-2]
 
 Se você estiver usando um cluster sob demanda que é criado pelo serviço Data Factory, deverá especificar contas de armazenamento adicionais para o serviço vinculado HDInsight para que o serviço Data Factory possa registrá-los em seu nome. Na definição de JSON para o serviço vinculado sob demanda, use a propriedade **additionalLinkedServiceNames** para especificar contas de armazenamento alternativas, como mostrado no snippet de JSON a seguir:
 
@@ -178,7 +177,7 @@ Você pode executar novamente uma fatia de uma das seguintes maneiras:
     ```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
-  Ver [Set-AzDataFactorySliceStatus] [ set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
+  Ver [AzDataFactorySliceStatus conjunto][set-azure-datafactory-slice-status] para obter detalhes sobre o cmdlet.
 
 ### <a name="how-long-did-it-take-to-process-a-slice"></a>Quanto tempo levou para processar uma fatia?
 Use o Gerenciador de Janela de Atividade no Aplicativo Monitorar e Gerenciar para saber quanto tempo foi necessário para processar uma fatia de dados. Confira [Gerenciador de Janelas de Atividades](data-factory-monitor-manage-app.md#activity-window-explorer) para obter detalhes.

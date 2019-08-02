@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: ca29bfdb381c5cab0625a320679331c82f63c887
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89aa3b4ecf0c07cfbb579cdc18fac6e822bc047
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118064"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536221"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Limites de recursos para bancos de dados individuais usando o modelo de compra baseado em vCore
 
@@ -34,6 +34,9 @@ Para limites do modelo de compra baseado em DTU para bancos de dados individuais
 > Para dimensionar as diretrizes e considerações, consulte [dimensionar um único banco de dados](sql-database-single-database-scale.md).
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço de Uso Geral: Tamanhos de armazenamento e tamanhos da computação
+
+> [!IMPORTANT]
+> Não há suporte para novos bancos de dados Gen4 na região AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 4 (parte 1)
 
@@ -157,6 +160,9 @@ O [camada de computação sem servidor](sql-database-serverless.md) está em vis
 
 ## <a name="business-critical-service-tier-for-provisioned-compute-tier"></a>Camada de serviço críticos de negócios para a camada de computação provisionada
 
+> [!IMPORTANT]
+> Não há suporte para novos bancos de dados Gen4 na região AustraliaEast.
+
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 4 (parte 1)
 
 |Tamanho da computação|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
@@ -195,7 +201,7 @@ O [camada de computação sem servidor](sql-database-serverless.md) está em vis
 |Tamanho máximo de log (GB)|195|195|195|195|307|307|
 |Tamanho de TempDB (GB)|224|256|288|320|384|384|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|35\.000|40000|45000|50000|80000|120000|
+|IOPS de destino (64 KB)|35.000|40000|45000|50000|80000|120000|
 |Limites de taxa de log (MBps)|56|64|64|64|64|64|
 |Máximo de trabalhos simultâneos (solicitações)|1\.400|1600|1800|2000|3200|4800|
 |Máximo de logons simultâneos (solicitações)|1\.400|1600|1800|2000|3200|4800|
@@ -268,7 +274,7 @@ O [camada de computação sem servidor](sql-database-serverless.md) está em vis
 |Tamanho máximo do log (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Tamanho de TempDB (GB)|64|128|256|384|384|384|384|384|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
-|IOPS de destino (64 KB)|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|
+|IOPS de destino (64 KB)| [Observação 1](#note-1) |[Observação 1](#note-1)|[Observação 1](#note-1) |[Observação 1](#note-1) |[Observação 1](#note-1) |[Observação 1](#note-1) |[Observação 1](#note-1) | [Observação 1](#note-1) |
 |Latência de E/S (aproximada)|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|A ser determinado|
 |Máximo de trabalhos simultâneos (solicitações)|200|400|800|1600|2400|3200|4000|8000|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -278,7 +284,11 @@ O [camada de computação sem servidor](sql-database-serverless.md) está em vis
 |Armazenamento de backup incluído |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>Próximas etapas
+### <a name="note-1"></a>Observação 1
+
+Hiperescala é uma arquitetura de várias camadas com o cache em vários níveis. IOPS efetiva dependerá da carga de trabalho.
+
+### <a name="next-steps"></a>Próximas etapas
 
 - Para os limites de recursos de DTU de um único banco de dados, confira [limites de recursos para bancos de dados individuais usando o modelo de compra baseado em DTU](sql-database-dtu-resource-limits-single-databases.md)
 - Para ver os limites de recursos do vCore para os pools elásticos, confira os [limites de recursos para pools elásticos usando o modelo de compras baseado em vCore](sql-database-vcore-resource-limits-elastic-pools.md)

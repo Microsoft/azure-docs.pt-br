@@ -4,15 +4,15 @@ description: Neste artigo, você aprenderá como implantar e configurar o Firewa
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 06/11/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: b40ac789fbc331e779e85462724e5c8a8e9bce47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24954eecde58c978fa3e14bb3a2d411d708687a3
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083347"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707155"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implantar e configurar o Firewall do Azure usando a CLI do Azure
 
@@ -20,7 +20,7 @@ O controle do acesso à saída de rede é uma parte importante de um plano geral
 
 Uma maneira de controlar o acesso à saída de rede em uma sub-rede do Azure é com o Firewall do Azure. Com o Firewall do Azure, você pode configurar:
 
-* Regras de aplicativo que definem FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados em uma sub-rede.
+* Regras de aplicativo que definem FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados em uma sub-rede. O FQDN também pode [incluem instâncias do SQL](sql-fqdn-filtering.md).
 * Regras de rede que definem endereço de origem, protocolo, porta de destino e endereço de destino.
 
 O tráfego de rede está sujeito às regras de firewall configuradas quando o tráfego de rede para o firewall foi roteado como a sub-rede de gateway padrão.
@@ -54,6 +54,13 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 ### <a name="azure-cli"></a>CLI do Azure
 
 Se você optar por instalar e usar a CLI localmente, execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute **az --version**. Para saber mais sobre como instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+
+Instale a extensão do Firewall do Azure:
+
+```azurecli-interactive
+az extension add -n azure-firewall
+```
+
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 

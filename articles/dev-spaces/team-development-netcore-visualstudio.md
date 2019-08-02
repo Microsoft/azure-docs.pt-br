@@ -11,12 +11,12 @@ ms.date: 12/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: c3a988a831ad1069e5988f9c67e92a85a7a44840
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 53c870ad135fe13eb3bf7556678cac29352911aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765196"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442921"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Desenvolvimento em equipe com Azure Dev Spaces
 
@@ -65,7 +65,7 @@ Primeiro, precisaremos implantar uma linha de base de nossos serviços. Essa imp
 1. Clique com o botão direito do mouse no **Gerenciador de Soluções** e selecione **Propriedades**.
 1. Selecione a guia **Depurar** à esquerda para mostrar as configurações do Azure Dev Spaces.
 1. Selecione **Alterar** para criar o espaço que será usado quando você usar F5 ou Ctrl+F5 no serviço.
-1. No menu suspenso Espaço, selecione **\<Criar Novo Espaço…\>**.
+1. No menu suspenso Espaço, selecione **\<Criar Novo Espaço…\>** .
 1. Verifique se o espaço pai está definido como **\<none\>** e insira o nome do espaço **dev**. Clique em OK.
 1. Pressione Ctrl+F5 para executar _mywebapi_ sem o depurador anexado.
 1. Alterne para a janela do Visual Studio com o projeto _webfrontend_ e pressione Ctrl+F5 para executá-lo também.
@@ -90,7 +90,7 @@ Faça o seguinte para criar um novo espaço:
 2. Clique com o botão direito do mouse no **Gerenciador de Soluções** e selecione **Propriedades**.
 3. Selecione a guia **Depurar** à esquerda para mostrar as configurações do Azure Dev Spaces.
 4. A partir daqui, você pode alterar ou criar o cluster e/ou o espaço que será usado ao aplicar F5 ou Ctrl+F5. *Verifique se o Azure Dev Space criado anteriormente está selecionado*.
-5. No menu suspenso Espaço, selecione **\<Criar Novo Espaço…\>**.
+5. No menu suspenso Espaço, selecione **\<Criar Novo Espaço…\>** .
 
     ![](media/get-started-netcore-visualstudio/Settings.png)
 
@@ -126,7 +126,7 @@ Essa funcionalidade interna do Azure Dev Spaces permite que você teste o códig
 ### <a name="test-code-running-in-the-devscott-space"></a>Testar o código em execução no espaço _dev/scott_
 Para testar a nova versão de *mywebapi* em conjunto com *webfrontend*, abra o navegador na URL de ponto de acesso público de *webfrontend* (por exemplo, http://dev.webfrontend.123456abcdef.eus.azds.io), e acesse a página Sobre. Você deve ver a mensagem original “Hello from webfrontend and Hello from mywebapi”.
 
-Agora, adicione a parte “scott.s.” à URL para que ela leia algo como http://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto *mywebapi* deverá ser atingido. Clique em F5 para continuar e, em seu navegador, agora você deve ver a nova mensagem “Hello from webfrontend and mywebapi now says something new”. Isso ocorre porque o caminho para o código atualizado em *mywebapi* está em execução no espaço _dev/scott_.
+Agora, adicione a parte “scott.s.” parte do URL para que leia algo parecido com http\://scott.s.dev.webfrontend.123456abcdef.eus.azds.io e atualize o navegador. O ponto de interrupção que você definiu em seu projeto *mywebapi* deverá ser atingido. Clique em F5 para continuar e, em seu navegador, agora você deve ver a nova mensagem “Hello from webfrontend and mywebapi now says something new”. Isso ocorre porque o caminho para o código atualizado em *mywebapi* está em execução no espaço _dev/scott_.
 
 Quando tiver um espaço _dev_ que sempre contém suas alterações mais recentes e supondo que seu aplicativo tenha sido projetado para aproveitar o roteamento baseado em espaço do Dev Space, conforme descrito nesta seção do tutorial, deverá ser fácil ver como o Azure Dev Spaces podem ajudar bastante com o teste de novos recursos dentro do contexto do aplicativo maior. Em vez de precisar implantar _todos_ os serviços em seu espaço privado, você poderá criar um espaço privado derivado de _dev_ e apenas "aumentar" os serviços em que de fato está trabalhando. A infraestrutura de roteamento do Azure Dev Spaces cuidará do restante utilizando tantos serviços de seu espaço privado quantos puder encontrar, e usando como padrão a versão mais recente em execução no espaço _dev_. E ainda melhor, _vários_ desenvolvedores podem desenvolver ativamente serviços diferentes ao mesmo tempo em seu próprio espaço sem interromper uns aos outros.
 

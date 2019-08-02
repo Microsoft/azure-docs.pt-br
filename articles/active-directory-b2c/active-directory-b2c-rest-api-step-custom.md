@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory B2C - as trocas de declarações da API REST | Microsoft Docs
+title: Azure Active Directory B2C - as trocas de declarações da API REST
 description: Adicione trocas de declarações da API REST para políticas personalizadas no B2C do Active Directory.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bc0cea765816bfac066b05aca65f668fbce0c8ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bdef508e12a3b11143149b330da73838b53f860
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508762"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67439010"
 ---
 # <a name="add-rest-api-claims-exchanges-to-custom-policies-in-azure-active-directory-b2c"></a>Adicionar trocas de declarações da API REST para políticas personalizadas no Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ A interação inclui uma troca de declarações de informações entre as declar
 - Pode ser projetada como uma etapa de orquestração.
 - Pode disparar uma ação externa. Por exemplo, ela pode registrar um evento em um banco de dados externo.
 - Pode ser usada para buscar um valor e, em seguida, armazená-lo no banco de dados do usuário.
-- Pode alterar o fluxo de execução. 
+- Pode alterar o fluxo de execução.
 
 O cenário que é representado neste artigo inclui as seguintes ações:
 
@@ -45,9 +45,16 @@ O cenário que é representado neste artigo inclui as seguintes ações:
 
 Nesta seção, você prepara a função do Azure para receber um valor para `email`e, em seguida, retornar o valor para `city` que pode ser usado pelo Azure AD B2C como uma declaração.
 
-Altere o arquivo Run. CSx para a função do Azure que você criou para usar o código a seguir: 
+Altere o arquivo Run. CSx para a função do Azure que você criou para usar o código a seguir:
 
-```
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
+
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
   log.LogInformation("C# HTTP trigger function processed a request.");
@@ -77,9 +84,9 @@ public class ResponseContent
 
 ## <a name="configure-the-claims-exchange"></a>Configurar a troca de declarações
 
-Um perfil técnico fornece a configuração para a troca de declarações. 
+Um perfil técnico fornece a configuração para a troca de declarações.
 
-Abra o *trustframeworkextensions. XML* arquivo e adicione os seguintes elementos XML dentro de **ClaimsProvider** elemento.
+Abra o *trustframeworkextensions. XML* do arquivo e adicione o seguinte **ClaimsProvider** elemento XML dentro a **ClaimsProviders** elemento.
 
 ```XML
 <ClaimsProvider>
@@ -134,7 +141,7 @@ Adicione uma etapa para o percurso de usuário de edição de perfil. Depois que
 ```XML
 <OrchestrationStep Order="6" Type="ClaimsExchange">
   <ClaimsExchanges>
-    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+    <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
   </ClaimsExchanges>
 </OrchestrationStep>
 ```
@@ -188,7 +195,7 @@ O XML final para o percurso do usuário deve parecer com este exemplo:
     <!-- Add a step 6 to the user journey before the JWT token is created-->
     <OrchestrationStep Order="6" Type="ClaimsExchange">
       <ClaimsExchanges>
-        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-LookUpLoyaltyWebHook" />
+        <ClaimsExchange Id="GetLoyaltyData" TechnicalProfileReferenceId="AzureFunctions-WebHook" />
       </ClaimsExchanges>
     </OrchestrationStep>
     <OrchestrationStep Order="7" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
@@ -204,13 +211,15 @@ Editar o *Profileedit* arquivo e adicione `<OutputClaim ClaimTypeReferenceId="ci
 Depois de adicionar a nova declaração, o perfil técnico se parece com este exemplo:
 
 ```XML
-<DisplayName>PolicyProfile</DisplayName>
-    <Protocol Name="OpenIdConnect" />
-    <OutputClaims>
-      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-      <OutputClaim ClaimTypeReferenceId="city" />
-    </OutputClaims>
-    <SubjectNamingInfo ClaimType="sub" />
+<TechnicalProfile Id="PolicyProfile">
+  <DisplayName>PolicyProfile</DisplayName>
+  <Protocol Name="OpenIdConnect" />
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+    <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+    <OutputClaim ClaimTypeReferenceId="city" />
+  </OutputClaims>
+  <SubjectNamingInfo ClaimType="sub" />
 </TechnicalProfile>
 ```
 

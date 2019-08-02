@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 7cc52493ec0e2b9c81d52da4bb22102c2c7e5e5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rosh
+ms.openlocfilehash: 43254db734a48f3e7aaa5a26a7fbf3981c9e9d87
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712468"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592859"
 ---
 # <a name="project-url-preview-endpoint"></a>Ponto de extremidade de Visualização de URL de Projeto
 
@@ -33,8 +33,8 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 ### <a name="query-parameters"></a>Parâmetros de consulta
 |NOME|Value|Type|Obrigatório|  
 |----------|-----------|----------|--------------|  
-|q|URL para visualização|Cadeia de caracteres |Sim|
-|safeSearch|Conteúdo adulto ilegal ou pirateado, é bloqueado com código de erro 400 e o sinalizador *isFamilyFriendly* não é retornado. <p>Para obter conteúdo legal para adulto, veja abaixo o comportamento. O código de status retorna 200 e o sinalizador *isFamilyFriendly* é definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão retornados.</li><li>safeSearch=moderate; Obtém o título, a URL e a descrição, mas não a imagem descritiva.</li><li>safeSearch=off; Obtém todos os elementos/objetos de resposta – título, URL, descrição e imagem.</li></ul> |Cadeia de caracteres|Não obrigatório. </br> Usa como padrão safeSearch=strict.| 
+|q|URL para visualização|String |Sim|
+|safeSearch|Conteúdo adulto ilegal ou pirateado, é bloqueado com código de erro 400 e o sinalizador *isFamilyFriendly* não é retornado. <p>Para obter conteúdo legal para adulto, veja abaixo o comportamento. O código de status retorna 200 e o sinalizador *isFamilyFriendly* é definido como false.<ul><li>safeSearch=strict: Título, descrição, URL e imagem não serão retornados.</li><li>safeSearch=moderate; Obtém o título, a URL e a descrição, mas não a imagem descritiva.</li><li>safeSearch=off; Obtém todos os elementos/objetos de resposta – título, URL, descrição e imagem.</li></ul> |String|Não obrigatório. </br> Usa como padrão safeSearch=strict.| 
 
 ## <a name="response-object"></a>Objeto de resposta
 

@@ -3,16 +3,17 @@ title: Automatizar o build, teste e aplicação de patch de imagem do Registro d
 description: Uma introdução às tarefas em várias etapas, um recurso das Tarefas do ACR no Registro de Contêiner do Azure, que fornece fluxos de trabalho baseados em tarefas para criar, testar e corrigir imagens de contêiner na nuvem.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89962fbce6863b16a0d8b229047eb19a821e37bb
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829575"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310559"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Executar tarefas de build, teste e aplicação de patch de várias etapas tarefas do ACR
 
@@ -30,7 +31,7 @@ Por exemplo, você pode executar uma tarefa com etapas que automatizam a seguint
 1. Quando os testes são aprovados, compilar um pacote de arquivo morto de gráfico do Helm
 1. Executar uma `helm upgrade` usando o novo pacote de arquivos de gráficos do Helm
 
-Todas as etapas são executadas no Azure, descarregando o trabalho para os recursos de computação do Azure e liberando você das tarefas de gerenciamento da infraestrutura. Além do Registro de Contêiner do Azure, você paga apenas pelos recursos que usar. Para obter informações sobre preços, veja a seção **Build de Contêiner** em [Preços do Registro de Contêiner do Azure][pricing].
+Todas as etapas são executadas no Azure, descarregando o trabalho para os recursos de computação do Azure e liberando você das tarefas de gerenciamento da infraestrutura. Além do Registro de Contêiner do Azure, você paga apenas pelos recursos que usar. Para obter informações sobre preços, consulte a seção **Build de contêiner** em [preços do registro de contêiner do Azure][pricing].
 
 
 ## <a name="common-task-scenarios"></a>Cenários comuns de tarefas
@@ -47,9 +48,9 @@ As tarefas em várias etapas permitem cenários como a seguinte lógica:
 
 Uma tarefa de várias etapas nas Tarefas do ACR é definida como uma série de etapas dentro de um arquivo YAML. Cada etapa pode especificar dependências após a conclusão bem-sucedida de uma ou mais etapas anteriores. Os seguintes tipos de etapa de tarefa estão disponíveis:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): Criar um ou mais imagens de contêiner usando o familiar `docker build` sintaxe, em série ou em paralelo.
-* [`push`](container-registry-tasks-reference-yaml.md#push): Push de imagens criadas para um registro de contêiner. Registros privados como o Registro de Contêiner do Azure são compatíveis, o mesmo se aplica ao Hub do Docker público.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Execute um contêiner, de modo que ele pode operar como uma função dentro do contexto da tarefa em execução. Você pode passar parâmetros para o `[ENTRYPOINT]` do contêiner e especificar propriedades como env, detach e outros parâmetros de `docker run` familiares. O tipo de etapa `cmd` permite testes de unidade e funcionais, com execução simultânea em contêineres.
+* [`build`](container-registry-tasks-reference-yaml.md#build): Crie uma ou mais imagens de contêiner usando `docker build` uma sintaxe familiar, em série ou em paralelo.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Envie por push imagens criadas para um registro de contêiner. Registros privados como o Registro de Contêiner do Azure são compatíveis, o mesmo se aplica ao Hub do Docker público.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Execute um contêiner, de modo que ele possa operar como uma função dentro do contexto da tarefa em execução. Você pode passar parâmetros para o `[ENTRYPOINT]` do contêiner e especificar propriedades como env, detach e outros parâmetros de `docker run` familiares. O tipo de etapa `cmd` permite testes de unidade e funcionais, com execução simultânea em contêineres.
 
 Os trechos de código a seguir mostram como combinar esses tipos de etapa da tarefa. Tarefas de várias etapas podem ser tão simples quanto a criação de uma única imagem de um Dockerfile e enviar por push para seu registro, com um arquivo YAML semelhante a:
 
@@ -83,13 +84,13 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-Ver [exemplos de tarefas] [ task-examples] para concluir arquivos YAML de tarefa de várias etapas e Dockerfiles para vários cenários.
+Consulte os [exemplos de tarefas][task-examples] para arquivos completos de tarefa de várias etapas YAML e Dockerfiles para vários cenários.
 
 ## <a name="run-a-sample-task"></a>Executar uma tarefa de exemplo
 
 Tarefas dão suporte tanto à execução manual, chamada de "execução rápida", quanto à execução automatizada na confirmação de Git ou atualização de imagem base.
 
-Para executar uma tarefa, você primeiro define as etapas da tarefa em um arquivo YAML, depois executa o comando da CLI do Azure [az acr run][az-acr-run].
+Para executar uma tarefa, primeiro defina as etapas da tarefa em um arquivo YAML e execute CLI do Azure o comando [AZ ACR Run][az-acr-run].
 
 Aqui está um exemplo de comando da CLI do Azure que executa uma tarefa usando um arquivo YAML de tarefa de exemplo. As etapas compilam uma imagem e, em seguida, enviam-na por push. Antes de executar o comando, atualize `\<acrName\>` com o nome do seu próprio Registro de Contêiner do Azure.
 
@@ -154,7 +155,7 @@ Para obter mais informações sobre builds automatizados na confirmação do Git
 Você pode encontrar referências e exemplos de tarefas de várias etapas aqui:
 
 * [Referência de tarefa](container-registry-tasks-reference-yaml.md) – tipos de etapa de tarefa, suas propriedades e uso.
-* [Exemplos de tarefas][task-examples] – arquivos `task.yaml` de exemplo para vários cenários, simples e complexos.
+* [Exemplos de tarefas][task-examples] – `task.yaml` arquivos de exemplo para vários cenários, simples a complexo.
 * [Repositório de cmd](https://github.com/AzureCR/cmd) -uma coleção de contêineres, como comandos para tarefas ACR.
 
 <!-- IMAGES -->

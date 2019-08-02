@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/23/2019
-ms.openlocfilehash: 83c5401298d2682328da4e45d150d2d0416601fc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c8a3f36e04fbedfdd127939d55fab376e3e6b30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
+ms.lasthandoff: 06/14/2019
 ms.locfileid: "64691944"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemas conhecidos/limitações de migração com migrações online para o BD do Azure para PostgreSQL
@@ -27,7 +27,7 @@ O problemas e limitações conhecidos associados às migrações online do Postg
 - Há suporte apenas para migrações de mesma versão. Por exemplo, não há suporte para migração do PostgreSQL 9.5.11 para o Banco de Dados do Azure para PostgreSQL 9.6.7.
 
     > [!NOTE]
-    > Para PostgreSQL versão 10, no momento DMS só dá suporte à migração da versão 10.3 ao banco de dados do Azure para PostgreSQL. Estamos planejando dar suporte a versões mais recentes do PostgreSQL muito em breve.
+    > Para PostgreSQL versão 10, atualmente o DMS dá suporte apenas à versão de migração 10.3 do Banco de Dados do Azure para PostgreSQL. Estamos planejando dar suporte a versões mais recentes do PostgreSQL muito em breve.
 
 - Para habilitar a replicação lógica no arquivo  **postgresql.conf do PostgreSQL de origem** defina os seguintes parâmetros:
     - **wal_level** = lógica

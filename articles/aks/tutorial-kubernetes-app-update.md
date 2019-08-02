@@ -2,18 +2,18 @@
 title: Tutorial do Kubernetes no Azure - Atualizar um aplicativo
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você aprenderá como atualizar uma implantação existente do aplicativo para AKS com uma nova versão do código do aplicativo.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 05eac7e673ad01e9d3e0fb25f261444fd7bc4e6d
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475506"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614386"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Atualizar um aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -33,7 +33,7 @@ Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêin
 
 Um repositório de aplicativo também foi clonado, que inclui o código-fonte do aplicativo e um arquivo do Docker Compose pré-criado usado neste tutorial. Verifique se você criou um clone do repositório e se alterou os diretórios para o diretório clonado. Se você ainda não concluiu essas etapas e deseja continuar acompanhando, comece com o [Tutorial 1 – Criar mensagens de contêiner][aks-tutorial-prepare-app].
 
-Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="update-an-application"></a>Atualizar um aplicativo
 
@@ -85,7 +85,7 @@ Utilize a [docker tag][docker-tag] para marcar a imagem. Substitua `<acrLoginSer
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-Agora utilize o [docker push][docker-push] para carregar a imagem no seu registro. Substitua `<acrLoginServer>` pelo nome do servidor de logon do ACR.
+Agora use [docker push][docker-push] para fazer upload da imagem no registro. Substitua `<acrLoginServer>` pelo nome do servidor de logon do ACR.
 
 > [!NOTE]
 > Se você tiver problemas de push para o registro do ACR, verifique se você ainda está conectado. Execute o comando [az acr login][az-acr-login] usando o nome do Registro de Contêiner do Azure criado na etapa [Criar um Registro de Contêiner do Azure](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry). Por exemplo, `az acr login --name <azure container registry name>`.

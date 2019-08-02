@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 03cb3f2339dda1bf1dbb510b686882e924a98d74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd34ab7cd899549962663e8cee8ee2121c39c49e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118695"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67840393"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas de Gerenciador de armazenamento do Azure
 
@@ -59,7 +59,7 @@ Se você não tiver uma função que conceda qualquer gerenciamento de permissõ
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>E se eu não é possível obter o gerenciamento de permissões de camada precisa do meu administrador?
 
-Nós ainda não temos uma solução de RBAC no momento. Como alternativa, você pode solicitar um URI de SAS para [anexe ao seu recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas).
+Nós ainda não temos uma solução de RBAC no momento. Como alternativa, você pode solicitar um URI de SAS para [anexe ao seu recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri).
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>Erro: Certificado autoassinado na cadeia de certificados (e erros semelhantes)
 
@@ -128,7 +128,7 @@ O conjunto de chaves do macOS, às vezes, pode entrar em um estado que causa pro
 3. Selecione o conjunto de chaves "logon".
 4. Clique no ícone de cadeado para bloquear o conjunto de chaves (o cadeado será animado para uma posição bloqueada quando concluído, pode levar alguns segundos, dependendo de quais aplicativos que você tiver aberto).
 
-    ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
+    ![imagem](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Inicie o Gerenciador de Armazenamento.
 6. Um pop-up deve aparecer dizendo algo como "O hub de serviços quer acessar o conjunto de chaves". Quando ele, insira sua senha de conta de administrador do Mac e clique em **sempre permitir** (ou **permitir** se **sempre permitir** não estiver disponível).
@@ -233,46 +233,76 @@ Se você anexou acidentalmente usando uma URL da SAS inválida e não é possív
 
 ## <a name="linux-dependencies"></a>Dependências do Linux
 
-Em geral, os seguintes pacotes são necessários para executar o Gerenciador de armazenamento no Linux:
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [Tempo de execução 2.0 do .NET core](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) Observação: O Gerenciador de armazenamento versão 1.7.0 e anteriormente requerem o .NET Core 2.0. Se você tiver uma versão mais recente do .NET Core instalado, em seguida, você precisará de correção do Gerenciador de armazenamento (veja abaixo). Se você estiver executando o Gerenciador de armazenamento 1.8.0 ou maior, em seguida, você poderá usar o para .NET Core 2.2. Versões posteriores 2.2 não tiverem sido verificadas para trabalhar no momento.
-* `libgnome-keyring-common` e `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> O Gerenciador de armazenamento como fornecido a. gz download só tem suporte para as distribuições do Ubuntu. Outras distribuições não tiverem sido verificadas e podem exigir pacotes adicionais ou alternativos.
+
+Esses pacotes são os requisitos mais comuns para o Gerenciador de armazenamento no Linux:
+
+* [O tempo de execução do .NET core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` ou `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-Dependendo de sua distribuição, pode haver diferentes ou mais pacotes que você precisa instalar.
+> [!NOTE]
+> O Gerenciador de armazenamento versão 1.7.0 e anteriormente requerem o .NET Core 2.0. Se você tiver uma versão mais recente do .NET Core instalado, você precisará [Gerenciador de armazenamento de patch](#patching-storage-explorer-for-newer-versions-of-net-core). Se você estiver executando o Gerenciador de armazenamento 1.8.0 ou maior, em seguida, você poderá usar o para .NET Core 2.2. Versões posteriores 2.2 não tiverem sido verificadas para trabalhar no momento.
 
-O Gerenciador de armazenamento é oficialmente suportado no Ubuntu 18.04, 16.04 e 14.04. Etapas de instalação para uma máquina limpa são da seguinte maneira:
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. Baixe o Gerenciador de armazenamento.
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. Baixar o Gerenciador de armazenamento
-2. Instalar o tempo de execução do .NET Core, versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8) (se você já tiver instalado uma versão mais recente, você talvez precise corrigir o Gerenciador de armazenamento, consulte abaixo)
-3. Execute `sudo apt-get install libgconf-2-4`
-4. Execute `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+1. Baixe o Gerenciador de armazenamento.
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Baixar o Gerenciador de armazenamento
-2. Instalar o tempo de execução do .NET Core, versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8) (se você já tiver instalado uma versão mais recente, você talvez precise corrigir o Gerenciador de armazenamento, consulte abaixo)
-3. Execute `sudo apt install libgnome-keyring-dev`
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
 # <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Baixar o Gerenciador de armazenamento
-2. Instalar o tempo de execução do .NET Core, versão mais recente de verificado é: [2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8) (se você já tiver instalado uma versão mais recente, você talvez precise corrigir o Gerenciador de armazenamento, consulte abaixo)
-3. Execute `sudo apt install libgnome-keyring-dev`
+2. Instalar o [tempo de execução do .NET Core](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
+3. Execute o seguinte comando:
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>O Gerenciador de armazenamento de aplicação de patches para as versões mais recentes do .NET Core
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>O Gerenciador de armazenamento de aplicação de patches para as versões mais recentes do .NET Core 
-Se você tiver uma versão do .NET Core mais antigos ou maior do que 2.0 instalado e estiver executando o Gerenciador de armazenamento versão 1.7.0, provavelmente precisará aplicar o patch de Gerenciador de armazenamento ao concluir as etapas a seguir:
+Para o Gerenciador de armazenamento 1.7.0 ou mais antigo, talvez você precise aplicar patch a versão do .NET Core usada pelo Gerenciador de armazenamento.
+
 1. Baixe a versão 1.5.43 do StreamJsonRpc [do nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43). Procure o link "Baixar o pacote" no lado direito da página.
-2. Depois de baixar o pacote, altere a extensão do arquivo de `.nupkg` para `.zip`
-3. Descompacte o pacote
-4. Acesse `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+2. Depois de baixar o pacote, altere sua extensão de arquivo do `.nupkg` para `.zip`.
+3. Descompacte o pacote.
+4. Abra a pasta `streamjsonrpc.1.5.43/lib/netstandard1.1/`.
 5. Cópia `StreamJsonRpc.dll` nos seguintes locais dentro da pasta do Gerenciador de armazenamento:
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Abrir no Explorer do portal do Azure não funciona
 

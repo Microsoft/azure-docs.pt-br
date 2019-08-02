@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1d13b52d253562a24946e6df2fc069f41b485fef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e7db970bee44d40831c05e8911b72841d027211
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707898"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442102"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – segurança e melhores práticas de DevOps
 
@@ -50,9 +50,9 @@ Use as seguintes etapas para implantar o cluster do HDInsight ingressado no dom�
     - **URL do LDAPS**: por exemplo, `ldaps://contoso.onmicrosoft.com:636`.
     - **Acessar grupo de usuários**: Os grupos de segurança cujos usuários você deseja sincronizar com o cluster, por exemplo: `HiveUsers`. Se você quiser especificar vários grupos de usuários, separe-os por ponto e vírgula ";". Os grupos precisam existir no diretório antes da criação do cluster do ESP.
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
-- [Uma introdução à segurança do Apache Hadoop com clusters HDInsight ingressados no domínio](../domain-joined/apache-domain-joined-introduction.md)
+- [Uma introdução à segurança do Apache Hadoop com clusters HDInsight ingressados no domínio](../domain-joined/hdinsight-security-overview.md)
 
 - [Planeje clusters do Apache Hadoop associados ao domínio do Azure no HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configurar um cluster do HDInsight ingressado no domínio usando o Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)
@@ -81,7 +81,7 @@ A segurança empresarial de ponta a ponta pode ser alcançada usando os seguinte
     - Criptografia transparente no servidor usando chaves gerenciadas pela Microsoft ou pelo cliente.
     - Criptografia em trânsito usando criptografia do lado do cliente, https e TLS.
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 - [Visão geral das Redes Virtuais do Azure](../../virtual-network/virtual-networks-overview.md)
 - [Visão geral dos Grupos de Segurança de Rede do Azure](../../virtual-network/security-overview.md)

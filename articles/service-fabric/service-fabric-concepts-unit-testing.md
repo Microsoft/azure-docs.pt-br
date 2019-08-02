@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/04/2018
 ms.author: atsenthi
-ms.openlocfilehash: ad7cf3a1dfcef8795ceb378a59a1cf0b2010293e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 012d75ff6ad4acdc6612a197f274e2dfdb98370a
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595508"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249261"
 ---
 # <a name="unit-testing-stateful-services-in-service-fabric"></a>Unidade testando serviços com estado no Service Fabric
 
@@ -51,8 +51,8 @@ Além disso, ter várias instâncias permite que os testes mudem as funções de
 O Gerente de Estado deve ser tratado como um recurso remoto e, portanto, ridicularizado. Ao ridicularizar o gerente de estado, é preciso haver algum armazenamento na memória subjacente para rastrear o que é salvo no gerenciador de estado, para que ele possa ser lido e verificado. Uma maneira simples de conseguir isso é criar instâncias de simulação de cada um dos tipos de coleções confiáveis. Dentro desses mocks, use um tipo de dados que se alinha de perto com as operações executadas nessa coleção. A seguir estão alguns tipos de dados sugeridos para cada coleta confiável
 
 - IReliableDictionary<TKey, TValue> -> System.Collections.Concurrent.ConcurrentDictionary<TKey, TValue>
-- IReliableQueue<T> -> System.Collections.Generic.Queue<T>
-- IReliableConcurrentQueue<T> -> System.Collections.Concurrent.ConcurrentQueue<T>
+- IReliableQueue\<T >-> System. Collections. Generic. Queue\<T >
+- IReliableConcurrentQueue\<t >-> System. Collections. Current. ConcurrentQueue\<T >
 
 #### <a name="many-state-manager-instances-single-storage"></a>Muitas instâncias do gerenciador de estado, armazenamento único
 Como mencionado anteriormente, o Gerenciador de Estado e as Coleções Confiáveis devem ser tratados como um recurso remoto. Portanto, esses recursos devem e serão ridicularizados nos testes de unidade. No entanto, ao executar várias instâncias de um serviço com estado, será um desafio manter cada gerenciador de estado ridicularizado em sincronia entre diferentes instâncias de serviço com estado. Quando o serviço com estado está sendo executado no cluster, o Service Fabric cuida de manter o gerenciador de estado de cada réplica secundária consistente com a réplica primária. Portanto, os testes devem se comportar da mesma forma que possam simular mudanças de função.

@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 611867cf5606d5a1078706e1c0f67f673a7fa500
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e03870322df94a4c9587a3395c70925d2d2e838d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66254551"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect"></a>Tutorial: Integração do Azure Active Directory ao Mitel MiCloud Connect
 
@@ -210,7 +210,7 @@ Crie um usuário em sua conta do MiCloud Connect com os seguintes detalhes:
 * **Endereço de Email Empresarial:** `brittasimon@<yourcompanydomain>.<extension>`   
 (Exemplo: [brittasimon@contoso.com](mailto:brittasimon@contoso.com))
 
-* **Nome de usuário:** `brittasimon@<yourcompanydomain>.<extension> `  
+* **Nome de usuário:** `brittasimon@<yourcompanydomain>.<extension>`  
 (Exemplo: [brittasimon@contoso.com](mailto:brittasimon@contoso.com); o nome de usuário do usuário normalmente é o mesmo que o endereço de email empresarial do usuário)
 
 **OBSERVAÇÃO:** O nome de usuário do MiCloud Connect do usuário precisa ser idêntico ao endereço de email do usuário no Azure.
@@ -227,4 +227,4 @@ Ao clicar no bloco do Mitel Connect no Painel de Acesso, você deverá ser redir
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

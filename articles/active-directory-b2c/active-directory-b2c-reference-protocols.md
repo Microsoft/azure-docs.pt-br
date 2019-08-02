@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f1953535a19be1a6aa3963776515b1f2c0d979c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 083fd6b6027c78e956c133d7801a03fd9042e88d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508959"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835744"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticação
-O Azure AD B2C (Azure Active Directory B2C) fornece identidade como um serviço para seus aplicativos, com suporte a dois protocolos de padrão do setor: OpenID Connect e OAuth 2.0. O serviço está em conformidade com o padrão, mas pode haver diferenças sutis entre duas implementações quaisquer desses protocolos. 
+O Azure AD B2C (Azure Active Directory B2C) fornece identidade como um serviço para seus aplicativos, com suporte a dois protocolos de padrão do setor: OpenID Connect e OAuth 2.0. O serviço está em conformidade com o padrão, mas pode haver diferenças sutis entre duas implementações quaisquer desses protocolos.
 
 As informações neste guia são úteis se você escreve seu código enviando e manipulando solicitações HTTP diretamente, em vez de usar uma biblioteca de software livre. Recomendamos a leitura desta página antes de se aprofundar nos detalhes de cada protocolo específico. Mas se você já estiver familiarizado com o Azure AD B2C, acesse diretamente [os guias de referência de protocolo](#protocols).
 
@@ -40,7 +40,7 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvidas na troca:
 
-![Funções do OAuth 2.0](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
+![Diagrama que mostra as quatro funções 2.0 OAuth](./media/active-directory-b2c-reference-protocols/protocols_roles.png)
 
 * O **servidor de autorização** é o ponto de extremidade do Azure AD. Ele trata de forma segura tudo o que for relacionado ao acesso e informações do usuário. Ele também manipula as relações de confiança entre as partes em um fluxo. Ele é responsável pela verificação da identidade do usuário, concessão e revogação do acesso a recursos e emissão de tokens. Ele também é conhecido como o provedor de identidade.
 
@@ -51,9 +51,9 @@ Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvi
 * O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no servidor de autorização para autenticar e autorizar o cliente OAuth com segurança. Ele também usa os tokens de acesso de portador para garantir a concessão a um recurso.
 
 ## <a name="policies-and-user-flows"></a>Políticas e fluxos de usuários
-Sem dúvida, as políticas do AD B2C do Azure são os recursos mais importantes do serviço. O AD B2C do Azure amplia os protocolos padrão do OAuth 2.0 e do OpenID Connect ao introduzir as políticas. Elas permitem que o AD B2C do Azure execute muito mais do que uma simples autenticação e uma autorização. 
+Sem dúvida, as políticas do AD B2C do Azure são os recursos mais importantes do serviço. O AD B2C do Azure amplia os protocolos padrão do OAuth 2.0 e do OpenID Connect ao introduzir as políticas. Elas permitem que o AD B2C do Azure execute muito mais do que uma simples autenticação e uma autorização.
 
-Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**. Os fluxos dos usuários descrevem totalmente as experiências de identidade do consumidor, incluindo inscrição, entrada e edição de perfil. Os fluxos dos usuários podem ser definidos em uma interface do usuário administrativa. Elas podem ser executadas usando um parâmetro de consulta especial nas solicitações de autenticação HTTP. 
+Para ajudá-lo a configurar as tarefas de identidade mais comuns, o portal do Azure AD B2C inclui políticas predefinidas e configuráveis chamadas **fluxos dos usuários**. Os fluxos dos usuários descrevem totalmente as experiências de identidade do consumidor, incluindo inscrição, entrada e edição de perfil. Os fluxos dos usuários podem ser definidos em uma interface do usuário administrativa. Elas podem ser executadas usando um parâmetro de consulta especial nas solicitações de autenticação HTTP.
 
 Políticas e fluxos dos usuários não são recursos padrão do OAuth 2.0 e OpenID Connect, portanto, você deve reservar um tempo para compreendê-los. Para obter mais informações, consulte o [guia de referência do fluxo de usuário do Azure AD B2C](active-directory-b2c-reference-policies.md).
 
@@ -62,7 +62,7 @@ A implementação do AD B2C do Azure do OAuth 2.0 e do OpenID Connect faz amplo 
 
 O portador é qualquer parte que possa apresentar o token. Primeiro, o Azure AD deve autenticar uma parte para que ela possa receber um token de portador. Porém, se as medidas necessárias não forem tomadas para proteger o token durante a transmissão e o armazenamento, ele poderá ser interceptado e usado por uma parte não planejada.
 
-Alguns tokens de segurança têm um mecanismo interno que impede que partes não autorizadas os usem, mas os tokens de portador não têm esse mecanismo. Eles devem ser transportados em um canal seguro, como HTTPS (protocolo TLS). 
+Alguns tokens de segurança têm um mecanismo interno que impede que partes não autorizadas os usem, mas os tokens de portador não têm esse mecanismo. Eles devem ser transportados em um canal seguro, como HTTPS (protocolo TLS).
 
 Se um token de portador for transmitido fora de um canal seguro, uma parte mal-intencionada poderá usar um ataque por parte de intermediários para adquirir o token e usá-lo para acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança são aplicáveis ao se armazenar ou manter em cache tokens de portador para uso posterior. Sempre se certifique de que seu aplicativo transmita e armazene tokens de portador de maneira segura.
 

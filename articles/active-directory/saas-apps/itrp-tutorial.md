@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 626163bb512b7b3b651d016f21fc465c398a01e6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d44391624e29d2bdd182bb07452e0e8def2d1407
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236739"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67656686"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itrp"></a>Tutorial: Integração do Azure Active Directory com o ITRP
 
@@ -153,9 +153,9 @@ Para configurar o logon único do Azure AD com o ITRP, execute estas etapas:
 
     1. Selecione **Habilitado**.
 
-    1. Na caixa  **URL de logoff Remoto**, cole o valor da **URL de Logoff** copiado do portal do Azure.
+    1. Na caixa **URL de logoff remoto**, cole o valor da **URL de logoff** copiado do portal do Azure.
 
-    1. Na caixa  **URL de SSO SAML**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    1. Na caixa **URL de SSO de SAML L**, cole o valor da **URL de logon** copiado do portal do Azure.
 
     1. Na caixa **Impressão digital do certificado**, cole o valor da **Impressão Digital** do certificado copiado do portal do Azure.
 
@@ -254,4 +254,4 @@ Ao selecionar o bloco do ITRP no Painel de Acesso, você será conectado automat
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

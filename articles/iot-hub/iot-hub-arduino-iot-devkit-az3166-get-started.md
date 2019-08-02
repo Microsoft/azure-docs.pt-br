@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
-ms.date: 04/17/2019
+ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4017a3be5e03e1a9b85b4002b8069a1adc3a6b83
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924639"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551580"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Como conectar o IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -30,6 +30,8 @@ Você pode usar o [Kit de Desenvolvimento da IoT MXChip](https://microsoft.githu
 * Como preparar o ambiente de desenvolvimento e desenvolver aplicativos para o DevKit de IoT.
 
 Você ainda não tem um DevKit? Experimente o [simulador DevKit](https://azure-samples.github.io/iot-devkit-web-simulator/) ou [compre um kit de desenvolvimento](https://aka.ms/iot-devkit-purchase).
+
+Você pode encontrar o código-fonte para todos os tutoriais do Kit de desenvolvimento na [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) repositório.
 
 ## <a name="what-you-need"></a>O que você precisa
 
@@ -132,6 +134,11 @@ O Kit de desenvolvimento se conecta a um ponto de extremidade específico do dis
     ![WiFi IP](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/wifi-ip.jpg)
 
     ![Enviar dados](media/iot-hub-arduino-devkit-az3166-get-started/quickstarts/sending-data.jpg)
+
+1. Para verificar se os dados de telemetria enviados para o Azure, execute o seguinte comando no Azure Cloud Shell:
+    ```bash
+    az iot hub monitor-events --hub-name YourIoTHubName --output table
+    ```
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
 
@@ -301,7 +308,7 @@ Você pode usar as [Ferramentas do Azure IoT](https://marketplace.visualstudio.c
 1. No VS Code, clique em `F1`, digite e selecione **Hub IoT do Azure: Definir cadeia de conexão do Hub IoT**. Copie a cadeia de conexão.
     ![Defina a cadeia de conexão do Hub IoT do Azure](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. Expanda o painel **DISPOSITIVOS DO HUB IOT DO AZURE** à direita, clique com botão direito no nome do dispositivo que você criou e selecione **Começar a monitorar a mensagem D2C**.
+1. Expanda o **dispositivos de HUB IOT do AZURE** painel à direita, clique com botão direito no nome do dispositivo que você criou e selecione **Iniciar monitoramento de evento de ponto de extremidade interno**.
     ![Monitorar a mensagem D2C](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. No painel **SAÍDA**, veja as mensagens D2C de entrada do Hub IoT.

@@ -3,15 +3,15 @@ title: Habilitar a replicação de VMs VMware para recuperação de desastres no
 description: Este artigo descreve como habilitar a VMs do VMware para replicação no Azure para recuperação de desastres usando o Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 05/10/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4e4afb4d94a7b2e2a6b246a371cf6234577463
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540783"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491730"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitar a replicação no Azure de VMs VMware
 
@@ -37,11 +37,13 @@ Quando você estiver replicando máquinas virtuais VMware, tenha essas informaç
 ## <a name="enable-replication"></a>Habilitar a replicação
 
 Antes de seguir as etapas nesta seção, observe as seguintes informações:
-* O Azure Site Recovery replica agora diretamente em discos gerenciados para todas as replicações de novo. O servidor de processo grava os logs de replicação para uma conta de armazenamento de cache na região de destino. Esses logs são usados para criar pontos de recuperação em discos gerenciados de réplica.
+* O Azure Site Recovery replica agora diretamente em discos gerenciados para todas as replicações de novo. O servidor de processo grava os logs de replicação para uma conta de armazenamento de cache na região de destino. Esses logs são usados para criar pontos de recuperação em discos gerenciados de réplica que tem a convenção de nomenclatura de asrseeddisk.
+* Suporte do PowerShell para replicar para o managed disks está disponível no [Az.RecoveryServices módulo versão 2.0.0 e posteriores](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * No momento do failover, o ponto de recuperação selecionado é usado para criar o disco gerenciado de destino.
 * As VMs que foram previamente configuradas para replicar para contas de armazenamento de destino não são afetadas.
 * A replicação para contas de armazenamento para uma nova máquina virtual só está disponível por meio de uma transferência REST (Representational State) API e Powershell. Use a API de REST do Azure versão 2016-08-10 ou 2018-01-10 para a replicação para contas de armazenamento.
 
+Siga as etapas abaixo para habilitar a replicação:
 1. Vá para **etapa 2: Replicar aplicativo** > **Origem**. Depois de habilitar a replicação pela primeira vez, selecione **+ replicar** no cofre para habilitar a replicação para máquinas virtuais adicionais.
 2. Na página **Origem** > **Origem**, selecione o servidor de configuração.
 3. Para **tipo de computador**, selecione **máquinas virtuais** ou **máquinas físicas**.

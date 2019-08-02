@@ -1,26 +1,26 @@
 ---
-title: Referência de configurações de acesso condicional do Active Directory do Azure | Microsoft Docs
-description: Obtenha uma visão geral das configurações com suporte em uma política de acesso condicional do Azure Active Directory.
+title: Referência de configurações de acesso condicional Azure Active Directory | Microsoft Docs
+description: Obtenha uma visão geral das configurações com suporte em uma política de acesso condicional Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5919eebccad8d7f9e048ae07be296eaaaf8428eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 316c5b6b52c30b51fb2f177a0ae2bd9758fc91d9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67112118"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442471"
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional do Active Directory do Azure
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
-Você pode usar [acesso condicional do Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md) para controlar como os usuários autorizados podem acessar seus recursos.
+Você pode usar o [acesso condicional do Azure Active Directory (AD do Azure)](../active-directory-conditional-access-azure-portal.md) para controlar como os usuários autorizados podem acessar seus recursos.
 
 Este artigo fornece informações de suporte para as seguintes opções de configuração em uma política de acesso condicional:
 
@@ -33,7 +33,7 @@ Se essa não é a informação que você está procurando, deixe um comentário 
 
 ## <a name="cloud-apps-assignments"></a>Atribuições de aplicativos de nuvem
 
-Com as políticas de acesso condicional, controlar como os usuários acessam seus [aplicativos de nuvem](conditions.md#cloud-apps-and-actions). Quando você configura uma política de acesso condicional, você precisa selecionar pelo menos um aplicativo de nuvem. 
+Com as políticas de acesso condicional, você controla como os usuários acessam seus [aplicativos de nuvem](conditions.md#cloud-apps-and-actions). Ao configurar uma política de acesso condicional, você precisa selecionar pelo menos um aplicativo de nuvem. 
 
 ![Selecione os aplicativos em nuvem para sua política](./media/technical-reference/09.png)
 
@@ -43,35 +43,35 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 
 - Azure Analysis Services
 - Azure DevOps
-- Banco de dados SQL do Azure e o Data Warehouse - [Saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
+- Banco de dados SQL do Azure e data warehouse- [saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 - Dynamics CRM Online
 - Análise do Microsoft Application Insights
-- Proteção de informações do Microsoft Azure – [Saiba mais](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
-- Gerenciamento do Microsoft Azure - [Saiba mais](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Gerenciamento de assinaturas do Microsoft Azure
+- Proteção de Informações do Microsoft Azure- [saiba mais](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Gerenciamento de Microsoft Azure- [saiba mais](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- Gerenciamento de assinatura Microsoft Azure
 - Microsoft Cloud App Security
-- Portal de controle de acesso das ferramentas Microsoft Commerce
+- Portal de controle de acesso de ferramentas do Microsoft Commerce
 - Serviço de autenticação de ferramentas do Microsoft Commerce
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
 - Registro do Microsoft Intune
 - Microsoft Planner
-- Microsoft Power BI
 - Microsoft PowerApps
 - Pesquisa da Microsoft no Bing
 - Microsoft StaffHub
 - Microsoft Stream
-- Equipes da Microsoft
+- Microsoft Teams
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Office 365 Yammer
 - Office Delve
 - Office Sway
 - Grupos do Outlook
+- Serviço de Power BI
 - Project Online
 - Skype for Business Online
-- Rede virtual privada (VPN)
+- VPN (rede virtual privada)
 - Visual Studio App Center
 - Windows Defender ATP
 
@@ -87,7 +87,7 @@ Além dos aplicativos de nuvem da Microsoft, você pode atribuir uma política d
 
 ## <a name="device-platform-condition"></a>Condição de plataforma de dispositivo
 
-Em uma política de acesso condicional, você pode configurar a condição de plataforma de dispositivo para vincular a política para o sistema operacional em um cliente. Acesso condicional do Azure AD dá suporte aos seguintes plataformas de dispositivo:
+Em uma política de acesso condicional, você pode configurar a condição de plataforma do dispositivo para vincular a política ao sistema operacional em um cliente. O acesso condicional do Azure AD dá suporte às seguintes plataformas de dispositivo:
 
 - Android
 - iOS
@@ -97,9 +97,11 @@ Em uma política de acesso condicional, você pode configurar a condição de pl
 
 ![Vincular a política de acesso ao sistema operacional do cliente](./media/technical-reference/41.png)
 
+Se você bloquear a autenticação herdada usando a condição **outros clientes** , também poderá definir a condição de plataforma do dispositivo.
+
 ## <a name="client-apps-condition"></a>Condição de aplicativos cliente
 
-Em sua política de acesso condicional, você pode configurar o [aplicativos de cliente](conditions.md#client-apps) condição para vincular a política ao aplicativo cliente que iniciou uma tentativa de acesso. Defina a condição de aplicativos cliente para conceder ou bloquear acesso quando uma tentativa de acesso for realizada a partir dos seguintes tipos de aplicativos cliente:
+Na política de acesso condicional, você pode configurar a condição de [aplicativos cliente](conditions.md#client-apps) para vincular a política ao aplicativo cliente que iniciou uma tentativa de acesso. Defina a condição de aplicativos cliente para conceder ou bloquear acesso quando uma tentativa de acesso for realizada a partir dos seguintes tipos de aplicativos cliente:
 
 - Navegador
 - Aplicativos móveis e de da área de trabalho
@@ -108,13 +110,13 @@ Em sua política de acesso condicional, você pode configurar o [aplicativos de 
 
 ### <a name="supported-browsers"></a>Navegadores com suporte
 
-Em sua política de acesso condicional, você pode selecionar **navegadores** como o aplicativo cliente.
+Em sua política de acesso condicional, você pode  selecionar navegadores como aplicativo cliente.
 
 ![Controlar acesso para navegadores com suporte](./media/technical-reference/05.png)
 
 Essa configuração funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivo, como um requisito de conformidade de dispositivo, há suporte para os sistemas operacionais e navegadores a seguir:
 
-| SO                     | Navegadores                                      |
+| OS                     | Navegadores                                      |
 | :--                    | :--                                           |
 | Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
 | Windows 8 / 8.1        | Internet Explorer, Chrome                     |
@@ -128,37 +130,37 @@ Essa configuração funciona com todos os navegadores. No entanto, para satisfaz
 | Windows Server 2008 R2 | Internet Explorer, Chrome                     |
 | macOS                  | Chrome, Safari                                |
 
-#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo no navegador solicitar que um certificado
+#### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Por que vejo um prompt de certificado no navegador
 
-No Windows 7, iOS, Android e macOS o AD do Azure identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo está registrado com o Azure AD.  Quando um usuário entra pela primeira vez por meio do navegador do usuário é solicitado a selecionar o certificado. O usuário deve selecionar esse certificado antes de usar o navegador.
+No Windows 7, iOS, Android e macOS, o Azure AD identifica o dispositivo usando um certificado de cliente que é provisionado quando o dispositivo é registrado no Azure AD.  Quando um usuário entra pela primeira vez por meio do navegador, é solicitado que o usuário selecione o certificado. O usuário deve selecionar esse certificado antes de usar o navegador.
 
 #### <a name="chrome-support"></a>Suporte ao Chrome
 
-Para obter suporte ao Chrome, na **Atualização do Windows 10 para Criadores (versão 1703)** ou posterior, instale [essa extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Para obter suporte ao Chrome na **atualização do Windows 10 para criadores (versão 1703)** ou posterior, instale a [extensão de contas do Windows 10](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). Essa extensão é necessária quando uma política de acesso condicional requer detalhes específicos do dispositivo.
 
 Para implantar automaticamente essa extensão para os navegadores Chrome, crie a seguinte chave do registro:
 
 |    |    |
 | --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| NOME | 1 |
-| Type | REG_SZ (String) |
-| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Name | 1 |
+| Tipo | REG_SZ (String) |
+| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/Service/Update2/CRX |
 
 Para obter suporte ao Chrome no **Windows 8.1 e 7**, crie a seguinte chave do registro:
 
 |    |    |
 | --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| NOME | 1 |
-| Type | REG_SZ (String) |
-| Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Name | 1 |
+| Tipo | REG_SZ (String) |
+| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado.
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Aplicativos móveis e cliente de área de trabalho com suporte
 
-Em sua política de acesso condicional, você pode selecionar **aplicativos móveis e clientes de desktop** como o aplicativo cliente.
+Em sua política de acesso condicional, você pode selecionar **aplicativos móveis e clientes de área de trabalho** como aplicativo cliente.
 
 ![Controlar acesso para aplicativos móveis ou clientes de área de trabalho com suporte](./media/technical-reference/06.png)
 
@@ -169,7 +171,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicativo de Calendário/Email/Pessoas, Outlook 2016 Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
 | Política de localização e MFA para aplicativos. Políticas baseadas em dispositivos não têm suporte.| Qualquer serviço de aplicativo de Meus Aplicativos| Android e iOS |
-| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web | Equipes da Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
+| Microsoft Teams Services – controla todos os serviços que dão suporte ao Microsoft Teams e todos os seus aplicativos cliente – Windows Desktop, iOS, Android, WP e cliente da Web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Aplicativos do Office 2016, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Aplicativos do Office 2016, aplicativos universais do Office, Office 2013 (com autenticação moderna), cliente de sincronização do OneDrive (veja as [observações](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), suporte aos Grupos do Office planejado para o futuro, suporte aos aplicativos do SharePoint planejado para o futuro | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (somente Word, Excel, PowerPoint, OneNote). Suporte para OneDrive for Business planejado para o futuro| Office 365 SharePoint Online| macOS|
@@ -180,7 +182,7 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 | Outlook 2016 (Office para macOS) | Office 365 Exchange Online | macOS |
 | Outlook 2016, Outlook 2013 (com autenticação moderna), Skype for Business (com autenticação moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
 | Aplicativo móvel do Outlook | Office 365 Exchange Online | Android, iOS |
-| Aplicativo Power BI | Serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
+| Power BI aplicativo | serviço do Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
 | Skype for Business | Office 365 Exchange Online| Android, IOS |
 | Aplicativo Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
@@ -194,7 +196,7 @@ Para saber mais, confira [Aplicativos clientes](conditions.md#client-apps).
 
 ## <a name="approved-client-app-requirement"></a>Requisito de aplicativo cliente aprovado
 
-Em sua política de acesso condicional, você pode exigir que uma tentativa de acesso aos aplicativos de nuvem selecionados só possa ser feita de um aplicativo cliente aprovado. 
+Em sua política de acesso condicional, você pode exigir que uma tentativa de acesso aos aplicativos de nuvem selecionados precise ser feita de um aplicativo cliente aprovado. 
 
 ![Controlar acesso para aplicativos cliente aprovados](./media/technical-reference/21.png)
 
@@ -202,6 +204,8 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 - Proteção de Informações do Microsoft Azure
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -220,7 +224,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Microsoft Skype for Business
 - Microsoft StaffHub
 - Microsoft Stream
-- Equipes da Microsoft
+- Microsoft Teams
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word
@@ -234,25 +238,28 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 
 ## <a name="app-protection-policy-requirement"></a>Requisito de política de proteção de aplicativo 
 
-Em sua política de acesso condicional, você pode exigir que uma política de proteção do aplicativo estar presente no aplicativo cliente antes de acesso está disponível para os aplicativos de nuvem selecionado. 
+Em sua política de acesso condicional, você pode exigir que uma política de proteção de aplicativo esteja presente no aplicativo cliente antes que o acesso esteja disponível para os aplicativos de nuvem selecionados. 
 
 ![Controlar o acesso com a política de proteção de aplicativo](./media/technical-reference/22.png)
 
 Essa configuração se aplica aos seguintes aplicativos cliente:
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Microsoft Planner
 
 **Comentários**
 
-- Aplicativos para a política de proteção de aplicativo suportam o recurso de gerenciamento de aplicativo móvel do Intune com a política de proteção.
-- O **exigem a política de proteção de aplicativo** requisitos:
+- Aplicativos para a política de proteção de aplicativo dão suporte ao recurso de gerenciamento de aplicativos móveis do Intune com proteção de política.
+- Os requisitos da **política exigir proteção de aplicativo** :
     - Fornece suporte apenas para iOS e Android para [condição de plataforma de dispositivo](#device-platform-condition).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral do acesso condicional, consulte [o que é acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
-- Se você estiver pronto para configurar políticas de acesso condicional em seu ambiente, consulte a [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
+- Para obter uma visão geral do acesso condicional, consulte [o que é o acesso condicional no Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+- Se você estiver pronto para configurar políticas de acesso condicional em seu ambiente, consulte as [práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md).
 
 <!--Image references-->
 [1]: ./media/technical-reference/01.png

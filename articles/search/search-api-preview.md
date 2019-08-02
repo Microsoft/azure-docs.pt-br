@@ -1,6 +1,6 @@
 ---
-title: API REST de visualização de pesquisa de 2019-05-06-versão prévia do Azure - Azure Search
-description: Azure Search Service REST versão da API de 2019-05-06-Preview inclui recursos experimentais como repositório de dados de conhecimento e as chaves de criptografia gerenciadas pelo cliente.
+title: API REST de visualização para Azure Search 2019-05-06-Preview-Azure Search
+description: Azure Search API REST do serviço versão 2019-05-06-Preview inclui recursos experimentais, como repositório de conhecimento e chaves de criptografia gerenciadas pelo cliente.
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: search
 ms.date: 05/02/2019
-ms.author: HeidiSteen
+ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29d079c4e21352ced5fdcde44acaee66b79f6af9
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523913"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876649"
 ---
-# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Versão da api REST do serviço de Azure Search 2019-05-06-Preview
+# <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>API REST do serviço de Azure Search-versão 2019-05-06-Preview
 Este artigo descreve a versão `api-version=2019-05-06-Preview` da API REST do serviço Azure Search, oferecendo recursos experimentais ainda não disponíveis.
 
 > [!NOTE]
@@ -28,17 +28,17 @@ Este artigo descreve a versão `api-version=2019-05-06-Preview` da API REST do s
 
 ## <a name="new-in-2019-05-06-preview"></a>Novo no 2019-05-06-Preview
 
-[**Armazenamento de dados de Conhecimento** ](knowledge-store-concept-intro.md) é um novo destino de um pipeline com base em IA enriquecimento. Além de um índice, você agora pode manter estruturas de dados preenchida criadas durante a indexação no armazenamento do Azure. Você controla as estruturas físicas de seus dados por meio de elementos em um conjunto de qualificações, incluindo como formatação dos dados, se os dados são armazenados no armazenamento de tabelas ou armazenamento de BLOBs, e se há vários modos de exibição.
+A [**loja de conhecimento**](knowledge-store-concept-intro.md) é um novo destino de um pipeline de enriquecimento baseado em ia. Além de um índice, agora você pode persistir estruturas de dados preenchidas criadas durante a indexação no armazenamento do Azure. Você controla as estruturas físicas de seus dados por meio de elementos em um configurador de habilidades, incluindo como os dados são formatados, se os dados são armazenados no armazenamento de tabelas ou no armazenamento de BLOBs e se há várias exibições.
 
-[**As chaves de criptografia gerenciadas pelo cliente** ](search-security-manage-encryption-keys.md) para criptografia em repouso do lado do serviço também é um novo recurso de visualização. Além de interno criptografia em repouso gerenciado pela Microsoft, você pode aplicar uma camada adicional de onde você está a única proprietária das chaves de criptografia.
+[**As chaves de criptografia gerenciadas pelo cliente**](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso também são um novo recurso de visualização. Além da criptografia interna em repouso gerenciada pela Microsoft, você pode aplicar uma camada adicional de criptografia em que você é o único proprietário das chaves.
 
 ## <a name="other-preview-features"></a>Outros recursos de versão prévia
 
 Os recursos anunciados em versões prévias anteriores ainda estão em versão prévia pública. Se estiver chamando uma API com uma versão prévia anterior, você poderá continuar usando essa versão ou mudar para a `2019-05-06-Preview` sem alterações no comportamento esperado.
 
 + [O parâmetro de consulta moreLikeThis](search-more-like-this.md) localiza documentos relevantes para um documento específico. Esse recurso é encontrado em versões prévias anteriores. 
-* [Indexação de BLOBs CSV](search-howto-index-csv-blobs.md) cria um documento por linha, em vez de um documento por blob de texto.
-* [Suporte de API do MongoDB para indexadores do Cosmos DB](search-howto-index-cosmosdb.md) está em versão prévia.
+* A indexação de [BLOBs CSV](search-howto-index-csv-blobs.md) cria um documento por linha, em oposição a um documento por blob de texto.
+* [Suporte à API do MongoDB para Cosmos DB indexadores](search-howto-index-cosmosdb.md) está em versão prévia.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Como chamar uma API de versão prévia
@@ -53,7 +53,7 @@ O serviço Azure Search está disponível em várias versões. Para obter mais i
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a documentação de referência de API de REST do serviço Azure Search. Se você encontrar problemas, solicitar ajuda no [StackOverflow](https://stackoverflow.com/) ou [contate o suporte](https://azure.microsoft.com/support/community/?product=search).
+Examine a documentação de referência da API REST do serviço de Azure Search. Se você tiver problemas, peça ajuda no [StackOverflow](https://stackoverflow.com/) ou [entre em contato com o suporte](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/)

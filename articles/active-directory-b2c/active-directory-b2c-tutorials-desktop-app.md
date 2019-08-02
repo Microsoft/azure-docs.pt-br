@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 474aad3b4b2019c9f79f8f1316dd88769e0fabbd
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 699dd41024bd60b2016771d728253d938fc9ab23
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66508213"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347157"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo cliente nativo usando o Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo. 
+- [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo.
 - Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com cargas de trabalho de **desenvolvimento de área de trabalho do .NET** e **desenvolvimento Web e do ASP.NET**.
 
 ## <a name="add-the-native-client-application"></a>Adicionar um aplicativo cliente nativo
@@ -65,14 +65,14 @@ Para alterar as configurações do aplicativo, substitua o `<your-tenant-name>` 
 1. Abra a solução `active-directory-b2c-wpf` no Visual Studio.
 2. No projeto `active-directory-b2c-wpf`, abra o arquivo **App.xaml.cs** e faça as seguintes atualizações:
 
-    ```C#
+    ```csharp
     private static string Tenant = "<your-tenant-name>.onmicrosoft.com";
     private static string ClientId = "<application-ID>";
     ```
 
 3. Atualize a variável **PolicySignUpSignIn** com o nome do fluxo de usuário que você criou.
 
-    ```C#
+    ```csharp
     public static string PolicySignUpSignIn = "B2C_1_signupsignin1";
     ```
 
@@ -83,12 +83,12 @@ Pressione **F5** para criar e executar o exemplo.
 ### <a name="sign-up-using-an-email-address"></a>Criar conta usando um endereço de email
 
 1. Clique em **Entrar** para inscrever-se como um usuário. Isso usa o fluxo de usuário **B2C_1_signupsignin1**.
-2. O Azure AD B2C apresenta uma página de entrada com um link de inscrição. Como você ainda não tem uma conta, clique no link **Inscrever-se agora**. 
+2. O Azure AD B2C apresenta uma página de entrada com um link de inscrição. Como você ainda não tem uma conta, clique no link **Inscrever-se agora**.
 3. O fluxo de trabalho de inscrição apresenta uma página para coletar e verificar a identidade do usuário usando um endereço de email. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo de usuário.
 
-    Use um endereço de email válido e valide-o usando o código de verificação. Defina uma senha. Insira valores para os atributos necessários. 
+    Use um endereço de email válido e valide-o usando o código de verificação. Defina uma senha. Insira valores para os atributos necessários.
 
-    ![Fluxo de trabalho de inscrição](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Página de inscrição mostrada como parte do fluxo de trabalho de entrada/inscrição](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 4. Clique em **Criar** para criar uma conta local no locatário do Azure AD B2C.
 

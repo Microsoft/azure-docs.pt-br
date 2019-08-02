@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9e6a271f4e2c2190abf0074eb11c2a5e0e60755
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cab39e4af44428118966b78eacaec5cc3220daeb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869722"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094795"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pavaso-digital-close"></a>Tutorial: integração do Azure Active Directory com o Pavaso Digital Close
 
@@ -53,7 +53,7 @@ Para configurar a integração do Pavaso Digital Close ao Azure AD, você precis
 
 **Para adicionar o Pavaso Digital Close da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de domínio e de URLs de logon único do Pavaso Digital Close](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.pavaso.com/AuthServices`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.pavaso.com/AuthServices`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.pavaso.com/AuthServices/Acs`
 
@@ -203,4 +203,4 @@ Ao clicar no bloco do Pavaso Digital Close no Painel de Acesso, você será cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

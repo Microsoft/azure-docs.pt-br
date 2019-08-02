@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 24611e265788cf046aa0733bc423917aaf305427
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24fba1961c8fd95f1b9489716d690dd6eaa97b62
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589734"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274837"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Práticas recomendadas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço
 
@@ -54,9 +54,9 @@ Se o aplicativo não exigir comunicação permanente do remetente para receptor,
 ### <a name="active-replication"></a>Replicação ativa
 A replicação ativa usa entidades em ambos os namespaces para todas as operações. Qualquer cliente que enviar uma mensagem enviará duas cópias da mesma mensagem. A primeira cópia é enviada para a entidade principal (por exemplo, **contosoPrimary.servicebus.windows.net/sales**) e a segunda cópia da mensagem é enviada para a entidade secundária (por exemplo, **contosoSecondary.servicebus.windows.net/sales**).
 
-Um cliente recebe mensagens de ambas as filas. O receptor processa a primeira cópia de uma mensagem e a segunda cópia é suprimida. Para suprimir mensagens duplicadas, o remetente deverá marcar cada mensagem com um identificador exclusivo. Ambas as cópias da mensagem devem ser marcadas com o mesmo identificador. Você pode usar as propriedades [BrokeredMessage.MessageId][BrokeredMessage.MessageId] ou [BrokeredMessage.Label][BrokeredMessage.Label] ou uma propriedade personalizada para marcar a mensagem. O receptor deve manter uma lista de mensagens que já recebeu.
+Um cliente recebe mensagens de ambas as filas. O receptor processa a primeira cópia de uma mensagem e a segunda cópia é suprimida. Para suprimir mensagens duplicadas, o remetente deverá marcar cada mensagem com um identificador exclusivo. Ambas as cópias da mensagem devem ser marcadas com o mesmo identificador. Você pode usar o [brokeredmessage. MessageID][BrokeredMessage.MessageId] ou [brokeredmessage. Label][BrokeredMessage.Label] propriedades ou uma propriedade personalizada para marcar a mensagem. O receptor deve manter uma lista de mensagens que já recebeu.
 
-O exemplo [Replicação geográfica com Barramento de Serviço Standard][Geo-replication with Service Bus Standard Tier] demonstra a replicação ativa de entidades de mensagens.
+O [replicação geográfica com a camada Standard do barramento de serviço][Geo-replication with Service Bus Standard Tier] exemplo demonstra a replicação ativa de entidades de mensagens.
 
 > [!NOTE]
 > A abordagem de replicação ativa dobra o número de operações e, portanto, essa abordagem pode gerar custos mais altos.
@@ -75,10 +75,10 @@ Quando a replicação passiva for usada, as mensagens de cenário a seguir poder
 * **Perda ou atraso de mensagens**: Suponha que o remetente tenha enviado com êxito uma mensagem m1 para a fila primária e então a fila ficou indisponível antes do destinatário receber m1. O remetente envia uma mensagem subsequente m2 para a fila secundária. Se a fila primária estiver temporariamente indisponível, o destinatário receberá m1 depois que a fila ficar disponível novamente. Em caso de desastre, talvez o receptor nunca receba m1.
 * **Recebimento duplicado**: Suponha que o remetente envie uma mensagem m para a fila primária. O Barramento de Serviço processa m com êxito, mas falha ao enviar uma resposta. Depois que a operação de envio atingir o tempo limite, o remetente enviará uma cópia idêntica de m para a fila secundária. Se o receptor for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, o receptor receberá ambas as cópias de m aproximadamente ao mesmo tempo. Se o receptor não for capaz de receber a primeira cópia de m antes da fila primária ficar indisponível, inicialmente o destinatário receberá somente a segunda cópia de m, mas depois receberá uma segunda cópia de m quando a fila primária ficar disponível.
 
-O exemplo [Replicação geográfica com Barramento de Serviço Standard][Geo-replication with Service Bus Standard Tier] demonstra a replicação passiva de entidades de mensagens.
+O [replicação geográfica com a camada Standard do barramento de serviço][Geo-replication with Service Bus Standard Tier] exemplo demonstra a replicação passiva de entidades de mensagens.
 
 ## <a name="protecting-relay-endpoints-against-datacenter-outages-or-disasters"></a>Protegendo pontos de extremidade de retransmissão contra interrupções ou desastres
-A replicação geográfica de pontos de extremidade de retransmissão permite que um serviço que exponha um ponto de extremidade de retransmissão esteja acessível quando houver interrupções do Barramento de Serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto seu equivalente secundário pode ser acessado em **contosoSecondary.servicebus.windows.net/mySecondaryService**.
+A replicação geográfica de [retransmissão do Azure](../service-bus-relay/relay-what-is-it.md) pontos de extremidade permite que um serviço que expõe um ponto de extremidade de retransmissão esteja acessível quando houver interrupções do barramento de serviço. Para obter a replicação geográfica, o serviço deverá criar dois pontos de extremidade de retransmissão em namespaces diferentes. Os namespaces devem residir em datacenters diferentes e os dois pontos de extremidade devem ter nomes diferentes. Por exemplo, um ponto de extremidade primário pode ser acessado em **contosoPrimary.servicebus.windows.net/myPrimaryService**, enquanto seu equivalente secundário pode ser acessado em **contosoSecondary.servicebus.windows.net/mySecondaryService**.
 
 O serviço escuta em ambos os pontos de extremidade e um cliente pode invocar o serviço por meio de um dos pontos de extremidade. Um aplicativo cliente escolhe aleatoriamente uma das retransmissões como o ponto de extremidade primário e envia a sua solicitação ao ponto de extremidade ativo. Se a operação falhar com um código de erro, essa falha indicará que o ponto de extremidade de retransmissão não está disponível. O aplicativo abre um canal para o ponto de extremidade de backup e emite a solicitação novamente. Nesse ponto, os pontos de extremidade ativo e o de backup alternam as funções: o aplicativo cliente considera o ponto de extremidade ativo antigo como o novo ponto de extremidade de backup e o ponto de extremidade de backup antigo como o novo ponto de extremidade ativo. Se ambas as operações de envio falharem, as funções das duas entidades permanecerão inalteradas e um erro será retornado.
 
@@ -87,7 +87,7 @@ Para saber mais sobre a recuperação de desastres, confira estes artigos:
 
 * [Recuperação de desastre em área geográfica do Barramento de Serviço do Azure](service-bus-geo-dr.md)
 * [Continuidade dos negócios no Banco de dados SQL do Azure][Azure SQL Database Business Continuity]
-* [Projetando aplicativos resilientes para Azure][Azure resiliency technical guidance]
+* [Projeto de aplicativos resilientes do Azure][Azure resiliency technical guidance]
 
 [Service Bus Authentication]: service-bus-authentication-and-authorization.md
 [Partitioned messaging entities]: service-bus-partitioning.md

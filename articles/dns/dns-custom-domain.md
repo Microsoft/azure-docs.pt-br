@@ -5,18 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/18/2019
+ms.date: 7/13/2019
 ms.author: victorh
-ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 051aabed758f80208549cf64bf5d74b1fecfbe75
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096226"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854155"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usar o DNS do Azure para fornecer as configurações de domínio personalizadas para um serviço do Azure
 
-O DNS do Azure fornece o DNS para um domínio personalizado para qualquer um dos recursos do Azure que dão suporte a domínios personalizados ou que têm um FQDN (nome de domínio totalmente qualificado). Um exemplo é você tiver um aplicativo web do Azure e você deseja que os usuários acessem usando contoso.com ou www\.contoso.com como FQDN. Este artigo o orienta na configuração do serviço do Azure com o DNS do Azure para usar domínios personalizados.
+O DNS do Azure fornece o DNS para um domínio personalizado para qualquer um dos recursos do Azure que dão suporte a domínios personalizados ou que têm um FQDN (nome de domínio totalmente qualificado). Um exemplo é que você tem um aplicativo Web do Azure e deseja que os usuários o acessem usando o contoso.com ou o contoso.com\.da Web como um FQDN. Este artigo o orienta na configuração do serviço do Azure com o DNS do Azure para usar domínios personalizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,8 +40,8 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 
 |Propriedade  |Valor  |DESCRIÇÃO  |
 |---------|---------|---------|
-|NOME     | myfunctionapp        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Type     | CNAME        | Use um registro CNAME que esteja usando um alias.        |
+|Nome     | myfunctionapp        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Tipo     | CNAME        | Use um registro CNAME que esteja usando um alias.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS adatumfunction.azurewebsites.net fornecido por padrão para o aplicativo de funções.        |
@@ -54,7 +54,7 @@ Na folha **Adicionar nome de host**, insira o registro CNAME no campo de texto *
 
 ## <a name="public-ip-address"></a>Endereço IP público
 
-Para configurar um domínio personalizado para o recurso, como o Gateway de aplicativo, o balanceador de carga, o serviço de nuvem, VMs do Resource Manager de endereço de serviços que usam um IP público, e VMs clássicas, um registro é usada.
+Para configurar um domínio personalizado para serviços que usam um recurso de endereço IP público, como gateway de aplicativo, Load Balancer, serviço de nuvem, VMs do Gerenciador de recursos e VMs clássicas, um registro A é usado.
 
 Navegue até **Rede** > **Endereço IP público**, selecione o recurso IP Público e clique em **Configuração**. Marque o endereço IP mostrado.
 
@@ -66,7 +66,7 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 |Propriedade  |Valor  |DESCRIÇÃO  |
 |---------|---------|---------|
 |NOME     | mywebserver        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Type     | O        | Use um registro A, uma vez que o recurso é um endereço IP.        |
+|Tipo     | O        | Use um registro A, uma vez que o recurso é um endereço IP.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Endereço IP     | `<your ip address>`       | O endereço IP público.|
@@ -92,8 +92,8 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 
 |Propriedade  |Valor  |DESCRIÇÃO  |
 |---------|---------|---------|
-|NOME     | mywebserver        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Type     | CNAME        | Use um registro CNAME que esteja usando um alias. Se o recurso tiver usado um endereço IP, um registro deverá ser usado.        |
+|Nome     | mywebserver        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Tipo     | CNAME        | Use um registro CNAME que esteja usando um alias. Se o recurso tiver usado um endereço IP, um registro deverá ser usado.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | webserver.azurewebsites.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS webserver.azurewebsites.net fornecido por padrão para o aplicativo Web.        |
@@ -111,6 +111,8 @@ Quando o processo estiver concluído, execute **nslookup** para validar que a re
 
 Para saber mais sobre como mapear um domínio personalizado para o Serviço de Aplicativo, acesse [Mapear um nome DNS personalizado existente para Aplicativos Web do Azure](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
 
+Para saber como migrar um nome DNS ativo, consulte [migrar um nome DNS ativo para Azure app serviço](../app-service/manage-custom-dns-migrate-domain.md).
+
 Se você precisar comprar um domínio personalizado, acesse [Comprar um nome de domínio personalizado para aplicativos Web do Azure](../app-service/manage-custom-dns-buy-domain.md) para saber mais sobre domínios do Serviço de Aplicativo.
 
 ## <a name="blob-storage"></a>Armazenamento de blob
@@ -126,8 +128,8 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 
 |Propriedade  |Valor  |DESCRIÇÃO  |
 |---------|---------|---------|
-|NOME     | asverify.mystorageaccount        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Type     | CNAME        | Use um registro CNAME que esteja usando um alias.        |
+|Nome     | asverify.mystorageaccount        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Tipo     | CNAME        | Use um registro CNAME que esteja usando um alias.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net fornecido por padrão para a conta de armazenamento.        |
@@ -154,8 +156,8 @@ Navegue para a sua zona DNS e clique em **+ Conjunto de registros**. Preencha as
 
 |Propriedade  |Valor  |DESCRIÇÃO  |
 |---------|---------|---------|
-|NOME     | cdnverify.mycdnendpoint        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
-|Type     | CNAME        | Use um registro CNAME que esteja usando um alias.        |
+|Nome     | cdnverify.mycdnendpoint        | Esse valor junto com o rótulo de nome de domínio é o FQDN para o nome de domínio personalizado.        |
+|Tipo     | CNAME        | Use um registro CNAME que esteja usando um alias.        |
 |TTL     | 1        | 1 é usado por 1 hora        |
 |Unidade de TTL     | Horas        | Horas são usadas como a medida de tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Neste exemplo, o nome DNS para o qual você está criando o alias é o nome DNS cdnverify.adatumcdnendpoint.azureedge.net fornecido por padrão para a conta de armazenamento.        |

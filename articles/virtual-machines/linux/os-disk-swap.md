@@ -4,7 +4,7 @@ description: Mude o disco do sistema operacional usado por uma máquina virtual 
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: b17647a09c88491e2486046b1ca99ee277f0cc28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970f3409cc46fa6cf96fff3e6944ebeaeadcdcce
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473868"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667274"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Mudar o disco do sistema operacional usado por uma VM do Azure usando a CLI
 

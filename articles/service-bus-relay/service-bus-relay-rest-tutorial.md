@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 4ed45e1ed18ad630831772997b1fc150882731bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e988724f842ff12cd599eba95c31006fe208fad
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123392"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68422899"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial do REST de Retransmissão de WCF do Azure
 Este tutorial descreve como compilar um aplicativo host simples da Retransmissão do Azure que expõe uma interface baseada em REST. O REST permite que um cliente da Web, como, por exemplo, um navegador da Web, acesse as APIs de Barramento de Serviço por meio de solicitações HTTP.
@@ -259,7 +259,7 @@ Assim como nas etapas anteriores, há pouca diferença entre a implementação d
     ```
    
     Esta etapa configura um serviço que usa o padrão previamente definido **webHttpRelayBinding**. Ele também usa o padrão **sbTokenProvider**, definido na próxima etapa.
-4. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida anteriormente no [Portal do Azure][Azure portal].
+4. Após o elemento `<services>`, crie um elemento `<behaviors>` com o conteúdo a seguir, substituindo "SAS_KEY" pela chave *Assinatura de Acesso Compartilhado* (SAS) obtida anteriormente no [portal do Azure][Azure portal].
    
     ```xml
     <behaviors>
@@ -578,6 +578,6 @@ Após compilar a solução, faça o seguinte para executar o aplicativo:
 Agora que você criou um aplicativo que usa o serviço de Retransmissão do Azure, leia os seguintes artigos para saber mais:
 
 * [Visão geral da Retransmissão do Azure](relay-what-is-it.md)
-* [Como usar o serviço de Retransmissão de WCF com o .NET](relay-wcf-dotnet-get-started.md)
+* [Como usar o serviço de Retransmissão de WCF com o .NET](service-bus-relay-tutorial.md)
 
 [Azure portal]: https://portal.azure.com

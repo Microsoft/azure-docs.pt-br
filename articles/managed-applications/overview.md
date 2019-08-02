@@ -4,14 +4,14 @@ description: Descreve os conceitos de aplicativos gerenciados do Azure
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b6cb030c6eba5d80dfd046f1c3950609da1ed73
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479815"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234749"
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -68,6 +68,8 @@ O consumidor tem acesso total ao grupo de recursos e o utiliza para gerenciar o 
 ### <a name="managed-resource-group"></a>Grupo de recursos gerenciado
 
 Este grupo de recursos contém todos os recursos necessários ao aplicativo gerenciado. Por exemplo, esse grupo de recursos contém as máquinas virtuais, contas de armazenamento e redes virtuais para a solução. O consumidor tem acesso limitado a esse grupo de recursos, pois não gerencia os recursos individuais do aplicativo gerenciado. O acesso do fornecedor a este grupo de recursos corresponde à função especificada na definição do aplicativo gerenciado. Por exemplo, o fornecedor pode solicitar a função de Proprietário ou Colaborador para este grupo de recursos. O acesso é permanente ou limitado a uma hora específica.
+
+Ao publicar o [aplicativo gerenciado no marketplace](publish-marketplace-app.md), o editor pode conceder aos consumidores a capacidade de executar ações específicas em recursos no grupo de recursos gerenciados. Por exemplo, o editor pode especificar que os consumidores podem reiniciar as máquinas virtuais. Todas as outras ações além das ações de leitura ainda são negadas.
 
 Quando o consumidor exclui o aplicativo gerenciado, o grupo de recursos gerenciado também é excluído.
 

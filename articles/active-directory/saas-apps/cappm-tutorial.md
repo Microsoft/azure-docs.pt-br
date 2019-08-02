@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 464c6c6b554f093e0192641284dafe39cb2908ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 34fdc3d97f6b4e785a9c6ec3d33e199978373d2c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105867"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integração do Azure Active Directory com o CA PPM
 
@@ -53,7 +53,7 @@ Para configurar a integração do CA PPM ao Azure AD, você precisará adicionar
 
 **Para adicionar o CA PPM por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o CA PPM, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do CA PPM](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://ca.ondemand.saml.20.post.<companyname>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://ca.ondemand.saml.20.post.<companyname>`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL como: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
@@ -148,7 +148,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

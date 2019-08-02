@@ -4,7 +4,7 @@ description: Saiba mais sobre como criar e gerenciar máquinas virtuais do Windo
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.assetid: fbae9c8e-2341-4ed0-bb20-fd4debb2f9ca
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 604a47ef73d50a2d127d1569b0b6a240a7a27d73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7bb87713f1f7d1f41f68f3743b2504784b37bb23
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65506835"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723059"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Visão geral das máquinas virtuais do Windows no Azure
 
@@ -101,7 +101,7 @@ Estas tarefas comuns podem ser realizadas usando extensões:
 ### <a name="related-resources"></a>Recursos relacionados
 Os recursos nesta tabela são usados por VM e precisam existir ou ser criados quando a VM é criada.
 
-| Resource | Obrigatório | DESCRIÇÃO |
+| Recurso | Obrigatório | DESCRIÇÃO |
 | --- | --- | --- |
 | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) |Sim |A VM deve estar contida em um grupo de recursos. |
 | [Conta de armazenamento](../../storage/common/storage-create-storage-account.md) |Sim |A VM precisa da conta de armazenamento para armazenar seus discos rígidos virtuais. |

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Aplicativo Web de página única da Pesquisa de Entidade do Bing'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Mostra como usar a API de Pesquisa de Entidade do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1b8cf36c631755458bc0c531773a6b2aba7f1038
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 5a8276f06207eb69ffec0e21c6d92794973f3b83
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406372"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423979"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicativo Web de página única
 
@@ -535,7 +535,7 @@ Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquis
 
 Em seguida, altere o ponto de extremidade da Pesquisa na Web do Bing no arquivo HTML para:
 
-    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
 Por fim, inicie o proxy CORS com o seguinte comando:
 

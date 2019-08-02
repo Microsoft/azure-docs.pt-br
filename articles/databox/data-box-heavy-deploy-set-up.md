@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 05/24/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: f2f6b544b56977b3f1bfb6a4fb46a9f1e3bcc294
-ms.sourcegitcommit: ef06b169f96297396fc24d97ac4223cabcf9ac33
+ms.openlocfilehash: 3e6bfe4a93ab8c97bcffb84bda08977f8d811fa8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66427950"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592365"
 ---
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy-preview"></a>Tutorial: Cabear o Azure Data Box Heavy e conectar-se a ele (versão prévia)
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Tutorial: Cabear e conectar-se ao Azure Data Box Heavy
 
 
 Este tutorial descreve como cabear, conectar e ligar o Azure Data Box Heavy.
@@ -79,7 +79,7 @@ Execute as etapas a seguir para cabear o dispositivo.
 Em um dos nós do dispositivo, execute as etapas a seguir para fazer o cabeamento para a rede.
 
 1. Use um cabo de rede CAT 6 RJ-45 (cabo azul na imagem) para conectar o computador host à porta de gerenciamento de 1 Gbps.
-2. Use um cabo de cobre Twinax QSFP+ (cabos pretos na figura) para conectar, pelo menos, um adaptador de rede de 40 Gbps (preferível ao de 1 Gbps) para os dados. Se estiver usando um comutador de 10 Gbps, use um cabo de cobre Twinax SFP+ com um adaptador QSFP+ para SFP+ (o adaptador QSA) para conectar o adaptador de rede de 40 Gbps para os dados.
+2. Use um cabo QSFP+ (fibra ou cobre) para conectar, pelo menos, uma interface de rede de 40 Gbps (preferível a 1 Gbps) para os dados. Se estiver usando um comutador de 10 Gbps, use um cabo SFP+ com um adaptador QSFP+ para SFP+ (o adaptador QSA) para conectar a rede de 40 Gbps para os dados.
 
     ![Portas do Data Box Heavy cabeadas](media/data-box-heavy-deploy-set-up/data-box-heavy-ports-cabled.png)
 

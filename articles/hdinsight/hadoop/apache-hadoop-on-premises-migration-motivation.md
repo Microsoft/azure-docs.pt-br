@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a03a778b2a057235b31d02e90e5ce87e9559b38a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f886cb71d4dbc191dae317e8ea72d8c896f37c03
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058567"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442083"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop local para o Azure HDInsight – motivação e benefícios
 
@@ -21,7 +21,7 @@ Este artigo é o primeiro de uma série sobre as melhores práticas para a migra
 
 ## <a name="why-to-migrate-to-azure-hdinsight"></a>Por que migrar para o Azure HDInsight
 
-HDInsight do Azure é uma distribuição de nuvem dos componentes do Hadoop. O Azure HDInsight torna mais fácil, rápido e econômico processar grandes quantidades de dados. O HDInsight inclui as estruturas de software livre mais populares, como:
+O Azure HDInsight é uma distribuição de nuvem dos componentes do Hadoop. O Azure HDInsight torna mais fácil, rápido e econômico processar grandes quantidades de dados. O HDInsight inclui as estruturas de software livre mais populares, como:
 
 - Apache Hadoop
 - Apache Spark
@@ -43,7 +43,7 @@ HDInsight do Azure é uma distribuição de nuvem dos componentes do Hadoop. O A
 
 - **Disponibilidade global** - o HDInsight está disponível em mais [regiões](https://azure.microsoft.com/regions/services/) do que qualquer outra oferta de análise de Big Data. O Azure HDInsight também está disponível no Azure Governamental, na China e na Alemanha, o que permite atender às necessidades da sua empresa nas principais áreas soberanas.
 
-- **Seguro e em conformidade** – o HDInsight permite a proteção dos ativos de dados empresariais com a [Rede Virtual do Microsoft Azure](../hdinsight-extend-hadoop-virtual-network.md),  [criptografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e integração com o [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). O HDInsight também atende aos [padrões de conformidade](https://azure.microsoft.com/overview/trusted-cloud) mais populares do setor e do governo.
+- **Seguro e em conformidade** – o HDInsight permite a proteção dos ativos de dados empresariais com a [Rede Virtual do Microsoft Azure](../hdinsight-plan-virtual-network-deployment.md),  [criptografia](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) e integração com o [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). O HDInsight também atende aos [padrões de conformidade](https://azure.microsoft.com/overview/trusted-cloud) mais populares do setor e do governo.
 
 - **Gerenciamento de versão simplificado** – o Azure HDInsight gerencia a versão dos componentes do ecossistema do Hadoop e os mantém atualizados. Atualizações de software geralmente são um processo complexo para implantações locais.
 
@@ -53,15 +53,15 @@ HDInsight do Azure é uma distribuição de nuvem dos componentes do Hadoop. O A
 
 - **Extensibilidade com ferramentas personalizadas ou aplicativos de terceiros** – clusters do HDInsight podem ser estendidos com componentes instalados e também podem ser integrados com outras soluções de Big Data usando implantações com [um único clique](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) do Azure Marketplace.
 
-- **Fácil gerenciamento, administração e monitoramento** -Azure HDInsight integra [logs do Azure Monitor](../hdinsight-hadoop-oms-log-analytics-tutorial.md) para fornecer uma interface única com o qual você pode monitorar todos os seus clusters.
+- **Gerenciamento, administração e monitoramento fáceis** – o Azure HDInsight integra-se com [os logs](../hdinsight-hadoop-oms-log-analytics-tutorial.md) de Azure monitor para fornecer uma única interface com a qual você pode monitorar todos os seus clusters.
 
 - **Integração com outros serviços do Azure** – o HDInsight pode ser facilmente integrado a outros serviços populares do Azure, como os seguintes:
 
     - ADF (Azure Data Factory)
-    - Armazenamento do Blobs do Azure
+    - Armazenamento de Blob do Azure
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - Banco de dados SQL do Azure
+    - Banco de Dados SQL do Azure
     - Azure Analysis Services
 
 - **Processos e componentes de autorrecuperação** – o HDInsight verifica constantemente os componentes de infraestrutura e software livre usando sua própria infraestrutura de monitoramento. Ele também recupera automaticamente de falhas críticas, como de não disponibilidade de nós e de componentes de software livre. Os alertas serão disparados no Ambari se qualquer componente do OSS falhar.
@@ -102,7 +102,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Configuração de Nós de Dados|m/y, cpu, disk, etc.|
 |Configuração de Nós de Borda|m/y, cpu, disk, etc.|
 |Criptografia de HDFS?|Sim|
-|Alta disponibilidade|HA do HDFS, HA do Metastore|
+|Alta Disponibilidade|HA do HDFS, HA do Metastore|
 |Recuperação de Desastres/Backup|Realizar backup do cluster?|  
 |Sistemas que dependem do Cluster|SQL Server, Teradata, Power BI, MongoDB|
 |Integrações com terceiros|Tableau, GridGain, Qubole, Informatica, Splunk|
@@ -112,7 +112,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Controle de Acesso do HDFS|  Manual, usuários de SSH|
 |Autenticação e autorização do Hive|Sentry, LDAP, AD com Kerberos, Ranger|
 |Auditoria|Ambari, Cloudera Navigator, Ranger|
-|Monitoramento|Graphite, collectd, statsd, Telegraf, InfluxDB|
+|Monitorando|Graphite, collectd, statsd, Telegraf, InfluxDB|
 |Alertas|Kapacitor, Prometheus, Datadog|
 |Duração da Retenção de Dados| 3 anos, 5 anos|
 |Administradores de Cluster|Administrador Único, Vários Administradores|
@@ -128,8 +128,8 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Trabalhos do Spark Streaming|5 trabalhos – a cada 3 minutos||
 |Trabalhos de Streaming estruturados|5 trabalhos – a cada minuto||
 |Trabalhos de treinamento do Modelo de ML|2 trabalhos – uma vez por semana||
-|Linguagens de Programação|Python, Scala, Java||
-|Scripting|Shell do Python||
+|Linguagens de programação|Python, Scala, Java||
+|Script|Shell do Python||
 |**Tópico**: **Dados**|||
 |Fontes de dados|Arquivos simples, JSON, Kafka, RDBMS||
 |Orquestração de dados|Fluxos de trabalho do Oozie, Airflow||
@@ -137,10 +137,10 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Destinos de dados|HDFS, RDBMS, Kafka, MPP ||
 |**Tópico**: **Metadados**|||
 |Tipo de banco de dados do Hive|Mysql, Postgres||
-|Não. de metastores do Hive|2||
-|Não. de tabelas do Hive|100||
-|Não. de políticas do Ranger|20||
-|Não. de fluxos de trabalho do Oozie|100||
+|Nº de metastores do Hive|2||
+|Nº de tabelas do Hive|100||
+|Nº de políticas do Ranger|20||
+|Nº de fluxos de trabalho do Oozie|100||
 |**Tópico**: **Escala**|||
 |Volume de dados incluindo Replicação|100 TB||
 |Volume diário de ingestão|50 GB||
@@ -152,11 +152,11 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Espaço em disco usado|75%||
 |% média de rede usada|25%
 |**Tópico**: **Equipe**|||
-|Não. de Administradores|2||
-|Não. de Desenvolvedores|10||
-|Não. de usuários finais|100||
+|Nº de Administradores|2||
+|Nº de Desenvolvedores|10||
+|Nº de usuários finais|100||
 |Habilidades|Hadoop, Spark||
-|Não. de recursos disponíveis para esforços de Migração|2||
+|Nº de recursos disponíveis para esforços de Migração|2||
 |**Tópico**: **Limitações**|||
 |Limitações atuais|A latência é alta||
 |Desafios atuais|Problema de simultaneidade||
@@ -166,7 +166,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |**Tópico**: **Infraestrutura** |||
 |---|---|---|
 |**Pergunta**|**Exemplo**|**Resposta**|
-| Região preferida|Leste dos EUA||
+| Região Preferida|Leste dos EUA||
 |Rede virtual preferida?|Sim||
 |HA/DR necessárias?|Sim||
 |Integração com outros serviços de nuvem?|ADF, CosmosDB||
@@ -180,7 +180,7 @@ Esta seção apresenta questionários de modelo para ajudar a coletar informaç�
 |Pipeline de dados privados e protegidos?|Sim||
 |Cluster de domínio ingressado (ESP)?|     Sim||
 |Sincronização do AD Local com a Nuvem?|     Sim||
-|Não. de usuários do AD a sincronizar?|          100||
+|Nº de usuários do AD a sincronizar?|          100||
 |OK sincronizar senhas com a nuvem?|    Sim||
 |Somente usuários de nuvem?|                 Sim||
 |MFA necessária?|                       Não|| 

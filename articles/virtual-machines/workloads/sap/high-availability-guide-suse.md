@@ -4,7 +4,7 @@ description: Guia de alta disponibilidade do SAP NetWeaver no SUSE Linux Enterpr
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 44f99ed1af65eb1e487295c11077fd558ce4285c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f88790d96a1e46f60db368f69155b3ad7afbef
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142963"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797501"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -54,7 +54,7 @@ ms.locfileid: "65142963"
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
 Este artigo descreve como implantar as máquinas virtuais, configurar as máquinas virtuais, instalar a estrutura de cluster e instalar um sistema SAP NetWeaver 7.50 com alta disponibilidade.
-Nas configurações de exemplo, comandos de instalação etc. O número da instância ASCS 00, o número da instância ERS 02 e a ID do sistema SAP NW1 são usados. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo assumem que você usou o [modelo convergido][template-converged] com a ID do sistema SAP NW1 para criar os recursos.
+Nas configurações de exemplo, comandos de instalação etc. O número da instância ASCS 00, o número da instância ERS 02 e a ID do sistema SAP NW1 são usados. Os nomes dos recursos (por exemplo, máquinas virtuais, redes virtuais) no exemplo pressupõem que você tenha usado o [modelo convergido][template-converged] com ID NW1 para criar os recursos do sistema.
 
 Primeiro, leia os seguintes documentos e Notas SAP
 
@@ -73,10 +73,10 @@ Primeiro, leia os seguintes documentos e Notas SAP
 * A Nota SAP [1984787] tem informações gerais sobre o SUSE Linux Enterprise Server 12.
 * A Nota SAP [1999351] tem informações de solução de problemas adicionais para a Extensão de Monitoramento Avançado do Azure para SAP.
 * [WIKI da comunidade do SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) tem todas as Notas SAP necessárias para Linux.
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP no Linux][planning-guide]
-* [Implantação de máquinas virtuais do Azure para SAP no Linux ][deployment-guide]
-* [Implantação de Máquinas Virtuais do Azure do DBMS para SAP no Linux][dbms-guide]
-* [Guias de melhores práticas SUSE SAP HA][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o Netweaver HA e a Replicação de Sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
+* [Máquinas virtuais de planejamento e implementação para SAP no Linux do Azure][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP no Linux][dbms-guide]
+* [SUSE SAP HA guias de melhores práticas][suse-ha-guide] os guias contêm todas as informações necessárias para configurar o Netweaver HA e replicação de sistema do SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão do SP3 com a extensão de alta disponibilidade do SUSE 12][suse-ha-12sp3-relnotes]
 
 ## <a name="overview"></a>Visão geral
@@ -98,7 +98,7 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
   * Conectado aos adaptadores de rede primários de todas as máquinas virtuais que devem ser parte do cluster (A)SCS/ERS
 * Porta de Investigação
   * Porta 620<strong>&lt;nr&gt;</strong>
-* Carregar 
+* Carregamento 
 * regras de balanceamento
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
@@ -125,7 +125,7 @@ O servidor NFS, ASCS do SAP NetWeaver, SCS do SAP NetWeaver, ERS do SAP NetWeave
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configuração de um servidor NFS altamente disponível
 
-O SAP NetWeaver requer um armazenamento compartilhado para o diretório de perfil e transporte. Leia [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server][nfs-ha] sobre como configurar um servidor NFS para SAP NetWeaver.
+O SAP NetWeaver requer um armazenamento compartilhado para o diretório de perfil e transporte. Leia [alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server][nfs-ha] sobre como configurar um servidor NFS para SAP NetWeaver.
 
 ## <a name="setting-up-ascs"></a>Configuração do (A)SCS
 
@@ -137,8 +137,8 @@ O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP
 
 Você pode usar um dos modelos de início rápido no GitHub para implantar todos os recursos necessários. O modelo implanta as máquinas virtuais, o balanceador de carga, o conjunto de disponibilidade etc. Siga estas etapas para implantar o modelo:
 
-1. Abra o [modelo multi-SID do ASCS/SCS] [ template-multisid-xscs] ou o [modelo convergido] [ template-converged] no portal do Azure. 
-   O modelo ASCS/SCS cria apenas as regras de balanceamento de carga para o SAP NetWeaver ASCS/SCS e instâncias ERS (somente Linux), enquanto o modelo convergido também cria as regras de balanceamento de carga para um banco de dados (por exemplo, Microsoft SQL Server ou SAP HANA). Se você planeja instalar um sistema baseado no SAP NetWeaver e também quer instalar o banco de dados nos mesmos computadores, use o [modelo convergido][template-converged].
+1. Abra o [modelo multi-SID do ASCS/SCS][template-multisid-xscs] or the [converged template][template-converged] on the Azure portal. 
+   The ASCS/SCS template only creates the load-balancing rules for the SAP NetWeaver ASCS/SCS and ERS (Linux only) instances whereas the converged template also creates the load-balancing rules for a database (for example Microsoft SQL Server or SAP HANA). If you plan to install an SAP NetWeaver based system and you also want to install the database on the same machines, use the [converged template][template-converged].
 1. Defina os seguintes parâmetros
    1. Prefixo de recurso (somente modelo multi-SID do ASCS/SCS)  
       Digite o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que serão implantados.
@@ -512,7 +512,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 1. **[A]** Configurar Keep Alive
 
-   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia a [Nota SAP 1410736][1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicativos do SAP NetWeaver e o ASCS/SCS é roteada por meio de um balanceador de carga de software. O balanceador de carga desconecta conexões inativas após um tempo limite configurável. Para evitar isso, você precisa definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as configurações do sistema Linux. Leia [nota SAP 1410736][1410736] para obter mais informações.
 
    O parâmetro enque/encni/set_so_keepalive do perfil do ASCS/SCS já foi adicionado na última etapa.
 
@@ -710,7 +710,7 @@ As etapas abaixo pressupõem que você instale o servidor de aplicativos em um s
 
 ## <a name="install-database"></a>Instalar banco de dados
 
-Neste exemplo, o SAP NetWeaver está instalado no SAP HANA. Você pode usar todos os bancos de dados com suporte para esta instalação. Para obter mais informações sobre como instalar o SAP HANA no Azure, consulte [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure][sap-hana-ha]. Para obter uma lista de bancos de dados com suporte, consulte [Nota SAP 1928533][1928533].
+Neste exemplo, o SAP NetWeaver está instalado no SAP HANA. Você pode usar todos os bancos de dados com suporte para esta instalação. Para obter mais informações sobre como instalar o SAP HANA no Azure, consulte [alta disponibilidade do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]. For a list of supported databases, see [SAP Note 1928533][1928533].
 
 1. Executar a instalação da instância do banco de dados SAP
 
@@ -887,6 +887,9 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de melhores prá
    # run as root
    # Remove failed actions for the ERS that occurred as part of the migration
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ERS02
+   # Remove migration constraints
+   nw1-cl-0:~ # crm resource clear rsc_sap_NW1_ASCS00
+   #INFO: Removed migration constraints for rsc_sap_NW1_ASCS00
    </code></pre>
 
    Estado do recurso após o teste:
@@ -1196,8 +1199,8 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de melhores prá
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP][planning-guide]
-* [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
-* [Implantação DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
+* [Máquinas virtuais de planejamento e implementação para o SAP do Azure][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
 * Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastres do SAP HANA no Azure (instâncias grandes), confira [Alta disponibilidade e recuperação de desastres do SAP HANA (instâncias grandes) no Azure](hana-overview-high-availability-disaster-recovery.md).
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP HANA em VMs do Azure, confira [Alta disponibilidade do SAP HANA em VMs (Máquinas Virtuais) do Azure][sap-hana-ha]
+* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP HANA em VMs do Azure, consulte [alta disponibilidade do SAP HANA em máquinas virtuais do Azure (VMs)][sap-hana-ha]

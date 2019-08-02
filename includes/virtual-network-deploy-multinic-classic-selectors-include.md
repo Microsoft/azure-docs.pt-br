@@ -9,11 +9,11 @@ ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 3240c9e313034475bc59786f2163702b7d9f7f88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170827"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171849"
 ---
 > [!div class="op_single_selector"]
 > * [PowerShell](../articles/virtual-machines/windows/multiple-nics.md)

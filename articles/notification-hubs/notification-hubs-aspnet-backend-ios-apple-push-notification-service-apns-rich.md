@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: dd808a04dff77388248bf7309f5ff804e6dd065c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fcb4a1db62abfc04d2b0c60488d35393d98c57e
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60873034"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348485"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Push Avançado dos Hubs de Notificação do Azure
 
@@ -50,12 +50,12 @@ Em um alto nível:
     ![][IOS2]
 5. No `Notifications.cs`, adicione o seguinte usando a instrução:
 
-    ```c#
+    ```csharp
     using System.Reflection;
     ```
 6. Atualize toda a classe `Notifications` com o código a seguir. Certifique-se de substituir os espaços reservados por suas credenciais de hub de notificação e o nome do arquivo de imagem.
 
-    ```c#
+    ```csharp
     public class Notification {
         public int Id { get; set; }
         // Initial notification message to display to users
@@ -105,7 +105,7 @@ Em um alto nível:
 
 7. Em `NotificationsController.cs`, redefina `NotificationsController com os snippets a seguir. Isso envia uma id de notificação avançada silenciosa inicial ao dispositivo e permite a recuperação do cliente da imagem:
 
-    ```c#
+    ```csharp
     // Return http response with image binary
     public HttpResponseMessage Get(int id) {
         var stream = Notifications.Instance.ReadImage(id);

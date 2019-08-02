@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d002a82e3968e0462e5f6e775ec147669c01b0d
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61478582"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147945"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema para Importação/Exportação do Azure
 
@@ -24,14 +24,14 @@ Este artigo descreve os requisitos importantes para o serviço de Importação/E
 Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguintes **sistemas operacionais de 64 bits dão suporte à Criptografia de Unidade de Disco BitLocker**.
 
 
-|Plataforma |Version |
+|Plataforma |Versão |
 |---------|---------|
 |Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Outro software necessário para clientes do Windows
 
-|Plataforma |Version |
+|Plataforma |Versão |
 |---------|---------|
 |.NET Framework    | 4.5.1       |
 | BitLocker        |  _          |
@@ -41,7 +41,7 @@ Para preparar os discos rígidos usando a ferramenta WAImportExport, os seguinte
 
 O serviço de importação/exportação do Azure é compatível com os seguintes tipos de contas de armazenamento:
 
-- Contas de armazenamento v2 para Uso Geral (recomendado na maioria dos cenários)
+- Contas de armazenamento do padrão de uso geral v2 (recomendadas na maioria dos cenários)
 - Contas de Armazenamento de Blobs
 - Contas de armazenamento v1 de Uso Geral (implantações clássicas ou do Azure Resource Manager) 
 

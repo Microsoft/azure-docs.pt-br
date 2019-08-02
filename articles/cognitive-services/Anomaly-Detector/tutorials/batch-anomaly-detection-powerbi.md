@@ -1,37 +1,37 @@
 ---
-title: Visualizar anomalias usando a detecção de lote e o Power BI
-titlesuffix: Azure Cognitive Services
-description: Use a API do Detector de anomalias e o Power BI para visualizar anomalias ao longo de seus dados de série temporal.
+title: Visualizar anomalias usando a detecção em lotes e o Power BI
+titleSuffix: Azure Cognitive Services
+description: Use a API do Detector de Anomalias e o Power BI para visualizar anomalias em seus dados de série temporal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2019
 ms.author: aahi
-ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 74b51d04f2706d890475c500e1e730cff75397c5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827133"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721493"
 ---
-# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção de lote e o Power BI
+# <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando a detecção em lotes e o Power BI
 
-Use este tutorial para encontrar anomalias dentro de um conjunto de dados de série temporal como um lote. Usando o Power BI desktop, você irá pegar um arquivo do Excel, preparar os dados para a API do Detector de anomalias e visualizar anomalias estatísticas ao longo dele.
+Use este tutorial para encontrar anomalias em um conjunto de dados de série temporal como um lote. Usando o Power BI Desktop, você usará um arquivo do Excel, preparará os dados para a API do Detector de Anomalias e visualizará as anomalias estatísticas nele.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Use o Power BI Desktop para importar e transformar um conjunto de dados de série temporal
-> * Integrar o Power BI Desktop com a API do Detector de anomalias em lotes para detecção de anomalias
-> * Visualize anomalias encontradas dentro de seus dados, incluindo os valores esperados e vistos e limites de detecção de anomalias.
+> * Usar o Power BI Desktop para importar e transformar um conjunto de dados de série temporal
+> * Integrar o Power BI Desktop à API do Detector de Anomalias para a detecção de anomalias em lotes
+> * Visualize as anomalias encontradas em seus dados, incluindo os valores esperados e vistos e os limites da detecção de anomalias.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [Microsoft Power BI Desktop](https://powerbi.microsoft.com/get-started/), disponível gratuitamente.
-* Pontos de dados de série de tempo que contém um excel (. xlsx) do arquivo. Os dados de exemplo para este início rápido podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
+* Um arquivo do Excel (.xlsx) contendo pontos de dados de série temporal. Os dados de exemplo deste início rápido podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2090962)
 
 [!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
 
@@ -39,36 +39,36 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="load-and-format-the-time-series-data"></a>Carregar e formatar os dados de série temporal
 
-Para começar, abra o Power BI Desktop e carregar dados de série temporal que você baixou dos pré-requisitos. Este arquivo do excel contém uma série de pares de carimbo de data e valor de tempo Universal Coordenado (UTC).  
+Para começar, abra o Power BI Desktop e carregue os dados de série temporal que você baixou nos pré-requisitos. Este arquivo do Excel contém uma série de pares de valor e carimbo de data/hora UTC (Tempo Universal Coordenado).  
 
 > [!NOTE]
-> Power BI pode usar dados de uma ampla variedade de fontes, como arquivos. csv, bancos de dados SQL, armazenamento de BLOBs do Azure e muito mais.  
+> O Power BI pode usar dados de uma ampla variedade de fontes, como arquivos .csv, bancos de dados SQL, Armazenamento de Blobs do Azure, entre outros.  
 
-Na janela principal do Power BI Desktop, clique o **Home** faixa de opções. No **dados externos** grupo da faixa de opções, abra o **obter dados** menu suspenso e clique em **Excel**.
+Na janela principal do Power BI Desktop, clique na faixa de opções **Página Inicial**. No grupo **Dados externos** da faixa de opções, abra o menu suspenso **Obter Dados** e clique em **Excel**.
 
-![Uma imagem do botão "Get Data" no Power BI](../media/tutorials/power-bi-get-data-button.png)
+![Uma imagem do botão "Obter Dados" no Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Depois que a caixa de diálogo for exibida, navegue até a pasta onde você baixou o arquivo. xlsx de exemplo e selecioná-lo. Após o **Navigator** caixa de diálogo for exibida, clique em **Sheet1**e então **editar**.
+Depois que a caixa de diálogo for exibida, navegue até a pasta em que você baixou o arquivo .xlsx de exemplo e selecione-o. Depois que a caixa de diálogo **Navegador** for exibida, clique em **Sheet1** e, em seguida, em **Editar**.
 
-![Uma imagem da tela de "Navegador" do código-fonte de dados no Power BI](../media/tutorials/navigator-dialog-box.png)
+![Uma imagem da tela "Navegador" da fonte de dados no Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI converterá os carimbos de hora na primeira coluna para um `Date/Time` tipo de dados. Essas marcações de tempo devem ser convertidas em texto para que sejam enviados para a API do Detector de anomalias. Se o editor do Power Query não abrir automaticamente, clique em **editar consultas** na guia Início. 
+O Power BI converterá os carimbos de data/hora na primeira coluna em um tipo de dados `Date/Time`. Esses carimbos de data/hora precisam ser convertidos em texto para serem enviados à API do Detector de Anomalias. Se o editor do Power Query não for aberto automaticamente, clique em **Editar Consultas** na guia Página Inicial. 
 
-Clique o **transformar** faixa de opções no Editor do Power Query. No **qualquer coluna** grupo, abra o **tipo de dados:** menu suspenso e selecione **texto**.
+Clique na faixa de opções **Transformar** no Editor do Power Query. No grupo **Qualquer Coluna**, abra o menu suspenso **Tipo de Dados:** e selecione **Texto**.
 
-![Uma imagem da tela de "Navegador" do código-fonte de dados no Power BI](../media/tutorials/data-type-drop-down.png)
+![Uma imagem da tela "Navegador" da fonte de dados no Power BI](../media/tutorials/data-type-drop-down.png)
 
-Quando você receber um aviso sobre como alterar o tipo de coluna, clique em **substituir atual**. Em seguida, clique em **fechar e aplicar** ou **Apply** no **Home** faixa de opções. 
+Quando você receber um aviso sobre a alteração do tipo de coluna, clique em **Substituir Atual**. Em seguida, clique em **Fechar e Aplicar** ou **Aplicar** na faixa de opções **Página Inicial**. 
 
-## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Crie uma função para enviar os dados e formatar a resposta
+## <a name="create-a-function-to-send-the-data-and-format-the-response"></a>Criar uma função para enviar os dados e formatar a resposta
 
-Para formatar e enviar o arquivo de dados para a API do Detector de anomalias, você pode chamar uma consulta na tabela criada acima. No Editor do Power Query, do **página inicial** faixa de opções, abra o **nova fonte** menu suspenso e clique em **consulta em branco**.
+Para formatar e enviar o arquivo de dados para a API do Detector de Anomalias, invoque uma consulta na tabela criada acima. No Editor do Power Query, na faixa de opções **Página Inicial**, abra o menu suspenso **Nova Fonte** e clique em **Consulta em Branco**.
 
-Verifique se sua nova consulta está selecionada e clique em **Editor Avançado**. 
+Verifique se a nova consulta está selecionada e, em seguida, clique em **Editor Avançado**. 
 
 ![Uma imagem do botão "Editor Avançado" no Power BI](../media/tutorials/advanced-editor-screen.png)
 
-No Editor Avançado, use o seguinte trecho do Power Query M para extrair as colunas da tabela e enviá-lo para a API. Depois disso, a consulta criará uma tabela da resposta JSON e retorná-lo. Substitua os `apiKey` variável com sua chave de API do Detector de anomalias válido, e `endpoint` com seu ponto de extremidade. Depois de inserir a consulta no Editor Avançado, clique em **feito**.
+No Editor Avançado, use o snippet do Power Query M a seguir para extrair as colunas da tabela e enviá-la à API. Depois disso, a consulta criará uma tabela com base na resposta JSON e a retornará. Substitua a variável `apiKey` pela chave de API válida do Detector de Anomalias e `endpoint` pelo ponto de extremidade. Depois de inserir a consulta no Editor Avançado, clique em **Concluído**.
 
 ```M
 (table as table) => let
@@ -112,65 +112,65 @@ No Editor Avançado, use o seguinte trecho do Power Query M para extrair as colu
  in results
 ```
 
-Invocar a consulta em sua folha de dados, selecionando `Sheet1` abaixo **Inserir parâmetro**e clique em **Invoke**. 
+Invoque a consulta na folha de dados selecionando `Sheet1` abaixo de **Inserir Parâmetro** e clique em **Invocar**. 
 
 ![Uma imagem do botão "Editor Avançado"](../media/tutorials/invoke-function-screenshot.png)
 
-## <a name="data-source-privacy-and-authentication"></a>Autenticação e a privacidade de fonte de dados
+## <a name="data-source-privacy-and-authentication"></a>Privacidade e autenticação da fonte de dados
 
 > [!NOTE]
-> Esteja ciente das políticas da sua organização para acesso e privacidade de dados. Ver [níveis de privacidade do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels) para obter mais informações.
+> Esteja ciente das políticas de sua organização referentes ao acesso a dados e à privacidade de dados. Confira [Níveis de privacidade do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels) para obter mais informações.
 
-Você poderá receber uma mensagem de aviso quando você tentar executar a consulta, pois ele utiliza uma fonte de dados externa. 
+Talvez você receba uma mensagem de aviso quando tentar executar a consulta, pois ela utiliza uma fonte de dados externa. 
 
-![Uma imagem que mostra um aviso criado pelo Power BI](../media/tutorials/blocked-function.png)
+![Uma imagem mostrando um aviso criado pelo Power BI](../media/tutorials/blocked-function.png)
 
-Para corrigir isso, clique em **arquivo**, e **opções e configurações**. Em seguida, clique em **opções**. Abaixo **arquivo atual**, selecione **privacidade**, e **Ignore os níveis de privacidade e potencialmente melhorar o desempenho**. 
+Para corrigir isso, clique em **Arquivo** e **Opções e configurações**. Em seguida, clique em **Opções**. Abaixo de **Arquivo Atual**, selecione **Privacidade** e **Ignorar os Níveis de Privacidade e melhorar potencialmente o desempenho**. 
 
-Além disso, você pode obter uma mensagem solicitando que você especifique como você deseja se conectar à API.
+Além disso, talvez você receba uma mensagem solicitando que especifique como deseja se conectar à API.
 
-![Uma imagem que mostra uma solicitação para especificar credenciais de acesso](../media/tutorials/edit-credentials-message.png)
+![Uma imagem mostrando uma solicitação para especificar as credenciais de acesso](../media/tutorials/edit-credentials-message.png)
 
-Para corrigir isso, clique em **Editar credenciais** na mensagem. Depois que a caixa de diálogo for exibida, selecione **Anonymous** para conectar-se anonimamente para a API. E clique em **Conectar**. 
+Para corrigir isso, clique em **Editar Credenciais** na mensagem. Depois que a caixa de diálogo for exibida, selecione **Anônimo** para se conectar anonimamente à API. E clique em **Conectar**. 
 
-Em seguida, clique em **fechar e aplicar** na **Home** faixa de opções para aplicar as alterações.
+Depois disso, clique em **Fechar e Aplicar** na faixa de opções **Página Inicial** para aplicar as alterações.
 
-## <a name="visualize-the-anomaly-detector-api-response"></a>Visualize a resposta da API do Detector de anomalias
+## <a name="visualize-the-anomaly-detector-api-response"></a>Visualizar a resposta da API do Detector de Anomalias
 
-Na tela principal do Power BI, comece a usar as consultas criadas acima ao visualizar os dados. Primeiro, selecione **gráfico de linhas** na **visualizações**. Em seguida, adicione o carimbo de hora da função de chamada para o gráfico de linhas **eixo**. Clique com botão direito nele e selecione **carimbo de hora**. 
+Na tela principal do Power BI, comece a usar as consultas criadas acima para visualizar os dados. Primeiro selecione **Gráfico de Linhas** em **Visualizações**. Em seguida, adicione o carimbo de data/hora da função invocada ao **Eixo** do gráfico de linhas. Clique com o botão direito do mouse nele e selecione **Carimbo de data/hora**. 
 
-![Clicando duas vezes o valor de carimbo de hora](../media/tutorials/timestamp-right-click.png)
+![Clique com o botão direito do mouse no valor do Carimbo de data/hora](../media/tutorials/timestamp-right-click.png)
 
-Adicione os seguintes campos do **função invocada** para o gráfico **valores** campo. Use a captura de tela para ajudar a criar o gráfico abaixo.
+Adicione os campos a seguir da **Função Invocada** ao campo **Valores** do gráfico. Use a captura de tela abaixo para ajudar a criar o gráfico.
 
-    * Value
+    * Valor
     * UpperMargins
     * LowerMargins
     * ExpectedValues
 
-![Uma imagem da tela nova medida rápida](../media/tutorials/chart-settings.png)
+![Uma imagem da tela da nova medida rápida](../media/tutorials/chart-settings.png)
 
-Depois de adicionar os campos, clique no gráfico e redimensione-a para mostrar todos os pontos de dados. O gráfico parecerá com a captura de tela abaixo:
+Depois de adicionar os campos, clique no gráfico e redimensione-o para mostrar todos os pontos de dados. O gráfico será semelhante à captura de tela abaixo:
 
-![Uma imagem da tela nova medida rápida](../media/tutorials/chart-visualization.png)
+![Uma imagem da tela da nova medida rápida](../media/tutorials/chart-visualization.png)
 
 ### <a name="display-anomaly-data-points"></a>Exibir pontos de dados de anomalias
 
-No lado direito da janela do Power BI, abaixo a **CAMPOS** painel, clique com botão direito em **valor** sob o **consulta de função invocada**e clique em **novo rápido medida**.
+No lado direito da janela do Power BI, abaixo do painel **CAMPOS**, clique com o botão direito do mouse em **Valor** abaixo da **Consulta de Função Invocada** e clique em **Nova medida rápida**.
 
-![Uma imagem da tela nova medida rápida](../media/tutorials/new-quick-measure.png)
+![Uma imagem da tela da nova medida rápida](../media/tutorials/new-quick-measure.png)
 
-Na tela que aparece, selecione **filtrado valor** como o cálculo. Definir **valor de Base** para `Sum of Value`. Em seguida, arraste `IsAnomaly` do **função invocada** campos **filtro**. Selecione `True` do **filtro** menu suspenso.
+Na tela exibida, selecione **Valor filtrado** como o cálculo. Defina **Valor Base** como `Sum of Value`. Em seguida, arraste `IsAnomaly` dos campos **Função Invocada** para **Filtro**. Selecione `True` no menu suspenso **Filtro**.
 
-![Uma imagem da tela nova medida rápida](../media/tutorials/new-quick-measure-2.png)
+![Uma imagem da tela da nova medida rápida](../media/tutorials/new-quick-measure-2.png)
 
-Depois de clicar em **Okey**, você terá um `Value for True` campo na parte inferior da lista de seus campos. Clique duas vezes e renomeie-o para **anomalias**. Adicioná-lo para o gráfico **valores**. Em seguida, selecione a **formato** ferramenta e defina o tipo de eixo x como **categórico**.
+Depois de clicar em **OK**, você terá um campo `Value for True` na parte inferior da lista de campos. Clique com o botão direito do mouse nele e renomeie-o para **Anomalias**. Adicione-o aos **Valores** do gráfico. Em seguida, selecione a ferramenta **Formato** e defina o tipo do eixo X como **Categórico**.
 
-![Uma imagem da tela nova medida rápida](../media/tutorials/format-x-axis.png)
+![Uma imagem da tela da nova medida rápida](../media/tutorials/format-x-axis.png)
 
-Aplicar cores ao gráfico clicando na **formato** ferramenta e **cores de dados**. O gráfico deve ser algo semelhante ao seguinte:
+Aplique cores ao gráfico clicando na ferramenta **Formato** e **Cores de dados**. O gráfico deverá ter uma aparência semelhante à seguinte:
 
-![Uma imagem da tela nova medida rápida](../media/tutorials/final-chart.png)
+![Uma imagem da tela da nova medida rápida](../media/tutorials/final-chart.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

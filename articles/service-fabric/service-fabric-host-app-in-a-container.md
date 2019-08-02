@@ -3,7 +3,7 @@ title: Implantar um aplicativo .NET em um contêiner do Azure Service Fabric | M
 description: Saiba como colocar um aplicativo existente do .NET em um contêiner usando o Visual Studio e depure os contêineres no Service Fabric localmente. O aplicativo colocado em um contêiner é enviado por push para um registro de contêiner do Azure e implantado em um cluster do Service Fabric. Quando implantado no Azure, o aplicativo usa o Banco de Dados SQL do Azure para manter os dados.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/18/2018
-ms.author: aljo
-ms.openlocfilehash: 33f742c7de340df41f5d946c891e9896d7d2a012
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/08/2019
+ms.author: atsenthi
+ms.openlocfilehash: 66d668821c47854d006f2efa425d38f9bf1df7d0
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66119059"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599508"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Tutorial: Implantar um aplicativo .NET em um contêiner do Windows no Azure Service Fabric
 
@@ -41,12 +41,12 @@ Neste tutorial, você aprenderá como:
 1. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 2. Instalar o [Docker CE para Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description) de forma que você possa executar contêineres no Windows 10.
 3. Instalar a [versão 6.2 ou posterior de tempo de execução do Service Fabric](service-fabric-get-started.md) e a [versão 3.1 do SDK do Service Fabric](service-fabric-get-started.md) ou posterior.
-4. Instalar o [Visual Studio 2017 versão 15.7](https://www.visualstudio.com/) ou posterior com as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
+4. Instale o [Visual Studio 2019 versão 16.1](https://www.visualstudio.com/) ou posterior com as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento para a Web e ASP.NET**.
 5. Instalar o [Azure PowerShell][link-azure-powershell-install]
  
 
 ## <a name="download-and-run-fabrikam-fiber-callcenter"></a>Baixar e executar o Fabrikam Fiber CallCenter
-Baixar o aplicativo de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique no link **baixar arquivo**.  No diretório *sourceCode* no arquivo *fabrikam.zip*, extraia o arquivo *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* no seu computador.
+Baixe o aplicativo de exemplo [Fabrikam Fiber CallCenter][link-fabrikam-github].  Clique no link **baixar arquivo**.  No diretório *sourceCode* no arquivo *fabrikam.zip*, extraia o arquivo *sourceCode.zip* e, em seguida, extraia o diretório *VS2015* no seu computador.
 
 Verifique se o aplicativo Fabrikam fibra CallCenter é compilado e executado sem erros.  Inicie o Visual Studio como um **administrador** e abra o arquivo [FabrikamFiber.CallCenter.sln][link-fabrikam-github].  Pressione F5 para depurar e executar o aplicativo.
 
@@ -161,11 +161,11 @@ Ao criar o cluster,
 
 2. Entre usando sua conta do Azure para que você possa ter acesso às assinaturas. 
 
-3. Selecione a lista suspensa para o **Ponto de Extremidade de Conexão** e selecione a opção **Criar Novo Cluster...**.    
+3. Selecione a lista suspensa para o **Ponto de Extremidade de Conexão** e selecione a opção **Criar Novo Cluster...** .    
         
 4. Na caixa de diálogo **Criar cluster**, modifique as seguintes configurações:
 
-     a. Especifique o nome do cluster no campo **Nome do Cluster**, bem como a assinatura e o local que você deseja usar. Anote o nome do seu grupo de recursos de cluster.
+    a. Especifique o nome do cluster no campo **Nome do Cluster**, bem como a assinatura e o local que você deseja usar. Anote o nome do seu grupo de recursos de cluster.
 
     b. Opcional: é possível modificar o número de nós. Por padrão, existem três nós, o mínimo necessário para testar cenários do Service Fabric.
 

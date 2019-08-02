@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 902696e35a2447b67dab74b73794b80ad5e26511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5638710c4c01d361d108cfef69869fad1a7dad1a
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083746"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304367"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Compartilhar contas com o AD do Azure
 ## <a name="overview"></a>Visão geral
@@ -67,11 +67,10 @@ Para usar o Azure Active Directory para compartilhar uma conta, você precisará
 * Adicionar uma [galeria de aplicativos](https://azure.microsoft.com/marketplace/active-directory/) do aplicativo ou um [aplicativo personalizado](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configurar o aplicativo para logon único (SSO) com senha
 * Usar a [atribuição baseada em grupo](groups-saasapps.md) e selecionar a opção para inserir uma credencial compartilhada
-* Opcional: em alguns aplicativos, como o Facebook, Twitter ou LinkedIn, você pode habilitar a opção para a [Substituição de senha automatizada do AD do Azure](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/)
 
 Você também pode tornar sua conta compartilhada mais segura com a MFA (Autenticação Multifator) (saiba mais sobre [como proteger os aplicativos com o Azure AD](../authentication/concept-mfa-whichversion.md)) e delegar a capacidade de gerenciar quem tem acesso ao aplicativo usando o gerenciamento de grupos de [autoatendimento do Azure AD](groups-self-service-management.md).
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Gerenciamento de aplicativos no Microsoft Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Proteger aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
+* [Protegendo aplicativos com acesso condicional](../active-directory-conditional-access-azure-portal.md)
 * [Gerenciamento de grupo de autoatendimento/SSAA](groups-self-service-management.md)

@@ -1,6 +1,6 @@
 ---
 title: Testar o aplicativo no portal do LUIS
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use o LUIS (Serviço Inteligente de Reconhecimento Vocal) para trabalhar continuamente em seu aplicativo para refiná-lo e melhorar seu reconhecimento vocal.
 services: cognitive-services
 author: diberry
@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 31d979b92bdf050f28ac5d7549218016dc5e473c
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198999"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637952"
 ---
-# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
 <a name="train-your-app"></a>
-[O teste](luis-concept-test.md) de um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso contrário, faça atualizações no aplicativo LUIS, treine e teste novamente. 
+
+# <a name="test-your-luis-app-in-the-luis-portal"></a>Testar seu aplicativo LUIS no portal do LUIS
+
+[Testar](luis-concept-test.md) um aplicativo é um processo iterativo. Após treinar seu aplicativo LUIS, teste-o com declarações de exemplo para ver se as intenções e as entidades são reconhecidas corretamente. Caso contrário, faça atualizações no aplicativo LUIS, treine e teste novamente. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>
@@ -31,13 +33,13 @@ ms.locfileid: "60198999"
 
 1. Acesse seu aplicativo selecionando seu nome na página **Meus aplicativos**. 
 
-2. Para acessar o painel extensível **Testar**, selecione **Testar** no painel superior do seu aplicativo.
+1. Para acessar o painel extensível **Testar**, selecione **Testar** no painel superior do seu aplicativo.
 
     ![Página Treinar e testar aplicativo](./media/luis-how-to-interactive-test/test.png)
 
-3. Insira uma declaração na caixa de texto e selecione Enter. É possível digitar quantas declarações de teste você desejar no **Teste**, mas apenas uma declaração por vez.
+1. Insira uma declaração na caixa de texto e selecione Enter. É possível digitar quantas declarações de teste você desejar no **Teste**, mas apenas uma declaração por vez.
 
-4. A declaração, sua principal intenção e a pontuação são adicionadas à lista de declarações embaixo da caixa de texto.
+1. A declaração, sua principal intenção e a pontuação são adicionadas à lista de declarações embaixo da caixa de texto.
 
     ![O teste interativo identifica a intenção incorreta](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -49,7 +51,7 @@ Inspecione detalhes do resultado do teste no painel **Inspecionar**.
 
     ![Selecione o botão Inspecionar para ver mais detalhes sobre os resultados do teste](./media/luis-how-to-interactive-test/inspect.png)
 
-2. O painel **Inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
+1. O painel **Inspeção** é exibido. O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.
 
     ![O painel inclui a principal intenção de pontuação e as entidades identificadas. O painel mostra o resultado da declaração selecionada.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -57,7 +59,7 @@ Inspecione detalhes do resultado do teste no painel **Inspecionar**.
 
 1. Se a principal intenção de pontuação estiver incorreta, selecione o botão **Editar**.
 
-2.  Na lista suspensa, selecione a intenção correta para a declaração.
+1.  Na lista suspensa, selecione a intenção correta para a declaração.
 
     ![Selecionar intenção correta](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -103,16 +105,14 @@ Use o seguinte procedimento para incluir o serviço [Verificação Ortográfica 
 
 1. No painel **Teste**, insira uma declaração. Quando as declarações são previstas, selecione **[Inspecionar](#inspect-score)** embaixo da declaração inserida. 
 
-2. Quando o painel **Inspecionar** abrir, selecione **[Comparar com publicado](#compare-with-published-version)** . 
+1. Quando o painel **Inspecionar** abrir, selecione **[Comparar com publicado](#compare-with-published-version)** . 
 
-3. Quando o painel **Publicado** abrir, selecione **[Configurações Adicionais](#additional-settings-in-test-panel)** .
+1. Quando o painel **Publicado** abrir, selecione **[Configurações Adicionais](#additional-settings-in-test-panel)** .
 
-4. Na caixa de diálogo pop-up, insira sua chave de serviço da **Verificação Ortográfica do Bing**. 
-    ![Inserir chave de serviço da Verificação Ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. Na caixa de diálogo pop-up, marque **habilitar verificação ortográfica do Bing** e insira a chave e, em seguida, selecione **concluído**. 
+    ![Inserir chave de serviço da Verificação Ortográfica do Bing](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Insira uma consulta com uma ortografia incorreta como `book flite to seattle` e selecione enter. A ortografia incorreta da palavra `flite` é substituída na consulta enviada para o LUIS e o JSON resultante mostra a consulta original, como `query`, e a ortografia correta na consulta, como `alteredQuery`.
-
-    ![JSON de ortografia corrigido](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Insira uma consulta com uma ortografia incorreta como `book flite to seattle` e selecione enter. A ortografia incorreta da palavra `flite` é substituída na consulta enviada para o LUIS e o JSON resultante mostra a consulta original, como `query`, e a ortografia correta na consulta, como `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>
@@ -125,7 +125,7 @@ Use o seguinte procedimento para incluir o serviço [Verificação Ortográfica 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
 
-## <a name="batch-testing"></a>Teste de lote
+## <a name="batch-testing"></a>Teste em lote
 Confira os [conceitos](luis-concept-batch-test.md) de teste do lote e saiba [como](luis-how-to-batch-test.md) testar um lote de declarações.
 
 ## <a name="next-steps"></a>Próximas etapas

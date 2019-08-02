@@ -3,16 +3,17 @@ title: Autenticação do Registro de Contêiner do Azure com entidades de servi�
 description: Fornecer acesso a imagens em seu registro de contêiner particular usando uma entidade de serviço do Azure Active Directory.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 5d8904b5906adbdab68989b3a5cf9c3975c23533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c45a009b155eea7bc61a9dd337090b9e3c1b42
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61347049"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68309956"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Autenticação do Registro de Contêiner do Azure com entidades de serviço
 
@@ -34,7 +35,7 @@ Por exemplo, o aplicativo Web pode usar uma entidade de serviço que fornece som
 
 Você deve usar uma entidade de serviço para fornecer o acesso de registro em **cenários “sem periféricos”** . Em outras palavras, qualquer aplicativo, serviço ou script que precisa enviar por push ou efetuar pull de imagens de contêiner de maneira automatizada ou autônoma.
 
-Para acesso individual a um registro, como quando você efetua pull manualmente de uma imagem de contêiner para sua estação de trabalho de desenvolvimento, você deve usar sua própria [identidade do Azure AD](container-registry-authentication.md#individual-login-with-azure-ad) para acesso de registro (por exemplo, com [az acr login][az-acr-login]).
+Para acesso individual a um registro, como quando você efetua pull manualmente de uma imagem de contêiner para sua estação de trabalho de desenvolvimento, você deve usar sua própria [identidade do Azure ad](container-registry-authentication.md#individual-login-with-azure-ad) para acesso ao registro (por exemplo, com [AZ ACR login][az-acr-login]).
 
 [!INCLUDE [container-registry-service-principal](../../includes/container-registry-service-principal.md)]
 
@@ -43,7 +44,7 @@ Para acesso individual a um registro, como quando você efetua pull manualmente 
 Você pode encontrar os scripts de exemplo anteriores para a CLI do Azure no GitHub, bem como versões do Azure PowerShell:
 
 * [CLI do Azure][acr-scripts-cli]
-* [Azure PowerShell][acr-scripts-psh]
+* [PowerShell do Azure][acr-scripts-psh]
 
 ## <a name="next-steps"></a>Próximas etapas
 

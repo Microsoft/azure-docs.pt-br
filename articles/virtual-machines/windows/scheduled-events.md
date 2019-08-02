@@ -4,7 +4,7 @@ description: Agendado eventos usando o serviço de metadados do Azure para em su
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddd34147848ecb3a964eac3d618b452f5eb43f19
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65508191"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710296"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Windows
 
@@ -64,11 +64,11 @@ Se a Máquina Virtual não for criada em uma Rede Virtual, casos padrão para se
 ### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
 O serviço de eventos agendados tem controle de versão. As versões são obrigatórias e a versão atual é `2017-11-01`.
 
-| Version | Tipo de Versão | Regiões | Notas de versão | 
+| Versão | Tipo de Versão | Regions | Notas de versão | 
 | - | - | - | - |
 | 2017-11-01 | Disponibilidade geral | Todos | <li> Adicionado suporte para remoção de VMs de baixa prioridade EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade geral | Todos | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de IaaS<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
-| 2017-03-01 | Visualização | Todos |<li>Versão inicial
+| 2017-03-01 | Visualizar | Todos |<li>Versão inicial
 
 > [!NOTE] 
 > Versões de visualização anteriores de eventos agendados compatíveis {mais recentes} como a api-version. Esse formato não é mais suportado e será substituído no futuro.

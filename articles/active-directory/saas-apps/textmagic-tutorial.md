@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1184e282c8dc52cb616bcc47068d96fe61651da9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088870"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Tutorial: Integração do Azure Active Directory ao TextMagic
 
@@ -54,7 +54,7 @@ Para configurar a integração do TextMagic ao Azure AD, você precisa adicionar
 
 **Para adicionar o TextMagic da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -116,13 +116,13 @@ Para configurar o logon único do Azure AD com o TextMagic, siga estas etapas:
 
     | NOME |   Atributo de Origem| Namespace  |
     | --------------- | --------------- | --------------- |
-    | company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | phone               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | phone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -166,11 +166,11 @@ Para configurar o logon único do Azure AD com o TextMagic, siga estas etapas:
 
     ![Configuração do TextMagic](./media/textmagic-tutorial/config2.png)
 
-     a. Na caixa de texto **Provedor de Identidade ID de Entidade** , cole o valor do **Identificador do Microsoft Azure Active Directory**, que você copiou do portal do Azure.
+    a. Na caixa de texto **Provedor de Identidade ID de Entidade** , cole o valor do **Identificador do Microsoft Azure Active Directory**, que você copiou do portal do Azure.
 
-    b. Na caixa de texto **URL SSO do provedor de identidade:** , cole o valor da **URL de Login**, que você copiou do portal do Azure.
+    b. Na caixa de texto **URL SSO do provedor de identidade:**  , cole o valor da **URL de Login**, que você copiou do portal do Azure.
 
-    c. Na caixa de texto **URL SSO do provedor de identidade:** , cole o valor da **URL de Logout**, que você copiou do portal do Azure.
+    c. Na caixa de texto **URL SSO do provedor de identidade:**  , cole o valor da **URL de Logout**, que você copiou do portal do Azure.
 
     d. Abra seu certificado codificado em **base-64** no bloco de notas baixado do portal do Azure, copie o conteúdo dele para a área de transferência e cole-o na caixa de texto  **Certificado Público x509** .
 
@@ -194,7 +194,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension**. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **Nome de usuário**, digite **brittasimon@yourcompanydomain.extension** . Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
 
@@ -243,4 +243,4 @@ Ao clicar no bloco do TextMagic no Painel de Acesso, você deverá entrar automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -2,19 +2,19 @@
 title: 'Início Rápido: Compilar, implantar e usar um modelo personalizado – Tradutor Personalizado'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você percorre passo a passo o processo de criação de um sistema de tradução usando o Tradutor Personalizado.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: aa38bbf211c9d62bcb9051a7ddc7f7d404add585
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: a450a91f29a9118c9e4c83f6bb964bac2d6ffb3c
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389622"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595544"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Início Rápido: Compilar, implantar e usar um modelo personalizado para tradução
 

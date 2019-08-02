@@ -4,18 +4,16 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: b46a2b18309851bbe2934980137a53d2de6f6efc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58631169"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "67135326"
 ---
-## <a name="set-up-your-device"></a>Configurar seu dispositivo
+## <a name="set-up-your-device-in-unity"></a>Configurar seu dispositivo no Unity
 
-No Unity, abra o projeto na pasta `Unity`.
-
-![Janela do Unity](./media/spatial-anchors-unity/unity-window.png)
+[!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
 ### <a name="set-up-an-android-device"></a>Configurar um dispositivo Android
 
@@ -43,20 +41,26 @@ Entre em seu dispositivo Android e conecte-o em seu computador usando um cabo US
 
 Abra **Configurações de Build** selecionando **Arquivo** > **Configurações de Build**.
 
-Em **Cenas em Build**, coloque uma marca de seleção ao lado da cena `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` e remova as marcas de seleção de todas as outras cenas.
+Sob **Cenas em compilação**, verifique se todas as cenas tem uma marca de seleção ao lado deles.
 
 Certifique-se de que **Exportar projeto** não tem uma marca de seleção. Selecione **Compilar e Executar**. Você será solicitado a salvar seu `.apk` arquivo. Você pode escolher qualquer nome para ele.
 
-Siga as instruções no aplicativo. Você pode optar por **Criar e Compartilhar Âncora** ou **Localizar Âncora Compartilhada**. O primeiro cenário permite que você crie uma âncora que posteriormente pode ser localizada no mesmo dispositivo ou em um diferente. O segundo cenário, se você já tiver executado o aplicativo, seja no mesmo dispositivo ou em um dispositivo diferente, permitirá localizar âncoras compartilhadas anteriormente. Depois de escolher seu cenário, o aplicativo o guiará com mais instruções sobre o que fazer. Por exemplo, você será solicitado a mover seu dispositivo para coletar informações sobre o ambiente. No futuro, você vai colocar uma âncora no mundo, aguardará enquanto ela carrega e assim por diante.
+Depois que o aplicativo é iniciado, na caixa de diálogo **Escolher uma demonstração**, use as setas à esquerda ou direita para selecionar a opção **LocalShare** e, em seguida, toque em **Ir!** . Siga as instruções no aplicativo. Você pode optar por **Criar e Compartilhar Âncora** ou **Localizar Âncora Compartilhada**.
+
+O primeiro cenário permite que você crie uma âncora que posteriormente pode ser localizada no mesmo dispositivo ou em um diferente.
+O segundo cenário, se você já tiver executado o aplicativo, seja no mesmo dispositivo ou em um dispositivo diferente, permitirá localizar âncoras compartilhadas anteriormente. Depois de escolher seu cenário, o aplicativo fornecerá mais instruções sobre o que fazer. Por exemplo, você será solicitado a mover seu dispositivo para coletar informações sobre o ambiente. No futuro, você poderá colocar uma âncora no mundo, aguardar até salvar e assim por diante.
 
 ### <a name="deploy-to-an-ios-device"></a>Implantar em um dispositivo iOS
 
 Abra **Configurações de Build** selecionando **Arquivo** > **Configurações de Build**.
 
-Em **Cenas em Build**, coloque uma marca de seleção ao lado da cena `AzureSpatialAnchorsPlugin/Examples/AzureSpatialAnchorsLocalSharedDemo` e remova as marcas de seleção de todas as outras cenas.
+Sob **Cenas em compilação**, verifique se todas as cenas tem uma marca de seleção ao lado deles.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Siga as instruções no aplicativo. Você pode optar por **Criar e Compartilhar Âncora** ou **Localizar Âncora Compartilhada**. O primeiro cenário permite que você crie uma âncora que posteriormente pode ser localizada no mesmo dispositivo ou em um diferente. O segundo cenário, se você já tiver executado o aplicativo, seja no mesmo dispositivo ou em um dispositivo diferente, permitirá localizar âncoras compartilhadas anteriormente. Depois de escolher seu cenário, o aplicativo o guiará com mais instruções sobre o que fazer. Por exemplo, você será solicitado a mover seu dispositivo para coletar informações sobre o ambiente. No futuro, você vai colocar uma âncora no mundo, aguardará enquanto ela carrega e assim por diante.
+Depois que o aplicativo é iniciado, na caixa de diálogo **Escolher uma demonstração**, use as setas à esquerda ou direita para selecionar a opção **LocalShare** e, em seguida, toque em **Ir!** . Siga as instruções no aplicativo. Você pode optar por **Criar e Compartilhar Âncora** ou **Localizar Âncora Compartilhada**.
+
+O primeiro cenário permite que você crie uma âncora que posteriormente pode ser localizada no mesmo dispositivo ou em um diferente.
+O segundo cenário, se você já tiver executado o aplicativo, seja no mesmo dispositivo ou em um dispositivo diferente, permitirá localizar âncoras compartilhadas anteriormente. Depois de escolher seu cenário, o aplicativo fornecerá mais instruções sobre o que fazer. Por exemplo, você será solicitado a mover seu dispositivo para coletar informações sobre o ambiente. No futuro, você poderá colocar uma âncora no mundo, aguardar até salvar e assim por diante.
 
 No Xcode, interrompa o aplicativo selecionando **Parar**.

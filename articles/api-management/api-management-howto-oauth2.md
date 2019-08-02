@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: b195271edeea6cd5ea527454ad1615ac85a32138
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7b003c588d7b079823bb046676a1226828fcae2
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60658522"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249869"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Como autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de API do Azure
 
@@ -29,14 +29,14 @@ Muitas APIs dão suporte ao [OAuth 2.0](https://oauth.net/2/) para proteger a AP
 Este guia mostra como configurar sua instância de serviço de Gerenciamento de API para usar a autorização OAuth 2.0 para contas do desenvolvedor, mas não mostra como configurar um provedor OAuth 2.0. A configuração para cada provedor OAuth 2.0 é diferente, embora as etapas sejam semelhantes e as peças de informações necessárias usadas ao configurar o OAuth 2.0 na sua instância de serviço de Gerenciamento de API sejam as mesmas. Este tópico mostra exemplos ao usar o Active Directory do Azure como um provedor OAuth 2.0.
 
 > [!NOTE]
-> Para obter mais informações sobre a configuração do OAuth 2.0 usando o Azure Active Directory, consulte a amostra [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
+> Para obter mais informações sobre a configuração do OAuth 2.0 usando o Active Directory do Azure, consulte a amostra [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet].
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>Configurar um servidor de autorização do OAuth 2.0 no Gerenciamento de API
 
 > [!NOTE]
-> Se você ainda não tiver criado uma instância de serviço de Gerenciamento de API, consulte [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance].
+> Se você ainda não criou uma instância de serviço de gerenciamento de API, consulte [criar uma instância de serviço de gerenciamento de API][Create an API Management service instance].
 
 1. Clique na guia OAuth 2.0 no menu esquerdo e clique em **+Adicionar**.
 
@@ -55,9 +55,9 @@ Este guia mostra como configurar sua instância de serviço de Gerenciamento de 
 
     Especifique os **Tipos de concessão da autorização** ao verificar os tipos desejados. **código de autorização** é especificado por padrão.
 
-    Digite a **URL do ponto de extremidade de autorização**. Para o Active Directory do Azure, essa URL será semelhante à URL seguinte, em que `<client_id>` é substituído pela ID do cliente que identifica seu aplicativo para o servidor OAuth 2.0.
+    Digite a **URL do ponto de extremidade de autorização**. Por Azure Active Directory, essa URL será semelhante à URL a seguir, em que `<tenant_id>` é substituída pela ID do seu locatário do Azure AD.
 
-    `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
+    `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     O **método de solicitação de autorização** especifica como a solicitação de autorização é enviada para o servidor OAuth 2.0. O **GET** é selecionado por padrão.
 

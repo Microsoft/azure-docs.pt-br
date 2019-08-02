@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: Fazer a transição para um certificado de gateway de autoridade de certificação pública para P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
+        - name: Configurar um túnel de dispositivo VPN Always On
+          href: vpn-gateway-howto-always-on-device-tunnel.md
     - name: Criar um gateway de VNet com redundância de zona nas Zonas de Disponibilidade do Azure
       href: create-zone-redundant-vnet-gateway.md
     - name: Configurar políticas de IPsec/IKE nas conexões

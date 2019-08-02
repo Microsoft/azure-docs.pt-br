@@ -22,7 +22,7 @@
       href: quick-create-template.md
 - name: Tutoriais
   items:
-    - name: 'Aplicativos Web do Azure '
+    - name: Aplicativos Web do Azure
       items:
         - name: Azure Key Vault com o Aplicativo Web do Azure no .NET
           href: tutorial-net-create-vault-azure-web-app.md
@@ -164,8 +164,6 @@
       href: common-parameters-and-headers.md
     - name: Dados do Cliente
       href: key-vault-customer-data.md
-    - name: Notas de versão
-      href: key-vault-versions.md
     - name: Preços
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Disponibilidade de região

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/22/2019
 ms.author: tarcher
 ms.openlocfilehash: eb96027351cf244e9cd4404f702544411130db5e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142177"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172612"
 ---
 O [Barramento de Serviço do Azure](/azure/service-bus-messaging/service-bus-messaging-overview) é um agente de mensagens de [integração](https://azure.microsoft.com/product-categories/integration/) empresarial. O barramento de serviço é compatível com dois tipos de comunicação: filas e tópicos. 
 

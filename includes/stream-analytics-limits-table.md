@@ -1,10 +1,10 @@
 ---
 ms.openlocfilehash: 1bf7f3c15b40590c400e8a730de20c199bb1b4c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238799"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172318"
 ---
 ---
 | Identificador de limite | Limite | Comentários |

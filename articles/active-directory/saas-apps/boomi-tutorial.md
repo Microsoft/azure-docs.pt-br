@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 114d29d11e51209d5ac788ae25413b5b989b84f4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957173"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Azure Active Directory com o Boomi
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Boomi, execute as seguintes eta
 
     ![Informações de logon único de Domínio e URLs do Boomi](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://platform.boomi.com/`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://platform.boomi.com/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://platform.boomi.com/sso/<boomi-tenant>/saml`
 
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o Boomi, execute as seguintes eta
     | ---------------|  --------- |
     | FEDERATION_ID | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -164,7 +164,7 @@ Para configurar o logon único do Azure AD com o Boomi, execute as seguintes eta
 
     ![Configurar o logon único no lado do aplicativo](./media/boomi-tutorial/tutorial_boomi_11.png)
 
-     a. Marque a caixa de seleção **Habilitar Logon Único do SAML**.
+    a. Marque a caixa de seleção **Habilitar Logon Único do SAML**.
 
     b. Clique em **Importar** para carregar o certificado baixado do Azure AD no **Certificado do Provedor de Identidade**.
 
@@ -243,7 +243,7 @@ Para permitir que os usuários do Azure AD façam logon no Boomi, eles deverão 
 
     ![Usuários](./media/boomi-tutorial/tutorial_boomi_003.png "Usuários")
 
-     a. Na caixa de texto **Endereço de email do usuário**, digite o email do usuário, como BrittaSimon@contoso.com.
+    a. Na caixa de texto **Endereço de email do usuário**, digite o email do usuário, como BrittaSimon@contoso.com.
 
     b. Na caixa de texto **Nome**, digite o Nome do usuário como Brenda.
 
@@ -270,5 +270,5 @@ Ao clicar no bloco do Boomi no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -5,29 +5,27 @@ services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
-ms.date: 02/02/2018
+ms.date: 06/14/2019
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: cd7fc7487a41979f37c9a55baeb0b8e172e808c4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e699707db02de07f3d1ebb7d1fa8d0575a10aa3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133158"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836902"
 ---
-No Azure Cloud Shell, configure credenciais de implantação com o comando [`az webapp deployment user set`](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set). Esse usuário de implantação é necessário para a implantação do FTP e do Git local em um aplicativo Web. O nome de usuário e senha são o nível de conta. _São diferentes das credenciais da sua assinatura do Azure._
+O FTP e o Git local podem implantar em um aplicativo Web do Azure usando um *usuário de implantação*. Após configurar o usuário de implantação, use-o em todas as implantações do Azure. O nome de usuário e a senha da implantação no nível da conta são diferentes das credenciais de assinatura do Azure. 
 
-No exemplo a seguir, substitua *\<nome de usuário>* e *\<senha>* (incluindo os colchetes) por um novo nome de usuário e senha. O nome do usuário deve ser exclusivo no Azure. A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos. 
+Para configurar o usuário de implantação, execute o comando [az webapp deployment user set](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set) no Azure Cloud Shell. Substitua \<username> e \<password> pelo nome de usuário e a senha do usuário de implantação. 
+
+- O nome de usuário deve ser exclusivo no Azure. Para envios por push do Git local, não deve conter o símbolo "\@". 
+- A senha deve ter pelo menos oito caracteres, com dois destes três elementos: letras, números, símbolos. 
 
 ```azurecli-interactive
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-Você obterá uma saída JSON com a senha mostrada como `null`. Se receber um erro `'Conflict'. Details: 409`, altere o nome de usuário. Se receber um erro `'Bad Request'. Details: 400`, use uma senha mais forte. O nome de usuário da implantação não deve conter o símbolo “@” para pushes locais do Git.
+A saída JSON mostra a senha como `null`. Se receber um erro `'Conflict'. Details: 409`, altere o nome de usuário. Se receber um erro `'Bad Request'. Details: 400`, use uma senha mais forte. 
 
-É necessário configurar esse usuário de implantação somente uma vez. Você pode usá-lo para todas as implantações do Azure.
-
-> [!NOTE]
-> Registre o nome de usuário e a senha. Você precisará delas para implantar o aplicativo Web mais tarde.
->
->
+Registre seu nome de usuário e senha para usá-los na implantação de aplicativos Web.

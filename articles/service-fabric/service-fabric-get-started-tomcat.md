@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
-ms.author: v-jamebr
-ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: chackdan
+ms.openlocfilehash: f1717cfb7980fc481f01c51c04d076aa2ca0f67d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306821"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876504"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar contêiner do Service Fabric executando o servidor Apache Tomcat no Linux
 Apache Tomcat é uma implementação popular, livre das tecnologias Java Servlet e o servidor Java. Este artigo mostra como criar um contêiner com o Apache Tomcat e um aplicativo Web simples, implantar o contêiner para um cluster do Service Fabric executando o Linux e se conectar ao aplicativo Web.  
@@ -111,9 +111,9 @@ Siga as etapas nesta seção para criar uma imagem do Docker com base em uma ima
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Enviar a imagem Tomcar para o eu registro de contêiner
 Agora que você verificou que a imagem do Tomcat é executada em um contêiner no computador de desenvolvimento, você deve enviá-la para um repositório em um registro de contêiner. Este artigo usa o Registro de Contêiner do Azure para armazenar a imagem, mas com algumas modificações de etapas, você pode usar qualquer registro de contêiner que você escolher. Neste artigo o nome do registro será considerado *myregistry* e o nome do registro completo é myregistry.azurecr.io. Altere-os adequadamente para seu cenário. 
 
-1. Execute `docker login` para entrar no seu registro de contêiner com sua [credenciais de registro](../container-registry/container-registry-authentication.md).
+1. Execute `docker login` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-   O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando seu nome de registro de usuário e senha.
+   O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando o nome de usuário e a senha do registro.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -143,9 +143,9 @@ Agora que você já enviou por push a imagem do Tomcat para um registro de cont�
 
    * Nomeie seu aplicativo: ServiceFabricTomcat
    * Nome do serviço de aplicativo: TomcatService
-   * O nome da imagem de entrada: Forneça a URL da imagem de contêiner no registro do contêiner; Por exemplo, myregistry.azurecr.io/samples/tomcattest.
+   * Insira o nome da imagem: Forneça a URL para a imagem de contêiner no registro de contêiner; por exemplo, myregistry.azurecr.io/samples/tomcattest.
    * Comandos: Deixe em branco. Como essa imagem tem um ponto de entrada de carga de trabalho-ponto definido, não é necessário especificar explicitamente os comandos de entrada (comandos executados dentro do contêiner, o que manterá o contêiner em execução depois da inicialização).
-   * Número de instâncias do aplicativo de contêiner do convidado: 1
+   * Número de instâncias do aplicativo de contêiner de convidado: 1
 
    ![Gerador de Yeoman do Service Fabric para contêineres](./media/service-fabric-get-started-tomcat/yo-generator.png)
 
@@ -162,7 +162,7 @@ Agora que você já enviou por push a imagem do Tomcat para um registro de cont�
    </Resources>
    ```
 
-11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** de marca, adicione o seguinte XML. Substitua os **AccountName** e **senha** no **RepositoryCredentials** marca com o nome do seu registro de contêiner e a senha necessária para conectar a ele.
+11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** de marca, adicione o seguinte XML. Substitua o **AccountName** e a **senha** na marca **RepositoryCredentials** pelo nome do seu registro de contêiner e a senha necessária para entrar nele.
 
    ```xml
    <Policies>

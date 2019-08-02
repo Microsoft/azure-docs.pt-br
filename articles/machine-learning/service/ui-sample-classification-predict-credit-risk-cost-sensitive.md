@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: efed981b500ff14a66c2355a1d14bd762000622f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787809"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606157"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemplo 4: classificação: Prever o risco de crédito (custo confidencial)
 
@@ -164,3 +164,4 @@ Explore os outros exemplos disponíveis para a interface visual:
 - [Exemplo 2: regressão: Comparar algoritmos para previsão de preço de automóveis](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Exemplo 3: classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemplo 5: classificação: Prever a variação](ui-sample-classification-predict-churn.md)
+- [Exemplo 6 - classificação: Prever os atrasos de voo](ui-sample-classification-predict-flight-delay.md)

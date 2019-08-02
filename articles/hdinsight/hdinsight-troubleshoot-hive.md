@@ -4,15 +4,15 @@ description: Obtenha respostas para perguntas comuns sobre como trabalhar com o 
 keywords: Azure HDInsight, Hive, perguntas frequentes, guia de solução de problemas, perguntas comuns
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 43886a132f2f3cf75f0ec7a0b2dc0680a0f69589
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91e6803e0a1302a33a3bf176ad84d0b0e0c8c5b6
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712486"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875936"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Apache Hive usando o Azure HDInsight
 
@@ -170,7 +170,7 @@ Há duas maneiras de coletar os dados de DAG do Tez:
 [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 
-### <a name="see-also"></a>Veja também
+### <a name="see-also"></a>Consulte também
 [Solucionar problemas usando o Azure HDInsight](hdinsight-troubleshoot-guide.md)
 
 

@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/16/2018
+ms.date: 07/10/2019
 ms.author: vturecek
-ms.openlocfilehash: d27702983a4378becdbc67f3f156c92be3dc3af6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3b3d5c3dcea7d190724ae946a27c47b34a26c31
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130085"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68225025"
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]
@@ -41,11 +41,11 @@ Para começar a usar os Reliable Services, você só precisa entender alguns con
 ## <a name="create-a-stateless-service"></a>Criar um serviço sem estado
 Um serviço sem estado é um tipo de serviço que atualmente está na norma dos aplicativos em nuvem. Ele é considerado sem estado porque o serviço em si não contém dados que precisam ser armazenados de modo confiável nem altamente disponibilizados. Se uma instância de um serviço sem estado for desligada, todo seu estado interno será perdido. Nesse tipo de serviço, o estado deve ser mantido em um repositório externo, como em Tabelas do Azure ou um banco de dados SQL, para que ele se torne altamente disponível e confiável.
 
-Inicie o Visual Studio 2015 ou 2017 como administrador e crie um novo projeto de aplicativo do Service Fabric chamado *HelloWorld*:
+Inicie o Visual Studio 2017 ou o Visual Studio 2019 como administrador e crie um novo projeto de aplicativo Service Fabric chamado *HelloWorld*:
 
 ![Usar a caixa de diálogo Novo Projeto para criar um novo aplicativo do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject.png)
 
-Em seguida, crie um projeto de serviço sem estado usando **.NET Core 2.0** denominado *HelloWorldStateless*:
+Em seguida, crie um projeto de serviço sem estado usando o **.NET Core 2,0** chamado *HelloWorldStateless*:
 
 ![Na segunda caixa de diálogo, criar um projeto de serviço sem estado](media/service-fabric-reliable-services-quick-start/hello-stateless-NewProject2.png)
 
@@ -127,7 +127,7 @@ No mesmo aplicativo *HelloWorld*, é possível adicionar um novo serviço clican
 
 ![Adicione um serviço ao aplicativo da Malha de Serviços](media/service-fabric-reliable-services-quick-start/hello-stateful-NewService.png)
 
-Selecione **.NET Core 2.0 -> serviço com estado** e nomeie-o *HelloWorldStateful*. Clique em **OK**.
+Selecione **.NET Core 2,0-> serviço com estado** e nomeie-o *HelloWorldStateful*. Clique em **OK**.
 
 ![Usar a caixa de diálogo Novo Projeto para criar um novo serviço com estado do Service Fabric](media/service-fabric-reliable-services-quick-start/hello-stateful-NewProject.png)
 

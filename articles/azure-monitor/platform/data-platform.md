@@ -5,18 +5,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8883c1e7f2874e1e2e61b8eca122f2ec294c7849
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c0fea9d8ca7ee299a9a19473917eba90edd675
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60808944"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606987"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados do Azure Monitor
 
@@ -72,7 +72,7 @@ A tabela a seguir compara as métricas e Logs no Azure Monitor.
 | Benefícios | Leve e capaz de cenários de quase em tempo real, como alertas. Ideal para a detecção rápida de problemas. | Analisados com avançada linguagem de consulta. Ideal para uma análise profunda e identificar a causa raiz. |
 | Dados | Valores numéricos apenas | Dados numéricos ou de texto |
 | Estrutura | Conjunto padrão de propriedades, incluindo o tempo de amostragem, recursos que estão sendo monitorados, um valor numérico. Algumas métricas incluem várias dimensões para definição adicional. | Conjunto de propriedades dependendo do tipo de log exclusivo. |
-| Coleção | Coletados em intervalos regulares. | Podem ser coletadas esporadicamente, como eventos de gatilho um registro a ser criado. |
+| Collection | Coletados em intervalos regulares. | Podem ser coletadas esporadicamente, como eventos de gatilho um registro a ser criado. |
 | Exibir no portal do Azure | Metrics Explorer | Log Analytics |
 | Incluem fontes de dados | Métricas de plataforma coletados dos recursos do Azure.<br>Aplicativos monitorados pelo Application Insights.<br>Personalizado definido pelo aplicativo ou API. | Aplicativo e os Logs de diagnóstico.<br>Soluções de monitoramento.<br>Os agentes e extensões de VM.<br>O aplicativo solicita e exceções.<br>Central de segurança do Azure.<br>API do coletor de dados. |
 

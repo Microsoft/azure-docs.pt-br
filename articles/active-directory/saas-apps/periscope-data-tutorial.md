@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: efde1f1dafc62576398c5225ad1c652438fc0c31
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904105"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integração do Azure Active Directory com Periscope Data
 
@@ -52,7 +52,7 @@ Para configurar a integração do Periscope Data no Azure AD, você precisará a
 
 **Para adicionar Periscope Data da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -111,7 +111,7 @@ Para configurar o logon único do Azure AD com o Periscope Data, execute as segu
     | `https://app.periscopedata.com/` |
     | `https://app.periscopedata.com/app/<SITENAME>` |
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://app.periscopedata.com/<SITENAME>/sso`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://app.periscopedata.com/<SITENAME>/sso`
 
     > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize os valores com a URL de Entrada real. Entre em contato com a [equipe de Suporte ao Cliente de do Periscope Data](mailto:support@periscopedata.com) para obter esse valor; o valor do Identificador, você obterá da seção **Configurar logon único do Periscope Data** explicada posteriormente no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -235,5 +235,5 @@ Quando você clica no bloco Periscope Data no painel de acesso, deve entrar auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

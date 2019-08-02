@@ -4,7 +4,7 @@ description: Examinar as etapas detalhadas para solução de problemas para erro
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-service-management,azure-resource-manager
 keywords: não é possível conectar à área de trabalho remota, solucionar problemas da área de trabalho remota, a área de trabalho remota não pode conectar, erros da área de trabalho remota, solução de problemas da área de trabalho remota, problemas da área de trabalho remota
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 4b4d2e2099f0d49c7dd9a150ac659ffde62eaa21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56fa1363e9737a2ce06ba5f0215235a84ee70ce6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506329"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709906"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Etapas detalhadas de solução de problemas para problemas de conexão de área de trabalho remota para VMs do Windows no Azure
 Este artigo fornece etapas detalhadas de solução de problemas a fim de diagnosticar e corrigir erros complexos de Área de Trabalho Remota para máquinas virtuais do Azure baseadas no Windows.
@@ -40,7 +40,7 @@ Estes são os componentes envolvidos em uma conexão RDP:
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a última conexão bem-sucedida da Área de Trabalho Remota com a VM. Por exemplo: 
+Antes de continuar, talvez seja útil revisar mentalmente o que mudou desde a última conexão bem-sucedida da Área de Trabalho Remota com a VM. Por exemplo:
 
 * O endereço IP público da VM ou do serviço de nuvem que contém a máquina virtual (também chamado de [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address), endereço IP virtual) foi alterado. A falha RDP pode ter ocorrido porque o cache do cliente DNS ainda tem o *endereço IP antigo* registrado para o nome DNS. Libere o cache do cliente DNS e tente conectar-se novamente à VM. Ou tente conectar-se diretamente com o novo VIP.
 * Você está usando um aplicativo de terceiros para gerenciar suas conexões de Área de Trabalho Remota em vez de usar a conexão gerada pelo portal do Azure. Verifique se a configuração do aplicativo inclui a porta TCP correta para o tráfego de Área de Trabalho Remota. Você pode verificar essa porta para ter uma máquina virtual clássica no [portal do Azure](https://portal.azure.com), clicando em Configurações da VM > Pontos de Extremidade.

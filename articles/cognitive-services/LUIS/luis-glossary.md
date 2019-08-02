@@ -1,32 +1,32 @@
 ---
-title: Glossário
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Glossário-LUIS
+titleSuffix: Azure Cognitive Services
 description: O glossário explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523506"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638298"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de noções básicas de linguagem de conceitos e vocabulário comuns
 O glossário do LUIS (Reconhecimento vocal) explica os termos que você pode encontrar à medida que trabalha com o Serviço de API do LUIS.
 
 ## <a name="active-version"></a>Versão ativa
 
-A versão ativa do LUIS é a versão que recebe alterações no modelo. No site do [LUIS](luis-reference-regions.md), se desejar fazer alterações em uma versão que não é a versão ativa, será necessário definir primeiro essa versão como ativa.
+A versão ativa do LUIS é a versão que recebe alterações no modelo. No portal do [Luis](luis-reference-regions.md) , se você quiser fazer alterações em uma versão que não seja a versão ativa, primeiro você precisará definir essa versão como ativa.
 
 ## <a name="authoring"></a>Criação
 
-A criação é a capacidade de criar, gerenciar e implantar um [aplicativo LUIS](#luis-app), usando o site do [LUIS](luis-reference-regions.md) ou as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
+A criação é a capacidade de criar, gerenciar e implantar um [aplicativo Luis](#luis-app), usando o portal do [Luis](luis-reference-regions.md) ou as [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Chave de criação
 
@@ -34,30 +34,12 @@ Anteriormente denominada chave "programática". Usada para criar o aplicativo. N
 
 ## <a name="batch-test-json-file"></a>Arquivo JSON de texto de lote
 
-O arquivo de lote é uma matriz JSON. Cada elemento na matriz tem três propriedades: `text`, `intent` e `entities`. A propriedade `entities` é uma matriz. A matriz pode ser vazia. Se a matriz `entities` não estiver vazia, ela precisará identificar as entidades com precisão.
+O teste em lotes é a capacidade de validar um modelo de aplicativo LUIS atual com um conjunto de teste consistente e conhecido de declarações de usuário. O teste em lotes é definido em um [arquivo formatado em JSON](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+Confira também: 
+* [Conceitos](luis-concept-batch-test.md)
+* [Instruções](luis-how-to-batch-test.md)
+* [Tutorial] Luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Colaborador
@@ -82,11 +64,11 @@ Um exemplo de ponto de extremidade tem a seguinte aparência:
 
 |Parâmetro querystring|description|
 |--|--|
-|region| [região publicada](luis-reference-regions.md#publishing-regions) |
+|Região| [região publicada](luis-reference-regions.md#publishing-regions) |
 |appID | ID do aplicativo LUIS |
 |subscriptionID | Chave de ponto de extremidade (assinatura) de LUIS criada no portal do Azure |
 |q | utterance |
-|timezoneOffset| minutes|
+|timezoneOffset| minutos|
 
 ## <a name="entity"></a>Entidade
 
@@ -96,11 +78,11 @@ Um exemplo de ponto de extremidade tem a seguinte aparência:
 
 No [teste de lote](luis-interactive-test.md#batch-testing), uma medida da precisão do teste.
 
-## <a name="false-negative"></a>Falso negativo (TN)
+## <a name="false-negative"></a>Falso negativo (FN)
 
 No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a ausência de entidade/intenção de destino.
 
-## <a name="false-positive"></a>Falso positivo Marcar como falso positivo(TP)
+## <a name="false-positive"></a>Falso positivo (FP)
 
 No [teste de lote](luis-interactive-test.md#batch-testing), os pontos de dados representam enunciados em que o aplicativo previu incorretamente a existência de entidade/intenção de destino.
 
@@ -114,7 +96,7 @@ Uma [intenção](luis-concept-intent.md) representa uma tarefa ou ação que o u
 
 ## <a name="labeling"></a>Rotulação
 
-Rotulação é o processo de associar uma palavra ou frase na [declaração](#utterance) da intenção com uma [entidade](#entity) (tipo de dados).
+Rotular, ou marcar, é o processo de associar uma palavra ou frase no [expressão](#utterance) de uma intenção a uma [entidade](#entity) (DataType).
 
 ## <a name="luis-app"></a>Aplicativo LUIS
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c7d86be9196eb425a356818c47fbef1cb1c0b5b9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261761"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107274"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integração do Azure Active Directory ao Agiloft
 
@@ -54,7 +54,7 @@ Para configurar a integração do Agiloft ao Azure AD, você precisará adiciona
 
 **Para adicionar o Agiloft da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
     ![Informações de logon único de URLs e Domínio do Agiloft](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     | |
     |-|-|
@@ -167,7 +167,7 @@ Para configurar o logon único do Azure AD com o Agiloft, siga estas etapas:
 
     ![Configuração do Agiloft](./media/agiloft-tutorial/setup4.png)
 
-     a. Na caixa de texto **ID da Entidade do IdP/Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **ID da Entidade do IdP/Emissor**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Logon do IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -244,4 +244,4 @@ Ao clicar no bloco do Agiloft no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

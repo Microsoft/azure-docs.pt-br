@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/25/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: a5c367402bd1e61485095fd1d565a8582acc3a9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff6fd45e0a68a3e93e4c62eb31a566a6dffa2344
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824877"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494942"
 ---
 # <a name="azure-kubernetes-network-policies-overview"></a>Visão geral das políticas de rede do Kubernetes do Azure
 
@@ -32,7 +32,7 @@ As políticas de rede fornecem microssegmentação para pods da mesma forma que 
 As políticas de rede do Azure trabalham em conjunto com o Azure CNI, que fornece integração de VNet para contêineres. Atualmente, ele é compatível apenas com nós do Linux. As implementações configuram regras da tabela de IP do Linux com base nas políticas definidas para impor a filtragem de tráfego.
 
 ## <a name="planning-security-for-your-kubernetes-cluster"></a>Planejar a segurança para o cluster Kubernetes
-Ao implementar a segurança no seu cluster, use os NSGs (Grupos de Segurança de Rede) para filtrar o tráfego de Norte-Sul, ou seja, o tráfego que entra e sai da sua sub-rede do cluster, e use as políticas de rede do Kubernetes para tráfego Leste-Oeste, que é o tráfego entre os pods no cluster.
+Ao implementar a segurança para o cluster, use NSGs (grupos de segurança de rede) para filtrar o tráfego Norte-Sul, ou seja, o tráfego que entra e sai da sub-rede do cluster e usa políticas de rede kubernetes para o tráfego leste-oeste, ou seja, o tráfego entre pods seu cluster.
 
 ## <a name="using-azure-kubernetes-network-policies"></a>Usar as políticas de rede do Kubernetes do Azure
 As políticas de rede do Azure podem ser usadas das maneiras a seguir para fornecer microssegmentação aos pods.

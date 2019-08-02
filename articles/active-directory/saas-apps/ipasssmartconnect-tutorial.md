@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 9417d7b957d69dc802ecb2f9f78723eb7aba08ba
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989757"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099846"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: Integração do Azure Active Directory com o iPass SmartConnect
 
@@ -223,7 +223,7 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 
 **Para testar o aplicativo no fluxo iniciado pelo SP, execute as seguintes etapas:**
 
- a. Baixe o cliente windows iPass SmartConnect [aqui](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
+a. Baixe o cliente windows iPass SmartConnect [aqui](https://om-activation.ipass.com/ClientActivation/ssolanding.go).
 
 ![O link do iPass SmartConnect na lista de Aplicativos](./media/ipasssmartconnect-tutorial/testing3.png)
 
@@ -241,7 +241,7 @@ e. Após a autenticação bem-sucedida, a ativação do cliente será iniciada. 
 
 **Para testar o aplicativo no fluxo iniciado pelo IdP, execute as seguintes etapas:**
 
- a. Faça logon em [https://myapps.microsoft.com](https://myapps.microsoft.com).
+a. Faça logon em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 b. Clique no aplicativo iPass SmartConnect.
 
@@ -261,4 +261,4 @@ f. O cliente será ativado.
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

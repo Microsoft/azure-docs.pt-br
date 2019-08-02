@@ -5,14 +5,14 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
-ms.service: virtual-machines-widows
-manager: jeconnoc
-ms.openlocfilehash: 2453d37720bcf48b95b428cf78c6186de40b31aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.service: virtual-machines-windows
+manager: gwallace
+ms.openlocfilehash: 164fc4d8ad567c75ed5029aaf26af260398f80ba
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160104"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722688"
 ---
 # <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>Visualização: Criar uma imagem do Windows e distribuí-lo para uma galeria de imagens compartilhadas 
 

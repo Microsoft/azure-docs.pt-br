@@ -4,19 +4,19 @@ description: O Azure DevOps Projects facilita o uso inicial do Azure. Ele ajuda 
 author: shizn
 manager: ''
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02977032c5975de4098600ddbebccfcbb9b0fafd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 109a7e327217a342f485dd61b53115569f2346cd
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595493"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722987"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Criar um pipeline de CI/CD para IoT Edge com o Azure DevOps Projects (versão prévia)
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para o IoT Edge com projetos de DevOps do Azure
 
 Configure a integração contínua (CI) e a entrega contínua (CD) para seu aplicativo IoT Edge com os Azure DevOps Projects. O DevOps Projects do Azure simplifica a configuração inicial de um pipeline de build e de lançamento no Azure Pipelines.
 
@@ -38,7 +38,7 @@ O DevOps Projects cria um pipeline de CI/CD no Azure DevOps. É possível criar 
 
    ![Selecione o idioma para criar um novo aplicativo](./media/how-to-devops-project/select-language.png)
 
-2. Selecione **IoT Simples (Versão prévia)** como a estrutura de aplicativo e selecione **Avançar**.
+2. Selecione **IoT simples** como sua estrutura de aplicativo e selecione **próxima**.
 
    ![Selecione a estrutura de IoT simples](media/how-to-devops-project/select-iot.png)
 

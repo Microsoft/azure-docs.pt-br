@@ -10,16 +10,16 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: 620ede672d71338abeff5198fd5f94e92dc193d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 233aa92b30404ac7ad2b93bb37380bea984be566
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60681793"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273217"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Criar APIs personalizadas que podem ser chamadas dos Aplicativos Lógicos do Azure
 
-Embora os Aplicativos Lógicos do Azure ofereçam [mais de 100 conectores internos](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez seja melhor chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
+Embora os aplicativos lógicos do Azure ofereçam [centenas de conectores](../connectors/apis-list.md) que você pode usar em fluxos de trabalho de aplicativo lógico, talvez você queira chamar APIs, sistemas e serviços que não estão disponíveis como conectores. Você pode criar suas próprias APIs que fornecem ações e gatilhos para uso em aplicativos lógicos. Veja outros motivos para criar suas próprias APIs que você pode chamar de fluxos de trabalhos de aplicativos lógicos:
 
 * Estender os fluxos de trabalho de integração de dados e integração do sistema.
 * Ajudar os clientes a usar seu serviço para gerenciar tarefas profissionais ou pessoais.
@@ -224,7 +224,7 @@ Para disponibilizar seu APIs personalizadas para outros usuários de aplicativos
 
 Para disponibilizar suas APIs personalizadas para todos os usuários em Aplicativos Lógicos, Microsoft Flow e Microsoft PowerApps, você deve adicionar a segurança, registrar suas APIs como conectores de Aplicativos Lógicos e designar os conectores para o [programa Microsoft Azure Certified](https://azure.microsoft.com/marketplace/programs/certified/logic-apps/). 
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 
 * Para obter ajuda específica com APIs personalizadas, entre em contato com [ customapishelp@microsoft.com ](mailto:customapishelp@microsoft.com).
 

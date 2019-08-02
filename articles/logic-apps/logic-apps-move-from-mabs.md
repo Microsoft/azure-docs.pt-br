@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfc0aa4fa7c70ae91f25f97671b15dacfe991594
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61321001"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273192"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrar dos Serviços BizTalk para os Aplicativos Lógicos do Azure
 
@@ -52,7 +52,7 @@ Os Serviços BizTalk têm vários tipos de artefatos.
 
 ## <a name="connectors"></a>Conectores
 
-Os conectores dos Serviços BizTalk ajudam as pontes a enviar e receber dados, incluindo pontes bidirecionais que habilitam interações de solicitação/resposta com base em HTTP. Os Aplicativos Lógicos usam a mesma terminologia e têm 180+ conectores com a mesma finalidade conectando-se a uma ampla variedade de tecnologias e serviços. Por exemplo, os conectores estão disponíveis para serviços PaaS e SaaS de nuvem, como o OneDrive, Office 365, Dynamics CRM e muito mais, além de sistemas locais por meio do Gateway de Dados Local, que substitui o Serviço de Adaptador BizTalk pelos Serviços BizTalk. As origens nos Serviços BizTalk são limitadas a FTP, SFTP e Fila do Barramento de Serviço ou assinatura de Tópico.
+Os conectores dos Serviços BizTalk ajudam as pontes a enviar e receber dados, incluindo pontes bidirecionais que habilitam interações de solicitação/resposta com base em HTTP. Os aplicativos lógicos usam a mesma terminologia e têm centenas de conectores que têm a mesma finalidade conectando-se a uma ampla gama de tecnologias e serviços. Por exemplo, os conectores estão disponíveis para serviços PaaS e SaaS de nuvem, como o OneDrive, Office 365, Dynamics CRM e muito mais, além de sistemas locais por meio do Gateway de Dados Local, que substitui o Serviço de Adaptador BizTalk pelos Serviços BizTalk. As origens nos Serviços BizTalk são limitadas a FTP, SFTP e Fila do Barramento de Serviço ou assinatura de Tópico.
 
 ![](media/logic-apps-move-from-mabs/sources.png)
 
@@ -106,7 +106,7 @@ No processamento dos Serviços BizTalk, o estágio Enriquecer adiciona proprieda
 
 Os Serviços BizTalk permitem [executar código personalizado](https://msdn.microsoft.com/library/azure/dn232389.aspx) carregado em seus próprios assemblies. Essa funcionalidade é implementada pela interface de [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector). Cada estágio na ponte inclui duas propriedades (On Enter Inspector e On Exit Inspector) que fornecem o tipo .NET criado que implementa essa interface. O código personalizado permite executar processamento mais complexo nos dados e permite reutilizar o código existente em assemblies que executam a lógica de negócios comum. 
 
-Os aplicativos lógicos fornecem duas maneiras principais de executar código personalizado: O Azure Functions e aplicativos de API. Azure Functions podem ser criadas e chamadas de aplicativos lógicos. Confira [Adicionar e executar código personalizado para aplicativos lógicos por meio de Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use Aplicativos de API, parte do Serviço de Aplicativo do Azure, para criar seus próprios gatilhos e ações. Saiba mais sobre como [criar uma API personalizada para usar com Aplicativos Lógicos](../logic-apps/logic-apps-create-api-app.md). 
+Os aplicativos lógicos fornecem duas maneiras principais de executar código personalizado: Azure Functions e aplicativos de API. Azure Functions podem ser criadas e chamadas de aplicativos lógicos. Confira [Adicionar e executar código personalizado para aplicativos lógicos por meio de Azure Functions](../logic-apps/logic-apps-azure-functions.md). Use Aplicativos de API, parte do Serviço de Aplicativo do Azure, para criar seus próprios gatilhos e ações. Saiba mais sobre como [criar uma API personalizada para usar com Aplicativos Lógicos](../logic-apps/logic-apps-create-api-app.md). 
 
 Se tiver código personalizado em assemblies chamados dos Serviços BizTalk, você poderá mover esse código para Azure Functions ou criar APIs personalizadas com Aplicativos de API, dependendo do que estiver implementando. Por exemplo, se você tiver um código que encapsula outro serviço para o qual os Aplicativos Lógicos não têm um conector, crie um Aplicativo de API e use as ações que o aplicativo de API fornece dentro do aplicativo lógico. Se você tem funções auxiliares ou bibliotecas, as Azure Functions provavelmente são a melhor opção.
 

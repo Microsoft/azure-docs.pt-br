@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f5996b41da68adc83c26e836c9fb1a175107337
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a0b8dbb3992808bdcb94291d876192431c72f6c2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277794"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100354"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infogix-data3sixty-govern"></a>Tutorial: Integração do Azure Active Directory ao Infogix Data3Sixty Govern
 
@@ -54,7 +54,7 @@ Para configurar a integração do Infogix Data3Sixty Govern ao Microsoft Azure A
 
 **Para adicionar o Infogix Data3Sixty Govern da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Infogix Data3Sixty Govern, exec
 
     ![Informações de logon único em Domínio e URLs do Infogix Data3Sixty Govern](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://data3sixty.com/ui`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://data3sixty.com/ui`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.data3sixty.com/sso/acs`
 
@@ -131,7 +131,7 @@ Para configurar o logon único do Azure AD com o Infogix Data3Sixty Govern, exec
     | sobrenome   | user.surname |
     | Nome de Usuário   | user.mail    |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -237,5 +237,5 @@ Ao clicar no bloco do Infogix Data3Sixty Govern no Painel de Acesso, você será
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

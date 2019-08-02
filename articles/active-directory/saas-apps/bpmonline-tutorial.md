@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e2bc30a5b856cba5f1fcca254603c35dfd3764d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 937278f6a9261ca807f934718bc108bf125f44a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863984"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bpmonline"></a>Tutorial: Integração do Azure Active Directory com Bpm’online
 
@@ -54,7 +54,7 @@ Para configurar a integração do Bpm’online ao Azure AD, você precisa adicio
 
 **Para adicionar o Bpm’online a partir da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Bpm’online, execute as seguin
 
     ![Informações de logon único de Domínio e URLs do Bpm’online](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<client site name>.bpmonline.com/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<client site name>.bpmonline.com/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<client site name>.bpmonline.com/ServiceModel/AuthService.svc/SsoLogin`
 
@@ -193,4 +193,4 @@ Ao clicar no bloco do Bpm’online no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f22777f62360d0ff8366039a3398703bbc3e1159
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6a925752a0e1de09c22350dff6a274a57b117a23
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697020"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092987"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integração do Azure Active Directory ao Reviewsnap
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Reviewsnap, execute as seguinte
 
     ![Informações de logon único em Domínio e URLs do Reviewsnap](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://app.reviewsnap.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://app.reviewsnap.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
@@ -203,4 +203,4 @@ Ao clicar no bloco do Reviewsnap no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,21 +1,21 @@
 ---
 title: Sugerindo termos de pesquisa com a API de Sugestão Automática do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como usar a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 7cd81a937a3fe24e16e3f77e38686378aa28e10a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 428756588152ff2c2deb2e3a123bcffc1cb605d7
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382692"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68517030"
 ---
 # <a name="suggesting-query-terms"></a>Sugestão de termos de consulta
 

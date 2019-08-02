@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 14d4bf6d7e1d1f474e2388c4e2ce232574ebf0d8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 0094364ed2e5d6c024f75a88db90eb703792f9f3
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682790"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405839"
 ---
 # <a name="add-an-api-manually"></a>Adicionar uma API manualmente
 
@@ -43,15 +43,14 @@ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de AP
     ![API em Branco](media/add-api-manually/blank-api.png)
 4. Insira as configurações para a API.
 
-    ![Configurações](media/add-api-manually/settings.png)
-
     |**Nome**|**Valor**|**Descrição**|
     |---|---|---|
-    |**Nome de exibição**|"*API em Branco*" |Esse nome é exibido no Portal do desenvolvedor.|
-    |**URL do Serviço Web** (opcional)| "*https://httpbin.org*"| Se você quiser simular uma API, não poderá inserir nada. <br/>Neste caso, usamos [https://httpbin.org](https://httpbin.org). Este é um serviço de teste público. <br/>Se você deseja importar uma API mapeada para um back-end automaticamente, consulte um dos tópicos na seção de [tópicos relacionados](#related-topics).|
-    |**Esquema de URL**|"*HTTPS*"|Nesse caso, embora o back-end tenha acesso HTTP não seguro especificamos um acesso de APIM de HTTPS seguro para o back-end. <br/>Esse tipo de cenário (HTTPS para HTTP) é chamado de terminação HTTPS. Você pode fazer isso se sua API existe em uma rede virtual (em que você sabe que o acesso é seguro, mesmo se o HTTPS não é usado). <br/>Talvez você queira usar a "Terminação HTTPS" para economizar em alguns ciclos de CPU.|
-    |**Sufixo da URL**|"*hbin*"| O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.|
-    |**Produtos**|"*Ilimitado*" |Publica a API associando-a a um produto. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.<br/><br/> Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web: **Starter** e **Ilimitado**.| 
+    |**Nome de exibição**|*API em Branco*|Esse nome é exibido no Portal do desenvolvedor.|
+    |**Nome**|*blank-api*|Fornece um nome exclusivo para a API.|
+    |**URL do Serviço Web** (opcional)|*https://httpbin.org*| Se você quiser simular uma API, não poderá inserir nada. <br/>Neste caso, usamos [https://httpbin.org](https://httpbin.org). Este é um serviço de teste público. <br/>Se você deseja importar uma API mapeada para um back-end automaticamente, consulte um dos tópicos na seção de [tópicos relacionados](#related-topics).|
+    |**Esquema de URL**|*HTTPS*|Nesse caso, embora o back-end tenha acesso HTTP não seguro especificamos um acesso de APIM de HTTPS seguro para o back-end. <br/>Esse tipo de cenário (HTTPS para HTTP) é chamado de terminação HTTPS. Você pode fazer isso se sua API existe em uma rede virtual (em que você sabe que o acesso é seguro, mesmo se o HTTPS não é usado). <br/>Talvez você queira usar a "Terminação HTTPS" para economizar em alguns ciclos de CPU.|
+    |**Sufixo da URL**|*hbin*| O sufixo é um nome que identifica essa API específica nesta instância do APIM. Ele deve ser exclusivo nesta instância de APIM.|
+    |**Produtos**|*Ilimitado*|Publica a API associando-a a um produto. Se você deseja que a API seja publicada e fique disponível para os desenvolvedores, adicione-a a um produto. Você pode fazer isso durante a criação da API ou configurá-lo mais tarde.<br/><br/>Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/>Primeiro, os desenvolvedores devem assinar um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.<br/><br/> Por padrão, cada instância de Gerenciamento de API é fornecida com dois produtos função Web: **Starter** e **Ilimitado**.| 
 5. Selecione **Criar**.
 
 Neste ponto, você não tem nenhuma operação no APIM mapeada para operações em sua API de back-end. Se você chamar uma operação que é exposta por meio de back-end, mas não por meio de APIM, receberá um **404**.
@@ -67,7 +66,7 @@ Esta seção mostra como adicionar uma operação "/get" para mapeá-la para a o
 
 1. Selecione a API que você criou na etapa anterior.
 2. Clique em **+ Adicionar Operação**.
-3. Em **URL**, selecione **GET** e insira "*/get*" no recurso.
+3. Em **URL**, selecione **GET** e insira " */get*" no recurso.
 4. Insira "*FetchData*" para **Nome de exibição**.
 5. Clique em **Salvar**.
 
@@ -89,7 +88,7 @@ Esta seção mostra como adicionar uma operação que utiliza um parâmetro. Nes
 
 1. Selecione a API que você criou na etapa anterior.
 2. Clique em **+ Adicionar Operação**.
-3. Em **URL**, selecione **GET** e insira "*/status/{code}*" no recurso. Opcionalmente, você pode fornecer algumas informações associadas a esse parâmetro. Por exemplo, insira "*Número*" para **TIPO**, "*200*" (padrão) para **VALORES**.
+3. Em **URL**, selecione **GET** e insira " */status/{code}* " no recurso. Opcionalmente, você pode fornecer algumas informações associadas a esse parâmetro. Por exemplo, insira "*Número*" para **TIPO**, "*200*" (padrão) para **VALORES**.
 4. Insira "GetStatus" para **Nome de exibição**.
 5. Clique em **Salvar**.
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df4f06528d0dd261dd92ab84b07bb705e23f7fd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113067"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293066"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -42,7 +42,7 @@ Sim. Os usuários convidados podem redefinir seu método de autenticação multi
 A organização emissora do convite realiza a autenticação multifator. Ela deve garantir que a organização tem licenças suficientes para seus usuários B2B que estão usando a autenticação multifator.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>E se uma organização de parceiros já tiver a autenticação multifator configurada? Podemos confiar em sua autenticação multifator e não usar nossa própria autenticação multifator?
-Esse recurso está planejado para uma versão futura, para que você possa selecionar parceiros específicos a serem excluídos de sua autenticação multifator (da organização emissora do convite).
+Esse recurso não é suportado atualmente. Se o acesso aos recursos da sua organização exigir a autenticação multifator, será necessário se registrar para a autenticação multifator na organização do parceiro de sua (o convidando) organização.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>Como fazer para usar convites atrasados?
 Talvez uma organização queira adicionar usuários de colaboração B2B, provisioná-los aos aplicativos conforme necessário e, em seguida, enviar convites. Use a API de convite de colaboração B2B para personalizar o fluxo de trabalho de integração.

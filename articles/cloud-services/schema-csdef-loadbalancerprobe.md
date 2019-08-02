@@ -3,22 +3,17 @@ title: Def. dos Serviços de Nuvem do Azure Esquema LoadBalancerProbe | Microsof
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: de365de7bf93c0a612f102b3ec2b25c79d1c3d18
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 6f82406772f650b4565f2c9240efe580545dcad9
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60613871"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360611"
 ---
 # <a name="azure-cloud-services-definition-loadbalancerprobe-schema"></a>Esquema LoadBalancerProbe de definição dos Serviços de Nuvem do Azure
 A sonda do balanceador de carga é uma sonda de integridade definida pelo cliente de pontos de extremidade UDP e pontos de extremidade em instâncias de função. O `LoadBalancerProbe` não é um elemento autônomo; ele é combinado com a função web ou a função de trabalho em um arquivo de definição de serviço. Um `LoadBalancerProbe` pode ser usado por mais de uma função.
@@ -59,14 +54,14 @@ O elemento `LoadBalancerProbe` define a sonda de integridade de um modelo. É po
 
 A tabela a seguir descreve os atributos do elemento `LoadBalancerProbe`:
 
-|Atributo|Type|DESCRIÇÃO|
+|Atributo|Tipo|Descrição|
 | ------------------- | -------- | -----------------|
-| `name`              | `string` | Obrigatório. O nome da sonda do balanceador de carga. O nome deve ser exclusivo.|
-| `protocol`          | `string` | Obrigatório. Especifica o protocolo do ponto de extremidade. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, será necessário um ACK recebido para que a sonda tenha êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a sonda tenha êxito.|
+| `name`              | `string` | Obrigatória. O nome da sonda do balanceador de carga. O nome deve ser exclusivo.|
+| `protocol`          | `string` | Obrigatória. Especifica o protocolo do ponto de extremidade. Os valores possíveis são `http` ou `tcp`. Se `tcp` for especificado, será necessário um ACK recebido para que a sonda tenha êxito. Se `http` for especificado, uma resposta 200 OK do URI especificado será necessária para que a sonda tenha êxito.|
 | `path`              | `string` | O URI usado para solicitar o status de integridade da VM. `path` será necessário se `protocol` for definido como `http`. Caso contrário, não será permitido.<br /><br /> Não há nenhum valor padrão.|
 | `port`              | `integer` | Opcional. A porta para se comunicar com a sonda. Isso é opcional para qualquer ponto de extremidade, uma vez que a mesma porta será usada para a sonda. É possível configurar uma porta diferente para sua investigação também. Os valores possíveis variam de 1 a 65535, inclusive.<br /><br /> O valor padrão é definido pelo ponto de extremidade.|
 | `intervalInSeconds` | `integer` | Opcional. O intervalo, em segundos, para a frequência de investigação do status de integridade no ponto de extremidade. Normalmente, o intervalo é ligeiramente menor do que a metade do período de tempo limite alocado (em segundos) que permite duas sondas completas antes de tirar a instância de rotação.<br /><br /> O valor padrão é 15, o valor mínimo é 5.|
 | `timeoutInSeconds`  | `integer` | Opcional. O período de tempo limite, em segundos, aplicado à sonda em que nenhuma resposta resultará na interrupção adicional da entrega do tráfego ao ponto de extremidade. Este valor permite que pontos de extremidade sejam tirados de rotação mais rapidamente ou mais lentamente do que os tempos normais usados no Azure (os padrões).<br /><br /> O valor padrão é 31, o valor mínimo é 11.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Esquema de definição do Serviço de Nuvem (clássico)](schema-csdef-file.md)

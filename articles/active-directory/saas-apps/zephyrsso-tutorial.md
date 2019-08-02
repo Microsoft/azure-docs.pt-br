@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8340c409e6aa5b2bc98a5ac418b14908c21bd7a7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 2ffc9f105f4e2429ac8add679511e9aec5875e0a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zephyrsso"></a>Tutorial: Integração do Azure Active Directory com o ZephyrSSO
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o ZephyrSSO, execute as seguintes
 
     ![Domínio ZephyrSSO e informações de logon único de URLs](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yourzephyr.com/Zephyrsso`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.yourzephyr.com/flex/saml/sso`
 
@@ -196,5 +196,5 @@ Ao clicar no bloco do ZephyrSSO no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

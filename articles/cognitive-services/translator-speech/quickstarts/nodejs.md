@@ -3,20 +3,20 @@ title: 'Início Rápido: API de Tradução de Fala com Node.js'
 titlesuffix: Azure Cognitive Services
 description: Obtenha informações e exemplos de código para ajudá-lo a começar a usar rapidamente a API de Tradução de Fala.
 services: cognitive-services
-author: v-jaswel
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: b79ca4ed259b561fadc4b7fa644b5c136192bb7f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: c16b4ca0375376829c7617b488d16151363dc816
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671719"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442141"
 ---
 # <a name="quickstart-translator-speech-api-with-nodejs"></a>Início Rápido: API de Tradução de Fala com Node.js
 <a name="HOLTop"></a>

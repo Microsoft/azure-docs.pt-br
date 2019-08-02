@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 709ed293dbb0550dc1bb43bf1e1e1cc50906cc31
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824448"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293435"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cotas e limitações dos Serviços de Mídia do Azure v3
 
@@ -31,7 +31,7 @@ Este artigo descreve cotas e limitações nos Serviços de Mídia do Azure v3.
 | TransformOutputs em uma transformação | 20 (fixo) |
 | Arquivos por JobInput|10 (fixo)|
 | Tamanho do arquivo| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para o processamento nos Serviços de Mídia. <sup>(1)</sup> |
-| Trabalhos por conta dos Serviços de Mídia | 500\.000 <sup>(2)</sup> (fixo)|
+| Trabalhos por conta dos Serviços de Mídia | 500.000 <sup>(2)</sup> (fixo)|
 | Listar Transformações|Paginar a resposta, com 1000 Transformações por página|
 | Listar Trabalhos|Paginar a resposta, com 500 Trabalhos por página|
 | Eventos ao vivo por conta dos Serviços de Mídia |5|
@@ -44,6 +44,7 @@ Este artigo descreve cotas e limitações nos Serviços de Mídia do Azure v3.
 | Transformações por conta dos Serviços de Mídia | 100  (fixo)|
 | Localizadores de streaming exclusivos associados a um Ativo ao mesmo tempo | 100<sup>(6)</sup> (fixas) |
 | Opções de acordo com a política de chave de conteúdo |30 | 
+| Serviço de entrega por conta da chave de licenças por mês para cada um dos tipos DRM nos serviços de mídia|1\.000.000|
 
 <sup>1</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no Azure Blob Storage. Limites adicionais aplicam-se os serviços de mídia com base em tamanhos de VM que são usados pelo serviço. O limite de tamanho aplica-se aos arquivos que você carrega e também os arquivos que obterem gerados como resultado do processamento (codificação ou analisando) os serviços de mídia. Se o arquivo de origem for maior que 260 GB, o trabalho provavelmente falhará. 
 

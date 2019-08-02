@@ -14,24 +14,22 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: a91c61edd773b5742b092f5d72a5a22f1d90e63b
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e27635d153e58f96dad7db6870ed1dc3f640236a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393545"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326479"
 ---
-# <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Início Rápido: Criar um aplicativo Java Spring com a Configuração de Aplicativo
+# <a name="quickstart-create-a-java-spring-app-with-azure-app-configuration"></a>Início Rápido: Criar um aplicativo Java Spring com a Configuração de Aplicativos do Azure
 
-A Configuração de Aplicativo do Azure é um serviço de configuração gerenciada no Azure. É possível utilizá-lo para armazenar e gerenciar facilmente todas as configurações de aplicativo em um local separado do código. Este Início Rápido mostra como incorporar o serviço em um aplicativo Java Spring.
-
-Você pode usar qualquer editor de código para executar as etapas deste início rápido. O [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
+Neste guia de início rápido, você incorpora a Configuração de Aplicativos do Azure em um aplicativo Java Spring para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para realizar este início rápido, instale um [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk) com a versão 8 e [Apache Maven](https://maven.apache.org/) com a versão 3.0 ou superior.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- Um [JDK (Java Development Kit)](https://docs.microsoft.com/java/azure/jdk) com suporte na versão 8.
+- [Apache Maven](https://maven.apache.org/download.cgi), versão 3.0 ou posterior.
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: ab3b742d50cc141420f9bffa1961a6e170b99d2a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234343"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67441197"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Use as máquinas virtuais de ciência de dados do Azure
 
@@ -51,11 +51,22 @@ Você pode obter esses valores da página de DSVM no portal do Azure.
 
 ## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Acessar arquivos do Azure Notebooks do DSVM
 
+Acesso de sistema de arquivos tem suporte para versões do DSVM 19.06.15 ou posterior. Para verificar a versão, primeiro conecte-se à sua DSVM via SSH, em seguida, execute o comando a seguir: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (você deve usar o endereço IP mostrado aqui). O número de versão é mostrado na saída para "version".
+
 Para preservar a paridade de caminhos de arquivo com o **computação gratuita** camada, é possível apenas abrir um projeto ao mesmo tempo em uma DSVM. Para abrir um novo projeto, você deve desligar o projeto aberto pela primeira vez.
+
+Quando um projeto é executado em uma máquina virtual, os arquivos são montados no diretório raiz do servidor do Jupyter (o diretório mostrado no JupyterHub), substituindo os arquivos de blocos de anotações do Azure padrão. Quando você desligar a VM usando o **desligamento** botão no bloco de anotações da interface do usuário, os blocos de anotações do Azure restaura os arquivos padrão.
 
 ![Botão de desligamento em blocos de anotações do Azure](media/shutdown.png)
 
-Quando um projeto é executado em uma máquina virtual, os arquivos são montados no diretório raiz do servidor do Jupyter (o diretório mostrado no JupyterHub), substituindo os arquivos de blocos de anotações do Azure padrão. Quando você desligar a VM usando o **desligamento** botão no bloco de anotações da interface do usuário, os blocos de anotações do Azure restaura os arquivos padrão.
+## <a name="create-new-dsvm-users"></a>Criar novos usuários do DSVM
+
+Se vários usuários compartilham um DSVM, você pode evitar o bloqueio uns aos outros, criando e usando um usuário DSVM para cada usuário do bloco de anotações:
+
+1. Sobre o [Portal do Azure](https://portal.azure.com), navegue até sua máquina virtual.
+1. Sob **suporte + solução de problemas** na margem esquerda, selecione **Redefinir senha**.
+1. Insira um novo nome de usuário e senha e selecione **atualização**. (Os nomes de usuário existentes não são afetadas).
+1. Repita a etapa anterior para usuários adicionais.
 
 ## <a name="next-steps"></a>Próximas etapas
 

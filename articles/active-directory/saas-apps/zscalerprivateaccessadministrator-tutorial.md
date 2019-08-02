@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce75431de24886c038cd2eb4ee7db02d2b6cde31
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7f0bc04bb8e7358f5bdb2e4dfc3db198e24303f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864922"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Tutorial: Integração do Azure Active Directory ao Zscaler Private Access Administrator
 
@@ -54,7 +54,7 @@ Para configurar a integração do Administrador do Zscaler Private Access ao Azu
 
 **Para adicionar o Administrador do Zscaler Private Access da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
 
     ![Informações de logon único de Domínio e URLs do Administrador do Zscaler Private Access](common/idp-relay.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.private.zscaler.com/auth/sso`
 
@@ -153,7 +153,7 @@ Para configurar o logon único do Azure AD com o Zscaler Private Access Administ
  
     ![Idpselect do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_idpselect.png)
 
-     a. Clique em **Selecionar Arquivo** para carregar o arquivo de metadados baixado do Azure AD no campo **Upload de Arquivo de Metadados de IdP**.
+    a. Clique em **Selecionar Arquivo** para carregar o arquivo de metadados baixado do Azure AD no campo **Upload de Arquivo de Metadados de IdP**.
 
     b. Ele lê os **metadados de IdP** do Azure AD e popula todas as informações dos campos, conforme mostrado abaixo.
 
@@ -239,7 +239,7 @@ Para permitir que os usuários do Azure AD entrem no Zscaler Private Access Admi
 
     ![Administrador de usuários do Administrador do Zscaler Private Access](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-     a. Na caixa de texto **Nome de usuário**, insira o email do usuário como BrittaSimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, insira o email do usuário como BrittaSimon@contoso.com.
 
     b. Na caixa de texto **Senha**, digite a senha.
 
@@ -267,5 +267,5 @@ Ao clicar no bloco do Zscaler Private Access Administrator no Painel de Acesso, 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

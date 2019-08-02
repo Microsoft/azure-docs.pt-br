@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b486c30827ee67b58cbdc0027c8221cceed02e51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f6d15e67122afcbea3cc294c803a302e961bdbd
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235953"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68372559"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Visão geral da Configuração de Estado da Automação do Azure
 
@@ -37,17 +37,17 @@ No portal do Azure ou do PowerShell, você pode gerenciar todas as suas configur
 
 ![Captura de tela da página de Automação do Azure](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importar dados de relatórios para logs do Azure Monitor
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Importar dados de relatório em logs de Azure Monitor
 
-Nós gerenciados com a Configuração do Estado de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno. É possível configurar a Configuração do Estado de Automação do Azure para enviar esses dados ao espaço de trabalho do Log Analytics. Para saber como enviar dados de status de configuração de estado para seu espaço de trabalho do Log Analytics, consulte [encaminhar configuração automação do Azure estado dados de relatórios para logs do Azure Monitor](automation-dsc-diagnostics.md).
+Nós gerenciados com a Configuração do Estado de Automação do Azure enviam dados de status de relatórios detalhados para o servidor de pull interno. É possível configurar a Configuração do Estado de Automação do Azure para enviar esses dados ao espaço de trabalho do Log Analytics. Para saber como enviar dados de status de configuração de estado para seu espaço de trabalho Log Analytics, consulte [encaminhar dados de relatório de configuração de estado da automação do Azure para Azure monitor logs](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Considere os seguintes requisitos ao usar a configuração de estado na automação do Azure (DSC).
+Considere os seguintes requisitos ao usar a DSC (configuração de estado de automação do Azure).
 
 ### <a name="operating-system-requirements"></a>Requisitos do sistema operacional
 
-Para nós executando o Windows, há suporte para as seguintes versões:
+Para nós que executam o Windows, há suporte para as seguintes versões:
 
 - Windows Server 2019
 - Windows Server 2016
@@ -60,7 +60,7 @@ Para nós executando o Windows, há suporte para as seguintes versões:
 
 Para nós que executam o Linux, há suporte para as seguintes distribuições/versões:
 
-A extensão de DSC Linux dá suporte a todas as distribuições do Linux [endossada no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , exceto:
+A extensão do Linux do DSC dá suporte a todas as distribuições do Linux [endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , exceto:
 
 Distribuição | Versão
 -|-
@@ -69,28 +69,32 @@ Ubuntu  | 18.04
 
 ### <a name="dsc-requirements"></a>Requisitos de DSC
 
-Para todos os nós do Windows em execução no Azure, [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) será instalado durante a integração.  Para nós que executam o Windows Server 2012 e Windows 7, [WinRM será habilitado](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
+Para todos os nós do Windows em execução no Azure, o [WMF 5,1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) será instalado durante a integração.  Para nós que executam o Windows Server 2012 e o Windows 7, o [WinRM será habilitado](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
-Para todos os nós do Linux em execução no Azure, [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) será instalado durante a integração.
+Para todos os nós do Linux em execução no Azure, o [PowerShell DSC para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) será instalado durante a integração.
 
 ### <a name="network-planning"></a>Configurar redes privadas
 
-Se os nós estão localizados em uma rede privada, a porta e as URLs a seguir são necessárias para o estado de configuração (DSC) para se comunicar com a automação:
+Se os nós estiverem localizados em uma rede privada, a porta e as URLs a seguir serão necessárias para que a DSC (configuração de estado) se comunique com a automação:
 
 * Porta: Somente a TCP 443 é necessária para acesso à Internet de saída.
 * URL global: *.azure-automation.net
 * URL global do EUA Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-#### <a name="proxy-support"></a>Suporte do proxy
+Isso fornece conectividade de rede para o nó gerenciado se comunicar com a automação do Azure.
+Se você estiver usando recursos de DSC que se comunicam entre nós, como os [recursos WAITFOR *](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), também será necessário permitir o tráfego entre os nós.
+Consulte a documentação para cada recurso de DSC para entender esses requisitos de rede.
 
-Suporte de proxy para o agente de DSC está disponível na versão 1809 e versões posterior do Windows.
-Para configurar essa opção, defina o valor para **ProxyURL** e **ProxyCredential** no [script de metaconfiguração](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) usado para registrar os nós.
-Proxy não está disponível no DSC para versões anteriores do Windows.
+#### <a name="proxy-support"></a>Suporte a proxy
 
-Para nós do Linux, o agente do DSC dá suporte a proxy e utilizará a variável http_proxy para determinar a url.
+O suporte de proxy para o agente DSC está disponível no Windows versão 1809 e posterior.
+Para configurar essa opção, defina o valor de **ProxyURL** e **ProxyCredential** no [script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) de metaconfiguração usado para registrar nós.
+O proxy não está disponível no DSC para versões anteriores do Windows.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Namespace e intervalos de rede de configuração de estado do azure
+Para nós do Linux, o agente de DSC oferece suporte a proxy e utilizará a variável http_proxy para determinar a URL.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Namespace e intervalos de rede de configuração de estado do Azure
 
 É recomendável usar os endereços listados ao definir exceções. Para endereços IP, baixe os [Intervalos de IP do Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653). Esse arquivo é atualizado semanalmente e tem os intervalos atualmente implantados e as alterações futuras nos intervalos de IP.
 
@@ -98,18 +102,19 @@ Se você tiver uma conta de Automação do Azure definida para uma região espec
 
 | **Região** | **Registro DNS** |
 | --- | --- |
-| Centro-Oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Centro-Sul dos Estados Unidos |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| Centro-oeste dos EUA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| Centro-Sul dos EUA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | Leste dos EUA 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canadá Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | Europa Ocidental |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Norte da Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| Sudeste da Ásia |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| Europa Setentrional |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| Sudeste Asiático |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | Índia Central |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Sul do Reino Unido | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Gov. dos EUA – Virgínia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov - Virgínia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obter uma lista de endereços IP da região em vez de nomes da região, faça o download do arquivo XML do [Endereço IP do Centro de Dados do Azure](https://www.microsoft.com/download/details.aspx?id=41653) do Centro de Download da Microsoft.
 

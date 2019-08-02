@@ -2,27 +2,21 @@
 title: Habilitando o Azure Active Directory Identity Protection | Microsoft Docs
 description: Saiba como habilitar o Azure Active Directory Identity Protection.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d33c5c3fe970ee8e5d70e0ba358462d5bdf2bbd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 304ba16985d5abfc4d385b3f1150cfa544c20b2a
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295038"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335511"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Habilitando o Azure Active Directory Identity Protection
 
@@ -58,4 +52,3 @@ Este artigo mostra como habilitar o Azure Active Directory Identity Protection.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

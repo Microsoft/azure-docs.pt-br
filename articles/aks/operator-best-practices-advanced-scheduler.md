@@ -2,17 +2,17 @@
 title: Práticas recomendadas do operador – recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 description: Conheça as práticas recomendadas de operador do cluster para usar recursos avançados de agendador como taints and tolerations, seletores de nó e afinidade, ou afinidade entre pods e antiafinidade no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
-ms.openlocfilehash: 5affcd5ee1e51ac754d8a9bb81560a6cc3626860
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055621"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614870"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para os recursos do agendador avançado no Serviço de Kubernetes do Azure (AKS)
 
@@ -73,7 +73,7 @@ Quando esse pod é implantado, como o uso de `kubectl apply -f gpu-toleration.ya
 
 Ao aplicar taints, trabalhe com seus desenvolvedores de aplicativos e proprietários para permitir que definam os tolerations necessários em suas implantações.
 
-Para obter mais informações sobre taints e tolerations, consulte [Aplicar taints e tolerations][k8s-taints-tolerations].
+Para obter mais informações sobre taints e tolerations, consulte [aplicando taints e tolerations][k8s-taints-tolerations].
 
 Para obter mais informações sobre como usar vários pools de nós no AKS, consulte [criar e gerenciar vários pools de nós para um cluster AKS][use-multiple-node-pools].
 
@@ -130,7 +130,7 @@ spec:
 
 Ao usar essas opções de agendador, trabalhe com seus desenvolvedores de aplicativos e proprietários para permitir que eles definam corretamente as especificações de pod.
 
-Para obter mais informações sobre o uso de seletores de nó, consulte [Atribuir Pods a Nós][k8s-node-selector].
+Para obter mais informações sobre o uso de seletores de nó, consulte [Pods atribuindo a nós][k8s-node-selector].
 
 ### <a name="node-affinity"></a>Afinidade de nó
 
@@ -166,7 +166,7 @@ spec:
 
 A parte *IgnoredDuringExecution* da configuração indica que, se o nó de rótulos mudar, o pod não deve ser removido a partir do nó. O agendador Kubernetes usa apenas os rótulos de nó atualizado para novos pods serem agendados, não os pods já agendados em nós.
 
-Para obter mais informações, consulte [Afinidade e antiafinidade][k8s-affinity].
+Para obter mais informações, consulte [afinidade e antiafinidade][k8s-affinity].
 
 ### <a name="inter-pod-affinity-and-anti-affinity"></a>Afinidade entre pods e antiafinidade
 
@@ -179,14 +179,14 @@ Um bom exemplo é um aplicativo web que também usa um Azure Cache para Redis. V
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação fornece a você o controle sobre os pods de agendas Kubernetes em nós e pode isolar os recursos logicamente. Para um exemplo completo deste aplicativo web com o Azure Cache para Redis, consulte [Colocar os pods no mesmo nó][k8s-pod-affinity].
+Este exemplo é uma implantação mais complexa do que o uso de seletores de nó ou afinidade de nó. A implantação fornece a você o controle sobre os pods de agendas Kubernetes em nós e pode isolar os recursos logicamente. Para obter um exemplo completo desse aplicativo web com o Cache do Azure para o exemplo de Redis, consulte [colocar os pods no mesmo nó][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre as operações de cluster do AKS, consulte as seguintes práticas recomendadas:
+Este artigo se concentra nos recursos avançados de agendador Kubernetes. Para obter mais informações sobre operações de cluster no AKS, consulte as seguintes práticas recomendadas:
 
-* [Isolamento de multi locação e cluster][aks-best-practices-scheduler]
-* [Recursos básicos de agendador Kubernetes][aks-best-practices-scheduler]
+* [Isolamento de multilocação e cluster][aks-best-practices-scheduler]
+* [Recursos básicos de Agendador Kubernetes][aks-best-practices-scheduler]
 * [Autenticação e autorização][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

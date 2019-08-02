@@ -4,7 +4,7 @@ description: Entenda como usar gatilhos e associações do Barramento de Serviç
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 199ce2fe24d76595493dc2128cebb3fcb642fcab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12a80f77720a6e93a6631947f13247b667c34897
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241141"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68254744"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associações do Barramento de Serviço para o Azure Functions
 
@@ -37,7 +37,7 @@ As associações do Barramento de Serviços são fornecidas no pacote NuGet [Mic
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="trigger"></a>Gatilho
+## <a name="trigger"></a>Disparador
 
 Use o gatilho do Barramento de Serviço para responder às mensagens de uma fila ou tópico do Barramento de Serviço. 
 
@@ -118,7 +118,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-### <a name="trigger---f-example"></a>Gatilho - exemplo F#
+### <a name="trigger---f-example"></a>Gatilho - Exemplo F#
 
 O exemplo a seguir mostra uma associação de gatilho de Barramento de Serviço em um arquivo *function.json* e uma [função F#](functions-reference-fsharp.md) que usa a associação. A função registra em log uma mensagem de fila do barramento de serviço. 
 
@@ -148,7 +148,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>Gatilho - exemplo Java
 
-A função de Java a seguir usa o `@ServiceBusQueueTrigger` anotação a [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração para um gatilho de fila do barramento de serviço. A função capta a mensagem colocada na fila de e adiciona-o para os logs.
+A função Java a seguir usa `@ServiceBusQueueTrigger` a anotação da [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime) para descrever a configuração de um gatilho de fila do barramento de serviço. A função captura a mensagem colocada na fila e a adiciona aos logs.
 
 ```java
 @FunctionName("sbprocessor")
@@ -162,7 +162,7 @@ A função de Java a seguir usa o `@ServiceBusQueueTrigger` anotação a [biblio
  }
 ```
 
-Funções de Java também podem ser acionadas quando uma mensagem for adicionada a um tópico do barramento de serviço. O exemplo a seguir usa o `@ServiceBusTopicTrigger` anotação para descrever a configuração do gatilho.
+As funções Java também podem ser disparadas quando uma mensagem é adicionada a um tópico do barramento de serviço. O exemplo a seguir usa `@ServiceBusTopicTrigger` a anotação para descrever a configuração do gatilho.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -277,9 +277,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como "serviceBusTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**type** | N/D | Deve ser definido como "serviceBusTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável que representa a fila ou mensagem de tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila a ser monitorada.  Defina somente se for monitorar uma fila, não para um tópico.
 |**topicName**|**TopicName**|Nome do tópico a ser monitorado. Defina somente se for monitorar um tópico, não uma fila.|
 |**subscriptionName**|**SubscriptionName**|Nome da assinatura a ser monitorada. Defina somente se for monitorar um tópico, não uma fila.|
@@ -295,7 +295,7 @@ Em C# e script C#, você pode usar os tipos de parâmetros a seguir para a mensa
 * `string` -Se a mensagem for de texto.
 * `byte[]` - Útil para dados binários.
 * Um tipo personalizado - Se a mensagem contiver JSON, funções do Azure tentará desserializar os dados JSON.
-* `BrokeredMessage` - Fornece a você a mensagem desserializada com o método [BrokeredMessage.GetBody<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1).
+* `BrokeredMessage`– Fornece a você a mensagem desserializada com o método [BrokeredMessage.\<GetBody T > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
 Esses parâmetros são para a versão 1.x do Azure Functions; para 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) em vez de `BrokeredMessage`.
 
@@ -315,7 +315,7 @@ O `maxAutoRenewDuration` pode ser configurado no *host.json*, que mapeia para [O
 
 O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. Essas são propriedades da classe [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).
 
-|Propriedade|Type|DESCRIÇÃO|
+|Propriedade|Tipo|DESCRIÇÃO|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|Número total de entregas.|
 |`DeadLetterSource`|`string`|A origem de mensagens mortas.|
@@ -330,7 +330,7 @@ O gatilho Barramento de Serviço fornece várias propriedades de [metadados](./f
 |`CorrelationId`|`string`|ID de correlação.|
 
 > [!NOTE]
-> Atualmente, o gatilho do barramento de serviço que funciona com as assinaturas e filas habilitada para sessão está em visualização. Monitore [este item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para nenhuma outra atualização relativas a esta. 
+> Atualmente, o gatilho do barramento de serviço que funciona com filas e assinaturas habilitadas para sessão está em versão prévia. Acompanhe [este item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) para obter atualizações adicionais sobre isso. 
 
 Consulte [exemplos de código](#trigger---example) que usam essas propriedades neste artigo.
 
@@ -351,7 +351,7 @@ O arquivo [host.json](functions-host-json.md#servicebus) contém configurações
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------|
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. |
-|prefetchCount|n/d|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.|
+|prefetchCount|N/D|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
 
 ## <a name="output"></a>Saída
@@ -488,7 +488,7 @@ public String pushToQueue(
 
  Na [biblioteca de tempo de execução das funções Java](/java/api/overview/azure/functions/runtime), use a anotação `@QueueOutput` nos parâmetros da função cujo valor poderia ser gravado em uma fila do Barramento de Serviço.  O tipo de parâmetro deve ser `OutputBinding<T>`, onde T é qualquer tipo Java nativo de um POJO.
 
-Funções de Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa o `@ServiceBusTopicOutput` anotação para descrever a configuração para a associação de saída. 
+As funções Java também podem gravar em um tópico do barramento de serviço. O exemplo a seguir usa `@ServiceBusTopicOutput` a anotação para descrever a configuração da Associação de saída. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -593,9 +593,9 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como "serviceBus". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como "out". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
+|**type** | N/D | Deve ser definido como "serviceBus". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | N/D | Deve ser definido como "out". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável que representa a fila ou tópico no código de função. Definido como "$return" para referenciar o valor de retorno da função. |
 |**queueName**|**QueueName**|Nome da fila.  Defina somente se for enviar mensagens da fila, não para um tópico.
 |**topicName**|**TopicName**|Nome do tópico a ser monitorado. Defina somente se for enviar mensagens do tópico, não para uma fila.|
 |**conexão**|**Conexão**|O nome de uma configuração de aplicativo que contém uma cadeia de conexão de Barramento de Serviço para usar para essa associação. Se o nome de configuração do aplicativo começar com "AzureWebJobs", você pode especificar apenas o resto do nome. Por exemplo, se você configurar `connection` para "MyServiceBus", o tempo de execução do Functions procura por uma configuração de aplicativo que esteja nomeada "AzureWebJobsMyServiceBus." Se você deixar `connection` vazio, o tempo de execução de Functions usa a cadeia de caracteres de conexão do Barramento de serviço na configuração de aplicativo chamada "AzureWebJobsServiceBus".<br><br>Para obter uma cadeia de conexão, siga as etapas mostradas em [Obter as credenciais de gerenciamento](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). A cadeia de conexão deve ser voltada para um namespace do Barramento de Serviço, não limitada a uma fila ou tópico específico.|
@@ -656,9 +656,9 @@ Esta seção descreve as definições de configuração globais disponíveis par
 |Propriedade  |Padrão | DESCRIÇÃO |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|A duração máxima na qual o bloqueio de mensagem será renovado automaticamente.|
-|autoComplete|verdadeiro|Se o gatilho deve ser marcado imediatamente como concluído (completar automaticamente) ou aguardar a conclusão do processamento da chamada.|
+|autoComplete|true|Se o gatilho deve ser marcado imediatamente como concluído (completar automaticamente) ou aguardar a conclusão do processamento da chamada.|
 |maxConcurrentCalls|16|O número máximo de chamadas simultâneas para o retorno de chamada que a bomba de mensagens deve iniciar. Por padrão, o tempo de execução do Functions processa várias mensagens simultaneamente. Para direcionar o tempo de execução para processar uma única fila ou mensagem de tópico de cada vez, defina `maxConcurrentCalls` como 1. |
-|prefetchCount|n/d|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.|
+|prefetchCount|N/D|O PrefetchCount padrão que será usado pelo MessageReceiver subjacente.|
 
 
 ## <a name="next-steps"></a>Próximas etapas

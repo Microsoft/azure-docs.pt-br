@@ -1,21 +1,21 @@
 ---
-title: Colaborando na base de dados de conhecimento – QnA Maker
+title: Colaborar na base de Conhecimento – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhecimento. Esse recurso é fornecido com o Controle de Acesso Baseado em Função do Azure.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 01/14/2019
-ms.author: tulasim
-ms.openlocfilehash: ca754f197a46fc41b6f1b432611a2177ec0afafa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: diberry
+ms.openlocfilehash: 757b791f632e6d7ecb15a0a40384061f0658a6ff
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61374756"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447509"
 ---
 # <a name="collaborate-on-your-knowledge-base"></a>Colaborar com sua base de dados de conhecimento
 
@@ -23,7 +23,7 @@ O QnA Maker permite que várias pessoas colaborem em uma base de dados de conhec
 
 Execute as seguintes etapas para compartilhar seu serviço QnA Maker com alguém:
 
-1. Faça logon no portal do Azure e vá para o recurso QnA Maker.
+1. Entrar no portal do Azure e vá até o recurso do QnA Maker.
 
     ![Lista de recursos do QnA Maker](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 

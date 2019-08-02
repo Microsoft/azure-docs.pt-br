@@ -1,77 +1,77 @@
 ---
-title: Transcrição de conversa - serviços de fala
+title: Transcrição de conversa – serviço de fala
 titleSuffix: Azure Cognitive Services
-description: Transcrição de conversa é um recurso avançado dos serviços de fala que combina o reconhecimento de fala em tempo real, a identificação do locutor e diarization. Transcrição de conversa é perfeita para transcrevê reuniões presenciais, com a capacidade de distinguir os alto-falantes, ele permite que você saiba quem disse que e quando, permitindo que os participantes para se concentrar na reunião e rapidamente acompanhamento sobre as próximas etapas. Esse recurso também melhora a acessibilidade. Com a transcrição, você pode envolver ativamente participantes com deficiências auditivas.
+description: A transcrição de conversa é um recurso avançado dos serviços de fala que combina o reconhecimento de fala em tempo real, a identificação do orador e o diarization. A transcrição de conversa é perfeita para transcrever reuniões presenciais, com a capacidade de diferenciar os alto-falantes, permite que você saiba quem disse o que e quando, permitindo que os participantes se concentrem na reunião e sigam rapidamente nas próximas etapas. Esse recurso também melhora a acessibilidade. Com a transcrição, você pode envolver ativamente os participantes com deficiências auditivas.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: acbf82335523ee226f4b899180f0f22cb94cca5e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243865"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562883"
 ---
 # <a name="what-is-conversation-transcription"></a>O que é a transcrição de conversa?
 
-Transcrição de conversa é um recurso avançado dos serviços de fala que combina o reconhecimento de fala em tempo real, a identificação do locutor e diarization. Transcrição de conversa é perfeita para transcrevê reuniões presenciais, com a capacidade de distinguir os alto-falantes, ele permite que você saiba quem disse que e quando, permitindo que os participantes para se concentrar na reunião e rapidamente acompanhamento sobre as próximas etapas. Esse recurso também melhora a acessibilidade. Com a transcrição, você pode envolver ativamente participantes com deficiências auditivas.   
+A transcrição de conversa é um recurso avançado dos serviços de fala que combina o reconhecimento de fala em tempo real, a identificação do orador e o diarization. A transcrição de conversa é perfeita para transcrever reuniões presenciais, com a capacidade de diferenciar os alto-falantes, permite que você saiba quem disse o que e quando, permitindo que os participantes se concentrem na reunião e sigam rapidamente nas próximas etapas. Esse recurso também melhora a acessibilidade. Com a transcrição, você pode envolver ativamente os participantes com deficiências auditivas.   
 
-Transcrição de conversação oferece reconhecimento preciso com modelos de fala personalizáveis que você pode adaptar para entender o vocabulário específico da empresa e do setor. Além disso, você pode combinar a transcrição de conversa com o SDK de dispositivos de fala para otimizar a experiência para microfone de vários dispositivos.
+A transcrição de conversa fornece reconhecimento preciso com modelos de fala personalizáveis que você pode adaptar para entender o vocabulário específico da indústria e da empresa. Além disso, você pode emparelhar a transcrição de conversa com o SDK dos dispositivos de fala para otimizar a experiência de dispositivos com vários microfones.
 
 >[!NOTE]
-> Atualmente, a transcrição de conversa é recomendada para pequenas reuniões. Se você quiser estender a transcrição de conversa para reuniões grandes em grande escala, entre em contato conosco.
+> Atualmente, a transcrição de conversa é recomendada para pequenas reuniões. Se você quiser estender a transcrição de conversa para grandes reuniões em escala, entre em contato conosco.
 
-Este diagrama ilustra o hardware, software e serviços que trabalham em conjunto com a transcrição de conversa.
+Este diagrama ilustra o hardware, o software e os serviços que funcionam em conjunto com a transcrição de conversa.
 
-![O diagrama de transcrição de conversa de importação](media/scenarios/conversation-transcription-service.png)
+![O diagrama importar transcrição de conversa](media/scenarios/conversation-transcription-service.png)
 
 >[!IMPORTANT]
-> Uma matriz de sete microfone circular com a configuração de geometria específica é necessária. Para obter detalhes de especificação e design, consulte [microfone de SDK de dispositivo do Microsoft Speech](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, consulte [obter o SDK de dispositivo do Microsoft Speech](https://aka.ms/cts/getsdk).
+> Uma matriz de sete microfone circular com configuração de geometria específica é necessária. Para obter detalhes de especificação e design, consulte [microfone do SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, confira [obter o SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/getsdk).
 
-## <a name="get-started-with-conversation-transcription"></a>Introdução a transcrição de conversa
+## <a name="get-started-with-conversation-transcription"></a>Introdução à transcrição de conversa
 
-Há três etapas que você precise executar para começar a transcrição de conversa.
+Há três etapas que você precisa seguir para começar a usar a transcrição de conversa.
 
-1. Colete amostras de voz de usuários.
+1. Colete exemplos de voz dos usuários.
 2. Gerar perfis de usuário usando os exemplos de voz do usuário
-3. Use o SDK de fala para identificar os usuários (alto-falantes) e transcrição de fala
+3. Usar o SDK de fala para identificar usuários (alto-falantes) e transcrever a fala
 
-## <a name="collect-user-voice-samples"></a>Coletar amostras de voz do usuário
+## <a name="collect-user-voice-samples"></a>Coletar exemplos de voz do usuário
 
-A primeira etapa é coletar gravações de áudio de cada usuário. Fala de usuário deve ser registrada em um ambiente silencioso, sem ruído de fundo. O tamanho recomendado para cada amostra de áudio é entre 30 segundos e dois minutos. Amostras de áudio mais longas resultará em precisão aprimorada ao identificar os alto-falantes. Áudio deve ser um canal mono com uma taxa de amostragem de 16 KHz.
+A primeira etapa é coletar gravações de áudio de cada usuário. A fala do usuário deve ser registrada em um ambiente silencioso sem ruído de fundo. O comprimento recomendado para cada amostra de áudio é entre 30 e dois minutos. Amostras de áudio mais longas resultarão em precisão aprimorada ao identificar os alto-falantes. O áudio deve ser um canal mono com uma taxa de amostra de 16 KHz.
 
-Além da orientação mencionado anteriormente, como o áudio é registrado e armazenada cabe a você – um banco de dados seguro é recomendado. Na próxima seção, vamos examinar como esse áudio é usado para gerar perfis de usuário que são usados com o SDK de fala para reconhecer os alto-falantes.
+Além das diretrizes mencionadas anteriormente, como o áudio é gravado e armazenado cabe a você – é recomendado um banco de dados seguro. Na próxima seção, vamos examinar como esse áudio é usado para gerar perfis de usuário que são usados com o SDK de fala para reconhecer os alto-falantes.
 
 ## <a name="generate-user-profiles"></a>Gerar perfis de usuário
 
-Em seguida, você precisará enviar as gravações de áudio que você coletou para o serviço de geração de assinatura para validar o áudio e gerar perfis de usuário. O [serviço de geração de assinatura](https://aka.ms/cts/signaturegenservice) é um conjunto de APIs REST, que permitem que você gerar e recuperar perfis de usuário.
+Em seguida, você precisará enviar as gravações de áudio que você coletou para o serviço de geração de assinatura para validar o áudio e gerar perfis de usuário. O [serviço de geração de assinatura](https://aka.ms/cts/signaturegenservice) é um conjunto de APIs REST, que permitem gerar e recuperar perfis de usuário.
 
-Para criar um perfil de usuário, você precisará usar o `GenerateVoiceSignature` API. Detalhes da especificação e código de exemplo estão disponíveis:
+Para criar um perfil de usuário, você precisará usar a `GenerateVoiceSignature` API. Os detalhes de especificação e o código de exemplo estão disponíveis:
 
 > [!NOTE]
-> Transcrição de conversa está atualmente disponível em "en-US" e "zh-CN" nas seguintes regiões: `centralus` e `eastasia`.
+> A transcrição de conversa está disponível atualmente em "en-US" e "zh-CN" nas seguintes regiões `centralus` : `eastasia`e.
 
-* [Especificação de REST](https://aka.ms/cts/signaturegenservice)
+* [Especificação REST](https://aka.ms/cts/signaturegenservice)
 * [Como usar a transcrição de conversa](https://aka.ms/cts/howto)
 
-## <a name="transcribe-and-identify-speakers"></a>Transcreva e identificar os alto-falantes
+## <a name="transcribe-and-identify-speakers"></a>Transcrever e identificar os alto-falantes
 
-Transcrição de conversa espera que os fluxos de Áudio multicanais e perfis de usuário como entradas para gerar transcrições e identificar os alto-falantes. Dados de perfil de usuário e de áudio são enviados para o serviço de transcrição de conversa usando o SDK de dispositivos de fala. Conforme mencionado anteriormente, uma matriz de sete microfone circular e o SDK de dispositivos de fala são necessárias para usar a transcrição de conversa.
+A transcrição de conversa espera fluxos de áudio multicanal e perfis de usuário como entradas para gerar transcrições e identificar alto-falantes. Os dados de perfil de usuário e de áudio são enviados ao serviço de transcrição de conversa usando o SDK de dispositivos de fala. Como mencionado anteriormente, uma matriz de sete microfone circular e o SDK de dispositivos de fala são necessários para usar a transcrição de conversa.
 
 >[!NOTE]
-> Para obter detalhes de especificação e design, consulte [microfone de SDK de dispositivo do Microsoft Speech](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, consulte [obter o SDK de dispositivo do Microsoft Speech](https://aka.ms/cts/getsdk).
+> Para obter detalhes de especificação e design, consulte [microfone do SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/microphone). Para saber mais ou comprar um kit de desenvolvimento, confira [obter o SDK do dispositivo de fala da Microsoft](https://aka.ms/cts/getsdk).
 
-Para saber como usar a transcrição de conversa com o Speech SDK de dispositivos, consulte [como usar a transcrição de conversa](https://aka.ms/cts/howto).
+Para saber como usar a transcrição de conversa com o SDK de dispositivos de fala, consulte [como usar a transcrição de conversa](https://aka.ms/cts/howto).
 
 
-## <a name="quick-start-with-a-sample-app"></a>Início rápido com um aplicativo de exemplo
+## <a name="quick-start-with-a-sample-app"></a>Início Rápido com um aplicativo de exemplo
 
-SDK do dispositivo do Microsoft Speech tem um aplicativo de exemplo de início rápido para todos os exemplos relacionados ao dispositivo. Transcrição de conversa é um deles. Você pode encontrá-lo no [início rápido do SDK de fala de dispositivos android](https://aka.ms/sdsdk-quickstart) com o aplicativo de exemplo e seu código-fonte para sua referência.
+O SDK do dispositivo de fala da Microsoft tem um aplicativo de exemplo de início rápido para todos os exemplos relacionados ao dispositivo. A transcrição de conversa é uma delas. Você pode encontrá-lo no [início rápido do SDK do dispositivo de fala](https://aka.ms/sdsdk-quickstart) com o aplicativo de exemplo e seu código-fonte para sua referência.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c97ccd82a9c09e10572733040e238443cbf777da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0de4d2b9ad0d009b9cd363d19a2de3f29d810d4
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64696606"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303461"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>Dicas de solução de problemas para a pesquisa cognitiva
 
@@ -94,7 +94,10 @@ A análise de imagem faz uso intensivo de computação até mesmo em casos simpl
 
 O tempo de execução máximo varia por camada: vários minutos na Camada gratuita, indexação de 24 horas nas camadas faturáveis. Se o processamento não for concluído em um período de 24 horas para o processamento sob demanda, use uma agenda para que o indexador retome o processamento de onde parou. 
 
-Para indexadores agendados, a indexação é retomada de acordo com a agenda no último documento bem-sucedido. Com o uso de um agenda recorrente, o indexador pode percorrer a lista de pendências de imagem ao longo de várias horas ou vários dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de agendamento, confira a [Etapa 3: Criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer).
+Para indexadores agendados, a indexação é retomada de acordo com a agenda no último documento bem-sucedido. Com o uso de um agenda recorrente, o indexador pode percorrer a lista de pendências de imagem ao longo de várias horas ou vários dias, até que todas as imagens não processadas sejam processadas. Para obter mais informações sobre a sintaxe de agendamento, confira a [Etapa 3: Criar um indexador](search-howto-indexing-azure-blob-storage.md#step-3-create-an-indexer) ou consulte [como programar indexadores para o Azure Search](search-howto-schedule-indexers.md).
+
+> [!NOTE]
+> Se um indexador é definido para uma determinada agenda mas repetidamente falhar no mesmo documenta repetidamente cada vez que ele é executado, o indexador será iniciada executando em um intervalo menos frequente (até o máximo de pelo menos uma vez a cada 24 horas) com êxito até que ele faz aga de andamento no.  Se você acredita que corrigir qualquer problema que fazia com que o indexador ficar preso em um determinado ponto, você pode executar um em demanda tempo de execução do indexador, e se isso faz com êxito o andamento, o indexador irá retornar de seu intervalo de agendamento do conjunto novamente.
 
 Para a indexação baseada em portal (conforme descrita no guia de início rápido), escolher a opção "Executar uma vez" do indexador limita o processamento a 1 hora (`"maxRunTime": "PT1H"`). Você talvez queira estender a janela de processamento para um período mais longo.
 

@@ -4,16 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: 9b98e1a1f5243584d0ca4b1490e25302ec26b465
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f2470f937d2d812bf79cea3c23d89a50717a5a92
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050548"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277100"
 ---
 | Resource | [Plano de consumo](../articles/azure-functions/functions-scale.md#consumption-plan) | [Plano Premium](../articles/azure-functions/functions-scale.md#premium-plan) | [Plano de serviço de aplicativo](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
 | Expansão | Controlado por evento | Controlado por evento | [Manual/autoscale](../articles/app-service/web-sites-scale.md) | 
+| Máximo de instâncias | 200 | 20 | 10-20 |
 |Padrão [duração de tempo limite](../articles/azure-functions/functions-scale.md#timeout) (min) |5 | 30 |30<sup>2</sup> |
 |Máx [duração de tempo limite](../articles/azure-functions/functions-scale.md#timeout) (min) |10 | não associado | unbounded<sup>3</sup> |
 | Máximo de conexões de saída (por instância) | 600 Active Directory (total de 1200) | não associado | não associado |
@@ -26,7 +27,7 @@ ms.locfileid: "67050548"
 | [Planos do Serviço de Aplicativo](../articles/app-service/overview-hosting-plans.md) | 100 por [região](https://azure.microsoft.com/global-infrastructure/regions/) |100 por grupo de recursos |100 por grupo de recursos |
 | Armazenamento<sup>6</sup> |1 GB |250 GB |50 A 1000 GB |
 | Domínios personalizados por aplicativo</a> |500<sup>7</sup> |500 |500 |
-| domínio personalizado [Suporte a SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |Sem suporte, o certificado curinga para *. azurewebsites.net disponível por padrão| unbounded SSL SNI e 1 conexões IP SSL incluídas |unbounded SSL SNI e 1 conexões IP SSL incluídas | 
+| domínio personalizado [Suporte a SSL](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |não associado conexão SSL SNI incluída | unbounded SSL SNI e 1 conexões IP SSL incluídas |unbounded SSL SNI e 1 conexões IP SSL incluídas | 
 
 <sup>1</sup> para obter limites específicos para as várias opções de plano de serviço de aplicativo, consulte a [limites de plano do serviço de aplicativo](../articles/azure-subscription-service-limits.md#app-service-limits).  
 <sup>2</sup> por padrão, o tempo limite para o tempo de execução 1.x de funções em um plano do serviço de aplicativo é ilimitado.  

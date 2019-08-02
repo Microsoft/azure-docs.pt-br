@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 802b71aa73e01378f161e62ec4c22d8b470955c3
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 926c22c6512ae083712185a5f235737fb48ab9bd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898806"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expensify"></a>Tutorial: Integração do Azure Active Directory com o Expensify
 
@@ -53,7 +53,7 @@ Para configurar a integração do Expensify ao Azure AD, você precisa adicionar
 
 **Para adicionar o Expensify da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Expensify, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Expensify](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL usando o seguinte padrão: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
+    a. Na caixa de texto **URL de Logon**, digite a URL usando o seguinte padrão: `https://www.expensify.com/authentication/saml/loginCallback?domain=[yourdomain]`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://www.expensify.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://www.expensify.com`
 
     > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize esse valor com a URL de logon real. Contate a [equipe de suporte ao Cliente do Expensify](mailto:help@expensify.com) para obter esse valor.
@@ -207,4 +207,4 @@ Ao clicar no bloco do Expensify no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

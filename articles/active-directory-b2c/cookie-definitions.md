@@ -9,19 +9,19 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: marsma
-ms.component: B2C
-ms.openlocfilehash: 1de1734d791608f3262d2af70becc2e082c9f317
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: B2C
+ms.openlocfilehash: af3244a32e9d02a1ba5053da85547bf614053127
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511146"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67587406"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Definições de cookies para o Azure Active Directory B2C
 
 A tabela a seguir lista os cookies usados no Azure Active Directory B2C.
 
-| NOME | Domínio | Expiração | Finalidade |
+| Nome | Domínio | Expiração | Finalidade |
 | ----------- | ------ | -------------------------- | --------- |
 | x-ms-cpim-admin | main.b2cadmin.ext.azure.com | Fim do [sessão do navegador](active-directory-b2c-token-session-sso.md) | Mantém os dados de associação do usuário entre locatários. Os locatários um usuário é um membro da e nível de associação (administrador ou usuário). |
 | x-ms-cpim-slice | login.microsoftonline.com, b2clogin.com, domínio de marca | Fim do [sessão do navegador](active-directory-b2c-token-session-sso.md) | Usado para rotear solicitações para a instância de produção apropriados. |

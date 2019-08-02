@@ -4,7 +4,7 @@ description: Implante o agente do Log Analytics na máquina virtual do Windows u
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: feae6176-2373-4034-b5d9-a32c6b4e1f10
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: fb931d5ce72b21cb17abbcd11095dbc8d611f0c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b9d0e582b77dc06e1655a7bdb57ee232c603bc86
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064439"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706675"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do Azure Monitor para Windows
 
@@ -44,9 +44,9 @@ A tabela a seguir fornece um mapeamento da versão da extensão de VM do Windows
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18001 | 1.0.18001 | Junho de 2019 | <ul><li> Aprimoramentos de estabilização e correções de bugs secundários </li><li> Adicionada a capacidade para desabilitar as credenciais padrão ao fazer a conexão de proxy (suporte para WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Março de 2019 | <ul><li>Correções de estabilização secundária </li></ul> |
-| 10.19.10006 | n/d | Dezembro de 2018 | <ul><li> Correções de estabilização secundária </li></ul> | 
-| 8.0.11136 | n/d | Setembro de 2018 |  <ul><li> Adicionado suporte para a detecção de alteração da ID de recurso na mudança da VM </li><li> Adicionado suporte para instalar ID ao usar sem extensão de recurso de relatório </li></ul>| 
-| 8.0.11103 | n/d |  Abril de 2018 | |
+| 10.19.10006 | N/D | Dezembro de 2018 | <ul><li> Correções de estabilização secundária </li></ul> | 
+| 8.0.11136 | N/D | Setembro de 2018 |  <ul><li> Adicionado suporte para a detecção de alteração da ID de recurso na mudança da VM </li><li> Adicionado suporte para instalar ID ao usar sem extensão de recurso de relatório </li></ul>| 
+| 8.0.11103 | N/D |  Abril de 2018 | |
 | 8.0.11081 | 1.0.11081 | Novembro de 2017 | | 
 | 8.0.11072 | 1.0.11072 | Setembro de 2017 | |
 | 8.0.11049 | 1.0.11049 | Fevereiro de 2017 | |
@@ -87,11 +87,11 @@ O seguinte JSON mostra o esquema para a extensão do agente do Log Analytics. A 
 ```
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo |
+| NOME | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
-| publicador | Microsoft.EnterpriseCloud.Monitoring |
-| tipo | MicrosoftMonitoringAgent |
+| publisher | Microsoft.EnterpriseCloud.Monitoring |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (por exemplo)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -181,7 +181,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ## <a name="troubleshoot-and-support"></a>Solução de problemas e suporte
 
-### <a name="troubleshoot"></a>Solucionar problemas
+### <a name="troubleshoot"></a>Solução de problemas
 
 Os dados sobre o estado das implantações de extensão podem ser recuperados no Portal do Azure usando o módulo do Azure PowerShell. Para ver o estado da implantação das extensões de uma determinada VM, execute o comando a seguir usando o módulo do Azure PowerShell.
 

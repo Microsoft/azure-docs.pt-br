@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 067bb6b806ddd9b83d4ea755876a980ca45d76e9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10ddf4c42ac5aa2d1cffd7cbca6930896103d2c5
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387461"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147772"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Requisitos do sistema do Azure Data Box Disk
 
@@ -29,7 +29,7 @@ Aqui está uma lista dos sistemas operacionais compatíveis para desbloqueio de 
 | **Sistema operacional** | **Versões testadas** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+| Windows (64 bits) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Outros softwares necessários para clientes do Windows

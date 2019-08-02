@@ -3,17 +3,18 @@ title: Tutorial – tarefas de contêiner de várias etapas – Tarefas do Regis
 description: Neste tutorial, você aprenderá a configurar uma Tarefa de Registro de Contêiner do Azure para disparar automaticamente um fluxo de trabalho de várias etapas para criar, executar e enviar e imagens de contêiner por push na nuvem ao fazer commit do código-fonte em um repositório Git.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 09b8e5d31bc6a4ec24633889920e2768bb7ce538
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: c78c2c8279972108aee12b9b386175d0f27b7fee
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546550"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310405"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Executar um fluxo de trabalho de contêiner de várias etapas na nuvem ao fazer commit do código-fonte
 
@@ -35,7 +36,7 @@ Este tutorial presume que você já tenha concluído as tarefas no [tutorial ant
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se quiser usar a CLI do Azure localmente, será preciso ter a CLI do Azure versão **2.0.62** ou posterior instalada e conectada com [az login][az-login]. Execute `az --version` para encontrar a versão. Caso precise instalar ou fazer upgrade da CLI, confira [Instalar a CLI do Azure][azure-cli].
+Se quiser usar a CLI do Azure localmente, será preciso ter a CLI do Azure versão **2.0.62** ou posterior instalada e conectada com [az login][az-login]. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar a CLI, confira como [instalar a CLI do Azure][azure-cli].
 
 [!INCLUDE [container-registry-task-tutorial-prereq.md](../../includes/container-registry-task-tutorial-prereq.md)]
 
@@ -220,7 +221,7 @@ Run ID: cf19 was successful after 18s
 
 Agora que você testou a tarefa executando-a manualmente, dispare-a automaticamente com uma alteração de código-fonte.
 
-Primeiro, certifique-se de que você esteja no diretório que contém o clone local do [repositório][sample-repo]:
+Primeiro, verifique se você está no diretório que contém o clone local do [repositório][sample-repo]:
 
 ```azurecli-interactive
 cd acr-build-helloworld-node

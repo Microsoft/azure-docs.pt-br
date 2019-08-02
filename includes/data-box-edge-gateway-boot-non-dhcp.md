@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: 880b630ae48eda086f6454f0d7108d27d3403b77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161210"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172590"
 ---
 Se você inicializar o backup em um ambiente de não-DHCP, siga estas etapas para implantar a máquina virtual para o Gateway de dados de caixa.
 

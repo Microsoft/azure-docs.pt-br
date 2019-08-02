@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajani-janaki-ram
-ms.openlocfilehash: 981b78345a0d9ea589e9c39ddaa2e253f1dd343f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: rajanaki
+ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65412832"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876036"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Excluir um cofre dos Serviços de Recuperação de Site
 
@@ -77,4 +77,4 @@ Para excluir o cofre o Azure Site Recovery, mesmo se houver itens protegidos, us
 
     Remove-AzRecoveryServicesVault -Vault $vault
 
-Saiba mais sobre [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault), e [AzRecoveryServicesVault remover](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).
+Saiba mais sobre [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault)e [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault).

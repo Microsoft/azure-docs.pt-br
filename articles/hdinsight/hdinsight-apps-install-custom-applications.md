@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0acac29ee49bc94c195d0e13e55fff3a735ad36b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fbee86f09246684a0e553114e367907ddabfa16
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859804"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445495"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>Instalar aplicativos personalizados do Apache Hadoop no HDInsight do Azure
 
@@ -107,7 +107,7 @@ Há várias maneiras de excluir aplicativos do HDInsight.
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Clusters HDInsight** no menu esquerdo.  Se você não conseguir ver a opção, clique em **Procurar** e clique em **Clusters HDInsight**.
 3. Clique no cluster em que você instalou o aplicativo.
-4. Na folha **Configurações**, clique em **Aplicativos** na categoria **Geral**. Você deverá ver uma lista de aplicativos instalados. Neste tutorial, **hue** está listado na folha **Aplicativos Instalados**.
+4. Na folha **Configurações**, clique em **Aplicativos** na categoria **Geral**. Você deverá ver uma lista de aplicativos instalados. Para este artigo **matiz** listadas na **aplicativos instalados** folha.
 5. Clique no aplicativo que deseja remover e clique em **Excluir**.
 6. Clique em **Sim** para confirmar.
 

@@ -11,12 +11,12 @@ ms.date: 01/04/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 4bd38991b2452bdda65a7647f844dcc17fdfb125
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d239e44364c3a4879f2f131717511385a4bd7037
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60786898"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234440"
 ---
 # <a name="templates"></a>Modelos
 
@@ -40,7 +40,7 @@ Há duas maneiras para você começar a criar um pipeline do Data Factory a part
 
 ### <a name="out-of-the-box-data-factory-templates"></a>Modelos do Data Factory prontos para uso
 
-O Data Factory usa modelos do Azure Resource Manager para salvar modelos de pipeline do Data Factory. Você pode ver todos os modelos do Gerenciador de recursos, juntamente com o arquivo de manifesto usados para fora os modelos de fábrica de dados de caixa, nos [repositório do GitHub do Azure Data Factory oficial](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos fornecidos pela Microsoft incluem os, mas não estão limitados aos, seguintes itens:
+O Data Factory usa modelos do Azure Resource Manager para salvar modelos de pipeline do Data Factory. Você pode ver todos os modelos do Resource Manager, juntamente com o arquivo de manifesto usado para modelos de Data Factory prontos, no [repositório do GitHub oficial Azure data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/templates). Os modelos predefinidos fornecidos pela Microsoft incluem os, mas não estão limitados aos, seguintes itens:
 
 -   Copiar modelos:
 
@@ -49,6 +49,8 @@ O Data Factory usa modelos do Azure Resource Manager para salvar modelos de pipe
     -   [Copiar novos arquivos por LastModifiedDate](solution-template-copy-new-files-lastmodifieddate.md)
 
     -   [Copiar vários contêineres de arquivos entre armazenamentos baseados em arquivo](solution-template-copy-files-multiple-containers.md)
+
+    -   [Mover arquivos](solution-template-move-files.md)
 
     -   [Cópia delta do Banco de Dados](solution-template-delta-copy-with-control-table.md)
 

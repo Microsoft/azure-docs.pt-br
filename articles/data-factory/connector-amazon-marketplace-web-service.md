@@ -46,7 +46,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Amazon Market
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **AmazonMWS** | Sim |
 | endpoint | O endpoint do servidor Amazon MWS (ou seja, mws.amazonservices.com)  | Sim |
-| marketplaceID | A ID do Amazon Marketplace que você deseja recuperar os dados. Para recuperar dados de várias IDs do Marketplace, separe-as com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
+| marketplaceID | A Amazon Marketplace ID que você deseja recuperar os dados. Para recuperar dados de várias IDs do Marketplace, separe-as com uma vírgula (`,`). (ou seja, A2EUQ1WTGCTBG2)  | Sim |
 | sellerID | A ID do vendedor Amazon.  | Sim |
 | mwsAuthToken | O token de autenticação do Amazon MWS. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | accessKeyId | A ID da chave de acesso usada para acessar os dados.  | Sim |

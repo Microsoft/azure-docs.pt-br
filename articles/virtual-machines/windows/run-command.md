@@ -3,17 +3,17 @@ title: Executar scripts do PowerShell em uma VM do Windows no Azure
 description: Este tópico descreve como executar scripts do PowerShell em uma máquina virtual Windows do Azure usando o recurso Executar Comando
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 23973445992ceaeb0cd3bc0589665f2fac5b64e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64575350"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476782"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Executar scripts do PowerShell em sua VM Windows com o recurso Executar Comando
 
@@ -62,7 +62,7 @@ Quando o comando for escolhido, clique em **Executar** para executar o script. O
 
 Esta tabela mostra a lista de comandos disponíveis para VMs Windows. O comando **RunPowerShellScript** pode ser usado para executar qualquer script personalizado desejado.
 
-|**Nome**|**Descrição**|
+|**Name**|**Descrição**|
 |---|---|
 |**RunPowerShellScript**|Executa um script do PowerShell|
 |**EnableRemotePS**|Configura o computador para habilitar o PowerShell remoto.|

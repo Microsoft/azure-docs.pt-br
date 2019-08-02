@@ -1,10 +1,12 @@
 ---
-title: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário do Azure AD (versão prévia pública)
+title: Personalizar declarações para um aplicativo em um locatário do Azure AD (visualização pública)
 description: Esta página descreve o mapeamento de declarações no Azure Active Directory.
 services: active-directory
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -13,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97de45ef94afa9da8a5e928a3d4a8911db052107
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546196"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381057"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -284,50 +286,50 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: valores de ID válidos por fonte
 
-| `Source` | ID | Descrição |
+| Origem | ID | Descrição |
 |-----|-----|-----|
-| Usuário | sobrenome | Nome da família |
-| Usuário | givenname | Nome |
-| Usuário | displayname | Nome para exibição |
-| Usuário | objectid | ObjectID |
-| Usuário | mail | Endereço de Email |
-| Usuário | userprincipalname | Nome UPN |
-| Usuário | department|department|
-| Usuário | onpremisessamaccountname | Nome da conta SAM local |
-| Usuário | netbiosname| Nome NetBios |
-| Usuário | dnsdomainname | Nome de Domínio DNS |
-| Usuário | onpremisesecurityidentifier | Identificador de segurança local |
-| Usuário | companyname| Nome da Organização |
-| Usuário | streetaddress | Endereço |
-| Usuário | postalcode | Código postal |
-| Usuário | preferredlanguange | Idioma preferencial |
-| Usuário | onpremisesuserprincipalname | UPN local |
-| Usuário | mailNickname | Apelido de email |
-| Usuário | extensionattribute1 | Atributo de extensão 1 |
-| Usuário | extensionattribute2 | Atributo de extensão 2 |
-| Usuário | extensionattribute3 | Atributo de extensão 3 |
-| Usuário | extensionattribute4 | Atributo de extensão 4 |
-| Usuário | extensionattribute5 | Atributo de extensão 5 |
-| Usuário | extensionattribute6 | Atributo de extensão 6 |
+| User | sobrenome | Nome da família |
+| User | givenname | Nome |
+| User | displayname | Nome para exibição |
+| User | objectid | ObjectID |
+| User | mail | Endereço de Email |
+| User | userprincipalname | Nome UPN |
+| User | department|department|
+| User | onpremisessamaccountname | Nome da conta SAM local |
+| User | netbiosname| Nome NetBios |
+| User | dnsdomainname | Nome de Domínio DNS |
+| User | onpremisesecurityidentifier | Identificador de segurança local |
+| User | companyname| Nome da Organização |
+| User | streetaddress | Endereço |
+| User | postalcode | Código postal |
+| User | preferredlanguange | Idioma preferencial |
+| User | onpremisesuserprincipalname | UPN local |
+| User | mailNickname | Apelido de email |
+| User | extensionattribute1 | Atributo de extensão 1 |
+| User | extensionattribute2 | Atributo de extensão 2 |
+| User | extensionattribute3 | Atributo de extensão 3 |
+| User | extensionattribute4 | Atributo de extensão 4 |
+| User | extensionattribute5 | Atributo de extensão 5 |
+| User | extensionattribute6 | Atributo de extensão 6 |
 | Usuário | extensionattribute7 | Atributo de extensão 7 |
-| Usuário | extensionattribute8 | Atributo de extensão 8 |
-| Usuário | extensionattribute9 | Atributo de extensão 9 |
-| Usuário | extensionattribute10 | Atributo de extensão 10 |
-| Usuário | extensionattribute11 | Atributo de extensão 11 |
-| Usuário | extensionattribute12 | Atributo de extensão 12 |
-| Usuário | extensionattribute13 | Atributo de extensão 13 |
-| Usuário | extensionattribute14 | Atributo de extensão 14 |
-| Usuário | extensionattribute15 | Atributo de extensão 15 |
-| Usuário | othermail | Outro email |
-| Usuário | country | País/Região |
-| Usuário | city | City |
-| Usuário | estado | Estado |
-| Usuário | jobtitle | Cargo |
-| Usuário | employeeid | ID do funcionário |
-| Usuário | facsimiletelephonenumber | Número de telefone de fax |
-| aplicativo, recurso, público-alvo | displayname | Nome para exibição |
+| User | extensionattribute8 | Atributo de extensão 8 |
+| User | extensionattribute9 | Atributo de extensão 9 |
+| User | extensionattribute10 | Atributo de extensão 10 |
+| User | extensionattribute11 | Atributo de extensão 11 |
+| User | extensionattribute12 | Atributo de extensão 12 |
+| User | extensionattribute13 | Atributo de extensão 13 |
+| User | extensionattribute14 | Atributo de extensão 14 |
+| User | extensionattribute15 | Atributo de extensão 15 |
+| User | othermail | Outro email |
+| User | country | País |
+| User | city | City |
+| User | state | Estado |
+| User | jobtitle | Cargo |
+| User | employeeid | ID do funcionário |
+| User | facsimiletelephonenumber | Número de telefone de fax |
+| aplicativo, recurso, público-alvo | displayName | Nome para exibição |
 | aplicativo, recurso, público-alvo | objected | ObjectID |
-| aplicativo, recurso, público-alvo | marcas | Marcação da entidade de serviço |
+| aplicativo, recurso, público-alvo | marcações | Marcação da entidade de serviço |
 | Empresa | tenantcountry | País/Região do locatário |
 
 **TransformationID:** o elemento TransformationID deverá ser fornecido apenas se o elemento Source estiver definido como "transformation".
@@ -384,27 +386,27 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atributos permitidos como fonte de dados para NameID SAML
 
-|`Source`|ID|Descrição|
+|Origem|ID|Descrição|
 |-----|-----|-----|
-| Usuário | mail|Endereço de Email|
-| Usuário | userprincipalname|Nome UPN|
-| Usuário | onpremisessamaccountname|Nome da conta SAM local|
-| Usuário | employeeid|ID do funcionário|
-| Usuário | extensionattribute1 | Atributo de extensão 1 |
-| Usuário | extensionattribute2 | Atributo de extensão 2 |
-| Usuário | extensionattribute3 | Atributo de extensão 3 |
-| Usuário | extensionattribute4 | Atributo de extensão 4 |
-| Usuário | extensionattribute5 | Atributo de extensão 5 |
-| Usuário | extensionattribute6 | Atributo de extensão 6 |
+| User | mail|Endereço de Email|
+| User | userprincipalname|Nome UPN|
+| User | onpremisessamaccountname|Nome da conta SAM local|
+| User | employeeid|ID do funcionário|
+| User | extensionattribute1 | Atributo de extensão 1 |
+| User | extensionattribute2 | Atributo de extensão 2 |
+| User | extensionattribute3 | Atributo de extensão 3 |
+| User | extensionattribute4 | Atributo de extensão 4 |
+| User | extensionattribute5 | Atributo de extensão 5 |
+| User | extensionattribute6 | Atributo de extensão 6 |
 | Usuário | extensionattribute7 | Atributo de extensão 7 |
-| Usuário | extensionattribute8 | Atributo de extensão 8 |
-| Usuário | extensionattribute9 | Atributo de extensão 9 |
-| Usuário | extensionattribute10 | Atributo de extensão 10 |
-| Usuário | extensionattribute11 | Atributo de extensão 11 |
-| Usuário | extensionattribute12 | Atributo de extensão 12 |
-| Usuário | extensionattribute13 | Atributo de extensão 13 |
-| Usuário | extensionattribute14 | Atributo de extensão 14 |
-| Usuário | extensionattribute15 | Atributo de extensão 15 |
+| User | extensionattribute8 | Atributo de extensão 8 |
+| User | extensionattribute9 | Atributo de extensão 9 |
+| User | extensionattribute10 | Atributo de extensão 10 |
+| User | extensionattribute11 | Atributo de extensão 11 |
+| User | extensionattribute12 | Atributo de extensão 12 |
+| User | extensionattribute13 | Atributo de extensão 13 |
+| User | extensionattribute14 | Atributo de extensão 14 |
+| User | extensionattribute15 | Atributo de extensão 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: métodos de transformação permitidos para o NameID SAML
 
@@ -415,7 +417,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento habilitado deve verificar um URI especial para sua chaves de assinatura por meio do acréscimo de token de declarações `appid={client_id}` para seus [solicitações de metadados OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege os aplicativos contra as políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento de declarações habilitado devem verificar um URI especial para suas chaves de assinatura `appid={client_id}` de token anexando a suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Cenários entre locatários
 
@@ -520,4 +522,4 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
 
 ## <a name="see-also"></a>Consulte também
 
-Para saber como personalizar declarações emitidas no token SAML no portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, [consulte Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)

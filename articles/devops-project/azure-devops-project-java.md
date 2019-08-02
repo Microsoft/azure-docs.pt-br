@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um pipeline de CI/CD para Java com o Azure DevOps Projects'
+title: 'Início Rápido: criar um pipeline de CI/CD para Java – Azure DevOps Projects'
 description: O DevOps Projects facilita o uso inicial do Azure. Ele ajuda você a iniciar um aplicativo em um serviço do Azure de sua escolha em algumas etapas rápidas.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 monikerRange: vsts
-ms.openlocfilehash: 38be92a006ae6dbb7a550d2d91d886df820fb883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 87090e205f4aa3e6b2886e6384921ddd46ea717d
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093558"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489510"
 ---
 # <a name="create-a-cicd-pipeline-for-java-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para Java com o Azure DevOps Projects
 
@@ -55,7 +55,7 @@ Os exemplos do Java incluem uma opção de várias estruturas de aplicativo.
 
 1. Crie uma nova organização do Azure DevOps ou escolha uma organização existente. 
 
-     a. Escolha um nome para o projeto. 
+    a. Escolha um nome para o projeto. 
 
     b. Selecione a assinatura e o local do Azure, escolha um nome para o aplicativo e selecione **Concluído**.  
     Após alguns minutos, o painel do DevOps Projects é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.

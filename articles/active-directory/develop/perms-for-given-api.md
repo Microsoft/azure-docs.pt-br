@@ -1,5 +1,5 @@
 ---
-title: Como selecionar permissões para uma API | Microsoft Docs
+title: Selecionar permissões para uma determinada API | Microsoft Docs
 description: Saiba como as solicitações de permissão funcionam para aplicativos de cliente e de recursos para os aplicativos que você está desenvolvendo
 services: active-directory
 documentationcenter: ''
@@ -7,20 +7,21 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d5ce8a890f6f02e03a16b60f358d9430a09f88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abae311057ac5cfadb72faa0df525fdbec17f757
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545827"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321050"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Como selecionar permissões para uma API 
 

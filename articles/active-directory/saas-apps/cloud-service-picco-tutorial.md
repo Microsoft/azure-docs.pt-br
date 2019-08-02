@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6f0424cc744f1b6db0e4adaaf074ae72d94e9c8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37597b010394ed6c0a3cfd75be85d58628fdbdfb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844085"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Tutorial: Integração do Azure Active Directory ao Cloud Service PICCO
 
@@ -54,7 +54,7 @@ Para configurar a integração do Cloud Service PICCO ao Azure AD, você precisa
 
 **Para adicionar o Cloud Service PICCO por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Cloud Service PICCO, execute as
 
     ![Informações de logon único de Domínio e URLs do Cloud Service PICCO](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<SUB DOMAIN>.cloudservicepicco.com/app`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<SUB DOMAIN>.cloudservicepicco.com/app`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `<SUB DOMAIN>.cloudservicepicco.com`
 
@@ -141,7 +141,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

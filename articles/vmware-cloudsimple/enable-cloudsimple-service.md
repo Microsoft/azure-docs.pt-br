@@ -8,31 +8,16 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: cacd5510147ce997efec922f4b4656956a098d88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2553aa95d5028c510b4e1a1b7f51a9f410bcea51
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66676932"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154865"
 ---
 # <a name="register-the-microsoftvmwarecloudsimple-resource-provider-on-your-azure-subscription"></a>Registrar o provedor de recursos Microsoft.VMwareCloudSimple em sua assinatura do Azure
 
-O serviço CloudSimple permite consumir solução CloudSimple do VMware do Azure. Para usar o serviço CloudSimple, ele primeiro deve ser habilitado em sua assinatura do Azure. Em seguida, você pode registrar o serviço de Microsoft.VMwareCloudSimple como seu provedor de recursos.
-
-## <a name="enable-the-cloudsimple-service"></a>Habilitar o serviço CloudSimple
-
-Para habilitar o serviço de CloudSimple em sua assinatura do Azure, abra uma solicitação de suporte com [o suporte da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Selecione as seguintes opções ao enviar a solicitação.
-
-* Tipo de problema: **Técnico**
-* Assinatura: **Sua ID de assinatura**
-* Tipo de serviço: **Solução do VMware CloudSimple**
-* Tipo de problema: **Cota de nós dedicados**
-* Subtipo de problema: **Aumentar a cota de nós dedicados**
-* Assunto: **Habilitar o serviço CloudSimple**
-
-Você também pode contatar seu representante de conta da Microsoft em [ azurevmwaresales@microsoft.com ](mailto:azurevmwaresales@microsoft.com). Forneça sua ID de assinatura do Azure no email.  
-
-Depois que o serviço CloudSimple está habilitado para sua assinatura, você pode habilitar o provedor de recursos na assinatura.
+O serviço CloudSimple permite consumir solução CloudSimple do VMware do Azure. Você pode registrar o serviço Microsoft.VMwareCloudSimple como seu provedor de recursos.
 
 ## <a name="register-the-resource-provider"></a>Registre o provedor de recursos
 

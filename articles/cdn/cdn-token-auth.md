@@ -7,19 +7,19 @@ author: zhangmanling
 manager: zhangmanling
 editor: ''
 ms.assetid: 837018e3-03e6-4f9c-a23e-4b63d5707a64
-ms.service: cdn
+ms.service: azure-cdn
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: b55685bc9cfdc8c31e6658050be94cbe49062f89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa71f472294b91baebc2a6075ddb2b50123e545d
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472164"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593385"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
 
@@ -114,7 +114,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
       >          <li>`http://www.mydomain.com/pictures/city/strasbourg.png`</li>
       >          <li>`http://www.mydomain.com/picturesnew/city/strasbourgh.png`</li>
       >       </ul></li>
-      >       <li>Valor de entrada `/pictures/`: Somente as solicitações que contêm o `/pictures/` caminho são permitidos. Por exemplo: `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
+      >       <li>Valor de entrada `/pictures/`: Somente as solicitações que contêm o `/pictures/` caminho são permitidos. Por exemplo, `http://www.mydomain.com/pictures/city/strasbourg.png`.</li>
       >       <li>Valor de entrada `/pictures/city/strasbourg.png`: Somente as solicitações para esse caminho e ativos específicos são permitidas.</li>
       >    </ul>
       > </tr>
@@ -162,7 +162,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cli
 
    7. Selecione **Criptografar** para gerar o token.
 
-      Depois que o token é gerado, ele será exibido na caixa **Tokens Gerados**. Para usar o token, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
+      Depois que o token é gerado, ele será exibido na caixa **Tokens Gerados**. Para usar o token, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo, `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
         
    8. Como opção, teste seu token com a ferramenta de descriptografia para que você possa exibir os parâmetros do token. Cole o valor do token na caixa **Token a Descriptografar**. Selecione a de chave de criptografia para usar na lista **Chave a Descriptografar** e, em seguida, selecione **Descriptografar**.
 

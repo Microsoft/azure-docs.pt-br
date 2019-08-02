@@ -4,7 +4,7 @@ description: Visão geral do ciclo de vida de uma VM do Windows no Azure, inclui
 services: virtual-machines-windows
 documentationcenter: ''
 author: shandilvarun
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: vashan
-ms.openlocfilehash: 921da2808757255a2a39ae8e7b927dbfde2fc627
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ab87d803d789e2eea2dedf094301fd05d71f1b4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60583546"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709828"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>Ciclo de vida e estados de máquinas virtuais
 

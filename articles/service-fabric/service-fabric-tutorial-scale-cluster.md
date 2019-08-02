@@ -3,7 +3,7 @@ title: Dimensionar um cluster do Service Fabric no Azure | Microsoft Docs
 description: Neste tutorial, você aprenderá como dimensionar um cluster do Service Fabric no Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b1f226fba43428cdf5f46d41425ac534219de7f
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157974"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619047"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Dimensionar um cluster do Service Fabric no Azure
 
@@ -68,8 +68,8 @@ Ao dimensionar um cluster do Azure, lembre-se das diretrizes a seguir:
 * Tipos de nó primário executando cargas de trabalho de produção devem ter um [nível de durabilidade][durability] de Ouro ou Prata e sempre devem ter cinco ou mais nós.
 * Tipos de nó não primário executando cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós.
 * Tipos de nó não primário executando cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
-* Todos os tipos de nó com [nível de durabilidade][durability] de Ouro ou Prata sempre devem ter cinco ou mais nós.
-* Se reduzir horizontalmente (remover nós de) um tipo de nó primário, você nunca deverá diminuir o número de instâncias para abaixo daquele que o [nível de confiabilidade][reliability] exige.
+* Qualquer tipo de nó de [nível de durabilidade][durability] Ouro ou Prata sempre deve ter cinco ou mais nós.
+* Se reduzir horizontalmente um tipo de nó primário (remover nós dele), você nunca deverá diminuir o número de instâncias para abaixo daquele que o [nível de confiabilidade][reliability] exige.
 
 Para obter mais informações, consulte [diretrizes de capacidade de cluster](service-fabric-cluster-capacity.md).
 
@@ -95,7 +95,7 @@ Expandir e reduzir horizontalmente, ou dimensionamento horizontal, altera o núm
 
 Portanto, atualizando o valor de *nt1InstanceCount*, você altera o número de nós no segundo tipo de nó.  Lembre-se, você não pode dimensionar um tipo de nó para mais de 100 nós.  Tipos de nó não primário executando cargas de trabalho de produção com estado sempre devem ter cinco ou mais nós. Tipos de nó não primário executando cargas de trabalho de produção sem estado sempre devem ter dois ou mais nós.
 
-Se você estiver reduzindo horizontalmente, removendo nós de, um tipo de nó de [nível de durabilidade][durability] Bronze, você deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade Ouro e Prata, essas etapas são executadas automaticamente pela plataforma.
+Se você estiver reduzindo horizontalmente um tipo de nó de [nível de durabilidade][durability] Bronze (removendo nós dele), você deverá [remover manualmente o estado desses nós](service-fabric-cluster-scale-up-down.md#manually-remove-vms-from-a-node-typevirtual-machine-scale-set).  Para o nível de durabilidade Ouro e Prata, essas etapas são executadas automaticamente pela plataforma.
 
 ### <a name="deploy-the-updated-template"></a>Implantar o modelo atualizado
 Salve as alterações nos arquivos *template.json* e *parameters.json*.  Para implantar o modelo atualizado, execute o seguinte comando:
@@ -888,7 +888,7 @@ Em seguida, avance para o próximo tutorial para saber como atualizar o tempo de
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
 [template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
 [parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
-reduzir horizontalmente))
+
 > * Adicionar e remover tipos de nó (expandir e reduzir horizontalmente)
 > * Aumentar recursos de nó (escalar verticalmente)
 

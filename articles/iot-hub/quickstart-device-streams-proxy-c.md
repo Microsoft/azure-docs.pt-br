@@ -1,21 +1,20 @@
 ---
 title: Início rápido do C para fluxos de dispositivos do Hub IoT do Azure para o SSH e o RDP (versão prévia) | Microsoft Docs
 description: Neste início rápido, você executará um aplicativo C de exemplo que funciona como um proxy para habilitar cenários de SSH e RDP em fluxos de dispositivos do Hub IoT.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
-ms.openlocfilehash: e21d7381831553f8d82b00d9ed3be0b03f13bca9
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.author: robinsh
+ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735134"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377241"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início Rápido: Habilitar o SSH e o RDP em fluxos de dispositivos do Hub IoT usando o aplicativo proxy do C (versão prévia)
 
@@ -150,7 +149,7 @@ Nesta seção, você estabelecerá um fluxo de ponta a ponta para encapsular o t
 
 ### <a name="run-the-device-local-proxy-application"></a>Executar o aplicativo de proxy no local do dispositivo
 
-1. Edite o arquivo de origem *iothub_client_c2d_streaming_sample.c* na pasta *iothub_client/samples/iothub_client_c2d_streaming_sample* e forneça a cadeia de conexão de dispositivo, IP/nome do host do dispositivo de destino e a porta SSH 22:
+1. Edite o arquivo de origem *iothub_client_c2d_streaming_proxy_sample.c* na pasta *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample* e forneça a cadeia de conexão de dispositivo, IP/nome do host do dispositivo de destino e a porta SSH 22:
 
    ```C
    /* Paste in your iothub connection string  */

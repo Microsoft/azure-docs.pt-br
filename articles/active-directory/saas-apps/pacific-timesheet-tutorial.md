@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 8b145755f88c7a2be215ccfd78538298433331fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 076a1e7cfc16b5ca9ff5505898cfd5399a4b7efd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870095"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095155"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>Tutorial: Integração do Azure Active Directory com o Pacific Timesheet
 
@@ -53,7 +53,7 @@ Para configurar a integração do Pacific Timesheet ao Azure AD, você precisar�
 
 **Para adicionar o Pacific Timesheet da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Pacific Timesheet, execute as s
 
     ![Informações de domínio e de URLs do Pacific Timesheet para logon único](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
@@ -197,5 +197,5 @@ Ao clicar no bloco do Pacific Timesheet no painel de acesso, você será conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

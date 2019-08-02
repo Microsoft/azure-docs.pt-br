@@ -11,16 +11,16 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d556c82f47868f4ee06694e23092f10029d619d
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073460"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839845"
 ---
 # <a name="accelerated-database-recovery"></a>Recuperação acelerada de banco de dados
 
-**ADR (Accelerated Database Recovery - Recuperação Acelerada de Banco de Dados)** é um novo recurso de mecanismo de banco de dados SQL que melhora bastante a disponibilidade do banco de dados, especialmente na presença de transações de longa duração, reprojetando o processo de recuperação do mecanismo de banco de dados SQL. A ADR está atualmente disponível para bancos de dados individuais e em pool no Banco de Dados SQL do Azure, bem como em bancos de dados no SQL Data Warehouse do Azure. Principais benefícios da ADR são:
+**ADR (Accelerated Database Recovery - Recuperação Acelerada de Banco de Dados)** é um novo recurso de mecanismo de banco de dados SQL que melhora bastante a disponibilidade do banco de dados, especialmente na presença de transações de longa duração, reprojetando o processo de recuperação do mecanismo de banco de dados SQL. ADR está atualmente disponível para bancos de dados individuais e bancos de dados em pool no banco de dados SQL e bancos de dados no Azure SQL Data Warehouse (atualmente em visualização pública). Principais benefícios da ADR são:
 
 - **Recuperação de banco de dados rápida e consistente**
 

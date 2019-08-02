@@ -3,17 +3,18 @@ title: Tutorial – Preparar um registro de contêiner para as Instâncias de Co
 description: Tutorial das Instâncias de Contêiner do Azure, parte 2 de 3 – Preparar um Registro de Contêiner do Azure e enviar uma imagem por push
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: c1a4313f9a8174b9ea6e6cff694b9a0a9cf395d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b3c907eacb14ed65410a60fcf22ebe99fd8cc3bb
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538146"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325619"
 ---
 # <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>Tutorial: Implantar um Registro de Contêiner do Azure e enviar uma imagem de contêiner por push
 
@@ -140,7 +141,7 @@ mycontainerregistry082.azurecr.io/aci-tutorial-app    v1        5c745774dfa9    
 
 ## <a name="push-image-to-azure-container-registry"></a>Enviar imagem por push ao Registro de Contêiner do Azure
 
-Agora que você já marcou a imagem *aci-tutorial-app* com o nome de servidor de logon completo de seu registro privado, poderá enviá-la por push para o registro com o comando [docker push][docker-push]. Substitua `<acrLoginServer>` pelo nome do servidor de logon completo obtido na etapa anterior.
+Agora que você já marcou a imagem *aci-tutorial-app* com o nome do servidor de logon completo de seu registro privado, poderá enviá-la por push para o registro com o comando [docker push][docker-push]. Substitua `<acrLoginServer>` pelo nome do servidor de logon completo obtido na etapa anterior.
 
 ```bash
 docker push <acrLoginServer>/aci-tutorial-app:v1
@@ -168,7 +169,7 @@ Para verificar se a imagem que você acabou de enviar realmente está em seu reg
 az acr repository list --name <acrName> --output table
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```console
 $ az acr repository list --name mycontainerregistry082 --output table

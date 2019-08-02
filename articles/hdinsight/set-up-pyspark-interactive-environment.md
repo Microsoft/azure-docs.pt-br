@@ -7,13 +7,13 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 1/17/2019
-ms.openlocfilehash: cd0eb03c80a2a379cc84144b0e86000e40753774
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.date: 06/13/2019
+ms.openlocfilehash: 0e993577bda59ae4fda51d17dc175ec0b0fcd4f5
+ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066509"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67137130"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Configurar o ambiente interativo do PySpark para o Visual Studio Code
 

@@ -5,14 +5,12 @@ metadata:
   title: 'Documentação do Lote - Tutoriais, Referência de API | Microsoft Docs'
   description: 'Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.'
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Use o Lote para executar com eficiência aplicativos HPC (computação de alto desempenho) e paralelos em grande escala na nuvem. Defina os recursos de computação do Azure para executar seus aplicativos em paralelo ou em escala sem configurar manualmente ou gerenciar a infraestrutura. Agende as tarefas que requerem muita computação e adicione ou remova dinamicamente os recursos de computação com base em seus requisitos. Saiba como usar o Lote do Azure com nossos guias de início rápido, tutoriais e exemplos.'
 sections:

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 2/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff1718211fa298e4daee694795a0b2438033fe2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 808564f291328450b17db8eb7ea299c194c66400
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65861972"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103532"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Tutorial: Integração do Azure Active Directory ao Egnyte
 
@@ -53,7 +53,7 @@ Para configurar a integração do Egnyte ao Azure AD, você precisará adicionar
 
 **Para adicionar o Egnyte da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o Egnyte, execute as seguintes et
 
     ![Autenticação de Logon Único](./media/egnyte-tutorial/ic787822.png "Autenticação de Logon Único")   
     
-     a. Para **Autenticação de logon único**, selecione **SAML 2.0**.
+    a. Para **Autenticação de logon único**, selecione **SAML 2.0**.
    
     b. Para **Provedor de identidade**, selecione **AzureAD**.
    
@@ -229,7 +229,7 @@ Para permitir que os usuários do Azure AD façam logon no Egnyte, eles deverão
     
     ![Novo Usuário Padrão](./media/egnyte-tutorial/ic787825.png "Novo Usuário Padrão")   
 
-     a. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
+    a. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
     b. Na caixa de texto **Username**, insira o nome de usuário como **Brittasimon**.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5c7f2e86d6fe63d309c74d7304f1c19a714b6471
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 366c0c50cee521c5e70496403fd77211a875065f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312507"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606753"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Tutorial: Criar um aplicativo Android para detectar e enquadrar rostos em uma imagem
 
@@ -78,7 +78,7 @@ Comente a chamada para **detectAndFrame** no método **onActivityResult**. Depoi
 
 ### <a name="add-the-gradle-dependency"></a>Adicionar a dependência do Gradle
 
-No painel **Projetos**, use o seletor de lista suspensa para selecionar **Android**. Expanda **Scripts Gradle**, em seguida, abra *build.gradle (Module:app)*. Adicione uma dependência para a biblioteca de clientes de Detecção Facial `com.microsoft.projectoxford:face:1.4.3`, conforme mostrado na captura de tela abaixo, em seguida, clique em **Sincronizar agora**.
+No painel **Projetos**, use o seletor de lista suspensa para selecionar **Android**. Expanda **Scripts Gradle**, em seguida, abra *build.gradle (Module:app)* . Adicione uma dependência para a biblioteca de clientes de Detecção Facial `com.microsoft.projectoxford:face:1.4.3`, conforme mostrado na captura de tela abaixo, em seguida, clique em **Sincronizar agora**.
 
 ![Captura de tela do Android Studio Build do arquivo build.gradle](../Images/face-tut-java-gradle.png)
 
@@ -100,7 +100,7 @@ No painel **Projeto**, expanda **app**, em seguida, **manifests** e abra *Androi
 
 ## <a name="upload-image-and-detect-faces"></a>Carregar imagem e detectar rostos
 
-Seu aplicativo detectará faces chamando o método **FaceServiceClient.detect**, que encapsula a API REST [Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e retorna uma lista de instâncias de **Face**.
+Seu aplicativo detectará faces chamando o método **faceClient.Face.DetectWithStreamAsync**, que encapsula a API REST [Detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) e retorna uma lista de instâncias de **Detecção Facial**.
 
 Cada **Face** retornada contém um retângulo para indicar sua localização, combinado com uma série de atributos faciais opcionais. Neste exemplo, somente os retângulos faciais são solicitados.
 

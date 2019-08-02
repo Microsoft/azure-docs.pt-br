@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
+title: Práticas recomendadas de tratamento de erros para clientes da biblioteca de autenticação do Azure AD (ADAL)
 description: Apresenta diretrizes e práticas recomendadas em tratamento de erro para aplicativos cliente ADAL.
 services: active-directory
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 652175e99c800b8e4aa69c639f0bdb9aba838987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e3ef8e32c3472f7a3861250f1845ce2e60ac868
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544630"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381000"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Práticas recomendadas em tratamento de erro para clientes da Biblioteca de autenticação do Azure Active Directory (ADAL)
 
@@ -52,7 +52,7 @@ Há um conjunto de erros gerados pelo sistema operacional, que pode exigir um tr
 
 Basicamente, há dois casos de erros AcquireTokenSilent:
 
-| Caixa | DESCRIÇÃO |
+| Caso | Descrição |
 |------|-------------|
 | **Caso 1**: O erro pode ser resolvido com credenciais interativas | Para erros causados pela falta de tokens válidos, uma solicitação interativa é necessária. Mais especificamente, a pesquisa de cache e um token de atualização inválido/expirado exigem uma chamada AcquireToken para serem resolvidos.<br><br>Nesses casos, o usuário final precisa ser solicitado a entrar. O aplicativo pode optar por fazer uma solicitação interativa imediatamente, após a interação do usuário final (como apertar um botão de entrada) ou posterior. A escolha depende do comportamento desejado do aplicativo.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele.|
 | **Caso 2**: O erro não pode ser resolvido com credenciais interativas | Para erros de rede e transitórios/temporários ou outras falhas, a execução de uma solicitação AcquireToken interativa não resolve o problema. Avisos de entrada interativa desnecessários também podem frustrar usuários finais. A ADAL tenta automaticamente uma nova tentativa única para a maioria dos erros em falha AcquireTokenSilent.<br><br>O aplicativo cliente também poderá tentar novamente depois, mas quando e como fazer isso depende do comportamento do aplicativo e da experiência do usuário final desejada. Por exemplo, o aplicativo poderá fazer uma nova tentativa AcquireTokenSilent depois de alguns minutos, ou em resposta a uma ação do usuário final. Uma repetição imediata resultará na limitação do aplicativo e não deve ser tentada.<br><br>Uma falha em nova tentativa subsequente com o mesmo erro não significa que o cliente deva fazer uma solicitação interativa usando AcquireToken, pois isso não resolve o erro.<br><br>Consulte o código na seção a seguir para esse caso específico e os erros que fazem o diagnóstico dele. |
@@ -579,14 +579,14 @@ window.Logging = {
 ```
 ## <a name="related-content"></a>Conteúdo relacionado
 
-* [Guia do Desenvolvedor do Azure AD][AAD-Dev-Guide]
-* [Bibliotecas de autenticação do Azure Active Directory][AAD-Auth-Libraries]
-* [Cenários de autenticação do Azure Active Directory][AAD-Auth-Scenarios]
-* [Integrando aplicativos com o Azure Active Directory][AAD-Integrating-Apps]
+* [Guia do desenvolvedor do Azure AD][AAD-Dev-Guide]
+* [Bibliotecas de autenticação do Azure AD][AAD-Auth-Libraries]
+* [Cenários de autenticação do Azure AD][AAD-Auth-Scenarios]
+* [Integrar aplicativos com Azure Active Directory][AAD-Integrating-Apps]
 
 Use a seção de comentários a seguir para fazer comentários e nos ajudar a refinar e modelar o conteúdo.
 
-[![Botão Entrar][AAD-Sign-In]][AAD-Sign-In]
+[![Mostra o botão "Entrar com a conta da Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

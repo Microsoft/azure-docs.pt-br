@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 11/09/2018
-ms.openlocfilehash: 6cbfdc9e595ebdf682356990ec975dbd0514035d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f4a1962f90d54001f315827c1243e929344e3d7
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66297086"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274006"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Conectar seu aplicativo à Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -45,7 +45,7 @@ Há duas opções de conexão de VNETs:
 A opção de emparelhamento é a preferencial porque o emparelhamento usa a rede de backbone da Microsoft. Portanto, da perspectiva de conectividade, não há nenhuma diferença perceptível na latência entre as máquinas virtuais na VNET emparelhada e na mesma VNET. O emparelhamento de VNET é limitado a redes na mesma região.  
 
 > [!IMPORTANT]
-> O cenário de emparelhamento VNet para a instância gerenciada está limitado às redes na mesma região devido a [restrições do emparelhamento de Rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> O cenário de emparelhamento VNet para a instância gerenciada está limitado às redes na mesma região devido a [restrições do emparelhamento de Rede Virtual Global](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Também consulte a seção relevante a [Azure Virtual redes Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) artigo para obter mais detalhes. 
 
 ## <a name="connect-an-on-premises-application"></a>Conectar um aplicativo local
 
@@ -138,7 +138,7 @@ Para solucionar problemas de conectividade, examine o seguinte:
 
 As seguintes versões mínimas das ferramentas e drivers são recomendadas se você deseja se conectar à Instância Gerenciada:
 
-| Driver/ferramenta | Version |
+| Driver/ferramenta | Versão |
 | --- | --- |
 |.NET Framework | 4.6.1 (ou .NET Core) |
 |Driver ODBC| v17 |

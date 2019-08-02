@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a216e720523767f428036290aea7151c2dca34
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38ce83df4d4de6d7816ee969a4fee153ad5457d8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708157"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Tutorial: Integração do Azure Active Directory ao LinkedIn Sales Navigator
 
@@ -110,7 +110,7 @@ Para configurar o logon único do Azure AD com o LinkedIn Sales Navigator, siga 
 
     ![Informações de logon único em Domínio e URLs do LinkedIn Sales Navigator](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, insira o valor **ID da Entidade**, você copiará o valor da ID da Entidade do Portal do LinkedIn explicado posteriormente neste tutorial.
+    a. Na caixa de texto **Identificador**, insira o valor **ID da Entidade**, você copiará o valor da ID da Entidade do Portal do LinkedIn explicado posteriormente neste tutorial.
 
     b. Na caixa de texto **URL de Resposta**, insira o valor da **URL do ACS (Serviço do Consumidor de Declaração)** , você copiará o valor da URL do ACS (Serviço do Consumidor de Declaração) do Portal do LinkedIn explicado posteriormente neste tutorial.
 
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o LinkedIn Sales Navigator, siga 
     | nome| user.givenname |
     | sobrenome| user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o LinkedIn Sales Navigator, siga 
 
     ![Configurar o logon único](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-     a. Copie a **ID da Entidade** e cole-a na caixa de texto **Identificador** na **Configuração Básica de SAML** no portal do Azure.
+    a. Copie a **ID da Entidade** e cole-a na caixa de texto **Identificador** na **Configuração Básica de SAML** no portal do Azure.
 
     b. Copie a **URL do ACS (Serviço do Consumidor de Declaração)** e cole-a na caixa de texto **URL e Resposta** na **Configuração Básica de SAML** no portal do Azure.
 
@@ -257,5 +257,5 @@ Quando você clicar no bloco do LinkedIn Sales Navigator no Painel de Acesso, de
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

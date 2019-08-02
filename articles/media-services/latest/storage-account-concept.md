@@ -1,6 +1,6 @@
 ---
-title: Carregamento e armazenamento na nuvem com Serviços de Mídia do Microsoft Azure | Microsoft Docs
-description: Este artigo aborda conceitos de carregamento e armazenamento na nuvem.
+title: Contas de armazenamento do Azure com as contas de serviços de mídia do Azure | Microsoft Docs
+description: Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,27 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65550160"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619290"
 ---
-# <a name="cloud-upload-and-storage"></a>Upload e armazenamento na nuvem
+# <a name="azure-storage-accounts"></a>Contas de Armazenamento do Microsoft Azure
 
 Para iniciar o gerenciamento, a criptografia, a codificação, a análise e a transmissão de conteúdo de mídia no Azure, você precisa criar uma conta nos Serviços de Mídia. Ao criar uma conta dos Serviços de Mídia, você precisa fornecer o nome de um recurso de conta de Armazenamento do Azure. A conta de armazenamento especificada está conectada à sua conta de Serviços de Mídia. 
 
 A conta dos Serviços de Mídia e todas as contas de armazenamento associadas precisam estar na mesma assinatura do Azure. Recomenda-se usar as contas de armazenamento no mesmo local da conta de Serviços de Mídia para evitar os custos adicionais da saída de dados e latência.
 
-Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia oferecem suporte a contas **v2 para fins gerais** (GPv2) ou contas **v1 para fins gerais** (GPv1). 
+Você deve ter uma conta de armazenamento **Primária**, e pode ter quantas contas de armazenamento **Secundárias** você quiser associadas à sua conta dos Serviços de Mídia. Os Serviços de Mídia oferecem suporte a contas **v2 para fins gerais** (GPv2) ou contas **v1 para fins gerais** (GPv1). <br/>As contas somente blob não são permitidas como **Primárias**. 
 
->[!NOTE]
-> As contas somente blob não são permitidas como **Primárias**. 
+É recomendável que você use o GPv2, portanto, você pode tirar proveito dos recursos e desempenho mais recentes. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md).
 
-É recomendável que você use GPv2, para que você possa aproveitar a vantagem de escolher entre camadas de armazenamento frequente e esporádico. Para saber mais sobre as contas de armazenamento, consulte [Visão geral da conta de Armazenamento do Microsoft Azure](../../storage/common/storage-account-overview.md). 
+> [!NOTE]
+> Apenas a camada de acesso quente tem suporte para uso com serviços de mídia do Azure, embora outras camadas de acesso podem ser usadas para reduzir os custos de armazenamento no conteúdo que não está sendo usado ativamente.
 
 Há diferentes SKUs que você pode escolher para sua conta de armazenamento. Para obter mais informações, confira [Contas de armazenamento](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. 
 

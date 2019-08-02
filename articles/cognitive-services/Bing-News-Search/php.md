@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Executar uma pesquisa de notícias com PHP – API REST de Pesquisa de Notícias do Bing'
-titlesuffix: Azure Cognitive Services
+title: 'Início Rápido: Executar uma pesquisa de notícias com PHP e a API REST de Pesquisa de Notícias do Bing'
+titleSuffix: Azure Cognitive Services
 description: Use este início rápido para enviar solicitações para a API REST de Pesquisa de Notícias do Bing usando PHP e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: fa253f95c01e35505e154d9709ca88033735fa52
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: b905993c88bd4425215dd83962980d8e46a7b943
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390478"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423713"
 ---
 # <a name="quickstart-perform-a-news-search-using-php-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando PHP e a API REST de Pesquisa de Notícias do Bing
 

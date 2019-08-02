@@ -2,7 +2,7 @@
 title: Particionando tabelas no SQL Data Warehouse do Azure | Microsoft Docs
 description: Recomendações e exemplos para usar partições de tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: af9fa49d274036888fd266f8983c523a3b077cbd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851518"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477070"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>Particionando tabelas no SQL Data Warehouse
 Recomendações e exemplos para usar partições de tabelas no SQL Data Warehouse do Azure.
@@ -225,8 +225,8 @@ Após concluir a movimentação dos dados, é recomendável atualizar as estatí
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Carregar novos dados nas partições que contêm dados em uma etapa
-Carregar dados em partições com alternância de partição é uma maneira conveniente de estágio novos dados em uma tabela que não é visível para os usuários a opção nos novos dados.  Ele pode ser desafiador em sistemas ocupados para lidar com a contenção de bloqueio associada com a alternância de partição.  Para limpar os dados existentes em uma partição, um `ALTER TABLE` costumava ser necessário alternar os dados.  Em seguida, outro `ALTER TABLE` foi necessário alternar os novos dados.  No SQL Data Warehouse, o `TRUNCATE_TARGET` há suporte para a opção no `ALTER TABLE` comando.  Com o `TRUNCATE_TARGET` o `ALTER TABLE` comando substitui os dados existentes na partição com novos dados.  Abaixo está um exemplo que usa `CTAS` criar uma nova tabela com os dados existentes, insere novos dados, em seguida, alterna de volta todos os dados na tabela de destino, substituindo os dados existentes.
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Carregar novos dados em partições que contêm dados em uma única etapa
+Carregar dados em partições com a alternância de partição é uma maneira conveniente de novos dados em uma tabela que não está visível para os usuários na mudança dos novos dados.  Pode ser desafiador em sistemas ocupados para lidar com a contenção de bloqueio associada à alternância de partição.  Para limpar os dados existentes em uma partição, é necessário `ALTER TABLE` ter um usado para mudar os dados.  Em seguida `ALTER TABLE` , outro era necessário para alternar os novos dados.  No SQL data warehouse, a `TRUNCATE_TARGET` opção tem suporte `ALTER TABLE` no comando.  Com `TRUNCATE_TARGET` o`ALTER TABLE` comando, substitui os dados existentes na partição por novos dados.  Abaixo está um exemplo que usa `CTAS` o para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, alterna todos os dados de volta para a tabela de destino, substituindo os dados existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

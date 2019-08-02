@@ -1,6 +1,6 @@
 ---
-title: Formatos do codificador padrão e codecs - Azure
-description: Este tópico fornece uma visão geral dos codecs e formatos do codificador padrão.
+title: Codecs e formatos de codificador padrão-Azure
+description: Este tópico fornece uma visão geral dos codecs e formatos de codificador padrão.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
-ms.author: juliako;anilmur
-ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: juliako
+ms.reviewer: anilmur
+ms.openlocfilehash: d4bbc83a101ba6b110ec97d5107ba3f79dd10843
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65520021"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67870949"
 ---
-# <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos do codificador padrão
+# <a name="standard-encoder-formats-and-codecs"></a>Codecs e formatos de codificador padrão
 
 Este artigo contém uma lista dos formatos de arquivo de importação e exportação mais comuns que você pode usar com [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar predefinições personalizadas usando **StandardEncoderPreset**, veja [Criar uma transformação com uma predefinição personalizada](customize-encoder-presets-how-to.md).
 
@@ -46,11 +47,11 @@ Este artigo contém uma lista dos formatos de arquivo de importação e exporta�
 
 ### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contêineres de entrada
 
-Codificador padrão dá suporte a realizar os seguintes formatos de áudio em contêineres de entrada:
+O codificador padrão dá suporte à manutenção dos seguintes formatos de áudio em contêineres de entrada:
 
 * Arquivos do MXF, GXF e QuickTime que têm faixas de áudio com exemplos em estéreo intercalado ou de 5.1
 
-ou o
+ou
 
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 

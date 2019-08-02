@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57768fc463f5ea1d2f1ec386f3f0975758220013
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235095"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626393"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Provisionar uma Máquina Virtual de Ciência de Dados do Windows no Azure
 
@@ -61,13 +61,13 @@ Os cientistas de dados usam várias ferramentas para essas tarefas. Pode ser mui
 
 A DSVM impulsiona seu projeto de análise. É possível trabalhar em tarefas em várias linguagens, incluindo R, Python, SQL e C#. O Visual Studio fornece um IDE (ambiente de desenvolvimento integrado) fácil de usar para desenvolver e testar o código. O SDK do Azure é incluído na VM permitindo que você compile seus aplicativos usando vários serviços na plataforma de nuvem da Microsoft.
 
-Não há encargos de software para esta imagem da VM de ciência de dados. Você paga apenas as taxas de uso do Azure. Elas dependem do tamanho da máquina virtual que você provisiona. Mais detalhes sobre as taxas de computação estão na seção **Detalhes de preço** na página [Máquina Virtual de Ciência de Dados](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=PlansAndPrice).
+Não há encargos de software para esta imagem da VM de ciência de dados. Você paga apenas as taxas de uso do Azure. Elas dependem do tamanho da máquina virtual que você provisiona. Mais detalhes sobre as taxas de computação estão na seção **Detalhes de preço** na página [Máquina Virtual de Ciência de Dados](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows).
 
 ### <a name="other-dsvm-versions"></a>Outras versões de DSVM
 
 * Uma imagem do [Ubuntu](dsvm-ubuntu-intro.md). Conta com muitas ferramentas semelhantes para a DSVM, além de algumas estruturas de aprendizado profundo.
 * Uma imagem do [Linux CentOS](linux-dsvm-intro.md).
-* A [edição do Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.standard-data-science-vm) da Máquina Virtual de Ciência de Dados. Algumas ferramentas estão disponíveis apenas na edição do Windows Server 2016. Caso contrário, este artigo também se aplicará à edição do Windows Server 2012.
+* A [edição do Windows Server 2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) da Máquina Virtual de Ciência de Dados. Algumas ferramentas estão disponíveis apenas na edição do Windows Server 2016. Caso contrário, este artigo também se aplicará à edição do Windows Server 2012.
 
 ## <a name="prerequisite"></a>Pré-requisito
 

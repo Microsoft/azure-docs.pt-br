@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe8d46c897ef68563f2e0e5a1da106174ae504c5
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65826373"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424078"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limites de recursos no Azure NetApp Files
 
@@ -27,52 +27,52 @@ O reconhecimento dos limites de recursos no Azure NetApp Files ajuda você a ger
 
 ## <a name="resource-limits"></a>Limites de recursos
 
-A tabela a seguir descreve os limites de recursos para arquivos do NetApp do Azure:
+A tabela a seguir descreve os limites de recursos para Azure NetApp Files:
 
-|  Resource  |  Limite padrão  |  Ajustáveis por intermédio de solicitação de suporte  |
+|  Recurso  |  Limite padrão  |  Ajustável por meio de solicitação de suporte  |
 |----------------|---------------------|--------------------------------------|
 |  Número de contas do NetApp por assinatura do Azure   |  10    |  Sim   |
 |  Número de pools de capacidade por conta do NetApp   |    25     |   Sim   |
 |  Número de volumes por pool de capacidade     |    500   |    Sim     |
 |  Número de instantâneos por volume       |    255     |    Não        |
-|  Número de sub-redes delegada aos arquivos de NetApp (Microsoft.NetApp/volumes) do Azure por rede Virtual do Azure    |   1   |    Não    |
-|  Número máximo de VMs (inclui VNets emparelhadas) que pode se conectar a um volume     |    1000   |    Não   |
-|  Tamanho mínimo de um pool de capacidade de único   |  4 TiB     |    Não  |
-|  Tamanho máximo de um pool de capacidade de único    |  500 TiB   |   Não   |
+|  Número de sub-redes delegadas a Azure NetApp Files (Microsoft. NetApp/volumes) por rede virtual do Azure    |   1   |    Não    |
+|  Número máximo de IPs em uso em uma VNet (incluindo VNets emparelhados) com Azure NetApp Files    |    1000   |    Não   |
+|  Tamanho mínimo de um pool de capacidade única   |  4 TiB     |    Não  |
+|  Tamanho máximo de um pool de capacidade única    |  500 TiB   |   Não   |
 |  Tamanho mínimo de um único volume    |    100 GiB    |    Não    |
-|  Máximo atribuído a cota de um único volume *   |   92 TiB   |    Não   |
+|  Cota máxima atribuída de um único volume *   |   92 TiB   |    Não   |
 |  Tamanho máximo de um único volume *     |    100 TiB    |    Não       |
 
-\* Um volume pode ser criado manualmente ou redimensionado para TiB 92 máximo. No entanto, um volume pode crescer até 100 TiB em um cenário de excedente. Ver [modelo de custo para arquivos do Azure NetApp](azure-netapp-files-cost-model.md) para obter detalhes sobre o excedente de capacidade. 
+\* Um volume pode ser criado manualmente ou redimensionado para o máximo de 92 TiB. No entanto, um volume pode crescer até 100 TiB em um cenário excedente. Consulte [modelo de custo para Azure NetApp files](azure-netapp-files-cost-model.md) para obter detalhes sobre a capacidade excedente. 
 
-## <a name="request-limit-increase"></a>Aumento de limite de solicitação 
+## <a name="request-limit-increase"></a>Aumento do limite de solicitação 
 
 Você pode criar uma solicitação de suporte do Azure para aumentar os limites ajustáveis da tabela acima. 
 
-Plano de navegação do portal do Azure: 
+Do plano de navegação portal do Azure: 
 
 1. Clique em **ajuda + suporte**.
-2. Clique em **+ novo solicitação de suporte**.
-3. Na guia de Noções básicas, forneça as seguintes informações: 
+2. Clique em **+ nova solicitação de suporte**.
+3. Na guia noções básicas, forneça as seguintes informações: 
     1. Tipo de problema: Selecione **limites de serviço e assinatura (cotas)** .
-    2. Assinaturas: Selecione a assinatura para o recurso que você precisa que a cota aumentada.
-    3. Tipo de cota: Selecione **armazenamento: Limita os arquivos do Azure do NetApp**.
+    2. Assinaturas: Selecione a assinatura para o recurso que você precisa que a cota tenha aumentado.
+    3. Tipo de cota: Selecionar **armazenamento: Limites**de Azure NetApp files.
     4. Clique em **Avançar: Soluções**.
-4. Na guia Detalhes:
-    1. Na caixa de descrição, forneça as seguintes informações para o tipo de recurso correspondente:
+4. Na guia detalhes:
+    1. Na caixa Descrição, forneça as seguintes informações para o tipo de recurso correspondente:
 
-        |  Resource  |    Recursos do pai      |    Novos limites solicitados     |    Motivo para aumento de cota       |
+        |  Recurso  |    Recursos pai      |    Novos limites solicitados     |    Motivo para aumento de cota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  Conta |  *ID da assinatura*   |  *Novo máximo solicitado **conta** número*    |  *Qual cenário ou caso de uso solicitado da solicitação?*  |
-        |  pool    |  *ID de assinatura, o URI da conta*  |  *Novo máximo solicitado **pool** número*   |  *Qual cenário ou caso de uso solicitado da solicitação?*  |
-        |  Volume  |  *ID da assinatura, URI, da conta de Pool de URI*   |  *Novo máximo solicitado **volume** número*     |  *Qual cenário ou caso de uso solicitado da solicitação?*  |
+        |  Conta |  *ID da assinatura*   |  *Número de Nova **conta** máxima solicitado*    |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
+        |  Pool    |  *ID da assinatura, URI da conta*  |  *Novo número máximo de **pool** solicitado*   |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
+        |  Volume  |  *ID da assinatura, URI da conta, URI do pool*   |  *Novo número de **volume** máximo solicitado*     |  *Qual cenário ou caso de uso solicitou a solicitação?*  |
 
-    2. Especifique o suporte ao método apropriado e forneça suas informações de contrato.
+    2. Especifique o método de suporte apropriado e forneça suas informações de contrato.
 
-    3. Clique em **Avançar: Revisar + criar** para criar a solicitação. 
+    3. Clique em **Avançar: Examine + criar** para criar a solicitação. 
 
 
 ## <a name="next-steps"></a>Próximas etapas  
 
 - [Compreender a hierarquia de armazenamento do Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-- [Modelo de custo para arquivos do Azure NetApp](azure-netapp-files-cost-model.md)
+- [Modelo de custo para Azure NetApp Files](azure-netapp-files-cost-model.md)

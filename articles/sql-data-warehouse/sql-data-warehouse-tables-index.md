@@ -2,7 +2,7 @@
 title: Indexando tabelas no SQL Data Warehouse do Azure | Microsoft Azure
 description: Recomendações e exemplos para indexação de tabelas no SQL Data Warehouse do Azure.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4d51bd6906a8299a25fe50ca817b1a2b6082ab91
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851658"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479853"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 
@@ -48,13 +48,13 @@ Há alguns cenários em que columnstore clusterizado pode não ser uma boa opç�
 
 - Tabelas ColumnStore não dão suporte a varchar (max), nvarchar (max) e varbinary (max). Considere o heap ou índice clusterizado.
 - As tabelas ColumnStore podem ser menos eficientes para dados transitórios. Considere a possibilidade de tabelas heap ou até mesmo temporárias.
-- Tabelas pequenas com menos de 60 milhões de linhas. Considere as tabelas de heap.
+- Tabelas pequenas com menos de 60 milhões linhas. Considere as tabelas de heap.
 
 ## <a name="heap-tables"></a>Tabelas de heap
 
-Quando você estiver descarregando temporariamente os dados no SQL Data Warehouse, você pode achar que o uso de uma tabela de heap torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  
+Quando você estiver temporariamente destinando dados no SQL Data Warehouse, talvez você ache que usar uma tabela de heap torna o processo geral mais rápido. Isso ocorre porque carregamentos de heaps são mais rápidos que as tabelas de índice e, em alguns casos, a leitura subsequente pode ser feita no cache.  Se estiver carregando os dados apenas para prepará-los antes de executar mais transformações, carregar a tabela na tabela de heap é muito mais rápido que carregar os dados em uma tabela columnstore clusterizado. Além disso, o carregamento de dados em uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carrega mais rapidamente do que o carregamento de uma tabela em um armazenamento permanente.  
 
-Para tabelas de pesquisa pequenas, menos de 60 milhões de linhas, as tabelas de heap geralmente fazem sentido.  Tabelas columnstore do cluster começam a obter compactação ideal quando há mais de 60 milhões de linhas.
+Para tabelas de pesquisa pequenas, menos de 60 milhões linhas, muitas vezes as tabelas de heap fazem sentido.  As tabelas columnstore do cluster começam a alcançar uma compactação ideal quando há mais de 60 milhões linhas.
 
 Para criar uma tabela de heap, basta especificar HEAP na cláusula WITH:
 
@@ -200,7 +200,7 @@ Um alto volume de operações DML pesadas que atualizam e excluem linhas pode ca
 - A inserção de uma linha a adiciona a uma tabela interna da rowstore chamada de rowgroup delta. A linha inserida não é convertida para a columnstore, até que o rowgroup delta esteja cheio e marcado como fechado. Rowgroups são fechados quando atingem a capacidade máxima de 1.048.576 linhas.
 - A atualização de uma linha no formato columnstore é processada como uma exclusão lógica e, em seguida, como uma inserção. A linha inserida pode ser armazenada no repositório delta.
 
-As operações de atualização e inserção em lote que excedem o limite em massa de 102.400 linhas por distribuição alinhada em partição vão diretamente no formato columnstore. No entanto, supondo a ocorrência de uma distribuição uniforme, seria necessário modificar mais de 6.144 milhões de linhas em uma única operação para que isso ocorresse. Se o número de linhas para uma determinada distribuição alinhada em partição for menor de 102.400 linhas vão para o armazenamento delta e permanecerão lá até que o suficiente de linhas seja inserida ou modificada para fechar o grupo de linhas ou o índice foi recriado.
+As operações de atualização e inserção em lote que excedem o limite em massa de 102.400 linhas por distribuição alinhada em partição vão diretamente no formato columnstore. No entanto, supondo a ocorrência de uma distribuição uniforme, seria necessário modificar mais de 6.144 milhões de linhas em uma única operação para que isso ocorresse. Se o número de linhas de uma determinada distribuição alinhada por partição for menor que 102.400, as linhas vão para o repositório Delta e permanecem lá até que as linhas suficientes tenham sido inseridas ou modificadas para fechar o grupo de linhas ou o índice tenha sido recriado.
 
 ### <a name="small-or-trickle-load-operations"></a>Operações de carregamento pequenas ou lentas
 
@@ -210,7 +210,7 @@ Nessas situações, é melhor levar os dados primeiro ao armazenamento de blobs 
 
 ### <a name="too-many-partitions"></a>Número excessivo de partições
 
-Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes do particionamento, o SQL Data Warehouse já divide seus dados em 60 bancos de dados.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, considere que **cada** partição precisa ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você dividir a tabela em 100 partições, a tabela precisa de pelo menos 6 bilhões de linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições *100 partições* 1 milhão de linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
+Outra coisa a considerar é o impacto de particionamento de suas tabelas columnstore clusterizadas.  Antes do particionamento, o SQL Data Warehouse já divide seus dados em 60 bancos de dados.  O particionamento divide ainda mais seus dados.  Se particionar seus dados, considere que **cada** partição precisa ter pelo menos um milhão de linhas para se beneficiar de um índice columnstore clusterizado.  Se você particionar sua tabela em 100 partições, sua tabela precisará de pelo menos 6.000.000.000 linhas para se beneficiar de um índice columnstore clusterizado (60 distribuições *100 partições* 1 milhão linhas). Se a tabela de cem partições não tiver seis bilhões de linhas, reduza o número de partições ou considere usar uma tabela de heap.
 
 Quando as tabelas tiverem sido carregadas com alguns dados, siga as etapas abaixo para identificar e recriar tabelas com índices columnstore clusterizados abaixo do ideal.
 
@@ -228,7 +228,7 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Etapa 2: Recompilar índices columnstore clusterizados com usuário de classe de recurso superior
 
-Entre como o usuário da etapa 1 (por exemplo, LoadUser), que agora está usando uma classe de recurso maior, e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
+Entre como o usuário da etapa 1 (por exemplo, loaduser), que agora está usando uma classe de recurso mais alta e execute as instruções ALTER INDEX. Verifique se esse usuário tem a permissão ALTER para as tabelas em que o índice está sendo recriado. Estes exemplos mostram como recriar todo o índice columnstore e como recriar uma partição única. Em tabelas grandes, é mais prático recriar índices, uma partição por vez.
 
 Como alternativa, em vez de recriar o índice, é possível copiar a tabela para uma nova tabela [usando CTAS](sql-data-warehouse-develop-ctas.md). Qual é a melhor opção? Para grandes volumes de dados, CTAS é geralmente mais rápido do que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Para volumes menores de dados, ALTER INDEX é mais fácil de usar e não exige a troca da tabela.
 

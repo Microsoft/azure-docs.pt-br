@@ -10,12 +10,12 @@ ms.date: 12/14/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 75f04893067d92813207bd656fc3368239ae9303
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 141999f4119ac92e2b8846477c50edf8fba027d0
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65142799"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360031"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como usar o Armazenamento de fila do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -98,10 +98,11 @@ Há duas maneiras de personalizar a recuperação da mensagem de uma fila.
 Primeiro, você pode obter um lote de mensagens (até 32). Segundo, você pode definir um tempo limite de invisibilidade mais longo ou mais curto, permitindo mais ou menos tempo para seu código processar totalmente cada mensagem. O seguinte exemplo de código usa o método **get\_messages** para receber 16 mensagens em uma chamada. Em seguida, ele processa cada mensagem usando um loop for. Ele também define o tempo limite de invisibilidade de cinco minutos para cada mensagem.
 
 ```python
-messages = queue_service.get_messages('taskqueue', num_messages=16, visibility_timeout=5*60)
+messages = queue_service.get_messages(
+    'taskqueue', num_messages=16, visibility_timeout=5*60)
 for message in messages:
     print(message.content)
-    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)        
+    queue_service.delete_message('taskqueue', message.id, message.pop_receipt)
 ```
 
 ## <a name="how-to-change-the-contents-of-a-queued-message"></a>Como: alterar o conteúdo de uma mensagem na fila
@@ -110,7 +111,8 @@ Você pode alterar o conteúdo de uma mensagem in-loco na fila. Se a mensagem re
 ```python
 messages = queue_service.get_messages('taskqueue')
 for message in messages:
-    queue_service.update_message('taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
+    queue_service.update_message(
+        'taskqueue', message.id, message.pop_receipt, 0, u'Hello World Again')
 ```
 
 ## <a name="how-to-get-the-queue-length"></a>Como: obter o tamanho da fila

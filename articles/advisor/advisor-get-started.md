@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: a7e82fffdd9c865de6040c05ec28bc8bd2dced61
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f91e48a532a278c95d50775e135ac6379e8d8070
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60468229"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67332068"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
@@ -94,9 +94,9 @@ Você pode ter grupos de recursos ou assinaturas para os quais você não deseja
 
 Este procedimento configura a regra média de utilização da CPU para a recomendação de máquina virtual de baixo uso.
 
-O Assistente monitora o uso da máquina virtual durante 14 dias e, depois, identifica as máquinas virtuais com baixa utilização. As máquinas virtuais cuja média de utilização da CPU é de 5% ou menos e cujo uso de rede é de 7 MB ou menos durante quatro ou mais dias são consideradas máquinas virtuais de baixa utilização.
+Advisor monitora a utilização de máquinas virtuais por 7 dias e, em seguida, identifica as máquinas virtuais de baixa utilização. Virtual máquinas são consideradas baixa utilização se a utilização da CPU é de 5% ou menos e sua utilização de rede é menor que 2%, ou se a carga de trabalho atual pode ser acomodada em um menor tamanho de máquina virtual.
 
-Se você deseja ser mais agressivo na identificação de máquinas virtuais de baixo uso, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.  A regra de média de utilização da CPU pode ser definida para 5%, 10%, 15% ou 20%.
+Se você deseja ser mais agressivo na identificação de máquinas virtuais de baixo uso, você pode ajustar a regra de média de utilização da CPU para cálculo por assinatura.  A regra de utilização da CPU pode ser definida como 5%, 10%, 15% ou 20%.
 
 > [!NOTE]
 > Para ajustar a regra de média de utilização da CPU para identificar as máquinas virtuais de baixo uso, você deve ser um *Proprietário* da assinatura.  Se você não tiver as permissões necessárias para uma assinatura ou grupo de recursos, a opção para incluí-la ou excluí-la estará desabilitada na interface do usuário. 

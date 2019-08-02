@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 51e1fd18b52d7e215ba43be540156199fb41778e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155889"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171956"
 ---
 #### <a name="to-attach-the-sas-cables"></a>Para conectar os cabos do SAS
 1. Identifique os compartimentos principal e EBOD. Os dois compartimentos podem ser identificados pelos respectivos backplanes. Consulte a imagem abaixo para se orientar. 

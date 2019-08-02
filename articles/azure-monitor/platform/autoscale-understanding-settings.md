@@ -91,24 +91,24 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 
 | Seção | Nome do elemento | DESCRIÇÃO |
 | --- | --- | --- |
-| Configuração | ID | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
-| Configuração | Nome | O nome da configuração de dimensionamento automático. |
+| Configuração | id | A ID do recurso da configuração de dimensionamento automático. As configurações de dimensionamento automático são um recurso do Azure Resource Manager. |
+| Configuração | name | O nome da configuração de dimensionamento automático. |
 | Configuração | location | O local da configuração de dimensionamento automático. Esse local pode ser diferente do local em que o recurso está sendo dimensionado. |
-| propriedades | targetResourceUri | A ID do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
-| propriedades | perfis | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
-| Perfil | Nome | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
-| Perfil | Capacity.maximum | A capacidade máxima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos acima desse limite. |
-| Perfil | Capacity.minimum | A capacidade mínima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos abaixo desse limite. |
-| Perfil | Capacity.default | Se houver algum problema ao ler a métrica do recurso (nesse caso, a CPU de "vmss1") e a capacidade atual estiver abaixo do padrão, a Autoescala escalará horizontalmente de acordo com o padrão. Isso serve para garantir a disponibilidade do recurso. Se a capacidade atual já for maior do que a capacidade padrão, a Autoescala não fará a redução horizontal. |
-| Perfil | regras | A Autoescala dimensiona automaticamente entre as capacidades máximas e mínimas usando as regras do perfil. Pode haver várias regras em um perfil. Normalmente há duas regras: uma para determinar quando escalar horizontalmente e outra para determinar quando reduzir horizontalmente. |
-| Regra | metricTrigger | Define a condição de métrica da regra. |
+| properties | targetResourceUri | A ID do recurso que está sendo dimensionado. Você só pode ter uma configuração de dimensionamento automático por recurso. |
+| properties | profiles | Uma configuração de dimensionamento automático é composta de um ou mais perfis. Cada vez que o mecanismo de dimensionamento automático é executado, ele executa um perfil. |
+| profile | name | O nome do perfil. Escolha qualquer nome que o ajude a identificar o perfil. |
+| profile | capacity.maximum | A capacidade máxima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos acima desse limite. |
+| profile | Capacity.minimum | A capacidade mínima permitida. Garante que a Autoescala, ao executar este perfil, não dimensione os recursos abaixo desse limite. |
+| profile | Capacity.default | Se houver algum problema ao ler a métrica do recurso (nesse caso, a CPU de "vmss1") e a capacidade atual estiver abaixo do padrão, a Autoescala escalará horizontalmente de acordo com o padrão. Isso serve para garantir a disponibilidade do recurso. Se a capacidade atual já for maior do que a capacidade padrão, a Autoescala não fará a redução horizontal. |
+| profile | rules | A Autoescala dimensiona automaticamente entre as capacidades máximas e mínimas usando as regras do perfil. Pode haver várias regras em um perfil. Normalmente há duas regras: uma para determinar quando escalar horizontalmente e outra para determinar quando reduzir horizontalmente. |
+| rule | metricTrigger | Define a condição de métrica da regra. |
 | metricTrigger | metricName | O nome da métrica. |
 | metricTrigger |  metricResourceUri | A ID do recurso que emite a métrica. Na maioria dos casos, é o mesmo que o do recurso que está sendo dimensionado. Em alguns casos, ela pode ser diferente. Por exemplo, você pode escalonar um conjunto de dimensionamento de máquinas virtuais com base no número de mensagens em uma fila de armazenamento. |
 | metricTrigger | timeGrain | A duração de métrica de amostragem. Por exemplo, **TimeGrain = "PT1M"** significa que a métrica deve ser agregada a cada 1 minuto usando o método de agregação especificado no elemento de estatística. |
 | metricTrigger | statistic | O método de agregação dentro do período de timeGrain. Por exemplo, **statistic = “Average”** e **timeGrain = “PT1M”** significa que as métricas devem ser agregadas a cada 1 minuto, considerando a média. Essa propriedade determina como a métrica é amostrada. |
 | metricTrigger | timeWindow | O período de tempo no qual as métricas devem ser consultadas. Por exemplo, **timeWindow = “PT10M”** significa que sempre que a Autoescala for executada, ela consultará as métricas dos últimos 10 minutos. O período de tempo permite que as métricas sejam normalizadas e evita uma reação a picos transitórios. |
 | metricTrigger | timeAggregation | O método de agregação usado para agregar as métricas amostradas. Por exemplo, **TimeAggregation = “Average”** deve agregar as métricas amostradas obtendo a média. No caso anterior, é obtida a média das dez amostras de um minuto. |
-| Regra | scaleAction | A ação a ser executada quando o metricTrigger da regra for acionado. |
+| rule | scaleAction | A ação a ser executada quando o metricTrigger da regra for acionado. |
 | scaleAction | direction | "Increase" para escalar horizontalmente ou "Decrease" para reduzir horizontalmente.|
 | scaleAction | value | Quanto aumentar ou diminuir a capacidade do recurso. |
 | scaleAction | cooldown | O período de tempo a esperar após uma operação de dimensionamento antes de escalonar novamente. Por exemplo, se **cooldown = “PT10M”** , a Autoescala não tentará escalonar novamente nos próximos 10 minutos. O resfriamento deve permitir que as métricas se estabilizem após a adição ou a remoção de instâncias. |

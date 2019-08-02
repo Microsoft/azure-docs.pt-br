@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
+ms.lasthandoff: 06/17/2019
 ms.locfileid: "65406967"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Tutorial: Integrar o Azure Active Directory ao E Sales Manager Remix
@@ -53,7 +53,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. 
 
- O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 * Adicionando o E Sales Manager Remix da galeria
 * configurar e testar o logon único do AD do Azure
@@ -101,9 +101,9 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![Informações de logon único em Domínio e URLs do E Sales Manager Remix](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-     a. Na caixa **URL de logon** caixa, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
+    a. Na caixa **URL de logon** caixa, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/esales-pc*.
 
-    b. Na caixa **Identificador**, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/*.
+    b. Na caixa **Identificador**, digite uma URL no seguinte formato: *https://\<Server-Based-URL>/\<sub-domain>/* .
 
     c. Observe o valor do **Identificador** para usar posteriormente neste tutorial.
     
@@ -154,13 +154,13 @@ Habilite o logon único do Microsoft Azure Active Directory no portal do Azure e
 
     ![A seção "Configuração de autenticação SAML"](./media/esalesmanagerremix-tutorial/configure3.png)
     
-     a. Marque a caixa de seleção **Versão do PC**.
+    a. Marque a caixa de seleção **Versão do PC**.
     
     b. Na seção **item Colaboração**, na lista suspensa, selecione **email**.
 
-    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na caixa do item Colaboração, cole o **valor de declaração** copiado anteriormente do Portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** ).
 
-    d. Na caixa **Emissor (ID da entidade)**, cole o valor do identificador que você copiou do portal do Azure na seção **Domínio e URLs do E Sales Manager Remix**.
+    d. Na caixa **Emissor (ID da entidade)** , cole o valor do identificador que você copiou do portal do Azure na seção **Domínio e URLs do E Sales Manager Remix**.
 
     e. Para carregar seu certificado baixado do portal do Azure, selecione **Seleção de arquivo**.
 
@@ -198,7 +198,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
 
     ![A janela de usuário](./media/paloaltoadmin-tutorial/create_aaduser_04.png)
 
-     a. Na caixa **Nome**, digite **BrendaFernandes**.
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -222,7 +222,7 @@ Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azur
     
     ![A seção “Novo registro de funcionário”](./media/esalesmanagerremix-tutorial/user2.png)
 
-     a. Na caixa **Nome do funcionário**, digite o nome do usuário (por exemplo, **Brenda**).
+    a. Na caixa **Nome do funcionário**, digite o nome do usuário (por exemplo, **Brenda**).
 
     b. Complete os campos necessários restantes.
     

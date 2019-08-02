@@ -8,16 +8,15 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 04/05/2019
-ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/22/2019
+ms.openlocfilehash: 4bfee4ec442c9e7b0351b0fd0c6a2b8e163a2541
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64720681"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330314"
 ---
-# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Criar e gerenciar acordos entre parceiros comerciais usando aplicativos lógicos do Azure e o Enterprise Integration Pack
+# <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Criar e gerenciar acordos entre parceiros comerciais em aplicativos lógicos do Azure
 
 Um [parceiro comercial](../logic-apps/logic-apps-enterprise-integration-partners.md) 
 *contrato* ajuda as organizações e empresas que se comunicam diretamente uns com os outros, definindo o protocolo padrão da indústria específico a ser usado ao trocar mensagens de Business-to-business (B2B). Os contratos fornecem benefícios comuns, por exemplo:
@@ -27,6 +26,8 @@ Um [parceiro comercial](../logic-apps/logic-apps-enterprise-integration-partners
 * São fáceis de criar, gerenciar e usar para criar soluções de integração de enterprise.
 
 Este artigo mostra como criar um AS2, EDIFACT ou X12 contrato que você pode usar ao criar soluções de integração para cenários de B2B do enterprise usando o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) e [aplicativos de lógicos do Azure](../logic-apps/logic-apps-overview.md). Depois de criar um contrato, você pode usar X12, EDIFACT ou AS2 conectores para troca de mensagens de B2B.
+
+Para criar contratos para troca de mensagens RosettaNet, consulte [mensagens do Exchange RosettaNet](../logic-apps/logic-apps-enterprise-integration-rosettanet.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -65,8 +66,8 @@ No menu principal do Azure, selecione **Todos os serviços**. Na caixa de pesqui
    | **Host Identity** | Sim | <*host-partner-identifier*> | Identificador do parceiro de host |
    | **Parceiro convidado** | Sim | <*guest-partner-name*> | O parceiro convidado representa a organização que está fazendo negócios com o parceiro host |
    | **Identidade do convidado** | Sim | <*guest-partner-identifier*> | Identificador do parceiro convidado |
-   | **Configurações de recebimento** | Varia | Varia | Essas propriedades especificam como lidar com todas as mensagens de entrada recebidas pelo contrato. Para obter mais informações, consulte o tipo de contrato respectiva: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
-   | **Configurações de envio** | Varia | Varia | Essas propriedades especificam como lidar com todas as mensagens de saída enviadas pelo contrato. Para obter mais informações, consulte o tipo de contrato respectiva: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
+   | **Configurações de recebimento** | Varia | Varia | Essas propriedades especificam como o parceiro host recebe todas as mensagens recebidas do parceiro convidado no contrato. Para obter mais informações, consulte o tipo de contrato respectiva: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
+   | **Configurações de envio** | Varia | Varia | Essas propriedades especificam como o parceiro host envia todas as mensagens enviadas ao parceiro convidado no contrato. Para obter mais informações, consulte o tipo de contrato respectiva: <p>- [Configurações de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Configurações de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Configurações de mensagem X12](logic-apps-enterprise-integration-x12.md) |
    |||||
 
 1. Quando você terminar a criação de seu contrato, no **Add** , escolha **Okey**e retornar à sua conta de integração.

@@ -2,17 +2,17 @@
 title: Limitações para pools de nós do Windows Server no serviço de Kubernetes do Azure (AKS)
 description: Saiba mais sobre as limitações conhecidas quando você executar cargas de trabalho de aplicativo e pools de nós do Windows Server no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: twhitney
-ms.openlocfilehash: 12fb9dc67e8afae3dcb9ade97dd61ab438e0fac5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 0d79b4d76249bd4a79f8adbd5df0cfa1ae133760
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475410"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613728"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para pools de nós do Windows Server e cargas de trabalho do aplicativo no serviço de Kubernetes do Azure (AKS)
 
@@ -24,11 +24,11 @@ Este artigo descreve algumas das limitações e conceitos do sistema operacional
 > Recursos de visualização do AKS são Self-service, inscreva-se no. Eles são fornecidos para reunir opiniões e bugs de nossa comunidade. Na visualização, esses recursos não são destinados ao uso em produção. Recursos em visualização pública se encaixam em suporte "melhor esforço". Assistência de AKS equipes de suporte técnico está disponível durante o horário comercial do Pacífico (PST) apenas timezone. Para obter mais informações, consulte as seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
-> * [Perguntas frequentes sobre o suporte do Azure][aks-faq]
+> * [Perguntas frequentes sobre o suporte do Azure.][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitações para o Windows Server no Kubernetes
 
-Contêineres do Windows Server devem executar em um host de contêiner com base em Windows. Para executar contêineres do Windows Server no AKS, você pode [criar um pool de nós que executa o Windows Server] [ windows-node-cli] como o sistema operacional convidado. Suporte de pool de nós de servidor janela inclui algumas limitações que fazem parte do Windows Server no projeto Kubernetes upstream. Essas limitações não são específicas para o AKS. Para obter mais informações sobre esse suporte upstream para o Windows Server em Kubernetes, consulte [contêineres do Windows Server em Kubernetes limitações][upstream-limitations].
+Contêineres do Windows Server devem executar em um host de contêiner com base em Windows. Para executar contêineres do Windows Server no AKS, você pode [criar um pool de nós que executa o Windows Server][windows-node-cli] como o sistema operacional convidado. Suporte de pool de nós de servidor janela inclui algumas limitações que fazem parte do Windows Server no projeto Kubernetes upstream. Essas limitações não são específicas para o AKS. Para obter mais informações sobre esse suporte upstream para o Windows Server em Kubernetes, consulte [contêineres do Windows Server em Kubernetes limitações](https://docs.microsoft.com/azure/aks/windows-node-limitations).
 
 As seguintes limitações de upstream para contêineres do Windows Server no Kubernetes são relevantes para o AKS:
 
@@ -45,7 +45,6 @@ As seguintes limitações de upstream para contêineres do Windows Server no Kub
 As seguintes limitações adicionais se aplicam ao suporte de pool de nós do Windows Server no AKS:
 
 - Um cluster do AKS sempre contém um pool de nós do Linux como o primeiro pool de nós. Este primeiro pool de nós baseados em Linux não pode ser excluído, a menos que o próprio cluster do AKS é excluído.
-- Atualmente, o AKS suporta apenas o balanceador de carga básico que só permite o pool de um back-end, o pool de nós do Linux padrão. Como resultado, o tráfego de saída dos pods do Windows sempre será [convertido em um endereço IP público do Azure gerenciado][azure-outbound-traffic]. Como esse endereço IP não é configurável, não é possível no momento para lista de permissões o tráfego proveniente de pods do Windows. 
 - Clusters AKS devem usar o modelo de rede (Avançado) CNI do Azure.
     - Não há suporte para a rede Kubenet (basic). Você não pode criar um cluster do AKS que usa kubenet. Para obter mais informações sobre as diferenças nos modelos de rede, consulte [rede conceitos para aplicativos no AKS][azure-network-models].
     - O modelo de rede CNI do Azure requer planejamento adicional e considerações sobre o gerenciamento de endereço IP. Para obter mais informações sobre como planejar e implementar o CNI do Azure, consulte [rede configurar CNI do Azure no AKS][configure-azure-cni].
@@ -60,11 +59,11 @@ As seguintes limitações adicionais se aplicam ao suporte de pool de nós do Wi
 - Controladores de entrada devem ser agendadas somente em nós do Linux usando um NodeSelector.
 - Espaços de desenvolvimento do Azure só está disponível para pools de nós baseados em Linux no momento.
 - Grupo de contas de serviço gerenciado (gMSA) suporte quando os nós do Windows Server não estão associados a um domínio do Active Directory não está disponível atualmente no AKS.
-    - O código-fonte aberto, upstream [aks-engine] [ aks-engine] projeto no momento, oferece suporte a gMSA se você precisar usar esse recurso.
+    - O código-fonte aberto, upstream [aks-mecanismo][aks-engine] projeto no momento, oferece suporte a gMSA se você precisar usar esse recurso.
 
 ## <a name="os-concepts-that-are-different"></a>Conceitos de sistema operacional que são diferentes
 
-O Kubernetes é historicamente focada em Linux. Muitos exemplos usados upstream [Kubernetes.io] [ kubernetes] site são destinadas para uso em nós do Linux. Quando você cria implantações que usam contêineres do Windows Server, as seguintes considerações ao aplicar nível de sistema operacional:
+O Kubernetes é historicamente focada em Linux. Muitos exemplos usados upstream [Kubernetes.io][kubernetes] site são destinadas para uso em nós do Linux. Quando você cria implantações que usam contêineres do Windows Server, as seguintes considerações ao aplicar nível de sistema operacional:
 
 - **Identidade** -Linux usa a ID de usuário (UID) e ID do grupo (GID), representadas como tipos de inteiro. Nomes de usuário e grupo não canônicos, eles são apenas um alias no */etc/grupos* ou */etc/passwd* para UID + GID.
     - Windows Server usa um identificador de segurança binário (SID) maior, que é armazenado no banco de dados do Gerenciador de acesso de segurança do Windows (SAM). Este banco de dados não é compartilhado entre o host e contêineres ou entre contêineres.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 95c24f74e9af4443db994a6655a82108de18efdd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f7ca163b93a68525e80018051baa626bc378c200
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280138"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com o iQualify LMS
 
@@ -54,7 +54,7 @@ Para configurar a integração do iQualify LMS com o Azure AD, você precisa adi
 
 **Para adicionar o iQualify LMS da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do iQualify LMS](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     | |
     |--|--|
     | Ambiente de produção: `https://<yourorg>.iqualify.com/`|
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
     | last_name | user.surname |
     | person_id | "your attribute" |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -199,7 +199,7 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
 
     ![Configurações de Autenticação SAML](./media/iqualify-tutorial/setting4.png)
 
-     a. Na caixa **URL DO SERVIÇO DE LOGON ÚNICO SAML**, cole o valor copiado da **URL de Logon** na janela de configuração de aplicativos do Azure AD.
+    a. Na caixa **URL DO SERVIÇO DE LOGON ÚNICO SAML**, cole o valor copiado da **URL de Logon** na janela de configuração de aplicativos do Azure AD.
 
     b. Na caixa **URL DE LOGOFF SAML**, cole o valor da **URL de Logoff** copiado da janela de configuração de aplicativos do Azure AD.
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Load Balancer
 description: Este Exemplo de Script do Azure PowerShell mostra como balancear a carga do tráfego para VMs para alta disponibilidade
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
-ms.openlocfilehash: 70752f9726ac78ec32d0735dfefe37675ae7be29
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: allensu
+ms.openlocfilehash: 956a67897fa08fdd2c0d602ba514fcf58fabc292
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170664"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273529"
 ---
 # <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Exemplo de script do Azure PowerShell: Balancear o tráfego de VMs para alta disponibilidade
 

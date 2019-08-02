@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3230d85dfcf57bfd4e2e1684f4f5620600ec4e3a
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074031"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424211"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções dimensionamento para aplicativos no AKS (Serviço de Kubernetes do Azure)
 
@@ -29,7 +29,7 @@ Este artigo apresenta os principais conceitos que ajudam você a dimensionar apl
 
 Você pode dimensionar manualmente réplicas (pods) e nós para testar como seu aplicativo responde a uma alteração no estado e nos recursos disponíveis. Dimensionar recursos manualmente também permite estabelecer uma quantidade definida de recursos a serem usados para manter um custo fixo, como o número de nós. Para dimensionar manualmente, você define a contagem de nós ou de réplicas e as agendas da API do Kubernetes criando pods ou nós de drenagem adicionais.
 
-Para começar com o pods e nós de dimensionamento manual, confira [Dimensionar aplicativos no AKS][aks-scale].
+Para começar a dimensionar manualmente os pods e os nós, consulte [dimensionar aplicativos em AKs][aks-scale].
 
 ## <a name="horizontal-pod-autoscaler"></a>Dimensionador automático de pod horizontal
 
@@ -39,7 +39,7 @@ O Kubernetes usa o HPA (dimensionador automático de pod horizontal) para monito
 
 Quando você configura o dimensionador automático de pod horizontal para uma determinada implantação, pode definir os números mínimo e máximo de réplicas que podem ser executadas. Você também define a métrica para monitorar e basear quaisquer decisões de dimensionamento, como uso da CPU.
 
-Para começar a usar o dimensionador automático de pod horizontal no AKS, confira [Dimensionamento automático de pods no AKS][aks-hpa].
+Para começar a usar o dimensionamento automático de Pod horizontal em AKS, confira autoescala [pods em AKs][aks-hpa].
 
 ### <a name="cooldown-of-scaling-events"></a>Resfriamento de eventos de dimensionamento
 
@@ -51,15 +51,15 @@ Talvez você precise ajustar esses valores de resfriamento. Os valores de resfri
 
 ## <a name="cluster-autoscaler"></a>Dimensionador automático do cluster
 
-Para responder às mudanças nas demandas dos pod, Kubernetes tem um autoscaler de cluster (atualmente em visualização no AKS) que ajusta o número de nós de acordo com os recursos de computação solicitada no pool de nó. Por padrão, o dimensionador automático de cluster verifica o servidor de API a cada 10 segundos quanto a alterações necessárias na contagem de nós. Se o dimensionamento automático de cluster determinar que uma alteração é necessária, o número de nós no cluster do AKS aumentará ou diminuirá de acordo. O dimensionador automático de cluster funciona com clusters AKS habilitados para RBAC que executam o Kubernetes 1.10.x ou superior.
+Para responder à alteração das demandas de Pod, o kubernetes tem um cluster de dimensionamento automática (atualmente em visualização no AKS) que ajusta o número de nós com base nos recursos de computação solicitados no pool de nós. Por padrão, o dimensionador automático de cluster verifica o servidor de API a cada 10 segundos quanto a alterações necessárias na contagem de nós. Se o dimensionamento automático de cluster determinar que uma alteração é necessária, o número de nós no cluster do AKS aumentará ou diminuirá de acordo. O dimensionador automático de cluster funciona com clusters AKS habilitados para RBAC que executam o Kubernetes 1.10.x ou superior.
 
 ![Dimensionador automático de cluster do Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 O dimensionador automático do cluster normalmente é usado junto com o dimensionador automático de pod horizontal. Quando combinadas, o dimensionador automático de pod horizontal aumenta ou diminui o número de pods com base na demanda do aplicativo e o dimensionador automático de cluster ajusta o número de nós conforme necessário para executar os pods adicionais adequadamente.
 
-Dimensionador automático de cluster deve ser testado somente no modo de visualização em clusters AKS com um pool de nó único.
+O autoescalar do cluster só deve ser testado na visualização em clusters AKS.
 
-Para começar a usar o dimensionador automático de cluster no AKS, confira [Dimensionador automático de cluster no AKS][aks-cluster-autoscaler].
+Para começar a usar o cluster de dimensionamento em AKS, consulte o dimensionamento de [cluster em AKs][aks-cluster-autoscaler].
 
 ### <a name="scale-up-events"></a>Eventos de aumento
 
@@ -91,19 +91,19 @@ Nós virtuais são implantados em uma sub-rede adicional na mesma rede virtual q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para começar a dimensionar aplicativos, primeiro siga o [guia de início rápido para criar um cluster do AKS com a CLI do Azure][aks-quickstart]. Em seguida, você pode começar a dimensionar manual ou automaticamente aplicativos em seu cluster do AKS:
+Para começar a dimensionar aplicativos, primeiro siga o guia de [início rápido para criar um cluster AKs com o CLI do Azure][aks-quickstart]. Em seguida, você pode começar a dimensionar manual ou automaticamente aplicativos em seu cluster do AKS:
 
-- Dimensionar manualmente os [pods][aks-manually-scale-pods] ou os [nós][aks-manually-scale-nodes]
-- Use o [dimensionador automático de pod horizontal][aks-hpa]
-- Use o [dimensionador automático de cluster][aks-cluster-autoscaler]
+- Dimensionar [pods][aks-manually-scale-pods] manualmente or [nodes][aks-manually-scale-nodes]
+- Usar o [dimensionamento de escalabilidade horizontal][aks-hpa]
+- Usar o [dimensionamento de cluster][aks-cluster-autoscaler]
 
 Para obter mais informações sobre os principais conceitos do Kubernetes e do AKS, confira os seguintes artigos:
 
-- [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
-- [Kubernetes / AKS de acesso e identidade][aks-concepts-identity]
-- [Kubernetes / segurança AKS][aks-concepts-security]
-- [Kubernetes / redes virtuais do AKS][aks-concepts-network]
-- [Kubernetes / armazenamento AKS][aks-concepts-storage]
+- [Clusters e cargas de trabalho do kubernetes/AKS][aks-concepts-clusters-workloads]
+- [Acesso e identidade de kubernetes/AKS][aks-concepts-identity]
+- [Segurança do kubernetes/AKS][aks-concepts-security]
+- [Redes virtuais kubernetes/AKS][aks-concepts-network]
+- [Armazenamento kubernetes/AKS][aks-concepts-storage]
 
 <!-- LINKS - external -->
 

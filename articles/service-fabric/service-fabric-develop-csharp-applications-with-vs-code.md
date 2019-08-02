@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: 680c141e32333c4747ee69919229bd9381f536a4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 60b634b0b927804249148737ee7a99c0e86dd7d6
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393609"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67537760"
 ---
 # <a name="develop-c-service-fabric-applications-with-visual-studio-code"></a>Desenvolver aplicativos C# do Microsoft Azure Service Fabric com o Visual Studio Code
 
@@ -77,6 +77,17 @@ Após a compilação do aplicativo, você pode implantá-lo no cluster local.
 4. Depois de verificar o aplicativo está em execução, inicie um navegador e abra esta página: http:\//localhost:31002. Esta é a web front-end do aplicativo. Atualize a página para ver o valor atual do contador conforme ele é incrementado.
 
    ![Aplicativo de serviço de contador no navegador](./media/service-fabric-develop-csharp-applications-with-vs-code/counter-service-running.png)
+
+## <a name="publish-the-application-to-an-azure-service-fabric-cluster"></a>Publicar o aplicativo em um cluster do Azure Service Fabric
+Junto com a implantação do aplicativo no cluster local, você também pode publicar o aplicativo em um cluster remoto do Azure Service Fabric. 
+
+1. Certifique-se de que você criou seu aplicativo usando as instruções acima. Atualizar o arquivo de configuração gerado `Cloud.json` com os detalhes do cluster remoto que você deseja publicar.
+
+2. Na **Paleta de comandos**, selecione o comando **Service Fabric: Comando de aplicativo publicar**. A saída do processo de instalação é enviada para o terminal integrado.
+
+   ![Comando de aplicativo de publicação no VS Code](./media/service-fabric-develop-csharp-applications-with-vs-code/sf-publish-application.png)
+
+3. Quando a implantação for concluída, inicie um navegador e abra o Service Fabric Explorer: `https:<clusterurl>:19080/Explorer`. Você deve ver que o aplicativo está em execução. Isso pode levar algum tempo, portanto seja paciente. 
 
 ## <a name="debug-the-application"></a>Depurar o aplicativo
 Ao depurar aplicativos no Visual Studio Code, o aplicativo deve estar executando em um cluster local. Pontos de interrupção, em seguida, podem ser adicionados ao código.

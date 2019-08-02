@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86696ed6715b4e43a9d02232c013eb64feb61f67
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66126275"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594200"
 ---
 # <a name="azure-diagnostic-logs"></a>Logs de diagnóstico do Azure
 
@@ -27,7 +27,7 @@ Com os logs de diagnóstico do Azure, é possível exibir análises de núcleo e
 
  - Conta de Armazenamento do Azure
  - Hubs de eventos do Azure
- - [Workspace do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
+ - [Espaço de Trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Este recurso está disponível em pontos de extremidade CDN para todos os tipos de preço. 
 
@@ -197,7 +197,7 @@ Os logs de análise de núcleo são gerados a cada hora e os dados são coletado
 |Nome do Ponto de Extremidade |Nome do ponto de extremidade da CDN|
 |Ano|  Representação de quatro dígitos do ano, por exemplo, 2017|
 |Mês| Representação de dois dígitos do número do mês. 01 = janeiro... 12 = dezembro|
-|Dia|   Representação de dois dígitos do dia do mês|
+|Day|   Representação de dois dígitos do dia do mês|
 |PT1H.json| Arquivo JSON real em que os dados da análise são armazenados|
 
 ### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>Exportando os dados de análise de núcleo para um arquivo CSV
@@ -325,12 +325,12 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 
 |Métrica                     | DESCRIÇÃO | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| RequestCountTotal         | Número total de ocorrências de solicitação durante esse período. | Sim | sim |Sim |
-| RequestCountHttpStatus2xx | Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202). | Sim | sim |Sim |
-| RequestCountHttpStatus3xx | Contagem de todas as solicitações que resultaram em um código HTTP 3xx (por exemplo, 300, 302). | Sim | sim |Sim |
-| RequestCountHttpStatus4xx | Contagem de todas as solicitações que resultaram em um código HTTP 4xx (por exemplo, 400, 404). | Sim | sim |Sim |
-| RequestCountHttpStatus5xx | Contagem de todas as solicitações que resultaram em um código HTTP 5xx (por exemplo, 500, 504). | Sim | sim |Sim |
-| RequestCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx a 5xx). | Sim | sim |Sim |
+| RequestCountTotal         | Número total de ocorrências de solicitação durante esse período. | Sim | Sim |Sim |
+| RequestCountHttpStatus2xx | Contagem de todas as solicitações que resultaram em um código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |
+| RequestCountHttpStatus3xx | Contagem de todas as solicitações que resultaram em um código HTTP 3xx (por exemplo, 300, 302). | Sim | Sim |Sim |
+| RequestCountHttpStatus4xx | Contagem de todas as solicitações que resultaram em um código HTTP 4xx (por exemplo, 400, 404). | Sim | Sim |Sim |
+| RequestCountHttpStatus5xx | Contagem de todas as solicitações que resultaram em um código HTTP 5xx (por exemplo, 500, 504). | Sim | Sim |Sim |
+| RequestCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx a 5xx). | Sim | Sim |Sim |
 | RequestCountHttpStatus200 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 200. | Sim | Não  |Sim |
 | RequestCountHttpStatus206 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 206. | Sim | Não  |Sim |
 | RequestCountHttpStatus302 | Contagem de todas as solicitações que resultaram em um código de resposta HTTP 302. | Sim | Não  |Sim |
@@ -341,7 +341,7 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 | RequestCountCacheNoCache | Contagem de todas as solicitações para um ativo que são impedidas de serem armazenadas em cache devido a uma configuração do usuário na borda. | Sim | sim | Não |
 | RequestCountCacheUncacheable | Contagem de todas as solicitações para ativos que são impedidas de serem armazenadas em cache pelos cabeçalhos Cache-Control e Expires do ativo, que indicam que não devem ser armazenadas em cache em um POP ou pelo cliente HTTP. | Sim | sim | Não |
 | RequestCountCacheOthers | Contagem de todas as solicitações com o status de cache não cobertas pelos itens acima. | Não | Sim | Não  |
-| EgressTotal | Transferência de dados de saída em GB | Sim |sim |Sim |
+| EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
 | EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de status HTTP 2xx em GB. | Sim | sim | Não  |
 | EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de status HTTP 3xx em GB. | Sim | sim | Não  |
 | EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de status HTTP 4xx em GB. | Sim | sim | Não  |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/10/2017
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 3e304df51133d53adad50e672249bde6c9960712
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f2f798be85e9c3aeb8d4b54cba89d8be059427e0
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65539881"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147324"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral de diagnóstico do Serviço de Aplicativo do Azure
 
@@ -103,12 +103,12 @@ Como o monitoramento proativo de CPU, a recuperação automática proativa ofere
 
 ![Recuperação automática proativa](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## <a name="change-analysis"></a>Análise de alterações
+## <a name="change-analysis-only-for-windows-app"></a>Análise de alterações (somente para o aplicativo do Windows)
 
-Em um ambiente de desenvolvimento rápido, às vezes, pode ser difícil manter o controle de todas as alterações feitas ao seu aplicativo e deixar que pinpoint sozinho em uma alteração que causou um comportamento não íntegro. Análise de alterações pode ajudar a refinar sobre as alterações feitas ao seu aplicativo para facilitar a experiência de solução de problemas. Análise de alterações é inserida no relatório de diagnóstico, como **aplicativo travar** para que você pode usá-lo simultaneamente com outras métricas.
+Em um ambiente de desenvolvimento rápido, às vezes, pode ser difícil manter o controle de todas as alterações feitas ao seu aplicativo e deixar que pinpoint sozinho em uma alteração que causou um comportamento não íntegro. Análise de alterações pode ajudar a refinar sobre as alterações feitas ao seu aplicativo para facilitar a experiência de solução de problemas. Análise de alterações for encontrado na **alterações de aplicativo** e também inserido em um relatório de diagnóstico, como **aplicativo travar** para que você pode usá-lo simultaneamente com outras métricas.
+
+Análise de alterações deve ser habilitado antes de usar o recurso. Para obter mais informações sobre análise de alterações, visite [anunciando a nova experiência de análise de alteração no diagnóstico do serviço de aplicativo](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
 
 ![Página de padrão de análise de alterações](./media/app-service-diagnostics/change-analysis-default-page-11.png)
 
 ![Modo de exibição de comparação](./media/app-service-diagnostics/diff-view-12.png)
-
-Análise de alterações deve ser habilitado antes de usar o recurso. Para obter mais informações sobre análise de alterações, visite [anunciando a nova experiência de análise de alteração no diagnóstico do serviço de aplicativo](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).

@@ -9,24 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73ca740a4dcca3bdbb1951e55df4061364a5c646
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24d3da81fabf55bc0c3944f0c03829dee4fcce46
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083932"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304405"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
-Usando o Azure Active Directory (Azure AD), você pode designar administradores limitados para gerenciar tarefas de identidade em funções com menos privilégios. Os administradores podem ser atribuídos para esses fins como adicionando ou alterando os usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário e gerenciando nomes de domínio. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
+Usando o Azure Active Directory (AD do Azure), você pode designar administradores limitados para gerenciar tarefas de identidade em funções com menos privilégios. Os administradores podem ser atribuídos para tais finalidades como adição ou alteração de usuários, atribuição de funções administrativas, redefinição de senhas de usuário, gerenciamento de licenças de usuário e gerenciamento de nomes de domínio. As permissões de usuário padrão podem ser alteradas somente nas configurações do usuário no Azure AD.
 
 O administrador global tem acesso a todos os recursos administrativos. Por padrão, a pessoa que se inscreve para uma assinatura do Azure recebe a função de Administrador Global para o diretório. Apenas Administradores Globais e Administradores de Funções Privilegiadas podem delegar funções de administrador. Para reduzir o risco comercial, recomendamos que você atribua essa função apenas a algumas pessoas na empresa.
-
 
 ## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
 
@@ -36,24 +35,24 @@ Para saber como atribuir funções administrativas a um usuário no Azure Active
 
 As seguintes funções de administrador estão disponíveis:
 
-* **[Administrador de Aplicativos](#application-administrator)** : Os usuários nessa função podem criar e gerenciar todos os aspectos de aplicativos empresariais, registros dos aplicativos e configurações de proxy de aplicativos. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo o Microsoft Graph e o Microsoft Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários durante a criação de novos registros de aplicativo ou aplicativos corporativos.
+* **[Administrador de Aplicativos](#application-administrator)** : Os usuários nessa função podem criar e gerenciar todos os aspectos de aplicativos empresariais, registros dos aplicativos e configurações de proxy de aplicativos. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo o Microsoft Graph e o Microsoft Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 
   <b>Importante</b>: Essa função concede a capacidade de gerenciar credenciais de aplicativos. Os usuários atribuídos a essa função podem adicionar credenciais a um aplicativo e usar essas credenciais para representar a identidade do aplicativo. Se a identidade do aplicativo tiver acesso ao Azure Active Directory, como a capacidade de criar ou atualizar o usuário ou outros objetos, um usuário atribuído a essa função poderá executar essas ações enquanto estiver representando o aplicativo. Essa capacidade de representar a identidade do aplicativo pode ser uma elevação de privilégio sobre o que o usuário pode fazer por meio de suas atribuições de função no Azure AD. É importante entender que atribuir um usuário à função de administrador do aplicativo permite que ele represente a identidade de um aplicativo.
 
-* **[Desenvolvedor de Aplicativos](#application-developer)** : Os usuários nessa função podem criar registros dos aplicativos quando a configuração "Usuários podem registrar aplicativos" estiver definida como Não. Essa função também concede permissão para consentir em nome de um próprio quando o "Os usuários podem consentir que os aplicativos acessem dados da empresa em seu nome" configuração está definida como não. Os usuários atribuídos a essa função são adicionados como proprietários durante a criação de novos registros de aplicativo ou aplicativos corporativos.
+* **[Desenvolvedor de Aplicativos](#application-developer)** : Os usuários nessa função podem criar registros dos aplicativos quando a configuração "Usuários podem registrar aplicativos" estiver definida como Não. Essa função também concede permissão para consentimento em um nome próprio quando a configuração "os usuários podem consentir com aplicativos que acessam dados da empresa em seu nome" está definida como não. Os usuários atribuídos a essa função são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 
-* **[Administrador de Autenticação](#authentication-administrator)** : Os usuários com essa função podem definir ou redefinir as credenciais que não são de senha. Os administradores de autenticação podem exigir que os usuários registrar novamente em relação a credencial de senha não existente (por exemplo, MFA ou FIDO) e revogar **lembrar o MFA no dispositivo**, que solicita a mfa em Avançar na entrada de usuários que são não-administradores ou atribuídos a apenas as seguintes funções:
+* **[Administrador de Autenticação](#authentication-administrator)** : Usuários com essa função podem definir ou redefinir credenciais de não senha e podem atualizar senhas para todos os usuários. Os administradores de autenticação podem exigir que os usuários se registrem novamente em relação à credencial não-senha existente (por exemplo, MFA ou FIDO) e revogue **lembram a MFA no dispositivo**, que solicita a MFA na próxima entrada de usuários que não são administradores ou atribuídas apenas as seguintes funções:
   * Administrador de Autenticação
   * Leitores de Diretório
   * Emissor do Convite ao Convidado
   * Leitor do Centro de Mensagens
   * Leitor de Relatórios
 
-  A função de administrador de autenticação está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+  A função Administrador de autenticação está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
   <b>Importante</b>: Usuários com essa função podem alterar credenciais de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração das credenciais de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
 
-  * Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar que não foram concedidas a Administradores de Autenticação. Por este caminho em que um administrador de autenticação pode ser capaz de assumir a identidade de um proprietário de aplicativo e, em seguida, ainda mais assuma a identidade de um aplicativo com privilégios, atualizando as credenciais para o aplicativo.
+  * Proprietários de Registro de Aplicativo e Aplicativos Empresariais, que podem gerenciar credenciais de aplicativos que eles possuem. Esses aplicativos podem ter permissões privilegiadas no Azure AD e em outro lugar que não foram concedidas a Administradores de Autenticação. Por meio desse caminho, um administrador de autenticação pode assumir a identidade de um proprietário do aplicativo e assumir ainda mais a identidade de um aplicativo com privilégios atualizando as credenciais para o aplicativo.
   * Proprietários de assinaturas do Azure, que podem ter acesso a informações confidenciais ou privadas ou configurações críticas no Azure.
   * Proprietários de Grupos de Segurança e de Grupos do Office 365, que podem gerenciar a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou configurações críticas no Azure AD e em outros lugares.
   * Administradores em outros serviços fora do Azure AD, como o Exchange Online, a Segurança do Office e o Centro de Conformidade e sistemas de recursos humanos.
@@ -61,21 +60,21 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador da proteção de informações do Azure](#azure-information-protection-administrator)** : Usuários com essa função têm todas as permissões no serviço de Proteção de Informações do Azure. Esta função pode configurar rótulos para a política da Proteção de Informações do Azure, gerenciar modelos de proteção e ativar a proteção. Esta função não garante permissões de usuário no Identity Protection Center, Privileged Identity Management, Monitorar Integridade de Serviço do Office 365 ou Centro de Segurança e Conformidade do Office 365.
 
-* **[Administrador de fluxo de usuário do B2C](#b2c-user-flow-administrator)** : Usuários com essa função podem criar e gerenciar B2C (também conhecido como "internas" políticas) de fluxos de usuário no Portal do Azure. Criando ou editando fluxos dos usuários, esses usuários podem alterar o conteúdo html/CSS/javascript da experiência do usuário, alterar os requisitos de MFA por fluxo de usuário, alterar declarações no token e ajustar as configurações de sessão para todas as políticas no locatário. Por outro lado, essa função não incluem a capacidade de examinar os dados de usuário, ou fazer alterações em atributos que estão incluídos no esquema de locatário. Altera para o Identity Experience Framework (também conhecido como personalizado) as políticas também está fora do escopo dessa função.
+* **[Administrador do fluxo de usuário do B2C](#b2c-user-flow-administrator)** : Os usuários com essa função podem criar e gerenciar Fluxos dos Usuários B2C (também conhecido como políticas "internas") no portal do Azure. Ao criar ou editar fluxos de usuário, esses usuários podem alterar o conteúdo HTML/CSS/JavaScript da experiência do usuário, alterar os requisitos de MFA por fluxo de usuário, alterar as declarações no token e ajustar as configurações de sessão para todas as políticas no locatário. Por outro lado, essa função não inclui a capacidade de revisar os dados do usuário ou fazer alterações nos atributos que estão incluídos no esquema do locatário. As alterações feitas nas políticas da estrutura de experiência de identidade (também conhecidas como personalizadas) também estão fora do escopo dessa função.
 
-* **[Administrador de atributo de fluxo de usuário de B2C](#b2c-user-flow-attribute-administrator)** : Usuários com essa função adicionar ou excluir atributos personalizados disponíveis para todos os fluxos de usuário no locatário. Dessa forma, os usuários com essa função podem alterar ou adicionar novos elementos no esquema de usuário final e afetar o comportamento de todos os fluxos de usuário e indiretamente resultar em alterações em quais dados podem ser feitas sobre os usuários finais e, por fim, são enviados como declarações para aplicativos. Essa função não é possível editar fluxos dos usuários.
+* **[Administrador de atributos de fluxo do usuário B2C](#b2c-user-flow-attribute-administrator)** : Os usuários com essa função adicionam ou excluem atributos personalizados disponíveis para todos os fluxos de usuário no locatário. Dessa forma, os usuários com essa função podem alterar ou adicionar novos elementos ao esquema do usuário final e impactar o comportamento de todos os fluxos do usuário e resultar indiretamente em alterações em quais dados podem ser solicitados aos usuários finais e, por fim, enviados como declarações para os aplicativos. Essa função não pode editar fluxos de usuário.
 
-* **[Administrador de conjunto de chaves do B2C IEF](#b2c-ief-keyset-administrator)** :    Usuário pode criar e gerenciar chaves de política e segredos para a criptografia de token, assinaturas de token e declaração de criptografia/descriptografia. Adicionando novas chaves para os contêineres de chave existentes, esse administrador limitado pode segredos de substituição conforme necessário, sem afetar os aplicativos existentes. Este usuário pode ver o conteúdo completo desses segredos e suas datas de vencimento mesmo após sua criação.
+* Administrador do conjunto de **[chaves B2C IEF](#b2c-ief-keyset-administrator)** :    O usuário pode criar e gerenciar chaves de política e segredos para criptografia de token, assinaturas de token e criptografia/descriptografia de declaração. Ao adicionar novas chaves a contêineres de chave existentes, esse administrador limitado pode sobrepor os segredos conforme necessário, sem afetar os aplicativos existentes. Esse usuário pode ver o conteúdo completo desses segredos e suas datas de expiração mesmo após a criação.
     
-  <b>Importante:</b> esta é uma função confidencial. A função de administrador do conjunto de chaves deve ser auditada com cuidado e atribuída com cuidado durante a produção e pré-produção.
+  <b>Importante:</b> essa é uma função confidencial. A função de administrador do conjunto de chaves deve ser cuidadosamente auditada e atribuída com cuidado durante a pré-produção e a produção.
 
-* **[Administrador de diretiva do B2C IEF](#b2c-ief-policy-administrator)** : Os usuários nesta função têm a capacidade de criar, ler, atualizar e exclua todas as políticas personalizadas no Azure AD B2C e, portanto, têm controle total sobre a estrutura de experiência de identidade no locatário do Azure AD B2C relevante. Editando as políticas, esse usuário pode estabelecer federação direta com provedores de identidade externos, alterar o esquema de diretório, alterar o conteúdo de todos os voltadas ao usuário (HTML, CSS e JavaScript), alterar os requisitos para concluir uma autenticação, criar novos usuários, enviar dados de usuário para sistemas externos incluindo completo migrações e editar todas as informações de usuário, incluindo campos confidenciais como senhas e números de telefone. Por outro lado, essa função não é possível alterar as chaves de criptografia ou editar os segredos usados para federação no locatário.
+* **[Administrador da política do IEF B2C](#b2c-ief-policy-administrator)** : Os usuários nessa função têm a capacidade de criar, ler, atualizar e excluir todas as políticas personalizadas no Azure AD B2C e, portanto, ter controle total sobre a estrutura de experiência de identidade no locatário do Azure AD B2C relevante. Editando políticas, esse usuário pode estabelecer a Federação direta com provedores de identidade externos, alterar o esquema de diretório, alterar todo o conteúdo voltado para o usuário (HTML, CSS, JavaScript), alterar os requisitos para concluir uma autenticação, criar novos usuários, enviar dados do usuário para sistemas externos, incluindo migrações completas, e editar todas as informações do usuário, incluindo campos confidenciais, como senhas e números de telefone. Por outro lado, essa função não pode alterar as chaves de criptografia ou editar os segredos usados para federação no locatário.
 
-  <b>Importante:</b> O administrador de diretiva de IEF B2 é uma função altamente confidencial que deve ser atribuída de forma muito limitada para locatários em produção. Atividades por esses usuários devem ser estreitamente auditadas, especialmente para locatários em produção.
+  <b>Importante:</b> O administrador da política IEF B2 é uma função altamente confidencial que deve ser atribuída de forma muito limitada para locatários em produção. As atividades por esses usuários devem ser rigorosamente auditadas, especialmente para locatários em produção.
 
 * **[Administrador de Cobrança](#billing-administrator)** : Faz compras, gerencia assinaturas, gerencia tíquetes de suporte e monitora a integridade do serviço.
 
-* **[Administrador de Aplicativos de Nuvem](#cloud-application-administrator)** : Os usuários nessa função têm as mesmas permissões que a função Administrador de Aplicativos, excluindo a capacidade de gerenciar o proxy de aplicativo. Essa função concede a capacidade de criar e gerenciar todos os aspectos de aplicativos corporativos e os registros do aplicativo. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo o Microsoft Graph e o Microsoft Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários durante a criação de novos registros de aplicativo ou aplicativos corporativos.
+* **[Administrador de Aplicativos de Nuvem](#cloud-application-administrator)** : Os usuários nessa função têm as mesmas permissões que a função Administrador de Aplicativos, excluindo a capacidade de gerenciar o proxy de aplicativo. Essa função concede a capacidade de criar e gerenciar todos os aspectos de aplicativos corporativos e os registros do aplicativo. Essa função também concede a capacidade de consentimento para permissões delegadas e permissões do aplicativo excluindo o Microsoft Graph e o Microsoft Azure AD Graph. Os usuários atribuídos a essa função não são adicionados como proprietários ao criar novos registros de aplicativo ou aplicativos empresariais.
 
   <b>Importante</b>: Essa função concede a capacidade de gerenciar credenciais de aplicativos. Os usuários atribuídos a essa função podem adicionar credenciais a um aplicativo e usar essas credenciais para representar a identidade do aplicativo. Se a identidade do aplicativo tiver acesso ao Azure Active Directory, como a capacidade de criar ou atualizar o usuário ou outros objetos, um usuário atribuído a essa função poderá executar essas ações enquanto estiver representando o aplicativo. Essa capacidade de representar a identidade do aplicativo pode ser uma elevação de privilégio sobre o que o usuário pode fazer por meio de suas atribuições de função no Azure AD. É importante entender que atribuir um usuário à função de administrador do Cloud Application permite que ele represente a identidade de um aplicativo.
 
@@ -83,7 +82,7 @@ As seguintes funções de administrador estão disponíveis:
 
 * **[Administrador de Conformidade](#compliance-administrator)** : Os usuários com essa função têm permissões para gerenciar recursos relacionados à conformidade no centro de conformidade do Microsoft 365, no centro de administração do Microsoft 365, no Azure e no Centro de Conformidade e Segurança do Office 365. Os usuários também podem gerenciar todos os recursos no centro de administração do Exchange e no centro de administração do Teams e do Skype for Business e criar tíquetes de suporte para o Azure e o Microsoft 365. Há mais informações disponíveis em [Sobre as funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
-  Em | O que ele pode fazer
+  No | O que ele pode fazer
   ----- | ----------
   [Centro de conformidade do Microsoft 365](https://protection.office.com) | Proteger e gerenciar dados da sua organização em todos os serviços do Microsoft 365<br>Gerenciar alertas de conformidade
   [Gerenciador de Conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Acompanhar, atribuir e verificar as atividades de conformidade regulatória da sua organização
@@ -91,28 +90,28 @@ As seguintes funções de administrador estão disponíveis:
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibir todos os dados de auditoria do Intune
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas<br>Pode criar e modificar políticas de arquivo e permitir ações de governança de arquivo<br> Pode exibir todos os relatórios internos em Gerenciamento de Dados
 
-* **[Administrador de dados de conformidade](#compliance-data-administrator)** : Os usuários com essa função têm permissões para proteger e controlar os dados no Centro de conformidade do Microsoft 365, no Centro de administração do Microsoft 365 e no Azure. Os usuários também podem gerenciar todos os recursos no Centro de administração do Exchange, no Gerenciador de Conformidade e no Centro de administração do Teams e do Skype for Business, além de criar tíquetes de suporte para o Azure e o Microsoft 365.
+* **[Administrador de dados de conformidade](#compliance-data-administrator)** : Os usuários com essa função têm permissões para proteger e rastrear dados no centro de conformidade Microsoft 365, no centro de administração Microsoft 365 e no Azure. Os usuários também podem gerenciar todos os recursos no Centro de administração do Exchange, no Gerenciador de Conformidade e no Centro de administração do Teams e do Skype for Business, além de criar tíquetes de suporte para o Azure e o Microsoft 365.
 
-  Em | O que ele pode fazer
+  No | O que ele pode fazer
   ----- | ----------
-  [Centro de conformidade do Microsoft 365](https://protection.office.com) | Monitorar políticas de conformidade em serviços do Microsoft 365<br>Gerenciar alertas de conformidade
+  [Centro de conformidade do Microsoft 365](https://protection.office.com) | Monitorar políticas relacionadas à conformidade em serviços de Microsoft 365<br>Gerenciar alertas de conformidade
   [Gerenciador de Conformidade](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | Acompanhar, atribuir e verificar as atividades de conformidade regulatória da sua organização
   [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerenciar a governança de dados<br>Executar investigação jurídica e de dados<br>Gerenciar solicitação do titular dos dados
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibir todos os dados de auditoria do Intune
   [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Tem permissões somente leitura e pode gerenciar alertas<br>Pode criar e modificar políticas de arquivo e permitir ações de governança de arquivo<br> Pode exibir todos os relatórios internos em Gerenciamento de Dados
 
-* **[Administrador do Acesso Condicional](#conditional-access-administrator)** : Os usuários com essa função têm a capacidade de gerenciar as configurações de acesso condicional do Azure Active Directory.
+* **[Administrador do Acesso Condicional](#conditional-access-administrator)** : Os usuários com essa função têm a capacidade de gerenciar Azure Active Directory configurações de acesso condicional.
   > [!NOTE]
-  > Para implantar a política de acesso condicional do Exchange ActiveSync no Azure, o usuário também deve ser um Administrador Global.
+  > Para implantar a política de acesso condicional do Exchange ActiveSync no Azure, o usuário também deve ser um administrador global.
   
 * **[Aprovador de acesso do Sistema de Proteção de Dados do Cliente](#customer-lockbox-access-approver)** : gerencia [solicitações do Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/office365/admin/manage/customer-lockbox-requests) em sua organização. O aprovador recebe notificações de solicitações do Sistema de Proteção de Dados do Cliente por email e pode aprovar e negar solicitações do Centro de administração do Microsoft 365. Ele também pode ligar ou desligar o recurso Sistema de Proteção de Dados do Cliente. Somente os administradores globais podem redefinir as senhas das pessoas atribuídas à função acima.
   <!--  This was announced in August of 2018. https://techcommunity.microsoft.com/t5/Security-Privacy-and-Compliance/Customer-Lockbox-Approver-Role-Now-Available/ba-p/223393-->
 
-* **[Administrador de análise de área de trabalho](#desktop-analytics-administrator)** : Os usuários nesta função podem gerenciar a análise de área de trabalho e de serviços de política & de personalização do Office. Para uma análise da área de trabalho, isso inclui a capacidade de exibir o inventário de ativos, criar planos de implantação, exibir o status de integridade e a implantação. Para personalização do Office & política de serviço, essa função permite que os usuários gerenciem as diretivas do Office.
+* **[Administrador do desktop Analytics](#desktop-analytics-administrator)** : Os usuários nessa função podem gerenciar a análise de desktops e a personalização do Office & serviços de política. Para análise de desktops, isso inclui a capacidade de exibir o inventário de ativos, criar planos de implantação, exibir o status de integridade e implantação. Para a personalização do Office & serviço de política, essa função permite que os usuários gerenciem as políticas do Office.
 
 * **[Administrador do dispositivo](#device-administrators)** : Essa função está disponível para atribuição apenas como um administrador local adicional em [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory. 
 
-* **[Leitores de Diretório](#directory-readers)** : Esta é uma função que deve ser atribuída herdados apenas para aplicativos que não dão suporte a [estrutura de consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não atribua-os usuários.
+* **[Leitores de Diretório](#directory-readers)** : Essa é uma função que deve ser atribuída somente a aplicativos herdados que não dão suporte à [estrutura de consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não o atribua aos usuários.
 
 * **[Contas de Sincronização de Diretório](#directory-synchronization-accounts)** : Não use. Essa função é automaticamente atribuída ao serviço do Azure AD Connect e não tem intenção ou suporte para outros usos.
 
@@ -126,9 +125,9 @@ As seguintes funções de administrador estão disponíveis:
   > [!NOTE]
   > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Exchange Service Administrator". É "Administrador do Exchange" no [portal do Azure](https://portal.azure.com). É o "Administrador do Exchange Online" no [Centro de Administração do Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
-* **[Administrador do provedor de identidade externa](#external-identity-provider-administrator)** : Esse administrador gerencia federação entre locatários do Active Directory do Azure e provedores de identidade externa. Com essa função, os usuários podem adicionar novos provedores de identidade e configurar todas as configurações disponíveis (por exemplo, caminho de autenticação, id de serviço atribuído contêineres de chave). Este usuário pode habilitar o locatário confiar autenticações de provedores de identidade externa. O impacto resultante em experiências de usuário final depende do tipo de locatário:
-  * Locatários do Active Directory do Azure para os funcionários e parceiros: A adição de uma federação (por exemplo, Gmail) imediatamente afetará todos os convites de convidado ainda não resgatados. Ver [adicionando o Google como um provedor de identidade para os usuários convidados de B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
-  * Locatários do B2C do Active Directory do Azure: A adição de uma federação (por exemplo, Facebook, ou com outro Azure Active Directory) não afeta imediatamente os fluxos de usuário final até que o provedor de identidade seja adicionado como uma opção em um fluxo de usuário (também conhecido como política interna). Ver [configurar uma conta da Microsoft como um provedor de identidade](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) para obter um exemplo. Para alterar os fluxos de usuário, a função limitada de "Administrador de fluxo de usuário B2C" é necessária.
+* **[Administrador do provedor de identidade externo](#external-identity-provider-administrator)** : Esse administrador gerencia a Federação entre Azure Active Directory locatários e provedores de identidade externos. Com essa função, os usuários podem adicionar novos provedores de identidade e definir todas as configurações disponíveis (por exemplo, caminho de autenticação, ID de serviço, contêineres de chave atribuídos). Esse usuário pode habilitar o locatário para confiar em autenticações de provedores de identidade externos. O impacto resultante sobre as experiências do usuário final depende do tipo de locatário:
+  * Azure Active Directory locatários para funcionários e parceiros: A adição de uma federação (por exemplo, com o Gmail) afetará imediatamente todos os convites de convidados que ainda não foram resgatados. Consulte [adicionando o Google como um provedor de identidade para usuários convidados B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Azure Active Directory B2C locatários: A adição de uma federação (por exemplo, com o Facebook ou com outro Azure Active Directory) não afeta imediatamente os fluxos do usuário final até que o provedor de identidade seja adicionado como uma opção em um fluxo de usuário (também conhecido como diretiva interna). Consulte [Configurando um conta Microsoft como um provedor de identidade](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) para obter um exemplo. Para alterar os fluxos de usuário, é necessário ter a função limitada de "administrador de fluxo de usuário do B2C".
 
 * **[Administrador Global/Administrador de Empresa](#company-administrator)** : Os usuários com essa função têm acesso a todos os recursos administrativos do Azure Active Directory, bem como aos serviços que usam identidades do Azure Active Directory como centro de segurança do Microsoft 365, centro de conformidade do Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. A pessoa que se inscreve no locatário do Azure Active Directory torna-se um administrador global. Somente os administradores globais podem atribuir outras funções de administrador. Pode haver mais de um administrador global na sua empresa. Administradores globais podem redefinir a senha para qualquer usuário e todos os outros administradores.
 
@@ -143,12 +142,12 @@ As seguintes funções de administrador estão disponíveis:
   > [!NOTE]
   > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador do Serviço do Intune". É "Administrador do Intune" no [portal do Azure](https://portal.azure.com).
   
- * **[Administrador do Kaizala](#kaizala-administrator)** : Usuários com essa função têm permissões globais para gerenciar as configurações dentro do Microsoft Kaizala, quando o serviço estiver presente, bem como a capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço.
-Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso dos Kaizala pelos membros da organização e relatórios de negócios gerados usando as ações do Kaizala. 
+ * **[Administrador do Kaizala](#kaizala-administrator)** : Os usuários com essa função têm permissões globais para gerenciar configurações no Microsoft Kaizala, quando o serviço está presente, bem como a capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço.
+Além disso, o usuário pode acessar relatórios relacionados à adoção & uso de Kaizala por membros da organização e relatórios comerciais gerados usando as ações do Kaizala. 
 
 * **[Administrador de Licenças](#license-administrator)** : Usuários nessa função podem adicionar, remover e atualizar as atribuições de licenças em usuários, grupos (usando o licenciamento baseado em grupo) e gerenciar a localização de uso dos usuários. A função não concede a capacidade de comprar ou gerenciar assinaturas, criar ou gerenciar grupos, ou criar ou gerenciar usuários além do local de uso. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
-* **[Leitor de privacidade do Centro de mensagens](#message-center-privacy-reader)** : Os usuários nesta função podem monitorar todas as notificações no Centro de mensagens, incluindo mensagens de privacidade de dados. Os leitores de privacidade do Centro de mensagens recebem notificações de email, incluindo as relacionadas a privacidade dos dados e eles podem cancelar a assinatura usando as preferências do Centro de mensagens. Somente o Administrador Global e o leitor de privacidade do Centro de mensagem podem ler mensagens de privacidade de dados. Além disso, essa função contém a capacidade de exibir as assinaturas, domínios e grupos. Essa função não tem permissão para exibir, criar ou gerenciar solicitações de serviço.
+* **[Leitor de privacidade do centro de mensagens](#message-center-privacy-reader)** : Os usuários nessa função podem monitorar todas as notificações no centro de mensagens, incluindo mensagens de privacidade de dados. Os leitores de privacidade do centro de mensagens recebem notificações por email, incluindo aquelas relacionadas à privacidade dos dados, e podem cancelar a assinatura usando as preferências do centro de mensagens. Somente o administrador global e o leitor de privacidade do centro de mensagens podem ler mensagens de privacidade de dados. Além disso, essa função contém a capacidade de exibir grupos, domínios e assinaturas. Essa função não tem permissão para exibir, criar ou gerenciar solicitações de serviço.
 
 * **[Leitor do Centro de Mensagens](#message-center-reader)** : Usuários nessa função podem monitorar notificações e atualizações de integridade de consultoria no [Centro de Mensagens do Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) da organização em serviços configurados como Exchange, Intune e Microsoft Teams. Os Leitores do Centro de Mensagens recebem por email resumos semanais de postagens, atualizações e podem compartilhar postagens do Centro de Mensagens no Office 365. No Azure AD, os usuários atribuídos a essa função terão acesso somente leitura aos serviços do Azure AD como usuários e grupos. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
@@ -156,7 +155,7 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
 
 * **[Suporte de Camada2 a Parceiros](#partner-tier2-support)** : Não use. Essa função foi substituída e será removida do Azure AD no futuro. Essa função é destinada a um pequeno número de parceiros de revenda da Microsoft e não se destina ao uso geral.
 
-* **[Administrador de assistência técnica (senha)](#helpdesk-administrator)** : Usuários com essa função podem alterar senhas, invalidar tokens de atualização, gerenciar solicitações de serviço e monitorar a integridade do serviço. Invalidar um token de atualização força o usuário a entrar novamente. Administradores de assistência técnica podem redefinir senhas e invalidar tokens de atualização de outros usuários não-administradores ou atribuído apenas as seguintes funções:
+* **[Administrador da assistência técnica (senha)](#helpdesk-administrator)** : Usuários com essa função podem alterar senhas, invalidar tokens de atualização, gerenciar solicitações de serviço e monitorar a integridade do serviço. Invalidar um token de atualização força o usuário a entrar novamente. Os administradores de assistência técnica podem redefinir senhas e invalidar tokens de atualização de outros usuários que não são administradores ou que atribuíram as seguintes funções somente:
   * Leitores de Diretório
   * Emissor do Convite ao Convidado
   * Administrador de assistência técnica
@@ -172,30 +171,30 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
 
 
   > [!NOTE]
-  > Delegar permissões administrativas em subconjuntos de usuários e aplicar políticas a um subconjunto de usuários são possível com [unidades administrativas (visualização)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+  > A delegação de permissões administrativas em subconjuntos de usuários e aplicação de políticas a um subconjunto de usuários é possível com [unidades administrativas (versão prévia)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 
 
   > [!NOTE]
-  > Essa função era anteriormente chamada de "administrador de senha" [portal do Azure](https://portal.azure.com/). Estamos alterando seu nome para "Administrador de assistência técnica" para corresponder ao seu nome no Azure AD PowerShell, API do Azure AD Graph e API do Microsoft Graph. Por um curto período, alteraremos o nome para o "Administrador de assistência técnica (senha)" no portal do Azure antes da alteração do "Administrador de assistência técnica".
+  > Essa função anteriormente era chamada de "administrador de senha" no [portal do Azure](https://portal.azure.com/). Estamos alterando seu nome para "administrador de assistência técnica" para corresponder ao nome no PowerShell do Azure AD, no Azure AD API do Graph e na API de Microsoft Graph. Por um curto período, alteraremos o nome para "administrador da assistência técnica (senha)" em portal do Azure antes da alteração para "administrador de assistência técnica".
 
 
 * **[Administrador do Power BI](#power-bi-service-administrator)** : Usuários com essa função têm permissões globais no Microsoft Power BI, quando o serviço está presente, bem como a capacidade de gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Noções básicas sobre a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador do Serviço do Power BI". É "Administrador do Power BI" no [portal do Azure](https://portal.azure.com).
 
-* **[Com privilégios de administrador da autenticação](#privileged-authentication-administrator)** : Usuários com essa função podem definir ou redefinir credenciais diferente de senha para todos os usuários, incluindo os administradores globais. Os administradores com privilégios de autenticação pode forçar os usuários a registrar novamente em relação a credencial de senha não existente (por exemplo, MFA, FIDO) e revogar 'lembrar o MFA no dispositivo', solicitando que para a MFA no próximo logon de todos os usuários. Os administradores com privilégios de autenticação pode:
-  * Forçar os usuários registrem novamente em relação a credencial de senha não existente (por exemplo, MFA, FIDO)
-  * Revogar 'lembrar o MFA no dispositivo', solicitando que para a MFA no próximo logon
+* **[Administrador de autenticação privilegiada](#privileged-authentication-administrator)** : Os usuários com essa função podem definir ou redefinir credenciais de não senha para todos os usuários, incluindo administradores globais, e podem atualizar senhas para todos os usuários. Os administradores de autenticação privilegiada podem forçar os usuários a se registrarem novamente em relação à credencial não-senha existente (por exemplo, MFA, FIDO) e revogar "lembrar MFA no dispositivo", solicitando a MFA no próximo logon de todos os usuários. Os administradores de autenticação privilegiada podem:
+  * Forçar os usuários a se registrar novamente em relação a credenciais de não senha existentes (por exemplo, MFA, FIDO)
+  * REVOKE ' lembrar MFA no dispositivo ', solicitando a MFA no próximo logon
 
-* **[Administrador com Função com Privilégios](#privileged-role-administrator)** : Usuários com essa função podem gerenciar as atribuições de função no Azure Active Directory, bem como Azure Active Directory Privileged Identity Management. Além disso, essa função permite o gerenciamento de todos os aspectos do Privileged Identity Management e unidades administrativas.
+* **[Administrador com Função com Privilégios](#privileged-role-administrator)** : Usuários com essa função podem gerenciar as atribuições de função no Azure Active Directory, bem como Azure Active Directory Privileged Identity Management. Além disso, essa função permite o gerenciamento de todos os aspectos de Privileged Identity Management e de unidades administrativas.
 
-  <b>Importante</b>: Essa função concede a capacidade de gerenciar atribuições para todas as funções do Azure AD, incluindo a função de Administrador Global. Essa função não inclui outras habilidades privilegiadas no Azure AD, como criar ou atualizar usuários. No entanto, os usuários atribuídos a essa função podem conceder a si mesmos ou aos privilégios adicionais de outras pessoas atribuindo funções adicionais.
+  <b>Importante</b>: Essa função concede a capacidade de gerenciar atribuições para todas as funções do Azure AD, incluindo a função de administrador global. Essa função não inclui outras habilidades privilegiadas no Azure AD, como criar ou atualizar usuários. No entanto, os usuários atribuídos a essa função podem conceder a si mesmos ou aos privilégios adicionais de outras pessoas atribuindo funções adicionais.
 
-* **[Leitor de Relatórios](#reports-reader)** : Os usuários com essa função podem exibir dados de relatórios de uso e o painel de relatórios no Centro de administração do Microsoft 365 e o contexto de adoção pack no Power BI. Além disso, a função fornece acesso a relatórios de entrada e atividades no Azure AD e a dados retornados pela API de relatórios do Microsoft Graph. Um usuário atribuído à função Leitor de Relatórios pode acessar somente o uso relevante e as métricas de adoção. Eles não têm permissões de administrador para definir configurações ou acessar que os centros da administração de produtos específicos como o Exchange. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
+* **[Leitor de Relatórios](#reports-reader)** : Os usuários com essa função podem exibir dados de relatório de uso e o painel relatórios no centro de administração Microsoft 365 e o pacote de contexto de adoção no Power BI. Além disso, a função fornece acesso a relatórios de entrada e atividades no Azure AD e a dados retornados pela API de relatórios do Microsoft Graph. Um usuário atribuído à função Leitor de Relatórios pode acessar somente o uso relevante e as métricas de adoção. Eles não têm permissões de administrador para definir configurações ou acessar que os centros da administração de produtos específicos como o Exchange. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
-* **[Administrador de pesquisa](#search-administrator)** : Os usuários nesta função têm acesso completo a todos os recursos de gerenciamento do Microsoft Search no Centro de administração do Microsoft 365. Pesquisar administradores podem delegar funções de Editor de pesquisa aos usuários e os administradores de pesquisa e criar e gerenciar conteúdo, como indicadores, Q & como e locais. Além disso, esses usuários podem exibir o Centro de mensagens, monitore a integridade do serviço e criar solicitações de serviço.
+* **[Administrador de pesquisa](#search-administrator)** : Os usuários nesta função têm acesso completo a todos os recursos de gerenciamento do Microsoft Search no centro de administração Microsoft 365. Os administradores de pesquisa podem delegar os administradores de pesquisa e as funções do editor de pesquisa aos usuários, bem como criar e gerenciar conteúdo, como indicadores, p & como e locais. Além disso, esses usuários podem exibir o centro de mensagens, monitorar a integridade do serviço e criar solicitações de serviço.
 
-* **[Editor de pesquisa](#search-editor)** : Os usuários nesta função podem criar, gerenciar e excluir o conteúdo para locais e no Centro de administração do Microsoft 365, incluindo indicadores, Q & como do Microsoft Search.
+* **[Editor de pesquisa](#search-editor)** : Os usuários nessa função podem criar, gerenciar e excluir conteúdo do Microsoft Search no centro de administração Microsoft 365, incluindo indicadores, p & como e locais.
 
 * **[Administrador de Segurança](#security-administrator)** : Os usuários com essa função têm permissões para gerenciar recursos relacionados à segurança na central de segurança do Microsoft 365, Azure Active Directory Identity Protection, Proteção de Informações do Azure e Centro de Conformidade e Segurança do Office 365. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -203,7 +202,7 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
   --- | ---
   [Central de segurança do Microsoft 365](https://protection.office.com) | Monitorar políticas relacionadas a segurança em todos os serviços do Microsoft 365<br>Gerenciar alertas e ameaças de segurança<br>Exibir relatórios
   Identity Protection Center | Todas as permissões da função Leitor de Segurança<br>Além disso, a habilidade de executar todas as operações do Centro de Proteção de Identidade, exceto redefinir senhas
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função Leitor de Segurança<br>**Não é possível** gerenciar atribuições de função do AD do Azure ou configurações
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função Leitor de Segurança<br>**Não é possível** gerenciar as atribuições ou configurações de função do Azure AD
   [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerenciar políticas de segurança<br>Exibir, investigar e responder a ameaças de segurança<br>Exibir relatórios
   Proteção Avançada contra Ameaças do Azure | Monitorar e responder a atividades suspeitas de segurança
   Windows Defender ATP e EDR | Atribuir funções<br>Gerenciar grupos de computadores<br>Configurar a detecção de ameaças do ponto de extremidade e a correção automatizada<br>Exibir, investigar e responder a alertas
@@ -212,7 +211,7 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
   [Central de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode exibir políticas de segurança, exibir estados de segurança, editar políticas de segurança, exibir alertas e recomendações, ignorar alertas e recomendações
   [Integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Exibir a integridade de serviços do Office 365
 
-* **[Operador de segurança](#security-operator)** : Os usuários com essa função podem gerenciar alertas e ter acesso somente leitura global no recurso relacionado à segurança, incluindo todas as informações na Central de segurança do Microsoft 365, Azure Active Directory, Identity Protection, Privileged Identity Management e do Office 365 Centro de conformidade e segurança. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+* **[Operador de segurança](#security-operator)** : Os usuários com essa função podem gerenciar alertas e ter acesso somente leitura global no recurso relacionado à segurança, incluindo todas as informações na central de segurança Microsoft 365, Azure Active Directory, proteção de identidade, Privileged Identity Management e Office 365 Centro de Conformidade e Segurança. Mais informações sobre permissões do Office 365 estão disponíveis em [Permissões no Centro de Conformidade de Segurança do Office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
   No | O que ele pode fazer
   --- | ---
@@ -232,7 +231,7 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
   --- | ---
   [Central de segurança do Microsoft 365](https://protection.office.com) | Exibir políticas relacionadas à segurança em todos os serviços do Microsoft 365<br>Exibir alertas e ameaças de segurança<br>Exibir relatórios
   Identity Protection Center | Ler todos os relatórios de segurança e informações de configurações para recursos de segurança<br><ul><li>Anti-spam<li>Criptografia<li>Prevenção de perda de dados<li>Antimalware<li>Proteção avançada contra ameaças<li>Antiphishing<li>Regras de fluxo de mensagens
-  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tem acesso somente leitura a todas as informações exibidas no PIM do Azure AD: Políticas e relatórios para atribuições de função do Azure AD, revisões de segurança e, futuramente, acesso de leitura a dados de política e relatórios para cenários, além da atribuição de função do Azure AD.<br>**Não pode** se inscrever no Azure AD PIM nem fazer alterações nele. No portal do PIM ou por meio do PowerShell, alguém nesta função poderá ativar funções adicionais (por exemplo, Administrador Global ou administrador com privilégios de função), se o usuário está qualificado para eles.
+  [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Tem acesso somente leitura a todas as informações exibidas no PIM do Azure AD: Políticas e relatórios para atribuições de função do Azure AD, revisões de segurança e, futuramente, acesso de leitura a dados de política e relatórios para cenários, além da atribuição de função do Azure AD.<br>**Não pode** se inscrever no Azure AD PIM nem fazer alterações nele. No portal do PIM ou por meio do PowerShell, alguém nessa função pode ativar funções adicionais (por exemplo, administrador global ou administradores de função com privilégios), se o usuário estiver qualificado para eles.
   [Centro de Conformidade e Segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Exibir políticas de segurança<br>Exibir e investigar ameaças de segurança<br>Exibir relatórios
   Windows Defender ATP e EDR | Exibir e investigar alertas
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Exibe informações de usuário, dispositivo, registro, configuração e aplicativo. Não pode fazer alterações no Intune.
@@ -240,9 +239,9 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
   [Central de Segurança do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | Pode exibir recomendações e alertas, exibir políticas de segurança, exibir estados de segurança, mas não pode fazer alterações
   [Integridade do serviço do Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Exibir a integridade de serviços do Office 365
 
-* **[Administrador de Serviço de Suporte](#service-support-administrator)** : Usuários com essa função podem abrir solicitações de suporte com a Microsoft para serviços do Azure e o Office 365 e modos de exibição de painel de serviço e a mensagem center na [portal do Azure](https://portal.azure.com) e [Centro de administração do Microsoft 365](https://admin.microsoft.com). Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Administrador de Serviço de Suporte](#service-support-administrator)** : Os usuários com essa função podem abrir solicitações de suporte com a Microsoft para serviços do Azure e do Office 365 e exibir o painel de serviço e o centro de mensagens no [portal do Azure](https://portal.azure.com) e [Microsoft 365 centro de administração](https://admin.microsoft.com). Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador de Suporte de Serviço". Ele é "Administrador de serviços" na [portal do Azure](https://portal.azure.com), o [Centro de administração do Microsoft 365](https://admin.microsoft.com)e o portal do Intune.
+  > Na API do Microsoft Graph, na API do Graph do Azure AD e no Azure AD PowerShell, essa função é identificada como "Administrador de Suporte de Serviço". É "administrador de serviços" na [portal do Azure](https://portal.azure.com), no [centro de administração de Microsoft 365](https://admin.microsoft.com)e no portal do Intune.
 
 * **[Administrador do SharePoint](#sharepoint-service-administrator)** : Usuários com essa função têm permissões globais no Microsoft SharePoint Online, quando o serviço está presente, bem como a capacidade de criar e gerenciar todos os Grupos do Office 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço. Mais informações em [Sobre funções de administrador do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
@@ -263,7 +262,7 @@ Além disso, o usuário pode acessar relatórios relacionados a adoção e o uso
 
 * **[Especialista de Suporte de Comunicações de Equipes](#teams-communications-support-specialist)** : Usuários nessa função podem solucionar problemas de comunicação no Microsoft Teams e Skype for Business usando as ferramentas de solução de problemas de chamada de usuário no centro de administração do Microsoft Teams e Skype for Business. Os usuários nessa função só podem exibir detalhes do usuário na chamada para o usuário específico que eles pesquisaram. Essa função não tem acesso para exibir, criar nem gerenciar tíquetes de suporte.
 
-* **[Usuário administrador](#user-administrator)** : Os usuários com essa função podem criem usuários e gerenciam todos os aspectos de usuários, com algumas restrições (veja abaixo) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuários, gerenciar tickets de suporte e monitorar a integridade do serviço.
+* **[Administrador do usuário](#user-administrator)** : Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (veja abaixo) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuários, gerenciar tickets de suporte e monitorar a integridade do serviço.
 
   | | |
   | --- | --- |
@@ -346,6 +345,7 @@ Permitido para exibir, definir e redefinir as informações de método de autent
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+| Microsoft.AAD.Directory/Users/Password/Update | Atualize as senhas de todos os usuários na organização do Office 365. Consulte a documentação online para obter mais detalhes. |
 
 ### <a name="azure-information-protection-administrator"></a>Administrador da proteção de informações do Azure
 Pode gerenciar todos os aspectos do serviço de proteção de informações do Azure.
@@ -364,32 +364,32 @@ Pode gerenciar todos os aspectos do serviço de proteção de informações do A
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
 ### <a name="b2c-user-flow-administrator"></a>Administrador de Fluxo de Usuário B2C
-Criar e gerenciar todos os aspectos de fluxos de usuário.
+Crie e gerencie todos os aspectos de fluxos de usuário.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.b2c/userFlows/allTasks | Ler e configurar fluxos de usuário no Azure Active Directory B2C. |
+| Microsoft. AAD. B2C/userflows/tarefas | Ler e configurar fluxos de usuário no Azure Active Directory B2C. |
 
 ### <a name="b2c-user-flow-attribute-administrator"></a>Administrador de Atributo de Fluxo do Usuário B2C
-Criar e gerenciar o esquema de atributo disponível para todos os fluxos de usuário.
+Crie e gerencie o esquema de atributo disponível para todos os fluxos de usuário.
 
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.b2c/userAttributes/allTasks | Ler e configurar atributos de usuário no Azure Active Directory B2C. |
 
 ### <a name="b2c-ief-keyset-administrator"></a>Administrador de Conjunto de Chaves IEF B2C
-Gerencie segredos de criptografia na estrutura de experiência de identidade e federação.
+Gerencie segredos para Federação e criptografia na estrutura de experiência de identidade.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.b2c/trustFramework/keySets/allTasks | Ler e configurar conjuntos de chaves no Azure Active Directory B2C. |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Ler e configurar conjuntos de chaves em Azure Active Directory B2C. |
 
 ### <a name="b2c-ief-policy-administrator"></a>Administrador de Política IEF B2C
-Criar e gerenciar políticas de estrutura de relação de confiança na estrutura de experiência de identidade.
+Crie e gerencie políticas de estrutura confiável na estrutura de experiência de identidade.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| Microsoft.AAD.B2C/trustFramework/Policies/allTasks | Ler e configurar as políticas personalizadas no Azure Active Directory B2C. |
+| Microsoft. AAD. B2C/trustFramework/Policies/TaskId | Ler e configurar políticas personalizadas no Azure Active Directory B2C. |
 
 ### <a name="billing-administrator"></a>Administrador de cobrança
 Pode executar tarefas comuns de relacionadas à cobrança, como atualizar informações de pagamento.
@@ -562,7 +562,7 @@ Cria e gerencia o conteúdo de conformidade.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar o Microsoft Cloud App Security. |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar Microsoft Cloud App Security. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gerencie todos os aspectos da proteção de informações do Azure. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte de Azure. |
@@ -619,7 +619,7 @@ Pode aprovar solicitações de suporte da Microsoft para acessar dados organizac
 | Microsoft.office365.lockbox/allEntities/allTasks | Gerenciar todos os aspectos do Cofre de cliente do Office 365 |
 
 ### <a name="desktop-analytics-administrator"></a>Administrador de Análise de Área de Trabalho
-Pode gerenciar a análise de área de trabalho e de serviços de política & de personalização do Office. Para uma análise da área de trabalho, isso inclui a capacidade de exibir o inventário de ativos, criar planos de implantação, exibir o status de integridade e a implantação. Para personalização do Office & política de serviço, essa função permite que os usuários gerenciem as diretivas do Office.
+O pode gerenciar a análise de desktops e a personalização do Office & serviços de política. Para análise de desktops, isso inclui a capacidade de exibir o inventário de ativos, criar planos de implantação, exibir o status de integridade e implantação. Para a personalização do Office & serviço de política, essa função permite que os usuários gerenciem as políticas do Office.
 
   > [!NOTE]
   > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
@@ -636,7 +636,7 @@ Pode gerenciar a análise de área de trabalho e de serviços de política & de 
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
 ### <a name="device-administrators"></a>Administradores de Dispositivo
-Usuários atribuídos a essa função são adicionados ao grupo Administradores local em dispositivos que ingressaram no AD do Azure.
+Os usuários atribuídos a essa função são adicionados ao grupo local de administradores em dispositivos ingressados no Azure AD.
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -775,12 +775,12 @@ Pode gerenciar todos os aspectos do produto Exchange.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
-### <a name="external-identity-provider-administrator"></a>Administrador do provedor de identidade externa
-Configure provedores de identidade para uso na federação direta.
+### <a name="external-identity-provider-administrator"></a>Administrador do provedor de identidade externo
+Configure os provedores de identidade para uso na Federação direta.
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.b2c/identityProviders/allTasks | Ler e configurar provedores de identidade no Azure Active Directory B2C. |
+| Microsoft. AAD. B2C/identityProviders/minhas tarefas | Ler e configurar provedores de identidade no Azure Active Directory B2C. |
 
 ### <a name="guest-inviter"></a>Emissor do Convite ao Convidado
 Pode convidar usuários convidados independentemente da configuração "membros podem convidar pessoas".
@@ -850,10 +850,10 @@ Pode gerenciar todos os aspectos do produto Intune.
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="kaizala-administrator"></a>Administrador do Kaizala
-Pode gerenciar as configurações para o Microsoft Kaizala.  
+Pode gerenciar as configurações do Microsoft Kaizala.  
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >  
   
@@ -861,7 +861,7 @@ Pode gerenciar as configurações para o Microsoft Kaizala.
 | --- | --- |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-| microsoft.office365.webPortal/allEntities/basic/read | Centro de administração do Office 365 de leitura. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leia o centro de administração do Office 365. |
 
 ### <a name="license-administrator"></a>Administrador de Licenças
 Pode gerenciar licenças de produto em usuários e grupos.
@@ -891,11 +891,11 @@ Pode gerenciar todos os aspectos do produto Skype for Business.
 | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspectos do Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
-### <a name="message-center-privacy-reader"></a>Leitor de privacidade do Centro de mensagens
-Pode ler postagens no Centro de mensagens, mensagens de privacidade de dados, grupos, domínios e assinaturas.
+### <a name="message-center-privacy-reader"></a>Leitor de privacidade do centro de mensagens
+Pode ler postagens do centro de mensagens, mensagens de privacidade de dados, grupos, domínios e assinaturas.
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
@@ -1001,8 +1001,8 @@ Pode gerenciar todos os aspectos do produto Power BI.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
-### <a name="privileged-authentication-administrator"></a>Administrador com privilégios de autenticação
-Permissão para exibir, definir e redefinir as informações de método de autenticação para qualquer usuário (administrador ou não-administrador).
+### <a name="privileged-authentication-administrator"></a>Administrador de autenticação privilegiada
+Permissão para exibir, definir e redefinir informações do método de autenticação para qualquer usuário (administrador ou não administrador).
 
 | **Ações** | **Descrição** |
 | --- | --- |
@@ -1013,7 +1013,7 @@ Permissão para exibir, definir e redefinir as informações de método de auten
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-
+| Microsoft.AAD.Directory/Users/Password/Update | Atualize as senhas de todos os usuários na organização do Office 365. Consulte a documentação online para obter mais detalhes. |
 ### <a name="privileged-role-administrator"></a>Administrador de função com privilégios
 Pode gerenciar atribuições de função do AD do Azure e todos os aspectos do Privileged Identity Management.
 
@@ -1025,8 +1025,8 @@ Pode gerenciar atribuições de função do AD do Azure e todos os aspectos do P
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.aad.privilegedIdentityManagement/allEntities/allTasks | Criar e excluir todos os recursos e ler e atualizar propriedades padrão em microsoft.aad.privilegedIdentityManagement. |
-| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Ler e configurar a propriedade Approleassignedto no Azure Active Directory. |
-| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Ler e configurar a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/appRoleAssignedTo/allTasks | Ler e configurar a propriedade servicePrincipalName. appRoleAssignedTo em Azure Active Directory. |
+| microsoft.aad.directory/servicePrincipals/oAuth2PermissionGrants/allTasks | Ler e configurar a propriedade servicePrincipalName. oAuth2PermissionGrants em Azure Active Directory. |
 | microsoft.aad.directory/administrativeUnits/allProperties/allTasks | Criar e gerenciar unidades administrativas (incluindo membros) |
 | microsoft.aad.directory/roleAssignments/allProperties/allTasks | Criar e gerenciar atribuições de função. |
 | microsoft.aad.directory/roleDefinitions/allProperties/allTasks | Criar e gerenciar definições de função. |
@@ -1044,38 +1044,37 @@ Pode ler relatórios de entrada e de auditoria.
 | microsoft.aad.directory/auditLogs/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em auditLogs no Azure Active Directory. |
 | microsoft.aad.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 
 ### <a name="search-administrator"></a>Administrador de pesquisa
 Pode criar e gerenciar todos os aspectos das configurações do Microsoft Search.
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
-| microsoft.office365.search/allEntities/allProperties/allTasks | Criar e excluir todos os recursos e ler e atualizar todas as propriedades no microsoft.office365.search. |
+| microsoft.office365.search/allEntities/allProperties/allTasks | Criar e excluir todos os recursos, e ler e atualizar todas as propriedades no Microsoft. office365. Search. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="search-editor"></a>Editor de pesquisa
-Pode criar e gerenciar o conteúdo editorial como indicadores, Q e como, locais, floorplan.
+Pode criar e gerenciar o conteúdo editorial, como indicadores, p e as, Locations, floorplan.
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
-| microsoft.office365.search/content/allProperties/allTasks | Criar e excluir o conteúdo e ler e atualizar todas as propriedades no microsoft.office365.search. |
+| microsoft.office365.search/content/allProperties/allTasks | Criar e excluir conteúdo, e ler e atualizar todas as propriedades no Microsoft. office365. Search. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 
 ### <a name="security-administrator"></a>Administrador de segurança
@@ -1111,20 +1110,20 @@ Pode ler relatórios e informações de segurança e gerenciar a configuração 
 Cria e gerencia eventos de segurança.
 
   > [!NOTE]
-  > Esta função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+  > Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
   >
   >
 
 | **Ações** | **Descrição** |
 | --- | --- |
-| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar o Microsoft Cloud App Security. |
+| microsoft.aad.cloudAppSecurity/allEntities/allTasks | Ler e configurar Microsoft Cloud App Security. |
 | microsoft.aad.identityProtection/allEntities/read | Ler todos os recursos em microsoft.aad.identityProtection. |
 | microsoft.aad.privilegedIdentityMmicrosoft.aad.privilegedIdentityManagement/allEntities/readanagement/allEntities/read | Ler todos os recursos em microsoft.aad.privilegedIdentityManagement. |
-| microsoft.azure.advancedThreatProtection/allEntities/read | Ler e configurar o Azure AD proteção avançada contra ameaças. |
+| microsoft.azure.advancedThreatProtection/allEntities/read | Leia e configure a proteção avançada contra ameaças do Azure AD. |
 | microsoft.intune/allEntities/allTasks | Gerencie todos os aspectos do Intune. |
-| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Ler e configurar o Centro de conformidade e segurança. |
+| microsoft.office365.securityComplianceCenter/allEntities/allTasks | Ler e configurar Centro de Conformidade e Segurança. |
 | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
-| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Ler e configurar o Windows Defender Advanced Threat Protection. |
+| microsoft.windows.defenderAdvancedThreatProtection/allEntities/read | Leia e configure a proteção avançada contra ameaças do Windows Defender. |
 
 ### <a name="security-reader"></a>Leitor de segurança
 Pode ler relatórios e informações de segurança no Azure AD e no Office 365.
@@ -1291,17 +1290,17 @@ Pode gerenciar todos os aspectos de usuários e grupos, incluindo a redefiniçã
 | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade de Serviço do Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
 
-## <a name="role-template-ids"></a>IDs do modelo de função
+## <a name="role-template-ids"></a>IDs de modelo de função
 
-IDs do modelo de função são usadas principalmente por usuários de API do Graph ou o PowerShell.
+As IDs de modelo de função são usadas principalmente por usuários API do Graph ou PowerShell.
 
-DisplayName do gráfico | Nome de exibição do portal do Azure | directoryRoleTemplateId
+DisplayName de grafo | portal do Azure nome de exibição | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
 Administrador de aplicativos | Administrador de aplicativos | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Desenvolvedor de aplicativos | Desenvolvedor de aplicativos | CF1C38E5-3621-4004-A7CB-879624DCED7C
-Administrador de Autenticação | Administrador da autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Administrador da proteção de informações do Azure | Administrador de proteção de informações do Azure | 7495fdc4-34c4-4d15-a289-98788ce399fd
-Administrador de fluxo de usuário do B2C | Administrador de fluxo de usuário do B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
+Administrador de Autenticação | Administrador de autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
+Administrador da proteção de informações do Azure | Administrador da proteção de informações do Azure | 7495fdc4-34c4-4d15-a289-98788ce399fd
+Administrador de fluxo de usuário B2C | Administrador de fluxo de usuário B2C | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrador de Atributo de Fluxo do Usuário B2C | Administrador de Atributo de Fluxo do Usuário B2C | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrador de Conjunto de Chaves IEF B2C | Administrador de Conjunto de Chaves IEF B2C | aaf43236-0c0d-4d5f-883a-6955382ac081
 Administrador de Política IEF B2C | Administrador de Política IEF B2C | 3edaf663-341e-4475-9f94-5c398ef6c070
@@ -1315,27 +1314,27 @@ Administrador de acesso condicional | Administrador de acesso condicional | b1be
 Administrador de serviços do CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
 Aprovador de acesso do cofre do cliente | Aprovador de acesso do Sistema de Proteção de Dados do Cliente | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 Administrador de Análise de Área de Trabalho | Administrador de Análise de Área de Trabalho | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-Administradores de Dispositivo | Administradores do dispositivo | 9f06204d-73c1-4d4c-880a-6edb90606fd8
-Ingresso de Dispositivo | Associação de dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
-Gerenciadores de Dispositivo | Gerenciadores de dispositivo | 2b499bcd-da44-4968-8aec-78e1674fa64d
-Usuários de Dispositivo | Usuários de dispositivos | d405c6df-0af8-4e3b-95e4-4d06e542189e
+Administradores de Dispositivo | Administradores de dispositivo | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+Ingresso de Dispositivo | Ingresso no dispositivo | 9c094953-4995-41c8-84c8-3ebb9b32c93f
+Gerenciadores de Dispositivo | Gerenciadores de dispositivos | 2b499bcd-da44-4968-8aec-78e1674fa64d
+Usuários de Dispositivo | Usuários do dispositivo | d405c6df-0af8-4e3b-95e4-4d06e542189e
 Leitores de Diretório | Leitores de diretórios | 88d8e3e3-8f55-4a1e-953a-9b9898b8876b
 Contas de sincronização de diretório | Contas de sincronização de diretório | d29b2b05-8046-44ba-8758-1e26182fcf32
 Gravadores de diretório | Gravadores de diretório | 9360feb5-f418-4baa-8175-e2a00bac4301
 Administrador de serviços do Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-1d097af3e4de
-Administrador do provedor de identidade externa | Administrador do provedor de identidade externa | be2f45a1-457d-42af-a067-6ec1fa63bc45
+Administrador do provedor de identidade externo | Administrador do provedor de identidade externo | be2f45a1-457d-42af-a067-6ec1fa63bc45
 Emissor do Convite ao Convidado | Emissor do convite ao convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de assistência técnica | Administrador de senha | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador de serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador do Kaizala | Administrador do Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrador de Licenças | Administrador de licenças | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador de serviços do Lync | Administrador do Skype for Business | 75941009-915a-4869-abe7-691bff18279e
-Leitor de privacidade do Centro de mensagens | Leitor de privacidade do Centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
-Leitor do Centro de Mensagens | Leitor do Centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Leitor de privacidade do centro de mensagens | Leitor de privacidade do centro de mensagens | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
+Leitor do Centro de Mensagens | Leitor do centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
 Suporte de camada 1 do parceiro | Suporte de camada 1 do parceiro | 4ba39ca4-527c-499a-b93d-d9b492c50246
 Suporte de camada 2 do parceiro | Suporte de camada 2 do parceiro | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
-Administrador de serviços do Power BI | Administrador do Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
-Administrador com privilégios de autenticação | Administrador com privilégios de autenticação | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
+Administrador de serviços do Power BI | Administrador de Power BI | a9ea8996-122f-4c74-9520-8edcd192826c
+Administrador de autenticação privilegiada | Administrador de autenticação privilegiada | 7be44c8a-adaf-4e2a-84d6-ab2649e08a13
 Administrador de função com privilégios | Administrador de função com privilégios | e8611ab8-c189-46e8-94e1-60213ab1f814
 Leitor de Relatórios | Leitor de relatórios | 4a5d8f65-41da-4de4-8968-e035b65339cf
 Administrador de pesquisa | Administrador de pesquisa | 0964bb5e-9bdb-4d7b-ac29-58e794862a40
@@ -1349,9 +1348,9 @@ Administrador de Comunicações do Teams | Administrador de Comunicações do Te
 Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Especialista em Suporte de Comunicações do Teams | Especialista em Suporte de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de Serviços do Teams | Administrador de Serviços do Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
-Usuário | Usuário | a0b1b346-4d3e-4e8b-98f8-753987be4970
+User | User | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador da conta de usuário | Administrador de usuários | fe930be7-5e62-47db-91af-98c3a49a38b1
-Ingresso no Dispositivo no Local de Trabalho | Ingresso no dispositivo | c34f683f-4d5a-4403-affd-6615e00e3a7f
+Ingresso no Dispositivo no Local de Trabalho | Ingresso no dispositivo do local de trabalho | c34f683f-4d5a-4403-affd-6615e00e3a7f
 
 
 ## <a name="deprecated-roles"></a>Funções preteridas

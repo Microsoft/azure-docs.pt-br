@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 829e0c08191e3eeba9dc410dda74502dc9ada327
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5fa4badb1183170bd7265e95c90775675eccfc34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897872"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Tutorial: Integração do Azure Active Directory com o Treinamento de Reconhecimento de Segurança do KnowBe4
 
@@ -55,7 +55,7 @@ Para configurar a integração do Treinamento de Reconhecimento de Segurança do
 
 **Para adicionar o Treinamento de Reconhecimento de Segurança do KnowBe4 por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,12 +107,12 @@ Para configurar o logon único do Azure AD com o Treinamento de Reconhecimento d
 
     ![Domínio de Treinamento de Reconhecimento de Segurança do KnowBe4 e informações de logon único das URLs](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE]
     > O valor da URL de entrada não é real. Atualize esse valor com a URL de logon real. Entre em contato com a [equipe de suporte do Cliente de Treinamento de Reconhecimento de Segurança do KnowBe4](mailto:support@KnowBe4.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite o valor da cadeia de caracteres como: `KnowBe4`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor da cadeia de caracteres como: `KnowBe4`
 
     > [!NOTE]
     > Diferencia maiúsculas de minúsculas.
@@ -207,4 +207,4 @@ Ao clicar no bloco Treinamento de Reconhecimento de Segurança do KnowBe4 no Pai
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

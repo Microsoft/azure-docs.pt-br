@@ -7,13 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
-ms.author: alkarche, glenga
-ms.openlocfilehash: 55cce60ab3d1cda3cb870afd2f6214f917a04189
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: alkarche
+ms.reviewer: glenga
+ms.openlocfilehash: 0a31b58a3c843a2add0c84dc1a3ad4ab6417815e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063268"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612880"
 ---
 # <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrar funções com uma rede virtual do Azure
 
@@ -68,8 +69,8 @@ Em seguida, crie uma VM pré-configurada que executa o WordPress em uma rede vir
     | **Assinatura** | Sua assinatura | A assinatura em que seus recursos são criados. | 
     | **[Grupo de recursos](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Escolha `myResourceGroup`, ou o grupo de recursos que você criou com o seu aplicativo de funções. Usando o mesmo grupo de recursos para o aplicativo de função, a VM do WordPress e o plano de hospedagem torna mais fácil limpar os recursos quando você concluir este tutorial. |
     | **Nome da máquina virtual** | VNET-Wordpress | O nome da VM precisa ser exclusivo no grupo de recursos |
-    | **[Região](https://azure.microsoft.com/regions/)** | (Europa) Europa Ocidental | Escolha uma região perto de você ou perto as funções que acessar a VM. |
-    | **Tamanho** | B1s | Escolher **alterar o tamanho** e, em seguida, selecione a imagem B1s standard, que tem 1 vCPU e 1 GB de memória. |
+    | **[Região](https://azure.microsoft.com/regions/)** | Oeste da Europa (Europa) | Escolha uma região perto de você ou perto as funções que acessar a VM. |
+    | **Size** | B1s | Escolher **alterar o tamanho** e, em seguida, selecione a imagem B1s standard, que tem 1 vCPU e 1 GB de memória. |
     | **Tipo de autenticação** | Senha | Para usar a autenticação de senha, você também deve especificar um **nome de usuário**, um seguro **senha**e então **Confirmar senha**. Para este tutorial, você não precisará entrar para a VM, a menos que você precise solucionar. |
 
 1. Escolha o **Networking** guia e em redes virtuais de configurar, selecione **criar novo**.
@@ -143,7 +144,7 @@ Com a integração de rede virtual habilitado, você pode criar um proxy em seu 
 
     | Configuração  | Valor sugerido  | Descrição      |
     | -------- | ---------------- | ---------------- |
-    | **Nome** | planta | O nome pode ser qualquer valor. Ele é usado para identificar o proxy. |
+    | **Nome** | Planta | O nome pode ser qualquer valor. Ele é usado para identificar o proxy. |
     | **Modelo de rota** | /plant | Rota que é mapeado para um recurso VM. |
     | **URL de back-end** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Substitua `<YOUR_VM_IP>` com o endereço IP da sua VM do WordPress que você criou anteriormente. Esse mapeamento retorna um único arquivo do site. |
 

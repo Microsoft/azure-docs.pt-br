@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 31bc5622c6c6c3dd00bc59b5d8f3aa349055d125
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a80d354e0aed1d12bc64c99242e818787e93344
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279237"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intacct"></a>Tutorial: Integração do Active Directory do Azure ao Intacct
 
@@ -53,7 +53,7 @@ Para configurar a integração do Intacct ao Azure AD, você precisa adicionar o
 
 **Para adicionar o Intacct por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o Intacct, execute as seguintes e
 
     ![Logon único](./media/intacct-tutorial/ic790039.png "logon único")
 
-     a. Selecione **Habilitar logon único**.
+    a. Selecione **Habilitar logon único**.
 
     b. Para **Tipo de provedor de identidade**, selecione **SAML 2.0**.
 
@@ -227,7 +227,7 @@ Para configurar os usuários do Azure AD para que possam entrar no Intacct, eles
 
     ![Informações do Usuário](./media/intacct-tutorial/ic790043.png "informações do Usuário")
 
-     a. Insira a **ID de Usuário**, o **Sobrenome**, o **Nome**, o **Endereço de email**, o **Título** e o **Telefone** de uma conta do Azure AD que você deseja provisionar na seção **Informações do Usuário**.
+    a. Insira a **ID de Usuário**, o **Sobrenome**, o **Nome**, o **Endereço de email**, o **Título** e o **Telefone** de uma conta do Azure AD que você deseja provisionar na seção **Informações do Usuário**.
 
     b. Selecione os **privilégios de Administrador** de uma conta do Azure AD que você deseja provisionar.
 
@@ -248,5 +248,5 @@ Ao clicar no bloco do Intacct no Painel de Acesso, você será conectado automat
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

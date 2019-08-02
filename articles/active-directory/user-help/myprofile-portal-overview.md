@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c686dc0af893259d942527d318f3dd7d98fd752d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: d72cc4360025d50c6db55bf3029d1edeb538a040
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65470730"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382943"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Visão geral do portal Meu Perfil (versão prévia)
 
@@ -46,7 +46,7 @@ Para obter informações detalhadas e instruções sobre o que está disponível
 
 |Artigo |DESCRIÇÃO |
 |------|------------|
-|[Adicionar suas informações de segurança](user-help-security-info-overview.md)| Vários artigos com instruções sobre como configurar o aplicativo Microsoft Authenticator, mensagens de texto ou chamadas telefônicas como o método de verificação. Também inclui artigos sobre como adicionar um endereço de email ou perguntas de segurança predefinidas, de modo que você possa redefinir sua própria senha esquecida, se necessário.|
-|[Exibir ou deixar suas organizações conectadas](myprofile-portal-organizations-page.md)| Instruções sobre como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante.|
-|[Exibir ou desabilitar seus dispositivos conectados](myprofile-portal-devices-page.md)| Instruções sobre como exibir ou desabilitar os dispositivos que você conectou à sua conta corporativa ou de estudante.|
-|[Exibir suas informações de privacidade](myprofile-portal-privacy-page.md)| Instruções sobre como exibir quais serviços online estão conectados à sua conta corporativa ou de estudante, juntamente com a declaração de termos de uso de sua organização.|
+| [Adicionar suas informações de segurança](user-help-security-info-overview.md) | Vários artigos com instruções sobre como configurar o aplicativo Microsoft Authenticator, mensagens de texto ou chamadas telefônicas como o método de verificação. Também inclui artigos sobre como adicionar um endereço de email ou perguntas de segurança predefinidas, de modo que você possa redefinir sua própria senha esquecida, se necessário.|
+| [Exibir ou deixar suas organizações conectadas](myprofile-portal-organizations-page.md) | Instruções sobre como exibir e deixar as organizações conectadas à sua conta corporativa ou de estudante.|
+| [Exibir ou desabilitar seus dispositivos conectados](myprofile-portal-devices-page.md) | Instruções sobre como exibir ou desabilitar os dispositivos que você conectou à sua conta corporativa ou de estudante.|
+| [Exibir suas informações de privacidade](myprofile-portal-privacy-page.md) | Instruções sobre como exibir quais serviços online estão conectados à sua conta corporativa ou de estudante, juntamente com a declaração de termos de uso de sua organização.|

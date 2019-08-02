@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: b9ced0b08ed26057a45959f759fb90cbd7efe2a5
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 305804682ede9833619837807d6f174ec670560e
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239810"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414250"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo do IoT Edge do C# para dispositivos Linux
 
@@ -42,6 +42,9 @@ Use a tabela a seguir para entender as opções para desenvolver e implantar mó
 | -- | ------------------ | ------------- |
 | **Linux AMD64** | ![Módulos em C# para LinuxAMD64 no VS Code](./media/tutorial-c-module/green-check.png) | ![Módulos em C# para LinuxAMD64 no Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Módulos em C# para LinuxARM32 no VS Code](./media/tutorial-c-module/green-check.png) | ![Módulos em C# para LinuxARM64 no Visual Studio](./media/tutorial-c-module/green-check.png) |
+
+>[!NOTE]
+>O suporte para dispositivos Linux ARM64 está disponível na [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, confira [Desenvolver e depurar módulos do IoT Edge ARM64 no Visual Studio Code (versão prévia)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -93,7 +96,7 @@ O arquivo do ambiente armazena as credenciais para o registro de contêiner e as
 
 ### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
 
-No momento, o Visual Studio Code pode desenvolver módulos em C para os dispositivos Linux AMD64 e Linux ARM32v7. É necessário selecionar qual arquitetura você deseja usar para cada solução, porque o contêiner é criado e executado de maneira diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
+Atualmente, o Visual Studio Code pode desenvolver módulos C# para dispositivos Linux AMD64 e Linux ARM32v7. É necessário selecionar qual arquitetura você deseja usar para cada solução, porque o contêiner é criado e executado de maneira diferente para cada tipo de arquitetura. O padrão é o Linux AMD64. 
 
 1. Abra a paleta de comandos e pesquise **Azure IoT Edge: definir a plataforma de destino padrão para a solução Edge** ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
 
@@ -298,7 +301,7 @@ Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge
 
 Você pode ver o status do seu dispositivo IoT Edge usando a seção **Dispositivos de Hub IoT do Azure** do explorer do Visual Studio Code. Expanda os detalhes do seu dispositivo para ver uma lista de módulos implantados e em execução.
 
-1. No gerenciador do Visual Studio Code, clique com o botão direito do mouse no nome do dispositivo IoT Edge e selecione **Iniciar o Monitoramento do Ponto de Extremidade de Evento Interno**.
+1. No gerenciador do Visual Studio Code, clique com o botão direito do mouse no nome do dispositivo IoT Edge e escolha **Iniciar o monitoramento de pontos de extremidade internos de eventos**.
 
 2. Exiba as mensagens que chegam ao seu Hub IoT. Pode levar um tempo para as mensagens chegarem, porque o dispositivo IoT Edge precisa receber sua nova implantação e iniciar todos os módulos. Em seguida, as alterações que fizemos no código CModule aguardam até que a temperatura do computador atinja 25 graus antes de enviar mensagens. Ele também adiciona o tipo de mensagem **Alerta** às mensagens que atingem esse limite de temperatura. 
 

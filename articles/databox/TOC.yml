@@ -111,8 +111,16 @@
           items:
             - name: Gerenciar via portal do Azure
               href: data-box-portal-ui-admin.md
-            - name: Solucionar problemas do Data Box Disk
-              href: data-box-disk-troubleshoot.md
+            - name: Solucionar problemas
+              items:
+                - name: Desbloquear problemas
+                  href: data-box-disk-troubleshoot-unlock.md
+                - name: Problemas de cópia de dados
+                  href: data-box-disk-troubleshoot-data-copy.md
+                - name: Problemas de validação
+                  href: data-box-disk-troubleshoot.md
+                - name: Problemas de upload
+                  href: data-box-disk-troubleshoot-upload.md
             - name: Contatar o suporte
               href: data-box-disk-contact-microsoft-support.md
     - name: Data Box Heavy
@@ -135,10 +143,20 @@
               items:
                 - name: Via SMB
                   href: data-box-heavy-deploy-copy-data.md
+                - name: Via NFS
+                  href: data-box-heavy-deploy-copy-data-via-nfs.md
+                - name: Via REST
+                  href: data-box-heavy-deploy-copy-data-via-rest.md
+                - name: Por meio do serviço de cópia de dados
+                  href: data-box-heavy-deploy-copy-data-via-copy-service.md
+                - name: Para discos gerenciados
+                  href: data-box-heavy-deploy-copy-data-from-vhds.md
             - name: '4 - Retornar, carregar, verificar'
               href: data-box-heavy-deploy-picked-up.md
         - name: Conceitos
           items:
+            - name: Ler as diretrizes de segurança
+              href: data-box-heavy-safety.md
             - name: Revisar acompanhamento e registro em log
               href: data-box-logs.md
             - name: Examinar os requisitos

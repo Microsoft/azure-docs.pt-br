@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 87e35573eea836fc8a88c7515409c070ec63aa3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6871c75f0af662762ffac6e7346d4999e55eb937
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024889"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303434"
 ---
 # <a name="indexers-in-azure-search"></a>Indexadores no Azure Search
 
@@ -25,7 +25,7 @@ Os indexadores baseiam-se em plataformas com indexadores individuais para o SQL 
 
 Você pode usar um indexador como o único meio para ingestão de dados ou usar uma combinação de técnicas que incluam o uso de um indexador para carregar apenas alguns dos campos no índice.
 
-Você pode executar os indexadores sob demanda ou em uma agenda de atualização de dados recorrente que é executada a cada quinze minutos. Atualizações mais frequentes exigem um modelo de push que atualiza simultaneamente os dados no Azure Search e na fonte de dados externa.
+Você pode executar os indexadores sob demanda ou em uma data recorrente agenda de atualização de que é executada a cada cinco minutos. Atualizações mais frequentes exigem um modelo de push que atualiza simultaneamente os dados no Azure Search e na fonte de dados externa.
 
 ## <a name="approaches-for-creating-and-managing-indexers"></a>Abordagens para criar e gerenciar indexadores
 

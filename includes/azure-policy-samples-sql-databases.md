@@ -9,11 +9,11 @@ ms.date: 10/29/2018
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: 7bf885f2ab81e5d86878d2b0b53f4e98b8aedd9a
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66155507"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172084"
 ---
 ### <a name="sql-databases"></a>BANCOS DE DADOS SQL
 

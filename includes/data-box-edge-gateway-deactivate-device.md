@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: aebb82690a7a49aba071ed64349d37d516208cca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67125633"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172383"
 ---
 Para redefinir seu dispositivo, você precisará apagar com segurança todos os dados no disco de dados e o disco de inicialização do seu dispositivo. 
 

@@ -1,6 +1,6 @@
 ---
-title: Configurações de diretiva de firewall do aplicativo web da frente com o Azure
-description: Saiba o firewall do aplicativo web (WAF).
+title: Configurações de política para o Firewall do aplicativo Web com a porta frontal do Azure
+description: Saiba mais sobre o WAF (firewall do aplicativo Web).
 services: frontdoor
 author: KumudD
 ms.service: frontdoor
@@ -9,50 +9,51 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: tyao;kumud
-ms.openlocfilehash: 4c2f070e9b3c972f063008df8880b196ddb069cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: kumud
+ms.reviewer: tyao
+ms.openlocfilehash: 8f51cb6944221416b098a9b953db417053155f1e
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459361"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849099"
 ---
-# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Configurações de diretiva de firewall do aplicativo web da frente com o Azure
+# <a name="policy-settings-for-web-application-firewall-with-azure-front-door"></a>Configurações de política para o Firewall do aplicativo Web com a porta frontal do Azure
 
-Uma política de Firewall de aplicativo da Web (WAF) permite que você controle o acesso aos seus aplicativos web por um conjunto de regras personalizadas e gerenciados. O nome da política de WAF deve ser exclusivo. Se você tentar usar um nome existente, você receberá um erro de validação. Há várias configurações de nível de política que se aplicam a todas as regras especificadas para essa política, conforme descrito neste artigo.
+Uma política do WAF (firewall do aplicativo Web) permite que você controle o acesso aos aplicativos Web por um conjunto de regras personalizadas e gerenciadas. O nome da política WAF deve ser exclusivo. Você receberá um erro de validação se tentar usar um nome existente. Há várias configurações de nível de política que se aplicam a todas as regras especificadas para essa política, conforme descrito neste artigo.
 
-## <a name="waf-state"></a>Estado de WAF
+## <a name="waf-state"></a>Estado WAF
 
-Uma política de WAF para frente pode estar em um dos dois estados:
-- **Habilitado:** Quando uma política está habilitada, WAF ativamente está inspecionando as solicitações de entrada e usa as ações correspondentes de acordo com as definições de regra
-- **Desabilitado:** - quando uma política estiver desabilitada, inspeção de WAF está em pausa. Solicitações de entrada ignorarão WAF e são enviadas ao back-ends com base no roteamento de porta da frente.
+Uma política de WAF para a porta frontal pode estar em um dos dois Estados a seguir:
+- **Habilitado:** Quando uma política é habilitada, o WAF está inspecionando ativamente as solicitações de entrada e toma as ações correspondentes de acordo com as definições de regra
+- **Desabilitado:** -quando uma política é desabilitada, a inspeção de WAF é pausada. As solicitações de entrada ignorarão WAF e serão enviadas para back-ends com base no roteamento de porta frontal.
 
 ## <a name="waf-mode"></a>Modo de WAF
 
-Política de WAF pode ser configurada para ser executado em dois modos a seguir:
+A política WAF pode ser configurada para ser executada nos dois modos a seguir:
 
-- **Modo de detecção** quando executado no modo de detecção, WAF não realizar nenhuma ação que não seja o monitor e registrar a solicitação e sua regra correspondente do WAF em logs de WAF. Ativar o log de diagnóstico para a frente (ao usar o portal, isso pode ser conseguido indo para o **diagnóstico** seção no portal do Azure).
+- **Modo de detecção** Quando executado no modo de detecção, o WAF não assume nenhuma ação além do monitor e registra a solicitação e sua regra WAF correspondente aos logs do WAF. Ativar o diagnóstico de log para a porta frontal (ao usar o portal, isso pode ser feito acessando a seção de **diagnóstico** no portal do Azure).
 
-- **Modo de prevenção** quando configurado para ser executado no modo de prevenção, o WAF usa a ação especificada se uma solicitação corresponde a uma regra. Todas as solicitações correspondentes também são registradas nos logs de WAF.
+- **Modo de prevenção** Quando configurado para ser executado no modo de prevenção, WAF executará a ação especificada se uma solicitação corresponder a uma regra. Todas as solicitações correspondentes também são registradas nos logs do WAF.
 
-## <a name="waf-response-for-blocked-requests"></a>Resposta de WAF para solicitações bloqueadas
+## <a name="waf-response-for-blocked-requests"></a>Resposta WAF para solicitações bloqueadas
 
-Por padrão, quando o WAF bloqueia uma solicitação devido a uma regra correspondente, ele retorna um código de 403 status com - **a solicitação é bloqueada** mensagem. Uma cadeia de caracteres de referência também é retornada para registro em log.
+Por padrão, quando o WAF bloqueia uma solicitação devido a uma regra correspondente, ele retorna um código de status 403 com- **a mensagem é bloqueada** . Uma cadeia de caracteres de referência também é retornada para registro em log.
 
-Você pode definir um código de status de resposta personalizada e uma mensagem de resposta quando uma solicitação é bloqueada pelo WAF. Os seguintes códigos de status personalizadas têm suporte:
+Você pode definir um código de status de resposta personalizado e uma mensagem de resposta quando uma solicitação é bloqueada pelo WAF. Há suporte para os seguintes códigos de status personalizados:
 
-- 200    OK
+- 200 OK
 - 403 Proibido
-- 405 método não permitido
+- método 405 não permitido
 - 406 não aceitável
 - 429 número excessivo de solicitações
 
-Mensagem de resposta e o código de status de resposta personalizada é uma configuração de nível de política. Quando ela estiver configurada, todas as solicitações bloqueadas obtém o mesmo status de resposta personalizada e a mensagem de resposta.
+O código de status de resposta personalizado e a mensagem de resposta são uma configuração de nível de política. Uma vez configurado, todas as solicitações bloqueadas recebem o mesmo status de resposta personalizado e mensagem de resposta.
 
-## <a name="uri-for-redirect-action"></a>URI de redirecionamento de ação
+## <a name="uri-for-redirect-action"></a>URI para ação de redirecionamento
 
-Será necessário definir um URI para redirecionar as solicitações como se o **REDIRECIONAR** ação é selecionada para qualquer uma das regras contidas em uma política de WAF. Esse redirecionamento URI deve ser um site válido do HTTP (S) e uma vez configurado, todas as solicitações de regras de correspondência com uma ação de "REDIRECIONAMENTO" serão redirecionadas para o site especificado.
+Você deve definir um URI para redirecionar solicitações para se a  ação de redirecionamento for selecionada para qualquer uma das regras contidas em uma política de WAF. Esse URI de redirecionamento precisa ser um site HTTP (S) válido e, uma vez configurada, todas as solicitações que correspondem às regras com uma ação de "redirecionamento" serão redirecionadas para o site especificado.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba como definir o WAF [respostas personalizadas](waf-front-door-configure-custom-response-code.md)
+- Saiba como definir as [respostas personalizadas](waf-front-door-configure-custom-response-code.md) do WAF

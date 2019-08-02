@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 74bbab82-5581-4dcf-8806-78f77c746968
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4788b65201792292d79cd8c4d1b22f22c5e67eb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 010055d994a5cdc4dd5540fd80d6dd81c44a1e3c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870785"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612809"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nuclino"></a>Tutorial: Integração do Azure Active Directory com o Nuclino
 
@@ -54,7 +54,7 @@ Para configurar a integração do Nuclino ao Azure AD, você precisa adicionar o
 
 **Para adicionar o Nuclino da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Nuclino, execute as seguintes e
 
     ![Informações de domínio e de URLs do Nuclino para logon único](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.nuclino.com/api/sso/<UNIQUE-ID>/acs`
 
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o Nuclino, execute as seguintes e
     | first_name | user.givenname |
     | last_name | user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -185,7 +185,7 @@ Para configurar o logon único do Azure AD com o Nuclino, execute as seguintes e
 
     ![Configuração do Nuclino](./media/nuclino-tutorial/configure4.png)
 
-     a. Selecione **SSO (logon único) baseado em SAML**.
+    a. Selecione **SSO (logon único) baseado em SAML**.
 
     b. Copie o valor da **URL do ACS (é necessário copiar e colar isso no provedor de SSO)** e cole-o na caixa de texto **URL de Resposta** da seção **Configuração Básica do SAML** no portal do Azure.
 
@@ -269,5 +269,5 @@ Ao clicar no bloco do Nuclino no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

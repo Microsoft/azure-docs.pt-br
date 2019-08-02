@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d4cdcecd08ae87b3a2ae6023b8a2557a515fb1
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: de27afabe024f08cb80a7b31cfb1b664684315a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899348"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aha"></a>Tutorial: Integração do Azure Active Directory ao Aha!
 
@@ -54,7 +54,7 @@ Para configurar a integração do Aha! ao Azure AD, você precisa adicionar o Ah
 
 **Para adicionar o Aha! por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -90,7 +90,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Aha!, realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Aha!**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Aha!** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Aha!, realize as seguintes etap
 
     ![Aha! Informações de logon único de Domínio e URLs](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.aha.io/session/new`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.aha.io/session/new`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.aha.io`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.aha.io`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Aha!](https://www.aha.io/company/contact) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -117,7 +117,7 @@ Para configurar o logon único do Azure AD com o Aha!, realize as seguintes etap
 
     ![O link de download do Certificado](common/metadataxml.png)
 
-6. Na seção **Configurar o Aha!**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Aha!** , copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o Aha!, realize as seguintes etap
 
     ![Logon Único](./media/aha-tutorial/IC798954.png "Logon Único")
 
-     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
+    a. Na caixa de texto **Nome** , digite um nome para a sua configuração.
 
     b. Para **Configurar usando**, selecione **Arquivo de Metadados**.
 
@@ -188,11 +188,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Aha!.
 
-1. No portal do Azure, escolha **Aplicativos empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Aha!**.
+1. No portal do Azure, escolha **Aplicativos empresariais**, escolha **Todos os aplicativos** e, em seguida, escolha **Aha!** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, selecione **Aha!**.
+2. Na lista de aplicativos, selecione **Aha!** .
 
     ![O link do Aha! na lista de Aplicativos](common/all-applications.png)
 

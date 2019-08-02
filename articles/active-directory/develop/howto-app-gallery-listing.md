@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 005e5c92a16760d8eec5dc37526f4b1f2dbd751c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0198e5f5df3d25ef825248ff78db95326dc755c2
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540543"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477053"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Como: Listar seu aplicativo na galeria de aplicativos do Azure Active Directory
 
-Este artigo mostra como listar um aplicativo na Galeria de aplicativo do Azure AD, implementar o logon único (SSO) e gerenciar a listagem.
+Este artigo mostra como listar um aplicativo na Galeria de aplicativos do Azure AD, implementar SSO (logon único) e gerenciar a listagem.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicativos do Azure Active Directory?
 
@@ -50,8 +50,10 @@ Este artigo mostra como listar um aplicativo na Galeria de aplicativo do Azure A
 
 - Para solicitações de provisionamento automático de usuários, o aplicativo deve ser listado na galeria com o recurso de logon único habilitado usando SAML 2.0/WS-Fed. Você pode solicitar o fornecimento de SSO e Usuário juntos no portal, se ele ainda não estiver listado.
 
+- Precisa de uma conta permanente para teste com pelo menos 2 usuários registrados.
+
 >[!NOTE]
->Estamos executando com grande número de solicitações do conector SCIM, portanto, podemos ter parado de assumir novas solicitações de nosso portal. Mantenha em suas solicitações até outro aviso. Podemos desculpas para esse atraso e qualquer inconveniência que isso possa ter causado.
+>Estamos executando com alto número de solicitações de conector SCIM, portanto, vamos parar de fazer novas solicitações em nosso portal. Aguarde suas solicitações até um aviso adicional. Nós desculpasmos esse atraso e qualquer inconveniente que isso possa ter causado.
 
 ## <a name="submit-the-request-in-the-portal"></a>Enviar a solicitação no portal
 
@@ -113,25 +115,25 @@ Para atualizar ou remover um aplicativo existente na galeria de aplicativos do M
     * Se você quiser remover um aplicativo existente da galeria do Microsoft Azure AD, selecione **Remover a listagem de aplicativo existente**.
     * Se você tiver algum problema relacionado ao acesso, contate a [Equipe de Integração de SSO do Azure Active Directory](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## <a name="listing-requests-by-customers"></a>Listar solicitações de clientes
+## <a name="listing-requests-by-customers"></a>Listando solicitações por clientes
 
-Os clientes podem enviar a solicitação de listar um aplicativo clicando **aplicativo solicita por clientes** -> **Enviar nova solicitação**.
+Os clientes podem enviar a solicitação de listagem de um aplicativo clicando em **solicitações de aplicativo por clientes** -> **Enviar nova solicitação**.
 
-![Bloco de aplicativos solicitada do cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+![Mostra o bloco aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-Abaixo está que o fluxo de cliente solicitada aplicativos-
+Abaixo está o fluxo de aplicativos solicitados pelo cliente-
 
-![Fluxo de aplicativos solicitadas pelos clientes](./media/howto-app-gallery-listing/customer-request.png)
+![Mostra o fluxo de aplicativos solicitados pelo cliente](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Linhas do tempo
+## <a name="timelines"></a>Linhas do Tempo
 
 A linha do tempo para o processo de listagem de um aplicativo WS-Fed ou SAML 2.0 na galeria é 7 a 10 dias úteis.
 
-   ![TimeLine de listagem de aplicativos SAML na galeria](./media/howto-app-gallery-listing/timeline.png)
+   ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline.png)
 
 A linha do tempo para o processo de listagem de um aplicativo OpenID Connect na galeria é 2 a 5 dias úteis.
 
-   ![TimeLine de listagem de aplicativos SAML na galeria](./media/howto-app-gallery-listing/timeline2.png)
+   ![Linha do tempo de listagem do aplicativo SAML na Galeria](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Escalonamentos
 

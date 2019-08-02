@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 931de532aa6e09b2cd00955df6ba1f05d7e4f42c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236587"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428506"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET Core
 
@@ -47,14 +47,14 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 1. Selecione **Criar um recurso** > **Ferramentas de desenvolvedor** > **Application Insights**.
 
-   ![Adicionando um Recurso do Application Insights](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >Se esta for a primeira vez criando um recurso do Application Insights, você pode aprender mais no documento [Criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
     Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
-    | Configurações        |  Valor           | DESCRIÇÃO  |
+   | Configurações        |  Valor           | DESCRIÇÃO  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
-   | **Tipo de Aplicativo** | Aplicativo Web ASP.NET | O tipo do aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
    | **Localidade** | Leste dos EUA | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
 

@@ -2,18 +2,18 @@
 title: Tutorial do Kubernetes no Azure - Preparar um aplicativo
 description: Neste tutorial do AKS (Serviço de Kubernetes do Azure), você aprenderá como preparar e criar um aplicativo de vários contêineres com o Docker Compose que poderá ser implantado no AKS.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8fdc36215841348cf62cd61245950be6573a1938
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 2b4ba646a037b2f5561dabf97dee14454c07c573
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304444"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614223"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Tutorial: Preparar um aplicativo para o AKS (Serviço de Kubernetes do Azure)
 
@@ -32,9 +32,9 @@ Em tutoriais adicionais, a imagem de contêiner será carregada para um Registro
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos do `docker`. Confira [Introdução ao Docker][docker-get-started] para conhecer os conceitos básicos de contêiner.
+Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos do `docker`. Consulte [Introdução ao Docker][docker-get-started] para conhecer os conceitos básicos de contêiner.
 
-Para concluir este tutorial, você precisa de um ambiente de desenvolvimento local do Docker que executa contêineres do Linux. O Docker fornece pacotes que o configuram facilmente em qualquer sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
+Para concluir este tutorial, você precisa de um ambiente de desenvolvimento local do Docker que executa contêineres do Linux. O Docker fornece pacotes que o configuram o Docker em um sistema [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 
 O Azure Cloud Shell não inclui os componentes do Docker necessários para concluir as etapas destes tutoriais. Portanto, é recomendável usar um ambiente de desenvolvimento completo do Docker.
 
@@ -58,7 +58,7 @@ Dentro do diretório está o código-fonte do aplicativo, um arquivo Docker Comp
 
 ## <a name="create-container-images"></a>Criar imagens de contêiner
 
-O [Docker Compose][docker-compose] pode ser utilizado para automatizar a compilação de imagens de contêiner e a implantação de aplicativos de vários contêineres.
+O [Docker Compose][docker-compose] pode ser usado para automatizar a compilação de imagens de contêiner e a implantação de aplicativos de vários contêineres.
 
 Execute o arquivo `docker-compose.yaml` de exemplo para criar a imagem de contêiner, baixar a imagem Redis e iniciar o aplicativo:
 
@@ -97,7 +97,7 @@ Para ver o aplicativo em execução, insira `http://localhost:8080` em um navega
 
 Agora que a funcionalidade do aplicativo foi validada, os contêineres em execução podem ser interrompidos e removidos. Não exclua as imagens do contêiner. No próximo tutorial, a imagem *azure-vote-front* será carregada em uma instância do Registro de Contêiner do Azure.
 
-Pare e remova as instâncias do contêiner e os recursos utilizando o comando [docker-compose down][docker-compose-down]:
+Pare e remova as instâncias de contêiner e os recursos com o comando [docker-compose down][docker-compose-down]:
 
 ```console
 docker-compose down

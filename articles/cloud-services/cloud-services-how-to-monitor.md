@@ -3,23 +3,17 @@ title: Monitorar um Serviço de Nuvem do Azure | Microsoft Docs
 description: Descreve o que envolve o monitoramento de um Serviço de Nuvem do Azure e quais são algumas das opções.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: ''
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2018
-ms.author: jeconnoc
-ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: ac0ea7557774f0e59cb6a6eca1fc739592ab971d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61432885"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359102"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução ao Monitoramento de Serviço de Nuvem
 
@@ -45,12 +39,12 @@ O monitoramento avançado envolve o uso da extensão **Diagnóstico do Azure** (
 À medida que cada função é criada, o Visual Studio adiciona a extensão de Diagnóstico do Azure a ela. Essa extensão de diagnóstico pode coletar os seguintes tipos de informações:
 
 * Contadores de desempenho personalizados
-* Logs de aplicativo
+* Logs de aplicativos
 * Logs de eventos do Windows
 * Fonte de evento do .NET
-* Logs IIS
+* Logs do IIS
 * Manifesto com base no ETW
-* Despejos de falhas
+* Despejos de memória
 * Logs de erro do cliente
 
 > [!IMPORTANT]

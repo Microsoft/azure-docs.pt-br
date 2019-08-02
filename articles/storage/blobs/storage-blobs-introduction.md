@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/24/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: e8a68ca87307e1265c200f2e05464ff87983c1e6
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: e216503cac2db55115bd4c1b5bf0e2f6e50355fc
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258415"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190849"
 ---
 # <a name="introduction-to-azure-blob-storage"></a>Introdução ao armazenamento de Blobs do Azure
 
@@ -29,7 +29,7 @@ O Armazenamento de Blobs oferece três tipos de recursos:
 
 O diagrama a seguir mostra a relação entre esses recursos.
 
-![Diagrama da arquitetura de Armazenamento de Blobs](./media/storage-blob-introduction/blob1.png)
+![relação entre o Blob da conta e o recurso de Contêiner](./media/storage-blob-introduction/blob1.png)
 
 ### <a name="storage-accounts"></a>Contas de armazenamento
 
@@ -56,7 +56,7 @@ O Armazenamento do Azure dá suporte a três tipos de blobs:
 
 * **Blobs de bloco** armazenam texto e dados binários, até aproximadamente 4,7 TB. Blobs de bloco são compostos de blocos de dados que podem ser gerenciados individualmente.
 * **Blobs de acréscimo** são compostos de blocos, como blobs de blocos, mas são otimizados para operações de acréscimo. Blobs de acréscimo são ideais para cenários como o registro de dados das máquinas virtuais.
-* **Blobs de Páginas** armazenam arquivos de acesso aleatório de até 8 TB. Os arquivos de VHD (disco rígido virtual) do Armazenamento de Blobs de página servem como discos para máquinas virtuais do Azure. Para saber mais sobre blobs de páginas, confira [Visão geral dos blobs de páginas do Azure](storage-blob-pageblob-overview.md)
+* **Blobs de Páginas** armazenam arquivos de acesso aleatório de até 8 TB. Os blobs de página armazenam arquivos de VHD (disco rígido virtual) e servem como discos para máquinas virtuais do Azure. Para saber mais sobre blobs de páginas, confira [Visão geral dos blobs de páginas do Azure](storage-blob-pageblob-overview.md)
 
 Para obter mais informações sobre os diferentes tipos de blobs, confira [Compreendendo os Blobs de Blocos, Blobs de Acréscimo e Blobs de Página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 

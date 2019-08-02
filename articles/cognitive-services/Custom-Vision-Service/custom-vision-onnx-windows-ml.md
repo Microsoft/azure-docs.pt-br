@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Usar um modelo ONNX com Windows ML – Serviço de Visão Personalizada'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como criar um aplicativo UWP do Windows que usa um modelo ONNX exportado dos Serviços Cognitivos do Azure.
 services: cognitive-services
 author: larryfr
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725774"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561116"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Usar um modelo ONNX do Serviço de Visão Personalizada com Windows ML (versão prévia)
 
@@ -57,7 +57,7 @@ O aplicativo de exemplo fica disponível em [https://github.com/Azure-Samples/co
 
 Para usar seu próprio modelo, use as seguintes etapas:
 
-1. [Crie e treine](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) um classificador com o Serviço de Visão Personalizada. Para exportar o modelo, selecione um domínio __compacto__, como **Geral (compacto)**. Para exportar um classificador existente, converta o domínio a ser compactado, selecionando o ícone de engrenagem no canto superior direito. Em __Configurações__, selecione um modelo compacto, salve e treine seu projeto.  
+1. [Crie e treine](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) um classificador com o Serviço de Visão Personalizada. Para exportar o modelo, selecione um domínio __compacto__, como **Geral (compacto)** . Para exportar um classificador existente, converta o domínio a ser compactado, selecionando o ícone de engrenagem no canto superior direito. Em __Configurações__, selecione um modelo compacto, salve e treine seu projeto.  
 
 1. [Exporte o seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) indo até a guia Desempenho. Selecione uma iteração treinada com um domínio compacto, um botão “Export” será exibido. Selecione *Exportar*, *ONNX*, *ONNX1.2* e, em seguida, *Exportar*. Depois que o arquivo estiver pronto, selecione o botão *Baixar*.
 

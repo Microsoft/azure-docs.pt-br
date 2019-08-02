@@ -34,7 +34,7 @@ Também é possível limpar o cache do token removendo as contas do cache. No en
 ## <a name="scopes-when-acquiring-tokens"></a>Escopos ao adquirir tokens
 Os [escopos](v2-permissions-and-consent.md) são as permissões que uma API da Web expõe para que os aplicativos cliente solicitem acesso. Os aplicativos cliente solicitam o consentimento do usuário para esses escopos quando fazem solicitações de autenticação para obter tokens para acessar as APIs da Web. A MSAL permite que você obtenha tokens para acessar o Azure AD para desenvolvedores (v1.0) e APIs da plataforma de identidade da Microsoft (v2.0). O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Confira mais informações na [comparação entre a v1.0 e a v2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ela aceita, o ponto de extremidade da v2.0 retorna o token de acesso à MSAL.
 
-Vários métodos de token de aquisição da MSAL exigem um parâmetro de *escopos*. Esse parâmetro é uma lista simples de cadeias de caracteres que declara as permissões desejadas e os recursos que são solicitados. As [Permissões do Microsoft Graph](/graph/permissions-reference) são escopos conhecidos.
+Vários métodos de token de aquisição da MSAL exigem um parâmetro de *escopos*. Esse parâmetro é uma lista simples de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. As [Permissões do Microsoft Graph](/graph/permissions-reference) são escopos conhecidos.
 
 Na MSAL, também é possível acessar recursos da versão 1.0. Veja mais informações em [Escopos de um aplicativo v1.0](msal-v1-app-scopes.md).
 
@@ -48,7 +48,7 @@ Ou, por exemplo, escopos da API Web personalizada: `api://abscdefgh-1234-abcd-ef
 No caso da API do Microsoft Graph, um valor de escopo `user.read` é mapeado para o formato `https://graph.microsoft.com/User.Read` e pode ser usado de maneira intercambiável.
 
 > [!NOTE]
-> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/)) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
+> Determinadas APIs Web, como a API do Azure Resource Manager (https://management.core.windows.net/) ) exigem uma “/” na declaração do público-alvo (aud) do token de acesso. Nesse caso, é importante transmitir o escopo como https://management.core.windows.net//user_impersonation (observe as barras duplas) para que o token seja válido na API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitar escopos dinâmicos de consentimento incremental
 Quando você criava aplicativos com a v1.0, precisava registrar o conjunto completo de permissões (escopos estáticos) exigido pelo aplicativo para que o usuário consentisse durante o login. Na v2.0, você pode solicitar permissões adicionais conforme necessário usando o parâmetro do escopo. Eles são chamados escopos dinâmicos e permitem que o usuário forneça consentimento incremental aos escopos.

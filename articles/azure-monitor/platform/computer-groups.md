@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740897"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68320682"
 ---
-# <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas de log do Azure Monitor
+# <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você analise as [consultas de log](../log-query/log-query-overview.md) de um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -55,7 +55,7 @@ A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
 | Propriedade | Descrição |
 |:---|:---|
-| NOME   | Nome da consulta a ser exibida no portal. |
+| Nome   | Nome da consulta a ser exibida no portal. |
 | Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
 | Categoria       | Categoria para organizar as consultas no portal. |
 
@@ -84,7 +84,7 @@ Quando os grupos são importados, o menu lista o número de computadores com a a
 ### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
 Quando você configura o Azure Monitor para importar associações de coleção do Configuration Manager, ele cria um grupo de computadores para cada coleção.  As informações de associação de coleção são recuperadas a cada 3 horas para manter os grupos de computadores atualizados. 
 
-Antes de importar as coleções do Gerenciador de Configurações, será necessário [conectar o Configuration Manager ao Azure Monitor](collect-sccm.md).  Em seguida, você poderá configurar a importação a partir das **Configurações avançadas** no espaço de trabalho do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **SCCM** e, em seguida, **Importar associações de coleção do Configuration Manager**.  Não é necessária nenhuma configuração.
+Antes de importar as coleções do Gerenciador de Configurações, será necessário [conectar o Configuration Manager ao Azure Monitor](collect-sccm.md).  
 
 ![Grupos de computadores do SCCM](media/computer-groups/configure-sccm.png)
 

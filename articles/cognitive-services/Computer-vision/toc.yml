@@ -53,7 +53,17 @@
               href: QuickStarts/python-thumb.md
             - name: Ruby
               href: QuickStarts/ruby-thumb.md
-        - name: Extrair texto impresso
+        - name: Extrair texto (API de leitura)
+          items:
+            - name: 'C#'
+              href: QuickStarts/CSharp-hand-text.md
+            - name: Java
+              href: QuickStarts/java-hand-text.md
+            - name: JavaScript
+              href: QuickStarts/javascript-hand-text.md
+            - name: Python
+              href: QuickStarts/python-hand-text.md
+        - name: Extrair texto impresso (OCR)
           items:
             - name: 'C#'
               href: QuickStarts/CSharp-print-text.md
@@ -73,16 +83,6 @@
               href: QuickStarts/python-print-text.md
             - name: Ruby
               href: QuickStarts/ruby-print-text.md
-        - name: Extrair texto escrito à mão
-          items:
-            - name: 'C#'
-              href: QuickStarts/CSharp-hand-text.md
-            - name: Java
-              href: QuickStarts/java-hand-text.md
-            - name: JavaScript
-              href: QuickStarts/javascript-hand-text.md
-            - name: Python
-              href: QuickStarts/python-hand-text.md
         - name: Usar um modelo de domínio
           items:
             - name: PHP
@@ -137,8 +137,6 @@
           href: Tutorials/java-tutorial.md
         - name: JavaScript
           href: Tutorials/javascript-tutorial.md
-        - name: Python
-          href: Tutorials/PythonTutorial.md
     - name: Chamar a API da Pesquisa Visual Computacional
       href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
     - name: Usar contêineres
@@ -147,6 +145,8 @@
           href: computer-vision-how-to-install-containers.md
         - name: Configurar contêineres
           href: computer-vision-resource-container-config.md
+        - name: Usar instâncias de contêiner
+          href: deploy-computer-vision-on-container-instances.md
     - name: Use serviço conectado da Pesquisa Visual Computacional
       href: vs-computer-vision-connected-service.md
     - name: Analisar vídeos em tempo real

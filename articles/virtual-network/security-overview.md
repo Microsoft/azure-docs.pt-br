@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: ee976f163bdb00511e2a8f85906aa59aaebbfa47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 99a55d0cd06e6f1a92a70b20447d300dbc05eee1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056548"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67709533"
 ---
 # <a name="security-groups"></a>Grupos de segurança
 <a name="network-security-groups"></a>
@@ -32,13 +32,13 @@ Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desej
 
 |Propriedade  |Explicação  |
 |---------|---------|
-|NOME|Um nome exclusivo dentro do grupo de segurança de rede.|
+|Nome|Um nome exclusivo dentro do grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.|
 |Origem ou destino| Qualquer endereço IP ou um endereço IP individual, bloco de CIDR (encaminhamento entre domínios) (10.0.0.0/24, por exemplo), [marca de serviço](#service-tags) ou [grupo de segurança de aplicativo](#application-security-groups). Se você especificar um endereço para um recurso do Azure, especifique o endereço IP privado atribuído ao recurso. Os grupos de segurança de rede são processados depois que o Azure traduz um endereço IP público em um endereço IP privado para tráfego de entrada e antes que o Azure traduza um endereço IP privado para um endereço IP público para tráfego de saída. Saiba mais sobre os [endereços IP](virtual-network-ip-addresses-overview-arm.md) do Azure. A especificação de um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicativos permite que você crie menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos (você não pode especificar várias marcas de serviço ou grupos de aplicativos) em uma regra é conhecida como [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar vários endereços IP e intervalos de endereços IP em grupos de segurança de rede criados pelo modelo de implantação clássica. Saiba mais sobre os [modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
-|Protocolo     | TCP, UDP ou Qualquer um, o que inclui (entre outros) TCP, UDP e ICMP. Você não pode especificar o ICMP sozinho e, portanto, se precisar de ICMP, use a opção Qualquer um. |
-|Direção| Se a regra se aplica ao tráfego de entrada ou de saída.|
+|Protocol     | TCP, UDP ou Qualquer um, o que inclui (entre outros) TCP, UDP e ICMP. Você não pode especificar o ICMP sozinho e, portanto, se precisar de ICMP, use a opção Qualquer um. |
+|Direction| Se a regra se aplica ao tráfego de entrada ou de saída.|
 |Intervalo de portas     |Você pode especificar uma porta individual ou um intervalo de portas. Por exemplo, você pode especificar 80 ou 10000-10005. A especificação de intervalos permite que você crie menos regras de segurança. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar várias portas ou intervalos de porta na mesma regra de segurança em grupos de segurança de rede criados pelo modelo de implantação clássica.   |
-|Ação     | Permitir ou negar        |
+|Action     | Permitir ou negar        |
 
 As regras de segurança do grupo de segurança de rede são avaliadas por prioridade usando as informações de 5 tuplas (origem, porta de origem, destino, porta de destino e protocolo) para permitir ou negar o tráfego. Um registro de fluxo é criado para as conexões existentes. A comunicação é permitida ou negada com base no estado de conexão do registro de fluxo. O registro de fluxo permite que um grupo de segurança de rede seja com estado. Se você especificar uma regra de segurança de saída para algum endereço pela porta 80, por exemplo, não será necessário especificar uma regra de segurança de entrada para a resposta ao tráfego de saída. Você precisa especificar uma regra de segurança de entrada se a comunicação for iniciada externamente. O oposto também é verdadeiro. Se o tráfego de entrada é permitido por uma porta, não é necessário especificar uma regra de segurança de saída para responder ao tráfego pela porta.
 As conexões existentes podem não ser interrompidas quando você remove uma regra de segurança que habilitou o fluxo. Os fluxos de tráfego são interrompidos quando as conexões são interrompidas e nenhum tráfego está fluindo em qualquer direção por pelo menos alguns minutos.
@@ -51,43 +51,56 @@ As regras de segurança aumentada simplificam a definição de segurança para r
 
 ## <a name="service-tags"></a>Marcas de serviço
 
- Uma marca de serviço representa um grupo de prefixos de endereço IP para ajudar a minimizar a complexidade da criação de regra de segurança. Você não pode criar sua própria marca de serviço ou especificar quais endereços IP estão incluídos em uma marca. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. 
- 
- Você pode baixar e integrar com um firewall local a lista de marcas de serviço com os detalhes de prefixo nas seguintes publicações semanais para as nuvens [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [Governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure.
+Uma marca de serviço representa um grupo de prefixos de endereço IP para ajudar a minimizar a complexidade da criação de regra de segurança. Você não pode criar sua própria marca de serviço ou especificar quais endereços IP estão incluídos em uma marca. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. 
 
- As marcas de serviço a seguir estão disponíveis para uso na definição da regra de segurança. Os nomes variam ligeiramente entre [modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+As marcas de serviço a seguir estão disponíveis para uso em [regras de grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules). Marcas de serviço com asterisco no final (ou seja, AzureCloud *) também podem ser usadas no [regras de Firewall do Azure de rede](https://docs.microsoft.com/azure/firewall/service-tags). 
 
-* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para clássico): Essa marca inclui o espaço de endereço de rede virtual (todos os intervalos de CIDR definidos para a rede virtual), todos os espaços de endereço local, conectados e [emparelhadas](virtual-network-peering-overview.md) redes virtuais ou rede virtual conectada a um [virtual gateway de rede](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e usados em prefixos de endereço [rotas definidas pelo usuário](virtual-networks-udr-overview.md).
+* **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** para clássico): Essa marca inclui o espaço de endereço de rede virtual (todos os intervalos de CIDR definidos para a rede virtual), todos os espaços de endereço local, conectados [emparelhadas](virtual-network-peering-overview.md) redes virtuais ou rede virtual conectada a um [virtual gateway de rede](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e usados em prefixos de endereço [rotas definidas pelo usuário](virtual-networks-udr-overview.md). Lembre-se de que essa marca pode conter a rota padrão. 
 * **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** para clássico): Essa tag padrão denota o balanceador de carga de infraestrutura do Azure. A marca é traduzida para o [Endereço IP virtual do host](security-overview.md#azure-platform-considerations) (168.63.129.16) onde as sondas de integridade do Azure se originam. Se não estiver usando um balanceador de carga do Azure, você poderá substituir essa regra.
 * **Internet** (Resource Manager) (**INTERNET** para clássico): Essa tag denota o espaço de endereços IP fora da rede virtual e que pode ser acessado por meio da Internet pública. O intervalo de endereços inclui o [espaço de endereço IP público de propriedade do Azure](https://www.microsoft.com/download/details.aspx?id=41653).
-* **AzureCloud** (somente Resource Manager): Essa tag denota o espaço de endereços IP para o Azure, incluindo todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Se você especificar *AzureCloud* para o valor, o tráfego será permitido ou negado para endereços IP públicos do Azure. Se só deseja permitir o acesso ao AzureCloud em uma [região](https://azure.microsoft.com/regions) específica, é possível especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Azure AzureCloud na região Leste dos EUA, poderá especificar *AzureCloud.EastUS* como uma marca de serviço. 
-* **AzureTrafficManager** (somente Resource Manager): Essa tag denota o espaço de endereços IP para os endereços IP de investigação do Gerenciador de Tráfego do Azure. Saiba mais sobre os endereços IPs de investigação no Gerenciador de Tráfego nas [Perguntas frequentes sobre o Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 
-* **Storage** (somente Resource Manager): Essa tag denota o espaço de endereços IP para o serviço Armazenamento do Azure. Se você especificar *Armazenamento* como valor, o tráfego será permitido ou negado para o armazenamento. Se deseja permitir o acesso ao armazenamento em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Armazenamento do Azure na região Leste dos EUA, poderá especificar *Storage.EastUS* como uma marca de serviço. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. 
-* **SQL** (somente Resource Manager): Essa marca denota os prefixos de endereço do banco de dados SQL, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e serviços do Azure SQL Data Warehouse. Se você especificar *Sql* como valor, o tráfego será permitido ou negado para o Sql. Se só deseja permitir o acesso ao Sql em uma [região](https://azure.microsoft.com/regions) específica, é possível especificar a região. Por exemplo, se você quiser permitir o acesso somente para o Banco de Dados SQL do Azure na região Leste dos EUA, poderá especificar *Sql.EastUS* como uma marca de serviço. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. 
-* **AzureCosmosDB** (somente Resource Manager): Essa tag indica os prefixos de endereço dos serviços do Azure Cosmos DB. Se você especificar *AzureCosmosDB* para o valor, o tráfego será permitido ou negado para o AzureCosmosDB. Se desejar permitir o acesso ao AzureCosmosDB em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureCosmosDB.[ nome de região]. 
-* **AzureKeyVault** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Azure Key Vault. Se você especificar *AzureKeyVault* para o valor, o tráfego será permitido ou negado para o AzureKeyVault. Se desejar permitir o acesso ao AzureKeyVault em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureKeyVault.[ nome de região]. 
-* **EventHub** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Hub de Eventos do Azure. Se você especificar *EventHub* para o valor, o tráfego será permitido ou negado para o EventHub. Se desejar permitir o acesso ao EventHub em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato EventHub.[nome de região]. 
-* **ServiceBus** (somente Resource Manager): Essa marca denota os prefixos de endereço do serviço de barramento de serviço do Azure usando a camada de serviço Premium. Se você especificar *ServiceBus* para o valor, o tráfego será permitido ou negado para o ServiceBus. Se desejar permitir o acesso ao ServiceBus em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato ServiceBus.[nome de região]. 
-* **MicrosoftContainerRegistry** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Registro de Contêiner da Microsoft. Se você especificar *MicrosoftContainerRegistry* para o valor, o tráfego será permitido ou negado para MicrosoftContainerRegistry. Se você quiser permitir o acesso ao MicrosoftContainerRegistry em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato MicrosoftContainerRegistry.[nome da região]. 
-* **AzureContainerRegistry** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Registro de Contêiner do Azure. Se você especificar *AzureContainerRegistry* para o valor, o tráfego será permitido ou negado para AzureContainerRegistry. Se você quiser permitir o acesso ao AzureContainerRegistry em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato AzureContainerRegistry.[nome da região]. 
-* **AppService** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço AppService do Azure. Se você especificar *AppService* para o valor, o tráfego será permitido ou negado para o AppService. Se desejar permitir o acesso ao AppService em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AppService.[nome de região]. 
-* **AppServiceManagement** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Gerenciamento do Serviço de Aplicativo do Azure. Se você especificar *AppServiceManagement* para o valor, o tráfego será permitido ou negado para AppServiceManagement. 
-* **ApiManagement** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Gerenciamento de API do Azure. Se você especificar *ApiManagement* para o valor, o tráfego é permitido ou negado usando a interface de gerenciamento de ApiManagement.  
-* **AzureConnectors** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço de Conectores do Azure. Se você especificar *AzureConnectors* para o valor, o tráfego será permitido ou negado para o AzureConnectors. Se desejar permitir o acesso ao AzureConnectors em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureConnectors.[nome de região]. 
-* **GatewayManager** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Gerenciador de Gateway do Azure. Se você especificar *GatewayManager* para o valor, o tráfego será permitido ou negado para GatewayManager.  
-* **AzureDataLake** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Azure Data Lake. Se você especificar *AzureDataLake* para o valor, o tráfego será permitido ou negado para AzureDataLake. 
-* **AzureActiveDirectory** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do AzureActiveDirectory. Se você especificar *AzureActiveDirectory* para o valor, o tráfego será permitido ou negado para AzureActiveDirectory.  
-* **AzureMonitor** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do AzureMonitor. Se você especificar *AzureMonitor* para o valor, o tráfego será permitido ou negado para o AzureMonitor. 
-* **ServiceFabric** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço ServiceFabric. Se você especificar *ServiceFabric* para o valor, o tráfego será permitido ou negado para o ServiceFabric. 
-* **AzureMachineLearning** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço AzureMachineLearning. Se você especificar *AzureMachineLearning* para o valor, o tráfego será permitido ou negado para o AzureMachineLearning. 
-* **BatchNodeManagement** (somente Resource Manager): Essa marca denota os prefixos de endereço do serviço Azure BatchNodeManagement. Se você especificar *BatchNodeManagement* para o valor, o tráfego é permitido ou negado do serviço do lote em nós de computação.
-* **AzureBackup**(somente Resource Manager): essa marca denota os prefixos de endereço do serviço AzureBackup. Se você especificar AzureBackup para o valor, o tráfego é permitido ou negado para AzureBackup.
+* **AzureCloud*** (somente Resource Manager): Essa tag denota o espaço de endereços IP para o Azure, incluindo todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Se você especificar *AzureCloud* para o valor, o tráfego será permitido ou negado para endereços IP públicos do Azure. Se você quiser permitir o acesso ao AzureCloud em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região no seguinte formato AzureCloud. [ nome da região]. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureTrafficManager*** (somente Resource Manager): Essa tag denota o espaço de endereços IP para os endereços IP de investigação do Gerenciador de Tráfego do Azure. Saiba mais sobre os endereços IPs de investigação no Gerenciador de Tráfego nas [Perguntas frequentes sobre o Gerenciador de Tráfego do Azure](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). Essa marca é recomendada para a regra de segurança de entrada.  
+* **Armazenamento*** (somente Resource Manager): Essa tag denota o espaço de endereços IP para o serviço Armazenamento do Azure. Se você especificar *Armazenamento* como valor, o tráfego será permitido ou negado para o armazenamento. Se você quiser permitir o acesso ao armazenamento em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região em que o seguinte formato de armazenamento. [ nome da região]. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Armazenamento do Azure, mas não uma conta do Armazenamento do Azure específica. Essa marca é recomendada para a regra de segurança de saída. 
+* **SQL*** (somente Resource Manager): Essa marca denota os prefixos de endereço do banco de dados SQL, banco de dados do Azure para MySQL, banco de dados do Azure para PostgreSQL e serviços do Azure SQL Data Warehouse. Se você especificar *Sql* como valor, o tráfego será permitido ou negado para o Sql. Se você quiser permitir o acesso ao Sql em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região no seguinte formato Sql. [nome da região]. A marca representa o serviço, mas não as instâncias específicas do serviço. Por exemplo, a marca representa o serviço Banco de Dados SQL do Azure, mas não um banco de dados ou servidor SQL específico. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureCosmosDB*** (somente Resource Manager): Essa tag indica os prefixos de endereço dos serviços do Azure Cosmos DB. Se você especificar *AzureCosmosDB* para o valor, o tráfego será permitido ou negado para o AzureCosmosDB. Se desejar permitir o acesso ao AzureCosmosDB em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureCosmosDB.[ nome de região]. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureKeyVault*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Azure Key Vault. Se você especificar *AzureKeyVault* para o valor, o tráfego será permitido ou negado para o AzureKeyVault. Se desejar permitir o acesso ao AzureKeyVault em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureKeyVault.[ nome de região]. Essa marca tem dependência de **AzureActiveDirectory** marca. Essa marca é recomendada para a regra de segurança de saída.  
+* **Hub de eventos*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Hub de Eventos do Azure. Se você especificar *EventHub* para o valor, o tráfego será permitido ou negado para o EventHub. Se desejar permitir o acesso ao EventHub em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato EventHub.[nome de região]. Essa marca é recomendada para a regra de segurança de saída. 
+* **Barramento de serviço*** (somente Resource Manager): Essa marca denota os prefixos de endereço do serviço de barramento de serviço do Azure usando a camada de serviço Premium. Se você especificar *ServiceBus* para o valor, o tráfego será permitido ou negado para o ServiceBus. Se desejar permitir o acesso ao ServiceBus em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato ServiceBus.[nome de região]. Essa marca é recomendada para a regra de segurança de saída. 
+* **MicrosoftContainerRegistry*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Registro de Contêiner da Microsoft. Se você especificar *MicrosoftContainerRegistry* para o valor, o tráfego será permitido ou negado para MicrosoftContainerRegistry. Se você quiser permitir o acesso ao MicrosoftContainerRegistry em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato MicrosoftContainerRegistry.[nome da região]. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureContainerRegistry*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Registro de Contêiner do Azure. Se você especificar *AzureContainerRegistry* para o valor, o tráfego será permitido ou negado para AzureContainerRegistry. Se você quiser permitir o acesso ao AzureContainerRegistry em uma determinada [região](https://azure.microsoft.com/regions), poderá especificar a região no seguinte formato AzureContainerRegistry.[nome da região]. Essa marca é recomendada para a regra de segurança de saída. 
+* **Serviço de aplicativo*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço AppService do Azure. Se você especificar *AppService* para o valor, o tráfego será permitido ou negado para o AppService. Se desejar permitir o acesso ao AppService em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AppService.[nome de região]. Essa marca é recomendada para a regra de segurança de saída para o front-ends de aplicativos Web.  
+* **AppServiceManagement*** (somente Resource Manager): Essa marca denota os prefixos de endereço, o tráfego de gerenciamento para implantações de ambiente do serviço de aplicativo dedicado. Se você especificar *AppServiceManagement* para o valor, o tráfego será permitido ou negado para AppServiceManagement. Essa marca é recomendada para a regra de segurança de entrada/saída. 
+* **ApiManagement*** (somente Resource Manager): Essa marca denota que os prefixos de endereço, o tráfego de gerenciamento para o APIM dedicado implantações. Se você especificar *ApiManagement* para o valor, o tráfego será permitido ou negado para ApiManagement. Essa marca é recomendada para a regra de segurança de entrada/saída. 
+* **AzureConnectors*** (somente Resource Manager): Essa marca denota os prefixos de endereço dos conectores de aplicativos lógicos para conexões de investigação/back-end. Se você especificar *AzureConnectors* para o valor, o tráfego será permitido ou negado para o AzureConnectors. Se desejar permitir o acesso ao AzureConnectors em uma determinada [região](https://azure.microsoft.com/regions), especifique a região no seguinte formato AzureConnectors.[nome de região]. Essa marca é recomendada para a regra de segurança de entrada. 
+* **GatewayManager** (somente Resource Manager): Essa marca denota os prefixos de endereço, o tráfego de gerenciamento para implantações de Gateways VPN/aplicativo dedicadas. Se você especificar *GatewayManager* para o valor, o tráfego será permitido ou negado para GatewayManager. Essa marca é recomendada para a regra de segurança de entrada. 
+* **AzureDataLake*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do Azure Data Lake. Se você especificar *AzureDataLake* para o valor, o tráfego será permitido ou negado para AzureDataLake. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureActiveDirectory*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço do AzureActiveDirectory. Se você especificar *AzureActiveDirectory* para o valor, o tráfego será permitido ou negado para AzureActiveDirectory. Essa marca é recomendada para a regra de segurança de saída.
+* **AzureMonitor*** (somente Resource Manager): Essa marca denota os prefixos de endereço do Log Analytics, Insights de aplicativo, AzMon e métricas personalizadas (pontos de extremidade GiG). Se você especificar *AzureMonitor* para o valor, o tráfego será permitido ou negado para o AzureMonitor. Para o Log Analytics, essa marca tem dependência de **armazenamento** marca. Essa marca é recomendada para a regra de segurança de saída.
+* **ServiceFabric*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço ServiceFabric. Se você especificar *ServiceFabric* para o valor, o tráfego será permitido ou negado para o ServiceFabric. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureMachineLearning*** (somente Resource Manager): Essa tag indica os prefixos de endereço do serviço AzureMachineLearning. Se você especificar *AzureMachineLearning* para o valor, o tráfego será permitido ou negado para o AzureMachineLearning. Essa marca é recomendada para a regra de segurança de saída. 
+* **BatchNodeManagement*** (somente Resource Manager): Essa marca denota os prefixos de endereço, o tráfego de gerenciamento para implantações de lote do Azure dedicado. Se você especificar *BatchNodeManagement* para o valor, o tráfego é permitido ou negado do serviço do lote em nós de computação. Essa marca é recomendada para a regra de segurança de entrada/saída. 
+* **AzureBackup*** (somente Resource Manager): Essa marca denota os prefixos de endereço do serviço AzureBackup. Se você especificar *AzureBackup* para o valor, o tráfego é permitido ou negado para AzureBackup. Essa marca tem dependência de **armazenamento** e **AzureActiveDirectory** marca. Essa marca é recomendada para a regra de segurança de saída. 
+* **AzureActiveDirectoryDomainServices*** (somente Resource Manager): Essa marca denota os prefixos de endereço, o tráfego de gerenciamento para implantações de serviços de domínio do Active Directory do Azure dedicadas. Se você especificar *AzureActiveDirectoryDomainServices* para o valor, o tráfego é permitido ou negado para AzureActiveDirectoryDomainServices. Essa marca é recomendada para a regra de segurança de entrada/saída.  
+* **Base*** (somente Resource Manager): Essa marca denota que os prefixos de endereço, o tráfego de gerenciamento para SQL dedicado implantações. Se você especificar *base* para o valor, o tráfego é permitido ou negado para base. Essa marca é recomendada para a regra de segurança de entrada/saída. 
+* **CognitiveServicesManagement** (somente Resource Manager): Essa marca denota os prefixos de endereço de tráfego para os serviços Cognitivos. Se você especificar *CognitiveServicesManagement* para o valor, o tráfego é permitido ou negado para CognitiveServicesManagement. Essa marca é recomendada para a regra de segurança de saída.  
+* **Dynamics365ForMarketingEmail** (somente Resource Manager): Essa marca denota os prefixos de endereço do serviço de email marketing do Dynamics 365. Se você especificar *Dynamics365ForMarketingEmail* para o valor, o tráfego é permitido ou negado para Dynamics365ForMarketingEmail. Se você quiser permitir o acesso ao Dynamics365ForMarketingEmail em uma determinada [região](https://azure.microsoft.com/regions), você pode especificar a região no seguinte formato Dynamics365ForMarketingEmail. [ nome da região].
+* **AzurePlatformDNS** (somente Resource Manager): Essa marca denota o DNS que é um serviço de infraestrutura básica. Se você especificar *AzurePlatformDNS* para o valor, você pode desabilitar o padrão [consideração da plataforma Windows Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) para DNS. Por favor, tome cuidado usando essa marca. É recomendável a testes antes de usar essa marca. 
+* **AzurePlatformIMDS** (somente Resource Manager): Essa marca denota o IMDS que é um serviço de infraestrutura básica. Se você especificar *AzurePlatformIMDS* para o valor, você pode desabilitar o padrão [consideração da plataforma Windows Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) para IMDS. Por favor, tome cuidado usando essa marca. É recomendável a testes antes de usar essa marca. 
+* **AzurePlatformLKM** (somente Resource Manager): Essa marca denota o licenciamento do Windows ou o serviço de gerenciamento de chaves. Se você especificar *AzurePlatformLKM* para o valor, você pode desabilitar o padrão [consideração da plataforma Windows Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) para licenciamento. Por favor, tome cuidado usando essa marca. É recomendável a testes antes de usar essa marca. 
 
 > [!NOTE]
 > Marcas de serviço dos serviços do Microsoft Azure indicam os prefixos de endereço da nuvem específica que está sendo usada. 
 
 > [!NOTE]
 > Se você implementar um [ponto de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md) em um serviço, como o Armazenamento do Azure ou o Banco de Dados SQL do Azure, o Azure adicionará uma [rota](virtual-networks-udr-overview.md#optional-default-routes) para uma sub-rede de rede virtual para o serviço. Os prefixos de endereço na rota são os mesmos prefixos de endereço, ou intervalos CIDR, que a marca de serviço correspondente.
+
+### <a name="service-tags-in-on-premises"></a>Marcas de serviço no local  
+Você pode baixar e integrar com um firewall local a lista de marcas de serviço com os detalhes de prefixo nas seguintes publicações semanais do Azure [pública](https://www.microsoft.com/download/details.aspx?id=56519), [governo dos EUA](https://www.microsoft.com/download/details.aspx?id=57063), [na China ](https://www.microsoft.com/download/details.aspx?id=57062), e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) nuvens.
+
+Você pode também programaticamente recuperar essas informações usando o **API do serviço de descoberta de marca** (visualização pública) - [REST](https://aka.ms/discoveryapi_rest), [Azure PowerShell](https://aka.ms/discoveryapi_powershell), e [ CLI do Azure](https://aka.ms/discoveryapi_cli). 
+
+> [!NOTE]
+> Publicações semanais (versão antiga) do Azure a seguir [pública](https://www.microsoft.com/en-us/download/details.aspx?id=41653), [China](https://www.microsoft.com/en-us/download/details.aspx?id=42064), e [Alemanha](https://www.microsoft.com/en-us/download/details.aspx?id=54770) nuvens serão preteridos até 30 de junho de 2020. Inicie usando as publicações atualizadas conforme descrito acima. 
 
 ## <a name="default-security-rules"></a>Regras de segurança padrão
 
@@ -97,19 +110,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todos|PERMITIR|
+|65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|Todos|Allow|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
-|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todos|PERMITIR|
+|65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|Todos|Allow|
 
 #### <a name="denyallinbound"></a>DenyAllInBound
 
-|Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
+|Prioridade|Origem|Portas de origem|Destino|Portas de destino|Protocol|Access|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todos|Negar|
 
@@ -117,19 +130,19 @@ O Azure cria as seguintes regras padrão em cada grupo de segurança de rede que
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todos | PERMITIR |
+| 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | Todos | Allow |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todos | PERMITIR |
+| 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | Todos | Allow |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todos | Negar |
 
@@ -149,15 +162,15 @@ Na figura anterior, *NIC1* e *NIC2* são membros do grupo de segurança de aplic
 
 Essa regra é necessária para permitir o tráfego da Internet para os servidores Web. Como o tráfego de entrada da Internet é negado pela regra de segurança padrão [DenyAllInbound](#denyallinbound), nenhuma regra adicional é necessária para os grupos de segurança do aplicativo *AsgLogic* ou *AsgDb*.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 100 | Internet | * | AsgWeb | 80 | TCP | PERMITIR |
+| 100 | Internet | * | AsgWeb | 80 | TCP | Allow |
 
 ### <a name="deny-database-all"></a>Deny-Database-All
 
 Já que a regra de segurança padrão [AllowVNetInBound](#allowvnetinbound) permite toda a comunicação entre recursos na mesma rede virtual, essa regra é necessária para negar o tráfego de todos os recursos.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | Todos | Negar |
 
@@ -165,9 +178,9 @@ Já que a regra de segurança padrão [AllowVNetInBound](#allowvnetinbound) perm
 
 Essa regra permite o tráfego do grupo de segurança de aplicativo *AsgLogic* para o grupo de segurança de aplicativo *AsgDb*. A prioridade para essa regra é mais alta do que a prioridade para a regra *Deny-Database-All*. Como resultado, essa regra é processada antes da regra *Deny-Database-All* e, portanto, o tráfego do grupo de segurança de aplicativo *AsgLogic* é permitido enquanto todos os outros tráfegos são bloqueados.
 
-|Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
+|Prioridade|Origem|Portas de origem| Destino | Portas de destino | Protocol | Access |
 |---|---|---|---|---|---|---|
-| 110 | AsgLogic | * | AsgDb | 1433 | TCP | PERMITIR |
+| 110 | AsgLogic | * | AsgDb | 1433 | TCP | Allow |
 
 As regras que especificam um grupo de segurança de aplicativo como origem ou destino são aplicadas apenas aos adaptadores de rede que são membros do grupo de segurança de aplicativo. Se o adaptador de rede não for membro de um grupo de segurança de aplicativo, a regra não será aplicada ao adaptador de rede, mesmo que o grupo de segurança de rede esteja associado à sub-rede.
 

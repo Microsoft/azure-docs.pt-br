@@ -3,25 +3,28 @@ title: 'Início Rápido: Traduzir texto, Go – API de Tradução de Texto'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você traduzirá texto de um idioma para outro usando a API de Tradução de Texto com Go em menos de 10 minutos.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: cf0a7598d7af583e3339c511556a121523d12a7a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 35978dbb3fdec561fdfdd3939a621df2f2cc08d4
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514879"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705597"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Início Rápido: Usar a API de Tradução de Texto para converter uma cadeia de caracteres usando Go
 
 Neste início rápido, você aprenderá a converter uma cadeia de texto de inglês para italiano e alemão usando Go e a API REST de Tradução de Texto.
 
 Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+
+>[!TIP]
+> Caso queira ver todo o código de uma vez, o código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -139,6 +142,8 @@ if err != nil {
 }
 ```
 
+Se estiver usando uma assinatura de vários serviço cognitivos, você também deve incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre a autenticação com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## <a name="handle-and-print-the-response"></a>Processar e imprimir a resposta
 
 Adicione este código à função `translate` para decodificar a resposta JSON e, em seguida, formate e imprima o resultado.
@@ -191,10 +196,10 @@ Uma resposta bem-sucedida é retornada em JSON, conforme mostrado no seguinte ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Explore exemplos de Go para APIs de Serviços Cognitivos do [SDK do Azure para linguagem Go](https://github.com/Azure/azure-sdk-for-go) no GitHub.
+Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
 
 > [!div class="nextstepaction"]
-> [Explorar exemplos de Go no GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 

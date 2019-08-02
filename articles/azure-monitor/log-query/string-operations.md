@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f53d3bd64b4f837fe29baa338cd338158d59d95d
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61424696"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466962"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Trabalhe com cadeias de caracteres nas consultas de log no Azure Monitor
 
 
 > [!NOTE]
-> Você deve concluir [Introdução ao Log Analytics do Azure Monitor](get-started-portal.md) e [Introdução às consultas de log do Azure Monitor](get-started-queries.md) antes de concluir este tutorial.
+> Você deve concluir a introdução [ao Azure Monitor log Analytics](get-started-portal.md) e [a introdução às consultas de Azure monitor log](get-started-queries.md) antes de concluir este tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -40,6 +40,10 @@ Os valores da cadeia de caracteres são encapsulados com caracteres de aspas sim
 print "this is a 'string' literal in double \" quotes"
 ```
 
+```Kusto
+print 'this is a "string" literal in single \' quotes'
+```
+
 Para evitar que "\\" atue como um caractere de escape, adicione "\@" como um prefixo para a cadeia de caracteres:
 
 ```Kusto
@@ -49,11 +53,11 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>Comparações de cadeias de caracteres
 
-operador       |DESCRIÇÃO                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
+operador       |Descrição                         |Diferencia maiúsculas de minúsculas|Exemplo (suspende `true`)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |É igual a                              |Sim           |`"aBc" == "aBc"`
-`!=`           |Não é igual a                          |Sim           |`"abc" != "ABC"`
-`=~`           |É igual a                              |Não            |`"abc" =~ "ABC"`
+`==`           |Igual a                              |Sim           |`"aBc" == "aBc"`
+`!=`           |Diferente de                          |Sim           |`"abc" != "ABC"`
+`=~`           |Igual a                              |Não            |`"abc" =~ "ABC"`
 `!~`           |Não é igual a                          |Não            |`"aBc" !~ "xyz"`
 `has`          |O lado direito é um termo completo no lado esquerdo |Não|`"North America" has "america"`
 `!has`         |O lado direito não é um termo completo no lado esquerdo       |Não            |`"North America" !has "amer"` 
@@ -133,7 +137,7 @@ Obtém uma correspondência para uma expressão regular a partir de uma determin
 extract(regex, captureGroup, text [, typeLiteral])
 ```
 
-### <a name="arguments"></a>Argumentos
+### <a name="arguments"></a>Arguments
 
 - `regex` - Uma expressão regular.
 - `captureGroup` - Uma inteiro constante que indica o grupo de captura para extração. 0 para a correspondência inteira, 1 para o valor correspondido pelo primeiro '('parêntese')' na expressão regular, 2 ou mais para os parênteses subsequentes.
@@ -240,7 +244,7 @@ Substitui todas as correspondências de regex por outra cadeia de caracteres.
 replace(regex, rewrite, input_text)
 ```
 
-### <a name="arguments"></a>Argumentos
+### <a name="arguments"></a>Arguments
 
 - `regex` - A expressão regular para fazer a correspondência. Pode conter grupos de captura entre '('parênteses')'.
 - `rewrite` - O regex de substituição para qualquer correspondência feita pelo regex de correspondência. Use \0 para referir-se à correspondência inteira, \1 para o primeiro grupo de captura, \2, e assim por diante para grupos de captura subsequentes.

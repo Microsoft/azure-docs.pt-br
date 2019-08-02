@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 91dd1ebc457bfeed5c9e8d0d62ecc23740ca5d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77bf284734428e9257b46d85296796e4051ace26
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979542"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494834"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -66,11 +66,15 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 }
 ```
 
-Todos os exemplos do Azure Policy estão em [exemplos do Azure Policy](../samples/index.md).
+Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../samples/index.md).
 
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="mode"></a>Modo
+
+O **modo** será configurado dependendo se a política estiver direcionando para uma propriedade Azure Resource Manager ou uma propriedade de provedor de recursos.
+
+### <a name="resource-manager-modes"></a>Modos do Resource Manager
 
 O **modo** determina quais tipos de recursos serão avaliados para uma política. Os modos suportados são:
 
@@ -79,9 +83,16 @@ O **modo** determina quais tipos de recursos serão avaliados para uma política
 
 É recomendável definir o **modo** como `all` na maioria dos casos. Todas as definições de políticas criadas através do portal usam o modo `all`. Se você usar a CLI do Azure ou PowerShell, será necessário especificar o modo **parâmetro** manualmente. Se a definição de política não incluir um valor **modo**, ela usará como padrão `all` no Azure PowerShell e `null` na CLI do Azure. Um modo `null` é o mesmo que usar `indexed` para dar suporte à compatibilidade com versões anteriores.
 
-`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que oferecem suporte a marcas, consulte [suporte para recursos do Azure de marcação](../../../azure-resource-manager/tag-support.md).
+`indexed` deve ser usado ao criar políticas que vão impor marcas ou locais. Embora não seja obrigatório, impedirá que recursos que não oferecem suporte a marcas nem locais apareçam como não compatíveis nos resultados de conformidade. A exceção são **grupos de recursos**. As políticas que impõem local ou marcas em um grupo de recursos devem definir **mode** como `all` e direcionar especificamente o tipo `Microsoft.Resources/subscriptions/resourceGroups`. Para obter um exemplo, consulte [Impor marcas do grupo de recursos](../samples/enforce-tag-rg.md). Para obter uma lista de recursos que dão suporte a marcas, consulte [suporte a marcas para recursos do Azure](../../../azure-resource-manager/tag-support.md).
 
-## <a name="parameters"></a>parâmetros
+### <a name="resource-provider-modes"></a>Modos de provedor de recursos
+
+O único modo de provedor de recursos com `Microsoft.ContainerService.Data` suporte no momento é para o gerenciamento de regras do controlador de admissão no [serviço kubernetes do Azure](../../../aks/intro-kubernetes.md).
+
+> [!NOTE]
+> [Azure Policy para kubernetes](rego-for-aks.md) está em visualização pública e só dá suporte a definições de políticas internas.
+
+## <a name="parameters"></a>Parâmetros
 
 Parâmetros ajudam a simplificar o gerenciamento de política, reduzindo o número de definições de política. Pense em parâmetros como os campos em um formulário – `name`, `address`, `city`, `state`. Esses parâmetros sempre permanecem iguais, porém, seus valores mudam com base no preenchimento individual do formulário.
 Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir parâmetros em uma definição de política, você pode reutilizar essa política para diferentes cenários usando valores diferentes.
@@ -94,15 +105,15 @@ Os parâmetros funcionam da mesma maneira que ao criar políticas. Ao incluir pa
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
 - **nome**: o nome do parâmetro. Usado pela função de implantação `parameters` dentro da regra de política. Para saber mais, confira [Usar o valor de parâmetro](#using-a-parameter-value).
-- `type`: determina se o parâmetro é uma **cadeia de caracteres** ou uma **matriz**.
+- `type`: Determina se o parâmetro é uma **cadeia de caracteres**, **matriz**, **objeto**, **booliano**, **inteiro**, **float**ou **DateTime**.
 - `metadata`: define as subpropriedades usadas principalmente pelo portal do Azure para exibição de informações simples:
   - `description`: a explicação de uso do parâmetro. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável exibido no portal para o parâmetro.
   - `strongType`: (opcional) usado ao atribuir a definição de política por meio do portal. Fornece uma lista de reconhecimento de contexto. Para obter mais informações, confira [strongType](#strongtype).
-  - `assignPermissions`: (Opcional) Defina como _verdadeira_ para fazer com que o portal do Azure crie atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro deve ser um recurso válido ou um escopo.
+  - `assignPermissions`: Adicional Defina como _true_ para que Portal do Azure crie atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro deve ser um recurso ou escopo válido.
 - `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se não houver valor fornecido.
   Necessário ao atualizar uma definição de política existente que é atribuída.
-- `allowedValues`: (Opcional) Fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
+- `allowedValues`: Adicional Fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
 
 Por exemplo, você pode definir uma definição de política para limitar os locais em que os recursos podem ser implantados. Um parâmetro para essa definição de política pode ser **allowedLocations**. Esse parâmetro deve ser usado por cada atribuição da definição de política para limitar os valores aceitos. O uso de **strongType** fornece uma experiência aprimorada ao concluir a atribuição por meio do portal:
 
@@ -239,7 +250,7 @@ Uma condição avalia se um **campo** ou um acessador de **valor** atende a dete
 Ao usar as condições **like** e **notLike**, você fornece um curinga (`*`) no valor.
 O valor não deve ter mais de um curinga `*`.
 
-Ao usar o **corresponder** e **notMatch** condições, fornecer `#` para corresponder a um dígito, `?` para uma letra, `.` para corresponder a qualquer caractere e qualquer outro caractere para corresponder caractere real.
+Ao usar as condições **Match** e não **Match** , forneça `#` para corresponder um dígito, `?` para uma letra, `.` corresponder a qualquer caractere e qualquer outro caractere para corresponder a esse caractere real.
 As condições **corresponder** e **notMatch** diferenciam maiúsculas de minúsculas. Estão disponíveis alternativas que diferenciam maiúsculas de minúsculas em **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, veja [Permitir vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos
@@ -293,13 +304,13 @@ No exemplo a seguir, `concat` é usado para criar uma pesquisa de campo de marca
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>Valor
 
 As condições também podem ser formadas usando o **valor**. O **valor** verifica as condições em relação aos [parâmetros](#parameters), [funções de modelo com suporte](#policy-functions) ou literais.
 O **valor** é emparelhado a uma [condição](#conditions) com suporte.
 
 > [!WARNING]
-> Se o resultado de uma _função de modelo_ é um erro, falha de avaliação de política. Uma avaliação com falha é implícito **negar**. Para obter mais informações, consulte [evitar falhas de modelo](#avoiding-template-failures).
+> Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falhará. Uma avaliação com falha é uma **negação**implícita. Para obter mais informações, consulte [evitando falhas de modelo](#avoiding-template-failures).
 
 #### <a name="value-examples"></a>Exemplos de valor
 
@@ -341,9 +352,9 @@ Este exemplo de regra de política usa **valor** para verificar se o resultado d
 }
 ```
 
-#### <a name="avoiding-template-failures"></a>Evitar falhas de modelo
+#### <a name="avoiding-template-failures"></a>Evitando falhas de modelo
 
-O uso de _funções de modelo_ na **valor** permite para muitas funções aninhadas complexas. Se o resultado de uma _função de modelo_ é um erro, falha de avaliação de política. Uma avaliação com falha é implícito **negar**. Um exemplo de uma **valor** que falhar em determinados cenários:
+O uso de _funções de modelo_ em **valor** permite muitas funções aninhadas complexas. Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falhará. Uma avaliação com falha é uma **negação**implícita. Um exemplo de um **valor** que falha em determinados cenários:
 
 ```json
 {
@@ -359,9 +370,9 @@ O uso de _funções de modelo_ na **valor** permite para muitas funções aninha
 }
 ```
 
-A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **abc**. Se **nome** é menor do que três caracteres, o `substring()` função resulta em um erro. Esse erro faz com que a política para se tornar um **negar** efeito.
+A regra de política de exemplo acima usa [substring ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) para comparar os três primeiros caracteres de **nome** para **ABC**. Se **Name** for menor que três caracteres, a `substring()` função resultará em um erro. Esse erro faz com que a política se  torne um efeito de negação.
 
-Em vez disso, use o [surgirem](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) função para verificar se os três primeiros caracteres de **nome** igual **abc** sem permitir uma **nome** menor que três caracteres para causar um erro:
+Em vez disso, use a função [If ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) para verificar se os três primeiros caracteres de **nome** são iguais a **ABC** sem permitir que um **nome** com menos de três caracteres cause um erro:
 
 ```json
 {
@@ -377,11 +388,11 @@ Em vez disso, use o [surgirem](../../../azure-resource-manager/resource-group-te
 }
 ```
 
-Com a regra de política revisado `if()` verifica o comprimento do **nome** antes de tentar obter um `substring()` em um valor com menos de três caracteres. Se **nome** é muito curto, o valor "não começa com abc" é retornado em vez disso e em comparação com **abc**. Um recurso com um nome curto que não começa com **abc** ainda não obedece à regra de política, mas não causa um erro durante a avaliação.
+Com a regra de política revisada, `if()` o verifica o comprimento do **nome** antes `substring()` de tentar obter um em um valor com menos de três caracteres. Se o **nome** for muito curto, o valor "não iniciando com ABC" será retornado em vez disso e comparado com **ABC**. Um recurso com um nome curto que não começa com **ABC** ainda falha na regra de política, mas não causa mais um erro durante a avaliação.
 
 ### <a name="effect"></a>Efeito
 
-A política do Azure dá suporte aos seguintes tipos de efeito:
+O Azure Policy dá suporte aos seguintes tipos de efeito:
 
 - **Negar**: gera um evento no log de atividades e falha na solicitação
 - **Auditoria**: gera um evento de aviso no log de atividades, mas não falha na solicitação
@@ -389,6 +400,7 @@ A política do Azure dá suporte aos seguintes tipos de efeito:
 - **AuditIfNotExists**: habilitará a auditoria se um recurso não existir
 - **DeployIfNotExists**: implanta um recurso caso ele ainda não exista
 - **Desabilitado**: não avalia os recursos de conformidade para a regra de política
+- **EnforceRegoPolicy**: configura o controlador de admissão do agente de política aberto no serviço kubernetes do Azure (versão prévia)
 
 Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
@@ -416,29 +428,29 @@ O efeito **DeployIfNotExists** requer a propriedade **roleDefinitionId** na part
 }
 ```
 
-Para obter detalhes completos sobre cada efeito, a ordem de avaliação, propriedades e exemplos, consulte [Noções básicas sobre Azure política efeitos](effects.md).
+Para obter detalhes completos sobre cada efeito, ordem de avaliação, propriedades e exemplos, consulte [noções básicas sobre efeitos de Azure Policy](effects.md).
 
 ### <a name="policy-functions"></a>Funções de política
 
-Todos os [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política, exceto as seguintes funções e funções definidas pelo usuário:
+Todas as [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso em uma regra de política, exceto as funções e funções definidas pelo usuário a seguir:
 
 - copyIndex()
 - deployment()
 - lista*
-- newGuid()
+- newGuid ()
 - pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
 
-As funções a seguir estão disponíveis para usar uma regra de política, mas diferem de uso em um modelo do Azure Resource Manager:
+As funções a seguir estão disponíveis para uso em uma regra de política, mas diferem do uso em um modelo de Azure Resource Manager:
 
-- addDays(dateTime, numberOfDaysToAdd)
-  - **Data e hora**: cadeia de caracteres [obrigatório] - cadeia de caracteres no formato de data e Hora Universal ISO 8601 ' AAAA-MM-ddTHH:mm:ss.fffffffZ'
-  - **numberOfDaysToAdd**: inteiro [obrigatório] - número de dias a serem adicionados
-- UtcNow () – ao contrário de um modelo do Resource Manager, isso pode ser usado fora do valor padrão.
-  - Retorna uma cadeia de caracteres que é definida como a data e hora atuais no formato de data e Hora Universal ISO 8601 ' AAAA-MM-ddTHH:mm:ss.fffffffZ'
+- AddDays (dateTime, numberOfDaysToAdd)
+  - **DateTime**: [Required] String-String no formato de data/hora Universal ISO 8601 ' yyyy-mm-ddThh: mm: SS. fffffffZ '
+  - **numberOfDaysToAdd**: [obrigatório] número inteiro de dias para adicionar
+- utcNow () – ao contrário de um modelo do Resource Manager, ele pode ser usado fora de defaultValue.
+  - Retorna uma cadeia de caracteres que é definida como a data e a hora atuais no formato universal ISO 8601 DateTime ' YYYY-MM-ddTHH: mm: SS. fffffffZ '
 
 Além disso, a função `field` está disponível para as regras de política. `field` é principalmente para uso com **AuditIfNotExists** e **DeployIfNotExists** para referenciar campos no recurso que estão sendo avaliados. Um exemplo desse uso pode ser visto no [exemplo DeployIfNotExists](effects.md#deployifnotexists-example).
 
@@ -474,8 +486,8 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
   # Use Get-AzPolicyAlias to list available providers
   Get-AzPolicyAlias -ListAvailable
 
-  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
-  Get-AzPolicyAlias -NamespaceMatch 'automation'
+  # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Compute -- Microsoft.Compute)
+  (Get-AzPolicyAlias -NamespaceMatch 'compute').Aliases
   ```
 
 - CLI do Azure
@@ -486,8 +498,8 @@ A lista de aliases sempre está aumentando. Para descobrir quais aliases atualme
   # List namespaces
   az provider list --query [*].namespace
 
-  # Get Azure Policy aliases for a specific Namespace (such as Azure Automation -- Microsoft.Automation)
-  az provider show --namespace Microsoft.Automation --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
+  # Get Azure Policy aliases for a specific Namespace (such as Azure Compute -- Microsoft.Compute)
+  az provider show --namespace Microsoft.Compute --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
   ```
 
 - API REST / ARMClient
@@ -503,9 +515,9 @@ Vários aliases disponíveis têm uma versão que é exibida como um nome "norma
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-O alias 'normal' representa o campo como um único valor. Este campo é para cenários de comparação de correspondência exata quando todo o conjunto de valores deve ser exatamente conforme definido, nem mais, nem menos.
+O alias ' normal ' representa o campo como um único valor. Esse campo é para cenários de comparação de correspondência exata quando o conjunto inteiro de valores deve ser exatamente o mesmo definido, nem mais nem menos.
 
-O **[\*]** alias torna possível a ser comparada com o valor de cada elemento da matriz e as propriedades específicas de cada elemento. Essa abordagem torna possível comparar as propriedades do elemento para 'se nenhum', 'se qualquer um dos', ou ' se todos os de ' cenários. Usando o **ipRules [\*]** , um exemplo seria possível validar que cada _ação_ é _negar_, mas não se preocupar sobre quantas regras existem ou o que o IP _valor_ é. Esta regra de exemplo verifica as correspondências de **ipRules [\*]. Value** ao **10.0.4.1** e aplica-se a **effectType** somente se não encontrar pelo menos uma correspondência:
+O **alias\*[]** torna possível comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Essa abordagem possibilita comparar as propriedades do elemento para ' If None of ', ' if any of ', ou ' If All of '. Usando **ipRules [\*]** , um exemplo seria validar se cada _ação_ é _Deny_, mas não se preocupa com quantas regras existem ou qual é o _valor_ de IP. Esta regra de exemplo verifica se há correspondências de **ipRules [\*]. Value** para **10.0.4.1** e aplica o **effecttype** somente se ele não encontrar pelo menos uma correspondência:
 
 ```json
 "policyRule": {
@@ -527,7 +539,7 @@ O **[\*]** alias torna possível a ser comparada com o valor de cada elemento da
 }
 ```
 
-Para obter mais informações, consulte [avaliando o [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Para obter mais informações, consulte [avaliando\*o alias []](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniciativas
 
@@ -609,9 +621,9 @@ O exemplo a seguir ilustra como criar uma iniciativa para lidar com duas marcas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examine os exemplos na [exemplos do Azure Policy](../samples/index.md).
+- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Revisar [Compreendendo os efeitos da política](effects.md).
-- Entender como [criar políticas de forma programática](../how-to/programmatically-create.md).
+- Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Veja o que é um grupo de gerenciamento com [Organizar seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

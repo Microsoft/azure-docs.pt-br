@@ -8,14 +8,14 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: 4c8d488021ca12a704a5c0a06bb0c491588bcaed
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: b2d68f878aed5ce400214b6bdf6e1c0d713043bb
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261682"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670757"
 ---
-# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início rápido: Executar um fluxo de trabalho por meio do serviço Microsoft Genomics
+# <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho por meio do serviço Microsoft Genomics
 
 O início rápido mostra como carregar dados de entrada no Armazenamento de Blobs do Azure e executar um fluxo de trabalho por meio do serviço Microsoft Genomics. O Microsoft Genomics é um serviço seguro e escalonável para análise secundária que pode processar um genoma rapidamente, começando com leituras brutas e produzindo leituras alinhadas e chamadas variáveis. 
 
@@ -152,7 +152,7 @@ Abra o arquivo config.txt que você baixou da sua conta do Genomics. As seções
 ![Configuração do Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Configuração do Genomics")
 
 
-Caso deseje executar o GATK4, defina o parâmetro `process_name` como gatk4 ou gatk4-promo. Para obter mais informações sobre a promoção do GATK4, visite [esta página](https://aka.ms/msgatk4).
+Caso deseje executar o GATK4, defina o parâmetro `process_name` como `gatk4`.
 
 Por padrão, o serviço Genomics gera arquivos VCF. Caso deseje obter uma saída gVCF em vez de uma saída VCF (equivalente a `-emitRefConfidence` no GATK 3.x e `emit-ref-confidence` no GATK 4. x), adicione o parâmetro `emit_ref_confidence` ao `config.txt` e defina-o como `gvcf`, conforme mostrado na figura acima.  Para alterá-la novamente para a saída VCF, remova-a do arquivo `config.txt` ou defina o parâmetro `emit_ref_confidence` como `none`. 
 

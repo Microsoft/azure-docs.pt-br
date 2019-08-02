@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e37b35f87920016f81bda60fe8a9b6f1714eaae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 800db36f8432a8d8cf99028643f91269ffb648e3
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871631"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>Tutorial: Integração do Azure Active Directory com MobileIron
 
@@ -53,7 +53,7 @@ Para configurar a integração do MobileIron ao Azure AD, você precisará adici
 
 **Para adicionar o MobileIron da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o MobileIron, execute as seguinte
 
     ![Informações de logon único em Domínio e URLs do MobileIron](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.mobileiron.com/<key>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.mobileiron.com/<key>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
@@ -202,11 +202,11 @@ No caso do MobileIron, o provisionamento é uma tarefa manual.
 
     ![Botão Configurar usuário do Logon Único](./media/mobileiron-tutorial/tutorial_mobileiron_user.png)
 
-1. Na página do diálogo **“Usuário Único”**, execute as seguintes etapas:
+1. Na página do diálogo **“Usuário Único”** , execute as seguintes etapas:
 
     ![Botão Configurar adicionar usuário de Logon Único](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-     a. Na caixa de texto **Endereço de Email**, insira o email do usuário como brittasimon@contoso.com.
+    a. Na caixa de texto **Endereço de Email**, insira o email do usuário como brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como Brenda.
 
@@ -226,5 +226,5 @@ Ao clicar no bloco do MobileIron no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

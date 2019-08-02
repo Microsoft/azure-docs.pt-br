@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: 4e7145570cbc906ea540c9d8f95f6c3cbde1c610
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928621"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598043"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>Adicionar um pacote R aos Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
@@ -164,7 +164,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 ```
 
 > [!TIP]
-> Outra maneira de instalar um pacote R em seu banco de dados SQL do Azure é carregá-lo de um fluxo de bytes usando a instrução T-SQL **CREATE EXTERNAL LIBRARY**. Confira [Criar uma biblioteca de um fluxo de bytes](/sql/t-sql/statements/create-external-library-transact-sql#c-create-a-library-from-a-byte-stream) na documentação de referência [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
+> Outra maneira de instalar um pacote R em seu banco de dados SQL do Azure é carregá-lo de um fluxo de bytes usando a instrução T-SQL **CREATE EXTERNAL LIBRARY**. Confira [Criar uma biblioteca de um fluxo de bytes](/sql/t-sql/statements/create-external-library-transact-sql#create-a-library-from-a-byte-stream) na documentação de referência [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 
 ## <a name="next-steps"></a>Próximas etapas
 

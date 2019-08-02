@@ -1,21 +1,21 @@
 ---
-title: Loop de comentários – Personalizador
+title: 'Início Rápido: Criar um loop de comentários – Personalizador'
 titleSuffix: Azure Cognitive Services
 description: Personalize o conteúdo neste Início Rápido do C# com o serviço Personalizador.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/08/2019
-ms.author: edjez
-ms.openlocfilehash: a7f6c6fe25bf9dff2f102080f93fc1e0024ac660
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.topic: quickstart
+ms.date: 06/11/2019
+ms.author: diberry
+ms.openlocfilehash: 54aa23071fef09058a1702218d6b7fc920363518
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66478638"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662806"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Início Rápido: Personalizar o conteúdo usando o C# 
 
@@ -54,6 +54,7 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 
 1. Crie um novo aplicativo de console do Visual C# no Visual Studio.
 1. Instale o pacote NuGet da biblioteca de clientes do Personalizador. No menu, selecione **Ferramentas**, selecione **Gerenciador de Pacotes NuGet** e, em seguida, **Gerenciar Pacotes NuGet para a Solução**.
+1. Marque **Incluir pré-lançamento**.
 1. Selecione a guia **Procurar** e, na caixa **Pesquisa**, digite `Microsoft.Azure.CognitiveServices.Personalizer`.
 1. Selecione **Microsoft.Azure.CognitiveServices.Personalizer** quando ele for exibido.
 1. Marque a caixa de seleção ao lado do nome do projeto e selecione **Instalar**.

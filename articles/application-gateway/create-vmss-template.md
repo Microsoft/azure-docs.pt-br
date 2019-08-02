@@ -1,34 +1,26 @@
 ---
-title: Criar um Gateway de Aplicativo do Azure - modelos | Microsoft Docs
-description: Esta página oferece instruções para criar um gateway de aplicativo do Azure usando o modelo do Gerenciador de Recursos do Azure
-documentationcenter: na
+title: Criar um Gateway de aplicativo do Azure - modelos
+description: Este artigo fornece instruções para criar um gateway de aplicativo do Azure usando o modelo do Azure Resource Manager
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 6/26/2019
 ms.author: victorh
-ms.openlocfilehash: 7ff6db5acb150207f975931155386a308c48888b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a762e8c9ed1981173f3729837456ac2cfea081b8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66134092"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449543"
 ---
-# <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Gerenciador de Recursos do Azure
+# <a name="create-an-application-gateway-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Azure Resource Manager
 
-O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de entrega de aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de protocolo SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para conferir uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](overview.md)
+O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de entrega de aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de protocolo SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para conferir uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
-Este artigo fornece orientações para você baixar e a modificar um [modelo existente do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) no GitHub e a implantar o modelo do GitHub, do PowerShell e da CLI do Azure.
+Este artigo orienta você por meio do download e modificar um existente [modelo do Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) do GitHub e implantar o modelo do GitHub, Azure PowerShell e a CLI do Azure.
 
-Se você estiver apenas implantando o modelo diretamente do GitHub, sem nenhuma alteração, prossiga para a seção que explica como implantar um modelo do GitHub.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Se você estiver simplesmente implantando o modelo diretamente do GitHub, sem qualquer alteração, ignore para implantar um modelo do GitHub.
 
 ## <a name="scenario"></a>Cenário
 
@@ -42,7 +34,7 @@ Neste cenário, você:
 > [!NOTE]
 > Essas configurações são os parâmetros para esse modelo. Para personalizar o modelo, você pode alterar as regras, o ouvinte, o SSL e outras opções no arquivo azuredeploy.json.
 
-![Cenário](./media/create-vmss-template/scenario.png)
+![Cenário](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## <a name="download-and-understand-the-azure-resource-manager-template"></a>Baixar e compreender o modelo do Gerenciador de Recursos do Azure
 
@@ -51,9 +43,9 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 1. Navegue até [Criar Gateway de Aplicativo com o firewall de aplicativo Web habilitado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-waf).
 1. Clique em **azuredeploy.json** e em **RAW**.
 1. Salve o arquivo em uma pasta local do computador.
-1. Se você estiver familiarizado com os modelos do Gerenciador de Recursos do Azure, pule para a etapa 7.
-1. Abra o arquivo que você salvou e examine o conteúdo em **parâmetros** na linha
-1. Os parâmetros do modelo do Gerenciador de Recursos do Azure fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
+1. Se você estiver familiarizado com modelos do Azure Resource Manager, vá para a etapa 7.
+2. Abra o arquivo que você salvou e examine o conteúdo em **parâmetros** na linha
+3. Os parâmetros do modelo do Gerenciador de Recursos do Azure fornecem um espaço reservado para valores que podem ser preenchidos durante a implantação.
 
    | Parâmetro | DESCRIÇÃO |
    | --- | --- |
@@ -70,7 +62,7 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 
    * **type**. Tipo de recurso que está sendo criado pelo modelo. Nesse caso, o tipo é `Microsoft.Network/applicationGateways`, que representa um gateway de aplicativo.
    * **name**. Nome do recurso. Observe o uso de `[parameters('applicationGatewayName')]`, que significa o nome que é fornecido como entrada por você ou um arquivo de parâmetro durante a implantação.
-   * **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do gateway de aplicativo. Para a sintaxe JSON e propriedades de um gateway de aplicativo no modelo, consulte [Microsoft.Network/applicationGateways](/azure/templates/microsoft.network/applicationgateways).
+   * **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do gateway de aplicativo.
 
 1. Volta para [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Clique em **azuredeploy-parameters.json** e em **RAW**.
@@ -118,46 +110,48 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
 
 1. Salve o arquivo. Você pode testar o modelo JSON e o modelo de parâmetro usando ferramentas de validação de JSON online, como [JSlint.com](https://www.jslint.com/).
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>Implantar o modelo do Gerenciador de Recursos do Azure usando o PowerShell
+## <a name="deploy-the-azure-resource-manager-template-using-azure-powershell"></a>Implantar o modelo do Azure Resource Manager usando o Azure PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Se você nunca usou o Azure PowerShell, consulte: [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) e siga as instruções para entrar no Azure e selecionar sua assinatura.
 
-1. Fazer logon no PowerShell
+1. Conecte-se ao Azure
 
-    ```powershell
-    Login-AzAccount
+    ```azurepowershell
+    Connect-AzAccount
     ```
 
 1. Verificar as assinaturas da conta.
 
-    ```powershell
+    ```azurepowershell
     Get-AzSubscription
     ```
 
-    Você deve se autenticar com suas credenciais.
+    Você receberá uma solicitação para se autenticar com suas credenciais.
 
 1. Escolha quais das suas assinaturas do Azure deseja usar.
 
-    ```powershell
+    ```azurepowershell
     Select-AzSubscription -Subscriptionid "GUID of subscription"
     ```
 
-1. Se necessário, crie um grupo de recursos usando o cmdlet **New-AzureResourceGroup** . No exemplo a seguir, você cria um grupo de recursos chamado AppgatewayRG no local do Leste dos EUA.
+1. Se necessário, crie um grupo de recursos usando o **New-AzureResourceGroup** cmdlet. No exemplo a seguir, você cria um grupo de recursos chamado AppgatewayRG no local do Leste dos EUA.
 
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroup -Name AppgatewayRG -Location "West US"
     ```
 
 1. Execute o **New-AzResourceGroupDeployment** cmdlet para implantar a nova rede virtual usando o modelo e parâmetro anteriores arquivos que você baixou e modificou.
     
-    ```powershell
+    ```azurepowershell
     New-AzResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroupName AppgatewayRG `
     -TemplateFile C:\ARM\azuredeploy.json -TemplateParameterFile C:\ARM\azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-the-azure-cli"></a>Implantar o modelo do Gerenciador de Recursos do Azure usando a CLI do Azure
+## <a name="deploy-the-azure-resource-manager-template-using-the-azure-cli"></a>Implantar o modelo do Azure Resource Manager usando a CLI do Azure
 
-Para implantar o modelo do Azure Resource Manager baixado usando a CLI do Azure, execute as etapas abaixo:
+Para implantar o modelo do Azure Resource Manager baixado usando a CLI do Azure, siga as etapas a seguir:
 
 1. Se você nunca usou a CLI do Azure, confira [Instalar e configurar a CLI do Azure](/cli/azure/install-azure-cli) e siga as instruções até o ponto em que você seleciona sua conta e assinatura do Azure.
 
@@ -171,13 +165,13 @@ Para implantar o modelo do Azure Resource Manager baixado usando a CLI do Azure,
     
     **-l (ou --location)** . Região do Azure onde o novo grupo de recursos é criado. Para nosso cenário, esse grupo é *westus*.
 
-1. Execute o cmdlet `az group deployment create` para implantar a nova rede virtual usando o modelo e os arquivos de parâmetro que você baixou e modificou na etapa anterior. A lista exibida após a saída explicar os parâmetros usados.
+1. Execute o `az group deployment create` cmdlet para implantar a nova rede virtual usando o modelo e parâmetro arquivos que você baixou e modificou na etapa anterior. A lista exibida após a saída explicar os parâmetros usados.
 
     ```azurecli
     az group deployment create --resource-group appgatewayRG --name TestAppgatewayDeployment --template-file azuredeploy.json --parameters @azuredeploy-parameters.json
     ```
 
-## <a name="deploy-the-azure-resource-manager-template-by-using-click-to-deploy"></a>Implantar o modelo do Gerenciador de Recursos do Azure usando o clique para implantar
+## <a name="deploy-the-azure-resource-manager-template-using-click-to-deploy"></a>Implantar o modelo do Azure Resource Manager usando o clique para implantar
 
 Clique para implantar é outra maneira de usar modelos do Gerenciador de Recursos do Azure. É uma maneira fácil de usar modelos com o portal do Azure.
 
@@ -185,21 +179,22 @@ Clique para implantar é outra maneira de usar modelos do Gerenciador de Recurso
 
 1. Clique em **Implantar no Azure**.
 
-    ![Implantar no Azure](./media/create-vmss-template/deploytoazure.png)
+    ![Implantar no Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
     
 1. Preencha os parâmetros do modelo de implantação no portal e clique em **OK**.
 
-    ![parâmetros](./media/create-vmss-template/ibiza1.png)
+    ![parâmetros](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
     
 1. Selecione **Concordo com os termos e condições declarados acima** e clique em **Comprar**.
 
-1. Na folha Implantação personalizada, clique em **Criar**.
+1. Na página de implantação personalizada, clique em **criar**.
 
 ## <a name="providing-certificate-data-to-resource-manager-templates"></a>Fornecendo dados de certificado aos modelos do Resource Manager
 
 Ao usar o SSL com um modelo, o certificado precisa ser fornecido em uma cadeia de caracteres base64 em vez de ser carregado. Para converter .pfx ou .cer para uma sequência de caracteres base64 usar um dos seguintes comandos. Os comandos a seguir convertem o certificado a uma sequência de caracteres base64, que pode ser fornecida ao modelo. A saída esperada é uma cadeia de caracteres que pode ser armazenada em uma variável e colada no modelo.
 
 ### <a name="macos"></a>macOS
+
 ```bash
 cert=$( base64 <certificate path and name>.pfx )
 echo $cert
@@ -214,9 +209,9 @@ echo $cert
 
 Para excluir todos os recursos criados neste artigo, conclua uma das seguintes etapas:
 
-### <a name="powershell"></a>PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 
-```powershell
+```azurepowershell
 Remove-AzResourceGroup -Name appgatewayRG
 ```
 
@@ -228,12 +223,11 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se quiser configurar o descarregamento SSL, visite: [Configurar um gateway de aplicativo para descarregamento SSL](tutorial-ssl-cli.md).
+Se você quiser configurar o descarregamento SSL, consulte: [Configurar um gateway de aplicativo para descarregamento SSL](application-gateway-ssl.md).
 
-Se desejar configurar um gateway de aplicativo para usar com um balanceador de carga interno, visite: [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](redirect-internal-site-cli.md).
+Se você quiser configurar um gateway de aplicativo para usar com um balanceador de carga interno, consulte: [Criar um gateway de aplicativo com um ILB (balanceador de carga interno)](application-gateway-ilb.md).
 
-Se deseja saber mais sobre as opções de balanceamento de carga no geral, visite:
+Se deseja obter mais informações sobre as opções de balanceamento de carga no geral, consulte:
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8f090a3f07eba529fd39976545eb654083e637eb
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66236291"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561404"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -53,7 +53,7 @@ a. O Data Box tem uma capacidade bruta de 100 TB e uma capacidade utilizável de
 a.  Para obter informações sobre em quais países/regiões o Data Box está disponível, acesse [Disponibilidade de regiões](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>P. Em quais regiões posso armazenar dados com o Data Box?
-a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental, na Europa Setentrional, na França e no Reino Unido. Somente as regiões de nuvem pública do Azure têm suporte. Não há suporte para o Azure Governamental ou outras nuvens soberanas. Para saber mais, acesse [Disponibilidade por região](data-box-overview.md#region-availability).
+a. O Data Box é compatível com todas as regiões nos EUA, na Europa Ocidental, na Europa Setentrional, na França, no Reino Unido, no Japão, na Austrália e no Canadá. Para saber mais, acesse [Disponibilidade por região](data-box-overview.md#region-availability).
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues-with-data-box"></a>P. Quem deverei contatar se eu tiver problemas com o Data Box?
 a. Caso tenha problemas com o Data Box, [contate o Suporte da Microsoft](data-box-disk-contact-microsoft-support.md).
@@ -170,7 +170,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>P. Posso usar várias contas de armazenamento com o Data Box?
-a.  Sim. Um máximo de 10 contas de armazenamento, de uso geral, clássicas ou de armazenamento de blobs é compatível com o Data Box. Há suporte para o blob frequente e esporádico. Durante a versão GA, há suporte para as contas de armazenamento em todas as regiões nos EUA, na Europa Ocidental, na Europa Setentrional, na França e no Reino Unido na nuvem pública do Azure.
+a.  Sim. Um máximo de 10 contas de armazenamento, de uso geral, clássicas ou de armazenamento de blobs é compatível com o Data Box. Há suporte para o blob frequente e esporádico. 
 
 
 ## <a name="ship-device"></a>Enviar dispositivo

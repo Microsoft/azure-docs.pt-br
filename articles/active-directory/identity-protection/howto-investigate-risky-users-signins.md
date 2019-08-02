@@ -2,33 +2,25 @@
 title: Como investigar usuários arriscados no Azure Active Directory Identity Protection (atualizado) | Microsoft Docs
 description: Saiba como investigar usuários arriscados no Azure Active Directory Identity Protection (atualizado).
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.author: joflore
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
+ms.topic: conceptual
 ms.date: 01/25/2019
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a90195a2d0899b0a157cc67badd2f9873164987
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c89658e962654f005eaee5ceff220d5fb343e86e
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108961"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370312"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Como: Investigar entradas e usuários arriscados 
 
-
-Usando os relatórios de entradas arriscadas e usuários arriscados, você pode investigar e obter insights sobre riscos em seu ambiente. Com a capacidade de filtrar e classificar as entradas e usuários arriscados, você pode entender melhor possíveis invasões em sua organização. 
-
+Usando os relatórios de entradas arriscadas e usuários arriscados, você pode investigar e obter informações sobre riscos em seu ambiente. Com a capacidade de filtrar e classificar as entradas e usuários arriscados, você pode entender melhor possíveis invasões em sua organização. 
 
 ## <a name="risky-users-report"></a>Relatório de usuários arriscados
 
@@ -37,32 +29,21 @@ Com as informações fornecidas pelo relatório de usuários arriscados, você p
 - Quais usuários são de risco alto?
 - Quais usuários têm um estado de risco "remediado"?
 
-
-
 O primeiro ponto de entrada para este relatório é a seção **Investigar** na página de segurança.
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/01.png)
 
-
 O relatório de usuários arriscados tem uma exibição padrão que mostra:
 
-- NOME
-
+- Nome
 - Estado do risco
-
 - Nível de risco
-
 - Detalhe do risco
-
 - Última atualização do risco
-
-- Type
-
+- Tipo
 - Status
- 
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/03.png)
-
 
 Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
@@ -74,55 +55,36 @@ Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre e
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/05.png)
 
-
 A exibição de detalhes mostra:
 
 - Informações básicas
-
 - Entradas arriscadas recentes
-
 - Eventos de risco não vinculados a uma entrada
-
 - Histórico de risco
-
-
 
 Além disso, você pode:
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/08.png)
 
 - Atalho Exibir todas as entradas para exibir o relatório de entradas para o usuário em questão.
-
 - Exibir todas as entradas arriscadas para exibir todas as entradas para o usuário em questão que foram marcadas como arriscadas.
-
 - Redefinir a senha de um usuário se acreditar que a identidade do usuário foi comprometida.
-
-- Ignorar o risco do usuário se achar que os eventos de risco ativos de um usuário são falsos positivos. Para obter mais informações, confira [como melhorar a precisão da detecção](howto-improve-detection-accuracy.md).
-
-
+- Ignorar o risco do usuário se achar que os eventos de risco ativos de um usuário são falsos positivos. Para obter mais informações, consulte o artigo [fornecer comentários sobre eventos de risco em Azure ad Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### <a name="filter-risky-users"></a>Filtrar usuários arriscados
 
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de usuários arriscados usando os seguintes campos padrão:
 
-- NOME
-
-- Nome de Usuário
-
+- Nome
+- Nome de usuário
 - Estado do risco
-
 - Nível de risco
-
-- Type
-
+- Tipo
 - Status
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/06.png)
 
-
-
 O filtro **Nome** permite que você especifique o nome ou o UPN (nome UPN) do usuário desejado.
-
 
 O filtro **Riscos Detectados** permite que você selecione:
 
@@ -130,31 +92,27 @@ O filtro **Riscos Detectados** permite que você selecione:
 - Remediado
 - Ignorado
 
-
 O filtro **Nível de risco** permite que você selecione:
 
-- Alto
+- Alta
 - Média
-- Baixo
-
+- Baixa
 
 O filtro **Tipo** permite que você selecione:
 
-- Convidado
+- Guest
 - Membro
 
 O filtro **Status** permite que você selecione:
 
-- Deleted
-- Ativo
-
+- Excluído
+- Ativa
 
 ### <a name="download-risky-users-data"></a>Baixar dados de usuários arriscados
 
-Se você quiser trabalhar com eles fora do portal do Azure, você pode baixar os dados de usuários arriscados. Clicando em Download cria um arquivo CSV dos registros de 2.500 mais recentes. 
+Você pode baixar os dados de usuários arriscados se quiser trabalhar com eles fora do portal do Azure. Clicar em baixar cria um arquivo CSV dos registros 2.500 mais recentes. 
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/07.png)
-
 
 Você pode personalizar o modo de exibição de lista clicando em Colunas na barra de ferramentas.
  
@@ -162,22 +120,13 @@ Isso permite a você exibir campos adicionais ou remover campos que já estão e
  
 Para saber mais sobre um usuário arriscado, clique na gaveta de Detalhes para expandi-lo
 
- 
-
-
-
 ## <a name="risky-sign-ins-report"></a>Relatório de entradas arriscadas
 
 Com as informações fornecidas pelo relatório de entradas arriscadas, você pode encontrar respostas a perguntas como:
 
 - Na última semana, qual o número de entradas bem-sucedidas que tinham eventos de risco com endereço IP anônimo?
-
 - No último mês, quais usuários foram confirmados como comprometidos?
-
 - Quais usuários tinham entradas arriscadas no portal do Office 365?
-
-
-
 
 O primeiro ponto de entrada para este relatório é a seção **Investigar** na página de segurança.
 
@@ -185,27 +134,17 @@ O primeiro ponto de entrada para este relatório é a seção **Investigar** na 
 
 O relatório de entradas arriscadas tem uma exibição padrão que mostra:
 
-- Data
-
-- Usuário
-
+- Date
+- User
 - Aplicativo
-
 - Status de entrada
-
 - Estado do risco
-
 - Nível de risco (agregação)
-
 - Nível de risco (tempo real)
-
 - Acesso Condicional
-
 - MFA necessário  
- 
 
 ![Relatório de entradas arriscadas](./media/howto-investigate-risky-users-signins/09.png)
-
 
 Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
@@ -217,53 +156,38 @@ Ao clicar em um item na exibição de lista, você obterá mais detalhes sobre e
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/12.png)
 
-
 A exibição de detalhes mostra:
 
 - Informações básicas
-
 - Informações do dispositivo
-
 - Informações de risco
-
-- Informações de MFA
-
+- Informações MFA
 - Acesso Condicional
-
-
-
-
 
 Além disso, você pode:
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/13.png)
 
 - Confirmar comprometido 
+- Confirmar segura
 
-- Confirmar seguro
-
-Para obter mais informações, confira [como melhorar a precisão da detecção](howto-improve-detection-accuracy.md).
-
-
-
+Para obter mais informações, consulte o artigo [fornecer comentários sobre eventos de risco em Azure ad Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### <a name="filter-risky-sign-ins"></a>Filtrar entradas arriscadas
 
 Para restringir os dados relatados a um nível que funciona para você, filtre os dados de usuários arriscados usando os seguintes campos padrão:
 
-- Usuário
+- User
 - Aplicativo
 - Status de entrada
 - Estado do risco
 - Nível de risco (agregação)
 - Nível de risco (tempo real)
 - Acesso Condicional
-- Data
+- Date
 - Tipo de nível de risco
 
 ![Relatório de entradas arriscadas](./media/howto-investigate-risky-users-signins/14.png)
-
-
 
 O filtro **Nome** permite que você especifique o nome ou o UPN (nome UPN) do usuário desejado.
 
@@ -271,10 +195,9 @@ O filtro **Aplicativo** permite que você especifique o aplicativo de nuvem que 
 
 O filtro **status de entrada** permite que você selecione:
 
-- Todos
+- Todas
 - Êxito
-- Failure
-
+- Falha
 
 O filtro **Riscos Detectados** permite que você selecione:
 
@@ -284,27 +207,24 @@ O filtro **Riscos Detectados** permite que você selecione:
 - Ignorado
 - Remediado
 
-
 O filtro **Nível de risco (agregação)** permite que você selecione:
 
-- Alto
+- Alta
 - Média
-- Baixo
+- Baixa
 
 O filtro **Nível de risco (tempo real)** permite que você selecione:
 
-- Alto
+- Alta
 - Média
-- Baixo
+- Baixa
 
+O filtro de **acesso condicional** permite que você selecione:
 
-O **acesso condicional** filtro permite que você selecione:
-
-- Todos
+- Todas
 - Não aplicado
 - Êxito
-- Failure
-
+- Falha
 
 O filtro **Data** permite definir um período de tempo para os dados retornados.
 Os valores possíveis são:
@@ -314,17 +234,11 @@ Os valores possíveis são:
 - Últimas 24 horas
 - Intervalo de tempo personalizado
 
-
-
-
-
 ### <a name="download-risky-sign-ins-data"></a>Baixar dados de entradas arriscadas
 
-Se você quiser trabalhar com eles fora do portal do Azure, você pode baixar os dados de entradas de risco. Clicando em Download cria um arquivo CSV dos registros de 2.500 mais recentes. 
+Você pode baixar os dados de entradas arriscadas se quiser trabalhar com eles fora do portal do Azure. Clicar em baixar cria um arquivo CSV dos registros 2.500 mais recentes. 
 
 ![Relatório de usuários arriscados](./media/howto-investigate-risky-users-signins/15.png)
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: e2f0f1e7ac8f510c4ff5be7933c55278fef74694
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37acd88dbfe8ed1790f1bfa68d5e9762a861ddc7
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60715409"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626398"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial
 
@@ -69,7 +69,7 @@ Execute scripts do [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/1
 Faça previsões sobre a RUL (vida útil restante) de um motor de aeronave específico usando as entradas recebidas com o [serviço Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory). 
 
 ## <a name="data-publishing"></a>Publicação de dados
-### <a name="azure-sql-database"></a>Banco de dados SQL do Azure
+### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
 Use o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar as previsões recebidas pelo serviço Azure Machine Learning e que serão consumidas no painel do [Power BI](https://powerbi.microsoft.com).
 
 ## <a name="data-consumption"></a>Consumo de dados
@@ -88,7 +88,7 @@ O Hub de Eventos do Azure é genérico. Os dados podem ser publicados no hub no 
 
 Esse documento não descreve como incluir seus dados, mas você pode facilmente enviar eventos ou dados para um Hub de Eventos do Azure usando as APIs do Hub de Eventos.
 
-### <a name="azure-stream-analytics"></a>Stream Analytics do Azure
+### <a name="azure-stream-analytics-1"></a>Azure Stream Analytics
 Use o serviço Stream Analytics do Azure para fornecer análise em quase tempo real ao ler fluxos de dados e produzir como saída dados para qualquer número de fontes.
 
 Para a Manutenção Preditiva para o Modelo de Solução Aeroespacial, a consulta do Stream Analytics do Azure consiste em quatro subconsultas; cada consulta consome eventos do serviço Hub de Eventos do Azure e produz saídas para quatro locais distintos. Essas saídas consistem em três conjuntos de dados do Power BI e em um local do Armazenamento do Azure.
@@ -103,7 +103,7 @@ A consulta do Stream Analytics do Azure pode ser encontrada por meio de:
   * ***QUERY*** para exibir a consulta
   * ***OUTPUTS*** para exibir as diferentes saídas
 
-As informações sobre a criação da consulta do Stream Analytics do Azure podem ser encontradas em [Stream Analytics Query Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx) , no MSDN.
+As informações sobre a criação da consulta do Stream Analytics do Azure podem ser encontradas em [Stream Analytics Query Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) , no MSDN.
 
 Nesta solução, as consultas produzem como saída três conjuntos de dados com informações de análise quase em tempo real sobre o fluxo de dados de entrada para um painel fornecido como parte deste modelo de solução. Como há um conhecimento implícito sobre o formato de dados de entrada, essas consultas precisam ser alteradas com base em seu formato de dados.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4beac0ab739d62eb7acb00e6b2db717b5f43e15
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 384a0d1161197bbe4d4335e27b72ed50755980f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987966"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boxcryptor"></a>Tutorial: Integração do Azure Active Directory ao Boxcryptor
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Boxcryptor, execute as seguinte
 
     ![Informações de logon único em Domínio e URLs do Boxcryptor](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://www.boxcryptor.com/app`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://www.boxcryptor.com/app`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor: `boxcryptor`
 
@@ -195,5 +195,5 @@ Ao clicar no bloco do Boxcryptor no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

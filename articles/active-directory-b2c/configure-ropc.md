@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e590e4765f4795123e219f8da4b3e62bc79ca30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e8de1d27d92ac57f478b7615144dba166f420d27
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511356"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807219"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configure o fluxo de credenciais de senha de proprietário do recurso no Azure AD B2C
 
@@ -68,7 +68,7 @@ Use seu aplicativo favorito de desenvolvimento de API para gerar uma chamada de 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Value |
+| Chave | Valor |
 | --- | ----- |
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
@@ -108,7 +108,7 @@ Construa uma chamada POST como a monstrada aqui com as informações na tabela a
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Chave | Value |
+| Chave | Valor |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -135,6 +135,8 @@ Uma resposta bem-sucedida se parece com o seguinte exemplo:
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> Durante a criação de usuários por meio da API do Graph, o aplicativo precisa ter permissões de "perfil" do Microsoft Graph, "offline_access" e "openid".
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>Implementar com o SDK nativo preferencial ou usar App-Auth
 

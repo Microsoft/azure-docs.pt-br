@@ -63,6 +63,10 @@
               href: google-federation.md
             - name: Autenticação de senha avulsa
               href: one-time-passcode.md
+            - name: Federação direta
+              href: direct-federation.md
+            - name: Exemplo de federação direta com o AD FS
+              href: direct-federation-adfs.md
             - name: Permitir ou bloquear convites
               href: allow-deny-list.md
             - name: Adicionar usuários de B2B sem um convite

@@ -4,32 +4,32 @@ description: Descreve como usar a limitação com solicitações Azure Resource 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 07/09/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f457b316d9f499f2cab02452c1b03ad07a9aef27
+ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399708"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68302824"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
 
-Para cada assinatura e inquilino do Azure, o Gerenciador de Recursos permite até 12.000 solicitações de leitura por hora e 1.200 solicitações de gravação por hora. Esses limites são definidos para o ID principal que faz as solicitações e o ID da assinatura ou o ID do inquilino. Se suas solicitações vierem de mais de uma ID principal, seu limite na assinatura ou no inquilino será maior que 12.000 e 1.200 por hora.
+Para cada assinatura e inquilino do Azure, o Gerenciador de Recursos permite até 12.000 solicitações de leitura por hora e 1.200 solicitações de gravação por hora. Esses limites têm como escopo a entidade de segurança (usuário ou aplicativo) que faz as solicitações e a ID da assinatura ou a ID do locatário. Se suas solicitações vierem de mais de uma entidade de segurança, seu limite entre a assinatura ou o locatário será maior que 12.000 e 1.200 por hora.
 
-As solicitações são aplicadas à sua assinatura ou ao seu inquilino. Solicitações de assinatura são aquelas que envolvem passando a ID de assinatura, como recuperar os grupos de recursos em sua assinatura. As solicitações de inquilino não incluem seu ID de inscrição, como a recuperação de locais válidos do Azure.
+As solicitações são aplicadas à sua assinatura ou ao seu inquilino. As solicitações de assinatura são aquelas que envolvem a passagem da sua ID de assinatura, como a recuperação dos grupos de recursos em sua assinatura. As solicitações de inquilino não incluem seu ID de inscrição, como a recuperação de locais válidos do Azure.
 
 Esses limites se aplicam a cada instância do Azure Resource Manager. Há várias instâncias em todas as regiões do Azure e o Azure Resource Manager é implantado em todas as regiões do Azure.  Portanto, na prática, os limites são efetivamente muito maiores do que esses, pois as solicitações do usuário são geralmente atendidas por muitas instâncias diferentes.
 
-Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando você atingiu o limite.
+Se seu aplicativo ou script atingir esses limites, será necessário restringir suas solicitações. Este artigo mostra como determinar as solicitações restantes que você tem antes de atingir o limite e como responder quando atingir o limite.
 
 Quando você alcança o limite, recebe o código de status HTTP **429 Excesso de solicitações**.
 
-Gráfico de recursos do Azure limita o número de solicitações para suas operações. As etapas neste artigo para determinar as solicitações restantes que e como responder quando o limite for atingido também se aplicam ao gráfico de recursos. No entanto, gráfico de recursos define sua própria taxa limite e de redefinição. Para obter mais informações, consulte [limitação no gráfico de recursos do Azure](../governance/resource-graph/overview.md#throttling).
+O grafo de recursos do Azure limita o número de solicitações para suas operações. As etapas neste artigo para determinar as solicitações restantes e como responder quando o limite é atingido também se aplicam ao grafo de recursos. No entanto, o grafo de recursos define seu próprio limite e a taxa de redefinição. Para obter mais informações, consulte [limitação no grafo de recursos do Azure](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Solicitações restantes
-Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. Grave solicitações incluem um valor para o número de solicitações de gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
+Você pode determinar o número de solicitações restantes ao examinar cabeçalhos de resposta. As solicitações de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. As solicitações de gravação incluem um valor para o número de solicitações de gravação restantes. A tabela a seguir descreve os cabeçalhos de resposta que você pode examinar em busca desses valores:
 
 | Cabeçalho de resposta | DESCRIÇÃO |
 | --- | --- |

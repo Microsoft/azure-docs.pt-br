@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: ac21071b958942d7d689f1e9c2c49f02a3599ac4
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 06ab8a96e4f2c4bb90afd34952a8e6e78114e7e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888191"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trakstar"></a>Tutorial: Integração do Azure Active Directory com o Trakstar
 
@@ -55,7 +55,7 @@ Para configurar a integração do Trakstar ao AD do Azure, você precisará adic
 
 **Para adicionar o Trakstar da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o Trakstar, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Trakstar](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, copie o valor encontrado em **URL do ACS (Consumidor)** em Trakstar (Configurações > Autenticação e SSO) no formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
+    a. Na caixa de texto **URL de Logon**, copie o valor encontrado em **URL do ACS (Consumidor)** em Trakstar (Configurações > Autenticação e SSO) no formato: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, mantenha o padrão: `https://app.trakstar.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , mantenha o padrão: `https://app.trakstar.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre no Trakstar como Administrador para obter esses valores.
@@ -199,5 +199,5 @@ Ao clicar no bloco do Trakstar no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

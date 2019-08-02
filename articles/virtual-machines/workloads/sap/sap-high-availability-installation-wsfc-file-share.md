@@ -4,7 +4,7 @@ description: Instalação da alta disponibilidade do SAP NetWeaver em um cluster
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0efb1ec30430a69563c61de667ad2568f2679a1b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357689"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708970"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP no Azure
 
@@ -206,7 +206,7 @@ Antes de iniciar a instalação, revise os seguintes artigos:
 
 * [Guia de arquitetura: Uma instância do SAP ASCS/SCS de cluster em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-file-share]
 
-* [Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP][sap-high-availability-infrastructure-wsfc-file-share]
+* [Preparar a alta disponibilidade do SAP de infraestrutura do Azure por meio de um compartilhamento de arquivo e de cluster de failover do Windows para instâncias SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
 
 * [Alta disponibilidade do SAP NetWeaver em VMs do Azure][high-availability-guide]
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Criar um nome de host virtual para a instância clusterizada do SAP ASCS/SCS
 
-Crie um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]** ) conforme descrito em [Criar um nome de host virtual para a instância clusterizada do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
+Criar um nome de rede de cluster SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]** ), conforme descrito em [criar um nome de host virtual para a instância clusterizada do SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host].
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instalar uma instância do ASCS/SCS e ERS no cluster
@@ -304,7 +304,7 @@ Instale uma instância do SAP ASCS/SCS no primeiro nó do cluster. Para instalar
 
 ### <a name="add-a-probe-port"></a>Adicionar uma porta de investigação
 
-Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, usando o PowerShell. Execute essa configuração em um dos nós do cluster SAP ASCS/SCS, conforme descrito [nesse artigo][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
+Configure um recurso de cluster do SAP, a porta de investigação SAP-SID-IP, usando o PowerShell. Execute essa configuração em um de nós do cluster SAP ASCS/SCS, conforme descrito [neste artigo][sap-high-availability-installation-wsfc-shared-disk-add-probe-port].
 
 ### <a name="install-an-ascsscs-instance-on-the-second-ascsscs-cluster-node"></a>Instalar uma instância do ASCS/SCS no segundo nó de cluster ASCS/SCS
 
@@ -335,10 +335,10 @@ Finalize a instalação do sistema SAP instalando:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Instalar uma instância do ASCS/SCS em um cluster de failover sem discos compartilhados: diretrizes SAP oficiais para compartilhamento de arquivo de alta disponibilidade][sap-official-ha-file-share-document]
+* [Instalar uma instância do ASCS/SCS em um cluster de failover sem discos compartilhados – diretrizes SAP oficiais para compartilhamento de arquivos de alta disponibilidade][sap-official-ha-file-share-document]
 
-* [Espaços de armazenamento direto no Windows Server 2016][s2d-in-win-2016]
+* [Espaços de armazenamento diretos no Windows Server 2016][s2d-in-win-2016]
 
-* [Visão geral do Servidor de Arquivos de Escalabilidade Horizontal para dados de aplicativo][sofs-overview]
+* [Servidor de arquivos de escalabilidade horizontal para visão geral de dados de aplicativo][sofs-overview]
 
-* [O que há de novo no Armazenamento no Windows Server 2016][new-in-win-2016-storage]
+* [O que há de novo no armazenamento no Windows Server 2016][new-in-win-2016-storage]

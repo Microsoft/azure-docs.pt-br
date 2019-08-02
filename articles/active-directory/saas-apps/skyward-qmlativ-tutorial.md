@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9faf5068f6007cc357bcd22480c08af4223ba906
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 93c886b4b352de441e4393403187e40fd930955c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090329"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyward-qmlativ"></a>Tutorial: Integração do Azure Active Directory com Skyward Qmlativ
 
@@ -53,7 +53,7 @@ Para configurar a integração do Skyward Qmlativ ao Azure AD, você precisará 
 
 **Para adicionar o Skyward Qmlativ da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Skyward Qmlativ, execute as seg
 
     ![Informações de logon único de URLs e Domínio do Skyward Qmlativ](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<BASEURL>/customeridentifierSTS`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<BASEURL>/customeridentifierSTS`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Entre em contato com a [equipe de suporte do cliente do Skyward Qmlativ](mailto:steveb@skyward.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

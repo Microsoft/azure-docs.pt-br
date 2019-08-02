@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: 323308b52874064658f65cf34abe18cc5ef208ff
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: e05dbc570836741a69ed229fc93eb32a7dfd01dd
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393441"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503153"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introdução ao Azure Dev Spaces com .NET Core
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster Kubernetes habilitado para Azure Dev Spaces
 
-No prompt de comando, crie o grupo de recursos em uma [região que dê suporte ao Azure Dev Spaces][supported-regions].
+No prompt de comando, crie o grupo de recursos em uma [região que dá suporte ao Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -130,22 +130,46 @@ Fique atento à saída do comando; você verá várias coisas durante sua execu�
 > Essas etapas levarão mais tempo na primeira vez em que o comando `up` for executado, mas as execuções seguintes deverão ser mais rápidas.
 
 ### <a name="test-the-web-app"></a>Testar o aplicativo Web
-Examine a saída do console para obter informações sobre a URL pública criada com o comando `up`. Ela estará neste formato: 
+Examine a saída do console em busca da mensagem *Aplicativo iniciado*, confirmando que o comando `up` foi concluído:
 
 ```
-(pending registration) Service 'webfrontend' port 'http' will be available at <url>
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.dll
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.94
+[...]
+webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
+webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Abra essa URL em uma janela do navegador e você deverá ver o aplicativo Web ser carregado. Conforme o contêiner é executado, a saída de `stdout` e `stderr` é transmitida para a janela do terminal.
+Identifique a URL pública do serviço na saída do comando `up`. Termina em `.azds.io`. No exemplo acima, a URL pública é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Para ver seu aplicativo Web, abra a URL pública em um navegador. Além disso, observe que a saída de `stdout` e `stderr` é transmitida para a janela do terminal *azds trace* enquanto você interage com o aplicativo Web. Também é possível conferir informações de acompanhamento das solicitações HTTP à medida que elas passam pelo sistema. Isso facilita o acompanhamento de chamadas complexas de vários serviços durante o desenvolvimento. A instrumentação adicionada pelo Dev Spaces fornece esse acompanhamento de solicitação.
+
+![janela do terminal de rastreamento azds](media/get-started-netcore/azds-trace.png)
+
 
 > [!Note]
-> Na primeira execução, pode demorar vários minutos para o DNS público estar pronto. Se a URL pública não resolver, você poderá usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. Para sua conveniência e para facilitar a interação com o serviço em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure. Você poderá voltar e experimentar a URL pública quando o registro DNS estiver pronto.
+> Além da URL pública, você pode usar a URL alternativa `http://localhost:<portnumber>` exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. O Azure Dev Spaces usa a funcionalidade de *encaminhamento de porta* do Kubernetes para mapear a porta do host local para o contêiner em execução no AKS. Isso facilita a interação com o serviço em seu computador local.
 
 ### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
 O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
 
-1. Localize o arquivo `./Views/Home/Index.cshtml` e edite o HTML. Por exemplo, altere a linha 70 que lê `<h2>Application uses</h2>` para algo como: `<h2>Hello k8s in Azure!</h2>`
+1. Localize o arquivo `./Views/Home/Index.cshtml` e edite o HTML. Por exemplo, altere a [linha 73 que diz `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) para algo como: 
+
+    ```html
+    <h2>Hello k8s in Azure!</h2>
+    ```
+
 1. Salve o arquivo. Em seguida, na janela do Terminal, você verá uma mensagem informando que um arquivo no contêiner em execução foi atualizado.
 1. Volte para o navegador e atualize a página. Você verá a página da Web exibir o HTML atualizado.
 
@@ -160,7 +184,6 @@ A atualização dos arquivos de código requer um pouco mais de trabalho, pois u
 1. Execute `azds up` na janela do terminal. 
 
 Esse comando recompila a imagem de contêiner e reimplanta o gráfico de Helm. Para ver as alterações de código entrarem em vigor no aplicativo em execução, vá ao menu Sobre no aplicativo Web.
-
 
 Mas existe um *método ainda mais rápido* para desenvolver código, que você irá explorar na próxima seção. 
 
@@ -199,11 +222,11 @@ Pressione **F5** para depurar seu código no Kubernetes.
 Assim como acontece com o comando `up`, o código está sincronizado com o espaço de desenvolvimento e um contêiner é criado e implantado no Kubernetes. Desta vez, é claro, o depurador está anexado ao contêiner remoto.
 
 > [!Tip]
-> A barra de status do VS Code exibirá uma URL clicável.
+> A barra de status do VS Code ficará laranja, indicando que o depurador foi anexado. Ela também exibirá uma URL clicável, que pode ser usada para abrir o site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, dentro da função `Index()` no arquivo de origem `Controllers/HomeController.cs`. A atualização da página do navegador gera o ponto de interrupção.
+Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, dentro da função `About()` no arquivo de origem `Controllers/HomeController.cs`. A atualização da página do navegador gera o ponto de interrupção.
 
 Você tem acesso completo às informações de depuração exatamente como teria se o código fosse executado localmente, por exemplo, a pilha de chamadas, as variáveis locais, as informações de exceção etc.
 
@@ -218,9 +241,9 @@ public IActionResult About()
 }
 ```
 
-Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Atualizar**. 
+Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Reiniciar**. 
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que houver edições de código, o que geralmente levará um tempo considerável, o Azure Dev Spaces recompilará incrementalmente o código dentro do contêiner existente para fornecer um loop de edição/depuração mais rápido.
 

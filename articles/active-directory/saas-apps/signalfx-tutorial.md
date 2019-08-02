@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6f742def0441b5ae18ad9da3a8ac9d280de8f824
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ce766da0521b787edec020d7dfc3de2a2d83b19
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867377"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signalfx"></a>Tutorial: Integração do Azure Active Directory ao SignalFx
 
@@ -54,7 +54,7 @@ Para configurar a integração do SignalFx ao Azure Active Directory, será nece
 
 **Para adicionar o SignalFx a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o SignalFx, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do SignalFx](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://api.signalfx.com/v1/saml/metadata`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://api.signalfx.com/v1/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.signalfx.com/v1/saml/acs/<integration ID>`
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o SignalFx, execute as seguintes 
     | PersonImmutableID       | user.userprincipalname    |
     | User.LastName       | user.surname    |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -174,7 +174,7 @@ Para configurar o logon único do Azure AD com o SignalFx, execute as seguintes 
 
     ![SignalFx samlintgpage](./media/signalfx-tutorial/tutorial_signalfx_azure.png)
 
-     a. Na caixa de texto **Nome**, digite um novo nome de integração, como **OurOrgName SAML SSO**.
+    a. Na caixa de texto **Nome**, digite um novo nome de integração, como **OurOrgName SAML SSO**.
 
     b. Copie o valor da **ID de Integração** e acrescente-o à **URL de Resposta** no lugar de `<integration ID>` na caixa de texto **URL de Resposta** da seção **Configuração Básica do SAML** no portal do Azure.
 

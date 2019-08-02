@@ -41,7 +41,7 @@ Nesse cenário, você irá:
 
 Nesse cenário, mostramos como exibir o Tempo Resposta inicial (RTT) de uma conversa TCP (Protocolo de Controle de Transmissão) que ocorre entre dois pontos de extremidade.
 
-Quando uma conexão TCP é estabelecida, os três primeiros pacotes enviados na conexão seguem um padrão conhecido como handshake de três vias. Examinando os dois primeiros pacotes enviados nesse handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando a conexão foi estabelecida. Essa latência é conhecida como Tempo Resposta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o recursos a seguir. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Quando uma conexão TCP é estabelecida, os três primeiros pacotes enviados na conexão seguem um padrão conhecido como handshake de três vias. Examinando os dois primeiros pacotes enviados nesse handshake, uma solicitação inicial do cliente e uma resposta do servidor, podemos calcular a latência quando a conexão foi estabelecida. Essa latência é conhecida como Tempo Resposta (RTT). Para obter mais informações sobre o protocolo TCP e o handshake de três vias, consulte o recursos a seguir. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
 
 ### <a name="step-1"></a>Etapa 1
 

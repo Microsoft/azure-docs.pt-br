@@ -1,6 +1,6 @@
 ---
-title: Carregar, codificar e transmitir com Serviços de Mídia do Azure v3 usando .NET | Microsoft Docs
-description: Siga as etapas deste tutorial para carregar um arquivo e codificar o vídeo e transmitir o conteúdo com os Serviços de Mídia v3 usando .NET.
+title: Carregar, codificar e transmitir com Serviços de Mídia do Azure v3 | Microsoft Docs
+description: Siga as etapas deste tutorial para carregar um arquivo e codificar o vídeo e transmitir o conteúdo com os Serviços de Mídia v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,14 +12,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/22/2019
 ms.author: juliako
-ms.openlocfilehash: 66ee2c110edfdbd0e33c69d45dee8040654d421a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5b359b81de694c47151c95254b80f847db828aed
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149158"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653927"
 ---
-# <a name="tutorial-upload-encode-and-stream-videos-using-net"></a>Tutorial: Carregar, codificar e transmitir vídeos usando .NET
+# <a name="tutorial-upload-encode-and-stream-videos"></a>Tutorial: Carregar, codificar e transmitir vídeos
+
+> [!NOTE]
+> Embora o tutorial use os exemplos do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), as etapas gerais são as mesmas para [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) ou outros [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 Os Serviços de Mídia do Azure permitem codificar os arquivos de mídia em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. Por exemplo, talvez você queira transmitir por streaming o conteúdo nos formatos MPEG-DASH ou HLS da Apple. Antes do streaming, será necessário codificar o arquivo de mídia digital de alta qualidade. Para obter diretrizes de codificação, consulte [Conceito de codificação](encoding-concept.md). Este tutorial carrega um arquivo de vídeo local e codifica o arquivo carregado. Também é possível codificar o conteúdo disponibilizado por meio de uma URL HTTPS. Para mais informações, consulte [Criar uma entrada de trabalho de uma URL HTTP(s)](job-input-from-http-how-to.md).
 
@@ -83,7 +86,7 @@ Em Serviços de Mídia v3, você usará as APIs de Armazenamento do Microsoft Az
 A função a seguir realiza essas ações:
 
 * Cria um **Ativo** 
-* Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável para o [contêiner no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container) do ativo
+* Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável para o [contêiner no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) do ativo
 * Carrega o arquivo para o contêiner no armazenamento usando a URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -179,7 +182,7 @@ Para testar o streaming, este artigo usa o Player de Mídia do Azure.
 > Se um player estiver hospedado em um site https, atualize a URL para "https".
 
 1. Abra um navegador da Web e navegue até [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. Na caixa **URL:**, cole um dos valores de URL de streaming que você obteve ao executar o aplicativo. 
+2. Na caixa **URL:** , cole um dos valores de URL de streaming que você obteve ao executar o aplicativo. 
 3. Pressione **Atualizar Player**.
 
 O Player de Mídia do Azure pode ser usado para testes, mas não deve ser usado em um ambiente de produção. 

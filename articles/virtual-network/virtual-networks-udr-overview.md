@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: malop; kumud
-ms.openlocfilehash: e0d27b92b4f0b7da8f96e4b1cc9695537db0e643
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: malop
+ms.reviewer: kumud
+ms.openlocfilehash: b26f876fbe07b1667a579fc040562f1d6ee8a85e
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851138"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871794"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -34,12 +35,11 @@ O Azure cria rotas de sistema automaticamente e as atribui a cada sub-rede em um
 
 Cada rota contém um prefixo de endereço e o tipo do próximo salto. Quando um tráfego saindo de uma sub-rede é enviado a um endereço IP dentro do prefixo de endereço de uma rota, a rota que contém o prefixo é a que o Azure usa. Saiba mais sobre [como o Azure seleciona uma rota](#how-azure-selects-a-route) quando várias rotas contêm os mesmos prefixos ou prefixos sobrepostos. Sempre que uma rede virtual é criada, o Azure cria automaticamente as rotas de sistema padrão a seguir para cada sub-rede na rede virtual:
 
-|source |Prefixos do endereço                                        |Tipo do próximo salto  |
+|Origem |Prefixos do endereço                                        |Tipo do próximo salto  |
 |-------|---------                                               |---------      |
 |Padrão|Exclusivo para a rede virtual                           |Rede virtual|
 |Padrão|0.0.0.0/0                                               |Internet       |
 |Padrão|10.0.0.0/8                                              |Nenhum           |
-|Padrão|172.16.0.0/12                                           |Nenhum           |
 |Padrão|192.168.0.0/16                                          |Nenhum           |
 |Padrão|100.64.0.0/10                                           |Nenhum           |
 
@@ -49,7 +49,7 @@ Os tipos do próximo salto listados na tabela anterior representam como o Azure 
 * **Internet**: encaminha o tráfego especificado pelo prefixo do endereço para a Internet. A rota padrão de sistema especifica o prefixo de endereço 0.0.0.0/0. Se você não substituir as rotas padrão do Azure, o Azure roteia o tráfego para qualquer endereço não especificado por um intervalo de endereços em uma rede virtual para a Internet, com uma exceção. Se o endereço de destino for para um dos serviços do Azure, o Azure roteia o tráfego diretamente ao serviço da sua rede de backbone em vez de rotear o tráfego para a Internet. O tráfego entre os serviços do Azure não percorre a Internet, independentemente de em qual região do Azure a rede virtual existe ou em qual região do Azure uma instância do serviço do Azure está implantada. Você pode substituir a rota do sistema padrão do Azure para o prefixo de endereço 0.0.0.0/0 com uma [rota personalizada](#custom-routes).<br>
 * **Nenhum**: o tráfego encaminhado para tipo do próximo salto **Nenhum** é descartado em vez de ser roteado para fora da sub-rede. O Azure cria automaticamente as rotas padrão para os seguintes prefixos de endereço:<br>
 
-    * **10.0.0.0/8, 172.16.0.0/12 e 192.168.0.0/16**: reservados para uso particular no RFC 1918.<br>
+    * **10.0.0.0/8 e 192.168.0.0/16**: reservados para uso particular no RFC 1918.<br>
     * **100.64.0.0/10**: reservado no RFC 6598.
 
     Se você atribuir algum dos intervalos de endereços anteriores no espaço de endereço de uma rede virtual, o Azure altera automaticamente o tipo do próximo salto da rota de **Nenhum** para **Rede virtual**. Se você atribuir um intervalo de endereços para o espaço de endereço de uma rede virtual que inclui, mas não é a mesma que um dos quatro prefixos de endereço reservados, o Azure remove a rota do prefixo e adiciona uma rota para o prefixo de endereço que você adicionou, com a **Rede virtual** como o tipo do próximo salto.
@@ -58,7 +58,7 @@ Os tipos do próximo salto listados na tabela anterior representam como o Azure 
 
 O Azure adiciona outras rotas de sistema padrão para diferentes recursos do Azure, mas somente se você habilitar os recursos. Dependendo do recurso, o Azure adiciona rotas padrão opcionais para sub-redes específicas na rede virtual ou para todas as sub-redes em uma rede virtual. As rotas de sistema adicionais e os tipos do próximo salto que o Azure pode adicionar quando você habilita recursos diferentes são:
 
-|source                 |Prefixos do endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
+|Origem                 |Prefixos do endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
 |-----                  |----                                   |---------                    |--------|
 |Padrão                |Exclusivo para a rede virtual, por exemplo: 10.1.0.0/16|Emparelhamento VNet                 |Todos|
 |Gateway de rede virtual|Prefixos anunciados do local via BGP ou configurada no gateway de rede local     |Gateway de rede virtual      |Todos|
@@ -99,7 +99,7 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
 
 Não é possível especificar **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** como o tipo do próximo salto em rotas definidas pelo usuário. Rotas com os tipos do próximo salto **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** são criadas somente pelo Azure, quando você configurar uma emparelhamento de rede virtual ou um ponto de extremidade de serviço.
 
-## <a name="next-hop-types-across-azure-tools"></a>**Tipos do próximo salto nas ferramentas do Azure**
+## <a name="next-hop-types-across-azure-tools"></a>Tipos do próximo salto nas ferramentas do Azure
 
 O nome exibido e referenciado para tipos do próximo salto é diferente entre o portal do Azure e as ferramentas de linha de comando, e entre o Azure Resource Manager e modelos clássicos de implantação. A tabela a seguir lista os nomes usados para se referir a cada tipo do próximo salto com as diferentes ferramentas e [modelos de implantação](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -122,7 +122,7 @@ Um gateway de rede local pode trocar rotas com um gateway de rede virtual do Azu
 
 Ao trocar de rotas com o Azure usando o BGP, uma rota separada é adicionada à tabela de rotas de todas as sub-redes em uma rede virtual para cada prefixo anunciado. A rota é adicionada com o *Gateway de rede virtual* listado como a fonte e o tipo do próximo salto. 
 
-A propagação de rotas de Gateway de VPN e ER pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando o BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com propagação de rotas Virtual network gateway desabilitada. A conectividade com conexões VPN é feita usando [rotas personalizadas](#custom-routes) com um tipo de *gateway de rede virtual* de próximo salto. Para obter detalhes, consulte [como desabilitar a propagação de rotas de gateway de rede Virtual](manage-route-table.md#create-a-route-table).
+A propagação de rotas de Gateway de VPN e ER pode ser desabilitada em uma sub-rede usando uma propriedade em uma tabela de rotas. Quando você troca rotas com o Azure usando o BGP, as rotas não são adicionadas à tabela de rotas de todas as sub-redes com a propagação de rota do gateway de rede virtual desabilitada. A conectividade com conexões VPN é feita usando [rotas personalizadas](#custom-routes) com um tipo de *gateway de rede virtual* de próximo salto. Para obter detalhes, consulte [como desabilitar a propagação de rota do gateway de rede virtual](manage-route-table.md#create-a-route-table).
 
 ## <a name="how-azure-selects-a-route"></a>Como o Azure seleciona uma rota
 
@@ -140,10 +140,10 @@ Se várias rotas contêm o mesmo prefixo de endereço, o Azure seleciona o tipo 
 Por exemplo, uma tabela de rotas contém as seguintes rotas:
 
 
-|source   |Prefixos do endereço  |Tipo do próximo salto           |
+|Origem   |Prefixos do endereço  |Tipo do próximo salto           |
 |---------|---------         |-------                 |
 |Padrão  | 0.0.0.0/0        |Internet                |
-|Usuário     | 0.0.0.0/0        |Gateway de rede virtual |
+|User     | 0.0.0.0/0        |Gateway de rede virtual |
 
 Quando o tráfego é destinado a um endereço IP fora dos prefixos de endereço de qualquer outra rota na tabela de rotas, o Azure seleciona a rota com a fonte de **Usuário** porque rotas definidas pelo usuário têm prioridade maior do que as rotas de sistema padrão.
 
@@ -210,27 +210,27 @@ As setas mostram o fluxo de tráfego.
 
 A tabela de rotas da *Subnet1* na imagem contém as seguintes rotas:
 
-|ID  |source |Estado  |Prefixos do endereço    |Tipo do próximo salto          |Endereço IP do próximo salto|Nome da rota definida pelo usuário| 
+|ID  |Origem |Estado  |Prefixos do endereço    |Tipo do próximo salto          |Endereço IP do próximo salto|Nome da rota definida pelo usuário| 
 |----|-------|-------|------              |-------                |--------           |--------      |
 |1   |Padrão|Inválido|10.0.0.0/16         |Rede virtual        |                   |              |
-|2   |Usuário   |Ativo |10.0.0.0/16         |Solução de virtualização      |10.0.100.4         |Within-VNet1  |
-|3   |Usuário   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
+|2   |User   |Ativo |10.0.0.0/16         |Solução de virtualização      |10.0.100.4         |Within-VNet1  |
+|3   |User   |Ativo |10.0.0.0/24         |Rede virtual        |                   |Within-Subnet1|
 |4   |Padrão|Inválido|10.1.0.0/16         |Emparelhamento VNet           |                   |              |
 |5   |Padrão|Inválido|10.2.0.0/16         |Emparelhamento VNet           |                   |              |
-|6   |Usuário   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
-|7   |Usuário   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
+|6   |User   |Ativo |10.1.0.0/16         |Nenhum                   |                   |ToVNet2-1-Drop|
+|7   |User   |Ativo |10.2.0.0/16         |Nenhum                   |                   |ToVNet2-2-Drop|
 |8   |Padrão|Inválido|10.10.0.0/16        |Gateway de rede virtual|[X.X.X.X]          |              |
-|9   |Usuário   |Ativo |10.10.0.0/16        |Solução de virtualização      |10.0.100.4         |To-On-Prem    |
+|9   |User   |Ativo |10.10.0.0/16        |Solução de virtualização      |10.0.100.4         |To-On-Prem    |
 |10  |Padrão|Ativo |[X.X.X.X]           |VirtualNetworkServiceEndpoint    |         |              |
 |11  |Padrão|Inválido|0.0.0.0/0           |Internet               |                   |              |
-|12  |Usuário   |Ativo |0.0.0.0/0           |Solução de virtualização      |10.0.100.4         |Default-NVA   |
+|12  |User   |Ativo |0.0.0.0/0           |Solução de virtualização      |10.0.100.4         |Default-NVA   |
 
 Segue uma explicação de cada ID de rota:
 
 1. O Azure adicionada automaticamente essa rota para todas as sub-redes dentro da *Virtual-network-1*, pois 10.0.0.0/16 é o único intervalo de endereços definido no espaço de endereço da rede virtual. Se a rota definida pelo usuário na rota ID2 não foi criada, o tráfego enviado para qualquer endereço entre 10.0.0.1 e 10.0.255.254 será roteado dentro da rede virtual porque o prefixo é maior do que 0.0.0.0/0, e não dentro dos prefixos de endereço de qualquer das outras rotas. O Azure alterou automaticamente o estado de *Ativo* para *Inválido* quando ID2, uma rota definida pelo usuário, foi adicionada, uma vez que ela tem o mesmo prefixo que a rota padrão, e rotas definidas pelo usuário substituem rotas padrão. O estado dessa rota ainda é *Ativo* para a *Subnet2*, pois a tabela de rotas na qual está a rota definida pelo usuário ID2 não está associada à *Subnet2*.
 2. O Azure adicionou essa rota quando uma rota definida pelo usuário para o prefixo de endereço 10.0.0.0/16 estava associada à sub-rede *Subnet1* na rede virtual *Virtual-network-1*. A rota definida pelo usuário especifica 10.0.100.4 como o endereço IP da solução de virtualização porque o endereço é o endereço IP atribuído à máquina virtual da solução de virtualização. A tabela de rotas na qual essa rota existe não está associada à *Subnet2*, assim, ela não aparece na tabela de rotas da *Subnet2*. Essa rota substitui a rota padrão do prefixo 10.0.0.0/16 (ID1), que roteou automaticamente o tráfego endereçado a 10.0.0.1 e 10.0.255.254 dentro da rede virtual por meio do tipo do próximo salto da rede virtual. Essa rota existe para atender ao [requisito](#requirements) 3, para forçar todo o tráfego de saída por meio de uma solução de virtualização.
 3. O Azure adicionou essa rota quando uma rota definida pelo usuário para o prefixo de endereço 10.0.0.0/24 estava associada à sub-rede *Subnet1*. O tráfego destinado a endereços entre 10.0.0.1 e 10.0.0.254 permanece dentro da sub-rede em vez de ser roteado para a solução de virtualização especificada na regra anterior (ID2) porque ela tem um prefixo mais longo que a rota ID2. Essa rota não estava associada à *Subnet2*, assim, a rota não aparece na tabela de rotas da *Subnet2*. Essa rota substitui efetivamente a rota ID2 para o tráfego dentro da *Subnet1*. Essa rota existe para atender ao [requisito](#requirements) 3.
-4. O Azure adicionou automaticamente as rotas nas IDs 4 e 5 para todas as sub-redes dentro da *Virtual-network-1* quando a rede virtual foi emparelhada com a *Virtual-network-2.* *Virtual-network-2* tem dois intervalos de endereços em seu espaço de endereço: 10.1.0.0/16 e 10.2.0.0/16, portanto, o Azure adicionou uma rota para cada intervalo. Se as rotas definidas pelo usuário nas IDs de rota 6 e 7 não foram criadas, o tráfego enviado para qualquer endereço entre 10.1.0.1-10.1.255.254 e 10.2.0.1-10.2.255.254 será roteado para a rede virtual emparelhada porque o prefixo é maior do que 0.0.0.0/0, e não dentro dos prefixos de endereço de nenhuma das outras rotas. O Azure alterou automaticamente o estado de *Ativo* para *Inválido* quando as rotas nas IDs 6 e 7 foram adicionadas, uma vez que elas têm os mesmos prefixos que as rotas nas IDs 4 e 5, e rotas definidas pelo usuário substituem rotas padrão. O estado das rotas nas IDs 4 e 5 são ainda *Active* para *Subnet2*, pois a tabela de rotas que as rotas definidas pelo usuário nas IDs 6 e 7 são in, não está associada à *Subnet2*. Um emparelhamento de rede virtual foi criado para atender ao [requisito](#requirements) 1.
+4. O Azure adicionou automaticamente as rotas nas IDs 4 e 5 para todas as sub-redes dentro da *Virtual-network-1* quando a rede virtual foi emparelhada com a *Virtual-network-2.* *Virtual-network-2* tem dois intervalos de endereços em seu espaço de endereço: 10.1.0.0/16 e 10.2.0.0/16, portanto, o Azure adicionou uma rota para cada intervalo. Se as rotas definidas pelo usuário nas IDs de rota 6 e 7 não foram criadas, o tráfego enviado para qualquer endereço entre 10.1.0.1-10.1.255.254 e 10.2.0.1-10.2.255.254 será roteado para a rede virtual emparelhada porque o prefixo é maior do que 0.0.0.0/0, e não dentro dos prefixos de endereço de nenhuma das outras rotas. O Azure alterou automaticamente o estado de *Ativo* para *Inválido* quando as rotas nas IDs 6 e 7 foram adicionadas, uma vez que elas têm os mesmos prefixos que as rotas nas IDs 4 e 5, e rotas definidas pelo usuário substituem rotas padrão. O estado das rotas nas IDs 4 e 5 ainda está *ativo* para *Subnet2*, pois a tabela de rotas que as rotas definidas pelo usuário nas IDs 6 e 7 estão, não está associada a *Subnet2*. Um emparelhamento de rede virtual foi criado para atender ao [requisito](#requirements) 1.
 5. Mesma explicação da ID4.
 6. O Azure adicionou essa rota e a rota na ID7 quando rotas definidas pelo usuário para os prefixos de endereço 10.1.0.0/16 e 10.2.0.0/16 foram associados à sub-rede *Subnet1*. O tráfego destinado a endereços entre 10.1.0.1-10.1.255.254 e 10.2.0.1-10.2.255.254 é descartado do Azure em vez de ser roteado para a rede virtual emparelhada porque rotas definidas pelo usuário substituem rotas padrão. As rotas não estão associadas à *Subnet2*, assim, as rotas não aparecem na tabela de rotas da *Subnet2*. As rotas substituem as rotas ID4 e ID5 para o tráfego deixando a *Subnet1*. As rotas ID6 e ID7 existem para atender ao [requisito](#requirements) 3 para descartar o tráfego destinado à outra rede virtual.
 7. Mesma explicação da ID6.
@@ -244,7 +244,7 @@ Segue uma explicação de cada ID de rota:
 
 A tabela de rotas da *Subnet2* na imagem contém as seguintes rotas:
 
-|source  |Estado  |Prefixos do endereço    |Tipo do próximo salto             |Endereço IP do próximo salto|
+|Origem  |Estado  |Prefixos do endereço    |Tipo do próximo salto             |Endereço IP do próximo salto|
 |------- |-------|------              |-------                   |--------           
 |Padrão |Ativo |10.0.0.0/16         |Rede virtual           |                   |
 |Padrão |Ativo |10.1.0.0/16         |Emparelhamento VNet              |                   |
@@ -253,10 +253,9 @@ A tabela de rotas da *Subnet2* na imagem contém as seguintes rotas:
 |Padrão |Ativo |0.0.0.0/0           |Internet                  |                   |
 |Padrão |Ativo |10.0.0.0/8          |Nenhum                      |                   |
 |Padrão |Ativo |100.64.0.0/10       |Nenhum                      |                   |
-|Padrão |Ativo |172.16.0.0/12       |Nenhum                      |                   |
 |Padrão |Ativo |192.168.0.0/16      |Nenhum                      |                   |
 
-A tabela de rotas para *Subnet2* contém todas as rotas padrão criadas pelo Azure, além do emparelhamento opcional VNet e rotas opcionais de gateway de rede virtual. O Azure adicionou as rotas opcionais para todas as sub-redes na rede virtual quando o gateway e o emparelhamento foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas da *Subnet1* quando a rota definida pelo usuário para o prefixo de endereço 0.0.0.0/0 foi adicionada à *Subnet1*.  
+A tabela de rotas para *Subnet2* contém todas as rotas padrão criadas pelo Azure, além do emparelhamento opcional VNet e rotas opcionais de gateway de rede virtual. O Azure adicionou as rotas opcionais para todas as sub-redes na rede virtual quando o gateway e o emparelhamento foram adicionados à rede virtual. O Azure removeu as rotas para os prefixos de endereço 10.0.0.0/8, 192.168.0.0/16 e 100.64.0.0/10 da tabela de rotas *Subnet1* quando a rota definida pelo usuário para o prefixo de endereço 0.0.0.0/0 foi adicionada ao *Subnet1*.  
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 24b18a07a4581eadc556e358f6505345610927c9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bab2cc378d6dd3c94e20e6d2a2bf950d8793e629
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273695"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Tutorial: Integração do Azure Active Directory com o Inkling
 
@@ -53,7 +53,7 @@ Para configurar a integração do Inkling ao Azure AD, você precisa adicionar o
 
 **Para adicionar o Inkling usando a galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Inkling, execute as seguintes e
 
     ![Informações de logon único de domínio e de URLs do Inkling](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.inkling.com/saml/v2/acs/<user-id>`
 
@@ -197,4 +197,4 @@ Ao clicar no bloco do Inkling no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

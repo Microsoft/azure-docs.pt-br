@@ -1,27 +1,27 @@
 ---
 title: Método Exemplos de Dicionário de API de Tradução de Texto
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use o método Exemplos de Dicionário de API de Tradução de Texto.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
-ms.openlocfilehash: 526fc3e51691773e27530a0fa775f4f07ee94acd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 15d23016df9b0c85b9d252b4c4a9ea48d3608f75
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389767"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595057"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API de Tradução de Texto 3.0: Exemplos de dicionário
 
 Fornece exemplos que mostram como os termos no dicionário são usados no contexto. Esta operação é usada em conjunto com a [Pesquisa no dicionário](./v3-0-dictionary-lookup.md).
 
-## <a name="request-url"></a>URL de Solicitação
+## <a name="request-url"></a>URL da solicitação
 
 Envie uma solicitação `POST` para:
 
@@ -29,13 +29,13 @@ Envie uma solicitação `POST` para:
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
 ```
 
-## <a name="request-parameters"></a>Parâmetros da solicitação
+## <a name="request-parameters"></a>Parâmetros de solicitação
 
 Os parâmetros de solicitação passados na cadeia de caracteres de consulta são:
 
 <table width="100%">
   <th width="20%">Parâmetro de consulta</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
     <td>api-version</td>
     <td>*Parâmetro obrigatório*.<br/>Versão da API solicitada pelo cliente. O valor precisa ser `3.0`.</td>
@@ -54,13 +54,13 @@ Os cabeçalhos de solicitação incluem:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>DESCRIÇÃO</th>
+  <th>Descrição</th>
   <tr>
-    <td>Cabeçalhos de autenticação</td>
+    <td>Cabeçalho (s) de autenticação</td>
     <td><em>Cabeçalho de solicitação obrigatório</em>.<br/>Veja <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">Opções disponíveis para autenticação</a>.</td>
   </tr>
   <tr>
-    <td>Tipo de conteúdo</td>
+    <td>Content-Type</td>
     <td>*Cabeçalho de solicitação obrigatório*.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: `application/json`.</td>
   </tr>
   <tr>
@@ -73,7 +73,7 @@ Os cabeçalhos de solicitação incluem:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Corpo da solicitação
+## <a name="request-body"></a>Solicitar corpo
 
 O corpo da solicitação é uma matriz JSON. Cada elemento da matriz é um objeto JSON com as seguintes propriedades:
 

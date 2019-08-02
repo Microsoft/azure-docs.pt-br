@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 76b6f013333113d5a24b744bc962d36b1c0e21b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de5019e0f91c92829082aed962bb9633da52b4a9
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731101"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812838"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de funções duráveis e recursos (Azure Functions)
 
@@ -27,7 +27,7 @@ Este artigo fornece uma visão geral dos tipos de funções que você pode usar 
 
 ## <a name="types-of-durable-functions"></a>Tipos de funções duráveis
 
-Você pode usar três tipos de função durável no Azure Functions: atividade, o orchestrator e o cliente.
+Você pode usar quatro tipos de função durável no Azure Functions: atividade, orchestrator, entity e cliente.
 
 ### <a name="activity-functions"></a>Funções de atividade
 
@@ -43,7 +43,7 @@ Para obter mais informações e exemplos, consulte [funções de atividade](dura
 
 ### <a name="orchestrator-functions"></a>Funções de orquestrador
 
-Funções de orquestrador descrevem como as ações são executadas e a ordem na qual as ações são executadas. Funções de orquestrador descrevem a orquestração no código (C# ou JavaScript) conforme mostrado na [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md). Uma orquestração pode ter muitos tipos diferentes de ações, incluindo [funções de atividade](#activity-functions), [suborquestrações](#sub-orchestrations), [aguardando por eventos externos](#external-events)e [temporizadores](#durable-timers). 
+Funções de orquestrador descrevem como as ações são executadas e a ordem na qual as ações são executadas. Funções de orquestrador descrevem a orquestração no código (C# ou JavaScript) conforme mostrado na [padrões de funções duráveis e conceitos técnicos](durable-functions-concepts.md). Uma orquestração pode ter muitos tipos diferentes de ações, incluindo [funções de atividade](#activity-functions), [suborquestrações](#sub-orchestrations), [aguardando por eventos externos](#external-events)e [temporizadores](#durable-timers). Funções de orquestrador podem também interagir com [funções de entidade](#entity-functions).
 
 Uma função de orquestrador precisa ser disparada por um [gatilho de orquestração](durable-functions-bindings.md#orchestration-triggers).
 
@@ -51,11 +51,18 @@ Um orquestrador é iniciado por um [cliente orchestrator](#client-functions). Vo
 
 Para obter mais informações e exemplos, consulte [gatilhos de orquestração](durable-functions-bindings.md#orchestration-triggers).
 
+###  <a name="entity-functions"></a>Funções da entidade (visualização)
+
+Definem as funções da entidade operações para ler e atualizar pequenos pedaços de estado, conhecido como *entidades duráveis*. Como funções de orquestrador, funções de entidade são funções com um tipo especial de gatilho, *disparador entidade*. Diferentemente das funções de orquestrador, funções da entidade não tem quaisquer restrições de código específico. Funções de entidade também gerenciam estado explicitamente em vez de implicitamente que representa o estado por meio do fluxo de controle.
+
+> [!NOTE]
+> Funções da entidade e funcionalidades relacionadas só está disponível no durável Functions 2.0 e versões posteriores.
+
+Para obter mais informações sobre as funções de entidade, consulte o [funções de entidade](durable-functions-preview.md#entity-functions) documentação do recurso de visualização.
+
 ### <a name="client-functions"></a>Funções do cliente
 
-Funções de cliente são as funções disparadas que criam novas instâncias de uma orquestração. Funções de cliente são o ponto de entrada para a criação de uma instância de uma orquestração de funções duráveis. Você pode disparar uma função de cliente de qualquer fonte (HTTP, fila, fluxo de eventos). Você pode escrever uma função de cliente em qualquer linguagem compatível com o aplicativo. 
-
-Funções de cliente também têm uma [cliente de orquestração](durable-functions-bindings.md#orchestration-client) associação. Uma função de cliente pode usar o cliente de orquestração de associação para criar e gerenciar orquestrações duráveis. 
+Funções de cliente são disparadas funções que criar e gerenciar instâncias de orquestrações e entidades. Eles são efetivamente o ponto de entrada para interagir com as funções duráveis. Você pode disparar uma função de cliente de qualquer fonte (HTTP, fila, o fluxo de eventos, etc.). Uma função de cliente usa o [associação de cliente de orquestração](durable-functions-bindings.md#orchestration-client) para criar e gerenciar orquestrações duráveis e entidades.
 
 O exemplo mais básico de uma função de cliente é uma função disparada por HTTP que inicia uma função de orquestrador e, em seguida, retorna uma resposta de status de verificação. Por exemplo, consulte [descoberta de URL da API HTTP](durable-functions-http-api.md#http-api-url-discovery).
 

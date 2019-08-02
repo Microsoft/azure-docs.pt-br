@@ -3,25 +3,28 @@ title: 'Início Rápido: Detectar o idioma de texto, Python – API de Traduçã
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a identificar o idioma do texto fornecido usando o Python e a API REST de Tradução de Texto.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 7ca4d4afe2120df4e8c2516276216deca2b22316
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: 95e56ccbe4c3b255ab4f55a19b858662f3246258
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514747"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705471"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Início Rápido: Usar a API de Tradução de Texto para detectar o idioma de texto com Python
 
 Neste início rápido, você aprenderá a detectar o idioma do texto fornecido usando o Python e a API REST de Tradução de Texto.
 
 Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+
+>[!TIP]
+> Caso queira ver todo o código de uma vez, o código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +39,10 @@ Crie um novo projeto Python usando seu IDE ou editor favorito. Em seguida, copie
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -89,6 +95,8 @@ headers = {
 }
 ```
 
+Se estiver usando uma assinatura de vários serviço cognitivos, você também deve incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre a autenticação com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## <a name="create-a-request-to-detect-text-language"></a>Criar uma solicitação para detectar o idioma do texto
 
 Defina a cadeia de caracteres (ou cadeias de caracteres) para o qual você deseja detectar o idioma:
@@ -112,7 +120,8 @@ response = request.json()
 A última etapa é imprimir os resultados. Este trecho de código embeleza os resultados classificando as chaves, definindo o recuo e declarando os separadores de item e chave.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
@@ -160,8 +169,10 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Python no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 

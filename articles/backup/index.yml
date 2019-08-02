@@ -5,13 +5,13 @@ metadata:
   title: 'Documentação do Backup do Azure - Tutoriais, Referência de API | Microsoft Docs'
   description: 'O Backup do Azure permite que você faça backup dos dados para servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, do SQL server, SharePoint server e muito mais. Aprenda a fazer backup e restaurar seus dados com nossos inícios rápidos, tutoriais e exemplos.'
   services: backup
-  author: rayne-wiselman
+  author: dcurwin
   manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 05/22/2018
-  ms.author: raynew
+  ms.author: dacurwin
 abstract:
   description: 'Use o Backup do Azure para proteger os dados nos servidores locais, máquinas virtuais, cargas de trabalho virtualizadas, SQL server, SharePoint server e muito mais. Aprenda a fazer backup e restaurar seus dados com nossos inícios rápidos, tutoriais e exemplos.'
 sections:

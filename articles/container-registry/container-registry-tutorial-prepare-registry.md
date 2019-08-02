@@ -3,17 +3,18 @@ title: Tutorial – criar um registro do Docker com replicação geográfica no 
 description: Crie um Registro de contêiner do Azure, configure a replicação geográfica, prepare uma imagem do Docker e implante-a no Registro. Parte um de uma série de três partes.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7aec257335e3380fa99669c1191ee89857ec975d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 87746bd39e624699612bf5221258ad757cd462b3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533657"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68309580"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Tutorial: Preparar um Registro de contêiner do Azure com replicação geográfica
 
@@ -110,7 +111,7 @@ git clone https://github.com/Azure-Samples/acr-helloworld.git
 cd acr-helloworld
 ```
 
-Caso `git` não esteja instalado, você poderá [baixar o arquivo ZIP][acr-helloworld-zip] diretamente do GitHub.
+Caso `git` não esteja instalado, você poderá [baixar o arquivo morto ZIP][acr-helloworld-zip] diretamente do GitHub.
 
 ## <a name="update-dockerfile"></a>Atualizar o Dockerfile
 

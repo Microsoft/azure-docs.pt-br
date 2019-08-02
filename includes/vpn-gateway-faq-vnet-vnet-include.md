@@ -9,11 +9,11 @@ ms.date: 12/03/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 72ddd0b6cd6c3e12417d3698c403f89312b531f4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121214"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171743"
 ---
 As perguntas frequentes sobre redes virtuais para redes virtuais se aplicam a conexões de Gateway de VPN. Para obter informações sobre o emparelhamento de rede virtual, consulte [emparelhamento de rede Virtual](../articles/virtual-network/virtual-network-peering-overview.md).
 

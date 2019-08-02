@@ -11,14 +11,14 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dd0679cc418cb1a15a69c01d3267d5d11b20fd3e
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 636e47c1d0c689dd9660f8bf01ada571d3824961
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66509829"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67835454"
 ---
-# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo da área de trabalho usando o Azure Active Directory B2C 
+# <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início Rápido: configurar a entrada para um aplicativo da área de trabalho usando o Azure Active Directory B2C
 
 O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de nuvem para manter seu aplicativo, negócios e clientes protegidos. O Azure AD B2C permite que seus aplicativos se autentiquem com contas sociais e corporativas usando protocolos padrão. Neste início rápido, você pode usar um aplicativo de área de trabalho WPF (Windows Presentation Foundation) para iniciar sessão usando um provedor de identidade de redes sociais e chamar uma API Web do Azure AD B2C protegida.
 
@@ -26,7 +26,7 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**.
 - Uma conta social do Facebook, Google, Microsoft ou Twitter.
 - [Baixe um arquivo zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) ou clone o aplicativo Web de exemplo do GitHub.
 
@@ -43,16 +43,16 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 1. Clique em **Entrar** para iniciar o fluxo de trabalho **Criar conta ou entrar**.
 
-    ![Aplicativo de exemplo](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
+    ![Captura de tela do aplicativo WPF de exemplo](media/active-directory-b2c-quickstarts-desktop-app/wpf-sample-application.png)
 
-    O exemplo é compatível com várias opções de inscrição. Essas opções incluem usar um provedor de identidade social ou criar uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter. 
+    O exemplo é compatível com várias opções de inscrição. Essas opções incluem usar um provedor de identidade social ou criar uma conta local usando um endereço de email. Para este guia de início rápido, use uma conta de provedor de identidade social do Facebook, do Google, da Microsoft ou do Twitter.
 
 
-2. O Azure AD B2C apresenta uma página de logon personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade que você deseja usar. 
+2. O Azure AD B2C apresenta uma página de logon personalizada para uma marca fictícia chamada Wingtip Toys para o aplicativo Web de exemplo. Para inscrever-se usando um provedor de identidade social, clique no botão do provedor de identidade que você deseja usar.
 
-    ![Provedor de criar conta ou entrar](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
+    ![Página de entrada ou inscrição mostrando os provedores de identidade](media/active-directory-b2c-quickstarts-desktop-app/sign-in-or-sign-up-wpf.png)
 
-    Você se autentica (entra) usando as credenciais de sua conta social e autoriza o aplicativo a ler as informações da sua conta social. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade. 
+    Você se autentica (entra) usando as credenciais de sua conta social e autoriza o aplicativo a ler as informações da sua conta social. Ao conceder o acesso, o aplicativo poderá recuperar informações de perfil da conta social, tais como seu nome e cidade.
 
 2. Conclua o processo de entrada para o provedor de identidade.
 
@@ -60,11 +60,11 @@ O Azure Active Directory (Azure AD) B2C fornece gerenciamento de identidades de 
 
 ## <a name="edit-your-profile"></a>Editar o perfil
 
-O Azure AD B2C fornece funcionalidade para permitir que usuários atualizem seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de perfil de edição do Azure AD B2C no fluxo de trabalho. 
+O Azure AD B2C fornece funcionalidade para permitir que usuários atualizem seus perfis. O aplicativo Web de exemplo usa um fluxo de usuário de perfil de edição do Azure AD B2C no fluxo de trabalho.
 
 1. Na barra de menus do aplicativo, clique em **Editar perfil** para editar o perfil que você criou.
 
-    ![Editar perfil](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
+    ![Botão Editar perfil realçado no aplicativo WPF de exemplo](media/active-directory-b2c-quickstarts-desktop-app/edit-profile-wpf.png)
 
 2. Escolha o provedor de identidade associado à conta que você criou. Por exemplo, se você usou o Twitter como o provedor de identidade quando criou a conta, escolha Twitter para modificar os detalhes do perfil associado.
 
@@ -74,7 +74,7 @@ O Azure AD B2C fornece funcionalidade para permitir que usuários atualizem seus
 
 ## <a name="access-a-protected-api-resource"></a>Acessar um recurso de API protegido
 
-Clique em **Chamada à API** para fazer uma solicitação para o recurso protegido. 
+Clique em **Chamada à API** para fazer uma solicitação para o recurso protegido.
 
     ![Call API](media/active-directory-b2c-quickstarts-desktop-app/call-api-wpf.png)
 
@@ -88,14 +88,14 @@ Você pode usar o locatário do Azure AD B2C se planeja experimentar outros tuto
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você usou um aplicativo de área de trabalho de exemplo para: 
+Neste início rápido, você usou um aplicativo de área de trabalho de exemplo para:
 
 * Entrar com uma página de logon personalizada
 * Entrar com um provedor de identidade social
 * Criar uma conta do Azure AD B2C
 * Chamar uma API Web protegida pelo Azure AD B2C
 
-Introdução à criação de seu próprio locatário do Azure AD B2C. 
+Introdução à criação de seu próprio locatário do Azure AD B2C.
 
 > [!div class="nextstepaction"]
 > [Criar um locatário do Azure Active Directory B2C no Portal do Azure](tutorial-create-tenant.md)

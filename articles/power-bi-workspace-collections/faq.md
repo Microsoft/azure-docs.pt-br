@@ -2,18 +2,18 @@
 title: Perguntas frequentes sobre as Coleções de Workspaces do Power BI
 description: Perguntas frequentes relacionadas às Coleções de Workspaces do Power BI.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.openlocfilehash: e3c28cc28261e65e945887d7ad9bfa5fd3984605
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b737c7753ce374d0360738e37d83609d1db995b1
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701577"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672419"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Perguntas frequentes sobre as Coleções de Workspaces do Power BI
 
@@ -72,7 +72,7 @@ Sim. Você pode usar sua assinatura do Azure existente para provisionar e usar o
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>O usuário final do meu aplicativo precisa de uma licença do Power BI?
 
-Não. Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Workspaces do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](https://go.microsoft.com/fwlink/?LinkId=760527).
+Nº Os usuários finais do aplicativo não precisarão comprar uma assinatura do Power BI separada para acessar as visualizações de dados no aplicativo. No modelo de Coleções de Workspaces do Power BI, você, como provedor do aplicativo, será cobrado pelo serviço por meio do medidor de consumo do Azure. Consulte a [página Preços e licenciamento](https://go.microsoft.com/fwlink/?LinkId=760527).
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>Como a autenticação do usuário funciona com as Coleções de Workspaces do Power BI?
 

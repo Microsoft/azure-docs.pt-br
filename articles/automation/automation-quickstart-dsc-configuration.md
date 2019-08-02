@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a30f9c1a61044c0911a5afc27ad95fc758b4c83e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 0be78b444c9af9c5c0a818d790982670d2b68ee8
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449088"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477615"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual Linux com Desired State Configuration
 
@@ -38,7 +38,7 @@ Há vários métodos diferentes para integrar um computador e habilitar o Desire
 
 1. No painel esquerdo do Portal do Azure, selecione **contas de Automação**. Se não estiver visível no painel esquerdo, clique em **Todos os serviços** e pesquise-o no modo de exibição resultante.
 1. Na lista, selecione uma conta de Automação.
-1. No painel esquerdo da conta de Automação, selecione **Configurações de estado (DSC)**.
+1. No painel esquerdo da conta de Automação, selecione **Configurações de estado (DSC)** .
 2. Clique em **Adicionar** para abrir a página de seleção da VM.
 3. Localize a máquina virtual para a qual você deseja habilitar o DSC. É possível usar as opções de campo e filtro de pesquisa para encontrar uma máquina virtual específica.
 4. Clique na máquina virtual e, em seguida, selecione **Conectar**

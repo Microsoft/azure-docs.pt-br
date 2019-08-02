@@ -3,20 +3,20 @@ title: Idiomas com suporte – API de Tradução de Fala
 titlesuffix: Azure Cognitive Services
 description: Exibir idiomas com suporte da API de Tradução de Fala.
 services: cognitive-services
-author: Jann-Skotdal
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: swmachan
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 513fd93f148a8a133901a5dbb60722fbc4a7d9e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ed8f693e4dc0344a0117ae9d6992b925992ef0c4
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64866262"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446920"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas com suporte da API de Tradução de Fala
 

@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78e4de5bbc56f95c0e903b1dac4e8481373716f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0067bd6dc2f47c5460220295d486910d9195782d
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65143488"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476258"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-pim"></a>Criar uma revisão de acesso das funções de recurso do Azure no PIM
 
@@ -44,7 +44,7 @@ Este artigo descreve como criar um ou mais revisões de acesso para funções de
 
 1. Em gerenciar, clique em **revisões de acesso**.
 
-    ![Revisões de acesso de recursos do Azure-](./media/pim-resource-roles-start-access-review/access-reviews.png)
+    ![Recursos do Azure - lista mostrando o status de todas as revisões de revisões de acesso](./media/pim-resource-roles-start-access-review/access-reviews.png)
 
 
 [!INCLUDE [Privileged Identity Management access reviews](../../../includes/active-directory-privileged-identity-management-access-reviews.md)]
@@ -54,7 +54,7 @@ Este artigo descreve como criar um ou mais revisões de acesso para funções de
 
 Depois de especificar as configurações para uma revisão de acesso, clique em **Iniciar**. A revisão de acesso será exibido na lista com um indicador de seu status.
 
-![Lista de revisões de acesso](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
+![Lista mostrando o status da revisão de introdução de revisões de acesso](./media/pim-resource-roles-start-access-review/access-reviews-list.png)
 
 Por padrão, o Azure AD envia um email para os revisores logo após o início da análise. Se você optar pelo não envio do email pelo Azure AD, certifique-se de informar aos revisores que eles devem concluir uma análise de acesso pendente. Você pode mostrar as instruções de como a [revisar o acesso a funções de recurso do Azure](pim-resource-roles-perform-access-review.md).
 
@@ -62,7 +62,7 @@ Por padrão, o Azure AD envia um email para os revisores logo após o início da
 
 Você pode acompanhar o progresso conforme os revisores concluem suas revisões na **visão geral** página de revisão de acesso. Não há direitos de acesso são alterados no diretório até que o [revisão está concluída](pim-resource-roles-complete-access-review.md).
 
-![Progresso de revisões de acesso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
+![Página de visão geral mostrando os detalhes da revisão de revisões de acesso](./media/pim-resource-roles-start-access-review/access-review-overview.png)
 
 Quando se trata de uma única revisão, em seguida, após o período de revisão de acesso ou o administrador tiver interrompido a revisão de acesso, siga as etapas em [concluir uma revisão de acesso de funções de recurso do Azure](pim-resource-roles-complete-access-review.md) para ver e aplicar os resultados.  
 

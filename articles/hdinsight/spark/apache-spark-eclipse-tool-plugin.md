@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.author: hrasheed
-ms.openlocfilehash: cd5839520a5b85f31cbe677ad6691a3d6bacd0b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e8f8e7d8324f23a81cd6ae3284bd6d7cff24117
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066297"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489849"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Use o Azure Toolkit for Eclipse para criar aplicativos do Apache Spark para um cluster do HDInsight
 
@@ -48,7 +48,7 @@ Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente s
 
 O usuário pode [entrar a assinatura do Azure](#sign-in-to-your-azure-subscription), ou [vincular um cluster HDInsight](#link-a-cluster) usando a credencial de usuário/senha ou domínio unido do Ambari para iniciar. 
 
-## <a name="sign-in-to-your-azure-subscription"></a>Entre em sua assinatura do Azure
+## <a name="sign-in-to-your-azure-subscription"></a>Entrar na assinatura do Azure
 1. Inicie o IDE Eclipse e abra o Azure Explorer. No menu **Janela**, selecione **Mostrar Exibição** e selecione **Outros**. Na caixa de diálogo que é aberta, expanda **Azure**, selecione **Azure Explorer** e selecione **OK**.
 
    ![Caixa de Diálogo Mostrar Modo de Exibição](./media/apache-spark-eclipse-tool-plugin/view-explorer-1.png)
@@ -67,7 +67,7 @@ O usuário pode [entrar a assinatura do Azure](#sign-in-to-your-azure-subscripti
    ![Expandindo um nome de cluster para ver recursos](./media/apache-spark-eclipse-tool-plugin/view-explorer-4.png)
 
 ## <a name="link-a-cluster"></a>Vincular um cluster
-Você pode vincular um cluster normal usando o nome de usuário gerenciado do Ambari. Da mesma forma, para um cluster HDInsight ingressado no domínio, crie o vínculo usando o domínio e o nome de usuário, como user1@contoso.com.
+Você pode vincular um cluster normal usando o nome de usuário gerenciado do Ambari. Da mesma forma, para um cluster HDInsight ingressado no domínio, crie o vínculo usando o domínio e o nome de usuário, como `user1@contoso.com`.
 
 1. Selecione **Vincular um cluster** no **Azure Explorer**.
 
@@ -226,57 +226,57 @@ Para resolver esse erro, você deve [baixar o executável](https://public-repo-1
    
    ![Resultado da execução local do aplicativo Spark](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run-result.png)
 
-## <a name="reader-only-role"></a>Função de leitor
-Ao enviar os usuários do trabalho a um cluster com permissão de função de leitor somente, as credenciais do Ambari é necessária.
+## <a name="reader-only-role"></a>Função somente leitura
+Quando os usuários enviam um trabalho a um cluster com permissão de função somente leitura, as credenciais do Ambari são solicitadas.
 
-### <a name="link-cluster-from-context-menu"></a>Cluster de link do menu de contexto
+### <a name="link-cluster-from-context-menu"></a>Vincular cluster do menu de contexto
 
-1. Entrar com conta com função de leitor somente.
+1. Entrar com conta com função somente leitura.
        
-2. Partir **Azure Explorer**, expanda **HDInsight** para exibir os clusters de HDInsight que estão em sua assinatura. Os clusters marcado **"Leitor: função"** só tem permissão de função somente leitor.
+2. No **Azure Explorer**, expanda **HDInsight** para exibir os clusters do HDInsight em sua assinatura. Os clusters marcados **"Role:Reader"** só tem permissão para a função somente leitura.
 
     ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-6.png)
 
-3. Clique com botão direito no cluster com permissão de função de leitor somente. Selecione **vincular este cluster** no menu de contexto para vincular cluster. Insira o nome de usuário do Ambari e a senha.
+3. Clique com o botão direito do mouse no cluster com permissão de função somente leitura. Selecione **Vincular este cluster** no menu de contexto para vincular o cluster. Insira o nome de usuário e a senha do Ambari.
 
     ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-7.png)
 
-4. Se o cluster é vinculado com êxito, o HDInsight será atualizada.
-   O estágio do cluster será se tornam vinculado.
+4. Se o cluster for vinculado com êxito, o HDInsight será atualizado.
+   O estágio do cluster será se tornará vinculado.
   
     ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-8.png)
 
 
 
-### <a name="link-cluster-by-expanding-jobs-node"></a>Cluster de link, expandindo o nó trabalhos
+### <a name="link-cluster-by-expanding-jobs-node"></a>Vincular cluster expandindo o nó Trabalhos
 
-1. Clique em **trabalhos** nó **Cluster trabalho acesso negado** janela aparece.
+1. Clique no nó **Trabalhos**, a janela **Acesso negado ao cluster Trabalhos** é exibida.
    
-2. Clique em **vincular este cluster** para vincular o cluster.
+2. Clique em **Vincular este cluster** para vincular o cluster.
    
     ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-9.png)
 
-### <a name="link-cluster-from-spark-submission-window"></a>Cluster de link da janela de envio do Spark
+### <a name="link-cluster-from-spark-submission-window"></a>Vincular cluster da janela de envio do Spark
 
 1. Crie um projeto do HDInsight.
 
-2. Clique com botão direito do pacote. Em seguida, selecione **enviar aplicativo Spark para HDInsight**.
+2. Clique com o botão direito do mouse no pacote. Em seguida, selecione **Enviar aplicativo Spark ao HDInsight**.
    
    ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-11.png)
 
-3. Selecione um cluster que tem a permissão da função Leitor somente para **nome do Cluster**. Mensagem de aviso mostra-out. Você pode clicar em **vincular este cluster** para vincular o cluster.
+3. Selecione um cluster que tenha permissão de função somente de leitor para o **nome do cluster**. Uma mensagem de aviso é exibida. Você pode clicar em **vincular este cluster** para vincular o cluster.
    
    ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-15.png)
    
-### <a name="view-storage-accounts"></a>Exibir contas de armazenamento
+### <a name="view-storage-accounts"></a>Exibir Contas de Armazenamento
 
-* Para clusters com permissão de função de leitor somente, clique em **contas de armazenamento** nó **armazenamento de acesso negado** janela aparece. 
+* Para clusters com permissão de função somente leitura, clique no nó **Contas de Armazenamento**, a janela **Acesso Negado ao Armazenamento** aparece. 
      
    ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-13.png)
 
    ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-12.png)
 
-* Para clusters vinculados, clique em **contas de armazenamento** nó **armazenamento de acesso negado** janela aparece. 
+* Para clusters vinculados, clique no nó **Contas de Armazenamento**, a janela **Acesso Negado ao Armazenamento** aparece. 
      
    ![Clusters Spark do HDInsight no Azure Explorer](./media/apache-spark-eclipse-tool-plugin/view-explorer-14.png)
 

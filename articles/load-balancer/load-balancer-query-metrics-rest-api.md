@@ -3,20 +3,20 @@ title: Recuperar métricas com a API REST
 titlesuffix: Azure Load Balancer
 description: Use as APIs REST do Azure para coletar métricas de integridade e de utilização do Load Balancer em um determinado intervalo de datas e horários.
 services: sql-database
-author: KumudD
+author: asudbring
 ms.reviewer: routlaw
 manager: jeconnoc
 ms.service: load-balancer
 ms.custom: REST, seodec18
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: KumudD
-ms.openlocfilehash: 9f5206ef5348ee8fd7b3fe981a9cfe4afc1367fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 0d12dc04aff58dd6273d8d29d422bdbd9e7c886b
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60734534"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274536"
 ---
 # <a name="get-load-balancer-utilization-metrics-using-the-rest-api"></a>Obter as métricas de utilização do Load Balancer usando a API REST
 
@@ -43,7 +43,7 @@ Os cabeçalhos a seguir são necessários:
 
 ### <a name="uri-parameters"></a>Parâmetros de URI
 
-| NOME | DESCRIÇÃO |
+| Nome | DESCRIÇÃO |
 | :--- | :---------- |
 | subscriptionId | A ID de assinatura que identifica uma assinatura do Azure. Se você tiver várias assinaturas, consulte [Trabalhando com várias assinaturas](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest). |
 | resourceGroupName | O nome do grupo de recursos que contém o recurso. Você pode obter esse valor por meio da API do Azure Resource Manager, da CLI ou do portal. |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873bc340d738704418310e22c34b0042f71a96bd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ad7aedf90ead4b21bab661bdaf85316cd648fd75
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890892"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-highgear"></a>Tutorial: Integração do Azure Active Directory ao HighGear
 
@@ -53,7 +53,7 @@ Para configurar a integração do HighGear ao Azure AD, você precisará adicion
 
 **Para adicionar o HighGear por meio da galeria, execute as etapas a seguir:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o sistema HighGear, execute as et
 
     ![Informações de logon único em domínio e URLs do HighGear](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, cole o valor do campo **ID da entidade do provedor de serviço** que está na página Configurações de logon único no sistema HighGear.
+    a. Na caixa de texto **Identificador**, cole o valor do campo **ID da entidade do provedor de serviço** que está na página Configurações de logon único no sistema HighGear.
 
     ![O campo ID da entidade do provedor de serviços](media/highgear-tutorial/service-provider-entity-id-field.png)
     
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o sistema HighGear, execute as et
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-     a. URL de logon. Você precisará desse valor na etapa 2 em **Configurar logon único do HighGear** abaixo.
+    a. URL de logon. Você precisará desse valor na etapa 2 em **Configurar logon único do HighGear** abaixo.
 
     b. Identificador do Azure AD. Você precisará desse valor na etapa 3 em **Configurar logon único do HighGear** abaixo.
 
@@ -157,7 +157,7 @@ Para configurar o HighGear para logon único, faça logon no seu sistema HighGea
 
 4. No campo **URL de SLO (logoff único)** no HighGear, cole o valor do campo **URL de logoff** que está na seção **Configurar o HighGear** no Azure.
 
-5. Use o bloco de notas para abrir o certificado que você baixou da seção **Certificado de autenticação SAML** no Azure. Você deve ter feito o download do formato **Certificado (Base64)**. Copie o conteúdo do certificado no bloco de notas e cole-o no campo **Certificado do provedor de identidade** no HighGear.
+5. Use o bloco de notas para abrir o certificado que você baixou da seção **Certificado de autenticação SAML** no Azure. Você deve ter feito o download do formato **Certificado (Base64)** . Copie o conteúdo do certificado no bloco de notas e cole-o no campo **Certificado do provedor de identidade** no HighGear.
 
 6. Envie um email à [equipe de suporte do HighGear](mailto:support@highgear.com) para solicitar seu certificado do HighGear. Siga as instruções recebidas para preencher os campos **Certificado do HighGear** e **Senha do certificado do HighGear**.
 
@@ -181,7 +181,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.

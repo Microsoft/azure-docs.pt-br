@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ca16e149852d044fdd6f6ea0baf0b11ccb75cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f7b4db749d1191179b3f4f1d9bb13d77925697f2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709582"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Azure Active Directory ao Coupa
 
@@ -53,7 +53,7 @@ Para configurar a integração do Coupa ao Microsoft Azure AD, você precisa adi
 
 **Para adicionar o Coupa por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Coupa, execute as seguintes eta
 
     ![Informações de logon único de Domínio e URLs do Coupa](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.coupahost.com`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.coupahost.com`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Contate a [equipe de suporte ao Cliente do Coupa](https://success.coupa.com/Support/Contact_Us?) para obter esses valores.
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o Coupa, execute as seguintes eta
 
     ![Metadados SP do Coupa](./media/coupa-tutorial/ic791901.png "Metadados SP do Coupa")
 
-     a. Selecione **Fazer logon usando o SAML**.
+    a. Selecione **Fazer logon usando o SAML**.
 
     b. Clique em **Procurar** para carregar os metadados baixados a partir do portal do Azure.
 
@@ -231,7 +231,7 @@ Para permitir que os usuários do Azure AD façam logon no Coupa, eles devem ser
 
     ![Detalhes do Usuário](./media/coupa-tutorial/ic791910.png "Detalhes do Usuário")
 
-     a. Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite os atributos **Logon**, **Nome**, **Sobrenome**, **ID de Logon Único** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
     b. Clique em **Criar**.
 

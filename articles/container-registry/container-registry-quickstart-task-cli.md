@@ -3,17 +3,18 @@ title: Início Rápido – Criar e executar uma imagem de contêiner no Registro
 description: Execute rapidamente tarefas com o Registro de Contêiner do Azure para criar e executar uma imagem de contêiner sob demanda, na nuvem.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: be120ea8ae588da486c9a5acd4eb7bfdb4e45dee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5e02d8194f9164a03bb27d932df45d91486c518
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701562"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310641"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Início Rápido: Criar e executar uma imagem de contêiner usando as Tarefas do Registro de Contêiner do Azure
 
@@ -25,7 +26,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita][azure-acc
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.58 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Você pode usar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esse guia de início rápido. Se você quer usá-lo localmente, recomendamos usar a versão 2.0.58 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -117,7 +118,7 @@ Run ID: ca8 was successful after 10s
 
 Agora execute rapidamente a imagem montada e cujo push foi efetuado para seu Registro. Em seu fluxo de trabalho de desenvolvimento de contêiner, isso pode ser uma etapa de validação antes da implantação da imagem.
 
-Crie um arquivo *quickrun.yaml* em um diretório de trabalho local com o seguinte conteúdo para uma única etapa. Substitua o nome do servidor de logon do Registro para *\<acrLoginServer\>*. O nome do servidor de logon está no formato *\<nomedoregistro\>.azurecr.io* (tudo em minúsculas), por exemplo, *mycontainerregistry008.azurecr.io*. Este exemplo supõe que você montou a imagem `sample/hello-world:v1` e efetuou push dela na seção anterior:
+Crie um arquivo *quickrun.yaml* em um diretório de trabalho local com o seguinte conteúdo para uma única etapa. Substitua o nome do servidor de logon do Registro para *\<acrLoginServer\>* . O nome do servidor de logon está no formato *\<nomedoregistro\>.azurecr.io* (tudo em minúsculas), por exemplo, *mycontainerregistry008.azurecr.io*. Este exemplo supõe que você montou a imagem `sample/hello-world:v1` e efetuou push dela na seção anterior:
 
 ```yml
 steps:

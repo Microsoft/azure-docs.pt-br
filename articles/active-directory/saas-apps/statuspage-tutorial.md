@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 49f77da5843bc2438ea7f82475b4faf753b66f09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d947f610e6a753ce2ed349917640b07a55bbb735
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089869"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-statuspage"></a>Tutorial: Integração do Azure Active Directory ao StatusPage
 
@@ -53,7 +53,7 @@ Para configurar a integração do StatusPage ao AD do Azure, você precisará ad
 
 **Para adicionar o StatusPage da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o StatusPage, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do StatusPage](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o StatusPage, execute as seguinte
     > [!NOTE]
     > Entre em contato com a equipe de suporte do StatusPage em [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)para solicitar os metadados necessários para a configuração do logon único. 
     >
-    >  a. Nos metadados, copie o valor de Issuer e cole-o na caixa de texto **Identificador** .
+    > a. Nos metadados, copie o valor de Issuer e cole-o na caixa de texto **Identificador** .
     >
     > b. Nos metadados, copie o valor a URL de Resposta e cole-a na caixa de texto **URL de Resposta** .
 
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o StatusPage, execute as seguinte
 
     ![Configurar o logon único](./media/statuspage-tutorial/tutorial_statuspage_09.png)
 
-     a. Na caixa de texto **URL de Destino de SSO**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Destino de SSO**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado** .
 
@@ -257,4 +257,4 @@ Ao clicar no bloco do StatusPage no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

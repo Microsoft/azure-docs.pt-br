@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4e4c0a6cd25587b33c06526b57e6acdbebb69c8b
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65762779"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67445637"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de Banco de Dados SQL para servidor do Banco de Dados SQL do Azure
 
@@ -33,7 +33,7 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 | Bancos de dados por servidor | 5\.000 |
 | Número padrão de servidores por assinatura por região | 20 |
 | Número máximo padrão de servidores por assinatura por região | 200 |  
-| DTU / cota de eDTU por servidor | 54\.000 |  
+| DTU / cota de eDTU por servidor | 54.000 |  
 | Cota de vCore por servidor/instância | 540 |
 | Pools de máx por servidor | Limitado pelo número de DTUs ou vCores. Por exemplo, se cada pool tiver 1.000 DTUs, um servidor poderá dar suporte a 54 pools.|
 |||
@@ -44,6 +44,9 @@ Este artigo fornece uma visão geral dos limites de recursos do Banco de Dados S
 > Conforme o número de bancos de dados vai se aproximando do limite por servidor do Banco de Dados SQL, pode ocorrer o seguinte:
 > - Aumento de latência nas consultas em execução no banco de dados mestre.  Isso inclui modos de exibição de estatísticas de utilização de recursos, como sys.resource_stats.
 > - Aumento de latência nas operações de gerenciamento e pontos de vista do portais de renderização que envolvem a enumeração de bancos de dados no servidor.
+
+### <a name="storage-size"></a>Tamanho do armazenamento
+- Para bancos de dados únicos rources, consulte o [limites de recurso baseado em DTU](sql-database-dtu-resource-limits-single-databases.md) ou [limites de recurso baseado em vCore](sql-database-vcore-resource-limits-single-databases.md) para os limites de tamanho de armazenamento por tipo de preço.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>O que acontece quando os limites de recursos do banco de dados são atingidos
 

@@ -1,249 +1,193 @@
 ---
-title: Application Insights usando C#
+title: Application Insights, C#
 titleSuffix: Azure Cognitive Services
-description: Crie um bot integrado com um aplicativo do LUIS e o Application Insights usando C#.
+description: Este tutorial adiciona informações de bot e de Reconhecimento vocal ao armazenamento de dados telemétricos do Application Insights.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/11/2019
+ms.topic: tutorial
+ms.date: 06/16/2019
 ms.author: diberry
-ms.openlocfilehash: 6dbaa24df8b2917dd3f68d3851ca4662554ad00a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 720352403fd5f5937669f9838f3974cb0d3f8797
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053258"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657797"
 ---
-# <a name="add-luis-results-to-application-insights-with-a-bot-in-c"></a>Adicionar resultados do LUIS ao Application Insights com um bot em C#
+# <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>Adicionar resultados do LUIS ao Application Insights de um Bot em C#
 
-Este tutorial adiciona informações de resposta do LUIS ao armazenamento de dados de telemetria do [Application Insights](https://azure.microsoft.com/services/application-insights/). Depois que os dados, você pode consultá-lo com a linguagem Kusto ou o Power BI para analisar, agregar e gerar relatórios sobre as intenções e entidades de declaração em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
-
-O bot é criado com o Bot Framework 4. x e o bot de aplicativo Web do Azure. Um [Bot Framework 4. x com o tutorial do LUIS](luis-csharp-tutorial-bf-v4.md) também está disponível.
+Este tutorial adiciona informações de bot e de Reconhecimento vocal ao armazenamento de dados telemétricos do [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando tiver esses dados, você poderá consultá-los usando a linguagem Kusto ou o Power BI para analisar, agregar e relatar intenções e entidades do enunciado em tempo real. Esta análise ajuda a determinar se você deve adicionar ou editar as intenções e as entidades do seu aplicativo LUIS.
 
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Adicionar o Application Insights a um bot do aplicativo Web
-> * Capturar e enviar os resultados de consulta do LUIS para o Application Insights
-> * Veja o Application Insights para as principais intenções, pontuações e declarações
+> * Capturar dados de bot e de Reconhecimento vocal no Application Insights
+> * Consultar o Application Insights para obter dados de Reconhecimento vocal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um bot de aplicativo web LUIS do **tutorial](luis-csharp-tutorial-bf-v4.md)** com o Application Insights ativado.
-* [Visual Studio 2017](https://www.visualstudio.com/downloads/) instalado localmente no computador.
-
-> [!Tip]
-> Se você ainda não tiver uma assinatura, poderá se inscrever para uma [conta gratuita](https://azure.microsoft.com/free/).
-
-Todo o código neste tutorial está disponível no [repositório do GitHub Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/csharp) e cada linha associada a este tutorial é comentada com `//LUIS Tutorial:`.
-
-## <a name="review-luis-web-app-bot"></a>Examine o bot de aplicativo Web do LUIS
-
-Este tutorial presume que você tem um código semelhante ao seguinte ou que você concluiu o [outro tutorial](luis-csharp-tutorial-bf-v4.md):
-
-   [!code-csharp[Web app bot with LUIS](~/samples-luis/documentation-samples/tutorial-web-app-bot/csharp/BasicLuisDialog.cs "Web app bot with LUIS")]
-
-## <a name="application-insights-in-web-app-bot"></a>Application Insights em um bot do aplicativo Web
-
-No momento, o serviço do Application Insights, adicionado como parte da criação do serviço de bot do aplicativo Web, coleta a telemetria de estado geral para o bot. Ele não coleta informações de resposta do LUIS. Para analisar e aperfeiçoar o LUIS, você precisará das informações de resposta do LUIS.  
-
-Para capturar a resposta do LUIS, o bot do aplicativo Web precisará ter o **[Application Insights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** instalado e configurado para o projeto.
-
-## <a name="download-web-app-bot"></a>Baixar o bot do aplicativo Web
-
-Use o [Visual Studio 2017](https://www.visualstudio.com/downloads/) para adicionar e configurar o Application Insights para o bot do aplicativo Web. Para usar o bot do aplicativo Web no Visual Studio, baixe o código correspondente.
-
-1. No portal do Azure, para o bot do aplicativo Web, selecione **Compilar**.
-
-    ![Selecione Compilar no portal](./media/luis-tutorial-bot-csharp-appinsights/download-build-menu.png)
-
-2. Selecione **Baixar o arquivo zip** e aguarde até que o arquivo esteja preparado.
-
-    ![Baixar o arquivo zip](./media/luis-tutorial-bot-csharp-appinsights/download-link.png)
-
-3. Selecione **Baixar o arquivo zip** na janela pop-up. Lembre-se do local no computador porque você precisará dele na próxima seção.
-
-    ![Pop-up Baixar o arquivo zip](./media/luis-tutorial-bot-csharp-appinsights/download-popup.png)
-
-## <a name="open-solution-in-visual-studio-2017"></a>Abrir a solução no Visual Studio 2017
-
-1. Extraia o arquivo em uma pasta.
-
-2. Abra o Visual Studio 2017 e abra o arquivo da solução, `Microsoft.Bot.Sample.LuisBot.sln`. Se o aviso de segurança for exibido, selecione "OK".
-
-    ![Abrir a solução no Visual Studio 2017](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-security-warning.png)
-
-3. O Visual Studio precisa adicionar dependências para a solução. No **Gerenciador de Soluções**, clique com o botão direito do mouse em **Referências** e selecione **Gerenciar Pacotes NuGet**.
-
-    ![Gerenciar pacotes NuGet](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-manage-nuget-packages.png)
-
-4. O gerenciador de pacotes do NuGet mostra uma lista de pacotes instalados. Selecione **Restaurar** na barra amarela. Aguarde o processo de restauração ser concluído.
-
-    ![Restaurar pacotes NuGet](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-restore-packages.png)
-
-## <a name="add-application-insights-to-the-project"></a>Adicionar Application Insights ao projeto
-
-Instale e configure o Application Insights no Visual Studio.
-
-1. No Visual Studio 2017, no menu superior, selecione **Projeto**, selecione **Adicionar Application Insights Telemetry...** .
-
-2. Na janela **Configuração do Application Insights**, selecione **Iniciar Gratuitamente**
-
-    ![Comece configurando o Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configure-app-insights.png)
-
-3. Registre seu aplicativo com o Application Insights. Você precisará inserir suas credenciais do portal do Azure.
-
-4. O Visual Studio adiciona o Application Insights ao projeto, exibindo o status conforme faz isso.
-
-    ![Status do Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-adding-application-insights-to-project.png)
-
-    Quando o processo for concluído, a **Configuração do Application Insights** mostra o status do progresso.
-
-    ![Status do progresso do Application Insights](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-configured-application-insights-to-project.png)
-
-    A opção **Habilitar coleta de rastreamento** fica vermelha, significando que não está habilitada. Este tutorial não usa o recurso.
-
-## <a name="build-and-resolve-errors"></a>Compilar e resolver erros
-
-1. Compile a solução selecionando o menu **Criar**, em seguida, selecione **Recompilar Solução**. Aguarde a conclusão da compilação.
-
-2. Se a compilação falhar com erros `CS0104`, será necessário corrigi-los. Na pasta `Controllers`, no `MessagesController.cs file`, corrija o uso ambíguo do tipo `Activity` prefixando o tipo de atividade com o tipo de conector. Para fazer isso, altere o nome `Activity` nas linhas 22 e 36 de `Activity` para `Connector.Activity`. Compile a solução novamente. Não deve haver mais erros de compilação.
-
-    A fonte completa desse arquivo é:
-
-    [!code-csharp[MessagesController.cs file](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/MessagesController.cs "MessagesController.cs file")]
-
-## <a name="publish-project-to-azure"></a>Publicar projeto no Azure
-
-O pacote do **Application Insights** agora está no projeto e está configurado corretamente para suas credenciais no portal do Azure. As alterações para o projeto precisam ser publicadas no Azure.
-
-1. No **Gerenciador de Soluções**, clique o botão direito do mouse no nome do projeto e selecione **Publicar**.
-
-    ![Publicar projeto no portal](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish.png)
-
-2. Na janela **Publicar**, selecione **Criar novo perfil**.
-
-    ![Como parte da publicação, crie o novo perfil.](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-1.png)
-
-3. Selecione **Importar perfil** e selecione **OK**.
-
-    ![Como parte da publicação, importe o perfil](./media/luis-tutorial-bot-csharp-appinsights/vs-2017-publish-2.png)
-
-4. Na janela **Importar Arquivo de Configurações de Publicação**, navegue até a pasta do projeto, navegue até a pasta `PostDeployScripts`, selecione o arquivo que termina em `.PublishSettings` e selecione `Open`. Você agora configurou a publicação para este projeto.
-
-5. Publique seu código-fonte local no serviço do bot selecionando o botão **Publicar**. A janela **Saída** mostra o status. O restante do tutorial está concluído no portal do Azure. Feche o Visual Studio 2017.
-
-## <a name="open-three-browser-tabs"></a>Abrir três guias do navegador
-
-No portal do Azure, localize o bot do aplicativo Web e abra-o. As etapas a seguir usam três exibições diferentes do bot do aplicativo Web. Talvez seja mais fácil ter três guias separadas abertas no navegador:
-  
->  * Testar no chat da Web
->  * Editor do código online de Compilar/Abrir -> Editor de serviço do aplicativo
->  * Editor de serviço do aplicativo/Abrir console do Kudu -> Console de diagnóstico
-
-## <a name="modify-basicluisdialogcs-code"></a>Modifique o código de BasicLuisDialog.cs
-
-1. Na guia do navegador **Editor de serviço do aplicativo**, abra o arquivo `BasicLuisDialog.cs`.
-
-2. Adicione a seguinte dependência do NuGet nas linhas `using` existentes:
-
-   [!code-csharp[Add using statement](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=11-12 "Add using statement")]
-
-3. Adicione a função `LogToApplicationInsights`:
-
-   [!code-csharp[Add the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=61-92 "Add the LogToApplicationInsights function")]
-
-    A chave de instrumentação do Application Insights já está na configuração de aplicativo do bot do aplicativo Web chamado `BotDevInsightsKey`.
-
-    A última linha da função adiciona os dados ao Application Insights. O nome do rastreamento é `LUIS`, um nome exclusivo, além de quaisquer outros dados de telemetria coletados por esse bot do aplicativo Web. Todas as propriedades também são prefixadas com `LUIS_` para você ver quais dados este tutorial adiciona comparados com as informações que são fornecidas pelo bot do aplicativo Web.
-
-4. Chamar a função `LogToApplicationInsights` na parte superior da função `ShowLuisResult`:
-
-   [!code-csharp[Use the LogToApplicationInsights function](~/samples-luis/documentation-samples/tutorial-web-app-bot-application-insights/csharp/BasicLuisDialog.cs?range=114-115 "Use the LogToApplicationInsights function")]
-
-## <a name="build-web-app-bot"></a>Compilar o bot do aplicativo Web
-
-1. Compile o bot do aplicativo Web de uma das duas maneiras. O primeiro método é clicar com o botão direito em `build.cmd` no **Editor de serviço do aplicativo**, em seguida, selecione **Executar no Console**. A saída do console exibe e termina com `Finished successfully.`
-
-2. Se isso não for concluído com êxito, você precisará abrir o console, navegar até o script e executá-lo usando as etapas a seguir. No **Editor de serviço do aplicativo**, na barra azul superior, selecione o nome do seu bot e selecione **Abrir o Console do Kudu** na lista suspensa.
-
-    ![Abrir o console do Kudu](./media/luis-tutorial-bot-csharp-appinsights/open-kudu-console.png)
-
-3. Na janela da console, insira o seguinte comando:
-
-    ```console
-    cd site\wwwroot && build.cmd
+* Um bot do Serviço de bot do Azure, criado com o Application Insights habilitado.
+* Código de bot baixado do **[tutorial](luis-csharp-tutorial-bf-v4.md)** de bot anterior. 
+* [Emulador de bot](https://aka.ms/abs/build/emulatordownload)
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+
+Todo o código neste tutorial está disponível no [Repositório de Exemplos do Azure para Reconhecimento vocal no GitHub](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/v4/luis-csharp-bot-johnsmith-src-telemetry). 
+
+## <a name="add-application-insights-to-web-app-bot-project"></a>Adicionar o Application Insights a um projeto de bot do aplicativo Web
+
+No momento, o serviço do Application Insights, usado nesse bot de aplicativo Web, coleta telemetria de estado geral para o bot. Ele não coleta informações do LUIS. 
+
+Para capturar as informações do LUIS, o bot do aplicativo Web precisa ter o pacote NuGet **[Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/)** instalado e configurado.  
+
+1. No Visual Studio, adicione a dependência à solução. No **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e selecione **Gerenciar Pacotes NuGet...** . O gerenciador de pacotes do NuGet mostra uma lista de pacotes instalados. 
+1. Selecione **Procurar** e, em seguida, pesquise **Microsoft.ApplicationInsights**.
+1. Instale o pacote. 
+
+## <a name="capture-and-send-luis-query-results-to-application-insights"></a>Capturar e enviar resultados da consulta LUIS para o Application Insights
+
+1. Abra o arquivo `LuisHelper.cs` e substitua o conteúdo pelo código a seguir. O método **LogToApplicationInsights** captura os dados do bot e do LUIS e os envia ao Application Insights como um evento de rastreamento denominado `LUIS`.
+
+    ```csharp
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
+    
+    using System;
+    using System.Linq;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Bot.Builder;
+    using Microsoft.Bot.Builder.AI.Luis;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.Logging;
+    using Microsoft.ApplicationInsights;
+    using System.Collections.Generic;
+    
+    namespace Microsoft.BotBuilderSamples
+    {
+        public static class LuisHelper
+        {
+            public static async Task<BookingDetails> ExecuteLuisQuery(IConfiguration configuration, ILogger logger, ITurnContext turnContext, CancellationToken cancellationToken)
+            {
+                var bookingDetails = new BookingDetails();
+    
+                try
+                {
+                    // Create the LUIS settings from configuration.
+                    var luisApplication = new LuisApplication(
+                        configuration["LuisAppId"],
+                        configuration["LuisAPIKey"],
+                        "https://" + configuration["LuisAPIHostName"]
+                    );
+    
+                    var recognizer = new LuisRecognizer(luisApplication);
+    
+                    // The actual call to LUIS
+                    var recognizerResult = await recognizer.RecognizeAsync(turnContext, cancellationToken);
+    
+                    LuisHelper.LogToApplicationInsights(configuration, turnContext, recognizerResult);
+    
+                    var (intent, score) = recognizerResult.GetTopScoringIntent();
+                    if (intent == "Book_flight")
+                    {
+                        // We need to get the result from the LUIS JSON which at every level returns an array.
+                        bookingDetails.Destination = recognizerResult.Entities["To"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
+                        bookingDetails.Origin = recognizerResult.Entities["From"]?.FirstOrDefault()?["Airport"]?.FirstOrDefault()?.FirstOrDefault()?.ToString();
+    
+                        // This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+                        // TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+                        bookingDetails.TravelDate = recognizerResult.Entities["datetime"]?.FirstOrDefault()?["timex"]?.FirstOrDefault()?.ToString().Split('T')[0];
+                    }
+                }
+                catch (Exception e)
+                {
+                    logger.LogWarning($"LUIS Exception: {e.Message} Check your LUIS configuration.");
+                }
+    
+                return bookingDetails;
+            }
+            public static void LogToApplicationInsights(IConfiguration configuration, ITurnContext turnContext, RecognizerResult result)
+            {
+                // Create Application Insights object
+                TelemetryClient telemetry = new TelemetryClient();
+    
+                // Set Application Insights Instrumentation Key from App Settings
+                telemetry.InstrumentationKey = configuration["BotDevAppInsightsKey"];
+    
+                // Collect information to send to Application Insights
+                Dictionary<string, string> logProperties = new Dictionary<string, string>();
+    
+                logProperties.Add("BotConversation", turnContext.Activity.Conversation.Name);
+                logProperties.Add("Bot_userId", turnContext.Activity.Conversation.Id);
+    
+                logProperties.Add("LUIS_query", result.Text);
+                logProperties.Add("LUIS_topScoringIntent_Name", result.GetTopScoringIntent().intent);
+                logProperties.Add("LUIS_topScoringIntentScore", result.GetTopScoringIntent().score.ToString());
+    
+    
+                // Add entities to collected information
+                int i = 1;
+                if (result.Entities.Count > 0)
+                {
+                    foreach (var item in result.Entities)
+                    {
+                        logProperties.Add("LUIS_entities_" + i++ + "_" + item.Key, item.Value.ToString());
+                    }
+                }
+    
+                // Send to Application Insights
+                telemetry.TrackTrace("LUIS", ApplicationInsights.DataContracts.SeverityLevel.Information, logProperties);
+    
+            }
+        }
+    }
     ```
 
-    Aguarde a compilação terminar com `Finished successfully.`
+## <a name="add-application-insights-instrumentation-key"></a>Adicionar a chave de instrumentação do Application Insights 
 
-## <a name="test-the-web-app-bot"></a>Testar o bot do aplicativo Web
+Para adicionar dados ao Application Insights, você precisa da chave de instrumentação.
 
-1. Para testar o bot do aplicativo Web, abra o recurso **Testar no chat da Web** no portal.
+1. Em um navegador, no [portal do Azure](https://portal.azure.com), localize o recurso **Application Insights** de seu bot. Seu nome terá a maior parte do nome do bot e caracteres aleatórios no final do nome, como `luis-csharp-bot-johnsmithxqowom`. 
+1. No recurso do Application Insights, na página **Visão geral**, copie a **Chave de instrumentação**.
+1. No Visual Studio, abra o arquivo **appsettings.json** na raiz do projeto do bot. O arquivo contém todas as suas variáveis de ambiente.
+1. Adicione uma nova variável, `BotDevAppInsightsKey`, com o valor de sua chave de instrumentação. O valor deve estar entre aspas. 
 
-2. Insira a frase `Coffee bar on please`.  
+## <a name="build-and-start-the-bot"></a>Criar e iniciar o bot
 
-    ![Testar o bot do aplicativo Web no chat](./media/luis-tutorial-bot-csharp-appinsights/test-in-web-chat.png)
+1. No Visual Studio, compile e execute o bot. 
+1. Inicie o emulador do bot e abra o bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) é descrita no tutorial anterior.
 
-3. Você não verá nenhuma diferença na resposta do chatbot. A alteração está enviando dados para o Application Insights, não nas respostas do bot. Insira mais algumas declarações para que haja mais dados no Application Insights:
-
-|Declarações|
-|--|
-|Entregue uma pizza|
-|Apague as luzes|
-|Acenda a luz do hall|
-
+1. Faça uma pergunta ao bot. Esta [etapa](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) é descrita no tutorial anterior.
 
 ## <a name="view-luis-entries-in-application-insights"></a>Exibir entradas do LUIS no Application Insights
 
-Abra o Application Insights para ver as entradas do LUIS.
+Abra o Application Insights para ver as entradas do LUIS. Poderão ser necessários alguns minutos para que os dados sejam exibidos no Application Insights.
 
-1. No portal, selecione **Todos os recursos** e, em seguida, filtre pelo nome do bot do aplicativo Web. Clique no recurso com o tipo **Application Insights**. O ícone para o Application Insights é uma lâmpada.
+1. No [portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para o bot. 
+1. Quando o recurso for aberto, selecione **Pesquisar** e pesquise todos os dados nos últimos **30 minutos** com o tipo de evento **Rastreamento**. Selecione o rastreamento denominado **LUIS**. 
+1. As informações do bot e do LUIS estão disponíveis em **Propriedades personalizadas**. 
 
-    ![Pesquisar informações de aplicativo no portal do Azure](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights.png)
-
-2. Quando o recurso se abrir, clique no ícone **Pesquisar** da lupa no painel bem à direita. Um novo painel à direita é exibido. Dependendo de quantos dados de telemetria forem encontrados, o painel poderá levar um segundo para ser exibido. Procure `LUIS`. A lista é restrita somente aos resultados de consulta do LUIS adicionados com este tutorial.
-
-    ![Pesquisar rastreamentos](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace.png)
-
-3. Selecione a entrada superior. Uma nova janela exibe dados mais detalhados, incluindo os dados personalizados para a consulta do LUIS mais à direita. Os dados incluem a intenção superior e sua pontuação.
-
-    ![Analise o item de rastreamento](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-trace-item.png)
-
-    Quando terminar, selecione o **X** no canto superior mais à direita para retornar para a lista de itens de dependência.
-
-> [!Tip]
-> Se você quiser salvar a lista de dependências e retornar a ela mais tarde, clique em **…Mais** e em **Salvar favorito**.
+    ![Examine as propriedades personalizadas do LUIS armazenadas no Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## <a name="query-application-insights-for-intent-score-and-utterance"></a>Consulte o Application Insights para intenções, pontuações e enunciados
+O Application Insights oferece a capacidade de consultar os dados com a linguagem [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use), bem como exportar para o [Power BI](https://powerbi.microsoft.com). 
 
-O Application Insights fornece a capacidade de consultar os dados com o [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) idioma, bem como a exportação que ele [Power BI](https://powerbi.microsoft.com).
-
-1. Clique em **Análise** na parte superior da lista de dependência acima da caixa de filtro.
-
-    ![Botão Analytics](./media/luis-tutorial-bot-csharp-appinsights/portal-service-list-app-insights-search-luis-analytics-button.png)
-
-2. Uma nova janela é aberta com uma janela de consulta na parte superior e uma janela de tabela de dados abaixo. Se você tiver usado bancos de dados antes, essa organização será familiar. A consulta inclui todos os itens nas últimas 24 horas começando com o nome `LUIS`. A coluna **CustomDimensions** tem os resultados da consulta do LUIS como pares de nome/valor.
-
-    ![Relatório de análise padrão](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-1.png)
-
-3. Para extrair as principais intenções, pontuações e enunciados, adicione o seguinte logo acima da última linha na janela de consulta:
+1. Selecione **Log (Analytics)** . Uma nova janela é aberta com uma janela de consulta na parte superior e uma janela de tabela de dados abaixo. Se você tiver usado bancos de dados antes, essa organização será familiar. A consulta representa seus dados filtrados anteriores. A coluna **CustomDimensions** tem o bot e as informações do LUIS.
+1. Para extrair as principais intenções, pontuações e enunciados, adicione o seguinte logo acima da última linha (a linha `|top...`) na janela de consulta:
 
     ```kusto
-    | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent)
+    | extend topIntent = tostring(customDimensions.LUIS_topScoringIntent_Name)
     | extend score = todouble(customDimensions.LUIS_topScoringIntentScore)
     | extend utterance = tostring(customDimensions.LUIS_query)
     ```
 
-4. Execute a consulta. Role bem para a direita na tabela de dados. As novas colunas de topIntent, pontuação e enunciado estão disponíveis. Clique na coluna da intenção superior para classificar.
+1. Execute a consulta. As novas colunas de topIntent, pontuação e enunciado estão disponíveis. Selecione a coluna topIntent para classificar.
 
-    ![Relatório de análise personalizado](./media/luis-tutorial-bot-csharp-appinsights/analytics-query-2.png)
+Saiba mais sobre a [Linguagem de consulta Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou sobre [exportar os dados para o Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi). 
 
-Saiba mais sobre o [linguagem de consulta Kusto](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) ou [exportar os dados para o Power BI](https://docs.microsoft.com/azure/application-insights/app-insights-export-power-bi).
 
 ## <a name="learn-more-about-bot-framework"></a>Saiba mais sobre o Bot Framework
 
@@ -251,7 +195,7 @@ Saiba mais sobre o [Bot Framework](https://dev.botframework.com/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Outras informações que você talvez queira adicionar aos dados do Application Insights incluem ID do aplicativo, ID de versão, data da última alteração do modelo, data do último treinamento, data da última publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID de versão) ou de uma chamada à [API de criação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c3d) e então definidos nas configurações do bot do aplicativo Web e capturados de lá.  
+Outras informações que você talvez queira adicionar aos dados do Application Insights incluem ID do aplicativo, ID de versão, data da última alteração do modelo, data do último treinamento, data da última publicação. Esses valores podem ser recuperados da URL do ponto de extremidade (ID do aplicativo e ID de versão) ou de uma chamada à API de criação e então definidos nas configurações do bot do aplicativo Web e capturados de lá.  
 
 Se você estiver usando a mesma assinatura do ponto de extremidade para mais de um aplicativo LUIS, também deverá incluir a ID da assinatura e uma propriedade informando que ela é uma chave compartilhada.
 

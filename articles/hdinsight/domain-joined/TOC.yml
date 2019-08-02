@@ -2,24 +2,24 @@
   href: /azure/hdinsight
 - name: Visão geral
   items:
-    - name: O que é o Enterprise Security Package no HDInsight?
-      href: apache-domain-joined-introduction.md
+    - name: O que é a segurança empresarial no HDInsight?
+      href: hdinsight-security-overview.md
+- name: Tutoriais
+  items:
+    - name: Apache HBase RBAC com o Apache Ranger
+      href: apache-domain-joined-run-hbase.md
+    - name: Apache Kafka RBAC com o Apache Ranger
+      href: apache-domain-joined-run-kafka.md
 - name: Conceitos
   items:
     - name: Plano para clusters ESP
       href: apache-domain-joined-architecture.md
-    - name: Criar clusters do ESP e sincronizar com o local
-      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
     - name: Configurar clusters ESP usando Azure AD DS
       href: apache-domain-joined-configure-using-azure-adds.md
     - name: Sincronizar usuários do Azure AD com um cluster HDInsight
       href: ../hdinsight-sync-aad-users-to-cluster.md
     - name: Configurar políticas do Apache Hive
       href: apache-domain-joined-run-hive.md
-    - name: Apache HBase RBAC com o Apache Ranger
-      href: apache-domain-joined-run-hbase.md
-    - name: Apache Kafka RBAC com o Apache Ranger
-      href: apache-domain-joined-run-kafka.md
     - name: Usar o VSCode para vincular ao cluster ESP
       href: ../hdinsight-for-vscode.md
     - name: Usar o IntelliJ para vincular ao cluster ESP
@@ -28,26 +28,36 @@
       href: ../spark/apache-spark-eclipse-tool-plugin.md
     - name: Usar o Apache Oozie nos clusters ESP
       href: hdinsight-use-oozie-domain-joined-clusters.md
-- name: Proteção de dados
-  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-- name: Acesso à rede
+    - name: Proteção de dados
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    - name: Acesso à rede
+      items:
+        - name: Arquitetura de rede virtual do HDInsight
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: Planejar VNETs para o HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Criar VNETs para o HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Endereços IP necessários para NSGs e UDRs
+          href: ../hdinsight-management-ip-addresses.md
+        - name: Conectar o HDInsight à rede local
+          href: ../connect-on-premises-network.md
+        - name: Criar cluster do Apache HBase na rede virtual do Azure
+          href: ../hbase/apache-hbase-provision-vnet.md
+        - name: Replicação de cluster do Apache HBase na rede virtual do Azure
+          href: ../hbase/apache-hbase-replication.md
+    - name: Monitorando com os logs do Azure Monitor
+      items:
+        - name: Usar os logs do Azure Monitor
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Usar consultas com os logs do Azure Monitor
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+        - name: Monitorar o desempenho do cluster
+          href: ../hdinsight-key-scenarios-to-monitor.md
+- name: Como
   items:
-    - name: HDInsight na VNet do Azure
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-    - name: Conectar o HDInsight à rede local
-      href: ../connect-on-premises-network.md
-    - name: Criar cluster do Apache HBase na rede virtual do Azure
-      href: ../hbase/apache-hbase-provision-vnet.md
-    - name: Replicação de cluster do Apache HBase na rede virtual do Azure
-      href: ../hbase/apache-hbase-replication.md
-- name: Monitorando com os logs do Azure Monitor
-  items:
-    - name: Usar os logs do Azure Monitor
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-    - name: Usar consultas com os logs do Azure Monitor
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-    - name: Monitorar o desempenho do cluster
-      href: ../hdinsight-key-scenarios-to-monitor.md
+    - name: Criar clusters do ESP e sincronizar com o local
+      href: apache-domain-joined-create-configure-enterprise-security-cluster.md
 - name: Referência
   items:
     - name: Exemplos de código

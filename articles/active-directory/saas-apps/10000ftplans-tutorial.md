@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f231d3d966154c1ea5cca808eedad1051089fea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 441c9345f92974c387429baac768dbccb03fc995
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897378"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107600"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-10000ft-plans"></a>Tutorial: Integração do Azure Active Directory com o 10,000ft Plans
 
@@ -55,7 +55,7 @@ Para configurar a integração do 10,000ft Plans ao Azure AD, você precisará a
 
 **Para adicionar o 10,000ft Plans da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o 10,000ft Plans, execute as segu
 
     ![Informações de logon único de Domínio e URLs do 10,000ft Plans](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL: `https://app.10000ft.com`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://app.10000ft.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL: `https://app.10000ft.com/saml/metadata`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://app.10000ft.com/saml/metadata`
 
     > [!NOTE]
     > O valor de **Identificador** será diferente se você tiver um domínio personalizado. Contate a [equipe de suporte do 10,000ft Plans](https://www.10000ft.com/plans/support) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -148,7 +148,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
@@ -201,4 +201,4 @@ Ao clicar no bloco do 10,000ft Plans no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

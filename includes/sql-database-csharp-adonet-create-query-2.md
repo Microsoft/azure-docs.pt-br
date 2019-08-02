@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66167216"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172000"
 ---
 ## <a name="c-program-example"></a>Exemplo de programa em C#
 
@@ -37,7 +37,7 @@ O ERD exibe a relação entre as duas tabelas. Os valores da coluna **filho** *t
 
 O programa C# é logicamente um arquivo .cs e é dividido fisicamente em vários blocos de código para facilitar a compreensão de cada bloco. Para compilar e executar o programa, execute as seguintes etapas:
 
-1. Crie um novo projeto em C# no Visual Studio. O tipo de projeto deve ser um *Console*, localizado em **Modelos** > **Visual C#** > **Windows Desktop** > **Aplicativo de Console (.NET Framework)**.
+1. Crie um novo projeto em C# no Visual Studio. O tipo de projeto deve ser um *Console*, localizado em **Modelos** > **Visual C#**  > **Windows Desktop** > **Aplicativo de Console (.NET Framework)** .
 
 1. No arquivo *Program.cs*, substitua as linhas iniciais do código com as seguintes etapas:
 

@@ -2,17 +2,17 @@
 title: Usar um endereço IP estático com o balanceador de carga do Serviço do Kubernetes do Azure (AKS)
 description: Saiba como criar e usar um endereço IP estático com o balanceador de carga do AKS (Serviço de Kubernetes do Azure).
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: iainfou
-ms.openlocfilehash: d2e4314948eeda0c82c004414f894dafc4d4cff6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 9e32715766734bcbb150d70aeed2dc5b06a4bcbb
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61031634"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614461"
 ---
 # <a name="use-a-static-public-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Usar um endereço IP público estático com o balanceador de carga do AKS (Serviço de Kubernetes do Azure)
 
@@ -22,17 +22,17 @@ Este artigo mostra como criar um endereço IP público estático e atribuí-lo a
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se você precisar um cluster do AKS, consulte o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Você também precisa da CLI do Azure versão 2.0.59 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa da CLI do Azure versão 2.0.59 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar a CLI do Azure][install-azure-cli].
 
-Atualmente, apenas *SKU básico do IP*tem suporte. Trabalho está em andamento para dar suporte a *IP padrão* SKU de recurso. Para obter mais informações, consulte [tipos e métodos de alocação no Azure de endereços IP][ip-sku].
+Atualmente, apenas *SKU básico do IP*tem suporte. Trabalho está em andamento para dar suporte a *IP padrão* SKU de recurso. Para obter mais informações, consulte [endereço IP, tipos e métodos de alocação no Azure][ip-sku].
 
 ## <a name="create-a-static-ip-address"></a>Criar um endereço IP estático
 
 Quando você cria um endereço IP público estático para uso com o AKS, o recurso de endereço IP deve ser criado no grupo de recursos **node**. Se você deseja separar os recursos, consulte a seção a seguir para [usar um endereço IP estático fora do grupo de recursos de nó](#use-a-static-ip-address-outside-of-the-node-resource-group).
 
-Primeiro, obtenha o nome de grupo de recursos do nó com o [show do az aks] [ az-aks-show] de comando e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo a seguir obtém o grupo de recursos do nó do nome do cluster do AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
+Primeiro, obtenha o nome de grupo de recursos do nó com o [show do az aks][az-aks-show] de comando e adicione o `--query nodeResourceGroup` parâmetro de consulta. O exemplo a seguir obtém o grupo de recursos do nó do nome do cluster do AKS *myAKSCluster* no nome do grupo de recursos *myResourceGroup*:
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -40,7 +40,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Agora, crie um endereço IP público estático com o comando [az network public ip create][az-network-public-ip-create]. Especifique o nome de grupo de recursos do nó obtido no comando anterior e, em seguida, um nome para o recurso do endereço IP, como *myAKSPublicIP*:
+Agora, crie um endereço IP público estático com o [criar ip público do az rede][az-network-public-ip-create] comando. Especifique o nome de grupo de recursos do nó obtido no comando anterior e, em seguida, um nome para o recurso do endereço IP, como *myAKSPublicIP*:
 
 ```azurecli-interactive
 az network public-ip create \
@@ -64,7 +64,7 @@ O endereço IP é exibido, conforme mostrado na saída de exemplo condensado a s
 }
 ```
 
-Mais tarde, você poderá obter o endereço IP público usando o comando [az network public-ip list][az-network-public-ip-list]. Especifique o nome do grupo de recursos do nó e o endereço IP público que você criou e, em seguida, confira o *ipAddress*, conforme mostrado no exemplo a seguir:
+Que mais tarde você pode obter o endereço IP público usando o [lista do az network public-ip][az-network-public-ip-list] comando. Especifique o nome do grupo de recursos do nó e o endereço IP público que você criou e, em seguida, confira o *ipAddress*, conforme mostrado no exemplo a seguir:
 
 ```azurecli-interactive
 $ az network public-ip show --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --query ipAddress --output tsv
@@ -127,7 +127,7 @@ spec:
 
 ## <a name="troubleshoot"></a>Solução de problemas
 
-Se o endereço IP estático definido na *loadBalancerIP* propriedade do manifesto do serviço Kubernetes não existe ou não tiver sido criada no grupo de recursos de nó e não há delegações adicionais configuradas, o serviço de Balanceador de carga Falha na criação. Para solucionar problemas, examine os eventos de criação do serviço com o comando [kubectl describe][kubectl-describe]. Forneça o nome do serviço, conforme especificado no manifesto do YAML, como é mostrado no exemplo a seguir:
+Se o endereço IP estático definido na *loadBalancerIP* propriedade do manifesto do serviço Kubernetes não existe ou não tiver sido criada no grupo de recursos de nó e não há delegações adicionais configuradas, o serviço de Balanceador de carga Falha na criação. Para solucionar problemas, examine os eventos de criação de serviço com o [kubectl descrevem][kubectl-describe] comando. Forneça o nome do serviço, conforme especificado no manifesto do YAML, como é mostrado no exemplo a seguir:
 
 ```console
 kubectl describe service azure-load-balancer
@@ -159,7 +159,7 @@ Events:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais controle sobre o tráfego de rede para seus aplicativos, convém [criar um controlador de entrada][aks-ingress-basic]. Você também pode [criar um controlador de entrada com um endereço IP público estático][aks-static-ingress].
+Para obter controle adicional sobre o tráfego de rede para seus aplicativos, você talvez queira em vez disso [criar um controlador de ingresso][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

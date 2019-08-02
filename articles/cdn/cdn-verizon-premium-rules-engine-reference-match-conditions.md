@@ -1,22 +1,22 @@
 ---
-title: Condições de correspondência do mecanismo de regras de CDN do Azure da Verizon Premium | Microsoft Docs
-description: Condições de correspondência do mecanismo de regras de documentação de referência para o Azure Content Delivery Network da Verizon Premium.
+title: Condições de correspondência do mecanismo de regras do Azure CDN do Verizon Premium | Microsoft Docs
+description: Documentação de referência para a rede de distribuição de conteúdo do Azure das condições de correspondência do mecanismo de regras do Verizon Premium.
 services: cdn
 author: mdgattuso
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: 5197fdfe78b1b091de713754967f58157cc4a1b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1660dca34b2f128ef5889145fcdeed0d2523b9bb
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481648"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "67593213"
 ---
-# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condições de correspondência CDN do Azure do mecanismo de regras da Verizon Premium
+# <a name="azure-cdn-from-verizon-premium-rules-engine-match-conditions"></a>Condições de correspondência do mecanismo de regras do Azure CDN do Verizon Premium
 
-Este artigo lista descrições detalhadas das condições de correspondência disponíveis para o Azure Content Delivery Network (CDN) da Verizon Premium [mecanismo de regras](cdn-verizon-premium-rules-engine.md).
+Este artigo lista descrições detalhadas das condições de correspondência disponíveis para a CDN (rede de distribuição de conteúdo) do Azure do [mecanismo de regras](cdn-verizon-premium-rules-engine.md)do Verizon Premium.
 
 A segunda parte de uma regra é a condição de correspondência. Uma condição de correspondência identifica tipos específicos de solicitações para os quais um conjunto de recursos será executado.
 
@@ -30,7 +30,7 @@ Por exemplo, você pode usar uma condição de correspondência para:
 
 A condição de correspondência Sempre aplica um conjunto de recursos padrão a todas as solicitações.
 
-NOME | Finalidade
+Nome | Finalidade
 -----|--------
 [Sempre](#always) | Aplica um conjunto de recursos padrão para todas as solicitações.
 
@@ -38,7 +38,7 @@ NOME | Finalidade
 
 A condição de correspondência Dispositivo identifica solicitações feitas de um dispositivo móvel baseadas em suas propriedades.  
 
-NOME | Finalidade
+Nome | Finalidade
 -----|--------
 [Dispositivo](#device) | Identifica solicitações feitas de um dispositivo móvel baseadas em suas propriedades.
 
@@ -46,16 +46,16 @@ NOME | Finalidade
 
 As condições de correspondência Localização identificam solicitações baseadas na localização do solicitante.
 
-NOME | Finalidade
+Nome | Finalidade
 -----|--------
 [Número AS](#as-number) | Identifica solicitações originadas de uma rede específica.
-[País](#country) | Identifica solicitações originadas de países/regiões especificados.
+[País](#country) | Identifica solicitações originadas dos países/regiões especificados.
 
 ## <a name="origin-match-conditions"></a>Condições de correspondência Origem
 
 As condições de correspondência Origem identificam solicitações que apontem para o armazenamento da Rede de Distribuição de Conteúdo ou para um servidor de origem do cliente.
 
-NOME | Finalidade
+Nome | Finalidade
 -----|--------
 [Origem CDN](#cdn-origin) | Identifica solicitações para conteúdo armazenado no armazenamento da Rede de Distribuição de Conteúdo.
 [Origem do Cliente](#customer-origin) | Identifica solicitações de conteúdo armazenado em um servidor de origem do cliente específico.
@@ -64,7 +64,7 @@ NOME | Finalidade
 
 As condições de correspondência Solicitação identificam solicitações baseadas em suas propriedades.
 
-NOME | Finalidade
+Nome | Finalidade
 -----|--------
 [Endereço IP do cliente](#client-ip-address) | Identifica solicitações originadas de um endereço IP específico.
 [Parâmetro de Cookie](#cookie-parameter) | Verifica o valor especificado nos cookies associados a cada solicitação.
@@ -81,7 +81,7 @@ NOME | Finalidade
 
 As condições de correspondência URL identificam solicitações baseadas em suas URLs.
 
-NOME | Finalidade
+Nome | Finalidade
 -----|--------
 [Diretório do Caminho da URL](#url-path-directory) | Identifica solicitações pelo caminho relativo.
 [Extensão do Caminho da URL](#url-path-extension) | Identifica solicitações pela extensão de nome do arquivo.
@@ -249,7 +249,7 @@ Informações de chave:
 
 ---
 
-### <a name="country"></a>País/Região
+### <a name="country"></a>País
 
 Você pode especificar um país por meio de seu código de país. 
 
@@ -307,7 +307,7 @@ Informações de chave:
 
 ---
 
-### <a name="device"></a>Dispositivo
+### <a name="device"></a>Dispositivos
 
 A condição de correspondência Dispositivo identifica solicitações feitas de um dispositivo móvel baseadas em suas propriedades. A detecção de dispositivos móveis é alcançada por meio de [WURFL](http://wurfl.sourceforge.net/). 
 
@@ -330,7 +330,7 @@ Informações de chave:
 
 Normalmente, um recurso WURFL aceita qualquer combinação de números, letras e símbolos. Devido à natureza flexível dessa funcionalidade, você deve escolher como o valor associado a essa condição de correspondência é interpretado. A tabela a seguir descreve o conjunto disponível de opções:
 
-Type     | DESCRIÇÃO
+Tipo     | Descrição
 ---------|------------
 Literal  | Selecione esta opção para impedir que a maioria dos caracteres tenham um significado especial usando seus [valores literal](cdn-verizon-premium-rules-engine-reference.md#literal-values).
 Curinga | Selecione esta opção para aproveitar todos os [caracteres curinga] ([valores curinga](cdn-verizon-premium-rules-engine-reference.md#wildcard-values).
@@ -345,26 +345,26 @@ A tabela a seguir lista recursos WURFL e suas variáveis para o mecanismo de reg
 > [!NOTE]
 > As variáveis a seguir têm suporte nos recursos **Modificar Cabeçalho de Solicitação do Cliente** e **Modificar Cabeçalho de Resposta do Cliente**.
 
-Recurso | Variável | DESCRIÇÃO | Valores de exemplo
+Funcionalidade | Variável | Descrição | Valores de exemplo
 -----------|----------|-------------|----------------
-Nome da marca | %{wurfl_cap_brand_name} | Uma cadeia de caracteres que indica o nome da marca do dispositivo. | Samsung
+Nome da Marca | %{wurfl_cap_brand_name} | Uma cadeia de caracteres que indica o nome da marca do dispositivo. | Samsung
 SO do dispositivo | %{wurfl_cap_device_os} | Uma cadeia de caracteres que indica o sistema operacional instalado no dispositivo. | IOS
 Versão do SO do dispositivo | %{wurfl_cap_device_os_version} | Uma cadeia de caracteres que indica o número de versão do sistema operacional instalado no dispositivo. | 1.0.1
-Orientação dupla | %{wurfl_cap_dual_orientation} | Um booliano que indica se o dispositivo dá suporte a orientação dupla. | verdadeiro
-DTD preferencial HTML | %{wurfl_cap_html_preferred_dtd} | Uma cadeia de caracteres que indica a DTD (definição de tipo de documento) do dispositivo móvel para conteúdo HTML. | Nenhum<br/>xhtml_basic<br/>html5
-Inlining de Imagem | %{wurfl_cap_image_inlining} | Um booliano que indica se o dispositivo dá suporte a imagens codificadas de Base64. | falso
-É Android | %{wurfl_vcap_is_android} | Um booliano que indica se o dispositivo usa o sistema operacional Android. | verdadeiro
-É IOS | %{wurfl_vcap_is_ios} | Um booliano que indica se o dispositivo usa iOS. | falso
-É Smart TV | %{wurfl_cap_is_smarttv} | Um booliano que indica se o dispositivo é uma Smart TV. | falso
-É Smartphone | %{wurfl_vcap_is_smartphone} | Um booliano que indica se o dispositivo é um smartphone. | verdadeiro
-É Tablet | %{wurfl_cap_is_tablet} | Um booliano que indica se o dispositivo é um tablet. Essa descrição é independente do sistema operacional. | verdadeiro
-É dispositivo sem fio | %{wurfl_cap_is_wireless_device} | Um booliano que indica se o dispositivo é considerado um dispositivo sem fio. | verdadeiro
+Orientação dupla | %{wurfl_cap_dual_orientation} | Um booliano que indica se o dispositivo dá suporte a orientação dupla. | true
+DTD preferencial HTML | %{wurfl_cap_html_preferred_dtd} | Uma cadeia de caracteres que indica a DTD (definição de tipo de documento) do dispositivo móvel para conteúdo HTML. | nenhum<br/>xhtml_basic<br/>html5
+Inlining de Imagem | %{wurfl_cap_image_inlining} | Um booliano que indica se o dispositivo dá suporte a imagens codificadas de Base64. | false
+É Android | %{wurfl_vcap_is_android} | Um booliano que indica se o dispositivo usa o sistema operacional Android. | true
+É IOS | %{wurfl_vcap_is_ios} | Um booliano que indica se o dispositivo usa iOS. | false
+É Smart TV | %{wurfl_cap_is_smarttv} | Um booliano que indica se o dispositivo é uma Smart TV. | false
+É Smartphone | %{wurfl_vcap_is_smartphone} | Um booliano que indica se o dispositivo é um smartphone. | true
+É Tablet | %{wurfl_cap_is_tablet} | Um booliano que indica se o dispositivo é um tablet. Essa descrição é independente do sistema operacional. | true
+É dispositivo sem fio | %{wurfl_cap_is_wireless_device} | Um booliano que indica se o dispositivo é considerado um dispositivo sem fio. | true
 Nome de marketing | %{wurfl_cap_marketing_name} | Uma cadeia de caracteres que indica o nome de marketing do dispositivo. | BlackBerry 8100 Pearl
 Navegador de dispositivo móvel | %{wurfl_cap_mobile_browser} | Uma cadeia de caracteres que indica o navegador que é usado para solicitar o conteúdo do dispositivo. | Chrome
 Versão do navegador móvel | %{wurfl_cap_mobile_browser_version} | Uma cadeia de caracteres que indica a versão do navegador que é usado para solicitar conteúdo do dispositivo. | 31
 Nome do modelo | %{wurfl_cap_model_name} | Uma cadeia de caracteres que indica o nome do modelo do dispositivo. | s3
-Download progressivo | %{wurfl_cap_progressive_download} | Um booliano que indica se o dispositivo dá suporte a reprodução de áudio e vídeo enquanto ele ainda está sendo baixado. | verdadeiro
-Data do lançamento | %{wurfl_cap_release_date} | Uma cadeia de caracteres que indica o ano e o mês em que o dispositivo foi adicionado ao banco de dados WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
+Download progressivo | %{wurfl_cap_progressive_download} | Um booliano que indica se o dispositivo dá suporte a reprodução de áudio e vídeo enquanto ele ainda está sendo baixado. | true
+Data do Lançamento | %{wurfl_cap_release_date} | Uma cadeia de caracteres que indica o ano e o mês em que o dispositivo foi adicionado ao banco de dados WURFL.<br/><br/>Formato: `yyyy_mm` | 2013_december
 Altura de resolução | %{wurfl_cap_resolution_height} | Um inteiro que indica a altura do dispositivo em pixels. | 768
 Largura de resolução | %{wurfl_cap_resolution_width} | Um inteiro que indica a largura do dispositivo em pixels. | 1024
 
@@ -514,9 +514,9 @@ Informações de chave:
 
 A condição de correspondência do Método de Solicitação é atendido somente quando os ativos são solicitados por meio do método de solicitação selecionado. Os métodos de solicitação disponíveis são:
 
-- GET
+- OBTER
 - HEAD
-- POST
+- POSTAR
 - OPÇÕES
 - PUT
 - DELETE
@@ -647,7 +647,7 @@ Informações de chave:
 
 A configuração de exemplo a seguir supõe que essa condição de correspondência é atendida quando uma solicitação corresponde a uma das extensões especificadas.
 
-Especificação de valor: asp aspx php html
+Especificação de valor: ASP aspx PHP HTML
 
 Esta condição de correspondência é atendida quando encontra URLs que terminam com as seguintes extensões:
 
@@ -829,7 +829,7 @@ Informações de chave:
 
 A configuração de exemplo na tabela a seguir supõe que essa condição de correspondência é atendida quando uma solicitação corresponde ao padrão de URL especificado:
 
-Value                   | Relativo a    | Result 
+Valor                   | Relativo a    | Resultado 
 ------------------------|----------------|-------
 \*/test.html \*/test.php  | Raiz ou origem | Esse padrão é correspondido por solicitações para ativos nomeados "test.html" ou "test.php" em qualquer pasta.
 /80ABCD/origin/text/*   | Raiz           | Esse padrão é correspondido quando o ativo solicitado atende aos seguintes critérios: <br />- Ele deve estar em uma origem de cliente chamada "origem". <br />- O caminho relativo deve começar com uma pasta chamada "texto". Ou seja, o ativo solicitado pode residir na pasta "texto" ou em uma de suas subpastas recursivas.
@@ -953,10 +953,10 @@ Informações de chave:
 
 O exemplo a seguir demonstra como essa opção funciona em situações específicas:
 
-NOME  | Value |  Result
+Nome  | Valor |  Resultado
 ------|-------|--------
-Usuário  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
-Usuário  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
+User  | Joe   | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
+User  | *     | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de Usuário.
 Email | Joe\* | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada contém um parâmetro de E-mail que começa com “Joe”.
 
 [Voltar ao início](#reference-for-rules-engine-match-conditions)
@@ -984,7 +984,7 @@ Informações de chave:
     
 - Determinados caracteres exigem codificação de URL. Use o símbolo de porcentagem para a URL codificar os seguintes caracteres:
 
-   Character | Codificação de URL | Value
+   Character | Codificação de URL | Valor
    ----------|--------------|------
    Espaço     | %20          | \%20
    &         | %25          | \%25
@@ -995,7 +995,7 @@ Informações de chave:
 
    Por exemplo:
 
-   Value | Interpretado como 
+   Valor | Interpretado como 
    ------|---------------
    \\+    | +
    \\\\+   | \\+
@@ -1036,7 +1036,7 @@ Informações de chave:
 
 - Especifique vários valores delimitando cada um deles com um único espaço.
 
-   Por exemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por exemplo:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Apenas as correspondências exatas a pelo menos um dos padrões de cadeia de caracteres de consulta especificados satisfazem essa condição de correspondência.
     
@@ -1053,7 +1053,7 @@ Informações de chave:
 
 O exemplo a seguir demonstra como essa opção funciona em situações específicas:
 
- NOME                 | DESCRIÇÃO
+ Nome                 | Descrição
  ---------------------|------------
 user=joe              | Esse padrão é correspondido quando a cadeia de caracteres de consulta para uma URL solicitada é "?user=joe."
 \*user=\* \*optout=\* | Esse padrão é correspondido quando a consulta de URL CDN contém o parâmetro opcional ou de usuário.

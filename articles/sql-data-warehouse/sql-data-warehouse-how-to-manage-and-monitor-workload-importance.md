@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a39d71e0f8b8072cab6a3af9a2f0913973f303ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30afe1805748012b0a137c865c799580f79d31d8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235936"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588654"
 ---
 # <a name="manage-and-monitor-workload-importance-in-azure-sql-data-warehouse"></a>Gerenciar e monitorar a importância da carga de trabalho no Azure SQL Data Warehouse
 
@@ -72,4 +72,4 @@ GO
 - Para obter mais informações sobre a importância, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Ir para configurar a importância da carga de trabalho ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Ir para configurar a importância da carga de trabalho](sql-data-warehouse-how-to-configure-workload-importance.md)

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/30/2019
-ms.openlocfilehash: 47bf59adb33f3685b31430c652b31880d383833e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80d01a360a2f80749bd7fbe7a9aadb9dda1189c6
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232653"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706982"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
@@ -77,7 +77,7 @@ Um banco de dados geralmente é restaurado para um ponto anterior para fins de r
 
 - **Substituição de banco de dados**
 
-  Se o banco de dados restaurado destina-se como uma substituição para o banco de dados original, você deve especificar o tamanho de computação do banco de dados orinal e camada de serviço. Em seguida, você pode renomear o banco de dados original e dar o banco de dados restaurado o nome original usando o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando T-SQL.
+  Se o banco de dados restaurado destina-se como uma substituição para o banco de dados original, você deve especificar o tamanho de computação do banco de dados original e a camada de serviço. Em seguida, você pode renomear o banco de dados original e dar o banco de dados restaurado o nome original usando o [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) comando T-SQL.
 
 - **Recuperação de dados**
 
@@ -124,7 +124,7 @@ A restauração geográfica é a opção de recuperação padrão quando seu ban
 Atualmente, não há suporte para a restauração pontual em uma área geográfica secundária. A restauração pontual pode ser feita somente em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [Recuperação de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> A restauração geográfica é a solução de recuperação de desastres mais básica disponível no banco de dados SQL. Ele se baseia em criados automaticamente backups replicados geograficamente com RPO = 1 hora e o tempo de recuperação estimado de até 12 horas. Ele não garante que a região de destino terão a capacidade de restaurar seus bancos de dados após um ourage regional, porque um rápido aumento de demanda, será provável. Para aplicativos críticos não comerciais que usam bancos de dados relativamente pequenos, a restauração geográfica é uma solução de recuperação de desastres apropriado. Para aplicativos críticos busniess que usam bancos de dados grandes e devem garantir a continuidade dos negócios, você deve usar [grupos de failover automático](sql-database-auto-failover-group.md). Ele oferece um RPO e RTO muito menores, e a capacidade sempre é garantida. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
+> A restauração geográfica é a solução de recuperação de desastres mais básica disponível no banco de dados SQL. Ele se baseia em criados automaticamente backups replicados geograficamente com RPO = 1 hora e o tempo de recuperação estimado de até 12 horas. Ele não garante que a região de destino terão a capacidade de restaurar seus bancos de dados após um ourage regional, porque um rápido aumento de demanda, será provável. Para aplicativos críticos não comerciais que usam bancos de dados relativamente pequenos, a restauração geográfica é uma solução de recuperação de desastres apropriado. Para aplicativos críticos de negócios que usam bancos de dados grandes e devem garantir a continuidade dos negócios, você deve usar [grupos de failover automático](sql-database-auto-failover-group.md). Ele oferece um RPO e RTO muito menores, e a capacidade sempre é garantida. Para obter mais informações sobre as opções de continuidade dos negócios, consulte [Visão geral de continuidade de negócios](sql-database-business-continuity.md).
 
 ### <a name="geo-restore-using-the-azure-portal"></a>Restauração geográfica usando o portal do Azure
 

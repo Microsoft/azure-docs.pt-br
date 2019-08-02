@@ -1,19 +1,19 @@
 ---
 title: Padrões de consulta comuns dos Gêmeos Digitais do Azure | Microsoft Docs
 description: Aprenda os padrões comuns para consultar as APIs de gerenciamento dos Gêmeos Digitais do Azure.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
-ms.author: dkshir
-ms.openlocfilehash: ff8638042fa10c939ff9c5fa7af99a660fcdc753
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/09/2019
+ms.author: v-adgera
+ms.openlocfilehash: eca355a51b516311d060df09905c1df769037ec5
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60924729"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67722844"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs dos Gêmeos Digitais do Azure para tarefas comuns
 
@@ -238,4 +238,4 @@ Esta seção mostra alguns exemplos de consultas de API para gerenciar usuários
 
 Para saber como autenticar-se com a API de gerenciamento, leia [Autenticar com APIs](./security-authenticating-apis.md).
 
-Para ver todos os pontos de extremidade da API, leia [Como usar o Swagger de Gêmeos Digitais](./how-to-use-swagger.md).
+Para saber mais sobre seus pontos de extremidade de API, leia [como usar o Swagger de gêmeos Digital](./how-to-use-swagger.md).

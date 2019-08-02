@@ -2,18 +2,18 @@
 title: O que há de novo nas Coleções de Workspaces do Power BI
 description: Obtenha as informações mais recentes sobre as Coleções de Workspaces do Power BI
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: 9ef9416abb4aaf0927d1e072286ef83a4d8c39cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 448c0997068fae0637c7015eed96fafbaf5b3442
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724006"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672355"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>O que há de novo nas Coleções de Workspaces do Power BI
 
@@ -41,7 +41,7 @@ Atualizações das **Coleções de Workspaces do Power BI** são lançadas regul
 * Clonar relatório e conjunto de dados
 * Associar um relatório a um conjunto de dados diferente
 
-**Exemplos**
+**Amostras**
 
 * [Amostra de inserção de relatório JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo) atualizada
 

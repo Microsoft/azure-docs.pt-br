@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4510074619ff513b7284819d88fdb2532e4ce33a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c469b333c6896d33b440bfadf0ebbdbeece71a3
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510425"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67272141"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar ADFS como um provedor de identidade SAML usando políticas personalizadas no Azure Active Directory B2C
 
@@ -101,6 +101,10 @@ Agora, você já configurou a política, portanto, o Azure AD B2C sabe como se c
 1. Na página **Políticas Personalizadas** em seu locatário do Azure AD B2C, selecione **Carregar Política**.
 2. Habilite **Substitua a política se ela existir** e, em seguida, navegue até o arquivo *TrustFrameworkExtensions.xml* e selecione-o.
 3. Clique em **Carregar**.
+
+> [!NOTE]
+> O código do Visual Studio B2C extensão usa "socialIdpUserId". Uma política de redes sociais também é necessária para o AD FS.
+>
 
 ## <a name="register-the-claims-provider"></a>Registrar o provedor de declarações
 

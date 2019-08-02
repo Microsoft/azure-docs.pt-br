@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Executar uma pesquisa de notícias com C# – API REST de Pesquisa de Notícias do Bing'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use este Início Rápido para enviar solicitações para a API REST de Pesquisa de Notícias do Bing usando C# e receba uma resposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 87e328230b346deaa25a1d83ca46c1698dd84882
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c6b050a9637046a8703dd7aaf1d5ac7f1ad1a5da
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798340"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423789"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início Rápido: Pesquisar notícias usando C# e a API REST de Pesquisa de Notícias do Bing
 

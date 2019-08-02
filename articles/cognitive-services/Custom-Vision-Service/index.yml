@@ -6,7 +6,7 @@ metadata:
   description: 'Saiba como usar a Visão Personalizada para compilar, implantar e melhorar as classificações de imagem personalizada. Tutoriais mostram como criar aplicativos que usam a API.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: custom-vision
   ms.tgt_pltfrm: na

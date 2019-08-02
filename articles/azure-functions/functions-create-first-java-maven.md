@@ -10,14 +10,15 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: routlaw, glenga
+ms.author: routlaw
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ab705b6131bd43a7ab70bab16cef81d33f07c055
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 20327e64080182518fd28b1d367ffe37be5ce9a4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827405"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323958"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Criar sua primeira função com Java e Maven
 
@@ -52,7 +53,7 @@ mvn archetype:generate \
 > [!NOTE]
 > Se você estiver com problemas com a execução do comando, verifique qual versão do `maven-archetype-plugin` é usada. Como você está executando o comando em um diretório vazio sem nenhum arquivo `.pom`, ele pode estar tentando usar um plug-in da versão mais antiga do `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin`, se você atualizou o Maven de uma versão anterior. Nesse caso, tente excluir o diretório `maven-archetype-plugin` e executar novamente o comando.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```powershell
 mvn archetype:generate `
@@ -62,8 +63,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-    -DarchetypeGroupId=com.microsoft.azure ^
-    -DarchetypeArtifactId=azure-functions-archetype
+    "-DarchetypeGroupId=com.microsoft.azure" ^
+    "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 O Maven solicitará os valores necessários para concluir a geração do projeto. Para os valores de _groupId_, _artifactId_ e _versão_, consulte a referência [Convenções de nomenclatura Maven](https://maven.apache.org/guides/mini/guide-naming-conventions.html). O valor de _appName_ deve ser exclusivo no Azure, portanto, o Maven gera um nome de aplicativo com base no _artifactId_ em inserido anteriormente como padrão. O valor de _packageName_ determina o pacote de Java para o código de função gerado.
@@ -71,17 +72,25 @@ O Maven solicitará os valores necessários para concluir a geração do projeto
 Os identificadores `com.fabrikam.functions` e `fabrikam-functions` abaixo são usados como um exemplo e tornam as etapas posteriores deste início rápido mais fáceis de ler. Forneça seus próprios valores para o Maven nesta etapa.
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
+Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' westus: :
+Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_ neste exemplo `fabrikam-functions`. O código pronto para executar gerado no projeto é uma simples função [disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que reflete o corpo da solicitação:
+O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId_ neste exemplo `fabrikam-functions`. O código pronto para executar gerado no projeto é uma função [disparada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) que reflete o corpo da solicitação. Substitua *src/main/java/com/fabrikam/functions/Function.java* pelo seguinte código: 
 
 ```java
+package com.fabrikam.functions;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
 public class Function {
     /**
      * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
@@ -108,7 +117,7 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>Associações de referência
+## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -116,7 +125,7 @@ public class Function {
 
 Altere o diretório para a pasta do projeto recém-criado e compile e execute a função com o Maven:
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -138,7 +147,7 @@ Http Functions:
 
 Dispare a função na linha de comando usando cURL em uma nova janela de terminal:
 
-```
+```CMD
 curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
 ```
 
@@ -150,18 +159,18 @@ Use `Ctrl-C` no terminal para interromper o código da função.
 
 ## <a name="deploy-the-function-to-azure"></a>Implantar a função no Azure
 
-O processo de implantação no Azure Functions usa credenciais de conta da CLI do Azure. [Faça logon com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
+O processo de implantação no Azure Functions usa credenciais de conta da CLI do Azure. [Entre com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
 
 ```azurecli
 az login
 ```
 
-Implante seu código em um novo aplicativo de funções usando o destino Maven `azure-functions:deploy`.
+Implante seu código em um novo aplicativo de funções usando o destino Maven `azure-functions:deploy`. Isso executa uma [Implantação de Zip com o modo de execução do pacote](functions-deployment-technologies.md#zip-deploy) habilitado.
 
 > [!NOTE]
 > Quando você usa o Visual Studio Code para implantar seu aplicativo Function, lembre-se de escolher uma assinatura não gratuita, ou você receberá um erro. Você pode assistir à sua assinatura no lado esquerdo do IDE.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -180,7 +189,7 @@ Teste o aplicativo de funções em execução no Azure usando `cURL`. Você prec
 > [!NOTE]
 > Verifique se você definiu os **direitos de acesso** para `Anonymous`. Quando você escolhe o nível padrão de `Function`, é necessário que você apresente a [chave da função](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) em solicitações para acessar seu ponto de extremidade da função.
 
-```
+```azurecli
 curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
 ```
 
@@ -205,7 +214,7 @@ return request.createResponse(200, "Hi, " + name);
 Salve as alterações. Execute mvn clean package e reimplante executando `azure-functions:deploy` no terminal como antes. O aplicativo de funções será atualizado e esta solicitação:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
 ```
 
 Terá a saída atualizada:

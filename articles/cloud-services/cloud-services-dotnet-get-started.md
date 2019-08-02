@@ -3,23 +3,19 @@ title: Introdução aos Serviços de Nuvem do Azure e ao ASP.NET | Microsoft Doc
 description: Saiba como criar um aplicativo de múltiplas camadas usando ASP.NET MVC e o Azure. O aplicativo é executado em um serviço de nuvem, com uma função Web e de trabalho. Ele utiliza Entity Framework, o Banco de Dados SQL e filas e blobs de Armazenamento do Azure.
 services: cloud-services, storage
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: d7aa440d-af4a-4f80-b804-cc46178df4f9
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 3082ca34f2bcb71dd7aa02b4539899997374cfc0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 802ece106099e8a475b83c820130c3c238d330d2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65595174"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359220"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -208,7 +204,7 @@ Você usará uma [transformação de Web.config](https://www.asp.net/mvc/tutoria
     Deixe o arquivo aberto para edição.
 2. No [portal do Azure](https://portal.azure.com), clique em **Bancos de Dados SQL** no painel esquerdo, clique no banco de dados criado para este tutorial e clique em **Mostrar cadeias de conexão**.
 
-    ![Mostrar cadeias de conexão](./media/cloud-services-dotnet-get-started/showcs.png)
+    ![Mostrar Cadeias de Conexão](./media/cloud-services-dotnet-get-started/showcs.png)
 
     O portal exibe as cadeias de conexão com um espaço reservado para a senha.
 
@@ -225,7 +221,7 @@ Você usará uma [transformação de Web.config](https://www.asp.net/mvc/tutoria
 10. Selecione o campo **Valor** para a configuração `ContosoAdsDbConnectionString` e cole a cadeia de conexão que você copiou da seção anterior do tutorial.
 
      ![Cadeia de conexão de banco de dados para função de trabalho](./media/cloud-services-dotnet-get-started/workerdbcs.png)
-11. Salve suas alterações.  
+11. Salve as alterações.  
 
 ### <a name="configure-the-solution-to-use-your-azure-storage-account-when-it-runs-in-azure"></a>Configurar a solução para usar sua conta de armazenamento do Azure quando ela for executada no Azure
 As cadeias de conexão da conta de armazenamento do Azure do projeto de função de trabalho e do projeto de função Web são armazenadas nas configurações de ambiente do projeto de serviço de nuvem. Para cada projeto existe um conjunto separado de configurações a ser usado quando o aplicativo é executado localmente e quando é executado na nuvem. Você atualizará as configurações de ambiente de nuvem para os projetos de função de trabalho e da Web.
@@ -242,7 +238,7 @@ As cadeias de conexão da conta de armazenamento do Azure do projeto de função
 4. Na caixa de diálogo **Criar Cadeia de Conexão de Armazenamento**, clique em **Sua assinatura**, escolha a conta de armazenamento que você criou anteriormente e, em seguida, clique em **OK**. Se você não tiver feito logon, suas credenciais da conta do Azure serão solicitadas.
 
     ![Criar cadeia de conexão de armazenamento](./media/cloud-services-dotnet-get-started/createstoragecs.png)
-5. Salve suas alterações.
+5. Salve as alterações.
 6. Siga o mesmo procedimento que usou para a cadeia de conexão `StorageConnectionString` para definir a cadeia de conexão `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString`.
 
     Essa cadeia de conexão é usada para o log.
@@ -377,7 +373,7 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
     ```
 
     Se você estiver usando o Visual Studio 2015 ou superior, substitua "v11.0" por "MSSQLLocalDB".
-2. Salve suas alterações.
+2. Salve as alterações.
 3. No projeto ContosoAdsCloudService, clique com o botão direito do mouse em ContosoAdsWeb abaixo de **Funções** e depois clique em **Propriedades**.
 
     ![Propriedades da função](./media/cloud-services-dotnet-get-started/roleproperties.png)
@@ -387,12 +383,12 @@ Nesta seção iremos configurar o Armazenamento do Azure e as cadeias de conexã
 5. Adicione uma configuração chamada *StorageConnectionString*. Defina **Tipo** como *ConnectionString* e defina **Valor** como *UseDevelopmentStorage=true*.
 
     ![Nova cadeia de conexão](./media/cloud-services-dotnet-get-started/scall.png)
-6. Salve suas alterações.
+6. Salve as alterações.
 7. Siga o mesmo procedimento para adicionar uma cadeia de conexão nas propriedades da função ContosoAdsWorker.
 8. Ainda na janela de propriedades de **ContosoAdsWorker [Role]** , adicione outra cadeia de conexão:
 
    * Nome: ContosoAdsDbConnectionString
-   * Digite: Cadeia de caracteres
+   * Digite: Cadeia
    * Valor: Cole a mesma cadeia de conexão usada para o projeto de função Web. (O exemplo a seguir é para o Visual Studio 2013. Não se esqueça de alterar a fonte de dados se for copiar este exemplo e se estiver usando o Visual Studio 2015 ou superior.)
 
        ```
@@ -742,7 +738,7 @@ Esse código lê o banco de dados para obter a URL da imagem, converte a imagem 
 >
 >
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 Caso algo não funcione enquanto você estiver seguindo as instruções nesse tutorial, veja a seguir alguns erros comuns e como resolvê-los.
 
 ### <a name="serviceruntimeroleenvironmentexception"></a>ServiceRuntime.RoleEnvironmentException
@@ -774,7 +770,7 @@ Para obter informações sobre como desenvolver para a nuvem, consulte [Criando 
 
 Para assistir a um vídeo de introdução às melhores práticas e padrões de armazenamento do Azure [Armazenamento do Microsoft Azure – O que há de novo, melhores práticas e padrões](https://channel9.msdn.com/Events/Build/2014/3-628).
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
 * [Serviços de Nuvem do Azure – Parte 1: Introdução](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage-portal.md)

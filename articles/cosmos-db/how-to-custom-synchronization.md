@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: cd89a145f5746696cc8fc163eb46896081d85a90
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: de66149a2ea3e01e62aa8e33ea5a99121a21524f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240954"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986076"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>Implementar a sincronização personalizada para otimização visando maior disponibilidade e desempenho
 
@@ -29,6 +29,7 @@ O primeiro cliente pode gravar os dados na região local (por exemplo, Oeste dos
 
 O exemplo a seguir mostra uma camada de acesso a dados que instancia dois clientes para a sincronização personalizada:
 
+### <a name="net-v2-sdk"></a>SDK do .NET V2
 ```csharp
 class MyDataAccessLayer
 {
@@ -64,10 +65,35 @@ class MyDataAccessLayer
 }
 ```
 
+### <a name="net-v3-sdk"></a>SDK do .NET V3
+```csharp
+class MyDataAccessLayer
+{
+    private CosmosClient writeClient;
+    private CosmosClient readClient;
+
+    public void InitializeAsync(string accountEndpoint, string key)
+    {
+        CosmosClientOptions writeConnectionOptions = new CosmosClientOptions();
+        writeConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        writeConnectionOptions.ApplicationRegion = "West US";
+
+        CosmosClientOptions readConnectionOptions = new CosmosClientOptions();
+        readConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        readConnectionOptions.ApplicationRegion = "East US";
+
+
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+    }
+}
+```
+
 ## <a name="implement-custom-synchronization"></a>Implementar sincronização personalizada
 
 Depois que os clientes forem inicializados, o aplicativo poderá executar gravações na região local (Oeste dos EUA) e forçar a sincronização das gravações no Leste dos EUA, conforme mostrado a seguir.
 
+### <a name="net-v2-sdk"></a>SDK do .NET V2
 ```csharp
 class MyDataAccessLayer
 {
@@ -78,6 +104,25 @@ class MyDataAccessLayer
 
         await readClient.ReadDocumentAsync(response.Resource.SelfLink,
             new RequestOptions { SessionToken = response.SessionToken });
+    }
+}
+```
+
+### <a name="net-v3-sdk"></a>SDK do .NET V3
+```csharp
+class MyDataAccessLayer
+{
+     public async Task CreateItem(string databaseId, string containerId, dynamic item)
+     {
+        ItemResponse<dynamic> response = await writeClient.GetContainer("containerId", "databaseId")
+            .CreateItemAsync<dynamic>(
+                item,
+                new PartitionKey("test"));
+
+        await readClient.GetContainer("containerId", "databaseId").ReadItemAsync<dynamic>(
+            response.Resource.id,
+            new PartitionKey("test"),
+            new ItemRequestOptions { SessionToken = response.Headers.Session, ConsistencyLevel = ConsistencyLevel.Session });
     }
 }
 ```

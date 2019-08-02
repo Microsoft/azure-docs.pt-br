@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 39aed992a2143065b0737d6a2dde3bcc9f2f958e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898243"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integração do Azure Active Directory com o HireVue
 
@@ -53,7 +53,7 @@ Para configurar a integração do HireVue ao Azure AD, você precisará adiciona
 
 **Para adicionar o HireVue por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,14 +105,14 @@ Para configurar o logon único do Azure AD com o HireVue, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do HireVue](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
     | Ambiente | URL |
     |-------------|---|
     | Produção | `https://<companyname>.hirevue.com` |
     | Staging    | `https://<companyname>.stghv.com` |
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
     | Ambiente | URN |
     |-------------|-----|

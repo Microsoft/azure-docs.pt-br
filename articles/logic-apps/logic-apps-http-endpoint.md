@@ -1,23 +1,23 @@
 ---
-title: Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP – aplicativos lógicos do Azure
+title: Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP-aplicativos lógicos do Azure
 description: Configurar pontos de extremidade HTTP para chamar, disparar ou aninhar fluxos de trabalho para Aplicativos Lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
 author: ecfan
-ms.author: klam; LADocs
+ms.author: klam
 ms.reviewer: jehollan, klam, LADocs
 manager: carmonm
 ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: b091fb8c6f0b2b655ce0595188c362206f79d702
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f93e90ef442740e4fb17f166023fbe3d5f0bae66
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66495050"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875946"
 ---
 # <a name="call-trigger-or-nest-workflows-with-http-endpoints-in-azure-logic-apps"></a>Chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade HTTP em aplicativos lógicos do Azure
 
@@ -271,9 +271,9 @@ Veja a seguir como o esquema JSON se parece agora para a ação **Resposta**:
 
 ## <a name="q--a"></a>Perguntas e respostas
 
-#### <a name="q-what-about-url-security"></a>P: E sobre a segurança de URL?
+#### <a name="q-what-about-url-security"></a>P: E quanto à segurança de URL?
 
-R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma assinatura de acesso compartilhado (SAS). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
+R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico usando uma SAS (assinatura de acesso compartilhado). Essa assinatura é transmitida como um parâmetro de consulta e deve ser validada antes do aplicativo lógico ser acionado. O Azure gera a assinatura usando uma combinação exclusiva de uma chave secreta por aplicativo lógico, o nome do gatilho e a operação que é executada. Portanto, a menos que alguém tenha acesso à chave secreta do aplicativo lógico, não é possível gerar uma assinatura válida.
 
    > [!IMPORTANT]
    > Para sistemas seguros e de produção, é altamente recomendável não chamar o aplicativo lógico de chamada diretamente do navegador porque:
@@ -283,14 +283,14 @@ R: O Azure gera com segurança URLs de retorno de chamada do aplicativo lógico 
 
 #### <a name="q-can-i-configure-http-endpoints-further"></a>P: Posso configurar pontos de extremidade HTTP ainda mais?
 
-R: Sim, pontos de extremidade HTTP dão suporte a configuração mais avançada por meio [ **gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
+R: Sim, os pontos de extremidade HTTP dão suporte à configuração mais avançada por meio do [**Gerenciamento de API**](../api-management/api-management-key-concepts.md). Esse serviço também oferece a capacidade de gerenciar todas as suas APIs de modo consistente, incluindo aplicativos lógicos, configurar os nomes de domínio personalizados, usar mais métodos de autenticação e mais, por exemplo:
 
 * [Alterar o método de solicitação](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#SetRequestMethod)
 * [Alterar os segmentos de URL da solicitação](https://docs.microsoft.com/azure/api-management/api-management-transformation-policies#RewriteURL)
 * Configurar os domínios de Gerenciamento de API no [portal do Azure](https://portal.azure.com/ "portal do Azure")
 * Configurar a política para verificar a autenticação Básica
 
-#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que mudou quando o esquema migrou da versão prévia 1 de dezembro de 2014?
+#### <a name="q-what-changed-when-the-schema-migrated-from-the-december-1-2014-preview"></a>P: O que mudou quando o esquema migrou da versão prévia de 1º de dezembro de 2014?
 
 R: Aqui está um resumo sobre essas alterações:
 

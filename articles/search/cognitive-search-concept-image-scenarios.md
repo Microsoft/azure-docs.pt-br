@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: ca9b3607041f75b1c866aa2813308312ad5d1017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 589f8c8f11138b4fb5c3c3096229e28c633efb0d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65023759"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423013"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Como processar e extrair informações de imagens em cenários da pesquisa cognitiva
 
@@ -30,11 +30,11 @@ Este artigo aborda o processamento de imagens em mais detalhes e fornece diretri
 
 Como parte da quebra do documento, há um novo conjunto de parâmetros de configuração do indexador para lidar com arquivos de imagem ou imagens incorporadas em arquivos. Esses parâmetros são usados para normalizar imagens para processamento downstream maior. Normalizar imagens as torna mais uniformes. Imagens grandes são redimensionadas para uma altura e largura máximas, para torná-las consumíveis. Para imagens que fornecem metadados na orientação, a rotação da imagem será ajustada para carregamento vertical. Ajustes de metadados são capturados em um tipo complexo criado para cada imagem. 
 
-Você não pode desativar a normalização de imagem. Habilidades que iteram sobre imagens esperam imagens normalizadas.
+Você não pode desativar a normalização de imagem. Habilidades que iteram sobre imagens esperam imagens normalizadas. Habilitar a normalização de imagem em um indexador requer que um conconhecimento seja anexado a esse indexador.
 
-| Parâmetro de configuração | DESCRIÇÃO |
+| Parâmetro de configuração | Descrição |
 |--------------------|-------------|
-| imageAction   | Definido como "none" se nenhuma ação puder ser tomada quando os arquivos de imagem ou imagens incorporadas forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Defina como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas na qual, para PDFs na fonte de dados, cada página é renderizada para uma imagem de saída.  A funcionalidade é a mesmo que "generateNormalizedImages" para tipos de arquivos que não são PDF.<br/>Para qualquer opção que não seja "none", essas imagens serão expostas no campo *normalized_images*. <br/>O padrão é "none". Essa configuração só é pertinente a fontes de dados de blob, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens em um documento, as 1000 primeiras serão extraídos e um aviso será gerado. |
+| imageAction   | Definido como "none" se nenhuma ação puder ser tomada quando os arquivos de imagem ou imagens incorporadas forem encontrados. <br/>Defina como "generateNormalizedImages" para gerar uma matriz de imagens normalizadas como parte da quebra de documento.<br/>Defina como "generateNormalizedImagePerPage" para gerar uma matriz de imagens normalizadas na qual, para PDFs na fonte de dados, cada página é renderizada para uma imagem de saída.  A funcionalidade é a mesmo que "generateNormalizedImages" para tipos de arquivos que não são PDF.<br/>Para qualquer opção que não seja "none", essas imagens serão expostas no campo *normalized_images*. <br/>O padrão é "none". Essa configuração só é pertinente a fontes de dados de blob, quando "dataToExtract" é definido como "contentAndMetadata". <br/>Um máximo de 1000 imagens será extraído de um determinado documento. Se houver mais de 1000 imagens em um documento, o primeiro 1000 será extraído e um aviso será gerado. |
 |  normalizedImageMaxWidth | A largura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000.|
 |  normalizedImageMaxHeight | A altura máxima (em pixels) para as imagens normalizadas geradas. O padrão é 2000.|
 
@@ -64,9 +64,9 @@ Especifique o imageAction na [definição do indexador](https://docs.microsoft.c
 
 Quando o campo *imageAction* for definido para qualquer valor diferente de "none", o novo campo *normalized_images* conterá uma matriz de imagens. Cada imagem é um tipo complexo que tem os seguintes membros:
 
-| Membro de imagem       | DESCRIÇÃO                             |
+| Membro de imagem       | Descrição                             |
 |--------------------|-----------------------------------------|
-| data               | Cadeia codificada em Base64 da imagem normalizada no formato JPEG.   |
+| dados               | Cadeia codificada em Base64 da imagem normalizada no formato JPEG.   |
 | width              | Largura da imagem normalizada em pixels. |
 | height             | Altura da imagem normalizada em pixels. |
 | originalWidth      | A largura original da imagem antes da normalização. |
@@ -102,8 +102,6 @@ A [habilidade Análise de Imagens](cognitive-search-skill-image-analysis.md) ext
 ### <a name="ocr-skill"></a>Habilidade OCR
 
 O [habilidade OCR](cognitive-search-skill-ocr.md) extrai o texto de arquivos de imagem como JPGs, PNGs e bitmaps. Pode extrair texto, bem como informações de layout. As informações de layout fornecem caixas delimitadoras para cada uma das cadeias de caracteres identificadas.
-
-A habilidade OCR permite selecionar o algoritmo a ser usado para detectar o texto em imagens. Atualmente, é compatível com dois algoritmos, um para o texto impresso e outro para texto manuscrito.
 
 ## <a name="embedded-image-scenario"></a>Cenário de imagem incorporada
 

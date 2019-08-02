@@ -3,7 +3,7 @@ title: Usar VMs do Azure de computação intensiva com o Lote | Microsoft Docs
 description: Como aproveitar os tamanhos de VM de GPU e HPC nos pools do Lote do Azure
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 687783520b082cdfd1a6ffc91a8641ea35fafd68
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776517"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323343"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usar instâncias de GPU ou RDMA em pools do Lote
 
@@ -107,7 +107,7 @@ Para executar aplicativos CUDA em um pool de nós da NC do Windows, é necessár
 3. Carregue o pacote na sua conta do Lote. Para obter as etapas, consulte as diretrizes sobre [pacotes de aplicativos](batch-application-packages.md). Especifique uma ID de aplicativo como *GPUDriver* e uma versão como *411.82*.
 1. Usando as APIs do Lote ou o portal do Azure, crie um pool na configuração da máquina virtual com o número desejado de nós e escala. A tabela a seguir mostra as configurações de exemplo para instalar os drivers GPU NVIDIA silenciosamente usando uma tarefa inicial:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ---- | ----- | 
 | **Tipo de imagem** | Marketplace (Linux/Windows) |
 | **Publicador** | MicrosoftWindowsServer |
@@ -115,7 +115,7 @@ Para executar aplicativos CUDA em um pool de nós da NC do Windows, é necessár
 | **Sku** | 2016-Datacenter |
 | **Tamanho do nó** | NC6 Standard |
 | **Referências do pacote de aplicativos** | GPUDriver, versão 411.82 |
-| **Tarefa inicial habilitada** | True<br>**Linha de comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade de usuário** – Pool autouser, administrador<br/>**Aguardar o êxito** – True
+| **Tarefa inicial habilitada** | verdadeiro<br>**Linha de comando** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**Identidade de usuário** – Pool autouser, administrador<br/>**Aguardar o êxito** – True
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>Exemplo: Drivers GPU NVIDIA no pool de VM da NC do Linux
 
@@ -128,7 +128,7 @@ Para executar aplicativos CUDA em um conjunto de nós da NC do Linux, é necess�
 4. Crie uma conta do Lote em uma região que dá suporte a VMs NC.
 5. Usando as APIs do Lote ou o Portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ---- | ---- |
 | **Tipo de imagem** | Imagem personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
@@ -147,13 +147,13 @@ Para executar aplicativos Windows MPI em um pool de nós de VM do Azure H16r, é
 1. Siga as etapas para criar um instantâneo [e uma imagem personalizada da VM do Windows](batch-custom-images.md) para Lote.
 1. Usando as APIs do Lote ou o Portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ---- | ---- |
 | **Tipo de imagem** | Imagem personalizada |
 | **Imagem personalizada** | *Nome da imagem* |
 | **SKU do agente do nó** | batch.node.windows amd64 |
 | **Tamanho do nó** | H16r Standard |
-| **Comunicação entre nós habilitada** | True |
+| **Comunicação entre nós habilitada** | verdadeiro |
 | **Máx. de tarefas por nó** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>Exemplo: Intel MPI em um pool de VM do Linux H16r
@@ -162,14 +162,14 @@ Para executar aplicativos MPI em um pool de nós da série H do Linux, uma opç�
 
 Usando as APIs do Lote ou o portal do Azure, crie um pool usando essa imagem e com o número desejado de nós e escala. A tabela a seguir mostra as configurações do pool de exemplo:
 
-| Configuração | Value |
+| Configuração | Valor |
 | ---- | ---- |
 | **Tipo de imagem** | Marketplace (Linux/Windows) |
 | **Publicador** | OpenLogic |
 | **Oferta** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **Tamanho do nó** | H16r Standard |
-| **Comunicação entre nós habilitada** | True |
+| **Comunicação entre nós habilitada** | verdadeiro |
 | **Máx. de tarefas por nó** | 1 |
 
 ## <a name="next-steps"></a>Próximas etapas

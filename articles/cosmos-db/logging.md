@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 67a6eec938a4a18455e4063925e21e26fe362f76
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 41fa5a859e738c2bb70e4885aa856f247e922492
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243478"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448992"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Log de diagnósticos no Azure Cosmos DB 
 
@@ -54,7 +54,7 @@ As [Métricas do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnost
 
 ### <a name="azure-diagnostic-logs"></a>Logs de Diagnóstico do Azure
 
-Os Logs de Diagnóstico do Azure são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. O conteúdo desses logs varia de acordo com o tipo de recurso. Os logs de diagnóstico no nível do recurso também diferem dos logs de diagnóstico no nível do sistema operacional convidado. Os logs de diagnóstico do sistema operacional convidado são coletados por um agente em execução dentro de uma máquina virtual ou outro tipo de recurso com suporte. Os logs de diagnóstico no nível de recursos não exigem nenhum dado específico de recurso de captura e agente da própria plataforma do Azure. Os logs de diagnóstico no nível de sistema operacional convidado capturam dados do sistema operacional e dos aplicativos que estão em execução em uma máquina virtual.
+Os Logs de Diagnóstico do Azure são emitidos por um recurso e fornecem dados avançados e frequentes sobre a operação do recurso. Esses logs são capturados por solicitação. O conteúdo desses logs varia de acordo com o tipo de recurso. Os logs de diagnóstico no nível do recurso também diferem dos logs de diagnóstico no nível do sistema operacional convidado. Os logs de diagnóstico do sistema operacional convidado são coletados por um agente em execução dentro de uma máquina virtual ou outro tipo de recurso com suporte. Os logs de diagnóstico no nível de recursos não exigem nenhum dado específico de recurso de captura e agente da própria plataforma do Azure. Os logs de diagnóstico no nível de sistema operacional convidado capturam dados do sistema operacional e dos aplicativos que estão em execução em uma máquina virtual.
 
 ![Log de diagnósticos para Armazenamento, Hubs de Eventos ou logs do Azure Monitor](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -68,26 +68,47 @@ Os Logs de Diagnóstico do Azure são emitidos por um recurso e fornecem dados a
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Ativar o log no portal do Azure
 
-Para habilitar os logs de diagnóstico, você deve ter os seguintes recursos:
+Use as etapas a seguir para habilitar o log de diagnóstico no portal do Azure:
 
-* Uma conta existente, banco de dados e contêiner do Azure Cosmos DB. Para obter instruções sobre como criar esses recursos, consulte [Criar uma conta de banco de dados usando o portal do Azure](create-sql-api-dotnet.md#create-account), [Amostras da CLI do Azure](cli-samples.md) ou [Amostras do PowerShell](powershell-samples.md).
+1. Faça logon no [Portal do Azure](https://portal.azure.com). 
 
-Para habilitar os logs de diagnóstico no portal do Azure, execute as seguintes etapas:
-
-1. No [portal do Azure](https://portal.azure.com), em sua conta do Azure Cosmos DB, selecione **Logs de diagnóstico** na barra navegação à esquerda e, em seguida, selecione **Ativar diagnóstico**.
+1. Navegue até a conta do Azure Cosmos. Abra o **configurações de diagnóstico** painel e, em seguida, selecione **Adicionar configuração de diagnóstico** opção.
 
     ![Ativar o log de diagnósticos do Azure Cosmos DB no portal do Azure](./media/logging/turn-on-portal-logging.png)
 
-2. Na página **Configurações de diagnóstico**, execute as seguintes etapas: 
+1. No **configurações de diagnóstico** da página, preenchimento do formulário com os seguintes detalhes: 
 
     * **Nome**: Insira um nome para os logs a serem criados.
 
-    * **Arquivar em uma conta de armazenamento**: Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Para criar uma nova conta de armazenamento no portal, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar uma conta de uso geral do Azure Resource Manager. Em seguida, retorne a esta página no portal para selecionar sua conta de armazenamento. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
-    * **Transmitir para um hub de eventos**: Para usar essa opção, é necessário ter um namespace dos Hubs de Eventos e um hub de eventos ao qual se conectar. Para criar um namespace do Hubs de Eventos, consulte [Criar um namespace dos Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace e o nome da política dos Hubs de Eventos.
-    * **Enviar para o Log Analytics**: Para usar essa opção, use um espaço de trabalho existente ou crie um espaço de trabalho do Log Analytics seguindo as etapas para [Criar um espaço de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como exibir os logs nos logs do Azure Monitor, consulte a que exibição de logs nos logs do Azure Monitor.
-    * **Registrar DataPlaneRequests em log**: Selecione essa opção para registrar em log as solicitações de back-end da plataforma distribuída subjacente do Azure Cosmos DB para contas do SQL, do Graph, do MongoDB, do Cassandra e de API de Tabela. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
-    * **Registrar MongoRequests em log**: Selecione essa opção para registrar em log as solicitações iniciadas pelo usuário do front-end do Azure Cosmos DB para atender contas do Cosmos configuradas com a API do MongoDB do Azure Cosmos DB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
-    * **Solicitações de Métricas**: Selecione essa opção para armazenar dados detalhados em [métricas do Azure](../azure-monitor/platform/metrics-supported.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
+    * Você pode armazenar os logs para os seguintes serviços:
+
+      * **Arquivar em uma conta de armazenamento**: Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Para criar uma nova conta de armazenamento no portal, consulte [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) artigo. Em seguida, retorne ao painel de configurações de diagnóstico do Azure Cosmos Db no portal para selecionar sua conta de armazenamento. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
+
+      * **Transmitir para um hub de eventos**: Para usar essa opção, é necessário ter um namespace dos Hubs de Eventos e um hub de eventos ao qual se conectar. Para criar um namespace do Hubs de Eventos, consulte [Criar um namespace dos Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o nome de namespace e a política do Hub de eventos.
+
+      * **Enviar para o Log Analytics**: Para usar essa opção, use um espaço de trabalho existente ou crie um espaço de trabalho do Log Analytics seguindo as etapas para [Criar um espaço de trabalho](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) no portal. 
+
+   * Você pode registrar os dados a seguir:
+
+      * **DataPlaneRequests**: Selecione esta opção para registrar solicitações de back-end para todas as APIs que inclui contas SQL, Graph, MongoDB, Cassandra e API de tabela no Azure Cosmos DB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira. Os seguintes dados JSON são um exemplo de saída dos detalhes registrados usando DataPlaneRequests. Propriedades de chave observar são: Requestcharge, statusCode, clientIPaddress e partitionID:
+
+       ```
+       { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+       ```
+
+      * **MongoRequests**: Selecione esta opção para registrar solicitações iniciadas pelo usuário do front-end para atender às solicitações à API do Azure Cosmos DB para MongoDB. Solicitações de MongoDB aparecerá no MongoRequests, bem como DataPlaneRequests. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira. Os seguintes dados JSON são um exemplo de saída dos detalhes registrados usando MongoRequests. Propriedades de chave observar são: Requestcharge, opCode:
+
+       ```
+       { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
+       ```
+
+      * **QueryRuntimeStatistics**: Selecione esta opção para registrar o texto da consulta que foi executado.  Os seguintes dados JSON são um exemplo de saída dos detalhes registrados usando QueryRuntimeStatistics:
+
+       ```
+       { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
+       ```
+
+      * **Solicitações de Métricas**: Selecione essa opção para armazenar dados detalhados em [métricas do Azure](../azure-monitor/platform/metrics-supported.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
 3. Clique em **Salvar**.
 
@@ -230,7 +251,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 ```
 
 ### <a id="access"></a>Acessar seus logs
-Os logs do Azure Cosmos DB da categoria **DataPlaneRequests** são armazenados no contêiner **insights-logs-data-plane-requests** na conta de armazenamento fornecida. 
+Logs do Azure Cosmos DB para o **DataPlaneRequests** categoria são armazenadas em do **insights-logs-dataplanerequests** contêiner na conta de armazenamento que você forneceu. 
 
 Primeiro, crie uma variável para o nome do contêiner. A variável é usada em todo o passo a passo.
 

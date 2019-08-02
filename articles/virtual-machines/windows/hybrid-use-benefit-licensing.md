@@ -3,8 +3,8 @@ title: Benefício do Híbrido do Azure para Windows Server | Microsoft Docs
 description: Saiba como maximizar os benefícios do Windows Software Assurance para colocar as licenças locais no Azure
 services: virtual-machines-windows
 documentationcenter: ''
-author: xujing
-manager: jeconnoc
+author: xujing-ms
+manager: gwallace
 editor: ''
 ms.assetid: 332583b6-15a3-4efb-80c3-9082587828b0
 ms.service: virtual-machines-windows
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
-ms.author: xujing-ms
-ms.openlocfilehash: 64eb89612765f9a47d0eaac2b9cbceb6341c4155
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: xujing
+ms.openlocfilehash: 0a0b2a38cb01a5cd551d07da89a42dd837264aae
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681276"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875065"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
 Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Windows Server permite usar as licenças locais do Windows Server e executar máquinas virtuais do Windows no Azure por um custo reduzido. Você pode usa o Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais com Windows OS. Este artigo percorre as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para Windows Server e como você pode atualizar VMs existentes e em execução. Para saber mais sobre licenciamento e economia de custo do Benefício Híbrido do Azure para Windows Server, consulte a [página de licenciamento do Benefício Híbrido do Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -33,7 +33,7 @@ Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Wind
 >
 
 > [!NOTE]
-> Para VMs clássicas, há suporte para somente implantação nova VM a partir em imagens personalizadas do local. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar as VMs clássicas para o modelo do Resource Manager.
+> Para VMs clássicas, há suporte apenas para implantar uma nova VM a partir de imagens personalizadas locais. Para aproveitar os recursos com suporte neste artigo, você deve primeiro migrar as VMs clássicas para o modelo do Resource Manager.
 >
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
@@ -171,7 +171,7 @@ az vm list --query "[?licenseType=='Windows_Server']" -o table
 ```
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-azure-hybrid-benefit-for-windows-server"></a>Implantar um Conjunto de Dimensionamento de Máquinas Virtuais com o Benefício Híbrido do Azure para Windows Server
-Nos modelos do Gerenciador de Recursos de seu conjunto de dimensionamento de máquinas virtuais, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Você pode fazer isso durante a criação ou atualizar seu conjunto de dimensionamento por meio do modelo ARM, PowerShell, CLI do Azure ou REST.
+Nos modelos do Gerenciador de Recursos de seu conjunto de dimensionamento de máquinas virtuais, um parâmetro adicional `licenseType` deve ser especificado dentro da sua propriedade VirtualMachineProfile. Você pode fazer isso durante criar ou atualizar para seu conjunto de dimensionamento por meio do modelo ARM, PowerShell, CLI do Azure ou REST.
 
 O exemplo a seguir usa um modelo ARM com uma imagem do Windows Server 2016 Datacenter:
 ```json

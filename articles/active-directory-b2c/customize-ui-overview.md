@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6c9109cf4d6d67d3d8001a9de1d54e24622a9286
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13ae1b74acbcab8d623c24d6a7b8d7e1355b80e8
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511184"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227150"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>Sobre a personalização da interface do usuário no Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Dependendo de suas necessidades quando se trata dessas experiências, personaliz
 - Se os clientes tentam editar seu perfil antes que entrar, eles são redirecionados para uma página que você personaliza usando as mesmas etapas que são usadas para personalizar a página de entrada do Azure AD.
 - Se estiver usando [políticas personalizadas](active-directory-b2c-overview-custom.md) para fornecer inscrição, entrada, redefinição de senha ou edição de perfil no seu aplicativo, você usa os [arquivos de política para personalizar a interface do usuário](active-directory-b2c-ui-customization-custom.md).
 - Se precisar fornecer conteúdo dinâmico com base na decisão do cliente, você usa as [políticas personalizadas que podem alterar o conteúdo da página](active-directory-b2c-ui-customization-custom-dynamic.md) dependendo de um parâmetro que é enviado em uma cadeia de caracteres de consulta. Por exemplo, a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C muda, com base em um parâmetro passado do seu aplicativo Web ou móvel.
-- Você pode habilitar o código JavaScript do lado do cliente em seus [fluxos dos usuários](user-flow-javascript-overview.md) ou [políticas personalizadas](page-contract.md) do Azure AD B2C.
+- Você pode habilitar o código JavaScript do lado do cliente em seus [fluxos dos usuários](user-flow-javascript-overview.md) ou [políticas personalizadas](page-layout.md) do Azure AD B2C.
 
 O Azure AD B2C executa o código no navegador do cliente e usa uma abordagem moderna chamada [CORS (Compartilhamento de Recursos entre Origens)](https://www.w3.org/TR/cors/). Em tempo de execução, o conteúdo é carregado de uma URL que você especifica em um fluxo de usuário ou política. Você especifica URLs diferentes para páginas diferentes. Após o conteúdo ser carregado da sua URL, ele é mesclado com um fragmento de HTML inserido no Azure AD B2C e exibido para seu cliente.
 
@@ -37,7 +37,7 @@ Ao usar seus próprios arquivos HTML e CSS para personalizar a interface do usu�
 
 - O Azure AD B2C mescla o conteúdo HTML em suas páginas. Não copie nem tente alterar o conteúdo de padrão fornecido pelo Azure AD B2C. É melhor criar seu conteúdo HTML do zero e usar o conteúdo padrão como referência.
 - Agora, o JavaScript pode ser incluído em seu conteúdo personalizado.
-- As versões de navegador compatíveis são: 
+- As versões de navegador compatíveis são:
     - Internet Explorer 11, 10 e Microsoft Edge
     - Compatibilidade limitada com Internet Explorer 9 e 8
     - Google Chrome 42.0 e superior
@@ -50,11 +50,11 @@ Para fluxos dos usuários do v2, você pode escolher um modelo predefinido que c
 
 No menu à esquerda, em **Personalizar**, selecione **Layouts da página**. Em seguida, selecione **Modelo (Versão Prévia)** .
 
-![Escolha um modelo de layout de página](media/customize-ui-overview/template.png)
+![Lista suspensa seleção de modelos na página fluxo do usuário do portal do Azure](media/customize-ui-overview/template.png)
 
 Selecione um modelo na lista. Por exemplo, o modelo **Azul oceano** aplica o seguinte layout às suas páginas do fluxo de usuário:
 
-![Modelo Azul oceano](media/customize-ui-overview/ocean-blue.png)
+![Exemplo do modelo azul do oceano renderizado na página de entrada de inscrição](media/customize-ui-overview/ocean-blue.png)
 
 Quando você escolhe um modelo, o layout selecionado é aplicado a todas as páginas em seu fluxo de usuário e o URI de cada página é visível no campo **URI da página personalizada**.
 
@@ -85,13 +85,13 @@ Faça o seguinte para personalizar a interface do usuário:
 - Hospede seu conteúdo em um ponto de extremidade HTTPS (com CORS permitido). Os métodos de solicitação GET e OPTIONS precisam ser habilitados ao configurar o CORS.
 - Use CSS para definir o estilo para os elementos de interface do usuário inseridos pelo Azure AD B2C na página. O exemplo a seguir mostra um arquivo CSS simples que também inclui configurações para os elementos HTML injetados da inscrição:
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -99,7 +99,7 @@ Faça o seguinte para personalizar a interface do usuário:
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;

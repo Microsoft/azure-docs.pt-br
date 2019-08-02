@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 060e071a5c54baa607733cd4fe7342fd981cf827
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a088675bc1610daf275bac77ae222f0e664afd67
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257800"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090552"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skills-base"></a>Tutorial: Integração do Azure Active Directory com o Skills Base
 
@@ -54,7 +54,7 @@ Para configurar a integração do Skills Base com o Azure AD, você precisará a
 
 **Para adicionar o Skills Base, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Skills Base, execute as seguint
 
     ![Único](./media/skillsbase-tutorial/tutorial_skillsbase_save.png)
 
-     a. Clique no botão **Atualizar metadados do IdP** ao lado da opção **Status** e cole o conteúdo do XML de metadados que você baixou do portal do Azure na caixa de texto especificada.
+    a. Clique no botão **Atualizar metadados do IdP** ao lado da opção **Status** e cole o conteúdo do XML de metadados que você baixou do portal do Azure na caixa de texto especificada.
 
     > [!Note]
     > Também é possível validar os metadados do IdP por meio da ferramenta **Validador de metadados**, conforme destacado na captura de tela acima.
@@ -218,4 +218,4 @@ Ao clicar no bloco do Skills Base no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

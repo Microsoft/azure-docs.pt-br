@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfd3afea4a5f09f1e572030b28d3511b31d81b69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69c2599a2ddd09cbaf869bf4d9e21a8032855cce
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865111"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Tutorial: Integração do Azure Active Directory ao Zoho
 
@@ -53,7 +53,7 @@ Para configurar a integração do Zoho com o Azure AD, você precisará adiciona
 
 **Para adicionar o Zoho da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o Zoho, execute as seguintes etap
    
     ![Detalhes de Autenticação SAML](./media/zoho-mail-tutorial/ic789609.png "Detalhes de Autenticação SAML")
    
-     a. Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole a **URL de Logon** copiada no portal do Azure.
    
     b. Na caixa de texto **URL de Logoff**, cole a **URL de Logoff** copiada no portal do Azure.
    
@@ -224,7 +224,7 @@ Para permitir que os usuários do AD do Azure façam logon no Zoho Mail, eles de
    
     ![Adicionar Usuário](./media/zoho-mail-tutorial/ic789612.png "Adicionar Usuário")
    
-     a. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o Sobrenome do usuário, como **Fernandes**.
 
@@ -249,5 +249,5 @@ Ao clicar no bloco do Zoho no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

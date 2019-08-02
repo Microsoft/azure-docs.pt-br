@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
-ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 07/22/2019
+ms.openlocfilehash: cfab883f9b9b063bd51b9fdb7306d45371449180
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046029"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68406103"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Início Rápido: Criar um cluster e um banco de dados do Azure Data Explorer
 
@@ -47,14 +47,15 @@ Crie um cluster do Azure Data Explorer com um conjunto definido de recursos de c
 
 1. Preencha os detalhes básicos do cluster com as informações a seguir.
 
-   ![Criar formulário de cluster](media/create-cluster-database-portal/create-cluster-form.png)
+   ![Criar formulário de cluster](media/create-cluster-database-portal/create-cluster-form2.png)
 
     **Configuração** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Assinatura | Sua assinatura | Selecione a assinatura do Azure que você deseja usar para seu cluster.|
-    | Grupo de recursos | *test-resource-group* | Use um grupo de recursos existente ou crie um novo. |
-    | Nome do cluster | Um nome exclusivo do cluster | Escolha um nome exclusivo que identifique seu cluster. Por exemplo, *mydataexplorercluster*. O nome de domínio *[region].kusto.windows.net* é acrescentado ao nome do cluster que você fornece. O nome só pode conter letras minúsculas e números. Deve conter de 3 a 22 caracteres.
-    | Local padrão | *Oeste dos EUA* | Selecione *Oeste dos EUA* para este início rápido. Para um sistema de produção, selecione a região que melhor atenda às suas necessidades.
+    | Subscription | Sua assinatura | Selecione a assinatura do Azure que você deseja usar para seu cluster.|
+    | Resource group | Seu grupo de recursos | Use um grupo de recursos existente ou crie um novo. |
+    | Nome do cluster | Um nome exclusivo do cluster | Escolha um nome exclusivo que identifique seu cluster. O nome de domínio *[region].kusto.windows.net* é acrescentado ao nome do cluster que você fornece. O nome só pode conter letras minúsculas e números. Ele precisa conter de 4 a 22 caracteres.
+    | Região | *Oeste dos EUA* ou *Oeste dos EUA 2* | Selecione *Oeste dos EUA* ou *Oeste dos EUA 2* (se estiver usando zonas de disponibilidade) para este início rápido. Para um sistema de produção, selecione a região que melhor atenda às suas necessidades.
+    | Zonas de disponibilidade | *1*, *2* e/ou *3* | Para regiões compatíveis com a redundância de zonas, selecione as zonas nas quais as instâncias residirão (opcional). Os nós de cluster são criados, por padrão, no mesmo data center. Use as [Zonas de Disponibilidade do Azure](/azure/availability-zones/az-overview) para colocar as instâncias de cluster em várias zonas de disponibilidade na mesma região. Ao selecionar várias zonas de disponibilidade, você pode eliminar um ponto único de falha e garantir a alta disponibilidade. 
     | Especificações de computação | *D13_v2* | Selecione a especificação de preço mais baixa para este início rápido. Para um sistema de produção, selecione a especificação que melhor atenda às suas necessidades.
     | | |
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6ea919a4c9554584e0da79739d3465586ae43227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60456320"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385782"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -32,7 +32,7 @@ As etapas neste artigo se aplicam ao modelo de implantação do Gerenciador de R
 
 Há várias maneiras de conectar redes virtuais. As seções a seguir descrevem as diferentes maneiras de conectar redes virtuais.
 
-### <a name="vnet-to-vnet"></a>VNet a VNet
+### <a name="vnet-to-vnet"></a>Redes Virtuais a Redes Virtuais
 
 A configuração de uma conexão VNet a VNet é uma boa maneira de conectar redes virtuais com facilidade. A conexão de uma rede virtual a outra rede virtual usando o tipo de conexão VNet a VNet (VNet2VNet) é semelhante à criação de uma conexão IPsec Site a Site com um site local.  Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE, e ambos funcionam da mesma forma ao se comunicar. A diferença entre os tipos de conexão é a maneira que o gateway de rede local é configurado. Ao criar uma conexão de VNet a VNet, você não vê o espaço de endereço de gateway de rede local. Ele é criado e preenchido automaticamente. Se você atualizar o espaço de endereço de uma VNet, a outra saberá automaticamente como rotear para o espaço de endereço atualizado. A criação de uma conexão VNet a VNet é normalmente mais rápida e fácil do que a criação de uma conexão Site a Site entre VNets.
 
@@ -92,8 +92,8 @@ Usamos os seguintes valores nos exemplos:
 **Valores para TestVNet1:**
 
 * Nome da VNet: TestVNet1
-* Grupo de recursos: TestRG1
-* Localização: Leste dos EUA
+* Grupo de Recursos: TestRG1
+* Local: East US
 * TestVNet1: 10.11.0.0/16 e 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -112,8 +112,8 @@ Usamos os seguintes valores nos exemplos:
 * FrontEnd: 10.41.0.0/24
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
-* Grupo de recursos: TestRG4
-* Localização: Oeste dos EUA
+* Grupo de Recursos: TestRG4
+* Local: Oeste dos EUA
 * GatewayName: VNet4GW
 * IP público: VNet4GWIP
 * VPNType: RouteBased
@@ -150,7 +150,6 @@ Usamos os seguintes valores nos exemplos:
    $VNetName1 = "TestVNet1"
    $FESubName1 = "FrontEnd"
    $BESubName1 = "Backend"
-   $GWSubName1 = "GatewaySubnet"
    $VNetPrefix11 = "10.11.0.0/16"
    $VNetPrefix12 = "10.12.0.0/16"
    $FESubPrefix1 = "10.11.0.0/24"
@@ -167,14 +166,14 @@ Usamos os seguintes valores nos exemplos:
    ```azurepowershell-interactive
    New-AzResourceGroup -Name $RG1 -Location $Location1
    ```
-4. Crie as configurações de sub-rede para TestVNet1. Este exemplo cria uma rede virtual denominada TestVNet1 e três sub-redes, uma chamada GatewaySubnet, outra FrontEnd e outra Backend. Ao substituir valores, é importante você sempre nomear sua sub-rede de gateway especificamente como GatewaySubnet. Se você usar outro nome, a criação do gateway falhará.
+4. Crie as configurações de sub-rede para TestVNet1. Este exemplo cria uma rede virtual denominada TestVNet1 e três sub-redes, uma chamada GatewaySubnet, outra FrontEnd e outra Backend. Ao substituir valores, é importante você sempre nomear sua sub-rede de gateway especificamente como GatewaySubnet. Se você usar outro nome, a criação do gateway falhará. Por esse motivo, ele não é atribuído por meio da variável abaixo.
 
    O exemplo a seguir usa as variáveis que você definiu anteriormente. Neste exemplo, a sub-rede de gateway está usando um /27. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando pelo menos /28 ou /27. Isso permitirá endereços suficientes a fim de acomodar as possíveis configurações adicionais que você possa querer no futuro.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
    $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubName1 -AddressPrefix $BESubPrefix1
-   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName1 -AddressPrefix $GWSubPrefix1
+   $gwsub1 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix1
    ```
 5. Crie a TestVNet1.
 
@@ -218,7 +217,6 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
    $VnetName4 = "TestVNet4"
    $FESubName4 = "FrontEnd"
    $BESubName4 = "Backend"
-   $GWSubName4 = "GatewaySubnet"
    $VnetPrefix41 = "10.41.0.0/16"
    $VnetPrefix42 = "10.42.0.0/16"
    $FESubPrefix4 = "10.41.0.0/24"
@@ -239,7 +237,7 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
    ```azurepowershell-interactive
    $fesub4 = New-AzVirtualNetworkSubnetConfig -Name $FESubName4 -AddressPrefix $FESubPrefix4
    $besub4 = New-AzVirtualNetworkSubnetConfig -Name $BESubName4 -AddressPrefix $BESubPrefix4
-   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name $GWSubName4 -AddressPrefix $GWSubPrefix4
+   $gwsub4 = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix $GWSubPrefix4
    ```
 4. Crie a TestVNet4.
 
@@ -313,8 +311,8 @@ Você deve concluir a [Etapa 1](#Step1) e a [Etapa 2](#Step2) da seção anterio
 **Valores para TestVNet5:**
 
 * Nome da VNet: TestVNet5
-* Grupo de recursos: TestRG5
-* Localização: Leste do Japão
+* Grupo de Recursos: TestRG5
+* Local: Leste do Japão
 * TestVNet5: 10.51.0.0/16 e 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24

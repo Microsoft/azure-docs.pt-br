@@ -2,7 +2,7 @@
 title: Otimizar transações para SQL Data Warehouse do Azure | Microsoft Docs
 description: Saiba como otimizar o desempenho do código transacional no SQL Data Warehouse do Azure, minimizando o risco de reversões longas.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 9ab1da9fce74359448311591986d57abbbcef066
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873637"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479670"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Otimizar transações no SQL Data Warehouse do Azure
 Saiba como otimizar o desempenho do código transacional no SQL Data Warehouse do Azure, minimizando o risco de reversões longas.
@@ -67,7 +67,7 @@ CTAS e INSERT...SELECT são ambas operações de carregamento em massa. No entan
 
 | Índice principal | Cenário de carga | Modo de registro em log |
 | --- | --- | --- |
-| Heap |Qualquer |**Mínimo** |
+| Heap |Any |**Mínimo** |
 | Índice clusterizado |Tabela de destino vazia |**Mínimo** |
 | Índice clusterizado |As linhas carregadas não se sobrepõem às páginas existentes no destino |**Mínimo** |
 | Índice clusterizado |Linhas carregadas se sobrepõem com páginas existentes no destino |Completo |

@@ -2,17 +2,17 @@
 title: Conceitos - Armazenamento nos Serviços do Kubernetes do Azure (AKS)
 description: Saiba mais sobre o Armazenamento nos Serviços do Kubernetes do Azure (AKS), incluindo volumes, volumes persistentes, classes de armazenamento e declarações
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: iainfou
-ms.openlocfilehash: cce38eb12d803c0640d9ee774dbc6c98ab5db219
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: eb9141d363bdb09b5773f80dfc5a1c4b9b92728f
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60466779"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615804"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de armazenamento para aplicativos no Serviço de Kubernetes do Azure (AKS)
 
@@ -125,15 +125,15 @@ Para práticas recomendadas associadas, consulte [práticas recomendadas para ar
 
 Para ver como criar volumes dinâmicos e estáticos que usam Discos do Azure ou Arquivos do Azure, consulte os artigos de instruções a seguir:
 
-- [Criar um volume estático usando os Discos do Azure][aks-static-disks]
-- [Criar um volume estático usando os Arquivos do Azure][aks-static-files]
-- [Criar um volume dinâmico usando os Discos do Azure][aks-dynamic-disks]
-- [Criar um volume estático usando os Arquivos do Azure][aks-dynamic-files]
+- [Criar um volume estático usando os discos do Azure][aks-static-disks]
+- [Criar um volume estático usando arquivos do Azure][aks-static-files]
+- [Criar um volume dinâmico usando os discos do Azure][aks-dynamic-disks]
+- [Criar um volume dinâmico usando arquivos do Azure][aks-dynamic-files]
 
 Para obter informações adicionais sobre os principais conceitos do Kubernetes e do AKS, consulte os seguintes artigos:
 
 - [Kubernetes / clusters AKS e cargas de trabalho][aks-concepts-clusters-workloads]
-- [Kubernetes / escala de AKS][aks-concepts-identity]
+- [Kubernetes / identidade do AKS][aks-concepts-identity]
 - [Kubernetes / segurança AKS][aks-concepts-security]
 - [Kubernetes / redes virtuais do AKS][aks-concepts-network]
 - [Kubernetes / escala de AKS][aks-concepts-scale]

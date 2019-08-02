@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 69553c11ed0e9b07370fa1af3acc65b6605d1a8a
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 19ee6551edae2e27d7dd8aae9ba6a65e4e738cff
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66385071"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341355"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-python"></a>Início Rápido: Pesquisar imagens com o SDK de Pesquisa de Imagem do Bing para Python
 
@@ -72,7 +72,8 @@ Se a resposta contiver os resultados da pesquisa, armazene o primeiro resultado 
 if image_results.value:
     first_image_result = image_results.value[0]
     print("Total number of images returned: {}".format(len(image_results.value)))
-    print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
+    print("First image thumbnail url: {}".format(
+        first_image_result.thumbnail_url))
     print("First image content url: {}".format(first_image_result.content_url))
 else:
     print("No image results returned!")

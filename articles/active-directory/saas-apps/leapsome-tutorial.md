@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 7dab6f6b9215ead8cdcf513e226fd2fb8e59d8fc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988090"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Azure Active Directory com o Leapsome
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Leapsome, execute as seguintes 
 
     ![[Nome do aplicativo] Informações de logon único de domínio e URLs](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://www.leapsome.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://www.leapsome.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.leapsome.com/api/users/auth/saml/<CLIENTID>/assert`
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Leapsome, execute as seguintes 
     > [!Note]
     > O valor do atributo de imagem não é real. Atualize esse valor com a URL da imagem real. Contate a [equipe de suporte ao cliente do Leapsome](mailto:support@leapsome.com) para obter esse valor.
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -179,7 +179,7 @@ Para configurar o logon único do Azure AD com o Leapsome, execute as seguintes 
 
     ![saml de Leapsome](./media/leapsome-tutorial/tutorial_leapsome_samlsettings.png)
 
-     a. Selecione **Habilitar Logon único baseado em SAML**.
+    a. Selecione **Habilitar Logon único baseado em SAML**.
 
     b. Copie o valor da **URL de Logon (indique aos usuários para conectar neste ponto)** e cole-o na caixa de texto **URL de Logon** na seção **Configuração SAML Básica** no portal do Azure.
 

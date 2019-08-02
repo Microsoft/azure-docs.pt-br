@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7af47cf02d52abf8783eb1eb5da171b208ed07c5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897957"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutorial: Integração do Azure Active Directory com o Jive
 
@@ -54,7 +54,7 @@ Para configurar a integração do Jive com o Azure AD, você precisará adiciona
 
 **Para adicionar o Jive por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o Jive, siga estas etapas:
 
     ![Informações de logon único de Domínio e URLs do Jive](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instance name>.jivecustom.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instance name>.jivecustom.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<instance name>.jiveon.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<instance name>.jiveon.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Jive](https://www.jivesoftware.com/services-support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Jive, siga estas etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_002.png)
 
-     a. Selecione **Habilitado** na guia **Geral**.
+    a. Selecione **Habilitado** na guia **Geral**.
 
     b. Clique no botão **SALVAR TODAS AS CONFIGURAÇÕES SAML**.
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o Jive, siga estas etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_003.png)
 
-     a. Copie o conteúdo do arquivo XML de metadados baixado e cole-o na caixa de texto **Metadados do IDP (Provedor de Identidade)** .
+    a. Copie o conteúdo do arquivo XML de metadados baixado e cole-o na caixa de texto **Metadados do IDP (Provedor de Identidade)** .
 
     b. Clique no botão **SALVAR TODAS AS CONFIGURAÇÕES SAML**.
 
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o Jive, siga estas etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/jive-tutorial/tutorial_jive_004.png)
 
-     a. Na caixa de texto **Email**, copie e cole o nome de atributo do valor **email**.
+    a. Na caixa de texto **Email**, copie e cole o nome de atributo do valor **email**.
 
     b. Na caixa de texto **Nome**, copie e cole o nome do atributo do valor **nome**.
 
@@ -226,6 +226,6 @@ Ao clicar no bloco do Jive no Painel de Acesso, você deverá entrar automaticam
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 [Configurar Provisionamento de Usuário](jive-provisioning-tutorial.md)

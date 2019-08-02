@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 48c5804df53c084715cac872aa431cf8694c6d35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e4ba987393628af07f8a8a507f635047eb18cc5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65740295"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flatter-files"></a>Tutorial: Integração do Azure Active Directory com o Flatter Files
 
@@ -52,7 +52,7 @@ Para configurar a integração do Flatter Files ao AD do Azure, você precisará
 
 **Para adicionar o Flatter Files da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o Flatter Files, execute as segui
    
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_06.png)  
     
-     a. Selecione **Usar SAML 2.0 para Autenticação**.
+    a. Selecione **Usar SAML 2.0 para Autenticação**.
     
     b. Clique em **Configurar SAML**.
 
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o Flatter Files, execute as segui
    
     ![Configurar o logon único](./media/flatter-files-tutorial/tutorial_flatter_files_08.png)  
    
-     a. Na caixa de texto **Domínio**, digite seu domínio registrado.
+    a. Na caixa de texto **Domínio**, digite seu domínio registrado.
    
    > [!NOTE]
    > Se não tiver um domínio registrado, entre em contato com a equipe de suporte do Flatter Files pelo email [support@flatterfiles.com](mailto:support@flatterfiles.com). 
@@ -218,7 +218,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Flatte
    
     ![Criar um usuário do Flatter Files](./media/flatter-files-tutorial/tutorial_flatter_files_10.png)
 
-     a. Na caixa de texto **Nome**, digite **Brenda**.
+    a. Na caixa de texto **Nome**, digite **Brenda**.
    
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**. 
    
@@ -239,5 +239,5 @@ Ao clicar no bloco do Flatter Files no Painel de Acesso, você deverá ser conec
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -7,14 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/18/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: cd2a776988ba27add54c69b0feccbc3fce8337aa
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603468"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551518"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -116,6 +116,9 @@ O Data Box pode transferir dados de acordo com a região na qual o serviço foi 
     - União Europeia – Europa Ocidental e Europa Setentrional.
     - Reino Unido – Sul do Reino Unido e Oeste do Reino Unido.
     - França – França Central e Sul da França.
+    - Japão - Leste do Japão e Oeste do Japão.
+    - Austrália - Leste da Austrália e Sudeste da Austrália.
+    - Canadá - Leste do Canadá e Canadá Central.
 
 - **Contas de Armazenamento de Destino** – as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure nas quais o serviço está disponível.  
 

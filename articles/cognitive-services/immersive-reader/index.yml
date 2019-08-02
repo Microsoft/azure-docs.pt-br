@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação da Leitura Avançada
+metadata:
+  title: 'Documentação da Leitura Avançada – Inícios Rápidos, tutoriais e referência da API – Serviços Cognitivos do Azure | Microsoft Docs'
+  description: Saiba como usar a Leitura Avançada no seu aplicativo.
+  services: cognitive-services
+  author: metanMSFT
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 06/20/2019
+  ms.author: metanMSFT
+abstract:
+  description: 'A Leitura Avançada é uma ferramenta que implementa técnicas comprovadas para melhorar a compreensão de leitura para leitores emergentes, aprendizes da linguagem de programação e pessoas com diferenças de aprendizado. Você pode usar a Leitura Avançada no seu aplicativo Web usando o SDK da Leitura Avançada.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/immersive-reader/overview
+            html: <p>Saiba mais sobre a Leitura Avançada e como integrá-la em seus aplicativos</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é a Leitura Avançada?
+          - href: /azure/cognitive-services/immersive-reader/reference
+            html: <p>Saiba mais sobre o SDK do Javascript da Leitura Avançada</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Usar o SDK da Leitura Avançada
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: 'Introdução à Leitura Avançada:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            alt: 'Logotipo do C#'
+            href: quickstart
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Aprenda a desenvolver aplicativos usando a Leitura Avançada:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial.md">Inicie a Leitura Avançada usando o Node.js</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: SDKs
+            html: <p><a href="reference.md">Javascript</a></p>

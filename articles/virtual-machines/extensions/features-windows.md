@@ -4,7 +4,7 @@ description: Saiba quais extensões estão disponíveis para as máquinas virtua
 services: virtual-machines-windows
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 999d63ee-890e-432e-9391-25b3fc6cde28
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e2cd64b54b1a30080d7942a754bc0c0c72c59f88
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160260"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705981"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -33,7 +33,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 
 ## <a name="use-cases-and-samples"></a>Casos de uso e exemplos
 
-Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
+Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Eis alguns exemplos:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Windows. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](dsc-overview.md).
 - Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para obter mais informações, consulte [conectar-se a VMs do Azure para logs do Azure Monitor](../../log-analytics/log-analytics-azure-vm-extension.md).

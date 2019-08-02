@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5b3e839af886dc23bdfb11dacfb1854a2277bf3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b26133c64877bcac07d2e8ba10dbee05d4e36d34
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862654"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102270"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-floqast"></a>Tutorial: Integração do Azure Active Directory ao FloQast
 
@@ -52,7 +52,7 @@ Para configurar a integração de FloQast ao AD do Azure, você precisa adiciona
 
 **Para adicionar o FloQast por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure Active Directory com o FloQast, realize 
     | Sobrenome            | user.surname |
     | Email               | user.mail    |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure Active Directory com o FloQast, realize 
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-     a. Selecione **Assinar resposta SAML e declaração** da **Opção de Assinatura**.
+    a. Selecione **Assinar resposta SAML e declaração** da **Opção de Assinatura**.
     
     b. Clique em **Salvar**
 

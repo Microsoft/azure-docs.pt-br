@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 498650ce8a22f4804773bb66db3d640cd63bab8c
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900119"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655831"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Tutorial: Tutorial: integração do Azure Active Directory ao Cisco Webex Meetings
 
@@ -55,7 +55,7 @@ Para configurar a integração do Cisco Webex Meetings ao Azure AD, você precis
 
 **Para adicionar o Cisco Webex Meetings por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex Meetings, execute a
     >[!Note]
     >Você obterá o arquivo de metadados do provedor de serviço, que é explicado posteriormente na seção **Configurar o logon único do Cisco Webex Meetings** do tutorial. 
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](common/upload-metadata.png)
 
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex Meetings, execute a
 
     Na caixa de texto **URL de logon**, cole o valor da **URL de resposta** que é preenchida automaticamente por upload do arquivo de metadados de SP.
 
-5. O aplicativo Cisco Webex Meetings espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para adicionar os atributos.
+5. O aplicativo Cisco Webex Meetings espera as declarações SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para adicionar os atributos.
 
     ![image](common/edit-attribute.png)
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex Meetings, execute a
     |   email       | user.mail |
     |   uid    | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](./media/cisco-webex-tutorial/tutorial-cisco-webex-addnewclaim.png)
 
@@ -179,7 +179,7 @@ Para configurar o logon único do Azure AD com o Cisco Webex Meetings, execute a
 
     ![Configurar o logon único](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
-     a. Na caixa de texto Protocolo de Federação, digite o nome do seu protocolo.
+    a. Na caixa de texto Protocolo de Federação, digite o nome do seu protocolo.
 
     b. Clique no link **Importar metadados SAML** para carregar o arquivo de metadados que você baixou do portal do Azure.
 
@@ -261,5 +261,5 @@ Ao clicar no bloco do Cisco Webex Meetings no Painel de Acesso, você deverá se
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

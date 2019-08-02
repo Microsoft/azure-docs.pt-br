@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e48e353df6c14ec24a01fe3b1852de2c6a0a3155
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8b1e2baa2cdaee511ecff614406a0e4c25d553c8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901051"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106842"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appneta-performance-monitor"></a>Tutorial: Integração do Azure Active Directory ao AppNeta Performance Monitor
 
@@ -54,7 +54,7 @@ Para configurar a integração do AppNeta Performance Monitor ao Azure AD, você
 
 **Para adicionar o AppNeta Performance Monitor da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o AppNeta Performance Monitor, ex
 
     ![Informações de logon único em Domínio e URLs do AppNeta Performance Monitor](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.pm.appneta.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.pm.appneta.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite o valor: `PingConnect`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor: `PingConnect`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize esse valor com a URL de Logon real. Entre em contato com a [equipe de suporte do AppNeta Performance Monitor](mailto:support@appneta.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -133,7 +133,7 @@ Para configurar o logon único do Azure AD com o AppNeta Performance Monitor, ex
     > [!NOTE]
     > **grupos** se refere aos grupos de segurança no Appneta que são mapeados para uma **Função** no Azure AD. Consulte [ este documento ](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) que explica como criar funções personalizadas no Microsoft Azure AD.
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -239,4 +239,4 @@ Ao clicar no bloco AppNeta Performance Monitor no Painel de Acesso, você dever�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

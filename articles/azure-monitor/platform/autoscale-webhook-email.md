@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 25ef2541dfa0b4cbd6e11d64381da645acfe653a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1386f4058f9490bad0161b680005db6031bace1
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60787285"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491522"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 Webhooks permitem rotear as notificações de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Por exemplo, rotear o alerta para serviços que podem lidar com uma solicitação da Web de entrada para enviar SMS, registrar bugs, notificar a equipe por meio de serviços de chat/mensagens etc. O URI do webhook deve ser um ponto de extremidade HTTP ou HTTPS válido.
 
 ## <a name="email"></a>Email
@@ -66,7 +66,7 @@ Ao usar o modelo da API REST ou do Gerenciador de Recursos, inclua o elemento de
 | sendToSubscriptionAdministrator |Sim |o valor deve ser "true" ou "false" |
 | sendToSubscriptionCoAdministrators |Sim |o valor deve ser "true" ou "false" |
 | customEmails |Sim |o valor pode ser null [] ou uma matriz da cadeia de caracteres de emails |
-| Webhooks |Sim |o valor pode ser um Uri válido ou nulo |
+| webhooks |Sim |o valor pode ser um Uri válido ou nulo |
 | serviceUri |Sim |um Uri de https válido |
 | propriedades |Sim |o valor deve ser vazio {} ou pode conter pares chave-valor |
 
@@ -111,7 +111,7 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | timestamp |Sim |Carimbo de data/hora de quando a ação de escala automática foi disparada |
 | id |Sim |ID do Gerenciador de Recursos da configuração de autoescala |
 | name |Sim |O nome da configuração de escala automática |
-| detalhes |Sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
+| details |Sim |Explicação da ação que o serviço de escala automática realizada a alteração na contagem da instância |
 | subscriptionId |Sim |ID da assinatura do recurso de destino que está sendo escalado |
 | resourceGroupName |Sim |Nome do Grupo de Recursos do recurso de destino que está sendo escalado |
 | resourceName |Sim |Nome do recurso de destino que está sendo escalado |

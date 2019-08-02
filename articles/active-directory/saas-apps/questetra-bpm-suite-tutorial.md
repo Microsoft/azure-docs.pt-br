@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 33c2d211fad16a81a307a5c0f2a9d048ef07bf4d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f58d6cbc6ec04e51e105662dff31c60ff502584c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904213"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093353"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-questetra-bpm-suite"></a>Tutorial: Integração do Azure Active Directory ao Questetra BPM Suite
 
@@ -53,7 +53,7 @@ Para configurar a integração do Questetra BPM Suite com o AD do Azure, você p
 
 **Para adicionar o Questetra BPM Suite por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Questetra BPM Suite, execute as
 
     ![Informações de logon único de Domínio e URLs do Questetra BPM Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.questetra.net/saml/SSO/alias/bpm`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.questetra.net/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.questetra.net/`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Você pode obter esses valores na seção **Informações de SP** no site de empresa de **Questetra BPM Suite**, o que é explicado posteriormente no tutorial, ou entre em contato com a [equipe de suporte ao cliente do Questetra BPM Suite](https://www.questetra.com/contact/). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -134,13 +134,13 @@ Para configurar o logon único do Azure AD com o Questetra BPM Suite, execute as
    
     ![Logon Único do AD do Azure][10]
 
-3. Para abrir a página **SingleSignOnSAML**, clique em **SSO (SAML)**. 
+3. Para abrir a página **SingleSignOnSAML**, clique em **SSO (SAML)** . 
    
     ![Logon Único do AD do Azure][11]
 
 4. No site de empresa do **Questetra BPM Suite**, na seção **Informações de SP**, execute as etapas a seguir:
 
-     a. Copie a **URL do ACS** e cole-a na caixa de texto **URL de Entrada** na seção **Configuração Básica de SAML** do portal do Azure.
+    a. Copie a **URL do ACS** e cole-a na caixa de texto **URL de Entrada** na seção **Configuração Básica de SAML** do portal do Azure.
     
     b. Copie a **ID da Entidade** e cole-a na caixa de texto **Identificador** na seção **Configuração Básica de SAML** do portal do Azure.
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Questetra BPM Suite, execute as
    
     ![Configurar o logon único][15]
    
-     a. Selecione **Habilitar Logon Único**.
+    a. Selecione **Habilitar Logon Único**.
    
     b. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
     
@@ -226,7 +226,7 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Questetra 
    
     ![Criar um usuário de teste][300] 
    
-     a. Na caixa de texto **Nome**, digite o **nome** do usuário britta.simon@contoso.com.
+    a. Na caixa de texto **Nome**, digite o **nome** do usuário britta.simon@contoso.com.
    
     b. Na caixa de texto **Email**, digite o **email** do usuário britta.simon@contoso.com.
    
@@ -246,7 +246,7 @@ Ao clicar no bloco do Questetra BPM Suite no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

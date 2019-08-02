@@ -1,5 +1,5 @@
 ---
-title: Entidade predefinida PersonName
+title: Entidade predefinida Person-LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade personName pré-criada no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 3b12c69b7c6710e774d50e631d2423fd72ce828a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63e32fe79d1f3f6d2573d9a8f94f937cb9eb31ef
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072166"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560174"
 ---
 # <a name="personname-prebuilt-entity-for-a-luis-app"></a>Entidade predefinida PersonName para um aplicativo LUIS
 A entidade personName pré-criada detecta nomes de pessoas. Como essa entidade já está treinada, não é necessário adicionar enunciados de exemplo contendo personName nas intenções do aplicativo. A entidade personName tem suporte nas [culturas](luis-reference-prebuilt-entities.md) em inglês e em chinês.
@@ -45,9 +45,9 @@ O exemplo a seguir mostra a resolução da entidade **builtin.personName**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de visualização 3. x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O JSON a seguir é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -69,7 +69,7 @@ O JSON a seguir é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O JSON a seguir é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

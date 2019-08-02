@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaa00690cab2cf8bc1ef7c1c3ab279a9f59fcabf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b003d4b08d393b6f3eb57539774df16a23b39b4d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858662"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106212"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para Bitbucket da Resolution GmbH
 
@@ -55,7 +55,7 @@ Para configurar a integração do SSO do SAML para Bitbucket da Resolution GmbH 
 
 **Para adicionar SSO do SAML para Bitbucket da Resolution GmbH da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para Bitbucket da R
 
     ![Informações de logon único de domínio e URLs do SSO do SAML para Bitbucket da Resolution GmbH](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para Bitbucket da R
 
     ![O provedor de identidade](./media/bitbucket-tutorial/tutorial_bitbucket_identityprovider.png)
 
-     a. Selecione **Tipo de Idp** como **AD do AZURE**.
+    a. Selecione **Tipo de Idp** como **AD do AZURE**.
 
     b. Na caixa de texto **Nome**, digite um nome.
 

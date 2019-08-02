@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453827b42d12333fd4f27761e7f73484fb749532
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff5ff12f18d1f85b3ca53adb42fee41e19fb4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: Integração do Azure Active Directory ao Trello
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o Trello, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Trello](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, insira uma URL usando o seguinte padrão: `https://trello.com/auth/saml/metadata`
+    a. Na caixa de texto **Identificador**, insira uma URL usando o seguinte padrão: `https://trello.com/auth/saml/metadata`
 
     b. Na caixa **URL de Resposta**, insira uma URL usando o seguinte padrão: `https://trello.com/auth/saml/consume/<enterprise>`
 
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o Trello, execute as seguintes et
     | User.FirstName | user.givenname |
     | User.LastName | user.surname |
 
-     a. Selecione **Adicionar nova declaração** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Selecione **Adicionar nova declaração** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![Caixa de diálogo Declarações de usuário](common/new-save-attribute.png)
 
@@ -190,7 +190,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, insira "brittasimon@yourcompanydomain.extension". Por exemplo, nesse caso, você poderá inserir "BrittaSimon@contoso.com".
 
@@ -243,5 +243,5 @@ Ao selecionar o bloco do Trello no portal Meus Aplicativos, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

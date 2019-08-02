@@ -3,17 +3,17 @@ title: Configurar pontos de extremidade de nó no pool do Lote do Azure | Micros
 description: Como configurar ou desabilitar o acesso a portas SSH ou RDP em nós de computação em um pool do Lote do Azure.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: lahugh
-ms.openlocfilehash: 9b6b28b9f55623fbdff6ab80c889141c8815600f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071527"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322465"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Configurar ou desabilitar o acesso remoto a nós de computação em um pool do Lote do Azure
 
@@ -53,7 +53,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 O seguinte snippet código de Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para negar todo o tráfego da Internet. O ponto de extremidade usa um pool do front-end de portas no intervalo *4000-4100*. 
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -63,14 +63,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
-                source_address_prefix='Internet'
+                    priority=170,
+                    access=batchmodels.NetworkSecurityGroupRuleAccess.deny,
+                    source_address_prefix='Internet'
                 )
             ]
         )
         ]
-    ) 
+    )
 )
 ```
 
@@ -97,7 +97,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 O seguinte snippet de código do Python mostra como configurar o ponto de extremidade SSH em nós de computação em um pool do Linux para permitir acesso somente da sub-rede *192.168.1.0/24*. A segunda regra de NSG nega o tráfego que não corresponde à sub-rede.
 
 ```python
-pool.network_configuration=batchmodels.NetworkConfiguration(
+pool.network_configuration = batchmodels.NetworkConfiguration(
     endpoint_configuration=batchmodels.PoolEndpointConfiguration(
         inbound_nat_pools=[batchmodels.InboundNATPool(
             name='SSH',
@@ -107,14 +107,14 @@ pool.network_configuration=batchmodels.NetworkConfiguration(
             frontend_port_range_end=4100,
             network_security_group_rules=[
                 batchmodels.NetworkSecurityGroupRule(
-                priority=170,
-                access='allow',
-                source_address_prefix='192.168.1.0/24'
+                    priority=170,
+                    access='allow',
+                    source_address_prefix='192.168.1.0/24'
                 ),
                 batchmodels.NetworkSecurityGroupRule(
-                priority=175,
-                access='deny',
-                source_address_prefix='*'
+                    priority=175,
+                    access='deny',
+                    source_address_prefix='*'
                 )
             ]
         )

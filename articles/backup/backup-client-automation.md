@@ -1,19 +1,18 @@
 ---
 title: Usar o PowerShell para fazer backup do Windows Server no Azure
 description: Saiba como implantar e gerenciar o Backup do Azure usando o PowerShell
-services: backup
 author: pvrk
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/24/2018
-ms.author: pvrk
-ms.openlocfilehash: eac7f6ec7ec41d257317d9d2a62f0bacc046dbab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shivamg
+ms.openlocfilehash: 5533b52ab984510b0e860f7fdfded8ac9005e5a8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66400193"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465232"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 
@@ -22,7 +21,7 @@ Este artigo mostra como usar o PowerShell para configurar o Backup do Azure no W
 ## <a name="install-azure-powershell"></a>Instalar o Azure PowerShell
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para começar, [instalar a versão mais recente do PowerShell](/powershell/azure/install-az-ps).
+Para começar, [Instale a versão mais recente do PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -40,7 +39,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     New-AzResourceGroup –Name "test-rg" –Location "WestUS"
     ```
 
-3. Use o **New-AzRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+3. Use o cmdlet **New-AzRecoveryServicesVault** para criar o novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
@@ -62,7 +61,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
 
 Use **Get-AzRecoveryServicesVault** para exibir a lista de todos os cofres na assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
 
-Execute o comando **Get-AzRecoveryServicesVault**, e todos os cofres na assinatura serão listados.
+Execute o comando, **Get-AzRecoveryServicesVault**e todos os cofres na assinatura são listados.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -200,7 +199,7 @@ Server properties updated successfully.
 
 Os dados de backup enviados para o Backup do Azure são criptografados para proteger a confidencialidade dos dados. A senha de criptografia é a "senha" para descriptografar os dados no momento da restauração.
 
-Você deve gerar um pin de segurança, selecionando **Generate**, em **configurações** > **propriedades** > **umPINdesegurança** no **cofre dos Recovery Services** seção do portal do Azure. Em seguida, usar isso como o `generatedPIN` no comando:
+Você deve gerar um PIN de segurança selecionando **gerar**, em **configurações** > **Propriedades** > **PIN de segurança** na seção **cofre dos serviços de recuperação** do portal do Azure. Em seguida, use-o `generatedPIN` como no comando:
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -391,9 +390,9 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Fazer backup de estado do sistema do Windows Server no agente do MABS
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>Fazer backup do estado do sistema do Windows Server no agente do MABS
 
-Esta seção aborda o comando do PowerShell para configurar o estado do sistema de agente do MABS
+Esta seção aborda o comando do PowerShell para configurar o estado do sistema no agente do MABS
 
 ### <a name="schedule"></a>Agenda
 ```powershell
@@ -406,7 +405,7 @@ $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Fri
 $rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
 ```
 
-### <a name="configuring-schedule-and-retention"></a>Configurando a retenção e agendamento
+### <a name="configuring-schedule-and-retention"></a>Configurando agendamento e retenção
 
 ```powershell
 New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy

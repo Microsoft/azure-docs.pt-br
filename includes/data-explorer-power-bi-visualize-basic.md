@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: mblythe
 ms.openlocfilehash: 9624856841ec7473543575c31928c6eefd1404c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66120593"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171663"
 ---
 Agora que você tem dados no Power BI Desktop, crie relatórios com base neles. Você criará um relatório simples com um gráfico de colunas que mostra danos na safra por estado.
 

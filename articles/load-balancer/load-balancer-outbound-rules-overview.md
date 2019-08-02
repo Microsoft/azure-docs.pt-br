@@ -4,21 +4,21 @@ titlesuffix: Azure Load Balancer
 description: Usar regras de saída para definir conversões de endereço de rede de saída
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
-ms.author: kumud
-ms.openlocfilehash: 52fafa7e9dd46b6c78af3776797bae48b22ea8df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/17/2019
+ms.author: allensu
+ms.openlocfilehash: 39a23fa277d7bb389098674556b65b1b13676ead
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64698442"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305574"
 ---
 # <a name="load-balancer-outbound-rules"></a>Regras de saída do Load Balancer
 
@@ -84,7 +84,7 @@ Use o parâmetro a seguir para alocar 10.000 portas SNAT por VM (configuração 
 
           "allocatedOutboundPorts": 10000
 
-Cada endereço IP público de todos os front-ends de uma regra de saída contribui com até 51.200 portas efêmeras para serem usadas como portas SNAT.  O Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que estão disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em um back-end pool compartilhariam um único endereço IP público, a configuração é rejeitado (7 x 10.000 portas > 51.200 SNAT as portas SNAT).  Você pode adicionar mais endereços de IP ao front-end da regra de saída para habilitar o cenário.
+Cada endereço IP público de todos os front-ends de uma regra de saída contribui com até 51.200 portas efêmeras para serem usadas como portas SNAT.  O Load Balancer aloca portas SNAT em múltiplos de 8. Se você fornecer um valor não divisível por 8, a operação de configuração será rejeitada.  Se você tentar alocar mais portas SNAT do que estão disponíveis com base no número de endereços IP públicos, a operação de configuração será rejeitada.  Por exemplo, se você alocar 10.000 portas por VM e 7 VMs em um pool de back-end compartilharão um único endereço IP público, a configuração será rejeitada (7 x 10.000 portas SNAT > 51.200 portas SNAT).  Você pode adicionar mais endereços de IP ao front-end da regra de saída para habilitar o cenário.
 
 Você pode reverter para a [alocação da porta SNAT automática com base no tamanho do pool de back-end](load-balancer-outbound-connections.md#preallocatedports) especificando 0 como o número de portas.
 
@@ -208,7 +208,7 @@ Ao usar um Standard Load Balancer interno, a NAT de saída não estará disponí
 - O intervalo do tempo limite de ociosidade de saída configurável é de 4 a 120 minutos (240 a 7.200 segundos).
 - O Load Balancer não dá suporte a ICMP para NAT de saída.
 - O portal não pode ser usado para configurar ou exibir as regras de saída.  Em vez disso, use modelos, API REST, Az CLI 2.0 ou PowerShell.
-- Regras de saída só podem ser aplicadas ao NIC primário e à configuração de IP primária.
+- As regras de saída só podem ser aplicadas à configuração de IP primário de uma NIC.  Há suporte para várias NICs.
 
 ## <a name="next-steps"></a>Próximas etapas
 

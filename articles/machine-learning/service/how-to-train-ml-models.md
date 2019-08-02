@@ -2,8 +2,8 @@
 title: Treinar modelos ML com estimadores
 titleSuffix: Azure Machine Learning service
 description: Saiba como realizar o treinamento de nó único e distribuído de máquina tradicional de aprendizado e modelos usando a classe de estimador do serviço do Machine Learning de aprendizado profundo
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 689d7dcd57c513479c7bc08a45094670242ef6a5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0080c8ac5e957912c5fd59a7051619ee60bd914c
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075029"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68260060"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Treinar modelos com o Azure Machine Learning usando o estimador
 
@@ -59,7 +59,7 @@ Este trecho de código especifica os seguintes parâmetros para o `Estimator` co
 Parâmetro | DESCRIÇÃO
 --|--
 `source_directory`| O diretório local que contém todo o código necessário para o trabalho de treinamento. Essa pasta é copiada em seu computador local para a computação remota 
-`script_params`| Especificando os argumentos de linha de comando para o seu script de treinamento de dicionário `entry_script`, na forma de < argumento de linha de comando, valor > pares. Para especificar um sinalizador detalhado no `script_params`, use `<command-line argument, "">`.
+`script_params`| Dicionário que especifica os argumentos de linha de comando para o `entry_script`script de treinamento, na `<command-line argument, value>` forma de pares. Para especificar um sinalizador detalhado no `script_params`, use `<command-line argument, "">`.
 `compute_target`| O destino de computação remoto no qual seu script de treinamento será executado, neste caso, um cluster ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) da Computação do Azure Machine Learning. (Observe que, embora o cluster AmlCompute seja um destino comumente usado, também é possível escolher outros tipos de destino de computação como VMs do Azure ou até mesmo computador local.)
 `entry_script`| FilePath (relativo ao `source_directory`) do script de treinamento para ser executado na computação remota. Esse arquivo e quaisquer arquivos adicionais que ele depende devem ser localizados nesta pasta
 `conda_packages`| A lista de pacotes do Python a serem instalados via conda, necessária ao seu script de treinamento.  
@@ -74,7 +74,7 @@ print(run.get_portal_url())
 ```
 
 > [!IMPORTANT]
-> **Pastas Especiais** Duas pastas, *produzem* e *registros*, recebem tratamento especial do Aprendizado de Máquina do Azure. Durante o treinamento, ao gravar arquivos em pastas denominadas *gera* e *logs* que são relativos ao diretório raiz (`./outputs` e `./logs`, respectivamente), os arquivos serão automaticamente Carregue o histórico de execução para que você tenha acesso a eles quando sua execução for concluída.
+> **Pastas Especiais** Duas pastas, *produzem* e *logs*, recebem tratamento especial do Aprendizado de Máquina do Azure. Durante o treinamento, ao gravar arquivos em pastas denominadas *gera* e *logs* que são relativos ao diretório raiz (`./outputs` e `./logs`, respectivamente), os arquivos serão automaticamente Carregue o histórico de execução para que você tenha acesso a eles quando sua execução for concluída.
 >
 > Para criar artefatos durante o treinamento (como arquivos de modelo, os pontos de verificação, arquivos de dados ou imagens plotadas) escreva para a pasta `./outputs`.
 >
@@ -120,18 +120,18 @@ run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
 
-## <a name="github-tracking-and-integration"></a>Integração e acompanhamento do GitHub
+## <a name="github-tracking-and-integration"></a>Acompanhamento e integração do GitHub
 
-Quando você inicia uma execução em que o diretório de origem é um repositório Git local de treinamento, informações sobre o repositório são armazenadas no histórico de execução. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
+Quando você inicia uma execução de treinamento onde o diretório de origem é um repositório git local, as informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, a ID de confirmação atual para o repositório é registrada como parte do histórico.
 
 ## <a name="examples"></a>Exemplos
-Para um bloco de anotações que mostra as Noções básicas de um padrão de avaliador, consulte:
+Para um notebook que mostra as noções básicas de um padrão estimador, consulte:
 * [how-to-use-azureml/training-with-deep-learning/how-to-use-estimator](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb)
 
-Para um bloco de anotações que treina um scikit-Saiba mais sobre o modelo usando o Vistoriador, consulte:
+Para um bloco de anotações que treina um modelo scikit usando o estimador, consulte:
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
-Para blocos de anotações no treinamento de modelos usando estimadores específicas de estrutura de aprendizado profundo, consulte:
+Para blocos de anotações em modelos de treinamento usando avaliadores específicos da estrutura de aprendizado profundo, consulte:
 * [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

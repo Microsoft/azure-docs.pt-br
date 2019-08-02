@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4be92cae0042da7341b716a6c3c497b6248eed6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca6863a6b02e867afd732ce1662136051b8afec8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093672"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-procore-sso"></a>Tutorial: Integração do Azure Active Directory com o Procore SSO
 
@@ -54,7 +54,7 @@ Para configurar a integração do Procore SSO com o Azure AD, é necessário adi
 
 **Para adicionar o Procore SSO da galeria, siga as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o Procore SSO, execute as seguint
 
     ![Configurar o logon único](./media/procoresso-tutorial/procore_setting_admin.png)  
 
-     a. Na caixa de texto **Single Sign On Issuer URL**, cole o valor de **Identificador do Microsoft Azure Active Directory** que você copiou do portal do Azure.
+    a. Na caixa de texto **Single Sign On Issuer URL**, cole o valor de **Identificador do Microsoft Azure Active Directory** que você copiou do portal do Azure.
 
     b. Na caixa **URL de destino do logon SAML**, cole o valor do **URL de login** que você copiou do portal do Microsoft Azure.
 
@@ -206,7 +206,7 @@ Siga as etapas abaixo para criar um usuário de teste do Procore no lado do Proc
 
     ![Configurar o logon único](./media/procoresso-tutorial/Procore_user_add.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
 
@@ -236,5 +236,5 @@ Ao clicar no bloco do Procore SSO no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

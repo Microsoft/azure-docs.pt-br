@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Domínios suspensos | Microsoft 
 description: Suspensão do domínio gerenciado e a exclusão
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
@@ -14,15 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: a4e43518ce70c040b8243034c52e4b215548a47c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 781a81589032c290cef7342e7210ee36f388b22a
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246713"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68233980"
 ---
-# <a name="suspended-domains"></a>Domínios suspensos
+# <a name="understand-the-suspended-states-for-an-azure-active-directory-domain-services-managed-domain"></a>Entender os Estados suspensos para um Azure Active Directory Domain Services domínio gerenciado
+
 Quando os Serviços de Domínio Active Directory do Azure (Azure AD DS) não conseguem atender a um domínio gerenciado por um longo período de tempo, ele coloca o domínio gerenciado em um estado suspenso. Este artigo explica porque os domínios gerenciados são suspensos e como corrigir um domínio suspenso.
 
 

@@ -2,35 +2,28 @@
 title: Guia estratégico do Azure Active Directory Identity Protection | Microsoft Docs
 description: Saiba como o Azure AD Identity Protection permite limitar a capacidade de um invasor de explorar uma identidade ou um dispositivo comprometidos ou um dispositivo que sofreu comprometimento conhecido ou suspeito anteriormente.
 services: active-directory
-keywords: azure active directory identity protection, cloud discovery, gerenciando aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c3af12d35d07796db9255f0ac76dd1389bd013
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 273a6aca2050676650b955ec078b47b2ffcfe319
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108839"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333935"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Guia estratégico do Azure Active Directory Identity Protection
 
 Este guia estratégico vai ajudá-lo a:
 
 * Popular dados no ambiente do Identity Protection, simulando eventos de riscos e vulnerabilidades
-* Configurar políticas de acesso condicional com base em risco e teste o impacto dessas políticas
-
+* Configurar políticas de acesso condicional com base em risco e testar o impacto dessas políticas
 
 ## <a name="simulating-risk-events"></a>Simulação de Eventos de Risco
 
@@ -67,7 +60,6 @@ Para simular locais desconhecidos, você deve entrar a partir de um local e do d
 O procedimento abaixo usa um criado recentemente:
 
 - Conexão VPN, para simular novo local.
-
 - Máquina virtual, para simular um novo dispositivo.
 
 A conclusão do procedimento a seguir requer que você use uma conta de usuário que tenha:
@@ -75,12 +67,10 @@ A conclusão do procedimento a seguir requer que você use uma conta de usuário
 - Pelo menos um histórico entrada de 30 dias.
 - Autenticação multifator habilitada.
 
-
 **Para simular uma entrada de um local desconhecido, realize as seguintes etapas**:
 
 1. Ao entrar com sua conta de teste, falhe o desafio MFA ao não passar pelo desafio MFA.
 2. Usando sua nova VPN, navegue até [https://myapps.microsoft.com](https://myapps.microsoft.com) e insira as credenciais da sua conta de teste.
-   
 
 A entrada aparece no painel de segurança Identity Protection dentro de 10 a 15 minutos.
 
@@ -89,7 +79,6 @@ A entrada aparece no painel de segurança Identity Protection dentro de 10 a 15 
 Para obter mais informações sobre esse evento de risco, consulte [Viagem impossível para local atípico](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations). 
 
 É difícil simular a condição de viagem impossível porque o algoritmo usa o aprendizado de máquina para eliminar falsos positivos, tais como viagens impossíveis de dispositivos conhecidos ou entradas de VPNs usadas por outros usuários no diretório. Além disso, o algoritmo requer um histórico de entrada de 14 dias e 10 logons do usuário, antes que ele comece a gerar eventos de risco. Por causa dos modelos do Machine Learning complexos e regras acima, há a possibilidade de que as etapas a seguir não potencialize um evento de risco. É conveniente replicar essas etapas em várias contas do Azure Active Directory para publicar esse evento de risco.
-
 
 **Para simular uma viagem impossível para um local atípico, realize as seguintes etapas**:
 
@@ -108,18 +97,15 @@ Vulnerabilidades são pontos fracos no seu ambiente do Azure AD que podem ser ex
 * [Cloud Discovery](https://docs.microsoft.com/cloud-app-security/) do Azure AD.
 * Azure AD [Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
-
 ## <a name="testing-security-policies"></a>Testar as políticas de segurança
 
 Esta seção fornece as etapas para testar o risco do usuário e a política de segurança de risco de entrada.
-
 
 ### <a name="user-risk-security-policy"></a>Política de segurança de risco do usuário
 
 Para obter mais informações, consulte [Como configurar a política de risco do usuário](howto-user-risk-policy.md).
 
 ![Risco de usuário](./media/playbook/02.png "Manual")
-
 
 **Para testar uma política de segurança de risco de usuário, execute as seguintes etapas**:
 
@@ -135,9 +121,7 @@ Para obter mais informações, consulte [Como configurar a política de risco do
 6. Eleve o risco de usuário de uma conta de teste, por exemplo, simulando um dos eventos de risco algumas vezes.
 7. Aguarde alguns minutos e, em seguida, verifique se o nível do usuário para o usuário é Médio. Caso contrário, simule mais eventos de risco para o usuário.
 8. Como **Impor Política**, selecione **Ativado**.
-9. Agora você pode testar usuário acesso condicional baseado em risco ao entrar usando um usuário com um nível de risco elevado.
-    
-    
+9. Agora você pode testar o acesso condicional baseado em risco do usuário entrando usando um usuário com um nível de risco elevado.
 
 ### <a name="sign-in-risk-security-policy"></a>Política de segurança de risco de entrada
 
@@ -145,34 +129,20 @@ Para obter mais informações, consulte [Como configurar a política de risco de
 
 ![Risco de entrada](./media/playbook/01.png "Manual")
 
-
 **Para testar uma política de segurança de entrada, execute as seguintes etapas:**
 
 1. Entre em [https://portal.azure.com](https://portal.azure.com) com as credenciais de administrador global para seu locatário.
-
 2. Navegue para **Azure AD Identity Protection**.
-
 3. Na página principal **Azure AD Identity Protection**, clique em **Política de entrada**. 
-
 4. Na seção **Atribuições**, selecione os usuários desejados (e grupos) e o nível de risco de entrada.
 
     ![Risco de entrada](./media/playbook/04.png "Manual")
 
-
 5. Na seção **Controles** selecione o controle de acesso desejado (por exemplo, **Requer autenticação multifator**). 
-
 6. Como **Impor Política**, selecione **Ativado**.
-
 7. Clique em **Salvar**.
-
-8. Agora você pode testar a entrada acesso condicional com base no risco ao entrar usando uma sessão arriscada (por exemplo, usando o navegador Tor). 
-
- 
-
-
-
+8. Agora você pode testar o acesso condicional com base em risco de entrada, entrando usando uma sessão arriscada (por exemplo, usando o navegador Tor). 
 
 ## <a name="see-also"></a>Consulte também
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

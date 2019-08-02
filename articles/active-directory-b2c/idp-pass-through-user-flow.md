@@ -1,5 +1,5 @@
 ---
-title: Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo - Azure Active Directory B2C | Microsoft Docs
+title: Passe um token de acesso por meio de um fluxo de usuário para seu aplicativo-Azure Active Directory B2C | Microsoft Docs
 description: Saiba como você pode passar por meio de um token de acesso para provedores de identidade do OAuth 2.0 como uma declaração de um fluxo de usuário no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db4b799aa31a4132609b0dd158b65070fb2474b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e9019699d8a81d31d2b20f674fd76fcb70021d6
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510961"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846821"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso por meio de um fluxo de usuário para seu aplicativo no Azure Active Directory B2C
 
@@ -34,13 +34,13 @@ O Azure Active Directory B2C atualmente suporta apenas passar o token de acesso 
 ## <a name="enable-the-claim"></a>Habilitar a declaração
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global do locatário Azure AD B2C.
-2. Verifique se que você estiver usando o diretório que contém o seu locatário do Azure AD B2C. Selecione o **filtro de diretório e assinatura** no menu superior e escolha o diretório que contém o seu locatário.
+2. Verifique se você está usando o diretório que contém seu locatário de Azure AD B2C. Selecione o **diretório e o filtro de assinatura** no menu superior e escolha o diretório que contém seu locatário.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure, procure e selecione **Azure AD B2C**.
-4. Selecione **fluxos de usuário (diretivas)** e, em seguida, selecione seu fluxo de usuário. Por exemplo, **B2C_1_signupsignin1**.
+4. Selecione **fluxos de usuário (políticas)** e, em seguida, selecione seu fluxo de usuário. Por exemplo, **B2C_1_signupsignin1**.
 5. Selecione **Declarações do aplicativo**.
-6. Habilitar o **Token de acesso do provedor de identidade** de declaração.
+6. Habilite a declaração de **token de acesso do provedor de identidade** .
 
-    ![Permitir que a declaração de Token de acesso do provedor identidade](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
+    ![Habilitar a declaração de token de acesso do provedor de identidade](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-app-claim.png)
 
 7. Clique em **Salvar** para salvar o fluxo de usuário.
 
@@ -54,12 +54,8 @@ Ao testar seus aplicativos no Azure AD B2C, pode ser útil ter o token do Azure 
 
     Você deverá ver algo semelhante ao texto a seguir:
 
-    ![Token decodificado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.png)
+    ![Token decodificado em jwt.ms com bloco idp_access_token realçado](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais na [visão geral dos tokens do Azure AD B2C](active-directory-b2c-reference-tokens.md).
-
-
-
-
+Saiba mais na [visão geral de tokens de Azure ad B2C](active-directory-b2c-reference-tokens.md).

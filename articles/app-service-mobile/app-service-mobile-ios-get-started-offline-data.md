@@ -2,7 +2,7 @@
 title: Habilitar a sincronização offline com aplicativos móveis do iOS | Microsoft Docs
 description: Aprenda a usar os aplicativos móveis do Serviço de Aplicativo do Azure para colocar em cache e sincronizar dados offline em aplicativos iOS.
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 services: app-service\mobile
@@ -12,17 +12,21 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 1283f812799fe71ef6987dbc7fab092aed4d3417
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.author: emalani
+ms.openlocfilehash: f7ae3e7a33ae7df70214ed171b00cc2accbaccb5
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62112643"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446366"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Habilitar a sincronização offline com aplicativos móveis do iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
+
+> [!NOTE]
+> Visual Studio App Center está investindo em novos e integrados serviços essenciais para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **construir**, **teste** e **distribuir** services para configurar o pipeline de integração contínua e entrega. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso do seu aplicativo usando o **Analytics** e **diagnóstico** serviços e entre em contato com usuários usando o **enviar por Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados do aplicativo na nuvem. Fazer check-out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data) hoje mesmo.
+>
 
 ## <a name="overview"></a>Visão geral
 Este tutorial aborda a sincronização offline com o recurso Aplicativos Móveis do Serviço de Aplicativo do Azure para iOS. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel para exibir, adicionar ou alterar dados, mesmo quando não têm conexão com a rede. As alterações são armazenadas em um banco de dados local. Quando o dispositivo estiver online novamente, as alterações são sincronizadas com o back-end remoto.
@@ -161,11 +165,11 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type |
 | --- | --- |
-| id | Número Inteiro 64 |
-| itemId | Cadeia de caracteres |
-| propriedades | Dados binários |
-| table | Cadeia de caracteres |
-| tableKind | Número inteiro 16 |
+| id | Integer 64 |
+| itemId | String |
+| properties | Binary Data |
+| table | String |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
@@ -174,10 +178,10 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type |
 | --- | --- |
-| id |Cadeia de caracteres |
-| operationId |Número Inteiro 64 |
-| propriedades |Dados binários |
-| tableKind |Número inteiro 16 |
+| id |String |
+| operationId |Integer 64 |
+| properties |Binary Data |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
@@ -185,11 +189,11 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type |
 | --- | --- |
-| id |Cadeia de caracteres |
-| chave |Cadeia de caracteres |
-| keyType |Número Inteiro 64 |
-| table |Cadeia de caracteres |
-| value |Cadeia de caracteres |
+| id |String |
+| key |String |
+| keyType |Integer 64 |
+| table |String |
+| value |String |
 
 ### <a name="data-table"></a>Tabela de dados
 
@@ -197,12 +201,12 @@ Ao usar o recurso de sincronização offline, você define as três tabelas do s
 
 | Atributo | Type | Observação |
 | --- | --- | --- |
-| id | Cadeia de caracteres, marcadas como obrigatórias |Chave primária no repositório remoto |
+| id | String, marcadas como obrigatórias |Chave primária no repositório remoto |
 | concluído | Boolean | Campo To-do item |
 | text |string |Campo To-do item |
 | createdAt | Data | (opcional) É mapeado para a propriedade do sistema **createdAt** |
 | updatedAt | Data | (opcional) É mapeado para a propriedade do sistema **updatedAt** |
-| version | Cadeia de caracteres | (opcional) Usado para detectar conflitos, é mapeado para a versão |
+| version | String | (opcional) Usado para detectar conflitos, é mapeado para a versão |
 
 ## <a name="setup-sync"></a>Alterar o comportamento de sincronização do aplicativo
 Nesta seção, você altera o aplicativo para que ele não sincronize na inicialização ou ao inserir e atualizar itens. Ele sincroniza somente quando o botão de atualização é executado.

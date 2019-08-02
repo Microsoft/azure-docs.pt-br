@@ -1,6 +1,6 @@
 ---
 title: Enviar solicitações para a API de Sugestão Automática do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como enviar solicitações para a API de Sugestão Automática do Bing.
 services: cognitive-services
 author: swhite-msft
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: abcce52e126e01d25434a90260a220c9aa337f5b
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 6ece70b78166578cd4ef391d761b0e4e478f4f04
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66382709"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405366"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Enviando solicitações para a API de Sugestão Automática do Bing.
 
-Se o aplicativo enviar consultas para uma das APIs de Pesquisa do Bing, você poderá usar a API de Sugestão Automática do Bing para aprimorar a experiência de pesquisa dos usuários. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial da caixa de pesquisa. Como os caracteres são inseridos em uma caixa de pesquisa no aplicativo, você pode exibir as sugestões em uma lista suspensa. Use este artigo para saber mais sobre como enviar solicitações para essa API.
+Se o aplicativo enviar consultas para uma das APIs de Pesquisa do Bing, você poderá usar a API de Sugestão Automática do Bing para aprimorar a experiência de pesquisa dos usuários. A API de Sugestão Automática do Bing retorna uma lista de consultas sugeridas com base na cadeia de consulta parcial da caixa de pesquisa. Como os caracteres são inseridos em uma caixa de pesquisa no aplicativo, você pode exibir as sugestões em uma lista suspensa. Use este artigo para saber mais sobre como enviar solicitações para essa API. 
 
 ## <a name="bing-autosuggest-api-endpoint"></a>Ponto de extremidade da API de Sugestão Automática do Bing
 
@@ -44,7 +44,7 @@ Para obter exemplos de solicitações básicas usando a API de Sugestão Automá
 ## <a name="bing-autosuggest-api-requests"></a>Solicitações da API de Sugestão Automática do Bing
 
 > [!NOTE]
-> As solicitações à API de Sugestão Automática do Bing devem usar o protocolo HTTPS.
+> * As solicitações à API de Sugestão Automática do Bing devem usar o protocolo HTTPS.
 
 É recomendável que todas as solicitações sejam originadas de um servidor. A distribuição da chave como parte de um aplicativo cliente dá mais oportunidades para um terceiro mal-intencionado acessá-lo. Além disso, fazer chamadas em um servidor fornece um ponto único de upgrade para atualizações futuras.
 
@@ -95,11 +95,13 @@ O exemplo a seguir mostra uma solicitação que retorna as cadeias de caracteres
 
 Se for a primeira vez que você chama qualquer uma das APIs do Bing, não inclua o cabeçalho da ID do cliente. Inclua apenas o cabeçalho da ID do cliente, se você já chamou uma API do Bing e o Bing retornou uma ID do cliente para a combinação de usuário e dispositivo.
 
-O exemplo a seguir mostra a resposta à solicitação anterior. A resposta inclui um grupo de sugestões da Web que contém uma lista de sugestões de consulta de pesquisa. Cada sugestão inclui um campo `displayText`, `query` e `url`.
+O grupo de sugestão da web a seguir é uma resposta à solicitação acima. O grupo contém uma lista de sugestões de consulta de pesquisa, sendo que cada sugestão inclui um campo `displayText`, `query` e `url`.
 
 O campo `displayText` contém a consulta sugerida que você usaria para preencher a lista suspensa da caixa de pesquisa. Exiba todas as sugestões incluídas na resposta e na ordem determinada.  
 
-Se o usuário seleciona uma consulta na lista suspensa, você pode usá-la para chamar um dos [APIs de pesquisa do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o usuário para a página de resultados do Bing usando o campo `url` retornado. O exemplo a seguir usa a API de pesquisa na Web do Bing.
+Se o usuário seleciona uma consulta na lista suspensa, você pode usá-la para chamar um dos [APIs de pesquisa do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e exibir os resultados por conta própria ou enviar o usuário para a página de resultados do Bing usando o campo `url` retornado.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

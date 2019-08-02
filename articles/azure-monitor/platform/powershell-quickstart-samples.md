@@ -153,14 +153,14 @@ A tabela a seguir descreve os parâmetros e valores usados para criar um alerta 
 | parâmetro | value |
 | --- | --- |
 | NOME |simpletestdiskwrite |
-| Local desta regra de alerta |Leste dos EUA |
+| Local desta regra de alerta |East US |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| MetricName do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/sec. Consulte o cmdlet `Get-MetricDefinitions` sobre como recuperar os nomes de métrica exatos |
+| MetricName do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | Valor de limite (contagem/s para esta métrica) |1 |
 | WindowSize (formato hh:mm:ss) |00:05:00 |
-| agregador (estatística da métrica, que usa a contagem Média, nesse caso) |Média |
+| agregador (estatística da métrica, que usa a contagem Média, nesse caso) |Average |
 | emails personalizados (matriz de cadeia de caracteres) |'foo@example.com','bar@example.com' |
 | enviar email a proprietários, colaboradores e leitores |-SendToServiceOwners |
 

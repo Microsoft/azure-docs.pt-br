@@ -1,6 +1,6 @@
 ---
-title: Criar um novo aplicativo
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Criar um novo aplicativo-LUIS
+titleSuffix: Azure Cognitive Services
 description: Criar e gerenciar seus aplicativos na página da Web do Serviço Inteligente de Reconhecimento Vocal (LUIS).
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9d650a17ddfac6461341e50c4693e4522d9628b3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f9809fde088a03d4b20b5c739253f446c7a84b6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148192"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563621"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Criar um aplicativo LUIS no portal do LUIS
 Há algumas maneiras de criar um aplicativo do LUIS. Você pode criar um aplicativo do LUIS no portal do [LUIS](https://www.luis.ai) ou por meio das [APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) de criação do LUIS.
@@ -56,30 +56,30 @@ Você pode criar um aplicativo com as APIs de criação de várias maneiras:
     > [!NOTE]
     > A cultura não poderá ser alterada depois que o aplicativo for criado. 
 
-## <a name="import-an-app-from-file"></a>Importar um aplicativo de arquivo
+## <a name="import-an-app-from-file"></a>Importar um aplicativo do arquivo
 
 1. Na página **Meus Aplicativos**, selecione **Importar novo aplicativo**.
-1. Na caixa de diálogo pop-up, selecione um arquivo JSON de aplicativo válido e, em seguida, selecione **feito**.
+1. Na caixa de diálogo pop-up, selecione um arquivo JSON de aplicativo válido e, em seguida, selecione **concluído**.
 
 ### <a name="import-errors"></a>Erros de importação
 
-Possíveis erros são: 
+Os erros possíveis são: 
 
-* Um aplicativo com esse nome já existe. Reimporte o aplicativo e defina as **nome opcional** para um novo nome. 
+* Já existe um aplicativo com esse nome. Para corrigir isso, reimporte o aplicativo e defina o **nome opcional** como um novo nome. 
 
-## <a name="export-app-for-backup"></a>Exportar o aplicativo para o backup
+## <a name="export-app-for-backup"></a>Exportar aplicativo para backup
 
-1. Na **meus aplicativos** página, selecione **exportar**.
+1. Na página **meus aplicativos** , selecione **Exportar**.
 1. Selecione **exportar como JSON**. Seu navegador baixa a versão ativa do aplicativo.
-1. Adicione esse arquivo para o sistema de backup para arquivar o modelo.
+1. Adicione esse arquivo ao sistema de backup para arquivar o modelo.
 
-## <a name="export-app-for-containers"></a>Exportar o aplicativo para contêineres
+## <a name="export-app-for-containers"></a>Exportar aplicativo para contêineres
 
-1. Na **meus aplicativos** página, selecione **exportar**.
-1. Selecione **exportar como contêiner** , em seguida, selecione qual slot publicado (produção ou estágio) que você deseja exportar.
-1. Use esse arquivo com seu [contêiner LUIS](luis-container-howto.md). 
+1. Na página **meus aplicativos** , selecione **Exportar**.
+1. Selecione **exportar como contêiner** e, em seguida, selecione qual slot publicado (produção ou estágio) você deseja exportar.
+1. Use esse arquivo com o [contêiner Luis](luis-container-howto.md). 
 
-    Se você estiver interessado em exportando um treinado, mas não ainda modelo publicado para usar com o contêiner do LUIS, vá para o **versões** página e exportar a partir daí. 
+    Se você estiver interessado em exportar um modelo treinado mas ainda não publicado para usar com o contêiner LUIS, vá para a página **versões** e exporte a partir daí. 
 
 ## <a name="delete-app"></a>Excluir aplicativo
 

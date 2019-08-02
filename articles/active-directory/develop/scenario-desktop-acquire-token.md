@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecf5b874345a94e8fd3d3a0783f8e48c7484377d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d84801d6368bcc29f08145f190c2a07c64050ced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111265"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795097"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Aplicativo de área de trabalho que chama APIs - web adquirir um token
 
@@ -293,8 +293,9 @@ Você também pode adquirir um token, fornecendo o nome de usuário e senha. Ess
 
 Esse fluxo é **não recomendável** porque seu aplicativo pedir a um usuário para que sua senha não é seguro. Para obter mais informações sobre esse problema, consulte [deste artigo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). É o fluxo preferencial para adquirir um token silenciosamente em máquinas do Windows ingressados no domínio [autenticação integrada do Windows](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Caso contrário, você também pode usar [fluxo de código do dispositivo](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > Embora isso seja útil em alguns casos (cenários de DevOps), se você quiser usar o nome de usuário e senha em cenários interativos em que você fornece seu onw da interface do usuário, você deve realmente pensar sobre como mover para longe dela. Usando o nome de usuário/senha você está dando-up várias coisas:
-
+>
 > - principais locatários de identidade moderno: senha obtém fished, reproduzidos. Como temos esse conceito de um segredo de compartilhamento pode ser interceptado.
 > Isso é incompatível com sem senha.
 > - os usuários que precisem de MFA não conseguirá entrar (pois não há nenhuma interação)
@@ -547,7 +548,7 @@ Esse método aceita como parâmetros:
 - O `scopes` para solicitar um token de acesso
 - Um retorno de chamada que receberá o `DeviceCodeResult`
 
-  ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+  ![imagem](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
 
 O código de exemplo a seguir apresenta o caso mais atual, com explicações sobre o tipo de exceções, que você pode obter e seu tamanho máximo.
 
@@ -646,12 +647,12 @@ Classes e interfaces envolvidas na serialização do cache de token são os segu
 - ``TokenCacheCallback`` é um retorno de chamada passado aos eventos para permitir que você controle a serialização. elas se chamarão com argumentos de tipo ``TokenCacheNotificationArgs``.
 - ``TokenCacheNotificationArgs`` fornece apenas o ``ClientId`` do aplicativo e uma referência para o usuário para o qual o token está disponível
 
-  ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+  ![imagem](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
 > A MSAL.NET cria os caches de token para você e fornece o cache `IToken` quando você chama os métodos `GetUserTokenCache` e `GetAppTokenCache` de um aplicativo. Você não deve para implementar a interface por conta própria. Ao implementar uma serialização do cache de token personalizada, sua responsabilidade é:
 >
-> - Reagir aos "eventos" `BeforeAccess` e `AfterAccess`. O`BeforeAccess` delegado é responsável para desserializar o cache, enquanto o `AfterAccess` um é responsável pela serialização do cache.
+> - Reagir aos `BeforeAccess` e `AfterAccess` "eventos" (ou se eles *Async* equivalente). O`BeforeAccess` delegado é responsável para desserializar o cache, enquanto o `AfterAccess` um é responsável pela serialização do cache.
 > - Parte desses eventos armazena ou carrega blobs, os quais são passados por meio do argumento do evento para qualquer armazenamento desejado.
 
 As estratégias são diferentes dependendo se você estiver escrevendo uma serialização de cache de token para um aplicativo cliente público (Desktop) ou um aplicativo cliente confidencial (web/API web de aplicativo, o aplicativo de daemon).
@@ -724,6 +725,7 @@ static class TokenCacheHelper
 
 Uma visualização de um cache de token de qualidade do produto serializador baseados em arquivo para aplicativos de cliente público (para aplicativos da área de trabalho em execução no Windows, Mac e linux) está disponível a partir de [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) biblioteca de código-fonte aberto. É possível incluí-lo nos aplicativos do pacote NuGet a seguir: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
 
+> [!NOTE]
 > Isenção de responsabilidade. A biblioteca Microsoft.Identity.Client.Extensions.Msal é uma extensão ao longo de MSAL.NET. Essas bibliotecas de classes podem transformar sua maneira em MSAL.NET no futuro, como está ou com alterações significativas.
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>Serialização de cache de token dupla (cache MSAL unificada + ADAL V3)

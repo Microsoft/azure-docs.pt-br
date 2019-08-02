@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 97083142066e59acbefe60181743e5aa32541bac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00c536120ed9507d5ecc6fe930429d12514945b3
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115832"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483829"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -44,7 +44,7 @@ O Storm no HDInsight oferece os seguintes recursos:
 
 Para obter uma lista de empresas que estão usando o Apache Storm em suas soluções de análise em tempo real, consulte [Empresas que estão usando o Apache Storm](https://storm.apache.org/documentation/Powered-By.html).
 
-Para começar a usar o Storm, consulte [Introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md).
+Para começar a usar o Storm, consulte [Criar e monitorar uma topologia Apache Storm no do Azure HDInsight](apache-storm-quickstart.md).
 
 ## <a name="how-does-apache-storm-work"></a>Como funciona o Apache Storm
 
@@ -68,7 +68,7 @@ A configuração padrão dos clusters Apache Storm é ter apenas um nó Nimbus. 
 
 ## <a name="ease-of-creation"></a>Fácil de criar
 
-Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para saber mais sobre como criar um cluster Storm, confira [Introdução ao Storm no HDInsight](apache-storm-tutorial-get-started-linux.md).
+Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para obter mais informações sobre como criar um cluster Storm, consulte [Criar clusters do Apache Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="ease-of-use"></a>Fácil de uso
 
@@ -82,7 +82,7 @@ Você pode provisionar um novo cluster Storm no HDInsight em minutos. Para saber
 
 * __Azure PowerShell e CLI Clássica do Azure__: o PowerShell e a CLI clássica fornecem utilitários de linha de comando que você pode usar no sistema cliente para trabalhar com o HDInsight e outros serviços do Azure.
 
-* __Integração do Visual Studio__: Ferramentas do Azure Data Lake para Visual Studio inclui modelos de projeto para criar C# topologias Storm usando a estrutura SCP.NET. O Data Lake Tools também fornece ferramentas para implantar, monitorar e gerenciar soluções com o Storm no HDInsight.
+* __Integração do Visual Studio__: As Ferramentas do Azure Data Lake para Visual Studio incluem modelos de projeto para criar topologias Storm em C# usando a estrutura SCP.NET. O Data Lake Tools também fornece ferramentas para implantar, monitorar e gerenciar soluções com o Storm no HDInsight.
 
   Para obter mais informações, confira [Desenvolver topologias Storm C# com as Ferramentas do HDInsight para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 
@@ -138,7 +138,7 @@ Para obter mais informações, consulte [Garantias do processamento de dados](ht
 
 ### <a name="ibasicbolt"></a>IBasicBolt
 
-O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas e, em seguida, confirmando a tupla de entrada imediatamente no final do método execute é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
+O padrão de leitura de uma tupla de entrada, emitindo zero ou mais tuplas, e depois confirmando a tupla de entrada imediatamente no final do método de execução é comum. O Storm oferece a interface [IBasicBolt](https://storm.apache.org/releases/current/javadocs/org/apache/storm/topology/IBasicBolt.html) para automatizar esse padrão.
 
 ### <a name="joins"></a>Junções
 
@@ -166,7 +166,7 @@ Quando sua topologia depende do cálculo de um valor de N principal, calcule o v
 
 Para obter um exemplo do cálculo de um valor de N principal, confira o exemplo [RollingTopWords](https://github.com/apache/storm/blob/master/examples/storm-starter/src/jvm/org/apache/storm/starter/RollingTopWords.java).
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 O Storm usa o [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) para registrar informações em log. Por padrão, uma grande quantidade de dados é registrada e pode ser difícil classificar as informações. Você pode incluir um arquivo de configuração de log como parte de sua topologia do Storm para controlar o comportamento de log.
 
@@ -176,5 +176,5 @@ Para uma topologia de exemplo que demonstra como configurar o log, veja o exempl
 
 Saiba mais sobre as soluções de análise em tempo real com o Apache Storm no HDInsight:
 
-* [Introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md)
+* [Criar e monitorar uma topologia Apache Storm no Azure HDInsight](apache-storm-quickstart.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](apache-storm-example-topology.md)

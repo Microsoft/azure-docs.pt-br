@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48955354baf86d84c0ddc6618a99f7e806c26c2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862275"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105377"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Tutorial: Integração do Active Directory do Azure ao Clarizen
 
@@ -53,7 +53,7 @@ Para configurar a integração do Clarizen ao Azure AD, você precisará adicion
 
 **Para adicionar o Clarizen da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Clarizen](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite um valor: `Clarizen`
+    a. Na caixa de texto **Identificador**, digite um valor: `Clarizen`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://.clarizen.com/Clarizen/Pages/Integrations/SAML/SamlResponse.aspx`
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Clarizen, execute as seguintes 
 
     ![Caixa de diálogo "Autenticação Federada"](./media/clarizen-tutorial/tutorial_clarizen_003.png "Autenticação Federada")
 
-     a. Selecione **Habilitar Autenticação Federada**.
+    a. Selecione **Habilitar Autenticação Federada**.
 
     b. Clique em **Carregar** para carregar o certificado baixado.
 
@@ -227,7 +227,7 @@ Para permitir que os usuários do Azure AD entrem no Clarizen, você deverá pro
 
     ![Caixa de diálogo "Convidar Pessoas"](./media/clarizen-tutorial/create_aaduser_003.png "Convidar Pessoas")
 
-     a. Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.
+    a. Na caixa **Email**, digite o endereço de email da conta de Brenda Fernandes.
 
     b. Clique em **Convidar**.
 
@@ -247,4 +247,4 @@ Ao clicar no bloco do Clarizen no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

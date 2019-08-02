@@ -1,5 +1,5 @@
 ---
-title: Estados do usuário autenticação multifator do Azure - Active Directory do Azure
+title: Estados do usuário da autenticação multifator do Azure-Azure Active Directory
 description: Saiba mais sobre os estados do usuário na Autenticação Multifator do Azure.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,25 +11,25 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd26f7bdf928dcbd2cf841526857dc44623f133
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54146927bf344eed63e24a3df073aa13f7fa0676
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057432"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68319922"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Como exigir a verificação em duas etapas para um usuário
 
-Você pode adotar uma das duas abordagens para solicitar a verificação em duas etapas, sendo que ambas exigem o uso de uma conta de administrador global. A primeira opção é habilitar cada usuário para a Autenticação Multifator do Azure (MFA). Quando os usuários são habilitados individualmente, eles executam a verificação em duas etapas em cada entrada (com algumas exceções, como ao entrarem a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado). A segunda opção é configurar uma política de acesso condicional que exige a verificação em duas etapas sob determinadas condições.
+Você pode adotar uma das duas abordagens para solicitar a verificação em duas etapas, sendo que ambas exigem o uso de uma conta de administrador global. A primeira opção é habilitar cada usuário para a Autenticação Multifator do Azure (MFA). Quando os usuários são habilitados individualmente, eles executam a verificação em duas etapas em cada entrada (com algumas exceções, como ao entrarem a partir de endereços IP confiáveis, ou quando o recurso de _dispositivos lembrados_ estiver ativado). A segunda opção é configurar uma política de acesso condicional que exija a verificação em duas etapas em determinadas condições.
 
 > [!TIP]
-> Escolha um destes métodos para exigir a verificação em duas etapas, não ambos. A habilitação de um usuário para autenticação multifator do Azure substitui quaisquer políticas de acesso condicional.
+> Habilitar a autenticação multifator do Azure usando políticas de acesso condicional é a abordagem recomendada. Não é mais recomendável alterar os Estados do usuário, a menos que suas licenças não incluam o acesso condicional, pois eles exigirão que os usuários executem a MFA sempre que entrarem.
 
 ## <a name="choose-how-to-enable"></a>Escolha como habilitar
 
-**Habilitado alterando o estado do usuário** - Esse é o método tradicional para exigir a verificação em duas etapas e é abordado neste artigo. Ele funciona tanto para MFA do Azure na nuvem como Servidor de MFA do Azure. Usando esse método requer que os usuários executar a verificação em duas etapas **toda vez que** eles entrar e substitui as políticas de acesso condicional. Esse é o método usado para as pessoas com licenças do Office 365 ou Microsoft 365 Business, pois elas não incluem recursos de acesso condicional.
+**Habilitado alterando o estado do usuário** - Esse é o método tradicional para exigir a verificação em duas etapas e é abordado neste artigo. Ele funciona tanto para MFA do Azure na nuvem como Servidor de MFA do Azure. O uso desse método exige que os usuários executem a verificação em duas etapas **sempre** que entrarem e substituam as políticas de acesso condicional.
 
-Isso habilitados pela política de acesso condicional - é a maneira mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitando usando a política de acesso condicional só funciona para o Azure MFA na nuvem e é um recurso premium do Azure AD. Mais informações sobre esse método podem ser encontradas em [Implantar Autenticação Multifator do Microsoft Azure baseada em nuvem](howto-mfa-getstarted.md).
+Habilitado pela política de acesso condicional – esse é o meio mais flexível para habilitar a verificação em duas etapas para seus usuários. Habilitar o uso da política de acesso condicional funciona apenas para o Azure MFA na nuvem e é um recurso Premium do Azure AD. Mais informações sobre esse método podem ser encontradas em [Implantar Autenticação Multifator do Microsoft Azure baseada em nuvem](howto-mfa-getstarted.md).
 
 Habilitado pelo Azure AD Identity Protection - Esse método usa a política de risco do Azure AD Identity Protection para exigir a verificação em duas etapas com base apenas no risco de entrada para todos os aplicativos na nuvem. Este método requer o licenciamento do Azure Active Directory P2. Mais informações sobre esse método podem ser encontradas em [Azure Active Directory Identity Protection](../identity-protection/howto-sign-in-risk-policy.md)
 
@@ -44,7 +44,7 @@ As contas de usuário na Autenticação Multifator do Azure apresentam os três 
 | Status | DESCRIÇÃO | Aplicativos que não usam navegador afetados | Aplicativos que usam o navegador afetados | Autenticação moderna afetada |
 |:---:|:---:|:---:|:--:|:--:|
 | Desabilitado |O estado padrão para um novo usuário não inscrito na MFA do Azure. |Não |Não |Não |
-| Enabled |O usuário foi inscrito no MFA do Azure, mas não foi registrado. Eles receberão uma solicitação para se registrarem na próxima vez que entrarem. |Não.  Eles continuarão a trabalhar até o processo ser concluído. | Sim. Depois que a sessão expirar, será exigido o registro da MFA do Azure.| Sim. Depois que o token de acesso expirar, será exigido o registro da MFA do Azure. |
+| Enabled |O usuário foi inscrito no MFA do Azure, mas não foi registrado. Eles receberão uma solicitação para se registrarem na próxima vez que entrarem. |Nº  Eles continuarão a trabalhar até o processo ser concluído. | Sim. Depois que a sessão expirar, será exigido o registro da MFA do Azure.| Sim. Depois que o token de acesso expirar, será exigido o registro da MFA do Azure. |
 | Imposto |O usuário foi inscrito e concluiu o processo de registro para usar a MFA do Azure. |Sim. Os aplicativos exigem senhas de aplicativo. |Sim. A MFA do Azure é exigida no logon. | Sim. A MFA do Azure é exigida no logon. |
 
 O estado de um usuário reflete se um administrador o registrou na MFA do Azure e se ele concluiu o processo de registro.
@@ -66,10 +66,10 @@ Use as etapas a seguir para acessar a página em que você pode exibir e gerenci
 
 1. Use as etapas anteriores para chegar à página de **usuários** da Autenticação Multifator do Azure.
 2. Localize o usuário que deseja habilitar para a MFA do Azure. Talvez seja necessário alterar o modo de exibição na parte superior.
-   ![Selecione o usuário para alterar o status na guia usuários](./media/howto-mfa-userstates/enable1.png)
+   ![Selecione o usuário para o qual alterar o status na guia usuários](./media/howto-mfa-userstates/enable1.png)
 3. Marque a caixa, ao lado do nome.
 4. À direita, em **etapas rápidas**, escolha **Habilitar** ou **Desabilitar**.
-   ![Habilitar o usuário selecionado ao clicar em Habilitar no menu de etapas rápidas](./media/howto-mfa-userstates/user1.png)
+   ![Habilitar o usuário selecionado clicando em habilitar no menu etapas rápidas](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > Usuários *Habilitados* mudam automaticamente para *Imposto* ao se registrarem na MFA do Azure. Não altere manualmente o estado do usuário para *Imposto*.
@@ -134,9 +134,9 @@ que também pode ser encurtado para:
    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
    ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Usuários de Convert do MFA por usuário para acesso condicional com base em MFA
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Converter usuários de MFA por usuário para MFA baseada em acesso condicional
 
-O PowerShell a seguir pode ajudá-lo a fazer a conversão em autenticação multifator do Azure de acesso condicional com base.
+O PowerShell a seguir pode ajudá-lo a fazer a conversão para o acesso condicional com base na autenticação multifator do Azure.
 
 ```PowerShell
 # Disable MFA for all users, keeping their MFA methods intact

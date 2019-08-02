@@ -2,7 +2,7 @@
 title: Cadeias de conexão do SQL Data Warehouse do Azure | Microsoft Docs
 description: Cadeias de conexão do SQL Data Warehouse
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,15 +10,15 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8f7843714395664b98383c32911de40ca064779e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873621"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479717"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Cadeias de conexão do SQL Data Warehouse do Azure
-Você pode se conectar ao SQL Data Warehouse com vários protocolos de aplicativo diferentes, por exemplo, [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] e [JDBC][JDBC]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o Portal do Azure para compilar sua cadeia de conexão.  Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.
+Você pode se conectar a SQL data warehouse com vários protocolos de aplicativo diferentes, como [ADO.net][ADO.NET], [ODBC][ODBC], [php][php] e [JDBC][JDBC]. A seguir estão alguns exemplos de cadeias de conexão para cada protocolo.  Você também pode usar o Portal do Azure para compilar sua cadeia de conexão.  Para compilar a cadeia de conexão usando o Portal do Azure, navegue até a folha do banco de dados, em *Conceitos Básicos*, clique em *Mostrar cadeias de conexão de banco de dados*.
 
 ## <a name="sample-adonet-connection-string"></a>Exemplo de cadeia de conexão ADO.NET
 ```csharp
@@ -46,7 +46,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 
 ## <a name="next-steps"></a>Próximas etapas
-Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Consultar com o Visual Studio][Query with Visual Studio].
+Para começar a consultar o data warehouse com o Visual Studio e outros aplicativos, consulte [Consulta com o Visual Studio][Query with Visual Studio].
 
 <!--Image references-->
 

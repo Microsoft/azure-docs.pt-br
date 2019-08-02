@@ -13,24 +13,20 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2cb9ad28a21842987f8c0f7c75151ab8c7fe6fa0
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66735805"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326592"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Início Rápido: Rotear eventos da Configuração de Aplicativos do Azure para um ponto de extremidade da Web com a CLI do Azure
 
-Os usuários da Configuração de Aplicativos do Azure podem assinar eventos que são emitidos sempre que os pares chave-valor são modificados. Esses eventos podem disparar webhooks, Azure Functions, Filas de Armazenamento do Azure ou qualquer outro manipulador de eventos que seja compatível com a [Grade de Eventos do Azure](https://docs.microsoft.com/azure/event-grid/event-handlers). Neste artigo, você aprenderá a usar a CLI do Azure para assinar eventos da Configuração de Aplicativos do Azure.
+Neste início rápido, você aprenderá a configurar assinaturas de eventos da Configuração de Aplicativos do Azure para enviar eventos de modificação de chave-valor a um ponto de extremidade da Web. Os usuários da Configuração de Aplicativos do Azure podem assinar eventos que são emitidos sempre que os pares chave-valor são modificados. Esses eventos podem disparar webhooks, Azure Functions, Filas de Armazenamento do Azure ou qualquer outro manipulador de eventos que seja compatível com a Grade de Eventos do Azure. Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
 
-Normalmente, você envia eventos para um ponto de extremidade que processa os dados de evento e realiza ações. No entanto, para simplificar este artigo, você enviará os eventos para um aplicativo Web que coleta e exibe as mensagens.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Quando você concluir as etapas descritas neste artigo, verá que os dados do evento foi enviados para o aplicativo Web.
-
-![Exibição do evento de assinatura](./media/quickstarts/event-grid/view-results.png)
-
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+- Assinatura do Azure – [Crie uma gratuitamente](https://azure.microsoft.com/free/). Você também pode usar o Azure Cloud Shell.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -144,3 +140,4 @@ Agora que você sabe como criar tópicos e assinaturas de eventos, saiba mais so
 
 - [Como responder a eventos de chave-valor](concept-app-configuration-event.md)
 - [Sobre a Grade de Eventos](../event-grid/overview.md)
+- [Manipuladores da Grade de Eventos do Azure](../event-grid/event-handlers.md)

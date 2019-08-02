@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 67770661f0660b9a84d16bbbc7d86cfcbca2cfdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511581"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464738"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -67,6 +67,8 @@ O elemento **BuildingBlocks** contém os seguintes elementos que precisam ser es
     - Criando uma declaração de cadeia de caracteres por meio do parâmetro fornecido na política.
     - Criando uma cadeia de caracteres aleatória usando o gerador de número aleatório.
     - Formatando uma declaração de acordo com a cadeia de caracteres de formato fornecida. Essa transformação usa o método C# `String.Format`.
+    
+- InputValidation-esse elemento permite que você execute agregações booleanas que são semelhantes a *and* e *or*.
 
 - [ContentDefinitions](contentdefinitions.md) – contém URLs de modelos HTML5 a serem usado em seu percurso do usuário. Em uma política personalizada, uma definição de conteúdo define o URI da página HTML5 que é usado para uma etapa especificada no percurso do usuário. Por exemplo, a redefinição de senha de entrada ou de inscrição ou páginas de erro. Você pode modificar a aparência substituindo o LoadUri pelo arquivo HTML5. Ou você pode criar definições de conteúdo de acordo com suas necessidades. Esse elemento pode conter uma referência de recursos localizados usando uma ID de localização.
 

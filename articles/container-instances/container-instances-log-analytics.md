@@ -1,24 +1,25 @@
 ---
 title: Log de instância de contêiner com os logs do Azure Monitor
-description: Saiba como enviar a saída de contêiner (StdOut e stderr) para os logs do Azure Monitor.
+description: Saiba como enviar logs de Instâncias de Contêiner do Azure para logs do Azure Monitor.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/17/2018
+ms.date: 07/09/2019
 ms.author: danlep
-ms.openlocfilehash: 13f1fa92365c284ed10bd7c0a1b2fdefef50b29e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4099bc0b15f02faade02f47aeb00fb7c4b4a3332
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879695"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325878"
 ---
 # <a name="container-instance-logging-with-azure-monitor-logs"></a>Log de instância de contêiner com os logs do Azure Monitor
 
-Os workspaces do Log Analytics fornecem um local centralizado para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também dos recursos locais e recursos em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados aos logs do Azure Monitor.
+Os workspaces do Log Analytics fornecem uma localização centralizada para armazenar e consultar dados de log não apenas dos recursos do Azure, mas também dos recursos locais e recursos em outras nuvens. As Instâncias de Contêiner do Azure incluem suporte interno para enviar dados aos logs do Azure Monitor.
 
-Para enviar dados da instância de contêiner aos logs do Azure Monitor, é necessário criar um grupo de contêineres usando a CLI do Azure (ou o Cloud Shell) e um arquivo YAML. As seções a seguir descrevem a criação de um grupo de contêineres com registro em log habilitado e consulta de logs.
+Para enviar dados de instância de contêiner para logs do Azure Monitor, você deve especificar uma chave de workspace e uma ID de workspace do Log Analytics ao criar um grupo de contêineres. As seções a seguir descrevem a criação de um grupo de contêineres com registro em log habilitado e consulta de logs.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -26,7 +27,7 @@ Para enviar dados da instância de contêiner aos logs do Azure Monitor, é nece
 
 Para habilitar o registro em log nas instâncias de contêiner, serão necessários o seguinte:
 
-* [Workspace do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
+* [Espaço de Trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](/azure/cloud-shell/overview))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Log Analytics
@@ -36,7 +37,7 @@ As Instâncias de Contêiner do Azure precisam de permissão para enviar dados a
 Para obter a ID do espaço de trabalho do Log Analytics e a chave primária:
 
 1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
-1. Em **CONFIGURAÇÕES**, selecione **Configurações avançadas**
+1. Em **Configurações**, selecione **Configurações avançadas**
 1. Selecione **Fontes Conectadas** > **Servidores Windows** (ou **Servidores Linux**--a ID e as chaves são as mesmas para ambos)
 1. Anote:
    * **ID DO WORKSPACE**
@@ -66,7 +67,7 @@ az container create \
 Use esse método se você preferir implantar grupos de contêineres com YAML. O YAML a seguir define um grupo de contêineres com um único contêiner. Copie o YAML para em um novo arquivo, então substitua `LOG_ANALYTICS_WORKSPACE_ID` e `LOG_ANALYTICS_WORKSPACE_KEY` pelos valores obtidos na etapa anterior. Salve o arquivo como **deploy-aci.yaml**.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: mycontainergroup001
 properties:
@@ -90,7 +91,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Em seguida, execute o comando a seguir para implantar o grupo de contêineres; substitua `myResourceGroup` por um grupo de recursos na assinatura (ou crie primeiro um grupo de recursos nomeado "myResourceGroup"):
+Em seguida, execute o comando a seguir para implantar o grupo de contêineres. Substitua `myResourceGroup` por um grupo de recursos em sua assinatura (ou primeiro crie um grupo de recursos chamado "myResourceGroup"):
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainergroup001 --file deploy-aci.yaml
@@ -100,12 +101,14 @@ Você deverá receber uma resposta do Azure contendo detalhes da implantação, 
 
 ## <a name="view-logs-in-azure-monitor-logs"></a>Exibir logs nos logs do Azure Monitor
 
-Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir os logs do grupo de contêineres, abra o espaço de trabalho do Log Analytics e:
+Após implantar o grupo de contêineres, poderá demorar vários minutos (até 10) para que as primeiras entradas de log apareçam no portal do Azure. Para exibir logs do grupo de contêiner:
 
-1. Na visão geral do **Workspace OMS**, selecione **Pesquisa de Logs**. Os workspaces do OMS agora são chamados de workspaces do Log Analytics.  
-1. Em **Mais algumas consultas para tentar**, selecione o link **Todos os dados coletados**
+1. Navegue até o espaço de trabalho do Log Analytics no portal do Azure
+1. Em **Geral**, selecione **Logs**  
+1. Digite a seguinte consulta: `search *`
+1. Selecionar **Executar**
 
-Você deverá ver vários resultados exibidos pela consulta `search *`. Caso não veja nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **EXECUTAR** para executar a consulta novamente. Por padrão, as entradas de log são exibidas no modo de exibição "Lista"--selecione **Tabela** para ver as entradas de log em um formato mais condensado. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada de log individual.
+Você deverá ver vários resultados exibidos pela consulta `search *`. Caso não veja nenhum resultado, aguarde alguns minutos e, em seguida, selecione o botão **Executar** para executar a consulta novamente. Por padrão, as entradas de log são exibidas no formato de **Tabela**. Em seguida, você poderá expandir uma linha para ver o conteúdo de uma entrada de log individual.
 
 ![Pesquisa de Logs no portal do Azure][log-search-01]
 

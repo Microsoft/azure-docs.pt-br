@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66023396"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491464"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver o saldo vencido de sua assinatura do Azure
 
@@ -34,7 +34,7 @@ Se você for o [administrador da conta](billing-subscription-transfer.md#whoisaa
 ## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Resolver vencido saldo no portal do Azure
 
 1. Entrar para o [portal do Azure](https://portal.azure.com) como o administrador da conta.
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. Pesquise **custo de gerenciamento + cobrança**.
 1. Na página de visão geral, você verá uma lista de suas assinaturas. Se o status da sua assinatura está atrasado, clique o **liquidar Saldo** link.
     ![Captura de tela que mostra liquidar o link de saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
 1. O saldo pendente total reflete os encargos pendentes em todos os serviços da Microsoft usando o método de pagamento com falha.

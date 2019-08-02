@@ -5,18 +5,49 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 07/11/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 65c23b05cfcb623f8e2870df813f5516b3039d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0bd8c0417b32e93a4f52b545c4d7fc532992a0b1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883472"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854313"
 ---
 # <a name="optimize-expressroute-routing"></a>Otimizar o roteamento do ExpressRoute
 Quando você tem vários circuitos de ExpressRoute, tem mais de um caminho para se conectar à Microsoft. Portanto, pode ocorrer um roteamento abaixo do ideal, ou seja, o tráfego pode levar um caminho mais longo para acessar a Microsoft e esta para acessar a sua rede. Quanto maior o caminho de rede, maior será a latência. A latência tem impacto direto na experiência de usuário e no desempenho do aplicativo. Este artigo ilustra esse problema e explica como otimizar o roteamento usando tecnologias de roteamento padrão.
+
+## <a name="path-selection-on-microsoft-and-public-peerings"></a>Seleção de caminho em emparelhamentos públicos e da Microsoft
+É importante garantir que, ao utilizar o emparelhamento da Microsoft ou público, o tráfego flua sobre o caminho desejado se você tiver um ou mais circuitos do ExpressRoute, bem como caminhos para a Internet por meio de um Internet Exchange (IX) ou provedor de serviços de Internet (ISP). O BGP utiliza um melhor algoritmo de seleção de caminho com base em vários fatores, incluindo o LPM (correspondência de prefixo mais longo). Para garantir que o tráfego destinado ao Azure por meio da Microsoft ou do emparelhamento público Percorra o caminho do ExpressRoute, os clientes devem implementar o atributo de *preferência local* para garantir que o caminho seja sempre preferido no ExpressRoute. 
+
+> [!NOTE]
+> A preferência local padrão é normalmente 100. Preferências de local mais altas são mais preferenciais. 
+>
+>
+
+Considere o seguinte cenário de exemplo:
+
+![Problema de ExpressRoute, Caso 1 - qualidade inferior de roteamento do cliente para a Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+
+No exemplo acima, para preferir caminhos do ExpressRoute, configure a preferência local da seguinte maneira. 
+
+**Configuração do Cisco IOS-XE da perspectiva de R1:**
+
+    R1(config)#route-map prefer-ExR permit 10
+    R1(config-route-map)#set local-preference 150
+
+    R1(config)#router BGP 345
+    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+    R1(config-router)#neighbor 1.1.1.2 activate
+    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+
+**Configuração do Junos da perspectiva do R1:**
+
+    user@R1# set protocols bgp group ibgp type internal
+    user@R1# set protocols bgp group ibgp local-preference 150
+
+
 
 ## <a name="suboptimal-routing-from-customer-to-microsoft"></a>Roteamento abaixo do ideal do cliente para a Microsoft
 Vamos examinar o problema de roteamento usando um exemplo. Imagine que você tem dois escritórios nos EUA, um em Los Angeles e um em Nova York. Seus escritórios estão conectados em uma WAN (rede de longa distância), que pode ser sua própria rede backbone ou VPN de IP do provedor de serviços. Você tem dois circuitos de ExpressRoute, um no Oeste dos EUA e outro no Leste dos EUA, que também estão conectados à WAN. Obviamente, você tem dois caminhos para se conectar à rede da Microsoft. Agora imagine que você tem a implantação do Azure (por exemplo, o Serviço de Aplicativo do Azure) no Oeste dos EUA e no Leste dos EUA. Sua intenção é conectar seus usuários em Los Angeles ao Azure no Oeste dos EUA e seus usuários em Nova York ao Azure no Leste dos EUA porque seu administrador de serviço anuncia que os usuários em cada escritório acessarão os serviços do Azure mais próximos para uma melhor experiência. Infelizmente, o plano funciona bem para os usuários da Costa Leste, mas não para os usuários da Costa Oeste. A causa do problema é a seguinte: Em cada circuito do ExpressRoute, anunciamos a você tanto o prefixo do Azure no Leste dos EUA (23.100.0.0/16) quanto o prefixo do Azure no Oeste dos EUA (13.100.0.0/16). Se você não souber qual prefixo é de que região, não conseguirá tratá-los de maneira diferente. Sua rede WAN pode pensar que ambos os prefixos são mais próximos do Leste dos EUA que do Oeste dos EUA e, portanto, rotear os usuários de ambos os escritórios para o circuito de ExpressRoute no Leste dos EUA. No final, você terá muitos usuários insatisfeitos no escritório de Los Angeles.

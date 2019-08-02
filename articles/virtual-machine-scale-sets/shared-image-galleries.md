@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/06/2019
-ms.author: akjosh; cynthn
+ms.author: akjosh
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: a491f28855fffa3e0a7ce06a27e4c74308eee8f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ceb1aa9ae29b42d1ac4782499fd3157b103a492e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192389"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621090"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagens Compartilhadas
 

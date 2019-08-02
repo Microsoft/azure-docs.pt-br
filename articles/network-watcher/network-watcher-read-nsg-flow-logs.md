@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: 23eacd0fdb85eea43c534fc0f98a14188b954502
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: becae0f085fcaf4b0d0c7b29e102aaa3186fb85e
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061624"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653737"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -116,7 +116,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Ler o blob de blocos
 
-Em seguida, você precisa ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iterarmos na lista de blocos, lemos os bytes de cada bloco e os colocamos em uma matriz. Use o método [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) para recuperar os dados.
+Em seguida, você precisa ler a variável `$blocklist` para recuperar os dados. Neste exemplo, iterarmos na lista de blocos, lemos os bytes de cada bloco e os colocamos em uma matriz. Use o método [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) para recuperar os dados.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 5e8b385d018482d281153f1cf80f9953cb8c7f06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d6e205c23545eb4a01ce58a8bc2b63c58200e32a
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700457"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228284"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Criar uma rede virtual para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -34,6 +34,9 @@ A Instância Gerenciada do Banco de Dados SQL do Azure deve ser implantada em um
 > Você deve [determinar o tamanho da sub-rede para a Instância Gerenciada](sql-database-managed-instance-determine-size-vnet-subnet.md) antes de implantar a primeira instância. Você não poderá redimensionar a sub-rede depois de colocar os recursos dentro dela.
 >
 > Se você planeja utilizar uma rede virtual existente, será necessário modificar essa configuração de rede para acomodar sua Instância Gerenciada. Para obter mais informações, confira [Modificar uma rede virtual existente para Instância Gerenciada](sql-database-managed-instance-configure-vnet-subnet.md).
+>
+> Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
+
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 

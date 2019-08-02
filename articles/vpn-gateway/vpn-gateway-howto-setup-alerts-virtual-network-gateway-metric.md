@@ -4,15 +4,15 @@ description: Etapas para configurar alertas em métricas de Gateway de VPN
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.topic: conceptional
+ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: alzam
-ms.openlocfilehash: e54dadbda0582095e8152ea30376d369177bfd86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d57663f683ba4e2107ec6813a19fac7b2dcdd26a
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65509899"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605222"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>Configurar alertas em métricas do Gateway de VPN
 
@@ -26,11 +26,11 @@ Este artigo ajuda você a configurar alertas em métricas do Gateway de VPN do A
 |**P2SConnectionCount**| Contagem  | 1 minuto  | Contagem de conexões ponto a site no gateway.   |
 |**TunnelAverageBandwidth** | Bytes/s    | 5 minutos  | Média de utilização de largura de banda de túneis criada no gateway. |
 |**TunnelEgressBytes** | Bytes | 5 minutos | Tráfego de saída em túneis criados no gateway.   |
-|**TunnelEgressPackets** | Contagem | 5 minutos | Contagem de pacotes de saída nos túneis criados no gateway.   |
+|**TunnelEgressPackets** | Count | 5 minutos | Contagem de pacotes de saída nos túneis criados no gateway.   |
 |**TunnelEgressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de saída descartados em túneis causados por incompatibilidade do seletor de tráfego. |
 |**TunnelIngressBytes** | Bytes | 5 minutos | Tráfego de entrada nos túneis criados no gateway.   |
 |**TunnelIngressPackets** | Count | 5 minutos | Contagem de pacotes de entrada nos túneis criados no gateway.   |
-|**TunnelIngressPacketDropTSMismatch** | Contagem | 5 minutos | Contagem de pacotes de entrada descartados em túneis causados por incompatibilidade do seletor de tráfego. |
+|**TunnelIngressPacketDropTSMismatch** | Count | 5 minutos | Contagem de pacotes de entrada descartados em túneis causados por incompatibilidade do seletor de tráfego. |
 
 
 ## <a name="setup"></a>Configurar alertas do Azure Monitor com base nas métricas usando o portal do Azure

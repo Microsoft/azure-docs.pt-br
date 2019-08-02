@@ -11,12 +11,12 @@ ms.service: automation
 ms.subservice: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2cce925f4b3e1acc6c93019615b81983a5c95f6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 47313781756e460a8c30638661489874481b88a0
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815885"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476832"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>Descobrir qual software está instalado em computadores Azure e não Azure
 
@@ -74,8 +74,8 @@ Selecione **+ Adicionar VM do Azure**, isso abrirá a página de **Máquinas vir
 
 Para adicionar computadores não Azure, instale o agente para [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux](automation-linux-hrw-install.md) dependendo do seu sistema operacional. Após o agente ser instalado, navegue até sua conta de Automação e vá até **Inventário** em **GERENCIAMENTO DE CONFIGURAÇÃO**. Quando você clica em **Gerenciar computadores**, você vê uma lista dos computadores que apresentam relatórios para o seu espaço de trabalho do Log Analytics que não possuem a solução habilitada. Selecione a opção apropriada para seu ambiente.
 
-* **Habilitar em todos os computadores disponíveis** - Esta opção habilita a solução em todos os computadores que enviam relatórios para seu workspace do Log Analytics.
-* **Habilitar em todos os computadores disponíveis e futuros computadores** - Esta opção habilitam a solução em todos os computadores que enviam relatórios para seu workspace de análise do Log Analytics e, posteriormente, em todos os futuros computadores adicionados ao workspace.
+* **Habilitar em todos os computadores disponíveis** - Esta opção habilita a solução em todos os computadores que enviam relatórios para seu espaço de trabalho do Log Analytics.
+* **Habilitar em todos os computadores disponíveis e futuros computadores** - Esta opção habilitam a solução em todos os computadores que enviam relatórios para seu espaço de trabalho do Log Analytics e, posteriormente, em todos os futuros computadores adicionados ao espaço de trabalho.
 * **Habilitar em computadores selecionados** - Esta opção habilita a solução somente nos computadores que você selecionou.
 
 ![Gerenciar computadores](./media/automation-tutorial-installed-software/manage-machines.png)

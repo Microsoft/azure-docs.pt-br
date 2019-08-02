@@ -8,20 +8,21 @@ manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148324f293c36b88657f50a7405d85210b62dcc4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544619"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321235"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -159,13 +160,13 @@ Se o aplicativo esperar que as funções personalizadas sejam passadas em uma re
     | Nome da função  | user.assignedroles |
 
     >[!NOTE]
-    >Se o valor da declaração de função for nulo, em seguida, Azure AD não enviará esse valor no token e esse é o padrão de acordo com o design.
+    >Se o valor de declaração de função for nulo, o Azure AD não enviará esse valor no token e isso será padrão de acordo com o design.
 
-    a. Clique em **edite** ícone para abrir **atributos de usuário & declarações** caixa de diálogo.
+    a. Clique no ícone **Editar** para abrir **atributos de usuário &** caixa de diálogo declarações.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. No **gerenciar declarações de usuário** caixa de diálogo, adicione o atributo do token SAML clicando na **adicionar nova declaração**.
+    b. Na caixa de diálogo **gerenciar declarações do usuário** , adicione o atributo de token SAML clicando em **Adicionar nova declaração**.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

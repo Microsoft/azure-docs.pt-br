@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5e6548a5a04e32b374a8a9c29d2ca5f89fd65c78
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62511118edb4f8b5061f90138bac2aa2b5d3cfe3
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160179"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165147"
 ---
 # <a name="private-cloud-vmware-components"></a>Componentes de VMware da nuvem privada
 
@@ -28,7 +28,7 @@ Uma nuvem privada é uma pilha de VMware isolada (hosts ESXi, vCenter, vSAN e NS
 
 Uma pilha de nuvem privada do VMware é implantada com a seguinte versão de software.
 
-| Componente | Version | Versão licenciada |
+| Componente | Versão | Versão licenciada |
 |-----------|---------|------------------|
 | ESXi | 6.7U1 | Enterprise Plus |
 | vCenter | 6.7U1 | vCenter Standard |
@@ -37,7 +37,7 @@ Uma pilha de nuvem privada do VMware é implantada com a seguinte versão de sof
 
 ## <a name="esxi"></a>ESXi
 
-VMware ESXi está instalado em nós de CloudSimple adquiridas, quando você cria uma nuvem privada.  ESXi fornece o hipervisor para implantar a carga de trabalho VMs (máquinas virtuais).  Nós fornecem infraestrutura hiperconvergida (computação e armazenamento) em sua nuvem privada.  Os nós são uma parte do cluster vSphere na nuvem privada.  Cada nó tem quatro interfaces de redes físicas conectadas à rede de base.  Duas interfaces de rede física são usados para criar uma **vSphere Distributed Switch (VDS)** no vCenter e duas são usados para criar um **NSX gerenciado distribuído comutador virtual (VDS N)** .  Interfaces de rede são configurados no modo ativo-ativo para alta disponibilidade.
+VMware ESXi está instalado em nós de CloudSimple provisionados quando você cria uma nuvem privada.  ESXi fornece o hipervisor para implantar a carga de trabalho VMs (máquinas virtuais).  Nós fornecem infraestrutura hiperconvergida (computação e armazenamento) em sua nuvem privada.  Os nós são uma parte do cluster vSphere na nuvem privada.  Cada nó tem quatro interfaces de redes físicas conectadas à rede de base.  Duas interfaces de rede física são usados para criar uma **vSphere Distributed Switch (VDS)** no vCenter e duas são usados para criar um **NSX gerenciado distribuído comutador virtual (VDS N)** .  Interfaces de rede são configurados no modo ativo-ativo para alta disponibilidade.
 
 Saiba mais sobre o VMware ESXi
 

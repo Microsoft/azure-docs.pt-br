@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: c9b2a593a6943fe2e9577acc61b1d5a7bcd98607
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834115"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67070655"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um pool de hosts para validar as atualizações de serviço
 
@@ -71,7 +71,7 @@ Na versão prévia, as atualizações de serviço ocorrem aproximadamente em fre
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você criou um pool de host de validação, pode, opcionalmente, preencher seu pool de host de validação com RemoteApps. Para saber mais sobre como gerenciar aplicativos na Área de Trabalho Virtual do Windows, confira o tutorial Gerenciar grupos de aplicativos.
+Agora que você criou um pool de host de validação, é possível aprender como implantar e conectar-se a uma ferramenta de gerenciamento para gerenciar os recursos do Microsoft Virtual Desktop.
 
 > [!div class="nextstepaction"]
-> [Tutorial Gerenciar grupos de aplicativos](./manage-app-groups.md)
+> [Tutorial de implantação de uma ferramenta de gerenciamento](./manage-resources-using-ui.md)

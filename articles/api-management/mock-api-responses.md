@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 9b9a691cb2bce2357d184420912ab340aee534e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412730"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205313"
 ---
 # <a name="mock-api-responses"></a>Simular respostas de API
 
@@ -42,7 +42,7 @@ Neste tutorial, você aprenderá como:
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
 + Compreenda o [conceito de políticas no Gerenciamento de API do Azure](api-management-howto-policies.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 
 ## <a name="create-a-test-api"></a>Criar uma API de teste 
 
@@ -98,7 +98,7 @@ As etapas nesta seção mostram como criar uma API em branco sem back-end. Elas 
 
     ![Habilitar a simulação de resposta](./media/mock-api-responses/mock-api-responses-set-mocking.png)
 
-7. Clique em **Salvar**.
+7. Clique em **Save** (Salvar).
 
 ## <a name="test-the-mocked-api"></a>Testar a API fictícia
 

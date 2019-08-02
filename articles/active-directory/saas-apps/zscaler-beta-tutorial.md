@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f31361dc3d7e24092677f1a78b2c405ae84578ed
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 07341c1ad30f1242bdff430826fdc82c45e09dac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230065"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086065"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Azure Active Directory ao Zscaler Beta
 
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
     | ---------------| --------------- |
     | memberOf  | user.assignedroles |
 
-     a. Selecione **Adicionar nova declaração** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Selecione **Adicionar nova declaração** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![Caixa de diálogo Declarações de usuário](common/new-save-attribute.png)
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
     > [!NOTE]
     > Para saber como configurar funções no Azure AD, confira [Configurar a declaração de função](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
-7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, selecione **Download** para baixar o certificado **(Base64)**. Salve-o no computador.
+7. Na página **Configurar logon único com SAML**, na seção **Certificado de assinatura SAML**, selecione **Download** para baixar o certificado **(Base64)** . Salve-o no computador.
 
     ![Link de download do certificado](common/certificatebase64.png)
 
@@ -171,7 +171,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
    
     ![Administração](./media/zscaler-beta-tutorial/ic800206.png "Administração")
 
-     a. Em **Tipo de Autenticação**, selecione **SAML**.
+    a. Em **Tipo de Autenticação**, selecione **SAML**.
 
     b. Selecione **Configurar SAML**.
 
@@ -179,7 +179,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
             
     ![Gerenciar usuários e autenticação](./media/zscaler-beta-tutorial/ic800208.png "Gerenciar usuários e autenticação")
     
-     a. Na caixa **URL do Portal SAML**, cole a **URL de Logon** copiada do portal do Azure.
+    a. Na caixa **URL do Portal SAML**, cole a **URL de Logon** copiada do portal do Azure.
 
     b. Na caixa **Atributo de Nome de Logon**, insira **NameID**.
 
@@ -199,7 +199,7 @@ Para configurar o logon único do Azure AD com Zscaler Beta, siga estas etapas.
 
     ![Menu Ativação e botão Ativar](./media/zscaler-beta-tutorial/ic800207.png)
 
-     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
+    a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
     b. Selecione **Ativar**.
 
@@ -216,13 +216,13 @@ Para definir as configurações de proxy no Internet Explorer, siga estas etapas
   
      ![Guia Conexões](./media/zscaler-beta-tutorial/ic769493.png "Conexões")
 
-4. Selecione **Configurações da LAN** para abrir a caixa de diálogo **Configurações da Rede Local (LAN)**.
+4. Selecione **Configurações da LAN** para abrir a caixa de diálogo **Configurações da Rede Local (LAN)** .
 
 5. Na seção **Servidor Proxy**, siga estas etapas: 
    
     ![Seção Servidor Proxy](./media/zscaler-beta-tutorial/ic769494.png "Servidor Proxy")
 
-     a. Selecione a caixa de seleção **Usar um Servidor Proxy para LAN**.
+    a. Selecione a caixa de seleção **Usar um Servidor Proxy para LAN**.
 
     b. Na caixa **Endereço**, insira **gateway.Zscaler Beta.net**.
 
@@ -230,7 +230,7 @@ Para definir as configurações de proxy no Internet Explorer, siga estas etapas
 
     d. Selecione **Não usar servidor proxy para endereços locais**.
 
-    e. Selecione **OK** para fechar a caixa de diálogo **Configurações da Rede Local (LAN)**.
+    e. Selecione **OK** para fechar a caixa de diálogo **Configurações da Rede Local (LAN)** .
 
 6. Selecione **OK** para fechar a caixa de diálogo **Opções da Internet**.
 
@@ -250,7 +250,7 @@ Crie um usuário de teste no portal do Azure chamado Brenda Fernandes.
 
     ![Caixa de diálogo Usuário](common/user-properties.png)
 
-     a. Na caixa **Nome**, insira **BrendaFernandes**.
+    a. Na caixa **Nome**, insira **BrendaFernandes**.
   
     b. Na caixa **Nome de Usuário**, insira `brittasimon@yourcompanydomain.extension`. Um exemplo é BrittaSimon@contoso.com.
 
@@ -307,5 +307,5 @@ Ao selecionar a peça do Zscaler Beta no Painel de Acesso, você deverá ser con
 
 - [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,23 +1,17 @@
 ---
 title: Funções do modelo do Azure Resource Manager – lógicas | Microsoft Docs
 description: Descreve as funções a serem usadas em um modelo do Resource Manager para determinar valores lógicos.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4684c38fe506ed912c6827f1e60b94b847024347
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 2487cf928685423e4b60bb2923fc7e348eaff0c3
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405661"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447966"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funções lógicas para modelos do Azure Resource Manager
 
@@ -37,7 +31,7 @@ Verifica se todos os valores de parâmetros são verdadeiros.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
@@ -77,9 +71,9 @@ O resultado do exemplo anterior é:
 
 | NOME | Tipo | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | True |
-| notExampleOutput | Booleano | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="bool"></a>bool
 
@@ -89,7 +83,7 @@ Converte o parâmetro em um booliano.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |cadeia de caracteres ou inteiro |O valor a ser convertido em um booliano. |
 
@@ -130,10 +124,10 @@ A saída do exemplo anterior com os valores padrão é:
 
 | NOME | Tipo | Value |
 | ---- | ---- | ----- |
-| trueString | Booleano | True |
-| falseString | Booleano | Falso |
-| trueInt | Booleano | True |
-| falseInt | Booleano | Falso |
+| trueString | Bool | True |
+| falseString | Bool | Falso |
+| trueInt | Bool | True |
+| falseInt | Bool | Falso |
 
 ## <a name="if"></a>if
 
@@ -143,9 +137,9 @@ Retorna um valor com base em se uma condição é verdadeira ou falsa.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| condição |Sim |boolean |O valor para verificar se é true ou false. |
+| condition |Sim |boolean |O valor para verificar se é true ou false. |
 | trueValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é verdadeira. |
 | falseValue |Sim | cadeia de caracteres, inteiro, objeto ou matriz |O valor a ser retornado quando a condição é falsa. |
 
@@ -188,8 +182,8 @@ O resultado do exemplo anterior é:
 
 | NOME | Tipo | Value |
 | ---- | ---- | ----- |
-| yesOutput | String | sim |
-| noOutput | String | não |
+| yesOutput | Cadeia de caracteres | Sim |
+| noOutput | Cadeia de caracteres | não |
 | objectOutput | Object | { "test": "value1" } |
 
 O seguinte [modelo de exemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) mostra como usar essa função com expressões que só são válidas condicionalmente.
@@ -248,7 +242,7 @@ Converte o valor booliano em seu valor oposto.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O valor a ser convertido. |
 
@@ -286,9 +280,9 @@ O resultado do exemplo anterior é:
 
 | NOME | Tipo | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | True |
-| notExampleOutput | Booleano | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | Falso |
 
 O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) a seguir usa **not** com [equals](resource-group-template-functions-comparison.md#equals).
 
@@ -310,7 +304,7 @@ O resultado do exemplo anterior é:
 
 | NOME | Tipo | Value |
 | ---- | ---- | ----- |
-| checkNotEquals | Booleano | True |
+| checkNotEquals | Bool | True |
 
 ## <a name="or"></a>ou o
 
@@ -320,7 +314,7 @@ Verifica se qualquer valor do parâmetro é verdadeiro.
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Obrigatório | Type | Descrição |
+| Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |boolean |O primeiro valor para verificar se é verdadeiro. |
 | arg2 |Sim |boolean |O segundo valor para verificar se é verdadeiro. |
@@ -360,9 +354,9 @@ O resultado do exemplo anterior é:
 
 | NOME | Tipo | Value |
 | ---- | ---- | ----- |
-| andExampleOutput | Booleano | Falso |
-| orExampleOutput | Booleano | True |
-| notExampleOutput | Booleano | Falso |
+| andExampleOutput | Bool | Falso |
+| orExampleOutput | Bool | True |
+| notExampleOutput | Bool | Falso |
 
 ## <a name="next-steps"></a>Próximas etapas
 

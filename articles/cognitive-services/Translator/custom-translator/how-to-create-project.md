@@ -2,19 +2,19 @@
 title: Como criar um projeto? -Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: Como criar um projeto no conversor personalizado?
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 456860c74810a692b4839e4204ec0b78d5620864
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a62cc6133fe01bf7478166c526e32b3215ceebf1
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383004"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595760"
 ---
 # <a name="create-a-project"></a>Criar um projeto
 

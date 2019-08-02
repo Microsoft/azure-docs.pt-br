@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 3/14/2019
-ms.openlocfilehash: d8aaf51c836a8e88c4e9b92798067167cd044e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73fc58abfa6cde4133bd56858b7f26bf0c3d4a3
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60848071"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204826"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Dimensionar os recursos de pool elástico no banco de dados SQL do Azure
 
@@ -44,7 +44,7 @@ Alterando o serviço de camada ou calcular o tamanho de um pool Elástico segue 
 
 ### <a name="latency-of-changing-service-tier-or-rescaling-compute-size"></a>Latência de alterar o tamanho de computação da camada ou redimensionamento do serviço
 
-A latência para alterar a camada de serviço ou redimensionar o tamanho de computação de um único banco de dados ou pool Elástico é parametrizada da seguinte maneira:
+A latência prevista para alterar a camada de serviço ou redimensionar o tamanho de computação de um único banco de dados ou pool Elástico é parametrizada da seguinte maneira:
 
 |Camada de serviço|Banco de dados único básico,</br>Standard (S0-S1)|Pool Elástico básico,</br>Standard (S2-S12), </br>E em hiperescala </br>Geral finalidade único banco de dados ou pool Elástico|Premium ou comercialmente crítica de banco de dados único ou pool Elástico|
 |:---|:---|:---|:---|

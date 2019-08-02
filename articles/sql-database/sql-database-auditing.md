@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b3a6a18d10b9d9f6ab6456ae2911e54f5c56a71
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827766"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67544095"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria do banco de dados SQL
 
@@ -138,7 +138,7 @@ Se você tiver escolhido gravar logs de auditoria no Hub de Eventos:
 
 Se você optar por gravar logs de auditoria em uma conta de Armazenamento do Azure, poderá usar vários métodos para exibir os logs:
 
-- Os logs de auditoria são agregados na conta escolhida durante a instalação. Explore os logs de auditoria usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/). No Armazenamento do Azure, os logs de auditoria de blob são salvos como uma coleção de arquivos de blob em um contêiner chamado **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, as convenções de nomenclatura e o formato do log, consulte a [Referência de formato do log de auditoria de blob](https://go.microsoft.com/fwlink/?linkid=829599).
+- Os logs de auditoria são agregados na conta escolhida durante a instalação. Explore os logs de auditoria usando uma ferramenta como o [Gerenciador de Armazenamento do Azure](https://storageexplorer.com/). No Armazenamento do Azure, os logs de auditoria de blob são salvos como uma coleção de arquivos de blob em um contêiner chamado **sqldbauditlogs**. Para obter mais detalhes sobre a hierarquia da pasta de armazenamento, convenções de nomenclatura e formato de log, consulte a [formato de Log de auditoria de banco de dados SQL](https://go.microsoft.com/fwlink/?linkid=829599).
 
 - Use o [portal do Azure](https://portal.azure.com).  Abra o banco de dados relevante. Na parte superior da página **Auditoria** do banco de dados, clique em **Exibir logs de auditoria**.
 
@@ -233,10 +233,12 @@ Em produção, você provavelmente atualizará suas chaves de armazenamento peri
 
 **Cmdlets do PowerShell (incluindo suporte para a cláusula WHERE da filtragem adicional)** :
 
-- [Criar ou atualizar o banco de dados (conjunto AzSqlDatabaseAuditing) da política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
-- [Criar ou atualizar a política de auditoria de servidor (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Obter a política de auditoria do banco de dados (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Obter (Get-AzSqlServerAuditing) de diretiva de auditoria de servidor](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Criar ou atualizar o banco de dados (conjunto AzSqlDatabaseAudit) da política de auditoria](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseaudit)
+- [Criar ou atualizar a política de auditoria de servidor (Set-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit)
+- [Obter (Get-AzSqlDatabaseAudit) da política de auditoria de banco de dados](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseaudit)
+- [Obter (Get-AzSqlServerAudit) de diretiva de auditoria de servidor](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveraudit)
+- [Remover (Remove-AzSqlDatabaseAudit) da política de auditoria de banco de dados](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseaudit)
+- [Remover a política de auditoria de servidor (Remove-AzSqlServerAudit)](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlserveraudit)
 
 Para obter um exemplo de script, confira [Configurar a auditoria e a detecção de ameaças usando o PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 

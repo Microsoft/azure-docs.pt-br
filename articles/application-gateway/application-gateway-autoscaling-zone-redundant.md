@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/13/2019
 ms.author: victorh
-ms.openlocfilehash: 7cf6b4984f3941da3b2cd0e4eada5eb1d87f2b01
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e79fd1a839113cad5a3a36c01855d98793d7032
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054735"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655303"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Dimensionamento automático e o Gateway de aplicativo com redundância de zona v2 
 
@@ -24,7 +24,7 @@ A nova SKU v2 inclui os seguintes aprimoramentos:
 - **Redundância de Zona**: Um Gateway de aplicativo ou implantação do WAF pode abranger várias zonas de disponibilidade a remover a necessidade de provisionar instâncias de Gateway de aplicativo separadas em cada zona com um Gerenciador de tráfego. Você pode escolher uma única zona ou em várias zonas em que as instâncias de Gateway de aplicativo são implantadas, que torna mais resistente a falhas de zona. O pool de back-end para aplicativos pode ser distribuído de maneira semelhante em Zonas de Disponibilidade.
 
   Redundância de zona está disponível apenas em que as zonas do Azure estão disponíveis. Em outras regiões, há suporte para todos os outros recursos. Para obter mais informações, consulte [o que são zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
-- **VIP estático**: Tipo de aplicativo gateway v2 SKU dá suporte ao VIP estático exclusivamente. Isso garante que o VIP associado ao gateway de aplicativo não seja alterado para o ciclo de vida da implantação, mesmo após uma reinicialização.
+- **VIP estático**: SKU do Gateway de aplicativo v2 dá suporte ao tipo de VIP estático exclusivamente. Isso garante que o VIP associado com o gateway de aplicativo não seja alterado para o ciclo de vida da implantação, mesmo após uma reinicialização.  Não há um VIP estático na v1, então você deve usar a URL do gateway de aplicativo em vez do endereço IP para o domínio nome roteamento nos serviços de aplicativos por meio do gateway de aplicativo.
 - **Reconfiguração do cabeçalho**: O Gateway de aplicativo permite que você adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP com SKU de v2. Para obter mais informações, consulte [cabeçalhos HTTP de reconfiguração com o Gateway de aplicativo](rewrite-http-headers.md)
 - **Integração do Key Vault (versão prévia)** : V2 do Gateway de aplicativo dá suporte à integração com o Key Vault (em visualização pública) para certificados de servidor que estão anexados para os ouvintes HTTPS habilitado. Para obter mais informações, consulte [terminação SSL com certificados do Key Vault](key-vault-certs.md).
 - **Controlador de entrada de serviço de Kubernetes do Azure (visualização)** : O controlador de entrada do Gateway de aplicativo v2 permite que o Gateway de aplicativo do Azure a ser usado como a entrada para um Azure Kubernetes AKS (serviço) conhecido como Cluster AKS. Para obter mais informações, consulte o [página de documentação](https://azure.github.io/application-gateway-kubernetes-ingress/).
@@ -35,14 +35,14 @@ A nova SKU v2 inclui os seguintes aprimoramentos:
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: Centro-Norte dos EUA, Centro-Sul dos EUA, Oeste dos EUA, Oeste dos EUA 2, Leste dos EUA, Leste dos EUA 2, Centro dos EUA, Europa Setentrional, Europa Ocidental, Sudeste Asiático, França Central, Oeste do Reino Unido, Leste do Japão, Oeste do Japão. Regiões adicionais serão adicionadas no futuro.
+O Standard_v2 e WAF_v2 SKU está disponível nas seguintes regiões: Centro-Norte dos EUA, Centro-Sul dos EUA, oeste dos EUA, oeste dos EUA 2, Leste dos EUA, Leste dos EUA 2, centro dos EUA, Europa Setentrional, Europa Ocidental, oeste do Sudeste Asiático, França Central, Reino Unido, Leste do Japão, oeste do Japão, Leste da Austrália, Sudeste da Austrália, Canadá Central, Leste do Canadá, Leste da Ásia, Coreia Central, Coreia do Sul, Sul da Índia, UK Sul, Índia Central, Índia Ocidental, Sul da Índia.
 
 ## <a name="pricing"></a>Preços
 
 Com o SKU do v2, o modelo de preços é orientado pelo consumo e não está mais anexado para contagens de instância ou tamanhos. Os preços da SKU v2 tem dois componentes:
 
 - **Preço fixo** -isso é por hora (ou hora parcial) preço para provisionar um Standard_v2 ou WAF_v2 Gateway.
-- **Preço unitário da capacidade** -isso é o custo baseado em consumo que é cobrado adicionais ao custo fixo. Encargo de unidade de capacidade é também calculado por hora ou parcial por hora. Há três dimensões para a unidade de capacidade – taxa de transferência, as conexões persistentes e unidade de computação. Unidade de computação é uma medida de capacidade de processador consumida. Fatores que afetam a unidade de computação são conexões de TLS/s, cálculos de reescrita de URL e o processamento da regra WAF. Conexão persistente é uma medida de conexões TCP estabelecidas para o gateway de aplicativo em um determinado intervalo de cobrança. Taxa de transferência é médio Megabits/s processadas pelo sistema em um determinado intervalo de cobrança.
+- **Preço unitário da capacidade** -isso é o custo baseado em consumo que é cobrado adicionais ao custo fixo. A cobrança da unidade de capacidade também é calculada por hora ou hora parcial. Existem três dimensões de unidade de capacidade: a unidade de computação, as conexões persistentes e a taxa de transferência. A unidade de computação é a medida da capacidade consumida do processador. Fatores que afetam a unidade de computação são conexões de TLS/s, cálculos de reescrita de URL e o processamento da regra WAF. Conexão persistente é uma medida de conexões TCP estabelecidas para o gateway de aplicativo em um determinado intervalo de cobrança. Taxa de transferência é médio Megabits/s processadas pelo sistema em um determinado intervalo de cobrança.
 
 Cada unidade de capacidade é composta de no máximo: 1 unidade, ou as conexões persistentes 2500 ou taxa de transferência 2.22 Mbps de computação.
 

@@ -3,19 +3,19 @@ title: Aprendizado ativo – Personalizador
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: edjez
-ms.openlocfilehash: d758e8fc7952a414003746d39df9368f3274b08b
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66482056"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663719"
 ---
 # <a name="active-learning-and-learning-policies"></a>Aprendizado ativo e políticas de aprendizado 
 

@@ -9,15 +9,15 @@ keywords: azure functions, funções, processamento de eventos, computação, ar
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fcf9f1d6420dbbde359d386bc3b67a0866aca30d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490526"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444619"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar sua primeira função usando o Visual Studio Code
 
@@ -27,25 +27,26 @@ Neste artigo, você aprenderá a usar a [extensão Azure Functions para Visual S
 
 ![Código do Azure Functions em um projeto do Visual Studio](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-No momento, a extensão é totalmente compatível com as funções C#, JavaScript e Java. Com o Python ela é compatível na versão prévia. As etapas neste artigo podem variar dependendo de sua escolha de linguagem de programação para o seu projeto do Azure Functions. Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão Azure Functions para Visual Studio Code].
+No momento, a extensão é compatível com as funções C#, JavaScript e Java. Com o Python ela é compatível em Visualização. As etapas neste artigo e no artigo seguinte são compatíveis somente com as funções JavaScript e C#. Para saber como usar o Visual Studio Code para criar e publicar funções do Python, veja [Implantar Python no Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). Para saber como usar o Visual Studio Code para criar e publicar funções do PowerShell, veja [Criar sua primeira função do PowerShell no Azure](functions-create-first-function-powershell.md). 
+
+Atualmente, a extensão está em versão prévia. Para obter mais informações, consulte a página da extensão [Extensão Azure Functions para Visual Studio Code].
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este guia de início rápido:
 
-* Instale o [Visual Studio Code](https://code.visualstudio.com/) em uma das [plataformas compatíveis](https://code.visualstudio.com/docs/supporting/requirements#_platforms). Este artigo foi desenvolvido e testado em um dispositivo executando o macOS (High Sierra).
+* Instale o [Visual Studio Code](https://code.visualstudio.com/) em uma das [plataformas compatíveis](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Instale a versão 2.x do [Azure Functions Core Tools](functions-run-local.md#v2), que ainda está em versão prévia.
+* Instale a versão 2.x do [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Instale os requisitos específicos para a linguagem de programação escolhida:
 
-    | Linguagem | Extensão |
+    | Linguagem | Requisito |
     | -------- | --------- |
-    | **C#** | [C# para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[Ferramentas da CLI do .NET Core](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Depurador para Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
-
-    \* Também é requerido pelo Core Tools.
+    | **C#** | [Extensão C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+ 
+    <sup>*</sup>Active LTS e versões LTS de manutenção (8.11.1 e 10.14.1 recomendadas).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -53,47 +54,7 @@ Para concluir este guia de início rápido:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## <a name="create-an-http-triggered-function"></a>Crie uma função disparada por HTTP
-
-1. Do **Azure: Functions**, escolha o ícone Criar Função.
-
-    ![Criar uma função](./media/functions-create-first-function-vs-code/create-function.png)
-
-1. Selecione a pasta com seu projeto de aplicativo de funções e selecione o modelo de função **gatilho HTTP**.
-
-    ![Escolher o modelo de gatilho HTTP](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Digite `HTTPTrigger` como o nome da função e pressione Enter, depois selecione autenticação **Anônima**.
-
-    ![Escolher autenticação anônima](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-    Uma função é criada na linguagem escolhida por você usando o modelo de uma função disparada por HTTP.
-
-    ![Modelo de função disparada por HTTP no Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
-
-Você pode adicionar associações de entrada e de saída à função modificando o arquivo function.json. Para obter mais informações, consulte [Gatilhos e conceitos de associações do Azure Functions](functions-triggers-bindings.md).
-
-Agora que você criou o seu projeto de função e uma função disparada por HTTP, poderá testá-la em seu computador local.
-
-## <a name="test-the-function-locally"></a>Testar a função localmente
-
-As Ferramentas Principais do Azure Functions permitem executar um projeto do Azure Functions no seu computador de desenvolvimento local. É solicitado que você instale essas ferramentas na primeira vez em que inicia uma função no Visual Studio Code.  
-
-1. Para testar sua função, defina um ponto de interrupção no código da função e pressione F5 para iniciar o projeto de aplicativo de funções. A saída do Core Tools é exibida no painel **Terminal**.
-
-1. No painel **Terminal**, copie o ponto de extremidade de URL da sua função disparada por HTTP.
-
-    ![Saída local do Azure](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
-
-1. Cole a URL para a solicitação HTTP na barra de endereços do navegador. Acrescente o valor de cadeia de consulta `?name=<yourname>` a essa URL e execute a solicitação. A execução é pausada quando o ponto de interrupção é atingido.
-
-    ![Função atingindo o ponto de interrupção no Visual Studio Code](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
-
-1. Quando você continua a execução, o exemplo a seguir mostra a resposta no navegador à solicitação GET:
-
-    ![Resposta da função localhost no navegador](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
-
-1. Para interromper a depuração, pressione Shift + F5.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 Após verificar se a função foi executada corretamente no computador local, é hora de publicar o projeto no Azure.
 
@@ -101,7 +62,7 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## <a name="test-your-function-in-azure"></a>Testar sua função no Azure
+## <a name="run-the-function-in-azure"></a>Executar a função no Azure
 
 1. Copie a URL do gatilho de HTTP do painel **Saída**. Assim como anteriormente, certifique-se de adicionar o valor de cadeia de caracteres de consulta `?name=<yourname>` a essa URL e execute a solicitação.
 
@@ -115,10 +76,10 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. Você também talvez queira saber mais sobre [depuração e testes locais do Terminal ou do prompt de comando](functions-run-local.md) usando o Azure Functions Core Tools.
+Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. No próximo artigo, você pode expandir essa função adicionando uma associação de saída. Essa associação grava a cadeia de caracteres da solicitação HTTP em uma mensagem em uma fila do Armazenamento de Filas do Azure. O próximo artigo também mostra como limpar esses novos recursos do Azure, removendo o grupo de recursos que você criou.
 
 > [!div class="nextstepaction"]
-> [Habilitar a integração do Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Adicionar uma associação de fila do Armazenamento do Azure à sua função](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Extensão Azure Functions para Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

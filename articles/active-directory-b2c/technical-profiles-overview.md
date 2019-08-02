@@ -10,25 +10,25 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 80b8969ba657506705db2b1a3bbc5b389d0a992c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3be6cebafb6d0f50b5ac9a9e40e5707202ea643
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512447"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849431"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Sobre perfis técnicos em políticas personalizadas do Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Um perfil técnico fornece uma estrutura com um mecanismo interno para se comunicar com diferentes tipos de partes usando uma política personalizada no Azure Active Directory (Azure AD) B2C. Os perfis técnicos são usados para se comunicar com o locatário do Azure AD B2C, para criar um usuário ou ler um perfil de usuário. Um perfil técnico pode ser autodeclarado para permitir a interação com o usuário. Por exemplo, colete a credencial do usuário para entrar e renderizar a página de inscrição ou a página de redefinição de senha. 
+Um perfil técnico fornece uma estrutura com um mecanismo interno para se comunicar com diferentes tipos de partes usando uma política personalizada no Azure Active Directory (Azure AD) B2C. Os perfis técnicos são usados para se comunicar com o locatário do Azure AD B2C, para criar um usuário ou ler um perfil de usuário. Um perfil técnico pode ser autodeclarado para permitir a interação com o usuário. Por exemplo, colete a credencial do usuário para entrar e renderizar a página de inscrição ou a página de redefinição de senha.
 
 ## <a name="type-of-technical-profiles"></a>Tipo de perfis técnicos
 
 Um perfil técnico permite esses tipos de cenários:
 
 - [Azure Active Directory](active-directory-technical-profile.md) – oferece suporte ao gerenciamento de usuário do Azure Active Directory B2C.
-- [Emissor de token JWT](jwt-issuer-technical-profile.md) – emite um token JWT que é retornado para o aplicativo de terceira parte confiável. 
+- [Emissor de token JWT](jwt-issuer-technical-profile.md) – emite um token JWT que é retornado para o aplicativo de terceira parte confiável.
 - **Provedor do fator de telefone** – autenticação multifator.
 - [OAuth1](oauth1-technical-profile.md) – federação com qualquer provedor de identidade de protocolo OAuth 1.0.
 - [OAuth2](oauth2-technical-profile.md) – federação com qualquer provedor de identidade de protocolo OAuth 2.0.
@@ -37,15 +37,15 @@ Um perfil técnico permite esses tipos de cenários:
 - [Provedor Restful](restful-technical-profile.md) – chama os serviços da API REST, como validar a entrada do usuário, enriquecer dados do usuário ou integrar-se aos aplicativos de linha de negócios.
 - [SAML2](saml-technical-profile.md) – federação com qualquer provedor de identidade de protocolo SAML.
 - [Self-Asserted](self-asserted-technical-profile.md) – Interagir com o usuário. Por exemplo, colete a credencial do usuário para entrar e renderizar a página de inscrição ou a redefinição de senha.
-- **WsFed** – federação com qualquer provedor de identidade de protocolo WsFed. 
-- [Gerenciamento de sessão](active-directory-b2c-reference-sso-custom.md) – lida com diferentes tipos de sessões. 
+- **WsFed** – federação com qualquer provedor de identidade de protocolo WsFed.
+- [Gerenciamento de sessão](active-directory-b2c-reference-sso-custom.md) – lida com diferentes tipos de sessões.
 - **Percepções sobre o aplicativo**
 
 ## <a name="technical-profile-flow"></a>Fluxo do perfil técnico
 
-Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia declarações de entrada, executa a transformação de declarações e se comunica com a parte configurada, como um provedor de identidade, uma API REST ou serviços de diretório do Azure AD. Após a conclusão do processo, o perfil técnico retorna as declarações de saída e pode executar a transformação de declarações de saída. O diagrama a seguir mostra como as transformações e mapeamentos referenciados no perfil técnico são processados. Independentemente da entidade com a qual o perfil técnico interage, após a execução de qualquer declaração de transformação, as declarações de saída do perfil técnico são imediatamente armazenadas no recipiente de declarações. 
+Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia declarações de entrada, executa a transformação de declarações e se comunica com a parte configurada, como um provedor de identidade, uma API REST ou serviços de diretório do Azure AD. Após a conclusão do processo, o perfil técnico retorna as declarações de saída e pode executar a transformação de declarações de saída. O diagrama a seguir mostra como as transformações e mapeamentos referenciados no perfil técnico são processados. Independentemente da entidade com a qual o perfil técnico interage, após a execução de qualquer declaração de transformação, as declarações de saída do perfil técnico são imediatamente armazenadas no recipiente de declarações.
 
-![Fluxo do perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
+![Diagrama ilustrando o fluxo de perfil técnico](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
 1. **InputClaimsTransformation** – as declarações de entrada de todas as [transformações de declarações](claimstransformations.md) de entrada são recolhidas do recipiente de declarações e, após a execução, as declarações de saída são novamente colocadas no recipiente de declarações. As declarações de saída de uma transformação de declarações de entrada podem ser declarações de entrada de uma transformação de declarações de entrada subsequentes.
 2. **InputClaims** – as declarações são retiradas do recipiente de declarações e são usadas no perfil técnico. Por exemplo, um [perfil técnico autodeclarado](self-asserted-technical-profile.md) usa as declarações de entrada para preencher antecipadamente as declarações de saída fornecidas pelo usuário. Um perfil técnico da API REST usa as declarações de entrada para enviar parâmetros de entrada ao ponto de extremidade da API REST. O Azure Active Directory usa a declaração de entrada como um identificador exclusivo para ler, atualizar ou excluir uma conta.
@@ -59,7 +59,7 @@ Todos os tipos de perfis técnicos compartilham o mesmo conceito. Você envia de
 6. **OutputClaimsTransformations** – as declarações de entrada de todas as [ transformações de declarações](claimstransformations.md) de saída são retiradas do recipiente de declarações. As declarações de saída do perfil técnico das etapas anteriores podem ser entradas de uma transformação de declarações de saída. Após a execução, as declarações de saída são recolocadas no recipiente de declarações. As declarações de saída de uma transformação de declarações de saída também podem ser declarações de entrada de uma transformação de declarações de saída subsequentes.
 7. **Gerenciamento de sessão de SSO (logon único)**  - [Gerenciamento de sessão de SSO](active-directory-b2c-reference-sso-custom.md) controla a interação com um usuário após o usuário já ter se autenticado. Por exemplo, o administrador pode controlar se a seleção de provedores de identidade é exibida ou se os detalhes de conta local precisam ser inseridos novamente.
 
-A alteração de configurações ou a adição de novas funcionalidades de um perfil técnico podem ser herdadas de outro perfil técnico.  O elemento **IncludeTechnicalProfile** é uma referência ao perfil técnico de base do qual um perfil técnico é derivado.  
+A alteração de configurações ou a adição de novas funcionalidades de um perfil técnico podem ser herdadas de outro perfil técnico.  O elemento **IncludeTechnicalProfile** é uma referência ao perfil técnico de base do qual um perfil técnico é derivado.
 
 Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError** inclui o **AAD-UserReadUsingAlternativeSecurityId**. Esse perfil técnico define o item de metadados **RaiseErrorIfClaimsPrincipalDoesNotExist** como `true` e gera um erro se uma conta social não existir no diretório. **AAD-UserReadUsingAlternativeSecurityId-NoError** substitui esse comportamento e desativa a mensagem de erro se o usuário não existir.
 
@@ -70,7 +70,7 @@ Por exemplo, o perfil técnico **AAD-UserReadUsingAlternativeSecurityId-NoError*
   </Metadata>
   <IncludeTechnicalProfile ReferenceId="AAD-UserReadUsingAlternativeSecurityId" />
 </TechnicalProfile>
-``` 
+```
 
 **AAD-UserReadUsingAlternativeSecurityId** inclui o perfil técnico `AAD-Common`.
 

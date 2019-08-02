@@ -1,6 +1,6 @@
 ---
-title: Adicionar enunciados de exemplo
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Adicionar exemplo declarações-LUIS
+titleSuffix: Azure Cognitive Services
 description: Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuário. Para ensinar o Entendimento de Linguagem (LUIS), você precisa adicionar expressões de exemplo a uma intenção.
 services: cognitive-services
 author: diberry
@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04f0944173df59989745ee9167984b493f202b14
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65072848"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638225"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a enunciados de exemplo 
 
 Enunciados de exemplo são exemplos de texto de comandos ou perguntas do usuário. Para ensinar o LUIS (Serviço Inteligente de Reconhecimento Vocal), você precisa adicionar [enunciados de exemplo](luis-concept-utterance.md) a uma [intenção](luis-concept-intent.md).
 
-Geralmente, adicione um enunciado de exemplo a uma intenção primeiro, então crie entidades e rotule enunciados na página de intenção. Se você preferir criar entidades primeiro, veja [Adicionar entidades](luis-how-to-add-entities.md).
+Normalmente, você adiciona um exemplo expressão a uma intenção primeiro e, em seguida, cria entidades e o rótulo declarações na página de **tentativas** . Se você preferir criar entidades primeiro, veja [Adicionar entidades](luis-how-to-add-entities.md).
 
 ## <a name="marking-entities-in-example-utterances"></a>Marcar entidades em enunciados de exemplo
 
@@ -32,7 +32,7 @@ Certos tipos de entidade, como as entidades predefinidas e entidades de express�
 
 ## <a name="add-a-simple-entity"></a>Adicionar uma entidade simples
 
-No procedimento a seguir, você cria e marca uma entidade personalizada dentro do enunciado a seguir na página de intenção:
+No procedimento a seguir, você cria e marca uma entidade personalizada dentro do seguinte expressão na página de **tentativas** :
 
 ```text
 Are there any SQL server jobs?
@@ -45,7 +45,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > Ao selecionar palavras para marcá-las como entidades:
     > * Para uma única palavra, apenas selecione-a. 
-    > * Para um conjunto de duas ou mais palavras, selecione no início e então no fim do conjunto.
+    > * Para um conjunto de duas ou mais palavras, selecione a primeira palavra e, em seguida, a palavra final.
 
 1. Na caixa de pop-up **Que tipo de entidade você deseja criar?** , verifique o nome da entidade e selecione o tipo de entidade **Simples**, então selecione **Concluído**.
 
@@ -53,11 +53,11 @@ Are there any SQL server jobs?
 
 ## <a name="add-a-list-entity"></a>Adicionar uma entidade de lista
 
-Listar entidades representam um conjunto de correspondências de texto exato de palavras relacionadas no sistema. 
+As entidades de lista representam um conjunto de correspondências exatas de texto de palavras relacionadas em seu sistema. 
 
 Para obter lista de departamentos da empresa, você pode ter valores normalizados: `Accounting` e `Human Resources`. Cada nome normalizado tem sinônimos. Para um departamento, esses sinônimos podem incluir quaisquer acrônimos, números ou gírias de departamento. Você não precisa conhecer todos os valores ao criar a entidade. Você pode adicionar mais depois de revisar os enunciados reais do usuário com sinônimos.
 
-1. Em uma expressão de exemplo sobre o **intenções** , selecione a palavra ou frase que você deseja na nova lista. Quando a entidade lista suspensa for exibida, insira o nome para a nova entidade de lista na caixa de texto superior e selecione **criar nova entidade**.   
+1. Em um exemplo de expressão na página de **tentativas** , selecione a palavra ou frase desejada na nova lista. Quando a lista suspensa entidade for exibida, insira o nome para a nova entidade na caixa de texto superior e, em seguida, selecione **criar nova entidade**.   
 
 1. Na caixa pop-up **Que tipo de entidade você deseja criar?** , nomeie a entidade e selecione **Lista** como o tipo. Adicione sinônimos deste item de lista e, em seguida, selecione **Concluído**. 
 
@@ -65,17 +65,17 @@ Para obter lista de departamentos da empresa, você pode ter valores normalizado
 
     Você pode adicionar mais itens de lista ou mais sinônimos de item ao rotular outros enunciados ou editar a entidade em **Entidades** no painel de navegação esquerdo. [Editar](luis-how-to-add-entities.md#add-list-entities) as entidades dá as opções de inserir itens adicionais com sinônimos correspondentes ou importar uma lista. 
 
-## <a name="add-composite-entity"></a>Adicionar entidade composta
+## <a name="add-a-composite-entity"></a>Adicionar uma entidade composta
 
-Entidades compostas são criadas de **Entidades** existentes em uma entidade pai. 
+As entidades compostas são criadas a partir de **entidades** existentes para formar uma entidade pai. 
 
-Supondo que a declaração `Does John Smith work in Seattle?`, uma declaração composta pode retornar informações de entidade do nome do funcionário `John Smith`e o local `Seattle` em uma entidade de composição. As entidades filho já devem existir no aplicativo e ser marcadas na declaração de exemplo antes de criar a entidade composta.
+Supondo que expressão `Does John Smith work in Seattle?`,, um expressão composto possa retornar informações de entidade do nome `John Smith`do funcionário e o `Seattle` local em uma entidade composta. As entidades filho já devem existir no aplicativo e ser marcadas no exemplo expressão antes de criar a entidade composta.
 
-1. Para quebrar as entidades filho em uma entidade de composição, selecione a **primeiro** rotulada como entidade (esquerda) na declaração da entidade composta. Uma lista suspensa será exibida para mostrar as opções para essa seleção.
+1. Para encapsular as entidades filho em uma entidade composta, selecione a **primeira** entidade rotulada (mais à esquerda) no expressão para a entidade composta. Uma lista suspensa é exibida para mostrar as opções para essa seleção.
 
-1. Selecione **encapsular na entidade composta** na lista suspensa. 
+1. Selecione **encapsular em entidade composta** na lista suspensa. 
 
-1. Selecione a última palavra da entidade composta (aquela mais à direita). Observe que uma linha verde segue a entidade composta. Esse é o indicador visual para uma entidade composto e deve estar sob todas as palavras na entidade composta da entidade filho da esquerda para a entidade filho na extrema direita.
+1. Selecione a última palavra da entidade composta (aquela mais à direita). Observe que uma linha verde segue a entidade composta. Este é o indicador visual de uma entidade composta e deve estar sob todas as palavras na entidade composta da entidade filho mais à esquerda para a entidade filho mais à direita.
 
 1. Insira o nome da entidade composta na lista suspensa.
 
@@ -89,11 +89,11 @@ Supondo que a declaração `Does John Smith work in Seattle?`, uma declaração 
 
     ![Captura de tela da página Detalhes de intenções, com entidade composta](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-entitys-role-to-utterance"></a>Adicionar a função da entidade a expressão
+## <a name="add-entitys-role-to-utterance"></a>Adicionar função da entidade ao expressão
 
-Uma função é um subtipo nomeado de uma entidade, determinado pelo contexto de declaração. Você pode marcar uma entidade dentro de uma expressão como a entidade ou selecionar uma função nessa entidade. Qualquer entidade pode ter funções, incluindo entidades personalizadas que são aprendidos por máquina (entidades simples e compostas entidades), não são aprendidos por máquina (as entidades predefinidas, entidades de expressão regular, listar entidades). 
+Uma função é um subtipo nomeado de uma entidade, determinado pelo contexto do expressão. Você pode marcar uma entidade em um expressão como a entidade ou selecionar uma função dentro dessa entidade. Qualquer entidade pode ter funções, incluindo entidades personalizadas que são aprendidas por máquina (entidades simples e entidades compostas), não são aprendidas por máquina (entidades predefinidas, entidades de expressão regular, entidades de lista). 
 
-Saiba mais [como marcar uma expressão com funções de entidade](tutorial-entity-roles.md) de um tutorial prático. 
+Saiba [como marcar um expressão com funções de entidade](tutorial-entity-roles.md) de um tutorial prático. 
 
 ## <a name="entity-status-predictions"></a>Previsões do status da entidade
 
@@ -107,7 +107,7 @@ Selecione as palavras que estão sublinhadas em vermelho na frase.
 
 A caixa de entidade exibe o **status de Entidade** com um ponto de exclamação vermelho, se houver uma discrepância de previsão. Para ver o status Entidade com informações sobre a diferença entre entidades rotuladas e previstas, selecione **Status da entidade** e, em seguida, selecione o item à direita.
 
-![Seleção de status da captura de tela de entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
+![Captura de tela da seleção de status da entidade](./media/luis-how-to-add-example-utterances/entity-prediction-error-correction.png)
 
 A linha vermelha pode aparecer em qualquer um dos seguintes horários:
 
@@ -131,15 +131,15 @@ Você pode executar ações em enunciados de exemplo como um grupo selecionado o
 
 ### <a name="remove-entity-labels-from-utterances"></a>Remover rótulos de entidade de enunciados
 
-Você pode remover rótulos de entidade de aprendizado de máquina de um enunciado na página Intenção. Se a entidade não for de aprendizado de máquina, ela não poderá ser removida de um enunciado. Se você precisar remover uma entidade que não seja de aprendizado de máquina do enunciado, precisará excluir a entidade de todo o aplicativo. 
+Você pode remover rótulos de entidade aprendidas por computador de um expressão na página de tentativas. Se a entidade não for de aprendizado de máquina, ela não poderá ser removida de um enunciado. Se você precisar remover uma entidade que não seja de aprendizado de máquina do enunciado, precisará excluir a entidade de todo o aplicativo. 
 
 Para remover um rótulo de entidade de aprendizado de máquina de um enunciado, selecione a entidade no enunciado. Em seguida, selecione **Remover Rótulo** na caixa suspensa da entidade que é exibida.
 
-### <a name="add-prebuilt-entity-label"></a>Adicionar um rótulo de entidade predefinida
+### <a name="add-a-prebuilt-entity-label"></a>Adicionar um rótulo de entidade predefinida
 
 Quando adicionar as entidades predefinidas ao seu aplicativo de LUIS, você não precisará marcar enunciados com essas entidades. Para saber mais sobre entidades predefinidas e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### <a name="add-regular-expression-entity-label"></a>Adicionar rótulo de entidade de expressão regular
+### <a name="add-a-regular-expression-entity-label"></a>Adicionar um rótulo de entidade de expressão regular
 
 Se você adicionar as entidades de expressão regular ao seu aplicativo de LUIS, não precisará marcar enunciados com essas entidades. Para saber mais sobre entidades de expressão regular e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -149,7 +149,7 @@ Se você adicionar as entidades de expressão regular ao seu aplicativo de LUIS,
 Veja [Adicionar padrão de enunciado existente na página de intenção ou de entidade](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### <a name="add-patternany-entity"></a>Adicionar entidade pattern.any
+### <a name="add-a-patternany-entity"></a>Adicionar um padrão. qualquer entidade
 
 Se você adicionar entidades pattern.any ao seu aplicativo de LUIS, não será possível rotular enunciados com essas entidades. Elas só são válidas em padrões. Para saber mais sobre entidades pattern.any e como adicioná-las, veja [Adicionar entidades](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -159,4 +159,4 @@ Depois de adicionar, editar ou remover enunciados, [treine](luis-how-to-train.md
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de rotular enunciados em suas intenções, você pode criar uma [entidade composta](luis-how-to-add-entities.md).
+Depois de rotular declarações em suas **intenções**, agora você pode criar uma [entidade composta](luis-how-to-add-entities.md).

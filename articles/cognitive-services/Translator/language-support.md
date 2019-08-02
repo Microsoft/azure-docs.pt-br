@@ -3,19 +3,19 @@ title: Idiomas compatíveis – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
 description: Uma lista dos idiomas naturais compatíveis com a API de Tradução de Texto.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: 924324b11f49a50bfb5f00e117b33c0cc572e3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 14ab1988f28de214036fa80fa36a4006a3359f30
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514995"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67435891"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Idiomas e regiões compatíveis com a API de Tradução de Texto
 

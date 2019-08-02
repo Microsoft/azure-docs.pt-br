@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2600989273d6ebfe4319a048cc65c8c3ff9ecdbc
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870997"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096311"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integração do Azure Active Directory ao NetSuite
 
@@ -55,7 +55,7 @@ Para configurar a integração do NetSuite com o Azure AD, é necessário adicio
 
 **Para adicionar o NetSuite da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
     | ---------------| --------------- |
     | conta  | `account id` |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -201,7 +201,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-saml-setup.png)
   
-     a. Selecione **MÉTODO DE AUTENTICAÇÃO PRIMÁRIA**.
+    a. Selecione **MÉTODO DE AUTENTICAÇÃO PRIMÁRIA**.
 
     b. Para o campo rotulado como **METADADOS DO PROVEDOR DE IDENTIDADE DO SAMLV2**, selecione **CARREGAR ARQUIVO DE METADADOS DO IDP**. Em seguida, clique em **Procurar** para carregar o arquivo de metadados baixado no portal do Azure.
 
@@ -219,7 +219,7 @@ Para configurar o logon único do Azure AD com o NetSuite, execute as seguintes 
 
 10. Antes que os usuários possam realizar logon único no NetSuite, eles devem primeiro ter as permissões apropriadas no NetSuite. Siga as instruções abaixo para atribuir essas permissões.
 
-     a. No menu de navegação superior, clique em **Configuração**.
+    a. No menu de navegação superior, clique em **Configuração**.
 
     ![Configurar o logon único](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -328,7 +328,7 @@ Ao clicar no bloco do NetSuite no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](NetSuite-provisioning-tutorial.md)
 

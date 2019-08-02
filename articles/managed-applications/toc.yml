@@ -11,17 +11,29 @@
       href: publish-managed-app-definition-quickstart.md
     - name: Implantar aplicativo do catálogo de serviços
       href: deploy-service-catalog-quickstart.md
+    - name: Criar um provedor de recursos personalizado
+      href: create-custom-provider.md
 - name: Tutoriais
   items:
+    - name: provedores personalizados
+      items:
+        - name: Introdução aos provedores personalizados
+          href: tutorial-custom-providers-101.md
+        - name: Configurar o Azure Functions
+          href: tutorial-custom-providers-function-setup.md
+        - name: Criar um ponto de extremidade RESTful
+          href: tutorial-custom-providers-function-authoring.md
+        - name: Criar e utilizar provedores personalizados
+          href: tutorial-custom-providers-create.md
     - name: Criar arquivos de definição
       href: publish-service-catalog-app.md
     - name: Publicar aplicativo do marketplace
       href: publish-marketplace-app.md
-    - name: Criar um provedor de recursos personalizado
-      href: create-custom-provider.md
+    - name: Criar aplicativo gerenciado com provedor personalizado
+      href: tutorial-create-managed-app-with-custom-provider.md
 - name: Exemplos
   items:
-    - name: CLI do Azure
+    - name: A CLI do Azure
       href: cli-samples.md
     - name: Azure PowerShell
       href: powershell-samples.md
@@ -29,10 +41,18 @@
       href: sample-projects.md
 - name: Conceitos
   items:
-    - name: Provedores personalizados
+    - name: Provedores personalizados do Azure
       href: custom-providers-overview.md
+    - name: Exibir artefato de definição
+      href: concepts-view-definition.md
 - name: Guias de instruções
   items:
+    - name: Provedores personalizados
+      items:
+        - name: Adicionar ações personalizadas ao Azure
+          href: custom-providers-action-endpoint-how-to.md
+        - name: Adicionar recursos personalizados ao Azure
+          href: custom-providers-resources-endpoint-how-to.md
     - name: Publicadores
       items:
         - name: Criar interface do portal
@@ -57,6 +77,22 @@
           href: approve-just-in-time-access.md
 - name: Referência
   items:
+    - name: Provedores personalizados
+      items:
+        - name: Referência de proxy de recurso personalizado
+          href: custom-providers-proxy-resource-endpoint-reference.md
+        - name: Referência de cache de recurso personalizado
+          href: custom-providers-proxy-cache-resource-endpoint-reference.md
+        - name: Referência de ponto de extremidade RESTful do provedor personalizado
+          href: reference-custom-providers-csharp-endpoint.md
+    - name: Artefatos de aplicativo
+      items:
+        - name: Elementos da interface do usuário
+          href: reference-createuidefinition-artifact.md
+        - name: Modelo de implantação
+          href: reference-main-template-artifact.md
+        - name: Exibir definição
+          href: reference-view-definition-artifact.md
     - name: CLI do Azure
       href: /cli/azure/managedapp
     - name: PowerShell

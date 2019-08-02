@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ecb2059e529347b7eff72bf6af74b82558a4c251
+ms.sourcegitcommit: 83a89c45253b0d432ce8dcd70084c18e9930b1fd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65521387"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371685"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referência host.json para o Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Selecione a versão do tempo de execução do Azure Functions que você está usando: "]
+> [!div class="op_single_selector" title1="Selecione a versão do Azure Functions tempo de execução que você está usando: "]
 > * [Versão 1](functions-host-json-v1.md)
 > * [Versão 2](functions-host-json.md)
 
@@ -114,9 +114,9 @@ Controla o [recurso de amostragem no Application Insights](./functions-monitorin
 > [!NOTE]
 > A amostragem de log pode fazer com que algumas execuções não apareçam na folha do Monitor do Application Insights.
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|isEnabled|verdadeiro|Habilita ou desabilita a amostragem.| 
+|isEnabled|true|Habilita ou desabilita a amostragem.| 
 |maxTelemetryItemsPerSecond|5|O limite em que a amostragem começa.| 
 
 ## <a name="cosmosdb"></a>cosmosDb
@@ -147,7 +147,7 @@ Uma lista de funções que o host de trabalho executa. Uma matriz vazia signific
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indica a duração do tempo limite para todas as funções. Em um plano de Consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos. Em um Plano do Serviço de Aplicativo, não há limite geral e o padrão depende da versão do tempo de execução. Na versão 2.x, o valor padrão para um Plano do Serviço de Aplicativo é de 30 minutos. Na versão 1.x, é *nulo*, o que indica nenhum tempo limite.
+Indica a duração do tempo limite para todas as funções. Em um plano de Consumo sem servidor, o intervalo válido é de 1 segundo a 10 minutos e o valor padrão é 5 minutos. Em um Plano do Serviço de Aplicativo, não há limite geral e o padrão depende da versão do tempo de execução. Na versão 2.x, o valor padrão para um Plano do Serviço de Aplicativo é de 30 minutos. Na versão 1.x, é *nulo*, o que indica nenhum tempo limite. Ele não pode ser definido como infinito. Se não estivermos definindo esse valor explicitamente, ele usará o valor padrão de 30 minutos.
 
 ```json
 {
@@ -171,9 +171,9 @@ Definições de configuração para [monitor de integridade de Host](https://git
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|enabled|verdadeiro|Especifica se o recurso está habilitado. | 
+|enabled|true|Especifica se o recurso está habilitado. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de integridade em segundo plano. | 
 |healthCheckWindow|2 minutos|Uma janela de tempo deslizante usada em conjunto com a configuração `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de vezes que a verificação de integridade pode falhar antes de uma reciclagem de host ser iniciada.| 
@@ -205,12 +205,12 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|n/d|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
-|console|n/d| A configuração de log do [console](#console). |
-|applicationInsights|n/d| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. A versão 2.x segue o layout do ASP.NET Core para filtragem de categoria de log. Isso permite filtrar o registro para funções específicas. Para obter mais informações, consulte [Filtragem de logs](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) na documentação do ASP.NET Core. |
+|console|N/D| A configuração de log do [console](#console). |
+|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -228,9 +228,9 @@ Essa configuração é a filha de [Registro em log](#logging). Ela controla o lo
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|isEnabled|falso|Habilita ou desabilita o log de console.| 
+|isEnabled|false|Habilita ou desabilita o log de console.| 
 
 ## <a name="queues"></a>filas
 
@@ -260,15 +260,15 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 }
 ```
 
-|Propriedade  |Padrão | DESCRIÇÃO |
+|Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período em que ocorrem os bloqueios de nível de função. Os bloqueios têm renovação automática.| 
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o tempo de execução tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/d|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
-## <a name="version"></a>version
+## <a name="version"></a>versão
 
 A cadeia de caracteres de versão `"version": "2.0"` é necessária para um aplicativo de funções que segmente o tempo de execução v2.
 
@@ -284,7 +284,7 @@ Um conjunto de [diretórios de código compartilhado](functions-reference-csharp
 
 ## <a name="manageddependency"></a>managedDependency
 
-Dependência gerenciada é um recurso de visualização que está atualmente só tem suporte com o PowerShell com base em funções. Ele permite que as dependências sejam gerenciados automaticamente pelo serviço. Quando a propriedade enabled é definida como true, o [requirements.psd1](functions-reference-powershell.md#dependency-management) arquivo será processado. Dependências serão atualizadas quando as versões secundárias são liberadas.
+A dependência gerenciada é um recurso de visualização que atualmente só tem suporte com funções baseadas no PowerShell. Ele permite que as dependências sejam gerenciadas automaticamente pelo serviço. Quando a propriedade Enabled é definida como true, o arquivo [requirements. psd1](functions-reference-powershell.md#dependency-management) será processado. As dependências serão atualizadas quando qualquer versão secundária for lançada.
 
 ```json
 {

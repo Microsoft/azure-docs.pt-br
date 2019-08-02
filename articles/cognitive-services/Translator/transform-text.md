@@ -1,21 +1,21 @@
 ---
 title: Transformar texto - API de Tradução de Texto
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Transformar texto usando a API de Tradução de Texto.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
-ms.author: v-pawal
-ms.openlocfilehash: 4d024fd30a77c011bab4f120c4ef3614aac09998
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: 533f09b09b7f5899833669b5f0ad4ffa5efa3a43
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389696"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68594902"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Como usar o método TransformText
 
@@ -26,9 +26,9 @@ O método TransformText é uma função de normalização do texto para mídias 
 
 O método é um serviço RESTful usando GET via HTTP. Ele dá suporte a serialização de JSON e XML simples.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
-| Parâmetro | DESCRIÇÃO |
+| Parâmetro | Descrição |
 |:---|:---|
 | Cabeçalho de autorização | **Obrigatório** Cabeçalho HTTP usado para identificar o aplicativo. Use a chave: “Authorization” e o valor: "Bearer" + " " + token de acesso. Para obter detalhes, clique aqui.|
 | language | **Obrigatório** Uma cadeia de caracteres que representa o código do idioma. Esse parâmetro é suportado apenas em inglês com **en** como o nome do idioma.|

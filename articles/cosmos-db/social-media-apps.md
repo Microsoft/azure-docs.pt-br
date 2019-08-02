@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 8206bff765b59ddc5d6be2388145bf51e1000241
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45e27b37ca7a1718674914fbe9203b7dc64475b1
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66256873"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67342101"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 
@@ -96,7 +96,7 @@ A criação de feeds resume-se à criação de documentos que podem reter uma li
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Você poderia ter um fluxo "mais recente" com as postagens ordenadas por data de criação. Ou você poderia ter um fluxo "mais popular" com as postagens com mais curtidas nas últimas 24 horas. Você pode até mesmo implementar um fluxo personalizado para cada usuário com base em lógica como seguidores e interesses. Ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirir uma dessas listas, você emitirá uma única consulta para o Cosmos DB usando o [operador IN](how-to-sql-query.md#WhereClause) para obter páginas de postagens de uma só vez.
+Você poderia ter um fluxo "mais recente" com as postagens ordenadas por data de criação. Ou você poderia ter um fluxo "mais popular" com as postagens com mais curtidas nas últimas 24 horas. Você pode até mesmo implementar um fluxo personalizado para cada usuário com base em lógica como seguidores e interesses. Ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois que você adquirir uma dessas listas, emita uma única consulta ao Cosmos DB usando o [palavra-chave IN](sql-query-keywords.md#in) para obter páginas de postagens por vez.
 
 As transmissões de feed podem ser criadas usando processos em segundo plano dos [Serviços de Aplicativos do Azure](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service/webjobs-create.md). Depois de criar uma postagem, o processamento em segundo plano pode ser disparado usando o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), ao passo que as [Filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e os Webjobs podem ser disparados usando o [SDK do Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando a propagação de postagem nas transmissões, de acordo com sua própria lógica personalizada.
 

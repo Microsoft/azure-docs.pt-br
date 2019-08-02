@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 641fe5439e320208d41969b9563293257648d488
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 597c05e7018b1eb9dd20555458e67b515113ca2d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895925"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086373"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Azure Active Directory ao Zoom
 
@@ -53,7 +53,7 @@ Para configurar a integração do Zoom com o Azure AD, você precisará adiciona
 
 **Para adicionar o Zoom da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,14 +105,14 @@ Para configurar o logon único do Azure AD com o Zoom, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do Zoom](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `<companyname>.zoom.us`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `<companyname>.zoom.us`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc/en-us) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. O aplicativo Zoom espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário** .
+5. O aplicativo Zoom espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
     ![image](common/edit-attribute.png)
 
@@ -130,7 +130,7 @@ Para configurar o logon único do Azure AD com o Zoom, execute as seguintes etap
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para saber como configurar a Função no Azure AD
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o Zoom, execute as seguintes etap
 
     ![Seção Logon único](./media/zoom-tutorial/ic784701.png "Logon único")
 
-     a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Para o valor de **URL de página de logout**, você precisa acessar o portal do Azure e clicar em **Azure Active Directory** à esquerda e, em seguida, navegar até **Registros de aplicativo**.
 
@@ -269,7 +269,7 @@ Para permitir que os usuários do Azure AD façam logon no Zoom, eles devem esta
 
     ![Adicionar Usuários](./media/zoom-tutorial/ic784704.png "Adicionar Usuários")
 
-     a. Para **Tipo de Usuário**, selecione **Básico**.
+    a. Para **Tipo de Usuário**, selecione **Básico**.
 
     b. Na caixa de texto **Emails**, digite o endereço de email de uma conta de Azure AD válida que você deseja provisionar.
 
@@ -290,4 +290,4 @@ Ao clicar no bloco do Zoom no Painel de Acesso, você deverá ser conectado auto
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

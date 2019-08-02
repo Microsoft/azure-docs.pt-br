@@ -10,14 +10,13 @@ ms.topic: sample
 author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 06/25/2019
+ms.openlocfilehash: 9468f5d631dd713c9e131c63de824c5e552178e3
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151663"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569913"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Usar a CLI para monitorar e dimensionar um único Banco de Dados SQL
 
@@ -41,7 +40,7 @@ Se você optar por instalar e usar a CLI localmente, este artigo exigirá que se
 Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script

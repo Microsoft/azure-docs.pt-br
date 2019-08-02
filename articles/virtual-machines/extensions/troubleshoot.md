@@ -4,7 +4,7 @@ description: Saiba mais sobre como solucionar falhas da extensão de VM do Windo
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-resource-manager
 ms.assetid: 878ab9b6-c3e6-40be-82d4-d77fecd5030f
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2016
 ms.author: kundanap
-ms.openlocfilehash: cf53df30dfccb76a6f33621038ba7f031a69f6de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2b85e9a156d0e6264ec39282b803118963cbbbb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62107237"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706658"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Solucionando problemas de falhas da extensão da VM do Windows no Azure
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]

@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 5/21/2019
+ms.date: 6/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 07bcf50a816c090ccef846909dff671486e514c4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157294"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203055"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Para isso, configure uma conexão ponto a site em uma VNet usando a autenticação de certificado nativa do Azure: Portal do Azure
 
@@ -98,7 +98,7 @@ O pool de endereços do cliente é um intervalo de endereços IP que você espec
 2. Clique em **Configurar agora** para abrir a página de configuração.
 
    ![Configurar agora](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configurenow.png)
-3. Na página de configuração **Ponto a site**, na caixa **Pool de endereços**, adicione o intervalo de endereços IP privado que deseja usar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que você especificar. Clique em **Salvar** para validar e salvar a configuração.
+3. Na página de configuração **Ponto a site**, na caixa **Pool de endereços**, adicione o intervalo de endereços IP privado que deseja usar. Os clientes VPN recebem dinamicamente um endereço IP do intervalo que você especificar. A máscara de sub-rede mínimo é de 29 bits para ativo/passivo e configuração ativo/ativo de 28 bits. Clique em **Salvar** para validar e salvar a configuração.
 
    ![Pool de endereços do cliente](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/addresspool.png)
 

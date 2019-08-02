@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ade695f1930c11f2d2d7ab7e0430910bd6f8705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ae821dc9ae0d739526b91bad76bca544cad2fb0
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508652"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203704"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar login com uma conta do Azure Active Directory usando políticas personalizadas no Azure Active Directory B2C 
 
@@ -132,7 +132,7 @@ Para obter um token do ponto de extremidade do Azure AD, você precisa definir o
 5. Defina o valor de **METADATA** para `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, em que `your-AD-tenant-name` é o nome do seu locatário do Azure AD. Por exemplo, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Abra seu navegador e acesse a URL **METADATA** que acabou de atualizar, procure o objeto **emissor**, copie e cole o valor no valor de **ProviderName** no Arquivo XML.
 8. Defina **client_id** e **IdTokenAudience** como o ID do aplicativo do registro do aplicativo.
-9. Em **CryptograhicKeys**, atualize o valor de **StorageReferenceId** para a chave de política que você definiu. Por exemplo: `ContosoAppSecret`.
+9. Sob **CryptographicKeys**, atualize o valor de **StorageReferenceId** para a chave de política que você definiu. Por exemplo: `ContosoAppSecret`.
 
 ### <a name="upload-the-extension-file-for-verification"></a>Carregar o arquivo de extensão para verificação
 

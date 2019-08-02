@@ -1,7 +1,6 @@
 ---
 title: 'Serviço de Backup do Azure: recupere arquivos e pastas de um backup de VM do Azure'
 description: Recuperar arquivos de um ponto de recuperação de uma máquina virtual do Azure
-services: backup
 author: pvrk
 manager: shivamg
 keywords: recuperação a nível de item; recuperação de arquivos de backup da VM do Azure; restaurar arquivos de uma VM do Azure
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 3/01/2019
 ms.author: pullabhk
-ms.openlocfilehash: 22ada6f9bb614bdc3698c58c6aa8ec3dd5def868
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 678b187eb49c84b5b4cf17fe063d21d09b333434
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60240218"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465659"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -67,16 +66,16 @@ Para restaurar arquivos ou pastas no ponto de recuperação, vá para a máquina
 
     - download.microsoft.com
     - URLs de serviço de recuperação (geo-name refere-se para a região onde reside o cofre dos serviços de recuperação)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (áreas geográficas para o Azure públicas)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (para o Azure China)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (para o governo dos EUA)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (para o Azure Alemanha)
+        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.com (para áreas geográficas públicos do Azure)
+        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.cn (para o Azure China)
+        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.us (para o governo dos EUA do Azure)
+        - https:\//pod01-REC2.Geo-Name.backup.WindowsAzure.de (para Azure Alemanha)
     - porta de saída 3260
 
 > [!Note]
 > 
-> * Terá o nome do arquivo de script baixado a **geo-name** a ser preenchido na URL. Para por exemplo: O nome do script baixado começa com \'VMname\'\_\'geoname\'_\'GUID\', como ContosoVM_wcus_12345678...<br><br>
-> * A URL seria "https:\//pod01-rec2.wcus.backup.windowsazure.com"
+> * O nome do arquivo de script baixado terá o **nome geográfico** a ser preenchido na URL. Por exemplo: O nome do script baixado começa \'com\'VMname\_\'\'geoname\'_GUID\', como ContosoVM_wcus_12345678....<br><br>
+> * A URL seria "https:\//pod01-REC2.wcus.backup.WindowsAzure.com"
 
 
    Para o Linux, o script exige os componentes 'open-iscsi' e 'lshw' para se conectar ao ponto de recuperação. Se os componentes não existem no computador onde o script é executado, o script solicita a permissão para instalar os componentes. Conceda para instalar os componentes necessários.
@@ -196,7 +195,7 @@ A tabela a seguir mostra a compatibilidade entre os sistemas operacionais de com
 
 No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer suporte para o sistema de arquivos da máquina virtual protegida. Ao selecionar um computador para executar o script, certifique-se de que o computador possui um SO compatível e usa uma das versões identificadas na tabela a seguir:
 
-|Sistema operacional Linux | Versões  |
+|SO Linux | Versões  |
 | --------------- | ---- |
 | Ubuntu | 12.04 e acima |
 | CentOS | 6.5 e acima  |
@@ -207,19 +206,19 @@ No Linux, o SO do computador utilizado para restaurar arquivos deve fornecer sup
 | openSUSE | 42.2 e acima |
 
 > [!Note]
-> Encontramos alguns problemas da execução do script de recuperação de arquivo em computadores com o sistema operacional do SLES 12 SP4. Investigando com a equipe do SLES.
-> No momento, executando o script de recuperação de arquivo está trabalhando em máquinas com versões SLES 12 SP2 e do sistema operacional do SP3.
+> Encontramos alguns problemas na execução do script de recuperação de arquivo em computadores com o sistema operacional SLES 12 SP4. Investigando com a equipe do SLES.
+> Atualmente, a execução do script de recuperação de arquivo está funcionando em computadores com versões do SLES 12 SP2 e do sistema operacional SP3.
 >
 
 O script também exige componentes Python e bash para executar e se conectar com segurança ao ponto de recuperação.
 
-|Componente | Version  |
+|Componente | Versão  |
 | --------------- | ---- |
 | bash | 4 e acima |
 | python | 2.6.6 e acima  |
 | TLS | 1.2 deve ser compatível  |
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se você tiver problemas durante a recuperação de arquivos de máquinas virtuais, verifique a tabela a seguir para obter informações adicionais.
 
@@ -235,38 +234,38 @@ Se você tiver problemas durante a recuperação de arquivos de máquinas virtua
 
 ## <a name="security"></a>Segurança
 
-Esta seção discute as várias medidas de segurança levadas para a implementação de recuperação de arquivos de backups de VM do Azure, de modo que os usuários estejam cientes dos aspectos de segurança do recurso.
+Esta seção aborda as várias medidas de segurança tomadas para a implementação da recuperação de arquivos de backups de VM do Azure, de modo que os usuários estejam cientes dos aspectos de segurança do recurso.
 
-### <a name="feature-flow"></a>Fluxo de recurso
+### <a name="feature-flow"></a>Fluxo de recursos
 
-Esse recurso foi criado para acessar os dados VM sem a necessidade de restaurar a VM inteira ou a VM discos e, em etapas mínimas. Acesso a dados da VM é fornecido por um script (que monta o volume de recuperação quando executado, conforme mostrado abaixo) e, portanto, ela forma a base para todas as implementações de segurança
+Esse recurso foi criado para acessar os dados da VM sem a necessidade de restaurar toda a VM ou os discos de VM e, em etapas mínimas. O acesso aos dados da VM é fornecido por um script (que monta o volume de recuperação quando executado conforme mostrado abaixo) e, portanto, forma a base de todas as implementações de segurança
 
-  ![Fluxo de recurso de segurança](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
+  ![Fluxo de recursos de segurança](./media/backup-azure-restore-files-from-vm/vm-security-feature-flow.png)
 
 ### <a name="security-implementations"></a>Implementações de segurança
 
-#### <a name="select-recovery-point-who-can-generate-script"></a>Selecione o ponto de recuperação (que pode gerar o script)
+#### <a name="select-recovery-point-who-can-generate-script"></a>Selecionar ponto de recuperação (que pode gerar script)
 
-O script fornece acesso aos dados da VM, é importante controlar quem pode gerá-lo em primeiro lugar. Um precisa para fazer logon no portal do Azure e deve ser [RBAC autorizado](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para ser capaz de gerar o script.
+O script fornece acesso aos dados da VM, é importante regular quem pode gerá-lo em primeiro lugar. É necessário fazer logon no portal do Azure e ser [autorizado pelo RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para poder gerar o script.
 
-Recuperação de arquivo precisa do mesmo nível de autorização conforme necessário para restauração de VM e discos de restauração. Em outras palavras, somente usuários autorizados pode exibir os dados da VM pode gerar o script.
+A recuperação de arquivo precisa do mesmo nível de autorização necessário para restauração de VM e restauração de discos. Em outras palavras, somente usuários autorizados podem exibir os dados da VM que podem gerar o script.
 
-O script gerado é assinado com certificado oficial da Microsoft para o serviço de Backup do Azure. Qualquer violação com o script significa que a assinatura será interrompida e qualquer tentativa de executar o script está realçada como um risco potencial pelo sistema operacional.
+O script gerado é assinado com o certificado oficial da Microsoft para o serviço de backup do Azure. Qualquer violação no script significa que a assinatura está quebrada e qualquer tentativa de executar o script é realçada como um risco potencial pelo sistema operacional.
 
-#### <a name="mount-recovery-volume-who-can-run-script"></a>Volume de recuperação de montagem (que pode executar o script)
+#### <a name="mount-recovery-volume-who-can-run-script"></a>Montar o volume de recuperação (que pode executar o script)
 
-Somente o administrador pode executar o script e deve ser executado no modo elevado. O script apenas executa um conjunto gerado previamente de etapas e não aceita entrada de qualquer fonte externa.
+Somente o administrador pode executar o script e executá-lo no modo elevado. O script executa apenas um conjunto de etapas gerado previamente e não aceita a entrada de qualquer fonte externa.
 
-Para executar o script, um requer uma senha somente mostrada ao usuário autorizado no momento da geração de script no portal do Azure ou PowerShell/CLI. Isso é para garantir que o usuário autorizado que baixa o script também é responsável por executar o script.
+Para executar o script, um requer uma senha que é mostrada apenas para o usuário autorizado no momento da geração de script no portal do Azure ou PowerShell/CLI. Isso é para garantir que o usuário autorizado que baixa o script também seja responsável por executar o script.
 
 #### <a name="browse-files-and-folders"></a>Procurar arquivos e pastas
 
-Para procurar arquivos e pastas, o script usa o iniciador iSCSI no computador e conecte-se ao ponto de recuperação que é configurado como um destino iSCSI. Aqui é possível supor que os cenários em que alguém está tentando imitar/falsificação tanto/todos os componentes.
+Para procurar arquivos e pastas, o script usa o iniciador iSCSI no computador e se conecta ao ponto de recuperação que está configurado como um destino iSCSI. Aqui, é possível supor cenários em que um está tentando imitar/falsificar ou todos os componentes.
 
-Podemos usar o mecanismo de autenticação de CHAP mútuo, de modo que cada componente autentica o outro. Isso significa que é extremamente difícil para um iniciador falso para se conectar ao destino iSCSI e um destino falso estar conectado à máquina em que o script é executado.
+Usamos o mecanismo de autenticação CHAP mútuo para que cada componente autentique o outro. Isso significa que é extremamente difícil para um iniciador falso se conectar ao destino iSCSI e um destino falso a ser conectado à máquina onde o script é executado.
 
-O fluxo de dados entre o serviço de recuperação e o computador é protegido pela criação de um túnel seguro SSL sobre TCP ([devem ter suporte a TLS 1.2](#system-requirements) na máquina onde o script é executado)
+O fluxo de dados entre o serviço de recuperação e o computador é protegido pela criação de um túnel SSL seguro sobre TCP (o[TLS 1,2 deve ter suporte](#system-requirements) no computador onde o script é executado)
 
-Qualquer arquivo de controle de lista acesso (ACL) presente no pai/backup da VM também são preservados no sistema de arquivos montado.
+Qualquer ACL (lista de controle de acesso) de arquivo presente na VM pai/com backup também é preservada no sistema de arquivos montado.
 
-O script fornece acesso somente leitura a um ponto de recuperação e é válido por apenas 12 horas. Se o usuário deseja remover o acesso anteriormente, em seguida, entre no Portal/PowerShell/da CLI do Azure e executar o **desmontar discos** para esse ponto de recuperação específico. O script será invalidado imediatamente.
+O script fornece acesso somente leitura a um ponto de recuperação e é válido por apenas 12 horas. Se o usuário quiser remover o acesso anteriormente, entre no portal do Azure/PowerShell/CLI e execute os **discos** desmontados para esse ponto de recuperação específico. O script será invalidado imediatamente.

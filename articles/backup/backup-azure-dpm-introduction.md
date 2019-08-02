@@ -1,19 +1,18 @@
 ---
 title: Preparar o servidor de DPM para fazer backup das cargas de trabalho no Azure
 description: Uma introdução ao backup de dados do DPM em um cofre dos Serviços de Recuperação do Azure.
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 82e4278a130bb67a1af61ead981259d7bb4e1aa7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 09c324fa1c24c56ede431fab8e175b166a52b438
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427427"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466572"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparar-se para fazer backup de cargas de trabalho no Azure com o System Center DPM
 
@@ -48,13 +47,13 @@ DPM em uma VM do Azure | System Center 2012 R2 com o Pacote Cumulativo de Atuali
 DPM em um servidor físico | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM do Hyper-V | System Center 2012 SP1 ou posterior; System Center 2012 R2.
 DPM em uma VM do VMware | System Center 2012 R2 com o Pacote Cumulativo de Atualizações 5 ou posterior.
-Componentes | O servidor DPM deve ter o Windows PowerShell e .NET Framework 4.5 instalado.
+Componentes | O servidor DPM deve ter o Windows PowerShell e o .NET Framework 4,5 instalados.
 Aplicativos com suporte | [Saiba](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) o que o DPM pode incluir no backup.
 Tipos de arquivo com suporte | É possível fazer backup destes tipos de arquivo com o Backup do Azure: Criptografado (apenas backups completos); Compactados (suporte para backups incrementais); Esparsos (suporte para backups incrementais); Compactados e esparsos (tratados como esparsos).
 Tipos de arquivo sem suporte | Servidores em sistemas de arquivos com diferenciação de maiúsculas e minúsculas; links rígidos (ignorados); pontos de nova análise (ignorados); criptografados e compactados (ignorados); criptografados e esparsos (ignorados); fluxo comprimido; fluxo de análise.
 Armazenamento local | Cada máquina da qual você deseja fazer backup deve ter armazenamento livre local com pelo menos 5% do tamanho dos dados que estão sendo armazenados em backup. Por exemplo, um backup de 100 GB de dados requer um mínimo de 5 GB de espaço livre na localização temporária.
 Armazenamento de cofre | Não há nenhum limite para a quantidade de dados de backup em um cofre de Backup do Azure, mas o tamanho de uma fonte de dados (por exemplo, máquina virtual ou banco de dados) não deve ultrapassar 54400 GB.
-Azure ExpressRoute | Se o ExpressRoute do Azure está configurado com o emparelhamento privado ou a Microsoft, ele não pode ser usado para fazer backup dos dados no Azure.<br/><br/> Se o ExpressRoute do Azure é configurado com o emparelhamento público, ele pode ser usado para fazer backup dos dados no Azure.<br/><br/> **Observação:** Emparelhamento público é preterido para novos circuitos.
+Azure ExpressRoute | Se o Azure ExpressRoute estiver configurado com o emparelhamento privado ou da Microsoft, ele não poderá ser usado para fazer backup dos dados no Azure.<br/><br/> Se o Azure ExpressRoute estiver configurado com o emparelhamento público, ele poderá ser usado para fazer backup dos dados no Azure.<br/><br/> **Observação:** O emparelhamento público foi preterido para novos circuitos.
 Agente de Backup do Azure | Se o DPM estiver sendo executado no System Center 2012 SP1, instale o pacote cumulativo de atualizações 2 ou posterior para o DPM SP1. Isso é necessário para a instalação do agente.<br/><br/> Este artigo descreve como implantar a versão mais recente do agente do Backup do Azure, também conhecido como agente do Serviço de Recuperação do Microsoft Azure (MARS). Se você tiver uma versão anterior implantada, atualize para a versão mais recente para garantir que o backup funcione conforme o esperado.
 
 Antes de começar, você precisará de uma conta Azure com o recurso de Backup do Azure habilitado. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Leia sobre os [preços do Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).

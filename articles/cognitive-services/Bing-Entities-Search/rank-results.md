@@ -1,6 +1,6 @@
 ---
 title: Usar a classificação para exibir as respostas ‒ Pesquisa de Entidade do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como usar a classificação para exibir as respostas que a API de Pesquisa de Entidade do Bing retorna.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 9e2a4075436145a0cc185b7ab1b406fa8d27b8e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 110cef117683b20170649a231226c8193496edf3
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309327"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423909"
 ---
 # <a name="using-ranking-to-display-entity-search-results"></a>Usar a classificação para exibir os resultados da pesquisa da entidade  
 
@@ -24,7 +24,7 @@ Cada resposta da pesquisa de entidade inclui uma resposta [RankingResponse](http
 Em cada grupo, a matriz de [Itens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankinggroup-items) identifica a ordem na qual o conteúdo deve aparecer. Cada item fornece duas maneiras para identificar o resultado em uma resposta.  
  
 
-|Campo | DESCRIÇÃO  |
+|Campo | Descrição  |
 |---------|---------|
 |`answerType` e `resultIndex` | `answerType` identifica a resposta (entidade ou local) e `resultIndex` identifica um resultado dentro dessa resposta (por exemplo, uma entidade). O índice começa em 0.|
 |`value`    | `value` contém uma ID que corresponde à ID de uma resposta ou um resultado dentro da resposta. A resposta ou os resultados contêm a ID, mas não ambos. |

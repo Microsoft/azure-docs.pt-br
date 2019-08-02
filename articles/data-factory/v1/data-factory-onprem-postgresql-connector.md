@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bd39b0aae5b76f37e2153f8e4c4502be994fa5b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a652e157ec0e7e33c8dce7be2f4af2c240edac9e
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61461996"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839924"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Mover dados do PostgreSQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -50,7 +50,6 @@ Você pode criar um pipeline com atividade de cópia que mova dados de um reposi
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 - Você também pode usar as ferramentas abaixo para criar um pipeline:
-  - Portal do Azure
   - Visual Studio
   - Azure PowerShell
   - Modelo do Azure Resource Manager
@@ -111,7 +110,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui o PostgreSQL), as seg
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>Exemplo JSON: copiar dados do PostgreSQL para o Blob do Azure
-Este exemplo fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do banco de dados PostgreSQL para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+Este exemplo fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do banco de dados PostgreSQL para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece snippets de JSON. Ele não inclui instruções passo a passo para criar o data factory. Confira o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo.
@@ -314,38 +313,38 @@ Ao mover os dados para o PostgreSQL os seguintes mapeamentos são usados do tipo
 | boolean |bool |Boolean |
 | box | |Byte[], String |
 | bytea | |Byte[], String |
-| character [(n)] |char [(n)] |Cadeia de caracteres |
-| character varying [(n)] |varchar [(n)] |Cadeia de caracteres |
-| cid | |Cadeia de caracteres |
-| cidr | |Cadeia de caracteres |
+| character [(n)] |char [(n)] |string |
+| character varying [(n)] |varchar [(n)] |string |
+| cid | |string |
+| cidr | |string |
 | circle | |Byte[], String |
 | date | |DateTime |
-| daterange | |Cadeia de caracteres |
-| double precision |float8 |Double |
+| daterange | |string |
+| double precision |float8 |Duplo |
 | inet | |Byte[], String |
-| intarry | |Cadeia de caracteres |
-| int4range | |Cadeia de caracteres |
-| int8range | |Cadeia de caracteres |
-| inteiro |int, int4 |Int32 |
+| intarry | |string |
+| int4range | |string |
+| int8range | |string |
+| integer |int, int4 |Int32 |
 | interval [fields] [(p)] | |Timespan |
-| json | |Cadeia de caracteres |
+| json | |string |
 | jsonb | |Byte[] |
 | line | |Byte[], String |
 | lseg | |Byte[], String |
 | macaddr | |Byte[], String |
 | money | |Decimal |
 | numeric [(p, s)] |decimal [(p, s)] |Decimal |
-| numrange | |Cadeia de caracteres |
+| numrange | |string |
 | oid | |Int32 |
-| caminho | |Byte[], String |
+| path | |Byte[], String |
 | pg_lsn | |Int64 |
 | point | |Byte[], String |
 | polygon | |Byte[], String |
-| real |float4 |Single |
+| real |float4 |Simples |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |
 | serial |serial4 |Int32 |
-| text | |Cadeia de caracteres |
+| text | |string |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

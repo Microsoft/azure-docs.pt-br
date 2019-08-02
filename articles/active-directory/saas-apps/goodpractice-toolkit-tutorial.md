@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e55399337e06314a5079f9d0e692a771855f8ca
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fe89c067aed6a6934bfff37609516b6ef4d281c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683559"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101575"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutorial: Integração do Azure Active Directory ao GoodPractice Toolkit
 
@@ -55,7 +55,7 @@ Para configurar a integração do GoodPractice Toolkit ao Azure AD, é necessár
 
 **Para adicionar o GoodPractice Toolkit por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -81,7 +81,7 @@ Para configurar e testar o logon único do Azure AD com o GoodPractice Toolkit, 
 2. **[Configurar o logon único do GoodPractice Toolkit](#configure-goodpractice-toolkit-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do GoodPractice Toolkit](#create-goodpractice-toolkit-test-user)**: para ter um equivalente de Brenda Fernandes no GoodPractice Toolkit que esteja vinculado à representação do usuário no Azure AD.
+5. **[Criar um usuário de teste do GoodPractice Toolkit](#create-goodpractice-toolkit-test-user)** : para ter um equivalente de Brenda Fernandes no GoodPractice Toolkit que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -195,5 +195,5 @@ Ao clicar no bloco do GoodPractice Toolkit no painel de acesso, você será cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

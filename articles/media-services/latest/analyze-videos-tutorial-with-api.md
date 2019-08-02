@@ -1,5 +1,5 @@
 ---
-title: Analisar vídeos com Serviços de Mídia usando .NET – Azure | Microsoft Docs
+title: Analisar os vídeos com os Serviços de Mídia do Azure | Microsoft Docs
 description: Siga as etapas deste tutorial para analisar vídeos usando os Serviços de Mídia do Azure.
 services: media-services
 documentationcenter: ''
@@ -9,22 +9,25 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 04/21/2019
+ms.date: 06/19/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: d31d102300cf23e068aee6bec9ea6d253e874dca
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415643"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653967"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutorial: Analisar vídeos com os Serviços de Mídia v3 usando .NET
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutorial: Analisar vídeos com os Serviços de Mídia v3
+
+> [!NOTE]
+> Embora o tutorial use os exemplos do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), as etapas gerais são as mesmas para [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) ou outros [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 Este tutorial mostra como analisar vídeos com os Serviços de Mídia do Azure. Há muitos cenários em que você talvez queira obter ideias profundas sobre vídeos gravados ou conteúdo de áudio. Por exemplo, para obter maior satisfação do cliente, as organizações podem executar processamento de fala para texto para converter gravações de suporte do cliente em um catálogo pesquisável com índices e painéis. Em seguida, podem obter ideias sobre seus negócios como uma lista de reclamações comuns, fontes de tais reclamações e outras informações úteis.
 
 Este tutorial mostra como:    
-
+ 
 > [!div class="checklist"]
 > * Baixe o aplicativo de exemplo descrito no tópico
 > * Examinar o código que analisa o vídeo especificado
@@ -83,7 +86,7 @@ Em Serviços de Mídia v3, você usará as APIs de Armazenamento do Microsoft Az
 A função a seguir realiza essas ações:
 
 * Cria um ativo 
-* Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável ao contêiner [do Ativo no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows#upload-blobs-to-the-container)
+* Obtém uma [URL SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) gravável ao contêiner [do Ativo no armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
 * Carrega o arquivo para o contêiner no armazenamento usando a URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CreateInputAsset)]

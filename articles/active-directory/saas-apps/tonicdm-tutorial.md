@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: b648c51b1b169c02f149493c53b6ef738b736e61
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 40409dbc860341e36501eec7ba77e2dd727c995e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905664"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088617"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tonicdm"></a>Tutorial: Integração do Azure Active Directory ao TonicDM
 
@@ -55,7 +55,7 @@ Para configurar a integração do TonicDM ao Azure AD, você precisa adicionar o
 
 **Para adicionar o TonicDM da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o TonicDM, realize as seguintes e
 
     ![Informações de logon único de Domínio e URLs do TonicDM](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://tonicdm.com/`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://tonicdm.com/`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://tonicdm.com/saml/metadata`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://tonicdm.com/saml/metadata`
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 

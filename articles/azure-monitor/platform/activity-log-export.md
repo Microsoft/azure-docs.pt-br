@@ -114,9 +114,9 @@ Se um perfil de log já existir, você precisa primeiro remover o perfil de log 
     | Name |Sim |Nome de seu perfil de log. |
     | StorageAccountId |Não |ID do recurso da conta de armazenamento onde o Log de atividades deve ser salvo. |
     | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Isso é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}`. |
-    | Local padrão |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
+    | Location |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
     | RetentionInDays |Sim |Número de dias para os quais eventos devem ser mantidos na conta de armazenamento, entre 1 e 2147483647. Um valor de zero armazena os logs indefinidamente. |
-    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _escrever_, _excluir_, e _ação_. |
+    | Category |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _escrever_, _excluir_, e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
 A seguir está um exemplo de script do PowerShell para criar um perfil de log que grava o Log de atividades em ambos os um armazenamento conta e hub de eventos.
@@ -156,10 +156,10 @@ Se um perfil de log já existir, primeiro será necessário remover o perfil de 
     | --- | --- | --- |
     | name |Sim |Nome de seu perfil de log. |
     | storage-account-id |Sim |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
-    | Locais |Sim |Lista separada por espaço de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `az account list-locations --query [].name`. |
+    | locations |Sim |Lista separada por espaço de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `az account list-locations --query [].name`. |
     | days |Sim |Número de dias para quais eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se zero, o parâmetro habilitado deverá ser definido como verdadeiro. |
     |enabled | Sim |Verdadeiro ou falso.  Usado para habilitar ou desabilitar a política de retenção.  Se for Verdadeiro, o parâmetro de dias deverá ser um valor maior que 0.
-    | Categorias |Sim |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
+    | categories |Sim |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 
 
@@ -234,11 +234,11 @@ Os elementos neste JSON são descritos na tabela a seguir.
 | durationMs |Duração da operação em milissegundos |
 | callerIpAddress |Endereço IP do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
 | correlationId |Geralmente, um GUID no formato de cadeia de caracteres. Os eventos que compartilham um correlationId pertencem à mesma ação superior. |
-| identidade |Blob JSON que descreve a autorização e as declarações. |
+| identity |Blob JSON que descreve a autorização e as declarações. |
 | authorization |Blob de propriedades RBAC do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
 | level |Nível do evento. Um dos seguintes valores: _Críticos_, _erro_, _aviso_, _informativa_, e _detalhado_ |
 | location |Região na qual ocorreu o local (ou global). |
-| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
+| properties |Conjunto de pares de `<Key, Value>` (ou seja, Dicionário) que descreve os detalhes do evento. |
 
 > [!NOTE]
 > As propriedades e o uso dessas propriedades podem variar dependendo do recurso.

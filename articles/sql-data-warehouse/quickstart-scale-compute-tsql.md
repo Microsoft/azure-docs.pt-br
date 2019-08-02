@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: Expandir a computação no SQL Data Warehouse do Azure – T-SQL | Microsoft Docs'
+title: 'Início Rápido: Expandir a computação no SQL Data Warehouse do Azure – T-SQL | Microsoft Docs'
 description: Dimensione a computação no SQL Data Warehouse do Azure usando T-SQL e SSMS (SQL Server Management Studio). Escale horizontalmente a computação para melhorar o desempenho ou reduza a escala da computação para economizar custos.
 services: sql-data-warehouse
-author: kevinvngo
+author: Antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: implement
 ms.date: 04/17/2018
-ms.author: kevin
+ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a734e0173a3432e03c5876d30cf54ea3fd23d4dc
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bac61043d5804d1d8a719a311739e826a1bc2187
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460332"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68640981"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-using-t-sql"></a>Início Rápido: Dimensionar a computação no SQL Data Warehouse do Azure usando T-SQL
 
@@ -43,7 +43,7 @@ Esta seção usa o [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | Tipo de servidor | Mecanismo de banco de dados | Esse valor é obrigatório |
    | Nome do servidor | O nome do servidor totalmente qualificado | Veja um exemplo: **meunovoservidor-20171113.database.windows.net**. |
-   | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
+   | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação configurado neste tutorial. |
    | Logon | A conta do administrador do servidor | A conta que você especificou quando criou o servidor. |
    | Senha | A senha para sua conta do administrador do servidor | Esta é a senha que você especificou quando criou o servidor. |
 
@@ -92,7 +92,7 @@ Para alterar unidades de data warehouse:
 
     ```Sql
     ALTER DATABASE mySampleDataWarehouse
-    MODIFY (SERVICE_OBJECTIVE = 'DW300')
+    MODIFY (SERVICE_OBJECTIVE = 'DW300c')
     ;
     ```
 

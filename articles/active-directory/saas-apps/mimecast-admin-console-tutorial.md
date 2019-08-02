@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2019c61ccbffa1e68c1ef53c718d4839a604aa44
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849951"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>Tutorial: Integração do Azure Active Directory ao Mimecast Admin Console
 
@@ -53,7 +53,7 @@ Para configurar a integração do Mimecast Admin Console com o Azure AD, você p
 
 **Para adicionar o Mimecast Admin Console por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o Mimecast Admin Console, execute
 
     ![Perfil de Autenticação](./media/mimecast-admin-console-tutorial/ic795015.png "Perfil de Autenticação")
     
-     a. Na caixa de texto **Descrição** , digite um nome para a sua configuração.
+    a. Na caixa de texto **Descrição** , digite um nome para a sua configuração.
     
     b. Selecione **Impor Autenticação SAML para o Mimecast Admin Console**.
     
@@ -164,11 +164,11 @@ Para configurar o logon único do Azure AD com o Mimecast Admin Console, execute
     >[!NOTE]
     >O valor da URL de logon e da URL de logoff para o Mimecast Admin Console são as mesmas.
     
-    g. Abra seu certificado codificado em base 64 baixado do Portal do Azure no bloco de notas, remova a primeira linha ("*--*") e a última linha ("*--*"), copie o conteúdo restante para a área de transferência e cole-o na caixa de texto **Certificado de Provedor de Identidade (Metadados)**.
+    g. Abra seu certificado codificado em base 64 baixado do Portal do Azure no bloco de notas, remova a primeira linha (" *--* ") e a última linha (" *--* "), copie o conteúdo restante para a área de transferência e cole-o na caixa de texto **Certificado de Provedor de Identidade (Metadados)** .
     
     h. Selecione **Permitir Logon Único**.
     
-    i. Clique em **Salvar**.
+    i. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -188,7 +188,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -247,9 +247,9 @@ Para permitir que os usuários do Azure AD façam logon no Mimecast Admin Consol
    
     ![Salvar](./media/mimecast-admin-console-tutorial/ic795006.png "Salvar")
    
-     a. Digite os atributos de **Endereço de Email**, **Nome Global**, **Senha** e **Confirmar Senha** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite os atributos de **Endereço de Email**, **Nome Global**, **Senha** e **Confirmar Senha** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
 
-    b. Clique em **Salvar**.
+    b. Clique em **Save** (Salvar).
 
 >[!NOTE]
 >É possível usar qualquer outra ferramenta de criação da conta de usuário do Mimecast Admin Console ou as APIs fornecidas pelo Mimecast Admin Console para provisionar as contas de usuário do Azure AD. 
@@ -266,5 +266,5 @@ Ao clicar no bloco do Mimecast Admin Console no Painel de Acesso, você deverá 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

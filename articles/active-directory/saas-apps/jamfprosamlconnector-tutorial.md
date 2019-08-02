@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 00d03df38dee74f4767e8ff3b21d9462fd59c4c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58906133"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099579"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integração do Azure Active Directory ao Jamf Pro
 
@@ -53,7 +53,7 @@ Para configurar a integração do Jamf Pro ao AD do Azure, você precisará adic
 
 **Para adicionar o Jamf Pro por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Jamf Pro, execute as seguintes 
 
     ![Informações de logon único em Domínio e URLs do Jamf Pro](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.jamfcloud.com/saml/SSO`
 
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Jamf Pro, execute as seguintes 
 
     ![O Jamf Pro único](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
 
-     a. Selecione **Jamf Pro Server** para ativar o acesso ao Single Sign-On.
+    a. Selecione **Jamf Pro Server** para ativar o acesso ao Single Sign-On.
 
     b. Ao selecionar **Permitir desvio para todos os usuários**, os usuários não serão redirecionados para a página de login do Provedor de identidade para autenticação, mas poderão efetuar login no Jamf Pro diretamente. Quando um usuário tenta acessar o Jamf Pro por meio do Provedor de Identidade, ocorre a autenticação e autorização de SSO iniciada pelo IdP.
 
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure AD com o Jamf Pro, execute as seguintes 
 
     ![Configuração do Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-     a. Selecione **Outro** como opção no menu suspenso **PROVEDOR DE IDENTIDADE**.
+    a. Selecione **Outro** como opção no menu suspenso **PROVEDOR DE IDENTIDADE**.
 
     b. Na caixa de texto **OTHER PROVIDER**, digite **Azure AD**.
 
@@ -252,7 +252,7 @@ Para permitir que os usuários do Azure AD façam logon no Jamf Pro, eles devem 
 
     ![Adicionar Funcionário](./media/jamfprosamlconnector-tutorial/user4.png)
 
-     a. Na caixa de texto **USERNAME**, digite o nome completo de BrendaFernandes.
+    a. Na caixa de texto **USERNAME**, digite o nome completo de BrendaFernandes.
 
     b. Selecione as opções apropriadas de acordo com a sua organização para o **NÍVEL DE ACESSO**, **CONJUNTO DE PRIVILÉGIOS** e para o **STATUS DE ACESSO**.
 
@@ -278,4 +278,4 @@ Ao clicar no bloco do Jamf Pro no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

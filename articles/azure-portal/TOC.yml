@@ -8,8 +8,6 @@
       href: azure-portal-supported-browsers-devices.md
 - name: Conceitos
   items:
-    - name: Criar e compartilhar painéis do Azure
-      href: azure-portal-dashboards.md
     - name: Compartilhar painéis com o controle de acesso baseado em função
       href: azure-portal-dashboard-share-access.md
     - name: Criar programaticamente os painéis do Azure
@@ -20,6 +18,8 @@
       href: azure-portal-change-theme-high-contrast.md
     - name: 'Adicionar, remover e classificar favoritos'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Criar e compartilhar painéis do Azure
+      href: azure-portal-dashboards.md
     - name: Usar um bloco markdown personalizado
       href: azure-portal-markdown-tile.md
     - name: Exportar ou excluir configurações do usuário
@@ -30,6 +30,8 @@
   items:
     - name: Atalhos do teclado
       href: azure-portal-keyboard-shortcuts.md
+    - name: Coloque as URLs do portal do Azure em uma lista segura
+      href: azure-portal-safelist-urls.md
     - name: Estrutura de painéis do Azure
       href: azure-portal-dashboards-structure.md
 - name: Recursos

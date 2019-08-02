@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9a5a2d92f70c411c46ebb4efb35e17e9b0c477ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d41b86b902d9a58b144e251e6922fbd95d459031
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161583"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671189"
 ---
 1. Instalar dapl, rdmacm, ibverbs e mlx4
 
@@ -44,7 +44,7 @@ ms.locfileid: "66161583"
  
    Há suporte apenas para tempos de execução MPI Intel 5.x.
  
-   Para saber as etapas de instalação, consulte o [Guia de instalação da Intel MPI Library](http://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
+   Para saber as etapas de instalação, consulte o [Guia de instalação da Intel MPI Library](https://registrationcenter-download.intel.com/akdlm/irc_nas/1718/INSTALL.html?lang=en&fileExt=.html).
 
 5. Habilite ptrace para os processos que não são de depuração e não são da raiz (necessária para as versões mais recentes da Intel MPI).
  

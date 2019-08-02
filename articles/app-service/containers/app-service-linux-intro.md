@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 8d40b28103e24214ef00864b032266cc95889eff
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6bca1b067f5ec667e8b5da92a182a5618582b2f3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780342"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617438"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
@@ -33,12 +33,12 @@ O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim
 
 | Linguagem | Versões com suporte |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
 | Java * | O Tomcat 8.5, 9.0, Java SE, WildFly 14 (todos executando o JRE 8) |
-| PHP | 5.6, 7.0, 7.2 |
+| PHP | 5.6, 7.0, 7.2, 7.3 |
 | Python | 2.7, 3.6, 3.7 |
 | .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
-| Ruby | 2.3, 2.4 |
+| Ruby | 2.3, 2.4, 2.5, 2.6 |
 
 ## <a name="deployments"></a>Implantações
 
@@ -77,12 +77,7 @@ Com base em uma limitação atual, para o mesmo grupo de recursos, você não po
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-Quando seu aplicativo falhar ao iniciar ou você quiser verificar o log do aplicativo, verifique os logs do Docker no diretório LogFiles. Acesse esse diretório por meio de seu site SCM ou via FTP.
-Para registrar `stdout` e `stderr` por meio do contêiner, você precisa habilitar o **Registro em log do Contêiner do Docker** em **Logs de Diagnóstico**.
-
-![Habilitando o log][2]
-
-A configuração entra em vigor imediatamente. O Serviço de Aplicativo detecta a alteração das configurações e reinicia o contêiner para você automaticamente.
+Quando seu aplicativo falhar ao iniciar ou você quiser verificar o log do aplicativo, verifique os logs do Docker no diretório LogFiles. Acesse esse diretório por meio de seu site SCM ou via FTP. Para registrar `stdout` e `stderr` por meio do contêiner, você precisa habilitar o **Registro em log do Contêiner do Docker** em **Logs de Serviço de Aplicativo**. A configuração entra em vigor imediatamente. O Serviço de Aplicativo detecta a alteração e reinicia o contêiner automaticamente.
 
 Acesse o site SCM nas **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 

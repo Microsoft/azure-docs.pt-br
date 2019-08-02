@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4b26446845d004b4dd92807c0b5ec0ada9ed181f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6bba176a27cc70321915654e3e2e62320f22c16c
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475230"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310138"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para Serviço de Aplicativo do Azure
 
@@ -147,7 +147,7 @@ Você também verá os nomes de host selecionados na página **Domínios persona
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> Um rótulo **Anotação Segura** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para configurar a associação de SSL, consulte [comprar e configurar um certificado SSL para o serviço de aplicativo do Azure](web-sites-purchase-ssl-web-site.md).
+> Um **não seguro** rotular para seu domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação de HTTPS em um navegador para seu domínio personalizado receberá um erro ou aviso, dependendo do navegador. Para configurar a associação de SSL, consulte [comprar e configurar um certificado SSL para o serviço de aplicativo do Azure](web-sites-purchase-ssl-web-site.md).
 >
 
 Para testar os nomes de host, navegue até os nomes de host listados no navegador. No exemplo na captura de tela anterior, tente navegar até _kontoso.net_ e _www\.kontoso.net_.

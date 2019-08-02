@@ -3,7 +3,7 @@ title: Criar um cluster do Service Fabric executando Windows no Azure | Microsof
 description: Neste tutorial, você aprenderá a implantar um cluster do Service Fabric do Windows em uma rede virtual do Azure e em um grupo de segurança de rede usando o PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
-ms.author: aljo
+ms.date: 07/22/2019
+ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158105"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68598882"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implantar um cluster do Service Fabric executando o Windows em uma rede virtual do Azure
 
@@ -72,7 +72,7 @@ Baixe os seguintes arquivos do modelo do Azure Resource Manager:
 * [azuredeploy.json][template]
 * [azuredeploy.parameters.json][parameters]
 
-Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual e um Grupo de Segurança de Rede.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [azuredeploy.json][template] implanta diversos recursos, incluindo o seguinte.
+Esse modelo implanta um cluster seguro de sete máquinas virtuais e três tipos de nó em uma rede virtual e um Grupo de Segurança de Rede.  Outros modelos de exemplo podem ser encontrados no [GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). O [azuredeploy.json][template] implanta uma série de recursos, incluindo os seguintes.
 
 ### <a name="service-fabric-cluster"></a>Cluster do Service Fabric
 
@@ -152,7 +152,7 @@ Por padrão, o [Windows Defender Antivírus](/windows/security/threat-protection
 
 ## <a name="set-template-parameters"></a>Definir os parâmetros do modelo
 
-O arquivo de parâmetros [azuredeploy.parameters.json][parameters] declara muitos valores usados para implantar o cluster e os recursos associados. Estes são os parâmetros para modificar para sua implantação:
+O arquivo de parâmetros [azuredeploy.parameters.json][parameters] declara muitos valores usados para implantar o cluster e recursos associados. Estes são os parâmetros para modificar para sua implantação:
 
 **Parâmetro** | **Valor de exemplo** | **Observações** 
 |---|---|---|
@@ -183,7 +183,7 @@ Para simplificar as etapas envolvidas na configuração do Microsoft Azure Activ
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Criar aplicativos do Azure AD e atribuir usuários a funções
 Crie dois aplicativos do Azure AD para controlar o acesso ao cluster: um aplicativo Web e um aplicativo nativo. Depois de criar os aplicativos para representar seu cluster, atribua os usuários às [funções compatíveis com o Service Fabric](service-fabric-cluster-security-roles.md): somente leitura e administrador.
 
-Execute `SetupApplications.ps1` e forneça a ID de locatário, o nome do cluster e a URL de resposta do aplicativo Web como parâmetros. Especifique também nomes de usuário e senhas para os usuários. Por exemplo: 
+Execute `SetupApplications.ps1` e forneça a ID de locatário, o nome do cluster e a URL de resposta do aplicativo Web como parâmetros. Especifique também nomes de usuário e senhas para os usuários. Por exemplo:
 
 ```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
@@ -260,7 +260,7 @@ Em [azuredeploy.json][template], configure o Azure AD na seção **Microsoft.Ser
 }
 ```
 
-Adicione os valores de parâmetro ao arquivo de parâmetros [azuredeploy.parameters.json][parameters]. Por exemplo: 
+Adicione os valores de parâmetro ao arquivo de parâmetros [azuredeploy.parameters.json][parameters]. Por exemplo:
 
 ```json
 "aadTenantId": {
@@ -280,7 +280,7 @@ Quando você estiver executando um cluster de Service Fabric do Azure, é uma bo
 
 Uma maneira de fazer upload e coletar logs é utilizar a extensão de Diagnóstico do Microsoft Azure (WAD) que faz upload dos logs no Armazenamento do Microsoft Azure e, além disso, possui a opção de enviar os logs para o Azure Application Insights ou Hubs de Evento. Também é possível utilizar um processo externo para ler os eventos do armazenamento e colocá-los em um produto da plataforma de análise, como os logs do Azure Monitor ou outra solução de análise de log.
 
-Se você estiver seguindo este tutorial, a coleta de diagnóstico já está configurada na [modelo][template].
+Se você estiver seguindo este tutorial, a coleta de diagnóstico já estará configurada no [modelo][template].
 
 Se você tiver um cluster existente que não tenha o Diagnóstico implantado, poderá adicioná-lo ou atualizá-lo por meio do modelo de cluster. Modifique o modelo do Resource Manager usado para criar o cluster existente ou baixe o modelo do portal. Modifique o arquivo template.json executando as tarefas a seguir:
 
@@ -332,7 +332,7 @@ Em seguida, adicione parâmetros para o tipo e o nome da conta de armazenamento 
 }
 ```
 
-Em seguida, adicione a extensão **IaaSDiagnostics** à matriz de extensões da propriedade **VirtualMachineProfile** de cada recurso **Microsoft.Compute/virtualMachineScaleSets** no cluster.  Se você estiver usando o [modelo de exemplo][template], há três conjuntos de dimensionamento de máquina virtual (um para cada tipo de nó no cluster).
+Em seguida, adicione a extensão **IaaSDiagnostics** à matriz de extensões da propriedade **VirtualMachineProfile** de cada recurso **Microsoft.Compute/virtualMachineScaleSets** no cluster.  Se você está usando o [modelo de exemplo][template], há três conjuntos de dimensionamento de máquinas virtuais (um para cada tipo de nó no cluster).
 
 ```json
 "apiVersion": "2018-10-01",
@@ -608,7 +608,7 @@ Adicione a extensão do agente do Log Analytics a cada conjunto de dimensionamen
 
 ## <a name="deploy-the-virtual-network-and-cluster"></a>Implantar a rede virtual e o cluster
 
-Em seguida, configure a topologia de rede e implante o cluster do Service Fabric. O modelo do Resource Manager [azuredeploy.json][template] cria uma rede virtual e também uma sub-rede e grupo de segurança de rede para o Service Fabric. O modelo também implanta um cluster com a segurança de certificado habilitada. Para clusters de produção, use um certificado de uma autoridade de certificação como o certificado de cluster. Um certificado autoassinado pode ser usado para proteger clusters de teste.
+Em seguida, configure a topologia de rede e implante o cluster do Service Fabric. O modelo do Resource Manager [azuredeploy.json][template] cria uma rede virtual, uma sub-rede e também um grupo de segurança de rede para o Service Fabric. O modelo também implanta um cluster com a segurança de certificado habilitada. Para clusters de produção, use um certificado de uma autoridade de certificação como o certificado de cluster. Um certificado autoassinado pode ser usado para proteger clusters de teste.
 
 O modelo deste artigo implanta um cluster que usa a impressão digital do certificado para identificar o certificado de cluster. Dois certificados não podem ter a mesma impressão digital, o que dificulta o gerenciamento de certificados. Alternar um cluster implantado do uso de impressões digitais de certificado para certificar os nomes comuns simplifica o gerenciamento de certificado. Para saber como atualizar o cluster para que ele use nomes comuns de certificado para o gerenciamento de certificados, leia [Alterar o cluster para o gerenciamento de nomes comuns de certificado](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 

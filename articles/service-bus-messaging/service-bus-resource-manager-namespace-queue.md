@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62111485"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444778"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Criar um namespace e uma fila do Barramento de Serviço usando um modelo do Azure Resource Manager
 
@@ -37,7 +37,7 @@ Para ver o modelo completo, consulte o [Modelo de namespace e fila do Barramento
 > * [Criar um namespace do Barramento de Serviço](service-bus-resource-manager-namespace.md)
 > * [Criar um namespace do Barramento de Serviço com tópico, assinatura e regra](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> Para verificar os modelos mais recentes, visite a galeria [Modelos de Início Rápido do Azure][Azure Quickstart Templates] e pesquise **Barramento de Serviço**.
+> Para verificar os modelos mais recentes, visite o [Azure Quickstart Templates][Azure Quickstart Templates] galeria e procure **do barramento de serviço**.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -137,7 +137,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você criou e implantou recursos usando o Azure Resource Manager, saiba como gerenciar esses recursos consultando estes artigos:
+Consulte o tópico a seguir que mostra como criar uma regra de autorização para a namespace/fila: [Criar uma regra de autorização do barramento de serviço para namespace e fila usando um modelo do Azure Resource Manager](service-bus-resource-manager-namespace-auth-rule.md)
+
+Saiba como gerenciar esses recursos consultando estes artigos:
 
 * [Gerenciar o Barramento de Serviço com o PowerShell](service-bus-manage-with-ps.md)
 * [Gerenciar recursos do Barramento de Serviço com o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

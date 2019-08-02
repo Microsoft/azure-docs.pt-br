@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162937"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67330553"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2 – Exibir as mensagens roteadas
 
@@ -126,7 +126,7 @@ Para ver os dados em uma visualização do Power BI, primeiro configure um traba
 
    **Ponto de extremidade**: selecione **Mensagens**. (Se você selecionar Monitoramento de Operações, você obtém dados de telemetria sobre o Hub IoT em lugar dos dados que você está enviando.) 
 
-   **Nome da política de acesso compartilhado**: Selecione **iothubowner**. O portal preenche a chave de política de acesso compartilhado para você.
+   **Nome da política de acesso compartilhado**: Selecione **serviço**. O portal preenche a chave de política de acesso compartilhado para você.
 
    **Grupo de consumidores**: Selecione o grupo de consumidores configurado na etapa 1 deste tutorial. Este tutorial usa **contosoconsumers**.
    

@@ -1,0 +1,53 @@
+- name: Documentação da Versão Prévia do Azure Data Share
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Azure Data Share (versão prévia)?
+      href: overview.md
+- name: Tutoriais
+  expanded: true
+  items:
+    - name: Compartilhar dados
+      href: share-your-data.md
+    - name: Aceitar e receber dados
+      href: subscribe-to-data-share.md
+- name: Conceitos
+  items:
+    - name: Terminologia do Azure Data Share
+      href: terminology.md
+    - name: Requisitos e funções
+      href: concepts-roles-permissions.md
+- name: Guias de instruções
+  items:
+    - name: Monitoramento
+      href: how-to-monitor.md
+    - name: Configurar mapeamentos de conjuntos de dados
+      href: how-to-configure-mapping.md
+    - name: Solucionar problemas
+      href: data-share-troubleshoot.md
+    - name: Adicionar conjuntos de dados
+      href: how-to-add-datasets.md
+    - name: Adicionar destinatários
+      href: how-to-add-recipients.md
+    - name: Excluir um convite
+      href: how-to-delete-invitation.md
+    - name: Revogar uma assinatura de compartilhamento
+      href: how-to-revoke-share-subscription.md
+- name: Referência
+  items:
+    - name: .NET
+      href: /dotnet/api/overview/azure/datashare
+    - name: API REST
+      href: /rest/api/datashare
+- name: Recursos
+  items:
+    - name: Blog
+      href: 'https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/'
+    - name: Comunidade de Tecnologia Microsoft
+      href: 'https://techcommunity.microsoft.com/'
+    - name: Comentários sobre o produto
+      href: 'https://feedback.azure.com/forums/922759-azure-data-share-public-preview'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/data-share/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=data-share'

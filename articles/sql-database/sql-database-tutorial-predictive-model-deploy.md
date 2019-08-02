@@ -12,31 +12,31 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 17b68f71f4034e5eb637d40b975cc22d94438fb7
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: 9fa816b2a8e736f03c99b66b898f48bd2a483b31
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978699"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596781"
 ---
 # <a name="tutorial-deploy-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Implantar um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
-Na terceira parte deste tutorial, você implantará um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na terceira parte deste tutorial, você implantará um modelo preditivo desenvolvido no R em um banco de dados SQL com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 Você criará um procedimento armazenado com um script de R incorporado que faz previsões usando o modelo. Como seu modelo é executado no Banco de Dados SQL do Azure, ele pode ser facilmente treinado nos dados armazenados no banco de dados.
 
-Neste artigo, você aprenderá a:
+Neste artigo, usando os scripts R que você desenvolveu nas partes anteriores, você aprenderá a:
 
 > [!div class="checklist"]
-> * Armazenar o modelo preditivo em uma tabela de banco de dados
-> * Criar um procedimento armazenado que gera o modelo
+> * Criar um procedimento armazenado que gera o modelo de machine learning
+> * Armazenar o modelo em uma tabela de banco de dados
 > * Criar um procedimento armazenado que faz previsões usando o modelo
 > * Executar o modelo com novos dados
 
-Na [parte 1](sql-database-tutorial-predictive-model-prepare-data.md), você aprendeu a importar um banco de dados de exemplo para um Banco de Dados SQL do Azure e, em seguida, a preparar os dados para serem usado no treinamento de um modelo preditivo em R.
+Na [parte 1](sql-database-tutorial-predictive-model-prepare-data.md), você aprendeu a importar um banco de dados de exemplo e, em seguida, a preparar os dados para serem usados no treinamento de um modelo preditivo em R.
 
-Na [parte 2](sql-database-tutorial-predictive-model-build-compare.md), você aprendeu a criar e treinar vários modelos e, em seguida, escolher o mais preciso.
+Na [parte 2](sql-database-tutorial-predictive-model-build-compare.md), você aprendeu a criar e treinar vários modelos de machine learning em R e, em seguida, escolheu o mais preciso.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -46,7 +46,7 @@ Na [parte 2](sql-database-tutorial-predictive-model-build-compare.md), você apr
 
 ## <a name="create-a-stored-procedure-that-generates-the-model"></a>Criar um procedimento armazenado que gera o modelo
 
-Na segunda parte desta série de tutoriais, você decidiu que um modelo de árvore de decisão (dtree) era o mais preciso. Agora, crie um procedimento armazenado (`generate_rental_rx_model`) que treina e gera o modelo dtree usando o rxDTree do pacote RevoScaleR.
+Na segunda parte desta série de tutoriais, você decidiu que um modelo de árvore de decisão (dtree) era o mais preciso. Agora, com os scripts R desenvolvidos, crie um procedimento armazenado (`generate_rental_rx_model`) que treina e gera o modelo dtree usando o rxDTree do pacote RevoScaleR.
 
 Execute os seguintes comandos no Azure Data Studio ou no SSMS.
 
@@ -214,8 +214,8 @@ No portal do Azure, siga estas etapas:
 
 Na terceira parte desta série de tutoriais, você concluiu estas etapas:
 
-* Armazenar o modelo preditivo em uma tabela de banco de dados
-* Criar um procedimento armazenado que gera o modelo
+* Criar um procedimento armazenado que gera o modelo de machine learning
+* Armazenar o modelo em uma tabela de banco de dados
 * Criar um procedimento armazenado que faz previsões usando o modelo
 * Executar o modelo com novos dados
 

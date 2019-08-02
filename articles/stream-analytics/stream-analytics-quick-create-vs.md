@@ -4,16 +4,15 @@ description: Este início rápido mostra como começar com a criação de um tra
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 12/20/2018
+ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: bd27495266918063c65bf4648b3453e25767e293
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303011"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67076195"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Início Rápido: Criar um trabalho do Stream Analytics usando as ferramentas do Azure Stream Analytics para Visual Studio
 

@@ -1,0 +1,54 @@
+- name: Documentação do Azure Austrália
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: O que é o Azure Austrália?
+      href: australia-overview.md
+- name: Conceitos
+  items:
+    - name: Segurança no Azure Austrália
+      items:
+        - name: Segurança de Dados
+          href: secure-your-data.md
+        - name: Configuração do Gateway de VPN do Azure
+          href: vpn-gateway.md
+        - name: Cofre da Chave do Azure
+          href: azure-key-vault.md
+        - name: Federação de identidade
+          href: identity-federation.md
+        - name: RBAC e PIM
+          href: role-privileged.md
+        - name: Site Recovery e Backup para o Essential 8
+          href: recovery-backup.md
+        - name: Monitoramento do sistema do Azure
+          href: system-monitor.md
+        - name: Azure Policy e Azure Blueprints
+          href: azure-policy.md
+    - name: Gateways no Azure Austrália
+      items:
+        - name: 'Registro em log, auditoria e visibilidade de gateway'
+          href: gateway-log-audit-visibility.md
+        - name: Administração remota segura de gateway
+          href: gateway-secure-remote-administration.md
+        - name: Controle de entrada de dados de gateway
+          href: gateway-ingress-traffic.md
+        - name: Controle de saída de dados de gateway
+          href: gateway-egress-traffic.md
+- name: Recursos
+  items:
+    - name: Explicação sobre a segurança do Azure Austrália
+      href: security-explained.md
+    - name: Recursos adicionais do Azure Austrália
+      href: reference-library.md
+    - name: Site do ACSC (Centro Australiano de Segurança Cibernética)
+      href: 'https://cyber.gov.au/'
+    - name: CCSL (Lista de Serviços de Nuvem Certificados) da Austrália
+      href: 'https://acsc.gov.au/infosec/irap/certified_clouds.htm'
+    - name: Página da Austrália no Portal de Confiança do Serviço da Microsoft
+      href: 'https://aka.ms/au-irap'
+    - name: Blueprints PROTEGIDOS da Austrália para aplicativos Web IaaS e PaaS
+      href: 'https://aka.ms/au-protected'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'

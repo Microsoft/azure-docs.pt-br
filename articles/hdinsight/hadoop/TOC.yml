@@ -2,35 +2,20 @@
   href: /azure/hdinsight
 - name: Visão geral
   items:
-    - name: Sobre o Apache Hadoop no HDInsight
+    - name: O que é o Apache Hadoop no HDInsight?
       href: apache-hadoop-introduction.md
-      maintainContext: true
-    - name: Arquitetura do Apache Hadoop no HDInsight
-      href: ../hdinsight-hadoop-architecture.md
-      maintainContext: true
-    - name: Componentes do Apache Hadoop no HDInsight
-      href: ../hdinsight-component-versioning.md
-      maintainContext: true
-    - name: HDInsight 4.0
-      href: ../hdinsight-version-release.md
       maintainContext: true
 - name: Guia de início rápido
   items:
     - name: Criar o cluster do Apache Hadoop - Portal
       href: apache-hadoop-linux-create-cluster-get-started-portal.md
-    - name: Criar um cluster do Apache Hadoop – modelo do Resource Manager
+    - name: Criar o cluster do Apache Hadoop – Modelo
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-hadoop-linux-tutorial-get-started.md
 - name: Tutoriais
   items:
-    - name: Executar operações de ETL
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
-      maintainContext: true
     - name: Criar clusters sob demanda
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-      maintainContext: true
-    - name: Monitorar a disponibilidade do cluster com os logs do Ambari e do Azure Monitor
-      href: ../hdinsight-cluster-availability.md
       maintainContext: true
 - name: Exemplos
   items:
@@ -45,6 +30,18 @@
       maintainContext: true
 - name: Conceitos
   items:
+    - name: Monitorar a disponibilidade do cluster com os logs do Ambari e do Azure Monitor
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
+    - name: HDInsight 4.0
+      href: ../hdinsight-version-release.md
+      maintainContext: true
+    - name: Arquitetura do Apache Hadoop no HDInsight
+      href: ../hdinsight-hadoop-architecture.md
+      maintainContext: true
+    - name: Os componentes do Apache Hadoop no HDInsight
+      href: ../hdinsight-component-versioning.md
+      maintainContext: true
     - name: Planejamento de capacidade de cluster
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -57,6 +54,14 @@
     - name: Entender identidades gerenciadas
       href: ../hdinsight-managed-identities.md
       maintainContext: true
+    - name: Solucionar problemas
+      items:
+        - name: Não é possível adicionar nós ao cluster HDInsight
+          href: ./hdinsight-troubleshoot-unable-add-nodes.md
+        - name: InvalidNetworkSecurityGroupSecurityRules – falha na criação do cluster
+          href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+        - name: Convertendo um certificado de entidade de serviço
+          href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: Como
   items:
     - name: Usar área restrita do Apache Hadoop
@@ -77,7 +82,7 @@
         - name: Apache Hive com o Apache Hadoop
           href: hdinsight-use-hive.md
           items:
-            - name: Use as ferramentas do HDInsight para o VSCode
+            - name: Usar as ferramentas do Spark e do Hive para VSCode
               href: ../hdinsight-for-vscode.md
               maintainContext: true
             - name: Usar as ferramentas do HDInsight para Visual Studio
@@ -141,6 +146,10 @@
         - name: Ferramentas para VSCode
           href: ../hdinsight-for-vscode.md
           maintainContext: true
+        - name: Ferramentas para IntelliJ
+          href: ../spark/apache-spark-intellij-tool-plugin.md
+        - name: Ferramentas para Eclipse
+          href: ../spark/apache-spark-eclipse-tool-plugin.md
         - name: Ferramentas do Data Lake com Área Restrita do Hortonworks
           href: ../hdinsight-hadoop-emulator-visual-studio.md
           maintainContext: true
@@ -186,9 +195,6 @@
           maintainContext: true
         - name: Desenvolver ações de script
           href: ../hdinsight-hadoop-script-actions-linux.md
-          maintainContext: true
-        - name: Instalar e usar o Presto
-          href: ../hdinsight-hadoop-install-presto.md
           maintainContext: true
         - name: Adicionar bibliotecas do Apache Hive
           href: ../hdinsight-hadoop-add-hive-libraries.md
@@ -399,7 +405,7 @@
     - name: Segurança do Enterprise
       items:
         - name: Visão geral
-          href: ../domain-joined/apache-domain-joined-introduction.md
+          href: ../domain-joined/hdinsight-security-overview.md
           maintainContext: true
         - name: Planejar segurança da empresa
           href: ../domain-joined/apache-domain-joined-architecture.md
@@ -423,11 +429,14 @@
       items:
         - name: Arquitetura de rede virtual do HDInsight
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planejar VNETs para o HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Criar VNETs para o HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Endereços IP necessários para NSGs e UDRs
+          href: ../hdinsight-management-ip-addresses.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight na VNet do Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
           maintainContext: true
@@ -467,18 +476,11 @@
     - name: Modelo do Resource Manager
       displayName: 'resource manager template, arm template, resource manager group'
       href: /azure/templates/microsoft.hdinsight/allversions
-- name: Relacionados
-  items:
-    - name: Clusters do Windows
-      items:
-        - name: Migrar clusters do Windows para clusters do Linux
-          href: ../hdinsight-migrate-from-windows-to-linux.md
-          maintainContext: true
-        - name: Migrar soluções .NET para os clusters do Linux
-          href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
-          maintainContext: true
 - name: Recursos
   items:
+    - name: Migrar soluções .NET para os clusters do Linux
+      href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
+      maintainContext: true
     - name: Notas de versão
       items:
         - name: Notas sobre a versão atuais

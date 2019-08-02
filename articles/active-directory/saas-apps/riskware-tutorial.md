@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 08db463c92e4ee34819f446c3827ed8dfddc02d7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b2bfbed33433521fd086d474ea4b754f5435f5e6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65903942"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Tutorial: Integração do Azure Active Directory ao Riskware
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com Riskware, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Riskware](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     
     | Ambiente| Padrão de URL|
     |--|--|
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com Riskware, execute as seguintes et
 
     ![Configuração authenconfig do Riskware](./media/riskware-tutorial/tutorial_riskware_config.png)
 
-     a. Selecione **Digite** como **SAML** para autenticação.
+    a. Selecione **Digite** como **SAML** para autenticação.
 
     b. In the **Code** textbox, type your code like AZURE_UAT.
 
@@ -256,7 +256,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
     ![Detalhes da configuração do Riskware](./media/riskware-tutorial/tutorial_riskware_details.png)
 
-     a. Selecione **Tipo de Pessoa**, como Funcionário.
+    a. Selecione **Tipo de Pessoa**, como Funcionário.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -266,7 +266,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
     ![Configuração de segurança do Riskware](./media/riskware-tutorial/tutorial_riskware_security.png)
 
-     a. Na seção **Autenticação**, selecione o modo **Autenticação**, que você configurou como Configuração do AZURE para SSO.
+    a. Na seção **Autenticação**, selecione o modo **Autenticação**, que você configurou como Configuração do AZURE para SSO.
 
     b. Na seção **Detalhes do Logon**, na caixa de texto **ID de Usuário**, insira o email do usuário como `brittasimon@contoso.com`.
 
@@ -276,7 +276,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory entre no Risk
 
     ![Configuração da Organização do Riskware](./media/riskware-tutorial/tutorial_riskware_org.png)
 
-     a. Selecione a opção como organização **Level1**.
+    a. Selecione a opção como organização **Level1**.
 
     b. Na seção **Local de Trabalho Principal da Pessoa**, na caixa de texto **Local**, digite o local.
 

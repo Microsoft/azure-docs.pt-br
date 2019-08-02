@@ -3,18 +3,18 @@ title: Provisionar o pool em uma rede virtual | Microsoft Docs
 description: Como criar um pool de lotes em uma rede virtual do Azure para que os nós de computação possam se comunicar com segurança com outras VMs na rede, como um servidor de arquivos.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 2583e7e218e765e0d7745978582e19a5a4fe17ce
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60550167"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322633"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>Criar um pool do Lote do Azure em uma rede virtual
 
@@ -56,7 +56,7 @@ Você pode ter requisitos em sua organização para redirecionar (forçar) o tr�
 
 Para garantir que seus nós de computação do pool do Lote do Azure funcionam em uma rede virtual com túnel forçado habilitado, você deve adicionar as seguintes [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) para essa sub-rede:
 
-* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para obter a lista de endereços IP do serviço do Lote, entre em contato com o Suporte do Azure.
+* O serviço do Lote precisa se comunicar com os nós de computação do pool para o agendamento de tarefas. Para habilitar essa comunicação, adicione uma rota definida pelo usuário para cada endereço IP usado pelo serviço do Lote na região onde existe sua conta do Lote. Para saber como obter a lista de endereços IP do serviço de lote, consulte [marcas de serviço no local](../virtual-network/security-overview.md#service-tags-in-on-premises)
 
 * Certifique-se de que o tráfego de saída no Armazenamento do Azure (especificamente, as URLs da forma `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` e `<account>.blob.core.windows.net`) não está bloqueado por meio de seu dispositivo de rede local.
 

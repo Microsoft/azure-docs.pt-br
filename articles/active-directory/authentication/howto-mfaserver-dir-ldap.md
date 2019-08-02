@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214462977c160685a943cb64c517da37d96d8e47
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057355"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536909"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>Autenticação LDAP e Servidor de Autenticação Multifator do Azure
 
@@ -49,6 +49,9 @@ Repita estas etapas para adicionar outros clientes LDAP.
 ### <a name="configure-the-ldap-directory-connection"></a>Configurar a conexão do diretório LDAP
 
 Quando a Autenticação Multifator do Azure é configurado para receber autenticações LDAP, ele deve fazer o proxy dessas autenticações para o diretório LDAP. Portanto, o guia Destino exibe apenas uma única opção esmaecida para usar um destino LDAP.
+
+> [!NOTE]
+> Integração de diretório não é garantida para trabalhar com diretórios que não seja o Active Directory Domain Services.
 
 1. Para configurar a conexão do diretório LDAP, clique no ícone **Integração de Diretórios**.
 2. Na guia Configurações, selecione o botão de opção **Usar configuração de LDAP específica**.

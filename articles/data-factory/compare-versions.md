@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4cdb517e644d55504bfdafbd3bacdfd4bfa0b36c
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432695"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479294"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparar o Azure Data Factory com a versão 1 do Data Factory
 Este artigo compara o Data Factory com a versão 1 do Data Factory. Para obter uma introdução ao Data Factory, consulte [Introdução ao Data Factory](introduction.md). Para obter uma introdução à versão 1 do Data Factory, consulte [Introdução ao Azure Data Factory](v1/data-factory-introduction.md). 
@@ -29,7 +29,7 @@ A tabela a seguir compara os recursos do Data Factory com os recursos da versão
 | Conjunto de dados | Uma exibição nomeada de dados que faz referência aos dados que você deseja usar em suas atividades, como entradas e saídas. Conjuntos de dados identificam dados em armazenamentos de dados diferentes, como tabelas, arquivos, pastas e documentos. Por exemplo, um conjunto de dados de Blob do Azure especifica o contêiner de blobs e a pasta no armazenamento de Blobs do Azure dos quais a atividade deve ler os dados.<br/><br/>**Disponibilidade** define o modelo de divisão da janela de processamento do conjunto de dados (por exemplo, por hora ou diária, e assim por diante). | Os conjuntos de dados são os mesmos na versão atual. No entanto, você não precisa definir agendas de **disponibilidade** para os conjuntos de dados. Você pode definir um recurso de gatilho que pode agendar pipelines de um paradigma de agendador de relógio. Para saber mais, confira [Gatilhos](concepts-pipeline-execution-triggers.md#triggers) e [Conjuntos de dados](concepts-datasets-linked-services.md). | 
 | Serviços vinculados | Os serviços vinculados são como cadeias de conexão, que definem as informações de conexão necessárias para que o Data Factory se conecte aos recursos externos. | Os serviços vinculados são os mesmos que os do Data Factory V1, mas com uma nova propriedade **connectVia**, a fim de usar o ambiente de computação do Integration Runtime da versão atual do Data Factory. Para saber mais, confira [Tempo de execução de integração no Azure Data Factory](concepts-integration-runtime.md) e [Propriedades de serviço vinculado para o Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties). |
 | Pipelines | Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Você utiliza startTime, endTime, isPaused para agendar e executar pipelines. | Pipelines são grupos de atividades que são realizadas nos dados. No entanto, o agendamento das atividades no pipeline foi separado em novos recursos de gatilho. Pense em pipelines na versão atual do Data Factory mais como "unidades de fluxo de trabalho" que você agenda separadamente por meio de gatilhos. <br/><br/>Os pipelines não possuem “períodos” de execução de tempo na versão atual do Data Factory. Os conceitos de startTime, endTime e isPaused do Data Factory V1 não estão mais presentes na versão atual do Data Factory. Para saber mais, consulte [Execução e gatilhos de pipelines](concepts-pipeline-execution-triggers.md) e [Pipelines e atividades](concepts-pipelines-activities.md). |
-| Atividades | Atividades definem ações a serem executadas em seus dados dentro de um pipeline. Há suporte para atividades de movimentação de dados (atividade de cópia) e atividades de transformação de dados (como Hive, Pig e MapReduce). | Na versão atual do Data Factory, as atividades ainda são ações definidas dentro de um pipeline. A versão atual do Data Factory apresenta novas [atividades de fluxo de controle](concepts-pipelines-activities.md#control-activities). Você pode usar essas atividades no fluxo de controle (loop e ramificação). Atividades de movimentação de dados e de transformação de dados com suporte na V1 também têm suporte na versão atual. Você pode definir as atividades de transformação sem usar conjuntos de dados na versão atual. |
+| Atividades | Atividades definem ações a serem executadas em seus dados dentro de um pipeline. Há suporte para atividades de movimentação de dados (atividade de cópia) e atividades de transformação de dados (como Hive, Pig e MapReduce). | Na versão atual do Data Factory, as atividades ainda são ações definidas em um pipeline. A versão atual do data Factory introduz novas [atividades de fluxo de controle](concepts-pipelines-activities.md#control-activities). Você pode usar essas atividades no fluxo de controle (loop e ramificação). Atividades de movimentação de dados e de transformação de dados com suporte na V1 também têm suporte na versão atual. Você pode definir as atividades de transformação sem usar conjuntos de dados na versão atual. |
 | Movimentação de dados híbridos e distribuição de atividades | Agora chamado de Integration Runtime, o [Gateway de Gerenciamento de Dados](v1/data-factory-data-management-gateway.md), oferecia suporte para a movimentação de dados entre o ambiente local e a nuvem.| O Gateway de Gerenciamento de Dados agora é chamado de Integration Runtime auto-hospedado. Ele fornece a mesma funcionalidade da versão 1. <br/><br/> O Integration Runtime do Azure-SSIS na versão atual do Data Factory também dá suporte à implantação e execução de pacotes SSIS (SQL Server Integration Services) na nuvem. Para obter mais informações, consulte [Tempo de execução de integração no Azure Data Factory](concepts-integration-runtime.md).|
 | parâmetros | ND | Parâmetros são pares de chave-valor de configurações somente leitura definidos em pipelines. Você pode passar argumentos para os parâmetros ao executar manualmente o pipeline. Se você estiver usando um gatilho de agendador, o gatilho também poderá passar valores para os parâmetros. As atividades no pipeline consomem os valores de parâmetro.  |
 | Expressões | O Data Factory V1 permite que você use funções e variáveis de sistema em consultas de seleção de dados e propriedades de atividade/conjunto de dados. | Na versão atual do Data Factory, você pode usar expressões em qualquer lugar em um valor de cadeia de caracteres JSON. Para saber mais, confira [Expressões e funções na versão atual do Data Factory](control-flow-expression-language-functions.md).|
@@ -130,11 +130,11 @@ Os SDKs que foram atualizados para a versão atual não são retrocompatíveis c
 
 | &nbsp; | V2 | V1 |
 | ------ | -- | -- | 
-| Portal do Azure | [Sim](quickstart-create-data-factory-portal.md) | [Sim](data-factory-build-your-first-pipeline-using-editor.md) |
+| Portal do Azure | [Sim](quickstart-create-data-factory-portal.md) | Não |
 | Azure PowerShell | [Sim](quickstart-create-data-factory-powershell.md) | [Sim](data-factory-build-your-first-pipeline-using-powershell.md) |
 | SDK .NET | [Sim](quickstart-create-data-factory-dot-net.md) | [Sim](data-factory-build-your-first-pipeline-using-vs.md) |
 | API REST | [Sim](quickstart-create-data-factory-rest-api.md) | [Sim](data-factory-build-your-first-pipeline-using-rest-api.md) |
-| SDK do Python | [Sim](quickstart-create-data-factory-python.md) | Não  |
+| SDK do Python | [Sim](quickstart-create-data-factory-python.md) | Não |
 | Modelo do Resource Manager | [Sim](quickstart-create-data-factory-resource-manager-template.md) | [Sim](data-factory-build-your-first-pipeline-using-arm.md) | 
 
 ## <a name="roles-and-permissions"></a>Funções e permissões

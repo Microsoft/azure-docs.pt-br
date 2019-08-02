@@ -40,6 +40,8 @@
               href: connect-azure-atp.md
             - name: Conectar Central de Segurança do Azure
               href: connect-azure-security-center.md
+            - name: Conectar servidor de nomes de domínio
+              href: connect-dns.md
             - name: Conectar firewall do aplicativo Web da Microsoft
               href: connect-microsoft-waf.md
             - name: Conectar firewall do Windows
@@ -50,6 +52,8 @@
           items:
             - name: Conectar CEF genérico
               href: connect-common-event-format.md
+            - name: Conectar à AWS
+              href: connect-aws.md
             - name: Conectar Barracuda
               href: connect-barracuda.md
             - name: Conectar Ponto de Verificação
@@ -68,6 +72,8 @@
               href: connect-cisco.md
         - name: Conectar inteligência contra ameaças
           href: connect-threat-intelligence.md
+        - name: Conectar VMs do Azure Stack
+          href: connect-azure-stack.md
     - name: Buscando
       href: hunting.md
       items:

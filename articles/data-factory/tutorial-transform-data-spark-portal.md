@@ -11,12 +11,12 @@ ms.date: 01/10/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: de99d1a58cac12c80748b34ef4a1b07c9fb2a78e
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 34c8c49166ea13d67c1f3d51805671c63dbb352b
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576847"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312455"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformar os dados na nuvem usando uma atividade Spark no Azure Data Factory
 Neste tutorial, você pode usar o Portal do Azure para criar um pipeline do Azure Data Factory. Este pipeline transforma os dados usando uma atividade Spark e um serviço vinculado do Azure HDInsight sob demanda. 
@@ -147,7 +147,7 @@ Você cria dois serviços vinculados nesta seção:
    
    b. Para **Tipo**, confirme se **HDInsight sob demanda** está selecionado.
    
-   c. Para **Serviço Vinculado do Armazenamento do Azure**, selecione **AzureStorage1**. Você criou esse serviço vinculado anteriormente. Se você usou um nome diferente, especifique o nome correto aqui. 
+   c. Para **Serviço Vinculado do Armazenamento do Microsoft Azure**, selecione **AzureBlobStorage1**. Você criou esse serviço vinculado anteriormente. Se você usou um nome diferente, especifique o nome correto aqui. 
    
    d. Para o campo **Tipo de cluster**, selecione **spark**.
    
@@ -189,7 +189,7 @@ Você cria dois serviços vinculados nesta seção:
    ![Especificar um serviço vinculado do HDInsight](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. Alterne para a guia **Script/Jar** e execute estas etapas: 
 
-   a. Para **Serviço Vinculado do Trabalho**, selecione **AzureStorage1**.
+   a. Para **Serviço Vinculado do Trabalho**, selecione **AzureBlobStorage1**.
    
    b. Selecione **Procurar Armazenamento**.
 
@@ -206,7 +206,7 @@ Você cria dois serviços vinculados nesta seção:
 
 
 ## <a name="trigger-a-pipeline-run"></a>Disparar uma execução de pipeline
-Selecione **Gatilho** na barra de ferramentas e selecione **Disparar Agora**. 
+Selecione **Adicionar gatilho** na barra de ferramentas e selecione **Disparar Agora**. 
 
 ![Botões "Gatilho" e "Disparar Agora"](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -222,7 +222,7 @@ Selecione **Gatilho** na barra de ferramentas e selecione **Disparar Agora**.
 
    ![Status da execução do pipeline](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   Você pode alternar novamente para o modo de execução do pipeline selecionando o link **Pipelines** na parte superior.
+   Você pode alternar novamente para o modo de execução do pipeline selecionando o link **Todas as execuções de pipelines** na parte superior.
 
    ![Modo de exibição "Execuções de Atividade"](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

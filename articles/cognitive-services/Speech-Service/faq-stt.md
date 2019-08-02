@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 29ec50a1d2e0aebb1aeb73b38c662f4a18624754
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a437927f6ad43f4c3a90433faa5b9fa6f964aa5c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60539053"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839244"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -33,7 +33,7 @@ Se você não encontrar respostas para suas perguntas nas perguntas frequentes, 
 
 **P: Preciso sempre criar um modelo de fala personalizada?**
 
-**R**:  Não. Se o aplicativo usa linguagem genérica diária, você não precisa personalizar um modelo. Se o aplicativo é usado em um ambiente em que há pouco ou nenhum ruído de fundo, você não precisa personalizar um modelo.
+**R**: Nº Se o aplicativo usa linguagem genérica diária, você não precisa personalizar um modelo. Se o aplicativo é usado em um ambiente em que há pouco ou nenhum ruído de fundo, você não precisa personalizar um modelo.
 
 Você pode implantar modelos personalizados e de linha de base no portal e, em seguida, executar testes de precisão neles. Você pode usar esse recurso para medir a precisão de um modelo de linha de base em comparação com um modelo personalizado.
 
@@ -69,7 +69,7 @@ Se você tiver adaptado e implantado um modelo com a linha de base V1.0, essa im
 
 **R**: Você pode aumentar o modelo em incrementos de 20 solicitações simultâneas.
 
-Entre em contato conosco se você precisar de maior escala.
+Entre em contato com [suporte de fala](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) se você precisar de uma escala maior.
 
 **P: Posso baixar meu modelo e executá-lo localmente?**
 
@@ -83,7 +83,12 @@ Entre em contato conosco se você precisar de maior escala.
 
 **R**: A API REST limita as solicitações a 25 a cada 5 segundos. Detalhes podem ser encontrados em nossas páginas de [Conversão de fala em texto](speech-to-text.md).
 
-Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
+**P: Como sou cobrado por dois canais de áudio?**
+
+**R**: Se você enviar cada canal separadamente (cada canal em seu próprio arquivo), você será cobrado pela duração de cada arquivo a. Se você enviar um único arquivo com cada canal multiplexada juntos, em seguida, você será cobrado para a duração de um único arquivo.
+
+> [!IMPORTANT]
+> Se você tiver mais problemas de privacidade que o impeçam de usar o serviço de voz personalizada, entre em contato com um dos canais de suporte.
 
 ## <a name="importing-data"></a>Importação de dados
 
@@ -93,7 +98,7 @@ Se você tiver mais problemas de privacidade que o impeçam de usar o serviço d
 
 **P: Posso compactar meus arquivos de texto para carregar um arquivo de texto maior?** 
 
-**R**:  Não. No momento são permitidos apenas os arquivos de texto não compactados.
+**R**: Nº No momento são permitidos apenas os arquivos de texto não compactados.
 
 **P: O relatório de dados indica que houve enunciados com falha. Qual é o problema?**
 

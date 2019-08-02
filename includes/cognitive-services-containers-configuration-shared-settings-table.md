@@ -1,25 +1,25 @@
 ---
-author: diberry
-ms.author: diberry
+author: IEvangelist
+ms.author: dapine
+ms.date: 06/25/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/15/2019
-ms.openlocfilehash: c4abc5fa89b48b6fc55637e9ff3b259387d0d410
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 46376477aae9f94c1c8f6e1dd6bc718d213cc373
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66116703"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712417"
 ---
-Esse contêiner tem as seguintes configurações:
+O contêiner tem as seguintes configurações:
 
 |Obrigatório|Configuração|Finalidade|
 |--|--|--|
-|Sim|[ApiKey](#apikey-configuration-setting)|Usado para rastrear informações de cobrança.|
-|Não |[ApplicationInsights](#applicationinsights-setting)|Permite que você adicione suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
+|Sim|[ApiKey](#apikey-configuration-setting)|Rastreia informações de cobrança.|
+|Não|[ApplicationInsights](#applicationinsights-setting)|Permite a adição de suporte a dados telemétricos do [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) para seu contêiner.|
 |Sim|[Billing](#billing-configuration-setting)|Especifica o URI do ponto de extremidade do recurso de serviços no Azure.|
 |Sim|[Eula](#eula-setting)| Indica que você aceitou a licença para o contêiner.|
-|Não |[Fluentd](#fluentd-settings)|Gravar log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
-|Não |Proxy HTTP|Configure um proxy HTTP para fazer solicitações de saída.|
-|Não |[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
-|Não |[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|
+|Não|[Fluentd](#fluentd-settings)|Grava log e, opcionalmente, dados telemétricos em um servidor do Fluentd.|
+|Não|Proxy HTTP|Configura um proxy HTTP para fazer solicitações de saída.|
+|Não|[Logging](#logging-settings)|Fornece suporte a registro de log do ASP.NET Core para seu contêiner. |
+|Não|[Mounts](#mount-settings)|Lê e grava dados do computador host para o contêiner e do contêiner de volta para o computador host.|

@@ -9,11 +9,11 @@ ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
 ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60427785"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "64715796"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens de EDI em lotes para parceiros comerciais com os Aplicativos Lógicos do Azure
 

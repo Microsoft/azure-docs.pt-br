@@ -1,21 +1,21 @@
 ---
 title: Pontuação de recompensa – Personalizador
 titleSuffix: Azure Cognitive Services
-description: A pontuação da recompensa indica como foi o resultado da escolha de personalização, RewardActionID, para o usuário. O valor da pontuação de recompensa é determinado pela sua lógica de negócios, com base em observações do comportamento do usuário. O Personalizador treina seus modelos de machine learning avaliando as recompensas.
+description: A pontuação da recompensa indica como foi o resultado da escolha de personalização, RewardActionID, para o usuário. O valor da pontuação de recompensa é determinado pela sua lógica de negócios, com base em observações do comportamento do usuário. O personalizador treina seus modelos de machine learning avaliando as recompensas.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/13/2019
-ms.author: edjez
-ms.openlocfilehash: 302f1e18a23bdef9247693f84d3a924370b63f80
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/07/2019
+ms.author: diberry
+ms.openlocfilehash: 72c425a1ec9fb83cc2e9dd1bae2c4f521109f162
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244243"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663386"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam o sucesso da personalização
 
@@ -30,6 +30,18 @@ As recompensas são enviadas ao Personalizador pela [API de Recompensa](https://
 As recompensas são enviadas depois que o comportamento do usuário ocorre, o que pode ser dias mais tarde. O tempo máximo que o Personalizador aguardará até que um evento seja considerado para receber nenhuma recompensa ou uma recompensa padrão está configurado no [Tempo de espera de recompensa](#reward-wait-time) no portal do Azure.
 
 Se a pontuação de recompensa para um evento ainda não tiver sido recebida dentro do **Tempo de espera de recompensa**, a **Recompensa padrão** será aplicada. Normalmente, a **[Recompensa padrão](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** está configurada como zero.
+
+
+## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamentos e dados a serem considerados para recompensas
+
+Considere esses sinais e comportamentos para o contexto da pontuação de recompensa:
+
+* Entrada direta do usuário para sugestões quando há opções ("Você quis dizer X?").
+* Duração da sessão.
+* Tempo entre sessões.
+* Análise de sentimento das interações do usuário.
+* Dúvidas diretas e pequenas pesquisas em que o bot pede ao usuário para enviar comentários sobre a utilidade e a precisão.
+* Resposta a alertas ou atraso na resposta aos alertas.
 
 ## <a name="composing-reward-scores"></a>Como elaborar as pontuações de recompensa
 

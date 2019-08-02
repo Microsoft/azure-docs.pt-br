@@ -3,20 +3,20 @@ title: Prever intenções
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie um aplicativo personalizado que preveja a intenção do usuário. Este aplicativo é o tipo mais simples de aplicativo LUIS porque ele não extrai vários elementos de dados do texto do enunciado, como endereços de email ou datas.
 services: cognitive-services
-author: lingliw
-manager: digimobile
+author: diberry
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
-ms.author: v-lingwu
-ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 07/16/2019
+ms.author: diberry
+ms.openlocfilehash: 534aa678df69a4ef71296005922fa59bbe7bbcfa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66123924"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68277572"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Criar aplicativo LUIS para determinar as intenções dos usuários
 
@@ -131,7 +131,7 @@ Este aplicativo possui algumas intenções.
 
     O parâmetro `verbose=true` querystring significa incluir **todas as intenções** nos resultados da consulta do aplicativo. A matriz de entidades está vazia porque esse aplicativo no momento não tem nenhuma entidade. 
 
-    O resultado em JSON identifica a intenção com a maior pontuação como a propriedade **`topScoringIntent`**. Todas as pontuações estão entre 1 e 0, com a melhor pontuação mais próxima a 1. 
+    O resultado em JSON identifica a intenção com a maior pontuação como a propriedade **`topScoringIntent`** . Todas as pontuações estão entre 1 e 0, com a melhor pontuação mais próxima a 1. 
 
 ## <a name="create-intent-for-job-applications"></a>Criar intenção para aplicativos de trabalho
 
@@ -239,7 +239,3 @@ Continuar com este aplicativo, [adicionando uma lista simples de entidades e de 
 
 > [!div class="nextstepaction"]
 > [Adicionar intenções e entidades predefinidas a este aplicativo](luis-tutorial-prebuilt-intents-entities.md)
-
-
-
-

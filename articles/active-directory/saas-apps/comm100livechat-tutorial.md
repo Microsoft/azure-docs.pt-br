@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a03b185f6df5e32012883d210d684ec08b119019
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105020"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Tutorial: Integração do Azure Active Directory com o Comm100 Live Chat
 
@@ -53,7 +53,7 @@ Para configurar a integração do Comm100 Live Chat ao Azure AD, você precisa a
 
 **Para adicionar o Comm100 Live Chat da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Comm100 Live Chat, siga estas e
 
     ![Domínio de bate-papo ao vivo da Comm100 e informações de logon único de URLs](common/sp-signonurl.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<SUBDOMAIN>.comm100.com/AdminManage/LoginSSO.aspx?siteId=<SITEID>`
 
     > [!NOTE] 
     > O valor da URL de logon não é real. Você atualizará o valor da URL de Logon com a URL de Logon real, que será explicada posteriormente no tutorial.
@@ -120,7 +120,7 @@ Para configurar o logon único do Azure AD com o Comm100 Live Chat, siga estas e
     | ---------------| --------------- |
     |   email    | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Comm100 Live Chat, siga estas e
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 4. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -168,7 +168,7 @@ Para configurar o logon único do Azure AD com o Comm100 Live Chat, siga estas e
 
    ![Segurança do Chat ao Vivo da Comm100](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-    a. Copie o primeiro link destacado e cole-o na caixa de texto **URL de login** na seção **Domínio de bate-papo ao vivo da Comm100 e URLs** no portal do Azure.
+   a. Copie o primeiro link destacado e cole-o na caixa de texto **URL de login** na seção **Domínio de bate-papo ao vivo da Comm100 e URLs** no portal do Azure.
 
    b. Na caixa de texto **URL do SSO SAML**, cole o valor de **URL de logon**, copiado do portal do Azure.
 
@@ -196,7 +196,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -249,7 +249,7 @@ Para permitir que os usuários do Azure AD efetuem login no Comm100 Live Chat, e
 
     ![Chat ao vivo do Comm100 novo agente](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-     a.  a. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
+    a. a. Na caixa de texto **Email**, insira o email do usuário como **Brendafernandes\@contoso.com**.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
@@ -259,7 +259,7 @@ Para permitir que os usuários do Azure AD efetuem login no Comm100 Live Chat, e
 
     e. Na caixa de texto **Senha**, digite sua senha.
 
-    f. Clique em **Salvar**.
+    f. Clique em **Save** (Salvar).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

@@ -3,7 +3,7 @@ title: Criar um. Arquivo PFX, com o certificado LDAPS (LDAP) seguro para um dom�
 description: Criar um certificado LDAP seguro para um Azure AD Domain Services gerenciar o domínio
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: d89034610eb22108efc832d32ed9d8f593e9f12a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235036"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67474390"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Criar um. Arquivo PFX, com o certificado LDAPS (LDAP) seguro para um domínio gerenciado
 

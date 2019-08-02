@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 60a7a141cfcec3beced9e57baddebbc26e753141
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299026"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672169"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é a “pesquisa cognitiva” no Azure Search?
 
@@ -101,7 +101,7 @@ Os índice são gerados por meio de um esquema de índice que define os campos, 
 
 + [Início Rápido (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (solicitações HTTP)](cognitive-search-tutorial-blob.md)
-+ [Habilidades personalizadas de exemplo (C#)](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: Como criar uma habilidade personalizada para a pesquisa cognitiva (C#)](cognitive-search-create-custom-skill-example.md)
 
 Recomendamos o uso do serviço Gratuito para fins de aprendizado, mas lembre-se de que o número de transações gratuitas é limitado a 20 documentos por dia. Para executar o Início Rápido e o tutorial em um dia, use um conjunto de arquivos menor (10 documentos) para poder inserir ambos os exercícios.
 

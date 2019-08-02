@@ -5,14 +5,12 @@ metadata:
   title: 'Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API'
   description: Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real.
   services: event-grid
-  author: czeumault
-  manager: carolz
+  author: dougeby
+  manager: dougeby
   ms.service: event-grid
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/10/2017
-  ms.author: carolz
+  ms.author: dougeby
 abstract:
   description: 'A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos.'
 sections:

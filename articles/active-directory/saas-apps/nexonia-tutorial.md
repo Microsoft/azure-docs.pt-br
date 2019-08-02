@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: d5f2f31f87bc3732b7b3a5593217ebde4ee213c9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 36bffb73b1e04fd37fe05479a684f107b7679e99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870912"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096193"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nexonia"></a>Tutorial: Integração do Azure Active Directory ao Nexonia
 
@@ -52,7 +52,7 @@ Para configurar a integração do Nexonia ao Azure AD, você precisará adiciona
 
 **Para adicionar o Nexonia da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Nexonia, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Nexonia](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `Nexonia`
+    a. Na caixa de texto **Identificador**, digite uma URL: `Nexonia`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://system.nexonia.com/assistant/saml.do?orgCode=<organizationcode>`
 
@@ -196,5 +196,5 @@ Ao clicar no bloco do Nexonia no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -58,8 +58,8 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 
 1. Abra o gerenciamento do AD FS.
 2. À esquerda, selecione **Relações de Confiança com Terceira Parte Confiável**.
-3. Clique duas vezes em **plataforma de identidade do Microsoft Office 365** e selecione **editar regras de declaração... ** 
-    ![Console - editar regras de declaração do ADFS](./media/howto-mfa-adfs/trustedip1.png)
+3. Clique duas vezes em **plataforma de identidade do Microsoft Office 365** e selecione **editar regras de declaração...** 
+   ![Console - editar regras de declaração do ADFS](./media/howto-mfa-adfs/trustedip1.png)
 4. Em regras de transformação de emissão, clique em **Adicionar regra.** 
     ![Adicionando uma regra de declaração](./media/howto-mfa-adfs/trustedip2.png)
 5. No Assistente Adicionar Regra de Declaração de Transformação, selecione **Passar ou filtrar uma Declaração de Entrada** na lista e clique em **Avançar**.

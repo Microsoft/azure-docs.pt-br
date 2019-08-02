@@ -1,5 +1,5 @@
 ---
-title: Usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory | Microsoft Docs
+title: Usuários sinalizados para risco no portal de Azure Active Directory | Microsoft Docs
 description: Saiba mais sobre os usuários sinalizados para o relatório de risco na segurança no portal do Azure Active Directory
 services: active-directory
 author: MarkusVi
@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7209f468f493e226fae22ccd260e8ceb2e570494
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 30d02c5484ea4cce2953eac6b1b7b26a17c142bc
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286667"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276562"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Corrigir usuários sinalizados como de risco no portal do Azure Active Directory
 
@@ -46,7 +46,7 @@ Para obter mais informações, consulte [Usuários sinalizados para o relatório
 
 Você também pode usar suas credenciais do Office 365 para acessar o **Azure Admin Center**. Após ativar seu acesso ao Azure AD, você será redirecionado para o portal do Azure AD. No nível de assinatura básica, a quantidade de detalhes fornecida nos relatórios é limitada. Outras análises e dados estão disponíveis para assinantes Premium do Azure.
 
-Para acessar o **usuários sinalizados para risco** relatórios no Centro de administração do Microsoft 365:
+Para acessar os **usuários sinalizados para** relatórios de risco no centro de administração Microsoft 365:
 
 1.  No menu de navegação à esquerda, selecione **Centros de administração**. 
 2.  Selecione **Microsoft Azure Active Directory**.

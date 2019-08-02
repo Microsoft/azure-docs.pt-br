@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c0dde4c59c2fe9cde23a9f88c69f3e2673942812
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 7976dcafe8bb3f787465e72b6a61bbc48daf4086
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546804"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849546"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Criar um aplicativo PHP no Serviço de Aplicativo no Linux
 
@@ -28,7 +28,7 @@ ms.locfileid: "59546804"
 > Este artigo implanta um aplicativo no Serviço de Aplicativo no Linux. Para implantar o Serviço de Aplicativo no _Windows_, confira [Criar um aplicativo PHP no Azure](../app-service-web-get-started-php.md).
 >
 
-O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de guia de início rápido mostra como implantar um aplicativo PHP no Serviço de Aplicativo do Azure no Linux. Você cria o aplicativo com imagem interna usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e usa o Git para implantar o código PHP no aplicativo do Serviço de Aplicativo.
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP no Serviço de Aplicativo do Azure no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 

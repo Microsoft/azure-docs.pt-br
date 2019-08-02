@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 41a72013f1538b0a857c76bc949a7109e1cd54b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da1390de4e2eb0624032dc490416e7b6e5d61baa
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510919"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67846844"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de caracteres de localização
 
@@ -35,7 +35,7 @@ As IDs a seguir são usadas para uma definição de conteúdo com uma ID de `api
 | **invalid_email** | Insira um endereço de email válido |
 | **email_pattern** | ^[a-zA-Z0-9.!#$%&’' *+/=?^_\`{\|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)* $ |
 | **local_intro_username** | Entre com seu nome de usuário |
-| **logonIdentifier_username** | Nome de Usuário |
+| **logonIdentifier_username** | Nome de usuário |
 | **requiredField_username** | Insira seu nome de usuário |
 | **password** | Senha |
 | **requiredField_password** | Digite sua senha |
@@ -85,11 +85,11 @@ O exemplo a seguir localiza o provedor de identidade do Facebook para árabe:
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | A senha está incorreta. |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Não estamos encontrando a sua conta. |
-| **UserMessageIfOldPasswordUsed** | Parece que você usou uma senha antiga. |  
-| **DefaultMessage** | Senha ou nome de usuário inválido. |  
-| **UserMessageIfUserAccountDisabled** | Sua conta foi bloqueada. Contate seu suporte para desbloqueá-la e tente novamente. |  
-| **UserMessageIfUserAccountLocked** | Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde. |  
-| **AADRequestsThrottled** | Há muitas solicitações no momento. Aguarde alguns instantes e tente novamente. |  
+| **UserMessageIfOldPasswordUsed** | Parece que você usou uma senha antiga. |
+| **DefaultMessage** | Senha ou nome de usuário inválido. |
+| **UserMessageIfUserAccountDisabled** | Sua conta foi bloqueada. Contate seu suporte para desbloqueá-la e tente novamente. |
+| **UserMessageIfUserAccountLocked** | Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente mais tarde. |
+| **AADRequestsThrottled** | Há muitas solicitações no momento. Aguarde alguns instantes e tente novamente. |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>Elementos da interface do usuário de páginas autodeclaradas e de entrada
 
@@ -122,7 +122,7 @@ A seguir, estão as IDs de definição de conteúdo com a ID `api.localaccountsi
 | **ver_but_verify** | Verificar código |
 | **alert_no** | Não |
 | **ver_info_msg** | O código de verificação foi enviado para sua caixa de entrada. Copie-o para a caixa de entrada abaixo. |
-| **dia** | Dia |
+| **dia** | Day |
 | **ver_fail_throttled** | Houve muitas solicitações para verificar este endereço de email. Aguarde alguns instantes e tente novamente. |
 | **helplink_text** | O que é isso? |
 | **ver_fail_retry** | Esse código está incorreto. Tente novamente. |
@@ -146,7 +146,7 @@ A seguir, estão as IDs de definição de conteúdo com a ID `api.localaccountsi
 
 O exemplo a seguir mostra o uso de alguns dos elementos de interface do usuário na página de inscrição:
 
-![Elementos de experiência do usuário na página de inscrição](./media/localization-string-ids/localization-sign-up.png)
+![Página de inscrição com seus nomes de elementos de interface do usuário rotulados](./media/localization-string-ids/localization-sign-up.png)
 
 O exemplo a seguir mostra o uso de alguns dos elementos de interface do usuário na página de entrada após o usuário clicar no botão e envio do código de verificação:
 
@@ -155,7 +155,7 @@ O exemplo a seguir mostra o uso de alguns dos elementos de interface do usuário
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>Elementos da interface do usuário da página autenticação com fator de telefone
 
-A seguir, estão as IDs de uma definição de conteúdo com uma ID de `api.phonefactor`. 
+A seguir, estão as IDs de uma definição de conteúdo com uma ID de `api.phonefactor`.
 
 | ID | Valor padrão |
 | -- | ------------- |

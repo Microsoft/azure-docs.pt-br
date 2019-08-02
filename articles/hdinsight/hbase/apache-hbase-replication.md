@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 95a1055df283765b24322f6f8efe3efcb9b19022
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 38d3c61acee9dca18ab1f863d878e02f7437a600
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64707982"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67433729"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster do Apache HBase em redes virtuais do Azure
 
@@ -21,7 +21,7 @@ Saiba como configurar a replicação do [Apache HBase](https://hbase.apache.org/
 
 A replicação de cluster usa uma metodologia de envio de origem. Um cluster HBase pode ser uma fonte, um destino ou pode atender a ambas as funções de uma vez. A replicação é assíncrona. A meta da replicação é a consistência eventual. Quando a origem recebe uma edição para uma família de coluna com replicação habilitada, essa edição é propagada para todos os clusters de destino. Quando os dados são replicados de um cluster para outro, o cluster de origem e todos os clusters que já consumiram os dados são rastreados para evitar loops de replicação.
 
-Neste tutorial, uma replicação de origem/destino será configurada. Para obter outras topologias de cluster, consulte o [Guia de referência do Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
+Neste artigo, você configurar uma replicação de origem / destino. Para obter outras topologias de cluster, consulte o [Guia de referência do Apache HBase](https://hbase.apache.org/book.html#_cluster_replication).
 
 Casos de uso de replicação de HBase para uma única rede virtual:
 
@@ -39,7 +39,7 @@ Casos de uso de replicação de HBase para duas redes virtuais:
 É possível replicar clusters usando os scripts [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) do [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+Antes de começar este artigo, você deve ter uma assinatura do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurar os ambientes
 
@@ -68,7 +68,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Value |
 |----------|-------|
-| Local padrão | Oeste dos EUA |
+| Location | Oeste dos EUA |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
 | Prefixo de espaço de endereço | 10.1.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -85,7 +85,7 @@ Alguns dos valores embutidos em código no modelo:
 
 | Propriedade | Value |
 |----------|-------|
-| Local padrão | Leste dos EUA |
+| Location | East US |
 | Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
 | Prefixo de espaço de endereço | 10.2.0.0/16 |
 | Nome da sub-rede | Sub-rede 1 |
@@ -396,7 +396,7 @@ A seção `print_usage()` do [script](https://raw.githubusercontent.com/Azure/hb
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a configurar a replicação do Apache HBase em uma rede virtual ou entre duas redes virtuais. Para saber mais sobre o HDInsight e o Apache HBase, consulte estes artigos:
+Neste artigo, você aprendeu a configurar a replicação do Apache HBase em uma rede virtual ou entre duas redes virtuais. Para saber mais sobre o HDInsight e o Apache HBase, consulte estes artigos:
 
 * [Introdução ao Apache HBase no HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Visão geral do Apache HBase do HDInsight](./apache-hbase-overview.md)

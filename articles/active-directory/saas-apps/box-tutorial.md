@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21e71e38cd8e2a6d627676cddd400f625452e449
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0d8d0320766876e09448fa9e570af5e6b9a4f07e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900690"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106074"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integração do Azure Active Directory ao Box
 
@@ -55,7 +55,7 @@ Para configurar a integração do Box ao Azure AD, você precisa adicionar o Box
 
 **Para adicionar o Box por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o Box, execute as seguintes etapa
 
     ![Informações de logon único de domínio e URLs do Box](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.account.box.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.account.box.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `box.net`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `box.net`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao cliente do Box](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -195,5 +195,5 @@ Ao clicar no bloco do Box no Painel de Acesso, você deverá ser conectado autom
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,19 +1,18 @@
 ---
 title: Fazer backup de um servidor do Exchange no Backup do Azure com o Servidor de Backup do Azure
 description: Saiba como fazer backup de um servidor do Exchange no Backup do Azure usando o Servidor de Backup do Azure
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/24/2017
 ms.author: kasinh
-ms.openlocfilehash: 40541596b4da9e0590d497785afd7d6d7f4cbcb4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0eacd295e279a3b3bcfbdad2c67cac7160f8dcb3
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641408"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466393"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Fazer backup de um servidor do Exchange no Azure com o Servidor de Backup do Azure
 Este artigo descreve como configurar o Servidor de Backup do Microsoft Azure (MABS) para fazer backup de um servidor do Microsoft Exchange no Azure.  
@@ -86,7 +85,7 @@ Execute estas etapas para instalar o agente de proteção do MABS no servidor do
 
     ![Especificar política de retenção online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Confirme as configurações e clique em **Criar Grupo**.
-19. Clique em **fechar**
+19. Clique em **Fechar**.
 
 ## <a name="recover-the-exchange-database"></a>Recuperar o banco de dados do Exchange
 1. Para recuperar um banco de dados do Exchange, clique em **Recuperação** no Console do Administrador do MABS.

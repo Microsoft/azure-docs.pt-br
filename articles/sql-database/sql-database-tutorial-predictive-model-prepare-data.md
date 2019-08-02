@@ -12,30 +12,32 @@ author: garyericson
 ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: aa9c41ee34a50ab9b1409357bfe7d123166601bf
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.date: 07/26/2019
+ms.openlocfilehash: c1271d5b63fa796fe44b7a40c364953464a87539
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978740"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68596675"
 ---
 # <a name="tutorial-prepare-data-to-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Tutorial: Preparar dados para treinar um modelo preditivo em R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia)
 
-Na primeira parte deste tutorial com três partes, você preparará os dados de um Banco de Dados SQL do Azure para treinar um modelo preditivo no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
+Na primeira parte deste tutorial com três partes, você importará e preparará os dados de um Banco de Dados SQL do Azure usando o R. Mais adiante nesta série, você usará esses dados para treinar e implantar um modelo de machine learning no R com os Serviços do Machine Learning do Banco de Dados SQL do Azure (versão prévia).
 
 Nesta série de tutoriais, imagine que você tem uma empresa de aluguel de esquis e quer prever a quantidade de aluguéis em uma data futura. Essas informações ajudarão a preparar seu estoque, a equipe e os recursos.
+
+Na primeira e na segunda parte desta série, você desenvolverá alguns scripts do R no RStudio para preparar os dados e treinar um modelo de machine learning. Em seguida, na terceira parte, você executará esses scripts do R em um banco de dados SQL usando os procedimentos armazenados.
 
 Neste artigo, você aprenderá a:
 
 > [!div class="checklist"]
-> * Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure
-> * Carregar os dados do Banco de Dados SQL do Azure em um dataframe usando o R
-> * Preparar os dados identificando algumas colunas como categóricas
+> * Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure usando o R
+> * Carregar os dados do Banco de Dados SQL do Azure em um dataframe do R
+> * Preparar os dados no R identificando algumas colunas como categóricas
 
-Na [parte 2](sql-database-tutorial-predictive-model-build-compare.md), você aprenderá a criar e treinar vários modelos e, em seguida, escolher o mais preciso.
+Na [parte 2](sql-database-tutorial-predictive-model-build-compare.md), você aprenderá a criar e treinar vários modelos de machine learning em R e, em seguida, escolher o mais preciso.
 
-Na [parte três](sql-database-tutorial-predictive-model-deploy.md), você aprenderá a armazenar o modelo em um banco de dados e, em seguida, criar um procedimento armazenado que pode fazer previsões com base nos novos dados.
+Na [parte três](sql-database-tutorial-predictive-model-deploy.md), você aprenderá a armazenar o modelo em um banco de dados e, em seguida, criar um procedimento armazenado dos scripts do R desenvolvidos nas partes anteriores. Os procedimentos armazenados serão executados em um banco de dados SQL para fazer previsões com base em novos dados.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -158,9 +160,9 @@ No portal do Azure, siga estas etapas:
 
 Na primeira parte desta série de tutoriais, você concluiu estas etapas:
 
-* Importar um arquivo de backup de banco de dados para um Banco de Dados SQL do Azure
-* Carregar os dados do Banco de Dados SQL do Azure em um dataframe usando o R
-* Preparar os dados identificando algumas colunas como categorias
+* Importar um banco de dados de exemplo para um Banco de Dados SQL do Azure usando o R
+* Carregar os dados do Banco de Dados SQL do Azure em um dataframe do R
+* Preparar os dados no R identificando algumas colunas como categóricas
 
 Para criar um modelo de machine learning que usa dados do banco de dados TutorialDB, siga a parte 2 desta série de tutoriais:
 

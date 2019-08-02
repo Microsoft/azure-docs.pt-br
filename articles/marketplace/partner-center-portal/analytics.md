@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 0da95dbdca52232b4b24ad921bf2d9c78dc76d56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e467def33eb2980e58611d50c314a1206877e3b0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247718"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619679"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o Marketplace comercial no Partner Center
 
@@ -138,7 +138,7 @@ O **pedidos por tipo de licença do marketplace** gráfico exibe uma contagem do
 
 - **Cobrado por meio do Azure**: A Microsoft cobra os clientes em seu nome quando você opta por [vender a sua oferta por meio do Microsoft](./create-new-saas-offer.md#sell-through-microsoft) com esse tipo de licença. Os tipos de pagamento incluem pré-pagas por meio de cartão de crédito ou de faturamento do Enterprise.
 - **Traga sua própria licença**: Microsoft não cobra de clientes para o uso desse tipo de oferta do marketplace. Listado como **[obtê-lo agora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** no marketplace.
-- **Grátis**: Microsoft não cobra de clientes para o uso desse tipo de oferta do marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md#free-trial)** no marketplace.
+- **Grátis**: Microsoft não cobra de clientes para o uso desse tipo de oferta do marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md##free-trial-listing)** no marketplace.
 - **Microsoft, como revendedor**: Representa as ofertas vendidas pelos revendedores da Microsoft como parte dos  **[programa de provedor de solução de nuvem (CSP)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Pedidos do Partner Center analisar por tipo de licença](./media/analyze-license-type.png)
@@ -276,7 +276,7 @@ Você receberá uma notificação pop-up e um email contendo um link para o **Do
 | Tipo de oferta: Máquina Virtual | Classificar| Use o tipo de oferta de Máquina Virtual quando implantar um dispositivo virtual na assinatura associada ao cliente.||
 | Tipo de oferta: Extensão do Visual Studio Marketplace  | Classificar| Disponível anteriormente do tipo de oferta para os desenvolvedores de extensão de DevOps do Azure. Vai avanço do Azure DevOps os desenvolvedores de extensão podem vender sua extensão diretamente aos clientes. Ofertas de extensão podem ser configuradas como paga ou incluindo uma versão de avaliação. |
 | Data de cancelamento do pedido| Classificar| A data em que o pedido do Marketplace foi cancelado.||
-| ID do Pedido| Classificar| O identificador exclusivo do pedido de cliente para o serviço do Marketplace. Ofertas de máquina virtual baseada em uso não estão associadas um pedido.| |
+| ID do pedido| Classificar| O identificador exclusivo do pedido de cliente para o serviço do Marketplace. Ofertas de máquina virtual baseada em uso não estão associadas um pedido.| |
 | Data de compra do pedido| Classificar| A data em que o pedido do Marketplace foi criado.|||
 | Status do pedido| Classificar| O status de um pedido do Marketplace no momento em que os dados foram atualizados pela última vez.|     |
 | Status do pedido: Ativo  | Classificar| O cliente comprou um pedido e não tenha cancelado sua ordem.|         |

@@ -4,21 +4,20 @@ titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 110962c03f0236ebb26c9ed586981b51f36c635f
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.openlocfilehash: bb23de0dfe2d717ee2e41d69eec211f1fde26687
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66399217"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707193"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio"></a>Início Rápido: Desenvolver com o .NET Core no Kubernetes com o Azure Dev Spaces (Visual Studio)
 
@@ -96,7 +95,7 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 No exemplo acima, a URL pública é http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue até a URL pública do seu serviço e interaja com o serviço em execução no espaço de desenvolvimento.
 
-Esse processo pode ter desabilitado o acesso público ao serviço. Para habilitar o acesso público, você pode atualizar o [valor de entrada em *values.yaml*][ingress-update].
+Esse processo pode ter desabilitado o acesso público ao serviço. Para habilitar o acesso público, atualize o [valor de entrada em *values.yaml*][ingress-update].
 
 ## <a name="update-code"></a>Atualizar código
 

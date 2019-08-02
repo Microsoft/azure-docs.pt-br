@@ -1,7 +1,7 @@
 ---
-title: Painel - reconhecimento vocal
+title: Painel-Reconhecimento vocal-LUIS
 titleSuffix: Azure Cognitive Services
-description: Corrigi as intenções com o painel de análise, uma ferramenta de relatório visualizado.
+description: Corrija as intenções com o painel de análise, uma ferramenta de relatório visualizada.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,164 +11,164 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42dfe4af56149e4305d076b0427f15038a01fadc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236956"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563623"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como usar o painel para melhorar seu aplicativo
 
-Localize e corrija problemas com as intenções do seu aplicativo treinado quando você estiver usando declarações de exemplo. O painel exibe informações gerais do aplicativo, com realces de tentativas que devem ser corrigidas. 
+Encontre e corrija problemas com as intenções do seu aplicativo treinado ao usar o exemplo declarações. O painel exibe informações gerais do aplicativo, com destaques de tentativas que devem ser corrigidas. 
 
-Examine o painel análise é um processo iterativo, repetido como alterar e melhorar seu modelo.
+Examinar a análise do painel é um processo iterativo, repita conforme você altera e aprimora seu modelo.
 
-Esta página não terá análise relevante para aplicativos que não têm quaisquer declarações de exemplo em intenções, conhecidas como _somente padrão_ aplicativos. 
+Esta página não terá uma análise relevante para aplicativos que não tenham nenhum exemplo de declarações em tentativas, conhecidas como aplicativos somente de _padrão_ . 
 
-## <a name="what-issues-can-be-fixed-from-dashboard"></a>Quais problemas podem ser corrigidos no painel?
+## <a name="what-issues-can-be-fixed-from-dashboard"></a>Quais problemas podem ser corrigidos do painel?
 
-Três problemas abordados no painel de controle são:
+Os três problemas abordados no painel são:
 
 |Problema|Cor do gráfico|Explicação|
 |--|--|--|
-|Desequilíbrio de dados|-|Isso ocorre quando a quantidade de declarações de exemplo varia significativamente. Todas as intenções precisam ter _aproximadamente_ o mesmo número de declarações de exemplo - exceto a intenção None. Ele deve ter apenas 10 a 15% da quantidade total de declarações no aplicativo.<br><br> Se os dados são desequilibrados, mas a intenção precisão estiver acima de determinado limite, esse desequilíbrio não será relatado como um problema.<br><br>**Iniciar com esse problema - ele pode ser a causa raiz dos outros problemas.**|
-|Previsões claras|Laranja|Isso ocorre quando a intenção superior e pontuações da intenção próxima são próximos o suficiente para que eles podem ativar o próximo treinamento, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais declarações de exemplo adicionadas à intenção. |
-|Previsões incorretas|Vermelho|Isso ocorre quando uma expressão de exemplo não é previsível para a intenção de rotulado (a intenção é em).|
+|Desequilíbrio de dados|-|Isso ocorre quando a quantidade de declarações de exemplo varia significativamente. Todas as intenções precisam ter _aproximadamente_ o mesmo número de exemplos declarações-exceto a intenção None. Ele deve ter apenas 10%-15% da quantidade total de declarações no aplicativo.<br><br> Se os dados forem desequilibrados, mas a precisão da intenção estiver acima de determinado limite, esse desequilíbrio não será relatado como um problema.<br><br>**Comece com esse problema – pode ser a causa raiz dos outros problemas.**|
+|Não limpar previsões|Laranja|Isso ocorre quando a principal intenção e as pontuações da próxima tentativa são próximas o suficiente para que possam se virar no próximo treinamento, devido à [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais declarações de exemplo adicionados à intenção. |
+|Previsões incorretas|Vermelho|Isso ocorre quando um exemplo de expressão não é previsto para a intenção rotulada (a intenção em que se encontra).|
 
-Previsões corretas são representadas com a cor azul.
+As previsões corretas são representadas com a cor azul.
 
-O painel mostra esses problemas e informa quais tentativas são afetadas e sugere que você deve fazer para melhorar o aplicativo. 
+O painel mostra esses problemas e informa quais tentativas são afetadas e sugere o que você deve fazer para melhorar o aplicativo. 
 
-## <a name="before-app-is-trained"></a>Antes que o aplicativo é treinado 
+## <a name="before-app-is-trained"></a>Antes de o aplicativo ser treinado 
 
-Antes de treinar o aplicativo, o painel não contém alguma sugestão de correções. Treine seu aplicativo para ver essas sugestões.  
+Antes de treinar o aplicativo, o painel não contém sugestões para correções. Treine seu aplicativo para ver essas sugestões.  
 
-## <a name="check-your-publishing-status"></a>Verificar o status da publicação
+## <a name="check-your-publishing-status"></a>Verificar o status de publicação
 
-O **status da publicação** cartão contém informações sobre o Active Directory versão de publicação pela última vez. 
+O cartão de **status de publicação** contém informações sobre a última publicação da versão ativa. 
 
 Verifique se a versão ativa é a versão que você deseja corrigir. 
 
-![Os serviços externos do aplicativo do painel mostra, publicados regiões e agregados ocorrências de ponto de extremidade.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![O painel mostra os serviços externos do aplicativo, as regiões publicadas e os acertos de ponto de extremidade agregados.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
-Isso também mostra quaisquer serviços externos, regiões publicados e agregados de ocorrências de ponto de extremidade. 
+Isso também mostra quaisquer serviços externos, regiões publicadas e ocorrências de ponto de extremidade agregadas. 
 
-## <a name="review-training-evaluation"></a>Avaliação de treinamento de revisão
+## <a name="review-training-evaluation"></a>Examinar a avaliação do treinamento
 
-O **avaliação de treinamento** cartão contém o resumo agregado da precisão geral do seu aplicativo por área. A pontuação indica a qualidade de intenção. 
+O cartão de **avaliação de treinamento** contém o resumo agregado da precisão geral do seu aplicativo por área. A pontuação indica a qualidade da intenção. 
 
-![O cartão de avaliação de treinamento contém a primeira área de informações sobre a precisão geral do seu aplicativo.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
+![O cartão de avaliação de treinamento contém a primeira área de informações sobre a precisão geral do aplicativo.](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
-O gráfico indica as tentativas corretamente previstas e as áreas de problema com diferentes cores. Como melhorar o aplicativo com as sugestões, esse aumento de pontuação. 
+O gráfico indica as intenções previstas corretamente e as áreas problemáticas com cores diferentes. À medida que você aprimora o aplicativo com as sugestões, essa Pontuação aumenta. 
 
-As correções sugeridas são separadas pelo tipo de problema e são mais significativos para seu aplicativo. Se você preferir analisar e corrigir problemas por intenção, use o **[intenções com erros](#intents-with-errors)** cartão na parte inferior da página. 
+As correções sugeridas são separadas por tipo de problema e são as mais significativas para seu aplicativo. Se você preferir revisar e corrigir problemas por tentativa, use o cartão **[tentativas com erros](#intents-with-errors)** na parte inferior da página. 
 
-Cada área de problema tem intenções que precisam ser corrigidos. Quando você seleciona o nome da intenção, o **intenção** página é aberta com um filtro aplicado as declarações. Esse filtro permite que você se concentre nas declarações que estão causando o problema.
+Cada área com problema tem tentativas que precisam ser corrigidas. Quando você seleciona o nome da intenção, a página **intenção** é aberta com um filtro aplicado ao declarações. Esse filtro permite que você se concentre nos declarações que estão causando o problema.
 
-### <a name="compare-changes-across-versions"></a>Compare as alterações entre versões
+### <a name="compare-changes-across-versions"></a>Comparar alterações entre versões
 
-Crie uma nova versão antes de fazer alterações no aplicativo. Na nova versão, faça as alterações sugeridas para declarações de exemplo da intenção e, em seguida, treinar novamente. Na página do painel **avaliação de treinamento** cartão, use o **Mostrar alterações da versão treinado** para comparar as alterações. 
+Crie uma nova versão antes de fazer alterações no aplicativo. Na nova versão, faça as alterações sugeridas no exemplo de declarações da intenção e, em seguida, treine novamente. No cartão de avaliação de **treinamento** da página do painel, use o **Mostrar alteração de versão treinada** para comparar as alterações. 
 
-![Compare as alterações entre versões](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
+![Comparar alterações entre versões](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
-### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Corrigir versão pela adição ou edição de declarações de exemplo e a readaptação
+### <a name="fix-version-by-adding-or-editing-example-utterances-and-retraining"></a>Corrija a versão adicionando ou editando o exemplo declarações e retreinando
 
-O principal método de correção de seu aplicativo será adicionar ou editar as declarações de exemplo e treinar novamente. As declarações de novas ou alteradas precisam seguir as diretrizes para [variadas declarações](luis-concept-utterance.md).
+O principal método de corrigir seu aplicativo será adicionar ou editar o exemplo declarações e treinar novamente. O declarações novo ou alterado precisa seguir as diretrizes para [declarações variados](luis-concept-utterance.md).
 
-Adicionar declarações de exemplo deve ser feita por alguém que:
+Adicionar exemplo declarações deve ser feito por alguém que:
 
-* tem um alto grau de compreensão de quais declarações são nas intenções diferentes
-* Saiba como declarações em uma intenção podem ser confundidas com a intenção de outro
-* é possível decidir se dois intenções, que frequentemente são confundidas uns com os outros, devem ser recolhidas em uma única tentativa, e os diferentes dados extraídos com entidades
+* tem um alto grau de compreensão de quais declarações estão em diferentes intenções
+* Sabe como declarações em uma única tentativa pode ser confundida com outra intenção
+* é capaz de decidir se duas intenções, que são frequentemente confundidas umas com as outras, devem ser recolhidas em uma única intenção e os diferentes dados extraídos com entidades
 
-### <a name="patterns-and-phrase-lists"></a>Padrões e listas de frase
+### <a name="patterns-and-phrase-lists"></a>Listas de padrões e frases
 
-A página de análise não indica quando usar [padrões](luis-concept-patterns.md) ou [frase listas](luis-concept-feature.md). Se você adicioná-los, ele pode ajudar com previsões incorretas ou confusa, mas não ajudará com o desequilíbrio de dados. 
+A página de análise não indica quando usar [padrões](luis-concept-patterns.md) ou [listas de frases](luis-concept-feature.md). Se você adicioná-los, ele poderá ajudar com previsões incorretas ou não claras, mas não ajudará com desequilíbrio de dados. 
 
-### <a name="review-data-imbalance"></a>Desequilíbrio de dados de revisão
+### <a name="review-data-imbalance"></a>Examinar desequilíbrio de dados
 
-Iniciar com esse problema - ele pode ser a causa raiz dos outros problemas.
+Comece com esse problema – pode ser a causa raiz dos outros problemas.
 
-O **desequilíbrio dados** intenção lista mostra as intenções que precisam de mais declarações para corrigir o desequilíbrio de dados. 
+A lista de intenções de desequilíbrio de **dados** mostra tentativas que precisam de mais declarações para corrigir o desequilíbrio de dados. 
 
 **Para corrigir esse problema**:
 
-* Adicione mais declarações à intenção e treinar novamente. 
+* Adicione mais declarações à intenção e, em seguida, treine novamente. 
 
-Não adicione declarações como a intenção None, a menos que o que é sugerido no painel.
+Não adicione declarações à intenção None, a menos que seja sugerido no painel.
 
 > [!Tip]
-> Use a terceira seção na página de **declarações por intenção** com o **declarações (número)** definir, como um guia visual rápido do que as intenções precisam de mais declarações.  
-    ![Use 'Declarações (número)' para localizar as intenções com desequilíbrio de dados.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+> Use a terceira seção da página, **declarações por intenção** , com a configuração de **declarações (número)** , como um guia visual rápido do qual as tentativas precisam de mais declarações.  
+    ![Use ' declarações (Number) ' para localizar tentativas com desequilíbrio de dados.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
-### <a name="review-incorrect-predictions"></a>Previsões incorretas de revisão
+### <a name="review-incorrect-predictions"></a>Revisar previsões incorretas
 
-O **previsão incorreta** intenção lista mostra as intenções com declarações, que são usadas como exemplos para um propósito específico, mas estão previstas para propósitos diferentes. 
+A lista de intenção de **previsão incorreta** mostra as intenções que têm declarações, que são usadas como exemplos para uma intenção específica, mas são previstas para diferentes intenções. 
 
 **Para corrigir esse problema**:
 
-* Edite declarações para ser mais específico para a intenção e treinar novamente.
-* Combine as intenções se declarações são alinhadas muito perto e treinar novamente.
+* Edite declarações para ser mais específico para a intenção e treine novamente.
+* Combine tentativas se declarações estiverem alinhados muito bem e treine novamente.
 
-### <a name="review-unclear-predictions"></a>Analisar as previsões claras
+### <a name="review-unclear-predictions"></a>Revisar previsões não claras
 
-O **previsão claro** intenção lista mostra as intenções com declarações com pontuações de previsão que não é suficiente maneira do seu rival mais próximo, o que a intenção superior para a expressão pode ser alterada no próximo treinamento, devido a [ amostragem negativa](luis-how-to-train.md#train-with-all-data).
+A lista de intenções de **previsão não clara** mostra intenções com declarações com pontuações de previsão que não são muito suficientes de seu rival mais próximo, que a principal intenção do expressão pode mudar no próximo treinamento, devido à [amostragem negativa](luis-how-to-train.md#train-with-all-data).
 
 **Para corrigir esse problema**;
 
-* Edite declarações para ser mais específico para a intenção e treinar novamente.
-* Combine as intenções se declarações são alinhadas muito perto e treinar novamente.
+* Edite declarações para ser mais específico para a intenção e treine novamente.
+* Combine tentativas se declarações estiverem alinhados muito bem e treine novamente.
 
-## <a name="utterances-per-intent"></a>Declarações por intenção
+## <a name="utterances-per-intent"></a>Declarações por tentativa
 
-Este cartão mostra a integridade geral do aplicativo entre as tentativas. Como corrigir as intenções e treinar novamente, continue olhei esse cartão para problemas.
+Este cartão mostra a integridade geral do aplicativo entre as intenções. Ao corrigir tentativas e readaptação, continue a dar uma olhada no cartão para problemas.
 
-O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhuma problemas a serem corrigidos.
+O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum problema a ser corrigido.
 
-![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhuma problemas a serem corrigidos.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
+![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum problema a ser corrigido.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
 
-O gráfico a seguir mostra um aplicativo mal equilibrado com muitos problemas a serem corrigidos.
+O gráfico a seguir mostra um aplicativo com baixo balanceamento com muitos problemas a serem corrigidos.
 
-![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhuma problemas a serem corrigidos.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
+![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum problema a ser corrigido.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
-Passe o mouse sobre a barra do cada tentativa para obter informações sobre a intenção. 
+Passe o mouse sobre a barra de cada uma das intenções para obter informações sobre a intenção. 
 
-![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhuma problemas a serem corrigidos.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
+![O gráfico a seguir mostra um aplicativo bem equilibrado com quase nenhum problema a ser corrigido.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-Use o **classificar por** recursos para organizar as tentativas por tipo de problema para que você possa se concentrar nas tentativas de mais de um problema com esse problema. 
+Use o recurso **classificar por** para organizar as tentativas por tipo de problema para que você possa se concentrar nas tentativas mais problemáticas com esse problema. 
 
 ## <a name="intents-with-errors"></a>Tentativas com erros
 
-Esse cartão permite que você analise os problemas para um propósito específico. A exibição padrão desse cartão é as intenções mais problemáticas, portanto, você saberá onde concentrar seus esforços.
+Este cartão permite que você examine problemas para uma intenção específica. A exibição padrão desse cartão é a tentativa mais problemática, para que você saiba onde concentrar seus esforços.
 
-![As tentativas com cartão de erros permite que você analise os problemas para um propósito específico. O cartão é filtrado para as tentativas mais problemáticas, por padrão, para que você saiba onde concentrar seus esforços.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
+![O cartão tentativas com erros permite que você examine os problemas para uma intenção específica. O cartão é filtrado para as tentativas mais problemáticas, por padrão, para que você saiba onde concentrar seus esforços.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
-O gráfico de rosca superior mostra os problemas com a intenção entre os tipos de problema de três. Se houver problemas nos tipos de problema de três, cada tipo tem seu próprio gráfico abaixo, junto com quaisquer tentativas rival. 
+O gráfico de rosca superior mostra os problemas com a intenção entre os três tipos de problema. Se houver problemas nos três tipos de problema, cada tipo terá seu próprio gráfico abaixo, juntamente com quaisquer tentativas de rival. 
 
-### <a name="filter-intents-by-issue-and-percentage"></a>Tentativas de filtro pelo problema e porcentagem
+### <a name="filter-intents-by-issue-and-percentage"></a>Filtrar tentativas por problema e percentual
 
-Esta seção do cartão permite que você localize as declarações de exemplo estão ficando fora do seu limite de erro. O ideal é que você deseja previsões corretas para ser significativo. Essa porcentagem é voltada para os clientes e negócios. 
+Esta seção do cartão permite que você encontre exemplos de declarações que estão caindo fora do limite de erros. Idealmente, você deseja que as previsões corretas sejam significativas. Essa porcentagem é orientada por clientes e negócios. 
 
-Determine as porcentagens de limite que você estiver familiarizado com para a sua empresa. 
+Determine os percentuais de limite com os quais você está familiarizado para sua empresa. 
 
-O filtro permite que você encontre intenções com problema específico:
+O filtro permite que você encontre tentativas com um problema específico:
 
-|Filter|Porcentagem sugerida|Finalidade|
+|Filtro|Porcentagem sugerida|Finalidade|
 |--|--|--|
-|Intenções mais problemáticas|-|**Comece aqui** -corrigindo as declarações nessa intenção melhorará o aplicativo mais do que outras correções.|
-|Previsões corretas abaixo|60%|Esta é a porcentagem de declarações na intenção selecionada que estão corretos, mas têm uma pontuação de confiança abaixo do limite. |
-|Previsões claras acima|15%|Esta é a porcentagem de declarações na intenção selecionada que são confundidos com a intenção de rival mais próxima.|
-|Acima de previsões incorretas|15%|Esta é a porcentagem de declarações na intenção selecionada que foram previstos incorretamente. |
+|Tentativas mais problemáticas|-|**Comece aqui** -corrigir o declarações nesta tentativa melhorará o aplicativo mais do que outras correções.|
+|Corrigir previsões abaixo|60%|Esta é a porcentagem de declarações na intenção selecionada que estão corretas, mas que têm uma pontuação de confiança abaixo do limite. |
+|Não limpar previsões acima|15%|Essa é a porcentagem de declarações na intenção selecionada que são confundidas com a intenção de rival mais próxima.|
+|Previsões incorretas acima|15%|Este é o percentual de declarações na intenção selecionada que está incorretamente prevista. |
 
-### <a name="correct-prediction-threshold"></a>Limite de previsão correta
+### <a name="correct-prediction-threshold"></a>Limite de previsão correto
 
-O que é uma pontuação de confiança de previsão confiante para você? No início do desenvolvimento de aplicativos, 60% pode ser o destino. Use o **corrigir previsões abaixo** com a porcentagem de 60% para localizar quaisquer declarações na intenção selecionada que precisam ser corrigidos.
+O que é uma pontuação de confiança de previsão confiável para você? No início do desenvolvimento de aplicativos, 60% pode ser seu destino. Use as **previsões corretas abaixo** com a porcentagem de 60% para localizar qualquer declarações na intenção selecionada que precisa ser corrigida.
 
-### <a name="unclear-or-incorrect-prediction-threshold"></a>Limite de previsão claro ou incorreto
+### <a name="unclear-or-incorrect-prediction-threshold"></a>Limite de previsão não claro ou incorreto
 
-Esses dois filtros permitem que você encontre declarações na intenção ultrapassando o limite selecionada. Você pode pensar essas dois porcentagens como porcentagens de erro. Se você estiver familiarizado com uma taxa de erro de 10 a 15% para previsões, defina o limite de filtro para 15% para localizar todas as declarações acima desse valor. 
+Esses dois filtros permitem que você encontre declarações na intenção selecionada além do limite. Você pode considerar esses dois percentuais como porcentagens de erro. Se você estiver familiarizado com uma taxa de erro de 10-15% para previsões, defina o limite de filtro para 15% para localizar todos os declarações acima desse valor. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Gerenciar recursos do Azure](luis-how-to-azure-subscription.md)
+* [Gerenciar seus recursos do Azure](luis-how-to-azure-subscription.md)

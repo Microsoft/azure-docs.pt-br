@@ -14,17 +14,16 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f3c4fc379ac932e66c5d02e08e72ef4d16db638b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66164249"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836696"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Tutorial: Criar um data factory usando o Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -124,8 +123,8 @@ Com o serviço vinculado HDInsight sob demanda, o cluster do HDInsight é criado
 
     Propriedade | DESCRIÇÃO
     -------- | ----------- 
-    ClusterSize | Especifica o tamanho do cluster do HDInsight Hadoop.
-    TimeToLive | Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído.
+    clusterSize | Especifica o tamanho do cluster do HDInsight Hadoop.
+    timeToLive | Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído.
     linkedServiceName | Especifica a conta de armazenamento usada para armazenar os logs gerados pelo cluster do HDInsight Hadoop. 
 
     > [!IMPORTANT]
@@ -176,10 +175,10 @@ Nesta etapa, você cria conjuntos de dados para representar dados de entrada e d
     Tipo |A propriedade de tipo é definida como **AzureBlob** porque os dados residem no armazenamento de blobs do Azure.
     linkedServiceName | Refere-se ao AzureStorageLinkedService1 que você criou anteriormente.
     fileName |Essa propriedade é opcional. Se você omitir essa propriedade, todos os arquivos de folderPath serão selecionados. Nesse caso, somente o input.log será processado.
-    Tipo | Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
+    type | Os arquivos de log estão em formato de texto, então utilizaremos TextFormat. |
     columnDelimiter | as colunas nos arquivos de log são delimitadas pelo caractere de vírgula (`,`)
-    frequência/intervalo | a frequência é definida como Mês e o intervalo como 1, o que significa que as fatias de entrada estão disponíveis mensalmente.
-    externo | Se os dados de entrada para a atividade não forem gerados pelo pipeline, essa propriedade será definida como verdadeira. Essa propriedade só é especificada em conjuntos de dados de entrada. O conjunto de dados de entrada da primeira atividade sempre será definido como verdadeiro.
+    frequency/interval | a frequência é definida como Mês e o intervalo como 1, o que significa que as fatias de entrada estão disponíveis mensalmente.
+    external | Se os dados de entrada para a atividade não forem gerados pelo pipeline, essa propriedade será definida como verdadeira. Essa propriedade só é especificada em conjuntos de dados de entrada. O conjunto de dados de entrada da primeira atividade sempre será definido como verdadeiro.
 4. Salve o arquivo **InputDataset.json** .
 
 #### <a name="create-output-dataset"></a>Criar conjunto de dados de saída

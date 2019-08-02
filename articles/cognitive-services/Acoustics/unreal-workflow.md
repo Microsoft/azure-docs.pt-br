@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 38276757d0472582c3cf5035e1f52d34158a7e38
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1692032b093cd6189cac3ea3f63c563d9accd8ed
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59784669"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477823"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de design do Projeto Acústico do Unreal/Wwise
 Este tutorial descreve a configuração de design e fluxo de trabalho do Projeto Acústico no Unreal e Wwise.
@@ -122,6 +122,11 @@ Para gerenciar você mesmo o streaming de dados acústicos, em vez de transmitir
 O tamanho do bloco já deve ser definido antes de chamar Bloco Forçar Carregamento. Por exemplo, seria possível fazer isto para carregar um arquivo de ACE, definir o tamanho do bloco e transmitir em uma região:
 
 ![Captura de tela de opções de configuração de Streaming no Unreal](media/streaming-setup.png)
+
+A função de blueprint Carregar dados acústicos usada neste exemplo tem os seguintes parâmetros:
+
+* **Destino:** O ator do Espaço acústico.
+* **Novo bake:** O ativo de dados acústicos que será carregado. Deixar esse espaço em branco/configurá-lo como nulo descarregará o bake atual sem carregar um novo.
 
 ### <a name="optionally-query-for-surface-proximity"></a>Consulta opcional por proximidade de superfície
 Se você quiser ver como as superfícies próximas estão em uma determinada direção ao redor do ouvinte, poderá usar a função Distância de Consulta. Essa função pode ser útil para conduzir reflexões direcionalmente atrasadas, ou para outras lógicas de jogo impulsionadas pela proximidade da superfície. A consulta é menos dispendiosa do que um ray-cast porque os resultados são extraídos da tabela de pesquisa de acústica.

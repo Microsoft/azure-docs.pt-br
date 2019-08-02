@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 412b554710c552bdfdf8bf94a59e822beed55b32
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925314"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206057"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>Tutorial: Usar o serviço de cópia de dados para copiar dados para o Azure Data Box (versão prévia)
 
@@ -59,7 +59,7 @@ Para copiar dados usando o serviço de cópia de dados, é necessário criar um 
     |-------------------------------|---------|
     |**Nome do trabalho**                       |Um único nome com menos de 230 caracteres para o trabalho. Estes caracteres não são permitidos no nome do trabalho: \<, \>, \|, \?, \*, \\, \:, \/ e \\\.         |
     |**Localização de origem**                |Forneça o caminho do SMB para a fonte de dados no formato: `\\<ServerIPAddress>\<ShareName>` ou `\\<ServerName>\<ShareName>`.        |
-    |**Nome de Usuário**                       |Nome de usuário no formato `\\<DomainName><UserName>` para acessar a fonte de dados.        |
+    |**Nome de Usuário**                       |Nome de usuário no formato `\\<DomainName><UserName>` para acessar a fonte de dados. Se um administrador local estiver se conectando, eles precisarão de permissões de segurança explícita. Clique com botão direito do mouse na pasta, selecione **Propriedades** e, em seguida, selecione **Segurança**. Isso deve adicionar o administrador local na guia **Segurança**.       |
     |**Senha**                       |A senha para acessar a fonte de dados.           |
     |**Conta de armazenamento de destino**    |Selecione na lista a conta de armazenamento de destino na qual os dados serão carregados.         |
     |**Tipo de destino**       |Selecione o tipo de armazenamento de destino na lista: **Blob de Blocos**, **Blob de Páginas** ou **Arquivos do Azure**.        |

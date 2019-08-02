@@ -1,5 +1,5 @@
 ---
-title: Registrar exemplos de voz personalizada – Serviços de Fala
+title: Registrar amostras de voz personalizadas-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Construa uma voz personalizada com qualidade de produção, preparando um script robusto, contratando bons talentos de voz e gravando profissionalmente.
 services: cognitive-services
@@ -8,15 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 47e1f8bf178723a5d4be323f24724214a67499e2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65954647"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559192"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Gravar amostras de voz para criar uma voz personalizada
 
@@ -33,7 +32,7 @@ Muitos detalhes pequenos, mas importantes, envolvem a criação de uma gravaçã
 
 Há quatro funções básicas em um projeto de gravação de voz personalizada:
 
-Função|Finalidade
+Role|Finalidade
 -|-
 Ator de voz        |A voz dessa pessoa formará a base da voz personalizada.
 Engenheiro de gravação  |Supervisiona os aspectos técnicos da gravação e opera o equipamento de gravação.
@@ -53,7 +52,7 @@ Escolha o ator de voz cuja voz natural você aprecia. É possível criar vozes e
 
 O fator mais importante para a escolha de talentos de voz é a consistência. As gravações devem soar como se fossem feitas no mesmo dia e na mesma sala. É possível aproximar-se desse ideal por meio de melhores práticas de gravação e engenharia.
 
-O ator de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, densidade e tom. A dicção clara é uma obrigação. O talento também precisa ser capaz de controlar rigidamente suas variação de tom, afetam emocional e detectar gestos de fala.
+O ator de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, densidade e Tom. A dicção clara é uma obrigação. O talento também precisa ser capaz de controlar estritamente a variação de pitch, o efeito emocional e a mannerisms de fala.
 
 Gravar amostras de voz personalizada pode ser mais exaustivo que outros tipos de trabalho com voz. A maioria dos talentos de voz pode gravar por duas ou três horas por dia. Se possível, limite as sessões a três ou quatro por semana, com um dia de folga entre as seções.
 
@@ -105,11 +104,11 @@ Sob a lei de direitos autorais, a leitura de um texto com direitos autorais pelo
 
 Felizmente, é possível evitar completamente esses problemas. Há muitas fontes de texto que podem ser utilizadas sem permissão ou licença.
 
-|Fonte de texto|DESCRIÇÃO|
+|Fonte de texto|Descrição|
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Cerca de 1100 frases selecionadas de obras que não possuem direitos autorais, especificamente para uso em projetos de sintetização de fala. Um excelente ponto de partida.|
 |Obras que não estão mais<br>sob direitos autorais|Normalmente, obras publicadas antes de 1923. Para inglês, o [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de obras desse tipo. Talvez seja conveniente concentra-se em textos mais recentes, pois a linguagem estará mais próxima do inglês moderno.|
-|Obras&nbsp;governamentais|Works criado pelo governo dos Estados Unidos não direitos autorais nos Estados Unidos, embora o governo pode de declaração de direitos autorais em outros países/regiões.|
+|Obras&nbsp;governamentais|Os trabalhos criados pelo governo Estados Unidos não são protegidos por direitos autorais no Estados Unidos, embora o governo possa reivindicar direitos autorais em outros países/regiões.|
 |Domínio público|Obras para as quais os direitos autorais foram explicitamente renunciados ou foram dedicadas ao domínio público. Pode não ser possível renunciar totalmente aos direitos autorais em algumas jurisdições.|
 |Obras com licença permissiva|Obras distribuídas sob licença como Creative Commons ou GFDL (Licença GNU de Documentação Livre). Wikipedia usa GFDL. Algumas licenças, no entanto, podem impor restrições à performance do conteúdo licenciado que podem afetar a criação de um modelo de voz personalizada, portanto, leia a licença atentamente.|
 
@@ -117,7 +116,7 @@ Felizmente, é possível evitar completamente esses problemas. Há muitas fontes
 
 Grave o script em um estúdio de gravação profissional especializado em trabalho de voz. Esses estúdios terão uma cabine de gravação, o equipamento certo e as pessoas capacitadas para operá-lo. Vale a pena não economizar na gravação.
 
-Discuta o seu projeto com o engenheiro de gravação do studio e ouça seus conselhos. A gravação deve ter pouca ou nenhuma compressão de gama dinâmica (máximo de 4: 1). É essencial que o áudio tenha um volume consistente e uma alta relação sinal-ruído, além de estar livre de sons indesejados.
+Discuta seu projeto com o engenheiro de gravação do estúdio e ouça seus conselhos. A gravação deve ter pouca ou nenhuma compressão de gama dinâmica (máximo de 4: 1). É essencial que o áudio tenha um volume consistente e uma alta relação sinal-ruído, além de estar livre de sons indesejados.
 
 ### <a name="do-it-yourself"></a>Faça você mesmo
 
@@ -158,12 +157,12 @@ O ideal é ter pessoas diferentes nas funções de diretor, engenheiro e ator de
 
 ### <a name="before-the-session"></a>Antes da sessão
 
-Para evitar desperdiçar tempo de estúdio, repasse o script com o ator de voz antes da sessão de gravação. Enquanto o talento de voz fica familiarizado com o texto, eles podem esclarecer a pronúncia de palavras não familiares.
+Para evitar desperdiçar tempo de estúdio, repasse o script com o ator de voz antes da sessão de gravação. Embora o talento de voz se familiarize com o texto, eles podem esclarecer a pronúncia de quaisquer palavras desconhecidas.
 
 > [!NOTE]
 > A maioria dos estúdios de gravação oferece exibição eletrônica de scripts na cabine de gravação. Nesse caso, digite diretamente no documento do script as observações a serem repassadas rapidamente. Ainda será necessário ter uma cópia em papel para fazer anotações durante a sessão. A maioria dos engenheiros também vai querer uma cópia impressa. Além disso, é necessário ter uma terceira cópia impressa como backup para o ator de voz, caso o computador esteja inoperante.
 
-O ator de voz pode perguntar qual palavra você quer enfatizar em um enunciado (a "palavra operativa"). Informe que você deseja que uma leitura natural com nenhuma ênfase especial. A ênfase poderá ser adicionada quando a fala for sintetizada e não deve fazer parte da gravação original.
+O ator de voz pode perguntar qual palavra você quer enfatizar em um enunciado (a "palavra operativa"). Informe que você deseja uma leitura natural sem nenhuma ênfase específica. A ênfase poderá ser adicionada quando a fala for sintetizada e não deve fazer parte da gravação original.
 
 Direcione o ator de voz para pronunciar palavras distintamente. Cada palavra do script deve ser pronunciada como escrita. Os sons não devem ser omitidos nem desarticulados, como é comum em fala casual, *a menos que tenham sido escritos dessa maneira no script*.
 
@@ -196,7 +195,7 @@ Ouça atentamente, usando fones de ouvido, a performance do ator de voz. Você e
 
 Observe o número da tomada ou código de tempo no script para cada enunciado. Peça para o engenheiro marcar cada um dos enunciados nos metadados da gravação ou na lista de deixas.
 
-Levar quebras regulares e fornecer uma bebida para ajudar a manter sua voz em boa forma seu talento de voz.
+Faça interrupções regulares e forneça uma bebida para ajudar seus talentos de voz a manter sua voz em bom formato.
 
 ### <a name="after-the-session"></a>Após a sessão
 

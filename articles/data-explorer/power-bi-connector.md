@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/04/2019
-ms.openlocfilehash: 0bfacc968a04f8ef9e39a31cff5e81cf4e04c6fb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: cfe7d5fa82197a05ddadd08a8811dc86067a05d7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494663"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806478"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Visualize dados usando o conector do Azure Data Explorer para Power BI
 

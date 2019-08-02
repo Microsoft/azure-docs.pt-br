@@ -8,14 +8,14 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: b319abf22f9aa4cdd9a5fef91be0628672d47bd4
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 82f0313a237358fcaa1ae52e92821abef2b52af7
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297793"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697309"
 ---
 # <a name="quickstart-call-the-text-analytics-service-using-the-python-sdk"></a>Início Rápido: Chamar o Serviço de Análise de Texto usando o SDK do Python 
 <a name="HOLTop"></a>
@@ -31,8 +31,6 @@ Use este guia de início rápido para começar a analisar com o SDK de Análise 
     `pip install --upgrade azure-cognitiveservices-language-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-Também é necessário ter o [ponto de extremidade e a chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foram gerados para você durante a inscrição.
 
 ## <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
@@ -71,26 +69,26 @@ A carga para a API é composta por uma lista de `documents`, que são dicionári
 
 ```python
 documents = [
-  {
-    "id": "1", 
-    "language": "en", 
-    "text": "I had the best day of my life."
-  },
-  {
-    "id": "2", 
-    "language": "en", 
-    "text": "This was a waste of my time. The speaker put me to sleep."
-  },  
-  {
-    "id": "3", 
-    "language": "es", 
-    "text": "No tengo dinero ni nada que dar..."
-  },  
-  {
-    "id": "4", 
-    "language": "it", 
-    "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
-  }
+    {
+        "id": "1",
+        "language": "en",
+        "text": "I had the best day of my life."
+    },
+    {
+        "id": "2",
+        "language": "en",
+        "text": "This was a waste of my time. The speaker put me to sleep."
+    },
+    {
+        "id": "3",
+        "language": "es",
+        "text": "No tengo dinero ni nada que dar..."
+    },
+    {
+        "id": "4",
+        "language": "it",
+        "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."
+    }
 ]
 ```
 
@@ -99,7 +97,8 @@ Chame a função `sentiment()` e obtenha o resultado. Em seguida, itere os resul
 ```python
 response = text_analytics.sentiment(documents=documents)
 for document in response.documents:
-     print("Document Id: ", document.id, ", Sentiment Score: ", "{:.2f}".format(document.score))
+    print("Document Id: ", document.id, ", Sentiment Score: ",
+          "{:.2f}".format(document.score))
 ```
 
 ### <a name="output"></a>Saída
@@ -117,27 +116,28 @@ Crie uma lista de dicionários, cada um contendo o documento que você deseja an
 
 ```python
 documents = [
-    { 
-        'id': '1', 
-        'text': 'This is a document written in English.' 
+    {
+        'id': '1',
+        'text': 'This is a document written in English.'
     },
     {
-        'id': '2', 
-        'text': 'Este es un document escrito en Español.' 
+        'id': '2',
+        'text': 'Este es un document escrito en Español.'
     },
-    { 
-        'id': '3', 
-        'text': '这是一个用中文写的文件' 
+    {
+        'id': '3',
+        'text': '这是一个用中文写的文件'
     }
 ]
-``` 
+```
 
 Usando o cliente criado anteriormente, chame `detect_language()` e obtenha o resultado. Em seguida, itere os resultados e imprima a ID de cada documento e o primeiro idioma retornado.
 
 ```python
 response = text_analytics.detect_language(documents=documents)
 for document in response.documents:
-    print("Document Id: ", document.id , ", Language: ", document.detected_languages[0].name)
+    print("Document Id: ", document.id, ", Language: ",
+          document.detected_languages[0].name)
 ```
 
 ### <a name="output"></a>Saída
@@ -157,12 +157,12 @@ Crie uma lista de dicionários, contendo os documentos que você deseja analisar
 documents = [
     {
         "id": "1",
-        "language": "en", 
+        "language": "en",
         "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."
     },
     {
         "id": "2",
-        "language": "es", 
+        "language": "es",
         "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
     }
 ]
@@ -177,7 +177,8 @@ for document in response.documents:
     print("Document Id: ", document.id)
     print("\tKey Entities:")
     for entity in document.entities:
-        print("\t\t", "NAME: ",entity.name, "\tType: ", entity.type, "\tSub-type: ", entity.sub_type)
+        print("\t\t", "NAME: ", entity.name, "\tType: ",
+              entity.type, "\tSub-type: ", entity.sub_type)
         for match in entity.matches:
             print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
                   "{:.2f}".format(match.entity_type_score))
@@ -223,23 +224,23 @@ Crie uma lista de dicionários, contendo os documentos que você deseja analisar
 ```python
 documents = [
     {
-        "id": "1", 
-        "language": "ja", 
+        "id": "1",
+        "language": "ja",
         "text": "猫は幸せ"
     },
     {
-        "id": "2", 
-        "language": "de", 
+        "id": "2",
+        "language": "de",
         "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
     },
     {
-        "id": "3", 
+        "id": "3",
         "language": "en",
         "text": "My cat might need to see a veterinarian."
     },
     {
-        "id": "4", 
-        "language": "es", 
+        "id": "4",
+        "language": "es",
         "text": "A mi me encanta el fútbol!"
     }
 ]
@@ -254,7 +255,7 @@ for document in response.documents:
     print("Document Id: ", document.id)
     print("\tKey Phrases:")
     for phrase in document.key_phrases:
-        print("\t\t",phrase)
+        print("\t\t", phrase)
 ```
 
 ### <a name="output"></a>Saída

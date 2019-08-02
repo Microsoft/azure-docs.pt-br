@@ -2,25 +2,25 @@
 title: Tutorial do Kubernetes no Azure – Implantar um aplicativo
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você deve implantar um aplicativo de vários contêineres em seu cluster usando uma imagem personalizada armazenada no Registro de Contêiner do Azure.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c579aed1acb555a82d5a04308ab4e68f4bfecb8c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: be4d3fd298a7c08aa640585beb741bad18a840ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305286"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614336"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Execute aplicativos no AKS (Serviço de Kubernetes do Azure)
 
 Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres. Você compilar e implanta seus próprios aplicativos e serviços em um cluster Kubernetes e permite que o cluster gerencie a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em um cluster Kubernetes. Você aprenderá como:
 
 > [!div class="checklist"]
-> * Atualizar os arquivos de manifesto do Kubernetes
+> * Atualizar um arquivo de manifesto do Kubernetes
 > * Executar um aplicativo no Kubernetes
 > * Testar o aplicativo
 
@@ -34,13 +34,13 @@ Nos tutoriais anteriores, um aplicativo foi empacotado em uma imagem de contêin
 
 Para concluir este tutorial, você precisa do arquivo de manifesto do Kubernetes `azure-vote-all-in-one-redis.yaml` pré-criado. Esse arquivo foi baixado com o código-fonte do aplicativo em um tutorial anterior. Verifique se você clonou repositório e se você alterou os diretórios para o repositório clonado. Se você ainda não executou essas etapas e deseja continuar acompanhando, comece com o [Tutorial 1 – Criar imagens de contêiner][aks-tutorial-prepare-app].
 
-Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="update-the-manifest-file"></a>Atualizar o arquivo de manifesto
 
 Nesses tutoriais, uma instância de Registro de Contêiner do Azure (ACR) armazena a imagem de contêiner para o aplicativo de exemplo. Para implantar o aplicativo, você deve atualizar o nome da imagem no arquivo de manifesto do Kubernetes para incluir o nome do servidor de logon do ACR.
 
-Obtenha o nome do servidor de logon do ACR com o comando [az acr list][az-acr-list] conforme a seguir:
+Obtenha o nome do servidor de logon do ACR usando o comando [az acr list][az-acr-list] da seguinte maneira:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -72,7 +72,7 @@ Salve e feche o arquivo. Em `vi`, use `:wq`.
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
 
-Para implantar seu aplicativo, use o comando [kubectl apply][kubectl-apply]. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos. Especifique o arquivo de manifesto de exemplo, conforme mostrado no exemplo a seguir:
+Para implantar o aplicativo, use o comando [kubectl apply][kubectl-apply]. Esse comando analisa o arquivo de manifesto e cria objetos Kubernetes definidos. Especifique o arquivo de manifesto de exemplo, conforme mostrado no exemplo a seguir:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml

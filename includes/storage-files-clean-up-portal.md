@@ -9,11 +9,11 @@ ms.date: 03/28/2018
 ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66114638"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171996"
 ---
 Após a conclusão, exclua o grupo de recursos. A exclusão do grupo de recursos exclui a conta de armazenamento, o compartilhamento de arquivos do Azure e outros recursos implantados dentro do grupo de recursos.
 

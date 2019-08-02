@@ -1,6 +1,6 @@
 ---
-title: Atributos comuns de segurança do Azure para Hubs de eventos
-description: Uma lista de verificação de atributos de segurança comuns para avaliar os Hubs de eventos do Azure
+title: Atributos de segurança para hubs de eventos do Azure
+description: Uma lista de verificação de atributos de segurança para avaliar os hubs de eventos do Azure
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 50f19d50f211972c2042c69a1e3177ffb4a47624
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2262609de774eb2b1334215bf46968b5554ed691
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66247193"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442446"
 ---
-# <a name="common-security-attributes-for-azure-event-hubs"></a>Atributos comuns de segurança do Azure para Hubs de eventos
+# <a name="security-attributes-for-azure-event-hubs"></a>Atributos de segurança para hubs de eventos do Azure
 
-Este artigo documenta os atributos de segurança comuns criados nos Hubs de eventos do Azure.
+Este artigo documenta os atributos de segurança internos nos hubs de eventos do Azure.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,32 +26,32 @@ Este artigo documenta os atributos de segurança comuns criados nos Hubs de even
 
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia em repouso:<ul><li>Criptografia no servidor</li><li>Criptografia do lado do servidor com chaves gerenciadas pelo cliente</li><li>Outros recursos de criptografia (como do lado do cliente, Always Encrypted, etc.)</ul>|  Sim | |
-| Criptografia em trânsito:<ul><li>Criptografia do ExpressRoute</li><li>Na criptografia de VNET</li><li>Criptografia de rede virtual a rede virtual</ul>| Sim | |
-| Tratamento de chaves de criptografia (CMK, BYOK, etc.)| Não |  |
-| Criptografia de nível de coluna (serviços de dados do Azure)| N/D | |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)|  Sim | |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Não |  |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/D | |
 | Chamadas à API criptografadas| Sim |  |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
-| Suporte de ponto de extremidade de serviço| Sim |  |
-| suporte à injeção de rede virtual| Não | |
+| Suporte ao ponto de extremidade de serviço| Sim |  |
+| Suporte à injeção de VNet| Não | |
 | Isolamento de rede e suporte de firewall| Sim |  |
-| Forçado suporte por túnel| Não |  |
+| Suporte a túnel forçado| Não |  |
 
 ## <a name="detection"></a>Detecção
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Monitoramento (Log analytics, insights de aplicativo, etc.) de suporte do Azure| Sim | |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | |
 
 ## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Authentication| Sim | |
+| Autenticação| Sim | |
 | Autorização|  Sim | |
 
 
@@ -59,8 +59,8 @@ Este artigo documenta os atributos de segurança comuns criados nos Hubs de even
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Auditoria e log de plano de controle e gerenciamento| Sim |  |
-| Auditoria e log de plano de dados| Sim |   |
+| Registro e auditoria do plano de gerenciamento e controle| Sim |  |
+| Log e auditoria do plano de dados| Sim |   |
 
 ## <a name="configuration-management"></a>Gerenciamento de configuração
 

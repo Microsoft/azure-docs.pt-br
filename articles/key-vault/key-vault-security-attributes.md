@@ -1,6 +1,6 @@
 ---
-title: Atributos comuns de segurança para o Azure Key Vault
-description: Uma lista de verificação de atributos de segurança comuns para avaliar o Azure Key Vault
+title: Atributos de segurança para Azure Key Vault
+description: Uma lista de verificação de atributos de segurança para avaliar Azure Key Vault
 services: key-vault
 author: msmbaldwin
 manager: barbkess
@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 836d025c5bc69da9606c9a6172ac6a43caaaf29b
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66000189"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444014"
 ---
-# <a name="security-attributes-for-azure-key-vault"></a>Atributos de segurança para o Azure Key Vault
+# <a name="security-attributes-for-azure-key-vault"></a>Atributos de segurança para Azure Key Vault
 
-Este artigo documenta os atributos de segurança criados para o Azure Key Vault. 
+Este artigo documenta os atributos de segurança internos no Azure Key Vault. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -25,32 +25,32 @@ Este artigo documenta os atributos de segurança criados para o Azure Key Vault.
 
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
-| Criptografia em repouso:<ul><li>Criptografia no servidor</li><li>Criptografia do lado do servidor com chaves gerenciadas pelo cliente</li><li>Outros recursos de criptografia (como do lado do cliente, Always Encrypted, etc.)</ul>| Sim | Todos os objetos são criptografados. |
-| Criptografia em trânsito:<ul><li>Criptografia do ExpressRoute</li><li>Na criptografia de rede virtual</li><li>Criptografia de rede virtual a rede virtual</ul>| Sim | Toda a comunicação é por meio de chamadas à API criptografadas |
-| Tratamento de chaves de criptografia (CMK, BYOK, etc.)| Sim | O cliente controla todas as chaves em seu Cofre de chaves. Quando as chaves de HSM (módulo) com suporte de segurança de hardware são especificadas, um HSM do FIPS nível 2 protege a chave, o certificado ou o segredo. |
-| Criptografia de nível de coluna (serviços de dados do Azure)| N/D |  |
+| Criptografia em repouso (como criptografia do lado do servidor, criptografia do lado do servidor com chaves gerenciadas pelo cliente e outros recursos de criptografia)| Sim | Todos os objetos são criptografados. |
+| Criptografia em trânsito (como criptografia de ExpressRoute, criptografia de vnet e criptografia vnet)| Sim | Toda a comunicação é por meio de chamadas à API criptografadas |
+| Tratamento de chave de criptografia (CMK, BYOK, etc.)| Sim | O cliente controla todas as chaves em seu Key Vault. Quando as chaves com suporte ao módulo de segurança de hardware (HSM) são especificadas, um HSM de nível 2 do FIPS protege a chave, o certificado ou o segredo. |
+| Criptografia em nível de coluna (serviços de dados do Azure)| N/D |  |
 | Chamadas à API criptografadas| Sim | Usar HTTPS. |
 
 ## <a name="network-segmentation"></a>Segmentação de rede
 
 | Atributo de segurança | Sim/Não | Observações |
 |---|---|--|
-| Suporte de ponto de extremidade de serviço| Sim | Usando pontos de extremidade de serviço de rede Virtual (VNet). |
-| Suporte à injeção de rede virtual| Não |  |
-| Isolamento de rede e suporte de firewall| Sim | Usando regras de firewall de rede virtual. |
-| Forçado suporte por túnel| Não |  |
+| Suporte ao ponto de extremidade de serviço| Sim | Usando pontos de extremidade de serviço de rede virtual (VNet). |
+| Suporte à injeção de VNet| Não |  |
+| Isolamento de rede e suporte de firewall| Sim | Usando regras de firewall de VNet. |
+| Suporte a túnel forçado| Não |  |
 
 ## <a name="detection"></a>Detecção
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Monitoramento (Log analytics, insights de aplicativo, etc.) de suporte do Azure| Sim | Usando o Log Analytics. |
+| Suporte ao monitoramento do Azure (log Analytics, app insights, etc.)| Sim | Usando o Log Analytics. |
 
 ## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
 
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
-| Authentication| Sim | A autenticação é feita pelo Azure Active Directory. |
+| Autenticação| Sim | A autenticação é feita pelo Azure Active Directory. |
 | Autorização| Sim | Usando a política de acesso ao Key Vault. |
 
 
@@ -59,7 +59,7 @@ Este artigo documenta os atributos de segurança criados para o Azure Key Vault.
 | Atributo de segurança | Sim/Não | Observações|
 |---|---|--|
 | Registro em log e auditoria de plano de controle/gerenciamento| Sim | Usando o Log Analytics. |
-| Auditoria e log de plano de dados| Sim | Usando o Log Analytics. |
+| Log e auditoria do plano de dados| Sim | Usando o Log Analytics. |
 
 ## <a name="access-controls"></a>Controles de acesso
 

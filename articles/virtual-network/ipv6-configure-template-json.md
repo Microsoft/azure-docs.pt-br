@@ -1,7 +1,7 @@
 ---
-title: Implantar um aplicativo de pilha dupla de IPv6 na rede virtual do Azure - modelo do Gerenciador de recursos (visualização)
+title: Implantar um aplicativo de pilha dupla IPv6 com Load Balancer básica na rede virtual do Azure – modelo do Resource Manager (versão prévia)
 titlesuffix: Azure Virtual Network
-description: Este artigo mostra como implanta um aplicativo de pilha dupla de IPv6 na rede virtual do Azure usando modelos de VM do Azure Resource Manager.
+description: Este artigo mostra como implantar um aplicativo IPv6 dual stack na rede virtual do Azure usando Azure Resource Manager modelos de VM.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -10,26 +10,26 @@ ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.author: kumud
-ms.openlocfilehash: ae90bc4a12763803f38224d917c4644a68ae7d6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e97a5a478871d94e074b59558a11df1ec752b0f9
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130832"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249854"
 ---
-# <a name="deploy-an-ipv6-dual-stack-application-in-azure---template-preview"></a>Implantar um aplicativo de pilha dupla do IPv6 no Azure - modelo (visualização)
+# <a name="deploy-an-ipv6-dual-stack-application-with-basic-load-balancer-in-azure---template-preview"></a>Implantar um aplicativo de pilha dupla IPv6 com Load Balancer básica no Azure – modelo (versão prévia)
 
-Este artigo fornece uma lista de tarefas de configuração de IPv6 com a parte do modelo de VM do Azure Resource Manager que se aplica a. Use o modelo descrito neste artigo para implantar um aplicativo de pilha dual (IPv4 + IPv6) no Azure que inclua uma pilha dupla rede virtual com sub-redes IPv4 e IPv6, um balanceador de carga com configurações de front-end dual (IPv4 + IPv6), VMs com NICs que têm uma dupla de IP configuração do grupo de segurança de rede e IPs públicos. 
+Este artigo fornece uma lista de tarefas de configuração de IPv6 com a parte do modelo de VM Azure Resource Manager que se aplica ao. Use o modelo descrito neste artigo para implantar um aplicativo de pilha dupla (IPv4 + IPv6) no Azure que inclui uma rede virtual de pilha dupla com sub-redes IPv4 e IPv6, um balanceador de carga com configurações de front-end (IPv4 + IPv6) duplas, VMs com NICs com um IP duplo configuração, grupo de segurança de rede e IPs públicos. 
 
 ## <a name="required-configurations"></a>Configurações necessárias
 
-Procure as seções de modelo no modelo para ver onde eles devem ocorrer.
+Procure as seções de modelo no modelo para ver onde elas devem ocorrer.
 
-### <a name="ipv6-addressspace-for-the-virtual-network"></a>AddressSpace de IPv6 para a rede virtual
+### <a name="ipv6-addressspace-for-the-virtual-network"></a>IPv6 addressSpace para a rede virtual
 
-Seção de modelo para adicionar:
+Seção de modelo a ser adicionada:
 
 ```JSON
         "addressSpace": {
@@ -38,9 +38,9 @@ Seção de modelo para adicionar:
             "[variables('vnetv6AddressRange')]"    
 ```
 
-### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>Subrede IPv6 dentro o addressSpace da rede virtual de IPv6
+### <a name="ipv6-subnet-within-the-ipv6-virtual-network-addressspace"></a>Sub-rede IPv6 dentro da rede virtual IPv6 addressSpace
 
-Seção de modelo para adicionar:
+Seção de modelo a ser adicionada:
 ```JSON
           {
             "name": "V6Subnet",
@@ -50,9 +50,9 @@ Seção de modelo para adicionar:
 
 ```
 
-### <a name="ipv6-configuration-for-the-nic"></a>Configuração de IPv6 para o NIC
+### <a name="ipv6-configuration-for-the-nic"></a>Configuração de IPv6 para a NIC
 
-Seção de modelo para adicionar:
+Seção de modelo a ser adicionada:
 ```JSON
           {
             "name": "ipconfig-v6",
@@ -68,7 +68,7 @@ Seção de modelo para adicionar:
                 }
 ```
 
-### <a name="ipv6-network-security-group-nsg-rules"></a>Regras NSG (grupo) de segurança de rede IPv6
+### <a name="ipv6-network-security-group-nsg-rules"></a>Regras do NSG (grupo de segurança de rede) IPv6
 
 ```JSON
           {
@@ -88,7 +88,7 @@ Seção de modelo para adicionar:
 
 ## <a name="conditional-configuration"></a>Configuração condicional
 
-Se você estiver usando um dispositivo de rede virtual, adicione rotas IPv6 na tabela de rotas. Caso contrário, essa configuração é opcional.
+Se você estiver usando uma solução de virtualização de rede, adicione rotas IPv6 na tabela de rotas. Caso contrário, essa configuração é opcional.
 
 ```JSON
     {
@@ -120,7 +120,7 @@ Se você estiver usando um dispositivo de rede virtual, adicione rotas IPv6 na t
               }
 ```
 
-### <a name="ipv6-public-ip-addresses"></a>Endereços IP públicos do IPv6
+### <a name="ipv6-public-ip-addresses"></a>Endereços IP públicos IPv6
 
 ```JSON
     {
@@ -134,7 +134,7 @@ Se você estiver usando um dispositivo de rede virtual, adicione rotas IPv6 na t
       }
 ```
 
-### <a name="ipv6-front-end-for-load-balancer"></a>IPv6 de Front-end de Balanceador de carga
+### <a name="ipv6-front-end-for-load-balancer"></a>Front-end IPv6 para Load Balancer
 
 ```JSON
           {
@@ -145,7 +145,7 @@ Se você estiver usando um dispositivo de rede virtual, adicione rotas IPv6 na t
               }
 ```
 
-### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>Pool de endereços de Back-end do IPv6 para o balanceador de carga
+### <a name="ipv6-back-end-address-pool-for-load-balancer"></a>Pool de endereços de back-end IPv6 para Load Balancer
 
 ```JSON
               "backendAddressPool": {
@@ -158,7 +158,7 @@ Se você estiver usando um dispositivo de rede virtual, adicione rotas IPv6 na t
             "name": "lbrule-v6"
 ```
 
-### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>Regras para associar as portas de entrada e saídas do balanceador de carga do IPv6
+### <a name="ipv6-load-balancer-rules-to-associate-incoming-and-outgoing-ports"></a>Regras de balanceador de carga IPv6 para associar portas de entrada e saída
 
 ```JSON
           {
@@ -175,9 +175,9 @@ Se você estiver usando um dispositivo de rede virtual, adicione rotas IPv6 na t
                 }
 ```
 
-## <a name="sample-vm-template-json"></a>Exemplo de JSON do modelo VM
-Clique em [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/) para implantar um aplicativo de pilha dupla de IPv6 na rede virtual do Azure usando o modelo do Resource Manager.
+## <a name="sample-vm-template-json"></a>Exemplo de JSON de modelo de VM
+Para implantar um aplicativo de pilha dupla IPv6 na rede virtual do Azure usando Azure Resource Manager modelo, exiba o modelo de exemplo [aqui](https://azure.microsoft.com/resources/templates/ipv6-in-vnet/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você pode encontrar detalhes sobre os preços para [endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses/), [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/), ou [balanceador de carga](https://azure.microsoft.com/pricing/details/load-balancer/).
+Você pode encontrar detalhes sobre os preços de [endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses/), [largura de banda de rede](https://azure.microsoft.com/pricing/details/bandwidth/)ou [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

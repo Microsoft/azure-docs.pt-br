@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9accb41cdb4d780bf137d6872cca022226f902e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c9699bccbb539c9617fac2f3296483139e7188
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61443041"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203151"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configure os controles de acesso baseados em função no acelerador da solução de Monitoramento Remoto
 
@@ -91,11 +91,11 @@ As etapas a seguir descrevem como adicionar uma função a um aplicativo no Micr
 
 1. Localize o **Registro de aplicativo** para sua solução no portal do Azure. O nome do aplicativo é o nome da sua solução de Monitoramento Remoto. Na captura de tela a seguir, os nomes de exibição de solução e de aplicativo são **contoso-rm4**.
 
-    ![Registro do aplicativo](media/iot-accelerators-remote-monitoring-rbac/appregistration2.png)
+    ![Registro do aplicativo](media/iot-accelerators-remote-monitoring-rbac/app-registration-2.png)
 
 1. Selecione o seu aplicativo, em seguida, clique em **Manifesto**. Você pode ver as duas [funções de aplicativo](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) existentes definidas para o aplicativo:
 
-    ![Visualizar manifesto](media/iot-accelerators-remote-monitoring-rbac/viewmanifest.png)
+    ![Visualizar manifesto](media/iot-accelerators-remote-monitoring-rbac/view-manifest.png)
 
 1. Editar o manifesto para adicionar uma função chamada **ManageDevices** conforme mostrado no snippet a seguir. Você precisa de uma cadeia de caracteres exclusiva como um GUID para a nova ID de função. Você pode gerar um novo GUID, usando um serviço, como o [Gerador de GUID Online](https://www.guidgenerator.com/):
 

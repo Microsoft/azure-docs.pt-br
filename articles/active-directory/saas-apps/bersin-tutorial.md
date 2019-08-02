@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8ff026743ccda0a47ce176db51dbc7913376f46
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8bc292be68879a608df6662418bb9f59c758f660
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988003"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bersin"></a>Tutorial: Integração do Azure Active Directory ao Bersin
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Bersin, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Bersin](common/idp-identifier-relay.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.bersin.com/shibboleth`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.bersin.com/shibboleth`
 
     b. Clique em **Definir URLs adicionais**.
 
@@ -150,7 +150,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -201,4 +201,4 @@ Ao clicar no bloco do Bersin no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -5,18 +5,15 @@ services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc3c1a05c64edea260bd177dd7eaefc003db5310
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65507222"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67296300"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerenciar grupos de recursos do Azure Resource Manager usando o portal do Azure
 
@@ -109,14 +106,6 @@ Você pode aplicar marcas a recursos e grupos de recursos para organizar seus at
 ## <a name="export-resource-groups-to-templates"></a>Exportar grupos de recursos para modelos
 
 Para obter informações sobre como exportar modelos, consulte [exportação única e vários recurso para o modelo - Portal](export-template-portal.md).
-
-### <a name="fix-export-issues"></a>Corrigir os problemas da exportação
-
-Nem todos os tipos de recursos suportam a função para exportar o modelo. Você só vê problemas de exportação quando exporta de um grupo de recursos em vez de seu histórico de implantações. Se sua última implantação apresentar com precisão o estado atual do grupo de recursos, você deverá exportar o modelo do histórico de implantações, em vez do grupo de recursos. Exporte somente a partir de um grupo de recursos quando você fez alterações no grupo de recursos que não são definidas em um único modelo.
-
-Para resolver problemas de exportação, adicione manualmente os recursos ausentes de volta ao seu modelo. A mensagem de erro inclui os tipos de recursos que não podem ser exportados. Encontre o tipo de recurso em [referência de modelo](/azure/templates/). Por exemplo, para adicionar um gateway de rede virtual manualmente, confira [referência de modelo Microsoft.Network/virtualNetworkGateways ](/azure/templates/microsoft.network/virtualnetworkgateways). O modelo de referência nos dá o JSON para adicionar o recurso ao nosso modelo.
-
-Depois de pegar o formato JSON para o recurso, você precisa pegar os valores de recurso. Você consegue ver os valores para o recurso usando a operação GET no API REST para o tipo de recurso. Por exemplo, para pegar os valores para o seu gateway de rede virtual, consulte [Criar gateway de rede virtual](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## <a name="manage-access-to-resource-groups"></a>Gerenciar o acesso a grupos de recursos
 

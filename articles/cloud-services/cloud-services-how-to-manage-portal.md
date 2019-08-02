@@ -3,23 +3,17 @@ title: Tarefas comuns de gerenciamento de serviço de nuvem | Microsoft Docs
 description: Saiba como gerenciar Serviços de Nuvem no portal do Azure. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: cb218ad9-77d4-4149-83db-71159c00767e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: d3d1ae759f0f3fa5edd417da61f1fa50b5d9cde7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8ec7784fb51d0fa4de2563f76444b0b5e5f34902
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61433843"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359602"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Gerenciar Serviços de Nuvem no portal do Azure
 Na área de **Serviços de Nuvem** do portal do Azure, você pode:
@@ -34,7 +28,7 @@ Para obter mais informações sobre como dimensionar seu serviço de nuvem, cons
 ## <a name="update-a-cloud-service-role-or-deployment"></a>Atualizar uma função ou implantação de serviço de nuvem
 Se você precisar atualizar o código do aplicativo para o seu serviço de nuvem, use **Atualizar** na folha do serviço de nuvem. Você pode atualizar única função ou todas as funções. Para atualizar, você pode carregar um novo pacote de serviços ou o arquivo de configuração do serviço.
 
-1. No [Portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja atualizar. Esta etapa abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja atualizar. Esta etapa abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, selecione **Atualizar**.
 
@@ -59,7 +53,7 @@ Ao optar por implantar uma nova versão do serviço de nuvem, prepare e teste a 
 
 É possível permutar implantações na página **Serviços de Nuvem** ou no painel.
 
-1. No [Portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja atualizar. Esta etapa abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja atualizar. Esta etapa abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, selecione **Permutar**.
 
@@ -98,7 +92,7 @@ Para economizar custos de computação, você pode excluir a implantação de pr
 
 Use o procedimento a seguir para excluir uma implantação ou seu serviço de nuvem.
 
-1. No [Portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja excluir. Esta etapa abrirá a folha da instância do serviço de nuvem.
+1. No [portal do Azure][Azure portal], selecione o serviço de nuvem que você deseja excluir. Esta etapa abrirá a folha da instância do serviço de nuvem.
 
 2. Na folha, selecione **Excluir**.
 

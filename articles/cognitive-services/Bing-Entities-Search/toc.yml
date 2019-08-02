@@ -45,7 +45,8 @@
 - name: Guias de instruções
   items:
     - name: Miniaturas de redimensionamento e corte
-      href: resize-and-crop-thumbnails.md
+      maintainContext: true
+      href: ../bing-web-search/resize-and-crop-thumbnails.md
 - name: Conceitos
   items:
     - name: Pesquisando entidades
@@ -64,7 +65,7 @@
         - name: .NET
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-java-stable'
         - name: Python
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python'
         - name: Node.js
@@ -92,6 +93,7 @@
     - name: Ponto de extremidade da Pesquisa de Entidade do Bing
       href: entity-search-endpoint.md
     - name: Análise da API de Pesquisa de Entidade do Bing
-      href: bing-entity-stats.md
+      maintainContext: true
+      href: ../bing-web-search/bing-web-stats.md
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

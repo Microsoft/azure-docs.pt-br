@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28fa9c955543720f3bfab88b30b26674aee5b1d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fa16f8b4ebe51a6adc9ea4ee32853715b641541
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868622"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094138"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Tutorial: Integração do Azure Active Directory ao Proofpoint on Demand
 
@@ -53,7 +53,7 @@ Para configurar a integração do Proofpoint on Demand ao Azure AD, você precis
 
 **Para adicionar o Proofpoint on Demand da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Proofpoint on Demand, execute a
 
     ![Informações de logon único em Domínio e URLs do Proofpoint on Demand](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com/ppssamlsp_hostname`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<hostname>.pphosted.com/ppssamlsp`
 
@@ -199,5 +199,5 @@ Ao clicar no bloco do Proofpoint on Demand no Painel de Acesso, você deverá se
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -4,7 +4,7 @@ description: Bi-direcional Console Serial para máquinas virtuais do Azure e con
 services: virtual-machines-windows
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 32d385416c83f81553e734d9471d0b502a458b07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e76fcd937f85ce3b1c156cf2f3dabb8ca95b9b68
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390499"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710566"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console Serial do Azure para Windows
 

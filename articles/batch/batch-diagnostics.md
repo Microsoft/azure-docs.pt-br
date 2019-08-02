@@ -4,7 +4,7 @@ description: Registre e analisar eventos de log de diagnóstico para recursos de
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63d0196609e432b081e91a49b5b1410431223632
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242631"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323618"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Logs, alertas e métricas do Lote para avaliação e monitoramento de diagnóstico
 
@@ -91,7 +91,7 @@ Outros destinos opcionais para logs de diagnóstico:
 
 * Transmita eventos de log de diagnóstico do Lote para um [Hub de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md). Os Hubs de Eventos podem incluir milhões de eventos por segundo, os quais você pode transformar e armazenar usando qualquer provedor de análise em tempo real. 
 
-* Enviar logs de diagnóstico para [registra em log do Azure Monitor](../log-analytics/log-analytics-overview.md), onde você pode analisá-los ou exportá-los para análise no Power BI ou Excel.
+* Envie logs de diagnóstico para [Azure monitor logs](../log-analytics/log-analytics-overview.md), onde você pode analisá-los ou exportá-los para análise no Power bi ou no Excel.
 
 > [!NOTE]
 > É possível que incorra custos adicionais para armazenar ou processar dados de log de diagnóstico com os serviços do Azure. 
@@ -101,7 +101,7 @@ Outros destinos opcionais para logs de diagnóstico:
 
 1. Clique em **Todos os serviços** > **Contas do Lote** e, em seguida, clique no nome da conta do Lote.
 2. Em **Monitoramento**, clique em **Logs de diagnóstico** > **Ativar diagnóstico**.
-3. Na **configurações de diagnóstico**, insira um nome para a configuração e escolher um destino de log (conta de armazenamento, Hub de eventos ou logs do Azure Monitor). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
+3. Em **configurações de diagnóstico**, insira um nome para a configuração e escolha um destino de log (conta de armazenamento existente, Hub de eventos ou logs de Azure monitor). Selecione um ou ambos **ServiceLog** e **AllMetrics**.
 
     Ao selecionar uma conta de armazenamento, opcionalmente, defina uma política de retenção. Se você não especificar um número de dias para retenção, os dados serão retidos durante a vida útil da conta de armazenamento.
 

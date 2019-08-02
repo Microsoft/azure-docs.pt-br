@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: nitinme
 ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66124765"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172250"
 ---
 O Bing suporta o realce de ocorrências que marca os termos de consulta (ou outros termos que o Bing achar relevantes) nas cadeias de exibição de algumas das respostas. Por exemplo, os campos `name`, `displayUrl` e `snippet` de uma página da Web podem marcar os termos da consulta.
 

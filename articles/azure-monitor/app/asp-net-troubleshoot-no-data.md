@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 23d7b0626dba5a88c100868907ecf868a895fc9e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2966f90dcb381e439c00a6540ef9a01bd24f8743
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059621"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561184"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Solução de problemas de ausência de dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Parte da minha telemetria está ausente
@@ -28,13 +28,13 @@ ms.locfileid: "67059621"
 
 *Estou tendo perda de dados aleatoriamente.*
 
-* Verifique se você estiver com perda de dados no [canal de telemetria](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Verifique se você estiver com perda de dados no [canal de telemetria](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Verificar se há problemas conhecidos no canal de telemetria [repositório do Github](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *Estou tendo perda de dados no aplicativo de Console ou no aplicativo Web quando o aplicativo está prestes a parar.*
 
-* Canal do SDK mantém telemetria em buffer e envia-os em lotes. Se o aplicativo está sendo desligado, você precisa chamar explicitamente [flush ()](api-custom-events-metrics.md#flushing-data). Comportamento de `Flush()` real depende [canal](telemetry-channels.md#built-in-telemetrychannels) usado.
+* Canal do SDK mantém telemetria em buffer e envia-os em lotes. Se o aplicativo está sendo desligado, você precisa chamar explicitamente [flush ()](api-custom-events-metrics.md#flushing-data). Comportamento de `Flush()` real depende [canal](telemetry-channels.md#built-in-telemetry-channels) usado.
 
 ## <a name="no-data-from-my-server"></a>Nenhum dado do meu servidor
 *Instalei meu aplicativo em meu servidor Web e agora não vejo nenhuma telemetria dele. Ele funcionou corretamente no meu computador de desenvolvimento.*
@@ -215,7 +215,9 @@ Siga estas instruções para capturar logs de solução de problemas para sua es
 
 ### <a name="net-core"></a>.NET Core
 
-1. Instalar o [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) pacote do NuGet. A versão que você instala deve corresponder à versão instalada atual do `Microsoft.ApplicationInsights`
+1. Instale o pacote [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) do NuGet. A versão que você instala deve corresponder à versão instalada atual do `Microsoft.ApplicationInsights`
+
+A última versão do aspnetcore é 2.7.1, e ele se refere ao applicationinsights versão 2.10. Portanto, a versão do Microsoft.AspNet.ApplicationInsights.HostingStartup a serem instalados deve ser 2.10.0
 
 2. Modifique o método `ConfigureServices` na sua classe `Startup.cs`:
 
@@ -241,13 +243,13 @@ SDK do Application Insights log EventSource logs automaticamente para solução 
 
 Para coletar logs, baixe o PerfView e execute este comando:
 ```cmd
-PerfView.exe collect /onlyProviders=*Microsoft-ApplicationInsights-* -MaxCollectSec:300
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
 ```
 
-Você pode modificar esses parâmetros conforme necessário.
-
+Você pode modificar esses parâmetros conforme necessário:
 - **MaxCollectSec**. Defina esse parâmetro para impedir que o PerfView da execução indefinidamente e afetar o desempenho de seu servidor.
 - **OnlyProviders**. Defina esse parâmetro para apenas coletar logs do SDK. Você pode personalizar essa lista com base em suas investigações específicas. 
+- **NoGui**. Defina esse parâmetro para coletar logs sem a Gui.
 
 
 Para obter mais informações,

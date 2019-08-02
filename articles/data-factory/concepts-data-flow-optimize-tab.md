@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 372922fff600aaa12fddfeeb86ff4522eca3e602
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 40023931b2a0b3788a583a5b5240e7916b187e34
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075094"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190655"
 ---
 # <a name="mapping-data-flow-transformation-optimize-tab"></a>Mapeando dados de transformação de fluxo de guia otimizar
 
@@ -45,7 +45,7 @@ O intervalo dinâmico usará intervalos dinâmicos do Spark com base nas colunas
 
 ### <a name="fixed-range"></a>Intervalo fixo
 
-É necessário criar uma expressão que forneça um intervalo fixo para valores dentro das colunas de dados particionados. Para isso, será fundamental ter um bom conhecimento sobre os dados antes de usar essa opção para evitar distorção de partição. O valor inserido para a expressão será usado como parte de uma função de partição. É possível definir o número de partições físicas.
+É necessário criar uma expressão que forneça um intervalo fixo para valores dentro das colunas de dados particionados. Para isso, será fundamental ter um bom conhecimento sobre os dados antes de usar essa opção para evitar distorção de partição. Os valores inseridos para a expressão serão ser usados como parte de uma função de partição. É possível definir o número de partições físicas.
 
 ### <a name="key"></a>Chave
 

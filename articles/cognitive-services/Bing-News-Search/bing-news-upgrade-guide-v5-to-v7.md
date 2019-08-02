@@ -1,6 +1,6 @@
 ---
 title: Atualizar a API de Pesquisa de Notícias do Bing v5 para v7
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Identifica as partes do aplicativo que você precisa atualizar para usar a versão 7.
 services: cognitive-services
 author: swhite-msft
@@ -10,18 +10,18 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 235cc1c74c099a71d289d38369ebc10132564825
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1263e93b1e316cab4afb51cd828737a5bd087fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66383290"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423849"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guia de atualização da API de Pesquisa de Notícias
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa de Notícias do Bing. Use este guia para ajudá-lo a identificar as partes do aplicativo que você precisa atualizar para usar a versão 7.
 
-## <a name="breaking-changes"></a>Alterações de última hora
+## <a name="breaking-changes"></a>Alterações da falha
 
 ### <a name="endpoints"></a>Pontos de extremidade
 
@@ -37,7 +37,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Os códigos de erro da v5 foram substituídos pelos possíveis valores `code` e `subCode` a seguir.
 
-|Código|Subcódigo|DESCRIÇÃO
+|Código|Subcódigo|Descrição
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|O Bing retornará ServerError sempre que ocorrer qualquer uma das condições do subcódigo. A resposta incluirá esses erros se o código de status HTTP for 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqueado|O Bing retornará InvalidRequest sempre que qualquer parte da solicitação não for válida. Por exemplo, um parâmetro obrigatório está ausente ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de status HTTP será 400.<br/><br/>Se o erro for HttpNotAllowed, o código de status HTTP será 410.

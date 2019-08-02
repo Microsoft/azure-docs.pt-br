@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 916c4fae8eed9451080f92e97743876e89bd25ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36d2ebe00f735089633240914421e2259181e63e
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64719756"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448977"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operacionalizar o cluster do ML Services no Azure HDInsight
 
@@ -21,9 +21,9 @@ Após usar o cluster do ML Services no HDInsight para concluir a modelagem de da
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Um cluster do ML Services no HDInsight**: Para obter instruções, consulte [Introdução aos Serviços ML no HDInsight](r-server-get-started.md).
+* Um cluster de serviços de ML no HDInsight. Ver [criar Apache clusters Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **serviços de ML** para **tipo de Cluster**.
 
-* **Um cliente do Secure Shell (SSH)** : Um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente Secure Shell (SSH): Um cliente SSH é usado para se conectar ao cluster HDInsight remotamente e executar comandos diretamente no cluster. Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operacionalizar o cluster do ML Services com configuração de uma caixa
 

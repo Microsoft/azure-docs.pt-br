@@ -3,16 +3,15 @@ title: Descompasso do Esquema do Fluxo de Dados do Mapeamento do Azure Data Fact
 description: Construa fluxos de dados resistentes no Azure Data Factory com descompasso de esquema
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 562daa024985a546ffb49c4da11eace3bc81a659
+ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61261794"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68314816"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Descompasso do Esquema do Fluxo de Dados do Mapeamento
 
@@ -26,7 +25,8 @@ Para proteger contra o Descompasso do Esquema, é importante ter recursos em uma
 * Defina parâmetros de transformação que funcionam com padrões de dados ao invés de campos e valores codificados
 * Defina expressões que compreendam padrões para corresponder aos campos recebidos, ao invés de usar campos nomeados
 
-## <a name="how-to-implement-schema-drift"></a>Como implementar o descompasso do esquema
+## <a name="how-to-implement-schema-drift-in-adf-mapping-data-flows"></a>Como implementar a descompasso de esquema em fluxos de dados de mapeamento do ADF
+O ADF nativamente dá suporte a esquemas flexíveis que mudam da execução para a execução para que você possa criar uma lógica de transformação de dados genérica sem a necessidade de recompilar os fluxos de dados.
 
 * Escolha "Permitir descompasso de esquema" na sua transformação de fonte
 
@@ -34,11 +34,13 @@ Para proteger contra o Descompasso do Esquema, é importante ter recursos em uma
 
 * Ao selecionar essa opção, todos os campos recebidos são lidos da sua fonte em cada execução do Fluxo de Dados e são passados por todo o fluxo até o Coletor.
 
-* Certifique-se de usar o "Mapeamento Automático" para mapear todos os novos campos na Transformação de Coletor para que todos os novos campos sejam coletados e descarregados no seu destino:
+* Todas as colunas recentemente detectadas (colunas descompassos) chegarão como tipo de dados de cadeia de caracteres por padrão. Em sua transformação de origem, escolha "inferir tipos de coluna desfeitas" se desejar que o ADF inferir automaticamente os tipos de dados da origem.
+
+* Certifique-se de usar "mapa automático" para mapear todos os novos campos na transformação do coletor para que todos os novos campos sejam selecionados e descarregou em seu destino e defina "permitir descompasso de esquema" no coletor também.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Tudo funcionará quando novos campos forem introduzidos nesse cenário com um mapeamento simples de Fonte -> Coletor (ou Cópia).
+* Tudo funcionará quando novos campos forem introduzidos nesse cenário com um mapeamento simples do coletor de > de origem (cópia).
 
 * Para adicionar transformações a esse fluxo de trabalho que manuseia o descompasso de esquema, use a correspondência de padrões para corresponder colunas por nome, tipo e valor.
 
@@ -67,10 +69,12 @@ Você pode testar isso com a amostra "Taxi Demo" do Fluxo de Dados do Azure Data
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
-## <a name="access-new-columns-downstream"></a>Acesso novas colunas downstream
+## <a name="access-new-columns-downstream"></a>Acessar novas colunas downstream
+Quando você gera novas colunas com padrões de coluna, você pode acessar essas novas colunas posteriormente em suas transformações de fluxo de dados com estes métodos:
 
-Quando você gera novas colunas com padrões de coluna, você pode acessar essas novas colunas posteriormente no seu transformações de fluxo de dados usando a função de expressão "byName".
+* Use "byPosition" para identificar as novas colunas por número de posição.
+* Use "byName" para identificar as novas colunas por seu nome.
+* Em padrões de coluna, use "Name", "Stream", "position" ou "Type" ou qualquer combinação deles para corresponder a novas colunas.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-No [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md) você encontrará recursos adicionais para os padrões de coluna e o descompasso do esquema incluindo "byName" e "byPosition".
+Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md) , você encontrará recursos adicionais para padrões de coluna e descompasso de esquema, incluindo "byName" e "byPosition".

@@ -3,17 +3,17 @@ title: Gerenciar autenticação no Azure Mapas | Microsoft Docs
 description: Você pode usar o portal do Azure para gerenciar a autenticação no Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1dc63a2c2350ad4f1d02d0c1b22050293d7b866c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952558"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67837810"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerenciar autenticação no Azure Mapas
 
@@ -59,7 +59,7 @@ Depois de criar uma conta de mapas do Azure, você precisa estabelecer um víncu
 
 ## <a name="grant-rbac-to-azure-maps"></a>Conceder RBAC ao Azure Mapas
 
-Depois de associar uma conta de mapas do Azure com seu locatário do Azure AD, você pode conceder controle de acesso, atribuindo um usuário ou aplicativo para uma ou mais funções de controle de acesso de mapas do Azure.
+Depois de associar uma conta de mapas do Azure com seu locatário do Azure AD, você pode conceder controle de acesso, atribuindo um usuário, grupo ou aplicativo para uma ou mais funções de controle de acesso de mapas do Azure.
 
 1. Vá para **controle de acesso (IAM)** , selecione **as atribuições de função**e, em seguida, selecione **Adicionar atribuição de função**.
 

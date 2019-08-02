@@ -4,20 +4,20 @@ description: Este início rápido mostra como começar com a criação de um tra
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 06/03/2019
+ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 4efb8aa21622abddca1add3d8b2fcb523cf45da5
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493366"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449225"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure
 
-Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics. Neste início rápido, você define um trabalho do Stream Analytics que lê dados de streaming em tempo real e filtra mensagens indicando temperatura acima de 27 graus. Seu trabalho do Stream Analytics lerá dados de um dispositivo do Hub IoT, transformará os dados e fará write-back para um contêiner no armazenamento de blobs. Os dados de entrada usados neste início rápido são gerados por um simulador online do Raspberry Pi. 
+Este início rápido mostra como começar com a criação de um trabalho do Stream Analytics. Neste início rápido, você define um trabalho do Stream Analytics que lê dados de streaming em tempo real e filtra mensagens indicando temperatura acima de 27 graus. Seu trabalho do Stream Analytics lerá dados do Hub IoT, transformará os dados e fará write-back para um contêiner no armazenamento de blobs. Os dados de entrada usados neste início rápido são gerados por um simulador online do Raspberry Pi. 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -27,7 +27,7 @@ Este início rápido mostra como começar com a criação de um trabalho do Stre
 
 ## <a name="prepare-the-input-data"></a>Preparar os dados de entrada
 
-Antes de definir o trabalho do Stream Analytics, você deve preparar os dados, que serão posteriormente configurados como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, complete as seguintes etapas:
+Antes de definir o trabalho do Stream Analytics, você deve preparar os dados de entrada. Os dados de sensor em tempo real são incluídos no Hub IoT, posteriormente configurado como a entrada do trabalho. Para preparar os dados de entrada exigidos pelo trabalho, complete as seguintes etapas:
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
@@ -179,7 +179,7 @@ Nesta seção, você configurará uma entrada de dispositivo do Hub IoT para um 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando não forem mais necessários, exclua o grupo de recursos, o trabalho de streaming e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
+Quando não forem mais necessários, exclua o grupo de recursos, o trabalho do Stream Analytics e todos os recursos relacionados. A exclusão do trabalho evita a cobrança das unidades de streaming consumidas por ele. Se você está planejando usar o trabalho no futuro, pode interrompê-lo e reiniciar mais tarde, quando necessário. Se você não for mais usar o trabalho, exclua todos os recursos criados neste início rápido usando as seguintes etapas:
 
 1. No menu à esquerda no Portal do Azure, selecione **Grupos de recursos** e selecione o nome do recurso criado.  
 

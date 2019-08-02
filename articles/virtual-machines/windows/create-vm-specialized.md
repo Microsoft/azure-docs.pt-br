@@ -4,7 +4,7 @@ description: Crie uma nova VM do Windows anexando um disco gerenciado especializ
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: b015b52e3fc806834f12e98c30b6b4e53cb6d659
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8f4169e7d94a5a838ecc11b22e7988223c25e02c
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726258"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718820"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -75,7 +75,7 @@ Get-AzStorageAccount
 
 Para usar uma conta de armazenamento existente, vá para a seção [Upload the VHD](#upload-the-vhd-to-your-storage-account).
 
-Criar uma conta de armazenamento.
+Crie uma conta de armazenamento.
 
 1. Você precisará do nome do grupo de recursos em que a conta de armazenamento será criada. Use Get-AzResourceGroup para ver todos os grupos de recursos que estão em sua assinatura.
    

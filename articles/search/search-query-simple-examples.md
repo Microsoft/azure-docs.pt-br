@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 0c47212e51725e7d4a173c441709dca739d4e357
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b7451371fe1562a6763643cd90e5646bd255018
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65024541"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67653520"
 ---
 # <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Exemplos de consulta usando a sintaxe de pesquisa "simples" no Azure Search
 
@@ -27,7 +27,7 @@ A sintaxe de consulta alternativa é [Lucene Completa](https://docs.microsoft.co
 
 Os exemplos a seguir utilizam um índice de pesquisa de Trabalhos de Nova Iorque que consiste em trabalhos disponíveis com base em um conjunto de dados fornecido pelo [OpenData da cidade de Nova Iorque](https://nycopendata.socrata.com/). Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que não é necessária uma assinatura do Azure ou Azure Search para experimentar essas consultas.
 
-O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [explorar com clientes REST](search-fiddler.md).
+O que é necessário é o Postman ou uma ferramenta equivalente para emitir solicitação HTTP em GET. Para obter mais informações, consulte [explorar com clientes REST](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Definir o cabeçalho de solicitação
 
@@ -119,7 +119,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E0
 
 ## <a name="example-3-filter-queries"></a>Exemplo 3: filtrar consultas
 
-A [sintaxe de filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) é uma expressão OData que pode ser usada com **pesquisa** ou por si própria. Um filtro independente, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há análise léxica ou linguística, nenhuma pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
+A [sintaxe de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) é uma expressão OData que pode ser usada com **pesquisa** ou por si própria. Um filtro independente, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há análise léxica ou linguística, nenhuma pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
 
 ```http
 POST /indexes/nycjobs/docs/search?api-version=2019-05-06
@@ -147,7 +147,7 @@ Outra maneira avançada de combinar filtro e pesquisa é através de **`search.i
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
 ```
 
-Para obter mais informações sobre a função, consulte [search.ismatch em "Exemplos de filtros"](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples).
+Para obter mais informações sobre a função, consulte [search.ismatch em "Exemplos de filtros"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
 ## <a name="example-4-range-filters"></a>Exemplo 4: filtros de intervalo
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 ## <a name="example-5-geo-search"></a>Exemplo 5: Pesquisa geográfica
 
-O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geo.distance](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples) que filtra os documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. É possível ajustar o último valor na consulta (4) para reduzir ou ampliar a área da superfície da consulta.
+O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geo.distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) que filtra os documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. É possível ajustar o último valor na consulta (4) para reduzir ou ampliar a área da superfície da consulta.
 
 O exemplo a seguir está no formato POST para legibilidade:
 

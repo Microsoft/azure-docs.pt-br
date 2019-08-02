@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 03d39ed01907a2ad61e089946673b96b8a2cc83e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e672e7bd43dcd05d048d22205939749c1d96579
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916889"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348067"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Como usar políticas de alocação personalizadas
 
@@ -156,7 +156,7 @@ Nesta seção, você criará um novo grupo de registro que usará a política de
 
 10. Substitua o código da nova função C# pelo código a seguir e clique em **Salvar**:    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;
@@ -509,11 +509,11 @@ A tabela a seguir mostra cenários esperados e os códigos de erro de resultados
 | Cenário | Resultado de registro do serviço de provisionamento | Resultados do SDK de provisionamento |
 | -------- | --------------------------------------------- | ------------------------ |
 | O webhook retorna 200 OK com 'iotHubHostName' definido como um nome de host do Hub IoT válido | Status do resultado: Atribuído  | O SDK retorna PROV_DEVICE_RESULT_OK juntamente com informações de hub |
-| O webhook retorna 200 OK com 'iotHubHostName' presente na resposta, mas definido como uma cadeia de caracteres vazia ou nula | Status do resultado: Com falha<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | O SDK retorna PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
-| O webhook retorna 401 Não Autorizado | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | O SDK retorna PROV_DEVICE_RESULT_UNAUTHORIZED |
+| O webhook retorna 200 OK com 'iotHubHostName' presente na resposta, mas definido como uma cadeia de caracteres vazia ou nula | Status do resultado: Falhou<br><br> Código de erro: CustomAllocationIotHubNotSpecified (400208) | O SDK retorna PROV_DEVICE_RESULT_HUB_NOT_SPECIFIED |
+| O webhook retorna 401 Não Autorizado | Status do resultado: Falhou<br><br>Código de erro: CustomAllocationUnauthorizedAccess (400209) | O SDK retorna PROV_DEVICE_RESULT_UNAUTHORIZED |
 | Um registro individual foi criado para desabilitar o dispositivo | Status do resultado: Desabilitado | O SDK retorna PROV_DEVICE_RESULT_DISABLED |
 | O webhook retorna o código de erro >= 429 | Orquestração do DPS tentará novamente várias vezes. A política de repetição atualmente é:<br><br>&nbsp;&nbsp;– Contagem de repetições: 10<br>&nbsp;&nbsp;– Intervalo inicial: 1s<br>&nbsp;&nbsp;– Incremento: 9s | O SDK ignorará o erro e enviará outra mensagem de obtenção de status no tempo especificado |
-| O webhook retorna qualquer outro código de status | Status do resultado: Com falha<br><br>Código de erro: CustomAllocationFailed (400207) | O SDK retorna PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
+| O webhook retorna qualquer outro código de status | Status do resultado: Falhou<br><br>Código de erro: CustomAllocationFailed (400207) | O SDK retorna PROV_DEVICE_RESULT_DEV_AUTH_ERROR |
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -538,8 +538,8 @@ Para excluir o grupo de recursos por nome:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais Reprovisioning, consulte [reprovisionamento conceitos de dispositivos no Hub IoT](concepts-device-reprovision.md) 
-- Para saber mais desprovisionamento, consulte [como desprovisionar dispositivos que foram anteriormente autoprovisionado](how-to-unprovision-devices.md) 
+- Para saber mais sobre o reprovisionamento, consulte conceitos de reprovisionamento de [dispositivo do Hub IOT](concepts-device-reprovision.md) 
+- Para saber mais sobre desprovisionamento, confira [como desprovisionar dispositivos que foram previamente provisionados automaticamente](how-to-unprovision-devices.md) 
 
 
 

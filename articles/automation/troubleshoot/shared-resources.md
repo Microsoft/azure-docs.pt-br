@@ -2,18 +2,18 @@
 title: Solucionar erros com recursos compartilhados do Automação do Azure
 description: Aprenda a solucionar problemas com recursos compartilhados da Automação do Azure
 services: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 66165a196c8b934df948f1d88b09a5859d3e792f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401469"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477462"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Solucionar erros com recursos compartilhados
 

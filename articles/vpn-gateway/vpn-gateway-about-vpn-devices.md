@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/05/2019
 ms.author: yushwang
-ms.openlocfilehash: 6535949767999e04b11106ff8a294e912a6d0fb8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8301594f63efaa5c6484a4dfd640aafa96cf15a0
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388863"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67666270"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>Sobre dispositivos VPN e os parâmetros IPsec/IKE para conexões do Gateway de VPN site a site
 
@@ -31,10 +31,6 @@ Um dispositivo VPN é necessário para configurar uma conexão de VPN Site a Sit
 
 ## <a name="devicetable"></a>Dispositivos VPN validados e guias de configuração do dispositivo
 
-> [!NOTE]
-> Ao configurar uma conexão Site a Site, um endereço IP IPv4 público é necessário para seu dispositivo VPN.
->
-
 Validamos um conjunto de dispositivos VPN padrão em parceria com fornecedores de dispositivos. Todos os dispositivos nas famílias de dispositivos na lista abaixo devem funcionar com os gateways de VPN. Consulte [Sobre configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#vpntype) para entender o uso do tipo de VPN (PolicyBased ou RouteBased) para a solução de Gateway de VPN que você deseja configurar.
 
 Para ajudar a configurar seu dispositivo VPN, consulte os links que correspondem à família de dispositivos apropriada. Os links para as instruções de configuração são fornecidos em uma base de melhor esforço. Para obter suporte ao dispositivo VPN, entre em contato com o fabricante do dispositivo.
@@ -48,6 +44,7 @@ Para ajudar a configurar seu dispositivo VPN, consulte os links que correspondem
 | Ponto de Verificação |Gateway de segurança |R80.10 |[Guia de Configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[Guia de Configuração](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |Com suporte |[Guia de configuração*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased: IOS 15.1<br>RouteBased: IOS 15.2 |Com suporte |Com suporte |
+| Cisco | CSR | RouteBased: IOS-XE 16.10 | | [Script de configuração](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Com suporte |Com suporte |
 | Cisco |Meraki |N/D |Não compatível |Não compatível |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 e acima |[Guia de Configuração](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Não compatível |
@@ -127,22 +124,22 @@ Nas tabelas a seguir:
 
 ### <a name="ike-phase-1-main-mode-parameters"></a>Parâmetros da Fase 1 de IKE (Modo Principal)
 
-| **Propriedade**          |**PolicyBased**    | **RouteBased**    |
+| **Property**          |**PolicyBased**    | **RouteBased**    |
 | ---                   | ---               | ---               |
 | Versão IKE           |IKEv1              |IKEv2              |
 | Grupo Diffie-Hellman  |Grupo 2 (1024 bits) |Grupo 2 (1024 bits) |
 | Método de autenticação |Chave Pré-Compartilhada     |Chave Pré-Compartilhada     |
 | Criptografia e algoritmos de hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |1. AES256, SHA1<br>2. AES256, SHA256<br>3. AES128, SHA1<br>4. AES128, SHA256<br>5. 3DES, SHA1<br>6. 3DES, SHA256 |
-| Tempo de vida da SA           |28\.800 segundos     |28\.800 segundos     |
+| Tempo de vida da SA           |28.800 segundos     |28.800 segundos     |
 
 ### <a name="ike-phase-2-quick-mode-parameters"></a>Parâmetros da Fase 2 de IKE (Modo Rápido)
 
-| **Propriedade**                  |**PolicyBased**| **RouteBased**                              |
+| **Property**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
 | Versão IKE                   |IKEv1          |IKEv2                                        |
 | Criptografia e algoritmos de hash |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
-| Tempo de vida da SA (Tempo)            |3\.600 segundos  |27\.000 segundos                                |
-| Tempo de vida da SA (Bytes)           |102\.400.000 KB | -                                           |
+| Tempo de vida da SA (Tempo)            |3\.600 segundos  |27.000 segundos                                |
+| Tempo de vida da SA (Bytes)           |102.400.000 KB | -                                           |
 | PFS (Perfect Forward Secrecy) |Não             |[Ofertas QM SA RouteBased](#RouteBasedOffers) |
 | Detecção de par inativo (DPD)     |Sem suporte  |Com suporte                                    |
 

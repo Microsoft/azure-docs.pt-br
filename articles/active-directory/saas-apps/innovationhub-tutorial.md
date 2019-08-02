@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdaaf29e5649c6b82606b1e332fea56cabfc9aaa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: df32eab48cbcdf4a8197e612e3efb24957c4d964
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861716"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100288"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Tutorial: Integração do Azure Active Directory ao Innoverse
 
@@ -54,7 +54,7 @@ Para configurar a integração do Innoverse ao Azure AD, você precisa adicionar
 
 **Para adicionar o Innoverse da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select_azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Innoverse, realize as seguintes
 
     ![Informações de logon único de domínio e URLs do Innoverse](common/idp_intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<domainname>.innover.se`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<domainname>.innover.se`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<domainname>.innover.se/auth/saml2/login`
 
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o Innoverse, realize as seguintes
 
     ![Informações de logon único de domínio e URLs do Innoverse](common/metadata_upload_additional_signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<domainname>.innover.se/auth/saml2/login`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<domainname>.innover.se/auth/saml2/login`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do cliente Innoverse](mailto:support@readify.net) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Innoverse, realize as seguintes
     | ---------------| --------- | ----------------|
     | displayname | `user.userprincipalname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new_save_attribute.png)
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Innoverse, realize as seguintes
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 8. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique no ícone para **copiar** a **URL de metadados de federação de aplicativos** e salve-a no computador.
 
@@ -171,7 +171,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user_properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
 
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -222,4 +222,4 @@ Ao clicar no bloco do Innoverse no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

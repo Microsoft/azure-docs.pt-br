@@ -1,6 +1,6 @@
 ---
-title: Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha | Microsoft Docs
-description: Discute as áreas problemáticas que fornecem diretrizes para solucionar problemas relacionados à entrada em aplicativos da Galeria do Azure AD configurados para login único com senha
+title: SSO (logon único) baseado em senha no painel de acesso | Microsoft Docs
+description: Discute áreas problemáticas que fornecem orientação para solucionar problemas relacionados à entrada em aplicativos da galeria do Azure AD configurados para logon único com senha.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d95703166c3e1ed8034ea8c0d813c54759603fce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca192c28757df189e531aee0ba2d8da288ba7e6
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65825043"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381228"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único com senha
 

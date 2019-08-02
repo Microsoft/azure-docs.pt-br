@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17c055b79b8b90bd56a1dcd6472cf74d2512137
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901781"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integração do Azure Active Directory com o TalentLMS
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o TalentLMS, siga as seguintes et
 
     ![Informações de logon único de domínio e URLs do TalentLMS](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.TalentLMSapp.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenant-name>.TalentLMSapp.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `http://<tenant-name>.talentlms.com`
 
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o TalentLMS, siga as seguintes et
 
     ![Logon Único](./media/talentlms-tutorial/IC777297.png "Logon Único")
 
-     a. Na lista **Tipo de integração de SSO**, selecione **SAML 2.0**.
+    a. Na lista **Tipo de integração de SSO**, selecione **SAML 2.0**.
 
     b. Na caixa de texto **ID do Provedor de Identidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -231,7 +231,7 @@ Para permitir que os usuários do Azure AD entre no TalentLMS, eles devem ser pr
 
     ![Adicionar Usuário](./media/talentlms-tutorial/IC777299.png "Adicionar Usuário")  
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
  
@@ -254,5 +254,5 @@ Ao clicar no bloco do TalentLMS no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

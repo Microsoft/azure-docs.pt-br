@@ -2,19 +2,19 @@
 title: Pareamento e alinhamento de frases - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Durante a execução do treinamento, as sentenças presentes em documentos paralelos são emparelhadas ou alinhadas. Tradutor personalizado aprende traduções uma frase de cada vez, lendo uma frase, a tradução desta frase. Em seguida, alinha palavras e frases nessas duas frases entre si.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 99538fd18067377efcc9e744e9ec611e0f685273
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e9bc5c876da6bd2be1b22b389b819e51330b2e50
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389611"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595465"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -36,7 +36,7 @@ Para que um treinamento seja bem-sucedido, a tabela abaixo mostra o número mín
 
 | Conjunto de dados   | Sugerido contagem mínima de sentença extraídos | Sugerido contagem mínima de sentença alinhado | Contagem máxima de sentença alinhado |
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
-| Treinamento   | 10\.000                                     | 2\.000                                    | Nenhum limite superior                 |
+| Treinamento   | 10.000                                     | 2\.000                                    | Nenhum limite superior                 |
 | Ajuste     | 2\.000                                      | 500                                      | 2\.500                          |
 | Testes    | 2\.000                                      | 500                                      | 2\.500                          |
 | Dicionário | 0                                          | 0                                        | Nenhum limite superior                 |

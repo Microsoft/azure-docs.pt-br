@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 01/01/2018
-ms.openlocfilehash: daeb900abc3f24a408fc1b5f6e989e5181f2a463
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 89a77c25c75617be0e1ef92b73eec28263f53f82
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60427031"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385579"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>Criar, editar ou estender o JSON para definições de aplicativo lógico nos Aplicativos Lógicos do Azure
 
@@ -51,116 +51,32 @@ No Visual Studio, é possível abrir aplicativos lógicos que foram criados e im
 
    ![Abra o aplicativo lógico em uma solução do Visual Studio](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Caso não tenha esse comando no Visual Studio 2019, verifique se você tem as atualizações mais recentes do Visual Studio.
+
 4. Na parte inferior do designer, escolha **modo de exibição de código**. 
 
    A janela do editor do modo de exibição de código é aberta e mostra a definição do aplicativo lógico no formato JSON.
 
 5. Para retornar ao modo de exibição designer, na parte inferior do editor de modo de exibição de código, escolha **Design**.
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
-Os parâmetros permitem que você reutilize valores em todo o aplicativo lógico e são bons para substituir os valores que possam sofrer alteração com frequência. Por exemplo, se você tiver um endereço de email que deseje usar em vários locais, deverá defini-lo como um parâmetro.
+O ciclo de vida da implantação geralmente tem ambientes diferentes para desenvolvimento, teste, preparo e produção. Quando você tem valores que deseja reutilizar em seu aplicativo lógico sem codificar ou que variam de acordo com suas necessidades de implantação, você pode criar um [modelo de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para sua definição de fluxo de trabalho para que você também possa automatizar o aplicativo lógico planta. 
 
-Os parâmetros também são úteis quando você precisa substituir parâmetros em ambientes diferentes, saiba mais sobre [parâmetros para implantação](#deployment-parameters) e [API REST para obter a documentação de Aplicativos Lógicos do Azure](https://docs.microsoft.com/rest/api/logic).
+Siga estas etapas gerais para *parametrizar*ou definir e usar parâmetros para, esses valores em vez disso. Em seguida, você pode fornecer os valores em um arquivo de parâmetro separado que passa esses valores para o modelo. Dessa forma, você pode alterar esses valores com mais facilidade, sem precisar atualizar e reimplantar seu aplicativo lógico. Para obter detalhes completos, [consulte Visão geral: Automatize a implantação de aplicativos lógicos com modelos](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)de Azure Resource Manager.
 
-> [!NOTE]
-> Parâmetros só estão disponíveis no modo de exibição de código.
+1. Em seu modelo, defina parâmetros de modelo e parâmetros de definição de fluxo de trabalho para aceitar os valores a serem usados em implantação e tempo de execução, respectivamente.
 
-No [primeiro exemplo de aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md), você criou um fluxo de trabalho que envia emails quando novas postagens aparecem em um feed RSS de um site. A URL do feed é codificada, portanto, esse exemplo mostra como substituir o valor da consulta por um parâmetro para que você possa alterar a URL do feed mais facilmente.
+   Parâmetros de modelo são definidos em uma seção de parâmetros que está fora de sua definição de fluxo de trabalho, enquanto parâmetros de definição de fluxo de trabalho são definidos em uma seção de parâmetros que está dentro de sua definição de fluxo de trabalho
 
-1. Na exibição de código, localize o objeto `parameters : {}` e adicione um objeto `currentFeedUrl`:
+1. Substitua os valores codificados por expressões que fazem referência a esses parâmetros. Expressões de modelo usam sintaxe que difere das expressões de definição de fluxo de trabalho.
 
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   Evite complicar seu código não usando expressões de modelo, que são avaliadas na implantação, dentro de expressões de definição de fluxo de trabalho, que são avaliadas no tempo de execução. Use apenas expressões de modelo fora de sua definição de fluxo de trabalho. Use somente expressões de definição de fluxo de trabalho dentro de sua definição de fluxo de trabalho.
 
-2. Na ação `When_a_feed-item_is_published`, localize a seção `queries` e substitua o valor da consulta por `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
+   Ao especificar os valores para seus parâmetros de definição de fluxo de trabalho, você pode referenciar parâmetros de modelo usando a seção de parâmetros que está fora de sua definição de fluxo de trabalho, mas ainda dentro da definição de recurso para seu aplicativo lógico. Dessa forma, você pode passar valores de parâmetro de modelo para seus parâmetros de definição de fluxo de trabalho.
 
-   **Antes**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },
-   ```
-
-   **Depois**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },
-   ```
-
-   Para unir duas ou mais cadeias de caracteres, você também pode usar a função `concat`. 
-   Por exemplo, `"@concat('#',parameters('currentFeedUrl'))"` funciona como no exemplo anterior.
-
-3.  Quando terminar, escolha **Salvar**.
-
-Agora você pode alterar o feed RSS do site passando uma URL diferente pelo objeto `currentFeedURL`.
-
-<a name="deployment-parameters"></a>
-
-## <a name="deployment-parameters-for-different-environments"></a>Parâmetros de implantação para ambientes diferentes
-
-Geralmente, os ciclos de vida de implantação têm ambientes de desenvolvimento, preparo e produção. Por exemplo, você pode usar a mesma definição de aplicativo lógico em todos esses ambientes, mas usar bancos de dados diferentes. Do mesmo modo, talvez você queira usar a mesma definição em regiões diferentes para alta disponibilidade, mas deseje que cada instância de Aplicativo lógico use o banco de dados dessa região.
-
-> [!NOTE]
-> Esse cenário é diferente de obter parâmetros em *tempo de execução* em que, em vez disso, você deve usar a função `trigger()`.
-
-Aqui está uma definição básica:
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-Na verdadeira solicitação `PUT` para Aplicativos Lógicos, você pode fornecer o parâmetro `uri`. Em cada ambiente, você pode fornecer um valor diferente para o parâmetro `connection` . Como não existe mais um valor padrão, a carga do aplicativo lógico requer este parâmetro:
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-```
-
-Para obter mais informações, consulte a [API REST para obter documentação de Aplicativos Lógicos do Azure](https://docs.microsoft.com/rest/api/logic/).
+1. Armazene os valores para seus parâmetros em um [arquivo de parâmetro](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) separado e inclua esse arquivo com a sua implantação.
 
 ## <a name="process-strings-with-functions"></a>Cadeias de caracteres de processo com funções
 

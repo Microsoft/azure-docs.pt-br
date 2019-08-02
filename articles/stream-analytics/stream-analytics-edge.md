@@ -1,20 +1,19 @@
 ---
 title: O Stream Analytics do Azure no IoT Edge
 description: Crie trabalhos do Edge no Azure Stream Analytics e implante-os nos dispositivos em execução no Azure IoT Edge.
-services: stream-analytics
+ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
+ms.date: 07/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e3b6d0fbefb8e3d3437fd5e24f929e453c573df
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804022"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621008"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>O Stream Analytics do Azure no IoT Edge
  
@@ -82,7 +81,7 @@ Um contêiner de armazenamento é necessário para exportar a consulta compilada
 4. Defina as informações de contêiner de armazenamento no menu **Configurações do IoT Edge**.
 
 5. Definir configurações opcionais
-    1. **Ordenação de eventos**. Você pode configurar a política fora de ordem no portal. A documentação está disponível [aqui](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
+    1. **Ordenação de eventos**. Você pode configurar a política fora de ordem no portal. A documentação está disponível [aqui](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Localidade**. Defina o formato de internacionalização.
 
 
@@ -111,7 +110,7 @@ Essas etapas são descritas na documentação do IoT Edge para [Windows](https:/
 
 > [!Note]
 > Durante esta etapa, o ASA cria uma pasta chamada "EdgeJobs" no contêiner de armazenamento (se ela ainda não existe). Para cada tipo de implantação, uma nova subpasta é criada na pasta "EdgeJobs".
-> Para implantar o trabalho em dispositivos de borda, o ASA cria uma SAS (assinatura de acesso compartilhado) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação.
+> Quando você implanta seu trabalho em dispositivos IoT Edge, o ASA cria uma assinatura de acesso compartilhado (SAS) para o arquivo de definição de trabalho. A chave SAS é transmitida com segurança para os dispositivos IoT Edge usando o dispositivo gêmeo. A expiração dessa chave é de três anos a partir do dia de sua criação. Quando você atualiza um trabalho de borda de IoT, a SAS será alterado, mas a versão da imagem não será alterado. Depois que você **atualizar**, siga o fluxo de trabalho de implantação e uma notificação de atualização é registrada no dispositivo.
 
 
 Para obter mais detalhes sobre implantações do IoT Edge, confira [esta página](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
@@ -203,9 +202,31 @@ Existem duas maneiras de atualizar os dados de referência:
 * [Licença do Azure Stream Analytics no IoT Edge](https://go.microsoft.com/fwlink/?linkid=862827). 
 * [Aviso de terceiros para o Azure Stream Analytics no IoT Edge](https://go.microsoft.com/fwlink/?linkid=862828).
 
+## <a name="azure-stream-analytics-module-image-information"></a>Informações de imagem de módulo do Stream Analytics do Azure 
+
+Última atualização: essas informações de versão de 2019-06-27:
+
+- Imagem: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - imagem base: microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - Plataforma:
+      - architecture: amd64
+      - os: linux
+  
+- Imagem: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - imagem base: microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - Plataforma:
+      - arquitetura: arm
+      - os: linux
+  
+- Imagem: `asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - imagem base: microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - Plataforma:
+      - architecture: amd64
+      - sistema operacional: windows
+      
+      
 ## <a name="get-help"></a>Obter ajuda
 Para obter mais assistência, experimente o [fórum do Azure Stream Analytics](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

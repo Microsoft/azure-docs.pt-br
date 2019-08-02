@@ -8,17 +8,16 @@ ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 07/01/2019
 ms.author: cynthn
-ms.subservice: disks
-ms.openlocfilehash: 30c13c5b8f32b0b43a85e43e9a140ac3e2e9dfc4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f05e6f6215d0a2c0241c776183b7cb9147fcf717
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159099"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626515"
 ---
-# <a name="preview-ephemeral-os-disks-for-vm-instances"></a>Visualização: Efêmeros discos do sistema operacional para instâncias de VM
+# <a name="ephemeral-os-disks-for-vm-instances"></a>Efêmeros discos do sistema operacional para instâncias de VM
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../includes/virtual-machines-common-ephemeral.md)]
  

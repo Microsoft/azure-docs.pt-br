@@ -3,25 +3,28 @@ title: 'Início Rápido: Procure palavras com o dicionário bilíngue, Python �
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você aprenderá a localizar traduções alternativas e exemplos de uso de um texto especificado usando o Python e a API REST de Tradução de Texto.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: ef72e7f5a4974a9da96d03dc74bc7a8b01ff4d10
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.author: swmachan
+ms.openlocfilehash: c95644dd0573bc7ad6ca78c5454288c811dd5d47
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515091"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67704393"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Início Rápido: Procure palavras com o dicionário bilíngue Python
 
 Neste início rápido, você aprenderá a localizar traduções alternativas e exemplos de uso de um texto especificado usando o Python e a API REST de Tradução de Texto.
 
 Este início rápido requer uma [Conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de Tradução de Texto. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+
+>[!TIP]
+> Caso queira ver todo o código de uma vez, o código-fonte deste exemplo está disponível no [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +39,10 @@ Crie um novo projeto Python usando o IDE ou editor favorito ou crie uma nova pas
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -74,7 +80,7 @@ Os `params` são usados para definir os idiomas de entrada e saída. Neste exemp
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es';
+params = '&from=en&to=es'
 constructed_url = base_url + path + params
 ```
 
@@ -91,6 +97,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+Se estiver usando uma assinatura de vários serviço cognitivos, você também deve incluir o `Ocp-Apim-Subscription-Region` em seus parâmetros de solicitação. [Saiba mais sobre a autenticação com a assinatura de vários serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>Criar uma solicitação para localizar traduções alternativas
 
@@ -115,7 +123,8 @@ response = request.json()
 A última etapa é imprimir os resultados. Este trecho de código embeleza os resultados classificando as chaves, definindo o recuo e declarando os separadores de item e chave.
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
@@ -162,8 +171,10 @@ Se você embutiu sua chave de assinatura no programa, remova-a quando tiver term
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Confira a referência da API para saber tudo o que você pode fazer com a API de Tradução de Texto.
+
 > [!div class="nextstepaction"]
-> [Explorar exemplos do Python no GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [Referência de API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>Consulte também
 

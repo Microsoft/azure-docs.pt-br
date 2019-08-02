@@ -4,7 +4,7 @@ description: Executar OSS ou Pivotal Cloud Foundry no Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: ''
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 68ae01b814de08098c0ba6b5713f420cfebc3d97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e042c9cbce985882b468472425d6803862e82941
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127011"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67668323"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry no Azure
 

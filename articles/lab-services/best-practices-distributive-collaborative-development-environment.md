@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: spelluru
-ms.openlocfilehash: d8892b2d00008c9d67f8bc28d1abb7d562dfd95c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079880"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67543762"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Práticas recomendadas para o desenvolvimento distribuído e de colaboração de recursos do Azure DevTest Labs
 Desenvolvimento colaborativo distribuído permite que diferentes equipes ou pessoas para desenvolver e manter um código de base. Para ter êxito, o processo de desenvolvimento depende da capacidade para criar, compartilhar e integrar as informações. Esse princípio de desenvolvimento principal pode ser usado no Azure DevTest Labs. Há vários tipos de recursos em um laboratório que normalmente são distribuídos entre diferentes laboratórios em uma empresa. Os diferentes tipos de recursos se concentram em duas áreas:
@@ -37,7 +37,7 @@ Você pode ter uma fonte comum de imagens personalizadas que são implantados em
 [Fórmulas](devtest-lab-manage-formulas.md) são específicas do laboratório e não tiver um mecanismo de distribuição. Os membros de laboratório fazer todo o desenvolvimento de fórmulas. 
 
 ## <a name="code-repository-based-resources"></a>Recursos de baseada em repositório de código
-Há dois recursos diferentes que se baseiam em ambientes, artefatos e repositórios de código. Este artigo percorre os recursos e como definir com mais eficiência repositórios e fluxo de trabalho para permitir que a capacidade de personalizar os artefatos disponíveis e os ambientes no nível da organização ou equipe.  Esse fluxo de trabalho se baseia no padrão [estratégia de ramificação de controle do código-fonte](/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
+Há dois recursos diferentes que se baseiam em ambientes, artefatos e repositórios de código. Este artigo percorre os recursos e como definir com mais eficiência repositórios e fluxo de trabalho para permitir que a capacidade de personalizar os artefatos disponíveis e os ambientes no nível da organização ou equipe.  Esse fluxo de trabalho se baseia no padrão [estratégia de ramificação de controle do código-fonte](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
 ### <a name="key-concepts"></a>Principais conceitos
 As informações de fonte de artefatos incluem metadados, scripts. As informações de origem para ambientes incluem metadados e modelos do Resource Manager com os arquivos de suporte, como scripts do PowerShell, DSC scripts, arquivos Zip e assim por diante.  
@@ -49,7 +49,7 @@ A configuração mais comum para controle do código-fonte (SCC) é configurar u
 - Recursos de divisão/unidade-wide Business
 - Recursos específicos da equipe.
 
-Cada um desses níveis vincular a um repositório diferente, onde o branch mestre deve ser a qualidade de produção. O [ramificações](/devops/repos/git/git-branching-guidance?view=azure-devops) em cada repositório seria para o desenvolvimento desses recursos específicos (artefatos ou modelos). Essa estrutura esteja bem alinhada ao DevTest Labs, você pode conectar facilmente vários repositórios e várias ramificações ao mesmo tempo para laboratórios da organização. O nome do repositório está incluído na interface do usuário (IU) para evitar confusão quando há nomes idênticos, a descrição e o publicador.
+Cada um desses níveis vincular a um repositório diferente, onde o branch mestre deve ser a qualidade de produção. O [ramificações](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) em cada repositório seria para o desenvolvimento desses recursos específicos (artefatos ou modelos). Essa estrutura esteja bem alinhada ao DevTest Labs, você pode conectar facilmente vários repositórios e várias ramificações ao mesmo tempo para laboratórios da organização. O nome do repositório está incluído na interface do usuário (IU) para evitar confusão quando há nomes idênticos, a descrição e o publicador.
      
 O diagrama a seguir mostra dois repositórios: um repositório de empresa que é mantido pela divisão de TI e um repositório de divisão mantido pela divisão do p & D.
 

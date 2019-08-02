@@ -10,12 +10,12 @@ ms.date: 05/21/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: 44f1953d01f827db1cbb65f9029c62569425745e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 59995715ab42b4682befa7d1512b14427740dea2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077028"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446851"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao armazenamento de Fila do Azure usando o .NET
 
@@ -82,7 +82,7 @@ Você pode usar o NuGet para obter esses pacotes. Siga estas etapas:
 > [!NOTE]
 > Os pacotes de bibliotecas de cliente de armazenamento também estão incluídos na [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). No entanto, é recomendável que você também instale as bibliotecas de cliente de armazenamento do NuGet para garantir que você sempre tenha as versões mais recentes.
 >
-> As dependências do ODataLib nas bibliotecas de cliente do armazenamento para .NET são resolvidas por pacotes do ODataLib disponíveis no NuGet, não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos usados pelas bibliotecas de cliente de armazenamento são [OData](http://nuget.org/packages/Microsoft.Data.OData/), [Edm](http://nuget.org/packages/Microsoft.Data.Edm/), e [espacial](http://nuget.org/packages/System.Spatial/). Embora essas bibliotecas são usadas pelas classes de armazenamento de tabelas do Azure, elas são dependências necessárias para a programação com as bibliotecas de cliente de armazenamento.
+> As dependências do ODataLib nas bibliotecas de cliente do armazenamento para .NET são resolvidas por pacotes do ODataLib disponíveis no NuGet, não do WCF Data Services. As bibliotecas do ODataLib podem ser baixadas diretamente ou referenciadas por seu projeto de código por meio do NuGet. Os pacotes ODataLib específicos usados pelas bibliotecas de cliente de armazenamento são [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), e [espacial](https://nuget.org/packages/System.Spatial/). Embora essas bibliotecas são usadas pelas classes de armazenamento de tabelas do Azure, elas são dependências necessárias para a programação com as bibliotecas de cliente de armazenamento.
 
 ### <a name="determine-your-target-environment"></a>Determinar o ambiente de destino
 

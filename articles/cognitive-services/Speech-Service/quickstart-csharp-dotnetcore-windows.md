@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f3dd4d20c6455e97b566ed435b14437d614e25b4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 9c445ea685518cec77089ce644a79305ff7f3e9e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466440"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606596"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Início Rápido: Reconhecimento de fala com o SDK de Fala para .NET Core
 
-Guias de início rápido também estão disponíveis para [tradução de fala](quickstart-translate-speech-dotnetcore-windows.md).
+Guias de início rápido também estão disponíveis para [conversão de texto em fala](quickstart-text-to-speech-dotnetcore.md) e [tradução de fala](quickstart-translate-speech-dotnetcore-windows.md).
 
 Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

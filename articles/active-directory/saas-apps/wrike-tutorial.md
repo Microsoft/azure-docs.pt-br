@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12970e2df1d54212682ebb79f2354c4c9e712a34
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 22421d88d5d0b426b641c04cd8797c26d216c502
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813689"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086703"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wrike"></a>Tutorial: Integração do Azure Active Directory ao Wrike
 
@@ -56,7 +56,7 @@ Para configurar a integração do Wrike ao Azure Active Directory, você precisa
 
 **Para adicionar o Wrike da galeria, execute os seguintes passos:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 

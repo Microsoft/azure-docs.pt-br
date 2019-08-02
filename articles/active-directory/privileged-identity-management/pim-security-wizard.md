@@ -14,12 +14,12 @@ ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6f978612cbbf0c326c3e66f25a0fbf4b749cc73
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: aa4fd850ac2116dc7f353eea87845501fff020bb
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60286875"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476233"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Assistente de segurança de funções no Azure Active Directory no PIM
 
@@ -43,27 +43,27 @@ A segunda etapa do assistente lhe fornece a oportunidade de alterar as atribuiç
 
 1. Clique em **funções do Microsoft Azure Active Directory** e, em seguida, clique em **Assistente**.
 
-    ![Funções do Microsoft Azure Active Directory - Assistente](./media/pim-security-wizard/wizard-start.png)
+    ![Funções do Azure AD - página de assistente que mostra as 3 etapas para executar o Assistente](./media/pim-security-wizard/wizard-start.png)
 
 1. Clique em **1 Descobrir funções com privilégios**.
 
 1. Examine a lista de funções com privilégios para ver quais usuários são permanentes ou qualificados.
 
-    ![Descobrir usuários com funções privilegiadas](./media/pim-security-wizard/discover-privileged-roles-users.png)
+    ![Descobrir funções com privilégios - painel função mostrando membros permanentes ou qualificados](./media/pim-security-wizard/discover-privileged-roles-users.png)
 
 1. Clique em **Avançar** para selecionar os membros que você quer tornar qualificados.
 
-    ![Converter membros para qualificados](./media/pim-security-wizard/convert-members-eligible.png)
+    ![Converter membros qualificada página com as opções para selecionar os membros que você deseja tornar qualificados para funções](./media/pim-security-wizard/convert-members-eligible.png)
 
 1. Depois de selecionar os membros, clique em **OK**.
 
-    ![Analisar revisão](./media/pim-security-wizard/review-changes.png)
+    ![Página de alterações de revisão mostrando membros com atribuições de função permanentes que serão convertidas](./media/pim-security-wizard/review-changes.png)
 
 1. Clique em **OK** para converter as atribuições de permanentes para qualificadas.
 
     Quando a conversão for concluída, você verá uma notificação.
 
-    ![Notificações](./media/pim-security-wizard/notification-completion.png)
+    ![Mostrando o status de uma conversão de notificação](./media/pim-security-wizard/notification-completion.png)
 
 Se você precisar converter outras atribuições de função com privilégios para qualificados, você pode executar o assistente novamente. Se você quiser usar a interface do PIM, em vez do assistente, consulte [atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md).
 

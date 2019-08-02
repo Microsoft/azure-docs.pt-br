@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45063107cdaf5ea8a720233c47e5b9007faa6d13
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f70001a3362015332970685eb50e5e8e47dd158e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integração do Azure Active Directory com o CompetencyIQ
 
@@ -53,7 +53,7 @@ Para configurar a integração do CompetencyIQ ao Azure AD, você precisa adicio
 
 **Para adicionar o CompetencyIQ por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o CompetencyIQ, execute as seguin
 
     ![Informações de logon único em Domínio e URLs do CompetencyIQ](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<customer>.competencyiq.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<customer>.competencyiq.com/`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://www.competencyiq.com/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://www.competencyiq.com/`
 
     > [!NOTE]
     > O valor da URL de Entrada não é real. Atualize o valor com a URL de Entrada real. Entre em contato com a [equipe de suporte do cliente CompetencyIQ](https://www.competencyiq.com/) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -197,5 +197,5 @@ Ao clicar no bloco do CompetencyIQ no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

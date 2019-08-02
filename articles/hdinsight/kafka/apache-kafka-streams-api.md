@@ -1,30 +1,29 @@
 ---
 title: 'Tutorial: Usar a API de Streams do Apache Kafka – Azure HDInsight '
-description: Saiba como usar a API de Streams do Apache Kafka com o Kafka no HDInsight. Essa API permite realizar processamento de fluxo entre tópicos no Kafka.
+description: Tutorial - Saiba como usar a API de Streams do Apache Kafka com o Kafka no HDInsight. Essa API permite realizar processamento de fluxo entre tópicos no Kafka.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
-ms.openlocfilehash: 9425af0f39d14287b49fe06a81172281feb24e83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 06/25/2019
+ms.openlocfilehash: 0639ecaa0e4ae0581a6c88e1ea9a47de870a8355
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715959"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446389"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>Tutorial: API de streams do Apache Kafka
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>Tutorial: Usar a API de streams do Apache Kafka no Azure HDInsight
 
-Saiba como criar um aplicativo que usa a API de Streams do Apache Kafka e executá-lo com o Kafka no HDInsight. 
+Saiba como criar um aplicativo que usa a API de Streams do Apache Kafka e executá-lo com o Kafka no HDInsight.
 
 O aplicativo usado neste tutorial é uma contagem de palavras de streaming. Ele lê dados de texto de um tópico Kafka, extrai palavras individuais e, em seguida, armazena a palavra e a contagem em outro tópico Kafka.
 
-> [!NOTE]  
-> O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Apache Storm. A versão Kafka 1.1.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm. 
->
-> Para obter mais informações sobre Streams do Kafka, consulte a documentação[Introdução a Streams](https://kafka.apache.org/10/documentation/streams/) em Apache.org.
+O processamento de fluxo do Kafka normalmente é feito usando o Apache Spark ou Apache Storm. A versão Kafka 1.1.0 (no HDInsight 3.5 e 3.6) introduziu a API de Streams do Kafka. Essa API permite transformar fluxos de dados entre tópicos de entrada e saída. Em alguns casos, isso pode ser uma alternativa para criar uma solução de streaming Spark ou Storm.
+
+Para obter mais informações sobre Streams do Kafka, consulte a documentação[Introdução a Streams](https://kafka.apache.org/10/documentation/streams/) em Apache.org.
 
 Neste tutorial, você aprenderá como:
 
@@ -68,8 +67,7 @@ As coisas importantes para entender no arquivo `pom.xml` são:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > A entrada `${kafka.version}` é declarada na seção `<properties>..</properties>` de `pom.xml`, e está configurada para a versão Kafka do cluster HDInsight.
+    A entrada `${kafka.version}` é declarada na seção `<properties>..</properties>` de `pom.xml`, e está configurada para a versão Kafka do cluster HDInsight.
 
 * Plug-ins: os plug-ins do Maven oferecem várias funcionalidades. Neste projeto, são usados os seguintes plug-ins:
 
@@ -206,8 +204,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
    * `RekeyedIntermediateTopic`: Este tópico é usado para reparticionar dados conforme a contagem é atualizada pelo operador `countByKey`.
    * `wordcount-example-Counts-changelog`: Este tópico é um armazenamento de estado usado pela operação `countByKey`
 
-     > [!IMPORTANT]  
-     > O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, consulte o documento [Configurar a criação automática de tópicos](apache-kafka-auto-create-topics.md).
+    O Kafka no HDInsight também pode ser configurado para criar tópicos automaticamente. Para obter mais informações, consulte o documento [Configurar a criação automática de tópicos](apache-kafka-auto-create-topics.md).
 
 ## <a name="run-the-code"></a>Executar o código
 
@@ -217,8 +214,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > Você pode receber um aviso sobre o Apache log4j. Você pode ignorar esse aviso.
+    Você pode receber um aviso sobre o Apache log4j. Você pode ignorar esse aviso.
 
 2. Para enviar registros para o tópico `test`, use o seguinte comando para iniciar o aplicativo produtor:
 
@@ -232,8 +228,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > Os parâmetros `--property` informam ao consumidor do console para imprimir a chave (palavra) juntamente com a contagem (valor). Esses parâmetros também configuram o desserializador a ser usado ao fazer a leitura desses valores do Kafka.
+    Os parâmetros `--property` informam ao consumidor do console para imprimir a chave (palavra) juntamente com a contagem (valor). Esses parâmetros também configuram o desserializador a ser usado ao fazer a leitura desses valores do Kafka.
 
     A saída é semelhante ao texto a seguir:
    
@@ -250,8 +245,7 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > O parâmetro `--from-beginning` configura o consumidor para começar do início dos registros armazenados no tópico. A contagem aumenta sempre que uma palavra é encontrada, logo o tópico contém várias entradas para cada palavra, com uma contagem crescente.
+    O parâmetro `--from-beginning` configura o consumidor para começar do início dos registros armazenados no tópico. A contagem aumenta sempre que uma palavra é encontrada, logo o tópico contém várias entradas para cada palavra, com uma contagem crescente.
 
 4. Use __Ctrl + C__ para sair do produtor. Continue usando __Ctrl + C__ para sair do aplicativo e do consumidor.
 
@@ -264,9 +258,19 @@ Para criar e implantar o projeto para o Kafka no Cluster HDInsight, utilize as s
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Para limpar os recursos criados por este tutorial, você pode excluir o grupo de recursos. A exclusão do grupo de recursos também exclui o cluster HDInsight associado e todos os outros recursos associados ao grupo de recursos.
+
+Para remover o grupo de recursos usando o portal do Azure:
+
+1. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha __Grupo de Recursos__ para exibir a lista dos seus grupos de recursos.
+2. Localize o grupo de recursos a ser excluído e clique com o botão direito do mouse no botão __Mais__ (...) do lado direito da lista.
+3. Selecione __Excluir grupo de recursos__ e confirme.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste documento, você aprendeu a usar a API de Streams do Apache Kafka com Kafka no HDInsight. Confira o seguinte para obter mais informações sobre como trabalhar com o Kafka:
+Neste documento, você aprendeu a usar a API de Streams do Apache Kafka com Kafka no HDInsight. Confira o seguinte para saber mais sobre como trabalhar com o Kafka.
 
-* [Analisar logs do Apache Kafka](apache-kafka-log-analytics-operations-management.md)
-* [Replicar dados entre clusters do Apache Kafka](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [Analisar logs do Apache Kafka](apache-kafka-log-analytics-operations-management.md)

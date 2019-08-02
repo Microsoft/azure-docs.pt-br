@@ -4,7 +4,7 @@ description: Conheça os recursos do serviço de Lote e suas APIs do ponto de vi
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
 ms.service: batch
@@ -15,18 +15,18 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bead5f0bec6d57c0f4aaddc6537e00c466d987f1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700930"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323900"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
 Nesta visão geral dos componentes principais do serviço de Lote do Azure, vamos abordar os recursos do serviço primário que os desenvolvedores do Lote podem usar para criar soluções de computação paralela em grande escala.
 
-Se você estiver desenvolvendo um aplicativo de computador distribuído ou serviço que faz chamadas diretas da [API REST][batch_rest_api] ou estiver usando um dos [SDKs de Lote](batch-apis-tools.md#azure-accounts-for-batch-development), usará muitos dos recursos analisados neste artigo.
+Se você estiver desenvolvendo um aplicativo ou serviço de computação distribuída que emite chamadas diretas à [API REST][batch_rest_api] ou se estiver usando um dos [SDKs do lote](batch-apis-tools.md#azure-accounts-for-batch-development), você usará muitos dos recursos e recursos discutidos neste artigo.
 
 > [!TIP]
 > Para obter uma introdução de nível superior do serviço de Lote, consulte os [Fundamentos do Lote do Azure](batch-technical-overview.md). Confira também as [atualizações de serviço Lote](https://azure.microsoft.com/updates/?product=batch) mais recentes.
@@ -36,7 +36,7 @@ Se você estiver desenvolvendo um aplicativo de computador distribuído ou servi
 ## <a name="batch-service-workflow"></a>Fluxo de trabalho de serviço do Lote
 O seguinte fluxo de trabalho de alto nível é típico de quase todos os aplicativos e serviços que usam o serviço de Lote para o processamento de cargas de trabalho paralelas:
 
-1. Carregue os **arquivos de dados** que você deseja processar em uma conta de [Armazenamento do Azure ][azure_storage]. O Lote inclui suporte interno para acessar o armazenamento de Blobs do Azure, e as tarefas podem baixar esses arquivos para [nós de computação](#compute-node) quando são executadas.
+1. Carregue os **arquivos de dados** que você deseja processar em uma conta de [armazenamento do Azure][azure_storage] . O Lote inclui suporte interno para acessar o armazenamento de Blobs do Azure, e as tarefas podem baixar esses arquivos para [nós de computação](#compute-node) quando são executadas.
 2. Carregue os **arquivos de aplicativo** que as tarefas executarão. Esses arquivos podem ser binários ou scripts e suas dependências e são executados pelas tarefas em seus trabalhos. As tarefas podem baixar esses arquivos de sua conta de armazenamento ou você pode usar o recurso dos [pacotes de aplicativos](#application-packages) de lote para a implantação e o gerenciamento dos aplicativos.
 3. Crie um [pool](#pool) de nós de computação. Quando você cria um pool, pode especificar o número de nós de computação para o pool, seu tamanho e o sistema operacional. Quando cada tarefa no trabalho é executada, ela é atribuída para ser executada em um de nós no pool.
 4. Crie um [trabalho](#job). Um trabalho gerencia uma coleção de tarefas. Você associa cada trabalho a um pool específico no qual as tarefas do trabalho serão executadas.
@@ -46,7 +46,7 @@ O seguinte fluxo de trabalho de alto nível é típico de quase todos os aplicat
 As seções a seguir discutem esses e outros recursos do Lote que habilitarão que seu cenário de computação distribuída.
 
 > [!NOTE]
-> Você precisa de uma [Conta do Lote](#account) para usar o serviço do Lote. A maioria das soluções do Lote também usa uma conta de [Armazenamento do Azure][azure_storage] associada para o armazenamento de arquivos e a recuperação. 
+> Você precisa de uma [Conta do Lote](#account) para usar o serviço do Lote. A maioria das soluções de lote também usa uma conta de [armazenamento do Azure][azure_storage] associada para o armazenamento de arquivos e a recuperação. 
 >
 >
 
@@ -90,7 +90,7 @@ Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta
 Você pode associar uma conta de armazenamento à sua conta do Lote durante a criação da conta do Lote, ou depois. Considere seus requisitos de desempenho e custo ao escolher uma conta de armazenamento. Por exemplo, as opções de conta de armazenamento de blob e GPv2 dão suporte a [limites maiores de capacidade e escalabilidade](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) em comparação com a GPv1. (Contate o Suporte do Azure para solicitar um aumento do limite de armazenamento.) Essas opções de conta podem melhorar o desempenho das soluções do Lote que contêm uma grande quantidade de tarefas paralelas lidas ou gravadas na conta de armazenamento.
 
 ## <a name="compute-node"></a>Nó de computação
-Um nó de computação é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós de Windows ou Linux usando os Serviços de Nuvem do Azure, imagens do [Marketplace de Máquinas Virtuais do Azure][vm_marketplace] ou imagens personalizadas preparadas por você. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
+Um nó de computação é uma máquina virtual (VM) do Azure ou VM do serviço de nuvem que é dedicada ao processamento de uma parte da carga de trabalho do aplicativo. O tamanho de um nó determina o número de núcleos de CPU, a capacidade da memória e o tamanho do sistema de arquivos local alocado para o nó. Você pode criar pools de nós do Windows ou Linux usando os serviços de nuvem do Azure, imagens do [Marketplace de máquinas virtuais do Azure][vm_marketplace]ou imagens personalizadas que você prepara. Consulte o seguinte seção [Pool](#pool) para obter mais informações sobre essas opções.
 
 Os nós podem executar qualquer executável ou script que tenha suporte no ambiente do sistema operacional do nó. Isso inclui \*.exe, \*.cmd, \*.bat e os scripts do PowerShell para Windows e binários, shell e scripts Python para Linux.
 
@@ -229,19 +229,19 @@ Um trabalho é uma coleção de tarefas. Ele gerencia como a computação é rea
 
     O Lote pode detectar e repetir as tarefas com falha. Você pode especificar o **número máximo de tentativas de tarefa** como uma restrição, inclusive se uma tarefa é repetida *sempre* ou *nunca* é repetida. Repetir uma tarefa significa que a tarefa é colocada na fila para ser executada novamente.
 * O aplicativo do cliente pode adicionar tarefas a um trabalho ou você pode especificar uma [tarefa do gerenciador de trabalhos](#job-manager-task). Uma tarefa do gerenciador de trabalhos contém as informações necessárias para criar as tarefas necessárias para um trabalho, com a tarefa do gerenciador de trabalhos sendo executada em um de nós de computação no pool. A tarefa do gerenciador de trabalhos é tratada especificamente pelo Lote – ela é colocada na fila assim que o trabalho é criado e é reiniciada, caso falhe. Uma tarefa do gerenciador de trabalhos é *necessária* para os trabalhos criados por um [agendamento de trabalho](#scheduled-jobs) , pois é a única maneira de definir as tarefas antes do trabalho ser instanciado.
-* Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([OnAllTasksComplete][net_onalltaskscomplete] no .NET do Lote) para *terminatejob* para encerrar automaticamente o trabalho quando todas as tarefas estão no estado concluído.
+* Por padrão, os trabalhos permanecem no estado ativo quando todas as tarefas no trabalho são concluídas. Você pode alterar esse comportamento para que o trabalho seja encerrado automaticamente quando todas as tarefas no trabalho forem concluídas. Defina a propriedade **onAllTasksComplete** do trabalho ([onAllTasksComplete][net_onalltaskscomplete] no .net do lote) como *terminatejob* para encerrar automaticamente o trabalho quando todas as suas tarefas estiverem no estado concluído.
 
     Observe que o serviço de Lote considera que um trabalho *sem* tarefas tem todas as suas tarefas concluídas. Portanto, essa opção é mais comumente usada com uma [tarefa do gerenciador de trabalhos](#job-manager-task). Se você quiser usar o encerramento automático de trabalho sem um gerenciador de trabalhos, defina inicialmente a propriedade **onAllTasksComplete** de um novo trabalho como *noaction*. Depois, defina-a como *terminatejob* somente depois que você terminar de adicionar tarefas ao trabalho.
 
 ### <a name="job-priority"></a>prioridade de trabalho
-Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame a operação [Atualizar as propriedades de um trabalho] [rest_update_job] \(REST do Lote) ou modifique a propriedade [CloudJob.Priority] [net_cloudjob_priority] \(.NET do Lote).
+Você pode atribuir uma prioridade a trabalhos criados no Lote. O serviço Lote usa o valor da prioridade do trabalho para determinar a ordem de agendamento dos trabalhos em uma conta (isso não deve ser confundido com um [trabalho agendado](#scheduled-jobs)). Os valores de prioridade variam de -1000 a 1000, em que -1000 é a prioridade mais baixa e 1000 a mais alta. Para atualizar a prioridade de um trabalho, chame [atualizar as propriedades de uma propriedade de trabalho][rest_update_job] operation (Batch REST), or modify the [CloudJob.Priority][net_cloudjob_priority] (.net do lote).
 
 Em uma mesma conta, os trabalhos com prioridade mais alta têm precedência no agendamento sobre aqueles com prioridade mais baixa. Um trabalho com valor de prioridade mais alto em uma conta não tem precedência no agendamento sobre outro trabalho com valor de prioridade mais baixo em uma conta diferente.
 
 O plano de trabalho em pools é independente. Entre pools diferentes, não é garantido que um trabalho com prioridade mais alta seja agendado primeiro, caso faltem nós ociosos em seu pool associado. No mesmo pool, trabalhos com o mesmo nível de prioridade têm a mesma chance de ser agendados.
 
 ### <a name="scheduled-jobs"></a>Trabalhos agendados
-As [Agendas de trabalho][rest_job_schedules] permitem criar trabalhos recorrentes dentro do serviço de Lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
+As agendas de [trabalho][rest_job_schedules] permitem que você crie trabalhos recorrentes no serviço de lote. Um plano de trabalho especifica quando executar trabalhos e inclui as especificações para os trabalhos a serem executados. Você pode especificar a duração do agendamento - quanto tempo e quando o agendamento entra em vigor – e com que frequência os trabalhos são criados durante o período agendado.
 
 ## <a name="task"></a>Tarefa
 Uma tarefa é uma unidade de computação que está associada a um trabalho. Ela é executada em um nó. As tarefas são atribuídas a um nó para execução ou estão na fila até que um nó fique livre. Resumindo, uma tarefa executa um ou mais programas ou scripts em um nó de computação para executar o trabalho necessário.
@@ -279,7 +279,7 @@ Associando uma **tarefa inicial** a um pool, você pode preparar o ambiente oper
 
 O principal benefício da tarefa inicial é que ela pode conter todas as informações necessárias para configurar um nó de computação e instalar os aplicativos necessários para a execução da tarefa. Portanto, aumentar o número de nós em um pool é tão simples quanto especificar a nova contagem de nós de destino. A tarefa inicial fornece ao serviço de Lote as informações necessárias para configurar os novos nós e prepará-los para a aceitação das tarefas.
 
-Como com qualquer tarefa em Lote do Azure, você pode especificar uma lista de **arquivos de recursos** no [Armazenamento do Azure][azure_storage], além de uma **linha de comando** a ser executada. Primeiro, o serviço de Lote copia os arquivos de recursos para o nó no Armazenamento do Azure, depois, executa a linha de comando. Para uma tarefa inicial do pool, a lista de arquivos normalmente contém o aplicativo da tarefa e suas dependências.
+Assim como acontece com qualquer tarefa do lote do Azure, você pode especificar uma lista de **arquivos de recursos** no [armazenamento do Azure][azure_storage], além de uma **linha de comando** a ser executada. Primeiro, o serviço de Lote copia os arquivos de recursos para o nó no Armazenamento do Azure, depois, executa a linha de comando. Para uma tarefa inicial do pool, a lista de arquivos normalmente contém o aplicativo da tarefa e suas dependências.
 
 No entanto, ela também pode incluir os dados de referência a serem usados por todas as tarefas em execução no nó de computação. Por exemplo, a linha de comando da tarefa inicial pode executar uma `robocopy` operação para copiar os arquivos do aplicativo (que foram especificados como arquivos de recurso e baixados para o nó) do [diretório de trabalho](#files-and-directories) da tarefa inicial para a [pasta compartilhada](#files-and-directories), em seguida, executar um MSI ou `setup.exe`.
 
@@ -335,16 +335,16 @@ Com as dependências de tarefas, você pode configurar cenários como o seguinte
 * A *tarefaC* depende da *tarefaA* e da *tarefaB*.
 * A *tarefaD* depende de várias tarefas, como as tarefas de *1* a *10*, antes de ser executada.
 
-Confira as [Dependências da tarefa no Lote do Azure](batch-task-dependencies.md) e o exemplo de código [TaskDependencies][github_sample_taskdeps] no repositório GitHub [azure-batch-samples][github_samples] para obter mais detalhes sobre esse recurso.
+Confira [dependências de tarefas no lote do Azure](batch-task-dependencies.md) e no repositório GitHub do [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] para obter detalhes mais detalhados sobre esse recurso.
 
 ## <a name="environment-settings-for-tasks"></a>Configurações do ambiente para tarefas
-Cada tarefa executada pelo serviço Lote tem acesso a variáveis de ambiente definidas em nós de computação. Isso inclui as variáveis de ambiente definidas pelo serviço de Lote ([service-defined][msdn_env_vars]) e as variáveis de ambiente personalizadas que você pode definir para suas tarefas. Os aplicativos e scripts executados pelas tarefas têm acesso a essas variáveis de ambiente durante a execução.
+Cada tarefa executada pelo serviço Lote tem acesso a variáveis de ambiente definidas em nós de computação. Isso inclui as variáveis de ambiente definidas pelo serviço de lote ([definido pelo serviço][msdn_env_vars]) e variáveis de ambiente personalizadas que você pode definir para suas tarefas. Os aplicativos e scripts executados pelas tarefas têm acesso a essas variáveis de ambiente durante a execução.
 
-Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, consulte a operação [Adicionar uma tarefa a um trabalho][rest_add_task] (API REST do Lote) ou as propriedades [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob.CommonEnvironmentSettings][net_job_env] no .NET do Lote.
+Você pode definir variáveis de ambiente personalizadas no nível de tarefa ou de trabalho populando a propriedade *configurações de ambiente* para essas entidades. Por exemplo, consulte as propriedades [Adicionar uma tarefa a um trabalho][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] e [CloudJob. CommonEnvironmentSettings][net_job_env] no .net do lote.
 
-Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente da tarefa, definidas pelo serviço e personalizadas, usando a operação [Obter informações sobre uma tarefa][rest_get_task_info] (REST do Lote) ou acessando a propriedade [CloudTask.EnvironmentSettings][net_cloudtask_env] (.NET do Lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
+Seu aplicativo cliente ou serviço pode obter as variáveis de ambiente de uma tarefa, definidas pelo serviço e personalizadas, usando a propriedade [obter informações sobre uma tarefa][rest_get_task_info] operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] (.net do lote). Os processos em execução em um nó de computação podem acessar essas e outras variáveis de ambiente no nó, por exemplo, usando a sintaxe familiar do `%VARIABLE_NAME%` (Windows) ou `$VARIABLE_NAME` (Linux).
 
-Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [Variáveis de ambiente do nó de computação][msdn_env_vars].
+Você pode encontrar uma lista completa de todas as variáveis de ambiente definidas pelo serviço em [variáveis de ambiente do nó de computação][msdn_env_vars].
 
 ## <a name="files-and-directories"></a>Arquivos e diretórios
 Cada tarefa tem um *diretório de trabalho* em que ela cria zero ou mais arquivos e diretórios. Esse diretório de trabalho pode ser usado para armazenar o programa executado pela tarefa, os dados que ele processa e a saída do processamento executado. Todos os arquivos e diretórios de uma tarefa são pertencentes ao usuário de tarefa.
@@ -423,9 +423,9 @@ Para saber mais sobre o dimensionamento automático de um aplicativo, consulte [
 >
 
 ## <a name="security-with-certificates"></a>Segurança com certificados
-Normalmente, você precisa usar certificados ao criptografar ou descriptografar informações confidenciais para as tarefas, como a chave para uma [conta de Armazenamento do Azure][azure_storage]. Para dar suporte a isso, você pode instalar certificados nos nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
+Normalmente, você precisa usar certificados ao criptografar ou descriptografar informações confidenciais para tarefas, como a chave para uma [conta de armazenamento do Azure][azure_storage]. Para dar suporte a isso, você pode instalar certificados nos nós. Os segredos criptografados são passados para tarefas por meio dos parâmetros de linha de comando ou incorporados em um dos recursos de tarefa, e os certificados instalados podem ser usados para descriptografá-los.
 
-Você usa a operação [Adicionar certificado][rest_add_cert] (REST do Lote) ou o método [CertificateOperations.CreateCertificate][net_create_cert] (.NET do Lote) para adicionar um certificado a uma conta do Lote. Então, pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
+Use o método [Adicionar certificado][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] (.net do lote) para adicionar um certificado a uma conta do lote. Então, pode associar o certificado a um pool novo ou existente. Quando um certificado está associado a um pool, o serviço em lote instala o certificado em cada nó presente no pool. O serviço Lote instala os certificados apropriados quando o nó é inicializado, antes que ele execute qualquer tarefa (incluindo a tarefa inicial e a tarefa do gerenciador de trabalhos).
 
 Se você adicionar certificados a um pool *existente* , deverá reinicializar seus nós de computação para que os certificados sejam aplicados aos nós.
 
@@ -462,7 +462,7 @@ As falhas de tarefas se enquadram nestas categorias:
 ### <a name="debugging-application-failures"></a>Falhas de depuração de aplicativos
 * `stderr` e `stdout`
 
-    Durante a execução, um aplicativo pode produzir uma saída de diagnóstico que pode ser usada para solucionar os problemas. Conforme mencionado na seção [Arquivos e diretórios](#files-and-directories) anterior, o serviço de Lote grava a saída padrão e os erros padrão nos arquivos `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação. Você pode usar o portal do Azure ou um dos SDKs do Lote para baixar esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para solucionar problemas usando [ComputeNode.GetNodeFile][net_getfile_node] e [CloudTask.GetNodeFile][net_getfile_task] na biblioteca do .NET do Lote.
+    Durante a execução, um aplicativo pode produzir uma saída de diagnóstico que pode ser usada para solucionar os problemas. Conforme mencionado na seção [Arquivos e diretórios](#files-and-directories) anterior, o serviço de Lote grava a saída padrão e os erros padrão nos arquivos `stdout.txt` e `stderr.txt` no diretório da tarefa no nó de computação. Você pode usar o portal do Azure ou um dos SDKs do Lote para baixar esses arquivos. Por exemplo, você pode recuperar esses e outros arquivos para fins de solução de problemas usando [ComputeNode.][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] getnodefile na biblioteca .net do lote.
 
 * **Códigos de saída de tarefas**
 
@@ -471,13 +471,13 @@ As falhas de tarefas se enquadram nestas categorias:
 ### <a name="accounting-for-task-failures-or-interruptions"></a>Contabilidade de interrupções ou de falhas de tarefas
 As tarefas podem falhar ou ser interrompidas ocasionalmente. O próprio aplicativo da tarefa pode falhar, o nó no qual a tarefa está em execução pode ser reinicializado ou o nó pode ser removido do pool durante uma operação de redimensionamento, caso a política de desalocação do pool seja definida para remover o nó imediatamente sem esperar que as tarefas sejam concluídas. Em todos os casos, a tarefa pode ser automaticamente recolocada na fila pelo Lote para a execução em outro nó.
 
-Também é possível que um problema intermitente fazer com que uma tarefa pare de responder ou levar muito tempo para executar. Você pode definir o intervalo máximo de execução de uma tarefa. Se o intervalo máximo de execução for excedido, o serviço de Lote irá interromper o aplicativo da tarefa.
+Também é possível que um problema intermitente faça com que uma tarefa pare de responder ou demore muito para ser executada. Você pode definir o intervalo máximo de execução de uma tarefa. Se o intervalo máximo de execução for excedido, o serviço de Lote irá interromper o aplicativo da tarefa.
 
 ### <a name="connecting-to-compute-nodes"></a>Conectar-se a nós de computação
-Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do Lote – por exemplo, com o [.NET do Lote][net_rdpfile] ou o [Python do Lote](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh).
+Você pode executar uma depuração e solução de problemas adicionais conectando um nó de computação remotamente. Você pode usar o portal do Azure para baixar um arquivo RDP (Remote Desktop Protocol) para os nós do Windows e obter informações da conexão SSH (Secure Shell) para os nós do Linux. Você também pode fazer isso usando as APIs do lote – por exemplo, com o [lote .net][net_rdpfile] ou o [Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)do lote.
 
 > [!IMPORTANT]
-> Para se conectar a um nó via RDP ou SSH, primeiro você deve criar um usuário no nó. Para tanto, você pode usar o portal do Azure, [adicionar uma conta de usuário a um nó][rest_create_user] usando a API REST do Lote, chamar o método [ComputeNode.CreateComputeNodeUser][net_create_user] no .NET do Lote ou chamar o método [add_user][py_add_user] no módulo Python do Lote.
+> Para se conectar a um nó via RDP ou SSH, primeiro você deve criar um usuário no nó. Para fazer isso, você pode usar a Portal do Azure, [Adicionar uma conta de usuário a um][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] método de nó no .net do lote ou chamar o método [add_user][py_add_user] no módulo python do lote.
 >
 >
 
@@ -486,10 +486,10 @@ Se for necessário restringir ou desabilitar o acesso RDP ou SSH para nós de co
 ### <a name="troubleshooting-problematic-compute-nodes"></a>Solucionando os nós de computação problemáticos
 Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serviço de Lote pode examinar os metadados das tarefas com falha para identificar um nó com comportamento inadequado. Cada nó em um pool tem uma ID exclusiva, e o nó no qual uma tarefa é executada é incluído nos metadados da tarefa. Após identificar um nó com problemas, você poderá executar várias ações nele:
 
-* **Reiniciar o nó** ([REST][rest_reboot] | [.NET][net_reboot])
+* **Reinicializar o nó** ([REST][rest_reboot] | [.NET][net_reboot])
 
     Às vezes, reiniciar o nó pode corrigir problemas latentes, como processos bloqueados ou com falha. Observe que, se o pool usar uma tarefa de inicialização ou se o trabalho usar uma tarefa de preparação de trabalho, eles serão executados quando o nó for reiniciado.
-* **Refazer a imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
+* Refazer **a imagem do nó** ([REST][rest_reimage] | [.NET][net_reimage])
 
     Esse procedimento reinstala o sistema operacional no nó. Assim como ocorre com a reinicialização de um nó, as tarefas de inicialização e de preparação de trabalho são executadas novamente depois que a imagem do nó é refeita.
 * **Remover o nó do pool** ([REST][rest_remove] | [.NET][net_remove])
@@ -497,18 +497,18 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
     Às vezes, é necessário remover completamente o nó do pool.
 * **Desabilitar o agendamento de tarefas no nó** ([REST][rest_offline] | [.NET][net_offline])
 
-    Isso efetivamente coloca o nó offline para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e [fazer logon remotamente](#connecting-to-compute-nodes) para examinar os logs de evento do nó ou solucionar outros problemas. Depois de concluir sua investigação, você poderá colocar o nó online novamente, permitindo o agendamento da tarefa ([REST][rest_online] | [.NET][net_online]) ou executar uma das ações analisadas anteriormente.
+    Isso efetivamente coloca o nó offline para que nenhuma tarefa adicional seja atribuída a ele, mas permite que o nó permaneça em execução e no pool. Isso o habilita a continuar a investigar a causa das falhas sem perder os dados da tarefa com falha e sem que o nó cause falhas de tarefas adicionais. Por exemplo, você pode desabilitar o agendamento de tarefas no nó e [fazer logon remotamente](#connecting-to-compute-nodes) para examinar os logs de evento do nó ou solucionar outros problemas. Depois de concluir sua investigação, você pode colocar o nó online novamente habilitando o[REST][rest_online] | [.NET][net_online](agendamento de tarefas) ou executar uma das outras ações discutidas anteriormente.
 
 > [!IMPORTANT]
-> Com cada ação descrita nesta seção – reinicializar, refazer a imagem, remover e desabilitar o agendamento de tarefas – é possível especificar como as tarefas atualmente em execução no nó são lidadas quando você executa a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do Lote, pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **Terminar** as tarefas em execução, **Recolocar em fila** para o agendamento em outros nós ou permitir que a execução das tarefas conclua antes de executar a ação (**TaskCompletion**).
+> Com cada ação descrita nesta seção – reinicializar, refazer a imagem, remover e desabilitar o agendamento de tarefas – é possível especificar como as tarefas atualmente em execução no nó são lidadas quando você executa a ação. Por exemplo, quando você desabilita o agendamento de tarefas em um nó usando a biblioteca de cliente .NET do lote, você pode especificar um valor de enumeração [DisableComputeNodeSchedulingOption][net_offline_option] para especificar se deseja **encerrar** as tarefas em execução, reenfileira-las para  agendamento em outros nós ou permitir que as tarefas em execução sejam concluídas antes de executar a ação (**TaskCompletion**).
 >
 >
 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Obtenha as noções básicas sobre o desenvolvimento de um aplicativo habilitado para o Lote usando a [biblioteca de cliente .NET do Lote](quick-run-dotnet.md) ou do [Python](quick-run-python.md). O artigo de início rápido orienta você por meio de um aplicativo de exemplo que usa o serviço em Lotes para executar uma carga de trabalho em vários nós de computação e que inclui o uso do Armazenamento do Azure para preparação e recuperação de um arquivo de carga de trabalho.
-* Baixe e instale o [Batch Explorer][batch_labs] para usá-lo durante a instalação das suas soluções de lote. Use o Batch Explorer para ajudar a criar, depurar e monitorar os aplicativos do Lote do Azure. 
-* Consulte os recursos da comunidade incluindo o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade de Lote](https://github.com/Azure/Batch), e o [fórum do Lote do Azure][batch_forum] no MSDN. 
+* Baixe e instale [batch Explorer][batch_labs] para uso ao desenvolver suas soluções do lote. Use o Batch Explorer para ajudar a criar, depurar e monitorar os aplicativos do Lote do Azure. 
+* Consulte recursos da Comunidade, incluindo [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-batch), o [repositório da Comunidade do lote](https://github.com/Azure/Batch)e o [Fórum do lote do Azure][batch_forum] no msdn. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
 

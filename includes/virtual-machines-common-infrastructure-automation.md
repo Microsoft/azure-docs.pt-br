@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 81bde837cd78646f1fc59d921246c72978ecb840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15724adfc6eb875f3d2d5b6d3ecbbb54135a7265
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111347"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671420"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
 Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
@@ -45,7 +45,7 @@ Saiba como:
 
 
 ## <a name="puppet"></a>Puppet
-O [Puppet](https://www.puppet.com) é uma plataforma de automação pronta para empresas que gerencia o processo de entrega e implantação do aplicativo. Os agentes são instalados em computadores de destino para permitir que o Puppet Master execute manifestos que definem a configuração desejada da infraestrutura e das VMs do Azure. O Puppet pode se integrar a outras soluções, como Jenkins e GitHub, para um fluxo de trabalho de devops aprimorado. Para saber mais, confira [Como o Puppet funciona](https://puppet.com/product/how-puppet-works).
+O [Puppet](https://www.puppet.com) é uma plataforma de automação pronta para empresas que gerencia o processo de entrega e implantação do aplicativo. Os agentes são instalados em computadores de destino para permitir que o Puppet Master execute manifestos que definem a configuração desejada da infraestrutura e das VMs do Azure. O Puppet pode se integrar a outras soluções, como Jenkins e GitHub, para um fluxo de trabalho de devops aprimorado. Para saber mais, confira [Como o Puppet funciona](https://puppet.com/products/how-puppet-works).
 
 Saiba como:
 
@@ -53,7 +53,7 @@ Saiba como:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
+[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
 
 A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
 

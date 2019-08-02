@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial demonstra como criar um Standard Load Balancer com front-end zonal para balancear carga de VMs em uma zona de disponibilidade usando o portal do Azure
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/27/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 563b54fe9b4ab65cd8d3008e9d3955618194031f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ec9fae1ce4ef976d5f50e1d8d8412354706c5f8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57899539"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273393"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>Tutorial: balancear carga de VMs em uma zona de disponibilidade com Standard Load Balancer usando o portal do Azure
 
@@ -52,8 +52,8 @@ O Standard Load Balancer dá suporte somente a um endereço IP público padrão.
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Assinatura               | Selecione sua assinatura.    |    
-    | Grupo de recursos         | Selecione **Criar** e digite *myResourceGroupZLB* na caixa de texto.|
+    | Subscription               | Selecione sua assinatura.    |    
+    | Resource group         | Selecione **Criar** e digite *myResourceGroupZLB* na caixa de texto.|
     | NOME                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |

@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 328db116cebda5eb288f04cc89e2c85550c38083
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121966"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68421196"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL para JS e a ADAL para JS
 
@@ -59,9 +59,9 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
 
     O protocolo v2.0 usa escopos em vez de recursos nas solicitações. Ou seja, quando seu aplicativo precisa solicitar tokens com permissões para um recurso, como o MS Graph, a diferença nos valores passados para os métodos de biblioteca é a seguinte:
 
-    v1.0: resource=https://graph.microsoft.com
+    v1.0: recurso = https\://graph.microsoft.com
 
-    v2.0: scope = https://graph.microsoft.com/User.Read
+    v2.0: escopo = https\://graph.microsoft.com/User.Read
 
     Você pode solicitar escopos para qualquer recurso de API, usando o URI da API neste formato: appidURI/scope Por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
@@ -77,7 +77,7 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
 
 * Escopos dinâmicos de consentimento incremental.
 
-    Quando você criava aplicativos com a v1.0, precisava registrar o conjunto completo de permissões (escopos estáticos) exigidas pelo aplicativo para que o usuário consentisse durante o momento do logon. Na v2.0, você pode usar o parâmetro de escopo para solicitar as permissões no momento em que desejá-las. Eles são chamados de escopos dinâmicos. Esses escopos permitem que o usuário forneça consentimento incremental aos escopos. Portanto, se no início você só quiser que o usuário entre em seu aplicativo e não precise de nenhum tipo de acesso, poderá fazê-lo. Se, posteriormente, você precisar que o usuário consiga ler o calendário, solicite o escopo do calendário nos métodos de token de aquisição e obtenha o consentimento do usuário. Por exemplo: 
+    Quando você criava aplicativos com a v1.0, precisava registrar o conjunto completo de permissões (escopos estáticos) exigidas pelo aplicativo para que o usuário consentisse durante o momento do logon. Na v2.0, você pode usar o parâmetro de escopo para solicitar as permissões no momento em que desejá-las. Eles são chamados de escopos dinâmicos. Esses escopos permitem que o usuário forneça consentimento incremental aos escopos. Portanto, se no início você só quiser que o usuário entre em seu aplicativo e não precise de nenhum tipo de acesso, poderá fazê-lo. Se, posteriormente, você precisar que o usuário consiga ler o calendário, solicite o escopo do calendário nos métodos de token de aquisição e obtenha o consentimento do usuário. Por exemplo:
 
     ```javascript
     var request = {
@@ -89,7 +89,7 @@ Na v2.0, ao usar a autoridade `https://login.microsoftonline.com/common`, você 
 
 * Escopos para APIs V1.0
 
-    Quando obter tokens para APIs V1.0, usando a MSAL.js, você pode solicitar todos os escopos estáticos registrados na API, anexando `.default` ao URI da ID do aplicativo da API como escopo. Por exemplo: 
+    Quando obter tokens para APIs V1.0, usando a MSAL.js, você pode solicitar todos os escopos estáticos registrados na API, anexando `.default` ao URI da ID do aplicativo da API como escopo. Por exemplo:
 
     ```javascript
     var request = {

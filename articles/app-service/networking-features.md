@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 666430a11fb95871eb601b2a38eb7b97ad16119f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: db29d0761084e32d601dc9c6d94082cd09bc5d18
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66498943"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655459"
 ---
 # <a name="app-service-networking-features"></a>Recursos de rede do serviço de aplicativo
 
@@ -112,7 +112,7 @@ Pontos de extremidade de serviço permite que você bloqueie **entrada** acesso 
 ![pontos de extremidade de serviço](media/networking-features/service-endpoints.png)
 
 * Como configurar um Gateway de aplicativo com seu aplicativo para bloquear o tráfego de entrada para seu aplicativo
-* Testricting o acesso ao seu aplicativo aos recursos em sua rede virtual. Isso pode incluir as VMs, os ASEs ou até mesmo outros aplicativos que usam a integração de rede virtual 
+* Restringindo o acesso ao seu aplicativo para recursos em sua rede virtual. Isso pode incluir as VMs, os ASEs ou até mesmo outros aplicativos que usam a integração de rede virtual 
 
 ![pontos de extremidade de serviço com o gateway de aplicativo](media/networking-features/service-endpoints-appgw.png)
 
@@ -136,7 +136,7 @@ Geralmente, esse recurso é usado para:
 
 Porque o recurso permite o acesso a recursos locais sem uma brecha de firewall de entrada, ele é popular entre os desenvolvedores. Os outros saída o serviço de aplicativo recursos de rede são muito Azure Virtual rede relacionados. Conexões híbridas não tem uma dependência em percorrer uma rede virtual e pode ser usado para uma maior variedade de necessidades de rede. É importante observar que o recurso de conexões de híbridas do serviço de aplicativo não se importa com ou saber o que está fazendo sobre ele. Isso é dizer que você pode usá-lo para acessar um banco de dados, um serviço web ou um soquete TCP arbitrário em um mainframe. O recurso de túneis essencialmente pacotes TCP. 
 
-Embora as conexões híbridas é popular para desenvolvimento, ele também é usado em vários aplicativos de produção. Ele é ótimo para acessar um serviço web ou banco de dados, mas não é apropriado para situações que envolvem um grande muitas conexões que está sendo criado. 
+Embora as conexões híbridas é popular para desenvolvimento, ele também é usado em vários aplicativos de produção. Ele é ótimo para acessar um serviço web ou banco de dados, mas não é apropriado para situações que envolvem a criação de muitas conexões. 
 
 ### <a name="gateway-required-vnet-integration"></a>Gateway necessário integração VNet 
 
@@ -223,7 +223,7 @@ Um aplicativo de várias camado é um aplicativo em que os aplicativos de back-e
 Você pode ter vários aplicativos front-end usam o mesmo aplicativo de API usando a integração de rede virtual de outros aplicativos de front-end e pontos de extremidade de serviço do aplicativo de API com suas sub-redes.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#bind-your-ssl-certificate
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

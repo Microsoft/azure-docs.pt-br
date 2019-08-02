@@ -9,11 +9,11 @@ ms.date: 06/19/2018
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 1de7221f100077e07a2211bdb94e0198b35cb77c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170398"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171883"
 ---
 ## <a name="deployment-considerations"></a>Considerações de implantação
 

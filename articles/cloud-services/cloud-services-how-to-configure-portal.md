@@ -3,23 +3,17 @@ title: Como configurar um serviço de nuvem (portal) | Microsoft Docs
 description: Saiba como configurar serviços de nuvem no Azure. Saiba como atualizar a configuração do serviço de nuvem e configurar acesso remoto às instâncias de função. Esses exemplos usam o portal do Azure.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 7308f3c0-825e-499d-bfa5-c60f86371921
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
-ms.author: jeconnoc
-ms.openlocfilehash: 4d8d3b93ef2a6347076fada53932b5fc56838d20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 8b60a81e06b95c69a02f88ff3275743b056c191d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61435665"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359662"
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
 
@@ -50,7 +44,7 @@ Se você precisar direcionar para uma versão específica do sistema operacional
 >[!IMPORTANT]
 > Escolher uma versão específica do SO desabilita as atualizações automáticas do sistema operacional e torna os patches sua responsabilidade. Você deve garantir que suas instâncias de função recebam as atualizações, caso contrário você pode expor seu aplicativo a vulnerabilidades de segurança.
 
-## <a name="monitoring"></a>Monitoramento
+## <a name="monitoring"></a>Monitorando
 
 Você pode adicionar alertas para o seu serviço de nuvem. Clique em **Configurações** > **Regras de Alerta** > **Adicionar alerta**.
 
@@ -101,7 +95,7 @@ Talvez seja necessário reconfigurar o serviço de nuvem por meio do arquivo da 
     ![Baixar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-download.png)
 4. Após atualizar o arquivo de configuração de serviço, carregue e aplique as atualizações da configuração:
 
-    ![Carregar](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
+    ![Upload](./media/cloud-services-how-to-configure-portal/cs-settings-config-panel-upload.png)
 5. Selecione o arquivo .cscfg e clique em **OK**.
 
 ## <a name="next-steps"></a>Próximas etapas

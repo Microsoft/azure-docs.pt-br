@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a1b0763e33607367939476ca155040295de864c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 255af92dfecdf891568d7d57c17512bb178a51e5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837976"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105572"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Tutorial: Integração do Azure Active Directory ao Cisco Umbrella
 
@@ -53,7 +53,7 @@ Para configurar a integração do Cisco Umbrella com o Azure AD, você precisa a
 
 **Para adicionar o Cisco Umbrella da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de logon único em domínio e URLs do Cisco Umbrella](common/both-preintegrated-signon.png)
 
-     a. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
+    a. Se desejar configurar o aplicativo no modo iniciado pelo **SP**, realize as seguintes etapas:
 
     b. Clique em **Definir URLs adicionais**.
 
@@ -173,7 +173,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -223,7 +223,7 @@ No caso do Cisco Umbrella, o provisionamento é uma tarefa manual.
 
     ![O usuário](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_createuser.png)
 
-     a. No campo **Nome**, insira o nome, como **Brenda**.
+    a. No campo **Nome**, insira o nome, como **Brenda**.
 
     b. No campo **Sobrenome**, insira o sobrenome, como **Fernandes**.
 
@@ -249,4 +249,4 @@ Ao clicar no bloco do Cisco Umbrella no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 44a9368f82e95641d3df893ba0958c6bf8cf696f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ac9d8d64e4f16a4d6268606e723b14e32d8c16e
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724967"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68261777"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referência do desenvolvedor de scripts C# (.csx) do Azure Functions
 
@@ -57,7 +57,7 @@ FunctionsProject
 
 Há um arquivo [host.json](functions-host-json.md) compartilhado que pode ser usado para configurar o aplicativo de funções. Cada função possui seu próprio arquivo de código (.csx) e arquivo de configuração de associação (function.json).
 
-As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+As extensões de associação necessárias na [versão 2.x](functions-versions.md) do tempo de execução do Functions são definidas no arquivo `extensions.csproj`, com os arquivos de biblioteca reais na pasta `bin`. Ao desenvolver localmente, você precisa [registrar as extensões de associação](./functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 ## <a name="binding-to-arguments"></a>Binding para argumentos
 
@@ -256,7 +256,7 @@ public static void Run(string myBlob, ILogger log)
 > [!NOTE]
 > Para obter informações sobre uma estrutura de log mais recente que pode ser usada no lugar de `TraceWriter`, consulte [Gravar logs nas funções C#](functions-monitoring.md#write-logs-in-c-functions) no artigo **Monitorar o Azure Functions**.
 
-## <a name="async"></a>Assíncrono
+## <a name="async"></a>Async
 
 Para tornar uma função [assíncrona](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use a palavra-chave `async` e retorne um objeto `Task`.
 
@@ -376,7 +376,7 @@ Para obter informações sobre como carregar arquivos na pasta da função, cons
 O diretório que contém o arquivo de script da função é inspecionado automaticamente quanto às alterações nos assemblies. Para inspecionar alterações de assembly em outros diretórios, adicione-os à lista `watchDirectories` em [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
-Usar pacotes do NuGet em um 2.x C# função, carregar um *function.proj* arquivo de pasta da função no sistema de arquivos do aplicativo de funções. Este é um arquivo *function.proj* de exemplo que adiciona uma referência a *Microsoft.ProjectOxford.Face* versão *1.1.0*:
+Para usar os pacotes NuGet em uma função 2 C# . x, carregue um arquivo *Function. proj* para a pasta da função no sistema de arquivos do aplicativo de funções. Este é um arquivo *function.proj* de exemplo que adiciona uma referência a *Microsoft.ProjectOxford.Face* versão *1.1.0*:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -393,9 +393,9 @@ Usar pacotes do NuGet em um 2.x C# função, carregar um *function.proj* arquivo
 Para usar um feed do NuGet personalizado, especifique o feed em um arquivo *Nuget.Config* na raiz do Aplicativo de Funções. Para obter mais informações, consulte [Configurando o comportamento do NuGet](/nuget/consume-packages/configuring-nuget-behavior). 
 
 > [!NOTE]
-> No 1.x C# funções, os pacotes do NuGet são referenciados com um *Project. JSON* do arquivo em vez de um *function.proj* arquivo.
+> Em funções 1. C# x, os pacotes NuGet são referenciados com um arquivo *Project. JSON* em vez de um arquivo *Function. proj* .
 
-Para funções de 1. x, use uma *Project. JSON* de arquivo em vez disso. Aqui está um exemplo *Project. JSON* arquivo: 
+Para funções 1. x, use um arquivo *Project. JSON* em vez disso. Aqui está um exemplo de arquivo *Project. JSON* : 
 
 ```json
 {
@@ -409,11 +409,11 @@ Para funções de 1. x, use uma *Project. JSON* de arquivo em vez disso. Aqui es
 }
 ```
 
-### <a name="using-a-functionproj-file"></a>Usando um arquivo function.proj
+### <a name="using-a-functionproj-file"></a>Usando um arquivo function. proj
 
 1. Abra a função no portal do Azure. A guia logs exibe o resultado da instalação do pacote.
-2. Para carregar uma *function.proj* do arquivo, use um dos métodos descritos na [como atualizar os arquivos de aplicativo de funções](functions-reference.md#fileupdate) no tópico de referência do desenvolvedor do Azure Functions.
-3. Após o *function.proj* arquivo é carregado, você verá a saída semelhante ao seguinte exemplo em sua função do log de streaming:
+2. Para carregar um arquivo *Function. proj* , use um dos métodos descritos em [como atualizar os arquivos do aplicativo de funções](functions-reference.md#fileupdate) no tópico Azure Functions referência do desenvolvedor.
+3. Depois que o arquivo *Function. proj* for carregado, você verá uma saída semelhante ao exemplo a seguir no log de streaming da função:
 
 ```
 2018-12-14T22:00:48.658 [Information] Restoring packages.
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+`BindingTypeAttribute` é o atributo do .NET que define a associação, e `T` é um tipo de entrada ou saída com suporte nesse tipo de associação. `T` não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela de aplicativos móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [\<ICollector t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector\<t >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para. `T`
 
 ### <a name="single-attribute-example"></a>Exemplo de atributo único
 

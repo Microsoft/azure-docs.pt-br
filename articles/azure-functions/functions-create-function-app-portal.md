@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 04/11/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: a1d4af695807a6e2c5ef4ee74527083002bc6015
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: ad9c50953447c1effee48eec5b0cb9f64386e6cc
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900759"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155579"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Criar um aplicativo de funções no portal do Azure
 
@@ -27,7 +27,7 @@ Os Aplicativos do Azure Functions usam a infraestrutura do Serviço de Aplicativ
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-Ao criar um aplicativo de funções, forneça um **Nome de aplicativo** válido, que pode conter apenas letras, números e hifens. Sublinhado (**_**) não é um caractere permitido.
+Ao criar um aplicativo de funções, forneça um **Nome de aplicativo** válido, que pode conter apenas letras, números e hifens. Sublinhado ( **_** ) não é um caractere permitido.
 
 Os nomes da conta de armazenamento devem ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. O nome da sua conta de armazenamento deve ser exclusivo no Azure. 
 
@@ -52,4 +52,7 @@ Para saber mais sobre tipos de conta de armazenamento, confira [Introdução aos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+Embora o portal do Azure torna fácil criar e testar funções, é recomendável usar o [desenvolvimento local](functions-develop-local.md). Depois de criar um aplicativo de funções no portal, você ainda precisa adicionar uma função. 
+
+> [!div class="nextstepaction"]
+> [Adicionar uma função disparada por HTTP](functions-create-first-azure-function.md#create-function)

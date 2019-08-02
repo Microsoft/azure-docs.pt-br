@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/26/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 656e2519dc814baffa2f1c427d46e66054969e25
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: ba72fdce42a8313903a26aead4a1c1922a9bb586
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357165"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603455"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>Início Rápido: Extrair um texto manuscrito usando o SDK do C# da Pesquisa Visual Computacional
 
@@ -77,7 +77,7 @@ Para executar a amostra, siga estas etapas:
                 // need to change the region.
 
                 // Specify the Azure region
-                computerVision.Endpoint = "https://westus.api.cognitive.microsoft.com";
+                computerVision.Endpoint = "https://westcentralus.api.cognitive.microsoft.com";
 
                 Console.WriteLine("Images being analyzed ...");
                 var t1 = ExtractRemoteTextAsync(computerVision, remoteImageUrl);

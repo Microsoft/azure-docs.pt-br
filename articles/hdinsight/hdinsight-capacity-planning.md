@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd2284211c2fdc5a346c6ffb113f89fe311a358c
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237146"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786509"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planejamento de capacidade para clusters HDInsight
 
@@ -82,7 +82,7 @@ A escala do cluster é determinada pela quantidade de seus nós de VM. Para todo
 
 Dependendo de seu tipo de cluster, aumentar o número de nós de trabalho gerará capacidade adicional de computação (por exemplo, mais núcleos), mas também poderá ocasionar aumento na quantidade total de memória necessária para que todo o cluster dê suporte ao armazenamento na memória de dados que estão sendo processados. Assim como acontece com a escolha do tamanho e tipo de VM, a seleção da escala correta do cluster é normalmente alcançada empiricamente, usando consultas canary ou cargas de trabalho simuladas.
 
-Você pode aumentar o cluster para atender ao pico das demandas de carga e reduzi-lo novamente quando esses nós adicionais não forem mais necessários. Para saber mais, consulte [Dimensionar clusters HDInsight](hdinsight-scaling-best-practices.md).
+Você pode aumentar o cluster para atender ao pico das demandas de carga e reduzi-lo novamente quando esses nós adicionais não forem mais necessários. O [recurso de dimensionamento automático](hdinsight-autoscale-clusters.md) permite automaticamente escala seu cluster com base em predeterminados métricas e intervalos. Para obter mais informações sobre como dimensionar seus clusters manualmente, consulte [clusters do HDInsight de escala](hdinsight-scaling-best-practices.md).
 
 ### <a name="cluster-lifecycle"></a>Ciclo de vida do cluster
 

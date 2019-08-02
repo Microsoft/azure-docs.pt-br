@@ -4,14 +4,14 @@ description: Lista todos os namespaces do provedor de recursos do Azure Resource
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 04/25/2019
+ms.date: 06/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f5ffbd9b1f2bde08023d1758792fab54c2885f7
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235579"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442600"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -33,7 +33,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
 | Microsoft.Automation | [Automação](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [O Azure Active Directory B2C](../active-directory-b2c/index.yml) |
-| Microsoft.AzureStack | [Azure Stack](/azure-stack/user/) |
+| Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../batch/index.yml) |
 | Microsoft.Billing | [Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Mapas](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
@@ -61,6 +61,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.CostManagement | [Gerenciamento de custos](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
 | Microsoft.CustomerLockbox | Cofre do cliente para o Microsoft Azure |
+| Microsoft.CustomProviders | [Provedores personalizados do Azure](../managed-applications/custom-providers-overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
 | Microsoft.DataBoxEdge | [Borda da caixa de dados do Azure](../databox-online/data-box-edge-overview.md) |
 | Microsoft.Databricks | [O Azure Databricks](/azure/azure-databricks/) |
@@ -73,7 +74,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.DBforMySQL | [Banco de dados do Azure para MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft.DeploymentManager | [Azure Deployment Manager](deployment-manager-overview.md) |
-| Microsoft.Devices | [Hub IoT](/azure/iot-hub/) |
+| Microsoft.Devices | [Hub IoT](/azure/iot-hub/)<br />[Serviço de Provisionamento de Dispositivos no Hub IoT](/azure/iot-dps/) |
 | Microsoft.DevSpaces | [Espaços de desenvolvimento do Azure](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
@@ -115,7 +116,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.Migrate | [Migrações para Azure](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Âncoras Espaciais do Azure](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Rede Virtual](../virtual-network/index.yml)<br />[Balanceador de Carga](../load-balancer/index.yml)<br />[Gateway de Aplicativo](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[Gateway de VPN](../vpn-gateway/index.yml)<br />[Gerenciador de Tráfego](../traffic-manager/index.yml)<br />[Observador de Rede](../network-watcher/index.yml)<br />[Firewall do Azure](../firewall/index.yml)<br />[Serviço do Azure da frente](../frontdoor/index.yml) |
+| Microsoft.Network | [Rede Virtual](../virtual-network/index.yml)<br />[Balanceador de Carga](../load-balancer/index.yml)<br />[Gateway de Aplicativo](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[Gateway de VPN](../vpn-gateway/index.yml)<br />[Gerenciador de Tráfego](../traffic-manager/index.yml)<br />[Observador de Rede](../network-watcher/index.yml)<br />[Firewall do Azure](../firewall/index.yml)<br />[Serviço do Azure da frente](../frontdoor/index.yml)<br />[Bastiões do Azure](/azure/bastion/) |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Migrações para Azure](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |
@@ -126,6 +127,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [Recuperação de Site](../site-recovery/index.yml) |
 | Microsoft.Relay | [Retransmissão do Azure](../service-bus-relay/relay-what-is-it.md) |
+| Microsoft.ResourceGraph | [Gráfico de recursos do Azure](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | core |
 | Microsoft.Resources | [Azure Resource Manager](index.yml) |
 | Microsoft.SaaS | core |
@@ -148,6 +150,7 @@ Este artigo mostra como os namespaces do provedor de recursos são mapeados para
 | microsoft.support | core |
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../time-series-insights/index.yml) |
 | microsoft.visualstudio | [DevOps do Azure](/azure/devops/?view=azure-devops) |
+| Microsoft.VMwareCloudSimple | [Solução de VMware do Azure por CloudSimple](/azure/vmware-cloudsimple/) |
 | Microsoft.Web | [Serviço de Aplicativo](../app-service/index.yml)<br />[Funções](../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Proteção Avançada contra Ameaças do Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection) |
 | Microsoft.WindowsIoT | [Serviços do Windows 10 IoT Core](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |

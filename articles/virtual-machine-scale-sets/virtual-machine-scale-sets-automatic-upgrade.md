@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 07/16/2019
 ms.author: manayar
-ms.openlocfilehash: 007f2801efed8da4964808056563418dec7f64d5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: eeb689f90197830dad98c213849b2e82ba43bbf1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60328809"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296344"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -35,6 +35,7 @@ A atualização de sistema operacional do Azure tem as seguintes característica
 - É possível recusar os upgrades automáticos a qualquer momento (os upgrades do sistema operacional podem ser iniciados manualmente também).
 - O disco do sistema operacional de uma VM é substituído pelo novo disco do sistema operacional criado com a versão mais recente da imagem. As extensões configuradas e os scripts de dados personalizados são executados, enquanto os discos de dados persistentes são retidos.
 - O [sequenciamento de extensões](virtual-machine-scale-sets-extension-sequencing.md) é compatível.
+- A atualização automática da imagem do sistema operacional pode ser habilitada em um conjunto de dimensionamento de qualquer tamanho.
 
 ## <a name="how-does-automatic-os-image-upgrade-work"></a>Como a atualização automática de imagem do sistema operacional funciona?
 
@@ -42,9 +43,9 @@ A atualização trabalha substituindo o disco do sistema operacional de uma VM p
 
 O processo de atualização funciona da seguinte maneira:
 1. Antes de iniciar o processo de atualização, o orquestrador garantirá que no máximo 20% das instâncias em todo o conjunto de dimensionamento não estejam íntegras (por qualquer motivo).
-2. O orquestrador de atualização identifica o lote de instâncias de VM a serem atualizadas. Cada lote deve ter no máximo 20% da contagem total de instâncias.
-3. O disco do sistema operacional do lote selecionado de instâncias de VM é substituído por um novo disco de sistema operacional criado da imagem mais recente, e todas as extensões e configurações especificadas no modelo de conjunto de dimensionamento são aplicadas à instância atualizada.
-4. Para conjuntos de dimensionamento com investigações de integridade do aplicativo ou extensão de Integridade do Aplicativo, a atualização aguardará até cinco minutos para que a instância se torne íntegra antes de passar para a atualização do próximo lote.
+2. O orquestrador de atualização identifica o lote de instâncias de VM a serem atualizadas. Cada lote deve ter no máximo 20% da contagem total de instâncias. Para conjuntos de dimensionamento menores com 5 ou menos instâncias, o tamanho do lote para uma atualização é uma instância de máquina virtual.
+3. O disco do sistema operacional do lote selecionado de instâncias de VM é substituído por um novo disco do sistema operacional criado a partir da imagem mais recente. Todas as extensões e configurações especificadas no modelo do conjunto de dimensionamento são aplicadas à instância atualizada.
+4. Para conjuntos de dimensionamento com investigações de integridade do aplicativo ou extensão de Integridade do Aplicativo, a atualização aguardará até cinco minutos para que a instância se torne íntegra antes de passar para a atualização do próximo lote. Se uma instância não recuperar sua integridade em 5 minutos após uma atualização, por padrão, o disco do sistema operacional anterior para a instância será restaurado.
 5. O orquestrador de atualização também acompanha o percentual das instâncias que se tornarão não íntegro após uma atualização. A atualização será interrompida se mais de 20% das instâncias atualizadas se tornarem não íntegras durante o processo de atualização.
 6. O processo acima continua até todas as instâncias no conjunto de dimensionamento serem atualizadas.
 
@@ -66,7 +67,7 @@ Os seguintes SKUs são compatíveis atualmente (e mais são adicionados periodic
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2019-datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
 
 
@@ -74,7 +75,18 @@ Os seguintes SKUs são compatíveis atualmente (e mais são adicionados periodic
 
 - A propriedade *versão* da imagem da plataforma deve ser definida como *a mais recente*.
 - Use as investigações de integridade do aplicativo ou a [extensão de Integridade do Aplicativo](virtual-machine-scale-sets-health-extension.md) para conjuntos de dimensionamento que não sejam do Service Fabric.
+- Use a API de computação versão 2018-10-01 ou superior.
 - Verifique se os recursos externos especificados no modelo de conjunto de dimensionamento estão disponíveis e atualizados. Exemplos incluem o URI SAS para conteúdo de inicialização nas propriedades de extensão da VM, o conteúdo na conta de armazenamento, a referência a segredos no modelo e outros.
+- Para conjuntos de dimensionamento usando máquinas virtuais do Windows, começando com a API de computação versão 2019-03-01, a propriedade *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* deve ser definida como *false* no modelo de conjunto de dimensionamento defini. A propriedade acima habilita atualizações na VM em que "Windows Update" aplica patches do sistema operacional sem substituir o disco do sistema operacional. Com as atualizações automáticas de imagem do sistema operacional habilitadas no conjunto de dimensionamento, uma atualização adicional por meio de "Windows Update" não é necessária.
+
+### <a name="service-fabric-requirements"></a>Requisitos de Service Fabric
+
+Se você estiver usando Service Fabric, verifique se as seguintes condições foram atendidas:
+-   Service Fabric [nível](../service-fabric/service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) de durabilidade é prata ou ouro, e não bronze.
+-   A extensão de Service Fabric na definição do modelo do conjunto de dimensionamento deve ter TypeHandlerVersion 1,1 ou superior.
+-   O nível de durabilidade deve ser o mesmo no Cluster Service Fabric e na extensão Service Fabric na definição do modelo do conjunto de dimensionamento.
+
+Verifique se as configurações de durabilidade não são correspondentes no Cluster Service Fabric e na extensão de Service Fabric, pois uma incompatibilidade resultará em erros de atualização. Os níveis de durabilidade podem ser modificados de acordo com as diretrizes descritas nesta [página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
 
 ## <a name="configure-automatic-os-image-upgrade"></a>Configurar a atualização automática da imagem do sistema operacional
 Para configurar a atualização automática da imagem do sistema operacional, verifique se *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* está definido como *true* na definição do modelo do conjunto de dimensionamento.
@@ -99,17 +111,17 @@ PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/p
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir configura atualizações automáticas para o conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
+Use o cmdlet [Update-AzVmss](/powershell/module/az.compute/update-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir configura as atualizações automáticas para o conjunto de  dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
 
 ```azurepowershell-interactive
 Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -AutomaticOSUpgrade $true
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
-Use [az vmss update](/cli/azure/vmss#az-vmss-update) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir configura atualizações automáticas para o conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
+Use [az vmss update](/cli/azure/vmss#az-vmss-update) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir configura as atualizações automáticas para o conjunto de  dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
 
 ```azurecli-interactive
-az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+az vmss update --name myScaleSet --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
 ```
 
 ## <a name="using-application-health-probes"></a>Usando investigações de integridade do aplicativo
@@ -139,7 +151,7 @@ A investigação do balanceador de carga pode ser referenciada no *networkProfil
 > Ao usar as atualizações automáticas do sistema operacional com o Service Fabric, a nova imagem do sistema operacional é implementada ao domínio de atualização pelo domínio de atualização para manter a alta disponibilidade dos serviços em execução no Service Fabric. Para utilizar atualizações automáticas do sistema operacional no Service Fabric, o cluster deve ser configurado para usar a camada de durabilidade Prata ou superior. Para obter mais informações sobre as características de durabilidade de clusters do Service Fabric, consulte [esta documentação](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
 ### <a name="keep-credentials-up-to-date"></a>Manter as credenciais atualizadas
-Se o conjunto de dimensionamento usar credenciais para acessar recursos externos, por exemplo, se uma extensão de VM que use um token SAS para a conta de armazenamento estiver configurada, verifique se as credenciais estão atualizadas. Se quaisquer credenciais, incluindo certificados e tokens, tiveram expirado, a atualização falhará e o primeiro lote de VMs será deixado em estado de falha.
+Se o conjunto de dimensionamento usar quaisquer credenciais para acessar recursos externos, como uma extensão de VM configurada para usar um token SAS para a conta de armazenamento, verifique se as credenciais estão atualizadas. Se alguma credencial, incluindo certificados e tokens, tiver expirado, a atualização falhará e o primeiro lote de VMs será deixado em um estado de falha.
 
 As etapas recomendadas para recuperar VMs e reativar a atualização automática do sistema operacional se houver uma falha de autenticação de recurso são:
 
@@ -159,7 +171,7 @@ Há várias maneiras de implantar a extensão de Integridade do Aplicativo para 
 Você pode verificar o histórico da atualização do sistema operacional mais recente executado no conjunto de dimensionamento com o Azure PowerShell, a CLI do Azure 2.0 ou as APIs REST. Você pode obter o histórico das últimas cinco tentativas de atualização do sistema operacional nos últimos dois meses.
 
 ### <a name="rest-api"></a>API REST
-O exemplo a seguir usa a [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o status do conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
+O exemplo a seguir usa a [API REST](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) para verificar o status do conjunto de  dimensionamento chamado myscaleset no grupo de recursos chamado MyResource Group:
 
 ```
 GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
@@ -203,22 +215,22 @@ A chamada GET retorna propriedades semelhantes à saída de exemplo a seguir:
 ```
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir detalha o modo como você examina o status de atualização do sistema operacional para um conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
+Use o cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional  de um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
 
 ```azurepowershell-interactive
-Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS" -OSUpgradeHistory
+Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -OSUpgradeHistory
 ```
 
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
-Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir detalha o modo como você examina o status de atualização do sistema operacional para um conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
+Use [az vmss get-os-upgrade-history](/cli/azure/vmss#az-vmss-get-os-upgrade-history) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir fornece detalhes sobre como examinar o status de atualização do sistema operacional  de um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
 
 ```azurecli-interactive
-az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
+az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSet
 ```
 
 ## <a name="how-to-get-the-latest-version-of-a-platform-os-image"></a>Como obter a versão mais recente de uma imagem do sistema operacional da plataforma?
 
-Você pode obter as versões de imagem para SKUs com suporte para atualização automática de sistema operacional usando os exemplos a seguir:
+Você pode obter as versões de imagem disponíveis para SKUs de atualização automática do so com suporte usando os exemplos abaixo:
 
 ### <a name="rest-api"></a>API REST
 ```
@@ -233,6 +245,35 @@ Get-AzVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 ```azurecli-interactive
 az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
+```
+
+## <a name="manually-trigger-os-image-upgrades"></a>Disparar manualmente atualizações de imagem do so
+Com a atualização automática de imagem do sistema operacional habilitada no conjunto de dimensionamento, não é necessário disparar manualmente as atualizações de imagem no conjunto de dimensionamento. O orquestrador de atualização do so aplicará automaticamente a versão de imagem mais recente disponível às instâncias do conjunto de dimensionamento sem qualquer intervenção manual.
+
+Para casos específicos em que você não deseja esperar que o orquestrador aplique a imagem mais recente, você pode disparar uma atualização de imagem do sistema operacional manualmente usando os exemplos abaixo.
+
+> [!NOTE]
+> O gatilho manual de atualizações de imagem do sistema operacional não fornece recursos de reversão automática. Se uma instância não recuperar sua integridade após uma operação de atualização, o disco do so anterior não poderá ser restaurado.
+
+### <a name="rest-api"></a>API REST
+Use a chamada à API de [atualização do sistema operacional](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) para iniciar uma atualização sem interrupção para mover todas as instâncias do conjunto de dimensionamento de máquinas virtuais para a versão mais recente do sistema operacional da imagem de plataforma disponível. As instâncias que já estão executando a versão mais recente do so disponível não são afetadas. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem  interrupção em um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+
+```
+POST on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osRollingUpgrade?api-version=2018-10-01`
+```
+
+### <a name="azure-powershell"></a>Azure PowerShell
+Use o cmdlet [Start-AzVmssRollingOSUpgrade](/powershell/module/az.compute/Start-AzVmssRollingOSUpgrade) para verificar o histórico de atualização do sistema operacional para seu conjunto de dimensionamento. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem  interrupção em um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+
+```azurepowershell-interactive
+Start-AzVmssRollingOSUpgrade -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+```
+
+### <a name="azure-cli-20"></a>CLI do Azure 2.0
+Use [AZ vmss upgradeing-upgrade Start](/cli/azure/vmss/rolling-upgrade#az-vmss-rolling-upgrade-start) para verificar o histórico de atualização do sistema operacional de seu conjunto de dimensionamento. Use a CLI do Azure 2.0.47 ou posterior. O exemplo a seguir fornece detalhes sobre como você pode iniciar uma atualização do sistema operacional sem  interrupção em um conjunto de dimensionamento chamado myscalemodeset no grupo de recursos chamado MyResource Group:
+
+```azurecli-interactive
+az vmss rolling-upgrade start --resource-group "myResourceGroup" --name "myScaleSet" --subscription "subscriptionId"
 ```
 
 ## <a name="deploy-with-a-template"></a>Implantar com um modelo

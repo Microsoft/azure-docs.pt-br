@@ -7,7 +7,7 @@ author: barbaraselden
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: 24429c5596494082b526b9648a1405bc397b9d2f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d40c0604f0947abe8d536eafe87545790476a98
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108476"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625540"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação do Proxy de aplicativo do Azure AD
 
@@ -70,7 +70,8 @@ Os seguintes requisitos principais devem ser atendidos para configurar e impleme
 
 * **Certificado público**: Se você estiver usando nomes de domínio personalizado, você deve adquirir um certificado público emitido por uma autoridade de certificado confiável de não-Microsoft. Dependendo dos seus requisitos organizacionais, obtendo um certificado pode levar algum tempo e é recomendável começar o processo mais cedo possível. O Proxy de aplicativo do Azure oferece suporte ao padrão, [curinga](application-proxy-wildcard.md), ou certificados baseados em SAN.
 
-* **Requisitos de domínio**: Logon único para seus aplicativos publicados usando a delegação restrita de Kerberos (KCD) requer que um host de conector é ingressado no domínio ao mesmo domínio do AD que os aplicativos sendo publicado. Para obter informações detalhadas sobre o tópico, consulte [KCD para logon único](application-proxy-configure-single-sign-on-with-kcd.md) com Proxy de aplicativo. O serviço do conector é executado no contexto do sistema local e não deve ser configurado para usar uma identidade personalizada.
+* **Requisitos de domínio**: Logon único para seus aplicativos publicados usando a delegação restrita de Kerberos (KCD) requer que o servidor que executa o conector e o servidor que executa o aplicativo são ingressados no domínio e parte do mesmo domínio ou em domínios confiáveis.
+Para obter informações detalhadas sobre o tópico, consulte [KCD para logon único](application-proxy-configure-single-sign-on-with-kcd.md) com Proxy de aplicativo. O serviço do conector é executado no contexto do sistema local e não deve ser configurado para usar uma identidade personalizada.
 
 * **Registros DNS para URLs**
 
@@ -99,7 +100,7 @@ Compile um inventário de todos os aplicativos dentro do escopo que estão sendo
 | Acesso interno | A URL exata usada ao acessar o aplicativo internamente. <br> Se um farm, o tipo de balanceamento de carga está em uso? <br> Se o aplicativo desenha o conteúdo de fontes diferentes em si.<br> Determine se o aplicativo opera por meio de WebSockets. |
 | Acesso externo | A solução de fornecedor que o aplicativo já está exposto externamente para. <br> A URL que você deseja usar para acesso externo. Se o SharePoint, certifique-se de mapeamentos alternativos de acesso são configurados por [neste guia](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). Caso contrário, você precisará definir URLs externas. |
 | Certificado público | Se usar um domínio personalizado, adquira um certificado com um nome de entidade correspondente. Se houver um certificado, observe o número de série e o local de onde ele pode ser obtido. |
-| Tipo de autenticação.| O tipo de autenticação compatíveis com o suporte do aplicativo, como básica, autenticação de integração do Windows, baseada em formulários, baseada em cabeçalho e declarações. <br>Se o aplicativo é configurado para ser executado sob uma conta de domínio específico, observe o nome de domínio totalmente qualificado (FQDN) da conta de serviço.<br> Se baseado em SAML, as URLs de resposta e o identificador. <br> Se baseada em cabeçalho, digite a solução de fornecedor e um requisito específico para lidar com a autenticação. |
+| Tipo de autenticação| O tipo de autenticação compatíveis com o suporte do aplicativo, como básica, autenticação de integração do Windows, baseada em formulários, baseada em cabeçalho e declarações. <br>Se o aplicativo é configurado para ser executado sob uma conta de domínio específico, observe o nome de domínio totalmente qualificado (FQDN) da conta de serviço.<br> Se baseado em SAML, as URLs de resposta e o identificador. <br> Se baseada em cabeçalho, digite a solução de fornecedor e um requisito específico para lidar com a autenticação. |
 | Nome do grupo de conector | O nome lógico para o grupo de conectores que será designado para fornecer o canal e o SSO para esse aplicativo de back-end. |
 | Acesso de usuários/grupos | Os usuários ou grupos de usuário que serão concedidos acesso externo ao aplicativo. |
 | Requisitos adicionais | Observe que qualquer acesso remoto adicional ou requisitos de segurança que devem ser fatorados na publicação do aplicativo. |

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21a2ea861df96a057db0ec13eacd0906ed51fff1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f535bc7d67198b3fe06326260bc1910b6afd36f2
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512737"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346760"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico RESTful em uma política personalizada do Azure Active Directory B2C
 
@@ -83,7 +83,7 @@ O perfil técnico também retorna declarações que não são retornadas pelo pr
 
 ## <a name="metadata"></a>Metadados
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ServiceUrl | Sim | A URL do ponto de extremidade da API REST. | 
 | AuthenticationType | Sim | O tipo de autenticação que está sendo executada pelo provedor de declarações RESTful. Valores possíveis: `None`, `Basic` ou `ClientCertificate`. O valor `None` indica que a API REST não é anônima. O valor `Basic` indica que a API REST está protegida com a autenticação Básica HTTP. Somente usuários verificados, incluindo Azure AD B2C, podem acessar a API. O valor `ClientCertificate` (recomendado) indica que a API REST restringe o acesso usando a autenticação de certificado do cliente. Somente os serviços que têm certificados adequados, como o Azure AD B2C, poderão acessar seu serviço. | 
@@ -109,7 +109,7 @@ Se o tipo de autenticação for definido como `None`, o elemento **Cryptographic
 
 Se o tipo de autenticação for definido como `Basic`, o elemento **CryptographicKeys** conterá os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Sim | O nome de usuário usado para autenticar. | 
 | BasicAuthenticationPassword | Sim | A senha usada para autenticar. |
@@ -134,7 +134,7 @@ O exemplo a seguir mostra um perfil técnico com a autenticação Básica:
 
 Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **CryptographicKeys** conterá o seguinte atributo:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
 | ClientCertificate | Sim | O certificado X509 (conjunto de chaves RSA) a ser usado para autenticar. | 
 
@@ -157,9 +157,9 @@ Se o tipo de autenticação for definido como `ClientCertificate`, o elemento **
 
 A API REST talvez precise retornar uma mensagem de erro, como "O usuário não foi encontrado no sistema CRM". Se um erro ocorrer, a API REST deverá retornar uma mensagem de erro HTTP 409 (código de status de resposta de Conflito) com os seguintes atributos:
 
-| Atributo | Obrigatório | DESCRIÇÃO |
+| Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| version | Sim | 1.0.0 | 
+| versão | Sim | 1.0.0 | 
 | status | Sim | 409 | 
 | code | Não | Um código de erro do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. | 
 | requestId | Não | Um identificador de solicitação do provedor de ponto de extremidade RESTful, que é exibido quando `DebugMode` está habilitado. | 
@@ -183,7 +183,7 @@ O exemplo a seguir mostra uma API REST que retorna uma mensagem de erro formatad
 
 O exemplo a seguir mostra uma classe C# que retorna uma mensagem de erro:
 
-```C#
+```csharp
 public class ResponseContent
 {
   public string version { get; set; }

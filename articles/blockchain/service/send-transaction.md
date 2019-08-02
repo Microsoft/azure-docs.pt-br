@@ -126,7 +126,7 @@ Obtenha a chave pública da lista de nós de transação. Copie a chave pública
 ### <a name="transaction-node-endpoint-addresses"></a>Endereços do ponto de extremidade do nó de transação
 
 1. No portal do Azure, navegue para cada nó de transação e selecione **Nós de transação > Cadeias de conexão**.
-1. Copie e salve a URL do ponto de extremidade de ***HTTPS (Chave de acesso 1)** para cada nó de transação. Você precisará dos endereços do ponto de extremidade para o arquivo de configuração do contrato inteligente mais adiante no tutorial.
+1. Copie e salve a URL do ponto de extremidade de **HTTPS (Chave de acesso 1)** para cada nó de transação. Você precisará dos endereços do ponto de extremidade para o arquivo de configuração do contrato inteligente mais adiante no tutorial.
 
     ![Endereço do ponto de extremidade da transação](./media/send-transaction/endpoint.png)
 
@@ -221,8 +221,8 @@ Obtenha a chave pública da lista de nós de transação. Copie a chave pública
 
     | Valor | DESCRIÇÃO
     |-------|-------------
-    | \<chave pública do nó alfa\> | Chave pública do nó alfa
-    | \<Endereço da conta do Ethereum\> | Endereço da conta do Ethereum criado no nó de transação padrão
+    | \<alpha node public key\> | Chave pública do nó alfa
+    | \<Ethereum account address\> | Endereço da conta do Ethereum criado no nó de transação padrão
 
     Neste exemplo, o valor inicial do valor **storeData** é definido como 42.
 
@@ -392,8 +392,8 @@ Como não declaramos a chave pública do nó **beta** em **privateFor**, não po
 
     | Valor | DESCRIÇÃO
     |-------|-------------
-    | \<chave pública do nó alfa\> | Chave pública do nó alfa
-    | \<Endereço da conta do Ethereum\> | Endereço da conta do Ethereum criado no nó de transação padrão.
+    | \<alpha node public key\> | Chave pública do nó alfa
+    | \<Ethereum account address\> | Endereço da conta do Ethereum criado no nó de transação padrão.
 
     **privateFor** define os nós para os quais a transação está disponível. Neste exemplo, a conta do nó de transação padrão pode converter transações particulares para o nó **alfa**. Você precisa adicionar as chaves públicas para todos os participantes da transação particular.
 

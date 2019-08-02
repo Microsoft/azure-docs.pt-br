@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5be3efa5544e47f40ab9f0a31f6658b134977e2
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60338950"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444517"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Tutorial: Implementar um banco de dados distribuído geograficamente
 
@@ -26,7 +26,7 @@ Configurar um Banco de Dados SQL do Azure e o aplicativo para o failover para um
 > [!div class="checklist"]
 > - Criar um [grupo de failover](sql-database-auto-failover-group.md)
 > - Executar um aplicativo Java para consultar um Banco de Dados SQL do Azure
-> - Failover de Teste
+> - Failover de teste
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -34,12 +34,12 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> O módulo do PowerShell do Azure Resource Manager ainda é compatível com o banco de dados SQL, mas todo o desenvolvimento futuro é para o módulo Az.Sql. Para esses cmdlets, consulte [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo Az e nos módulos AzureRm são substancialmente idênticos.
+> O módulo Azure Resource Manager do PowerShell ainda tem suporte do banco de dados SQL do Azure, mas todo o desenvolvimento futuro é para o módulo AZ. Sql. Para esses cmdlets, consulte [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Os argumentos para os comandos no módulo AZ e nos módulos AzureRm são substancialmente idênticos.
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
 - [PowerShell do Azure](/powershell/azureps-cmdlets-docs)
-- Um banco de dados SQL do Azure. Para criar um, use
+- Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
@@ -297,7 +297,7 @@ As configurações de replicação geográfica também podem ser alteradas no po
    ...
    ```
 
-## <a name="test-failover"></a>Failover de Teste
+## <a name="test-failover"></a>Failover de teste
 
 Execute os scripts a seguir para simular um failover e observe os resultados do aplicativo. Observe como algumas inserções e seleções falharão durante a migração do banco de dados.
 
@@ -337,7 +337,7 @@ Neste tutorial, você configurou um Banco de Dados SQL do Azure e o aplicativo p
 > [!div class="checklist"]
 > - Criar um grupo de failover de replicação geográfica
 > - Executar um aplicativo Java para consultar um Banco de Dados SQL do Azure
-> - Failover de Teste
+> - Failover de teste
 
 Avance para o próximo tutorial sobre como migrar usando DMS.
 

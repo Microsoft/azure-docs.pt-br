@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 3cad3722a9d0a52b1a0e66c760e948ceb3c1671c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcfefc9698f7f251e99531750e19e7c06395e064
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061042"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655700"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com Logs do Azure Monitor
 
@@ -105,10 +105,12 @@ As etapas a seguir descrevem como configurar por quanto tempo os dados de log s�
 3. No painel, mova o controle deslizante para aumentar ou diminuir o número de dias e, em seguida, clique em **Salvar**.  Se você usar a camada *Gratuita*, não será possível modificar o período de retenção de dados, sendo necessário atualizar para a camada paga para controlar essa configuração.
 
     ![Alterar a configuração de retenção de dados de espaço de trabalho](media/manage-cost-storage/manage-cost-change-retention-01.png)
+    
+A retenção também pode ser [definidas por meio do ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `dataRetention` parâmetro. Além disso, se você definir a retenção de dados como 30 dias, você pode disparar uma limpeza imediata de dados mais antigos usando o `immediatePurgeDataOn30Days` parâmetro, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade é exposta somente por meio do ARM. 
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço legados
 
-Assinaturas que tinham um espaço de trabalho do Log Analytics ou o recurso do Application Insights nele antes de 2 de abril de 2018 ou vinculadas a um contrato Enterprise que foi iniciado antes do dia 1 de fevereiro de 2019 continuarão tendo acesso aos tipos de preços herdado: **Livre**, **autônomo (por GB)** e **por nó (OMS)** .  Espaços de trabalho no tipo de preço gratuito terá diária ingestão de dados é limitado a 500 MB (exceto para tipos de dados de segurança coletados pela Central de segurança do Azure) e a retenção de dados é limitada a sete dias. O tipo de preço gratuito é destinado apenas a fins de avaliação. Espaços de trabalho no autônomo ou tipos de preço por nó tem retenção configurável pelo usuário de até 2 anos. 
+Assinaturas que tinham um espaço de trabalho do Log Analytics ou o recurso do Application Insights nele antes de 2 de abril de 2018 ou vinculadas a um contrato Enterprise que foi iniciado antes do dia 1 de fevereiro de 2019 continuarão tendo acesso aos tipos de preços herdado: **Livre**, **autônomo (por GB)** e **por nó (OMS)** .  Espaços de trabalho no tipo de preço gratuito terá diária ingestão de dados é limitado a 500 MB (exceto para tipos de dados de segurança coletados pela Central de segurança do Azure) e a retenção de dados é limitada a sete dias. O tipo de preço gratuito é destinado apenas a fins de avaliação. Espaços de trabalho no autônomo ou tipos de preço por nó tem retenção configurável pelo usuário de até 2 anos. Espaços de trabalho criados antes de abril de 2016 também têm acesso original **Standard** e **Premium** tipos de preço. Mais detalhes sobre as limitações de camada de preços está disponíveis [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 > [!NOTE]
 > Para usar os direitos provenientes da aquisição de OMS E1 Suite, OMS E2 Suite OMS ou Complemento do OMS para System Center, escolha o tipo de preço *Por Nó* do Log Analytics.
@@ -126,11 +128,7 @@ Se o espaço de trabalho do Log Analytics tem acesso aos tipos de preço herdado
 3. Sob **tipo de preço**, selecione um tipo de preço e, em seguida, clique em **selecione**.  
     ![Selecionado o plano de preços](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Se você deseja mover seu espaço de trabalho para o tipo de preço atual, você precisará alterar o monitoramento de sua assinatura [modelo de preços do Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model) que alterará o tipo de preço de todos os espaços de trabalho nessa assinatura.
-
-> [!NOTE]
-> Você pode aprender mais sobre como definir o tipo de preço quando [usando um modelo do Azure Resource Manager](template-workspace-configuration.md#create-a-log-analytics-workspace) para criar um espaço de trabalho e certifique-se de que a implantação do modelo do Azure Resource Manager será bem-sucedida independentemente se o assinatura está no herdado ou no novo modelo de preços. 
-
+Você também pode [definir o tipo de preço por meio do ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) usando o `ServiceTier` parâmetro. 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar problemas se o Log Analytics não está mais coletando dados
 
@@ -385,7 +383,7 @@ Use as etapas descritas em [criar um novo alerta de log](alerts-metric.md) para 
 
 Ao criar o alerta para a primeira consulta, quando há mais de 100 GB de dados em 24 horas, defina:  
 
-- **Definir condição de alerta** especifica seu workspace do Log Analytics como o destino do recurso.
+- **Definir condição de alerta** especifica seu espaço de trabalho do Log Analytics como o destino do recurso.
 - **Critérios de alerta** especificam o seguinte:
    - **Nome do sinal** seleciona **Pesquisa de registro personalizada**
    - **Consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
@@ -399,7 +397,7 @@ Especifique um já existente ou crie um novo [Grupo de ação](action-groups.md)
 
 Ao criar o alerta para a segunda consulta, quando existe a previsão de que haverá mais de 100 GB de dados em 24 horas, defina:
 
-- **Definir condição de alerta** especifica seu workspace do Log Analytics como o destino do recurso.
+- **Definir condição de alerta** especifica seu espaço de trabalho do Log Analytics como o destino do recurso.
 - **Critérios de alerta** especificam o seguinte:
    - **Nome do sinal** seleciona **Pesquisa de registro personalizada**
    - **Consulta de pesquisa** como `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
@@ -415,7 +413,7 @@ Ao receber um alerta, use as etapas na seção a seguir para solucionar problema
 
 ## <a name="limits-summary"></a>Resumo de limites
 
-Há alguns limites adicionais do Log Analytics, algumas das quais dependem do tipo de preço do Log Analytics. Essas situações são documentadas [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-limits).
+Há alguns limites adicionais do Log Analytics, algumas das quais dependem do tipo de preço do Log Analytics. Essas situações são documentadas [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
 
 ## <a name="next-steps"></a>Próximas etapas

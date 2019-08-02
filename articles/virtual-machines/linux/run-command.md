@@ -3,17 +3,17 @@ title: Executar scripts de shell em uma VM Linux no Azure
 description: Este tópico descreve como executar scripts dentro de uma máquina virtual Linux do Azure usando o recurso Executar Comando
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: abf0f69ea70bae4102806214f0ef0fcfc25aad3a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64570589"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477039"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell em sua VM Linux com o recurso Executar Comando
 
@@ -71,7 +71,7 @@ Quando o comando for escolhido, clique em **Executar** para executar o script. O
 
 Esta tabela mostra a lista de comandos disponíveis para VMs Linux. O comando **RunShellScript** pode ser usado para executar qualquer script personalizado desejado.
 
-|**Nome**|**Descrição**|
+|**Name**|**Descrição**|
 |---|---|
 |**RunShellScript**|Executa um script de shell do Linux.|
 |**ifconfig**| Obtenha a configuração de todas as interfaces de rede.|

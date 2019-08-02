@@ -11,11 +11,11 @@ ms.topic: include
 ms.date: 08/17/2018
 ms.author: diberry
 ms.openlocfilehash: a65b075e89180441eecfb420130bfd1e47b277a5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66123561"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172229"
 ---
 Para receber uma previsão do LUIS em um chat bot ou em outro aplicativo cliente, publique o aplicativo no ponto de extremidade. 
 

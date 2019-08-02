@@ -14,17 +14,16 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 552c89cd3294567e8203b69f81c1ac24716a8b1b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564572"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839448"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: Crie seu primeiro pipeline para transformar dados usando um cluster Hadoop
 > [!div class="op_single_selector"]
 > * [Visão geral e pré-requisitos](data-factory-build-your-first-pipeline.md)
-> * [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
@@ -32,11 +31,11 @@ ms.locfileid: "60564572"
 
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory. Caso esteja usando a versão atual do serviço Data Factory, consulte [Início Rápido: criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
+> Este artigo aplica-se à versão 1 do Data Factory. Caso esteja usando a versão atual do serviço Data Factory, consulte [Início Rápido: criar um data factory usando o Azure Data Factory](../quickstart-create-data-factory-dot-net.md).
 
 Neste tutorial, você deve criar sua Azure Data Factory com um pipeline de dados. O pipeline transforma dados de entrada, executando o script do Hive em um cluster Azure HDInsight (Hadoop) para gerar dados de saída.  
 
-Este artigo fornece uma visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, siga o tutorial usando uma das seguintes ferramentas/SDKs: Portal do Azure, Visual Studio, PowerShell, Modelo do Resource Manager, API REST. Selecione uma das opções na lista suspensa no início (ou) links no final deste artigo para fazer o tutorial usando uma das seguintes opções.    
+Este artigo fornece uma visão geral e pré-requisitos para o tutorial. Depois de concluir os pré-requisitos, siga o tutorial usando uma das seguintes ferramentas/SDKs: Visual Studio, PowerShell, modelo do Resource Manager, API REST. Selecione uma das opções na lista suspensa no início (ou) links no final deste artigo para fazer o tutorial usando uma das seguintes opções.    
 
 ## <a name="tutorial-overview"></a>Visão geral do tutorial
 Neste tutorial, você executa as seguintes etapas:
@@ -93,13 +92,12 @@ Antes de iniciar este tutorial, você deverá ter os seguintes pré-requisitos:
 
 Depois de concluir os pré-requisitos, selecione uma das seguintes ferramentas/SDKs para fazer o tutorial: 
 
-- [Portal do Azure](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Modelo do Resource Manager](data-factory-build-your-first-pipeline-using-arm.md)
 - [API REST](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-O portal do Azure e o Visual Studio permitem criar data factories com a GUI. Enquanto isso, as opções do PowerShell, do modelo do Resource Manager e a API REST permitem criar data factories com script/programação.
+Visual Studio fornece uma maneira de GUI de criar data factories. Enquanto isso, as opções do PowerShell, do modelo do Resource Manager e a API REST permitem criar data factories com script/programação.
 
 > [!NOTE]
 > O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como copiar dados usando o Azure Data Factory, consulte [Tutorial: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

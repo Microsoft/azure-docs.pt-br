@@ -11,24 +11,77 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/6/2019
+ms.date: 6/14/2019
 ms.author: raiye
-ms.openlocfilehash: ecf898d331ec426aa343441d29084b4f2c656fa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: f10290024f9bd46a1de4bdfa6e12f841ddd1c4ed
+ms.sourcegitcommit: 6e6813f8e5fa1f6f4661a640a49dc4c864f8a6cb
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743049"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67150992"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="june-2019-guest-os"></a>Sistema operacional convidado de junho de 2019
+
+>[!NOTE]
+>O sistema operacional convidado de junho atualmente está sendo distribuído para VMs do serviço de nuvem que estão configurados para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os seguintes patches estão incluídos no SO convidado de junho. Esta lista está sujeita a alterações.
+
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+|  Rel 19-06   |  [4503327]  |  Segurança do Windows 10   |  6,8  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503267]  |  Segurança do Windows 10   |  5.32  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503290]  |  Segurança do Windows   |  4.67  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503263]  |  Segurança do Windows   |  3.74  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503269]  |  Segurança do Windows   |  2.87  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4494174]  |  Atualização de microcódigo   |  6,8  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4494175]  |  Atualização de microcódigo   |  5.32  |  3 de junho de 2019  |
+|  Rel 19-06   |  [4503308]  |  Piscando   |  3.74, 4.67, 5.32, 6.8  |  11 de junho de 2019  |
+|  Rel 19-06   |  [4503259]  |  Internet Explorer   |  2.87, 3.74, 4.67  |  13 de junho de 2019  |
+|  N/D  |  [4499164]  |  Não é ' 19 de maio de segurança  |  2.87  |  14 de maio de 2019  |
+|  N/D  |  [4495606]  |  May ' 19 .NET 3.5 não são de segurança  |  2.87  |  14 de maio de 2019  |
+|  N/D  |  [4495596]  |  May ' 19 .NET 4.5 não são de segurança  |  2.87  |  20 de maio de 2019  |
+|  N/D  |  [4499171]  |  Não é ' 19 de maio de segurança  |  3.74  |  14 de maio de 2019  |
+|  N/D  |  [4495602]  |  May ' 19 .NET 3.5 não são de segurança  |  3.74  |  14 de maio de 2019  |
+|  N/D  |  [4495594]  |  19 de maio '.NET 4.x não são de segurança  |  4.67  |  14 de maio de 2019  |
+|  N/D  |  [4499151]  |  Não é ' 19 de maio de segurança  |  4.67  |  14 de maio de 2019  |
+|  N/D  |  [4495608]  |  May ' 19 .NET 3.5 não são de segurança  |  4.67  |  14 de maio de 2019  |
+|  N/D  |  [4495592]  |  May ' 19 .NET 4.5.2 não são de segurança  |  4.67  |  14 de maio de 2019  |
+|  N/D  |  [4495610]  |  May ' 19 .NET 4.8 cumulativa  |  6,8  |  14 de maio de 2019  |
+|  N/D  |  [4495618]  |  May'19 .NET 4.8 cumulativa  |  6,8  |  14 de maio de 2019  |
+|  N/D  |  [4501226]  |  Atualizações de fuso horário do horário de verão do Marrocos e a Autoridade Nacional Palestina  |  2.87, 3.74, 4.67  |  23 de maio de 2019  |
+|  N/D  |  [4490128]  |  Atualizações de fuso horário do horário de verão para São Tomé e Príncipe e Qyzylorda  |  2.87, 3.74, 4.67  |  17 de abril de 2019  |
+
+[4503327]: https://support.microsoft.com/kb/4503327
+[4503267]: https://support.microsoft.com/kb/4503267
+[4503290]: https://support.microsoft.com/kb/4503290
+[4503263]: https://support.microsoft.com/kb/4503263
+[4503269]: https://support.microsoft.com/kb/4503269
+[4494174]: https://support.microsoft.com/kb/4494174
+[4494175]: https://support.microsoft.com/kb/4494175
+[4503308]: https://support.microsoft.com/kb/4503308
+[4503259]: https://support.microsoft.com/kb/4503259
+[4499164]: https://support.microsoft.com/kb/KB4499164
+[4495606]: https://support.microsoft.com/kb/KB4495606
+[4495596]: https://support.microsoft.com/kb/KB4495596
+[4499171]: https://support.microsoft.com/kb/KB4499171
+[4495602]: https://support.microsoft.com/kb/KB4495602
+[4495594]: https://support.microsoft.com/kb/KB4495594
+[4499151]: https://support.microsoft.com/kb/KB4499151
+[4495608]: https://support.microsoft.com/kb/KB4495608
+[4495592]: https://support.microsoft.com/kb/KB4495592
+[4495610]: https://support.microsoft.com/kb/KB4495610
+[4495618]: https://support.microsoft.com/kb/KB4495618
+[4501226]: https://support.microsoft.com/kb/KB4501226
+[4490128]: https://support.microsoft.com/kb/KB4490128
 
 ## <a name="may-2019-guest-os"></a>Sistema operacional convidado de maio de 2019
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 19-05   |  [4498206]  |  Talvez o pacote cumulativo de atualizações do IE   |  2,86, 3.73, 4.66  |  14 de maio de 2019  |
-|  Rel 19-05   |  [4505050]  |  Talvez o pacote cumulativo de atualizações do IE   |  2,86, 3.73, 4.66  |  18 de maio de 2019  |
+|  Rel 19-05   |  [4498206]  |  Talvez o pacote cumulativo de atualizações do IE   |  2.86, 3.73, 4.66  |  14 de maio de 2019  |
+|  Rel 19-05   |  [4505050]  |  Talvez o pacote cumulativo de atualizações do IE   |  2.86, 3.73, 4.66  |  18 de maio de 2019  |
 |  Rel 19-05   |  [4497932]  |  Talvez a atualização de Flash   |  3.73, 4.66, 5.31  |  14 de maio de 2019  |
 |  Rel 19-05   |  [4499175]  |  Talvez o pacote cumulativo de atualizações de segurança   |  2.86  |  14 de maio de 2019  |
 |  Rel 19-05   |  [4495612]  |  Talvez o pacote cumulativo de segurança .NET 3.5   |  2.86  |  14 de maio de 2019  |

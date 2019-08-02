@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 31d4829c6adaf4bd5392ef393dcaefbeb7dc6255
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2ba1bb914dfc2edbe17d12cc58df097b60d1f94c
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618448"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67849740"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -86,7 +86,7 @@ Quando uma onda de manutenção planejada é agendada, é possível exibir a lis
 
 A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dimensionamento de máquinas virtuais. Cada conjunto de dimensionamento de máquina virtual pode ter um dos seguintes valores para a coluna de manutenção de autoatendimento:
 
-| Value | DESCRIÇÃO |
+| Valor | DESCRIÇÃO |
 |-------|-------------|
 | Sim | Pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais está em uma janela de autoatendimento. Você pode iniciar a manutenção a qualquer momento durante essa janela de autoatendimento. | 
 | Não | Nenhuma VM está em uma janela de autoatendimento no conjunto de dimensionamento de máquinas virtuais afetado. | 
@@ -127,9 +127,14 @@ Get-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -In
 
 As seguintes propriedades são retornadas em **MaintenanceRedeployStatus**: 
 
-| Valor | Descrição |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar manutenção na VM no momento. | | PreMaintenanceWindowStartTime | O início da janela de manutenção Self-service quando você pode iniciar manutenção na sua VM. | | PreMaintenanceWindowEndTime | O fim da janela de manutenção Self-service quando você pode iniciar manutenção na sua VM. | | MaintenanceWindowStartTime | O início da manutenção agendada na qual o Azure inicia a manutenção na sua VM. | | MaintenanceWindowEndTime | O fim da manutenção agendada janela na qual o Azure inicia a manutenção na sua VM. | | LastOperationResultCode | O resultado da última tentativa de iniciar a manutenção na VM. |
+| Valor | DESCRIÇÃO   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indica se é possível iniciar a manutenção na VM neste momento. |
+| PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção na VM. |
+| PreMaintenanceWindowEndTime           | O fim da janela de autoatendimento de manutenção quando você pode iniciar manutenção na VM. |
+| MaintenanceWindowStartTime            | O início da manutenção agendada na qual o Azure inicia a manutenção na VM. |
+| MaintenanceWindowEndTime              | O término da janela de manutenção agendada na qual o Azure inicia a manutenção na VM. |
+| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM. |
 
 
 
@@ -153,9 +158,14 @@ az vmss list-instances -g rgName -n vmssName --expand instanceView
 
 As propriedades a seguir são retornadas em **MaintenanceRedeployStatus** para cada instância de VM: 
 
-| Valor | Descrição |
-
-|-------|---------------| | IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar manutenção na VM no momento. | | PreMaintenanceWindowStartTime | O início da janela de manutenção Self-service quando você pode iniciar manutenção na sua VM. | | PreMaintenanceWindowEndTime | O fim da janela de manutenção Self-service quando você pode iniciar manutenção na sua VM. | | MaintenanceWindowStartTime | O início da manutenção agendada na qual o Azure inicia a manutenção na sua VM. | | MaintenanceWindowEndTime | O fim da manutenção agendada janela na qual o Azure inicia a manutenção na sua VM. | | LastOperationResultCode | O resultado da última tentativa de iniciar a manutenção na VM. |
+| Valor | DESCRIÇÃO   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | Indica se é possível iniciar a manutenção na VM neste momento. |
+| PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção na VM. |
+| PreMaintenanceWindowEndTime           | O fim da janela de autoatendimento de manutenção quando você pode iniciar manutenção na VM. |
+| MaintenanceWindowStartTime            | O início da manutenção agendada na qual o Azure inicia a manutenção na VM. |
+| MaintenanceWindowEndTime              | O término da janela de manutenção agendada na qual o Azure inicia a manutenção na VM. |
+| LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM. |
 
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-the-cli"></a>Iniciar manutenção na instância de VM usando a CLI
@@ -166,7 +176,7 @@ A chamada a seguir iniciará a manutenção em uma instância de VM se `IsCustom
 az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 ```
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 **P: Por que é necessário reiniciar as VMs agora?**
 
@@ -176,7 +186,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **R:** Máquinas virtuais implantadas em um conjunto de disponibilidade ou em conjuntos de dimensionamento de máquinas virtuais usam domínios de atualização. Ao executar a manutenção, o Azure respeita a restrição do domínio de atualização e não reinicia as VMs de um domínio de atualização diferente (dentro do mesmo conjunto de disponibilidade). O Azure também aguarda pelo menos 30 minutos antes de passar para o próximo grupo de VMs. 
 
-Para obter mais informações sobre alta disponibilidade, consulte [Regiões e disponibilidade para máquinas virtuais no Azure](../virtual-machines/windows/regions-and-availability.md).
+Para obter mais informações sobre alta disponibilidade, consulte [Regiões e disponibilidade para máquinas virtuais no Azure](../virtual-machines/windows/availability.md).
 
 **P: Como posso ser notificado sobre manutenção planejada?**
 

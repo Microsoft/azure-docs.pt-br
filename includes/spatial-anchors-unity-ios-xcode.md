@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: e8daaaf5b6b15eb3095f11e94c707a33b4b18e28
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305206"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562498"
 ---
 Selecione **Compilar**. Na caixa de diálogo que é aberta, selecione uma pasta para exportar o projeto Xcode.
 
@@ -18,7 +18,7 @@ Quando a exportação estiver concluída, uma pasta contendo o projeto Xcode apa
 > [!NOTE]
 > Se for exibida uma janela perguntando se você deseja substituir ou anexar, é recomendável que você selecione **Acrescentar** porque ele é mais rápido. Você só precisa selecionar **Substituir** se você estiver alterando ativos na sua cena. (por exemplo, se você estiver adicionando, removendo, ou alterando relações pai/filho ou se você estiver adicionando, removendo ou alterando as propriedades.) Se você estiver fazendo alterações no código fonte, apenas **Acrescentar** deve ser suficiente.
 
-### <a name="open-the-xcode-project"></a>Abrir o projeto do Xcode
+### <a name="convert-the-xcode-project-to-xcworkspace-containing-azure-spatial-anchors-references"></a>Converter o projeto Xcode em um xcworkspace contendo referências às Âncoras Espaciais do Azure
 
 Na pasta do projeto do Xcode exportado, execute este comando para instalar o CocoaPods necessário para o projeto:
 

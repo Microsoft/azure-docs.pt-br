@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b7af4d0a48f002f7523def971a306d1fa2077c70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4049f76fdbe4745f3c75c74bc49d8fecc43fb2cf
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952043"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347694"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Habilidade cognitiva de Reconhecimento de Entidade Nomeada
 
 A habilidade do **Reconhecimento de Entidade Nomeada** extrai entidades nomeadas de texto. Entidades disponíveis incluem os tipos `person`, `location`, e `organization`.
 
 > [!IMPORTANT]
-> Reconhecimento de entidade nomeada habilidade foi descontinuada substituído por [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). Suporte interrompido em 15 de fevereiro de 2019 e a API foi removida do produto em 2 de maio de 2019. Siga as recomendações na [preterido habilidades de pesquisa cognitiva](cognitive-search-skill-deprecated.md) para migrar para uma habilidade com suporte.
+> A habilidade de reconhecimento de entidade nomeada agora foi descontinuada substituída por [Microsoft. Skills. Text. EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md). O suporte parou em 15 de fevereiro de 2019 e a API foi removida do produto em 2 de maio de 2019. Siga as recomendações em [habilidades de pesquisa cognitiva](cognitive-search-skill-deprecated.md) preteridas para migrar para uma habilidade com suporte.
 
 > [!NOTE]
 > À medida que expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de IA, você precisará [anexar um recurso de Serviços Cognitivos faturável](cognitive-search-attach-cognitive-services.md). As cobranças são geradas ao chamar APIs nos Serviços Cognitivos e para a extração de imagem como parte do estágio de decodificação de documentos no Azure Search. Não há encargos para extração de texto em documentos.
@@ -35,28 +35,28 @@ A habilidade do **Reconhecimento de Entidade Nomeada** extrai entidades nomeadas
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
-O tamanho máximo de um registro deve ser 50.000 caracteres conforme medido por `String.Length`. Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
+O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar interromper o backup de seus dados antes de enviá-la para o extrator de frases-chave, considere o uso de [habilidade de Texto Dividido](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidades
 
 Os parâmetros diferenciam maiúsculas de minúsculas.
 
-| Nome do parâmetro     | DESCRIÇÃO |
+| Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| Categorias    | Matriz de categorias que devem ser extraídas.  Tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
+| categories    | Matriz de categorias que devem ser extraídas.  Tipos possíveis de categoria: `"Person"`, `"Location"`, `"Organization"`. Se nenhuma categoria for fornecida, todos os tipos são retornados.|
 |defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para vários idiomas: `de, en, es, fr, it`|
 | minimumPrecision  | Um número entre 0 e 1. Se a precisão for menor do que esse valor, a entidade não é retornada. O padrão é 0.|
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Nome de entrada      | DESCRIÇÃO                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. O padrão é `"en"`.  |
-| text          | O texto para analisar.          |
+| texto          | O texto para analisar.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
-| Nome de saída     | DESCRIÇÃO                   |
+| Nome de saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa o nome de uma pessoa. |
 | locations  | Uma matriz de cadeias de caracteres onde cada cadeia de caracteres representa um local. |

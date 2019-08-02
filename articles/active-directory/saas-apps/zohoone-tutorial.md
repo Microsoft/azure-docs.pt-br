@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: c731919baf3acc8cedfb31c088f9a0a12791251c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0a37789e7c7efeb71770ff0e8061d57e6603b6c4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717996"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Tutorial: Integração do Azure Active Directory ao Zoho One
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Zoho One, siga as etapas abaixo
 
     ![Zoho One Domain e informações de logon único de URLs](common/idp-relay.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `one.zoho.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `one.zoho.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o Zoho One, siga as etapas abaixo
 
     ![Assinatura Zoho One](./media/zohoone-tutorial/tutorial_zohoone_save.png)
 
-     a. Na caixa de texto **URL de Conexão**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Conexão**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Saída**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
@@ -172,7 +172,7 @@ Para configurar o logon único do Azure AD com o Zoho One, siga as etapas abaixo
 
     ![Adicionar domínio do Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adddomain.png)
 
-     a. Na caixa de texto **Nome de Domínio**, digite um domínio como contoso.com.
+    a. Na caixa de texto **Nome de Domínio**, digite um domínio como contoso.com.
 
     b. Clique em **Adicionar**.
 
@@ -245,7 +245,7 @@ Para permitir que os usuários do Azure AD entrem no Zoho One, eles devem ser pr
 
     ![Adicionar usuário do Zoho One](./media/zohoone-tutorial/tutorial_zohoone_adduser.png)
     
-     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda Fernandes**.
     
     b. Na caixa de texto **Endereço de Email**, insira o email do usuário como brittasimon@contoso.com.
 

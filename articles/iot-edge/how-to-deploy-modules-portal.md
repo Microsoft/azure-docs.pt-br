@@ -4,18 +4,18 @@ description: Usar o portal do Azure para implantar módulos em um dispositivo do
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/19/2019
+ms.date: 06/25/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d7729dce5419c5813de3c4dfce55c40098f5988
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8337c8672eb886d79b38b2a38a74037f88604497
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595234"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448554"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Implantar módulos do Azure IoT Edge do portal do Azure
 
@@ -43,9 +43,9 @@ O portal do Azure tem um assistente que ajuda você por meio da criação de man
 
 ### <a name="add-modules"></a>Adicionar módulos
 
-1. No **as configurações do registro** seção da página, forneça as credenciais para quaisquer registros de contêiner privado que contêm as imagens de módulo.
+1. No **configurações de registro de contêiner** seção da página, forneça as credenciais para acessar quaisquer registros de contêiner privado que contêm suas imagens de módulo.
 
-1. Na seção **Módulos de Implantação** da página, selecione **Adicionar**.
+1. No **módulos de implantação** seção da página, selecione **Add**.
 
 1. Veja os tipos de módulo na lista suspensa:
 

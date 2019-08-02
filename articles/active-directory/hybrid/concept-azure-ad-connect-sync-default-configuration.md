@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60246082"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227430"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: Noções básicas sobre a configuração padrão
 Este artigo explica as regras da configuração pronta para uso. Ele documenta as regras e como elas afetarão a configuração. Ele também o orienta durante a configuração padrão da sincronização do Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado de provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do Azure AD Connect usando o assistente de instalação.
@@ -71,7 +71,7 @@ As regras de atributos a seguir se aplicam:
   2. Atributos que podem ser encontrados em uma GAL (Lista de Endereços Global) do Exchange são a contribuição da floresta com uma caixa de correio do Exchange.
   3. Se não for possível localizar nenhuma caixa de correio, esses atributos poderão vir de qualquer floresta.
   4. Atributos relacionados ao Exchange (atributos técnicos não visíveis na GAL) são a contribuição da floresta em que `mailNickname ISNOTNULL`.
-  5. Se houver várias florestas que atendam a uma dessas regras, a ordem de criação (data/hora) dos conectores (florestas) será usada para determinar qual floresta contribuirá com os atributos.
+  5. Se houver várias florestas que atendam a uma dessas regras, a ordem de criação (data/hora) dos conectores (florestas) será usada para determinar qual floresta contribuirá com os atributos. A primeira floresta conectada será a primeira floresta a ser sincronizada. 
 
 ### <a name="contact-out-of-box-rules"></a>Regras prontas para uso de contato
 Um objeto de contato deve atender ao seguinte para ser sincronizado:
@@ -220,7 +220,7 @@ A precedência de Regras de Sincronização é definida em grupos pelo assistent
 ### <a name="putting-it-all-together"></a>Juntando as peças
 Agora sabemos o suficiente sobre Regras de Sincronização para poder entender como a configuração funciona com diferentes Regras de Sincronização. Se você observar um usuário e os atributos que contribuíram para o metaverso, as regras são aplicadas na seguinte ordem:
 
-| NOME | Comentário |
+| Nome | Comentário |
 |:--- |:--- |
 | Entrada do AD – Associação de Usuário |Regra para associar objetos de espaço conector com metaverso. |
 | Entrada do AD – UserAccount habilitada |Os atributos necessários para entrar no Azure AD e no Office 365. Queremos esses atributos da conta habilitada. |

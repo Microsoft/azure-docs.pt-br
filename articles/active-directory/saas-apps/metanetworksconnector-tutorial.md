@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 82097b075ab86c4de5ab45e3110c9bc192ac7edb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991497"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Azure Active Directory com o Meta Networks Connector
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
     ![Meta Networks Connector Domain e informações de conexão única de URLs](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.nsof.io/v1/<ORGANIZATION-SHORT-NAME>/sso/saml`
 
@@ -114,7 +114,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
     ![Meta Networks Connector Domain e informações de conexão única de URLs](common/both-advanced-urls.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/login`
 
     b. Na caixa de texto **Estado de Retransmissão**, digite uma URL usando o seguinte padrão: `https://<ORGANIZATION-SHORT-NAME>.metanetworks.com/#/`
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
     | Nome | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | phone | user.telephonenumber | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -190,7 +190,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
     
     ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure2.png)
     
-     a. Copie o valor de **SSO URL** e cole-o na caixa de texto **URL de login** na seção **Domínio do conector de Meta Networks e URLs**.
+    a. Copie o valor de **SSO URL** e cole-o na caixa de texto **URL de login** na seção **Domínio do conector de Meta Networks e URLs**.
     
     b. Copie **o URL do destinatário** e cole-o na caixa de texto **URL de resposta** na seção **Domínio e URLs do conector do Meta Networks**.
     
@@ -202,7 +202,7 @@ Para configurar o logon único do Azure AD com o Meta Networks Connector, execut
 
     ![Configurar o logon único](./media/metanetworksconnector-tutorial/configure5.png)
 
-     a. Na **URL de Logon único do Provedor de identidade**, cole o valor da **URL de logon**, que você copiou do portal do Azure.
+    a. Na **URL de Logon único do Provedor de identidade**, cole o valor da **URL de logon**, que você copiou do portal do Azure.
 
     b. Em **Emissor do Provedor de Identidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -226,7 +226,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -280,5 +280,5 @@ Quando você clica no bloco do Meta Networks Connector no Painel de Acesso, deve
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

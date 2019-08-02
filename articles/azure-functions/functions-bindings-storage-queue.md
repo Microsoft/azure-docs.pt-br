@@ -4,7 +4,7 @@ description: Entenda como usar o gatilho do armazenamento de fila do Azure e a a
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.service: azure-functions
 ms.devlang: multiple
@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 72460136f5fa0dcfec78716fc02e0aaf9e860840
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9604ef276625d1fcc9164a9b75b94ebc22cb51e1
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472287"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480148"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Associações de armazenamento de filas do Azure Functions
 
@@ -307,7 +307,7 @@ O gatilho de fila impede automaticamente que uma função processe uma mensagem 
 
 O arquivo [host.json](functions-host-json.md#queues) contém configurações que controlam o comportamento de gatilho de fila. Consulte a [configurações de host. JSON](#hostjson-settings) seção para obter detalhes sobre as configurações disponíveis.
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Use a associação de saída do armazenamento de Filas do Azure para que você grave mensagens em uma fila.
 

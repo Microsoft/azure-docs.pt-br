@@ -7,7 +7,7 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 33b47d33262a4968a0eafb9ec70ef73e50975735
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1b67522834497a264d95fc9b80246b16841d6026
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602810"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594218"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adicionar o CDN do Azure para um aplicativo Web do Serviço de Aplicativo do Azure
 
@@ -76,7 +76,7 @@ Na página da **Rede de distribuição de conteúdo do Azure**, forneça as conf
 | ------- | --------------- | ----------- |
 | **Perfil do CDN** | myCDNProfile | Um perfil do CDN é uma coleção de pontos de extremidade do CDN com o mesmo tipo de preços. |
 | **Tipo de preços** | Akamai Standard | O [tipo de preços](cdn-features.md) especifica o provedor e os recursos disponíveis. Este tutorial usa *Akamai padrão*. |
-| **Nome do ponto de extremidade do CDN** | Qualquer nome que seja exclusivo no domínio azureedge.net | Acesse os recursos armazenados em cache no domínio *&lt;endpointname&gt;*.azureedge.net.
+| **Nome do ponto de extremidade do CDN** | Qualquer nome que seja exclusivo no domínio azureedge.net | Acesse os recursos armazenados em cache no domínio *&lt;endpointname&gt;* .azureedge.net.
 
 Selecione **Criar** para criar um perfil de CDN.
 

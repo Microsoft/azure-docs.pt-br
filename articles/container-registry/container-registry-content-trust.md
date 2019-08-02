@@ -3,16 +3,17 @@ title: Confiança de conteúdo no Registro de Contêiner do Azure
 description: Saiba como habilitar a confiança de conteúdo do registro de contêiner do Azure e enviar e efetuar pull dessas imagens.
 services: container-registry
 author: dlepow
+manager: gwallace
 ms.service: container-registry
 ms.topic: quickstart
 ms.date: 05/06/2019
 ms.author: danlep
-ms.openlocfilehash: ca9ef32a830f56edb471256b3b9175ba0fbec51d
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: d2132f060076aefe6ae0eccb6d5300c78c96ece5
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65069215"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356535"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confiança de conteúdo no Registro de Contêiner do Azure
 
@@ -163,7 +164,7 @@ No valid trust data for unsigned
 
 ### <a name="behind-the-scenes"></a>Nos bastidores
 
-Quando você executa o `docker pull`, o cliente do Docker usa a mesma biblioteca da [CLI do Notary][docker-notary-cli] para solicitar o mapeamento resumido de tag-SHA-256 para a marca que você está efetuando pull. Após validar as assinaturas nos dados de confiança, o cliente instrui o Docker Engine a "efetuar um pull por resumo". Durante a realização do pull, o mecanismo usa a soma de verificação de SHA-256 como um endereço de conteúdo para solicitar e validar o manifesto da imagem do registro do contêiner do Azure.
+Quando você executa o `docker pull`, o cliente do Docker usa a mesma biblioteca da [CLI do Notary][docker-notary-cli] para solicitar o mapeamento resumido de marca para SHA-256 para a marca que você está efetuando pull. Após validar as assinaturas nos dados de confiança, o cliente instrui o Docker Engine a "efetuar um pull por resumo". Durante a realização do pull, o mecanismo usa a soma de verificação de SHA-256 como um endereço de conteúdo para solicitar e validar o manifesto da imagem do registro do contêiner do Azure.
 
 ## <a name="key-management"></a>Gerenciamento de chaves
 
@@ -173,7 +174,7 @@ Conforme declarado na saída `docker push`, ao enviar sua primeira imagem confi�
 ~/.docker/trust/private
 ```
 
-Para fazer backup de suas chaves raiz e de repositório, compacte-as em um arquivo morto e armazene-as com segurança offline (como em um dispositivo de armazenamento USB). Por exemplo, no Bash:
+Faça backup de suas chaves raiz e de repositório compactando-as em um arquivo morto e armazenando-o em um local seguro. Por exemplo, no Bash:
 
 ```bash
 umask 077; tar -zcvf docker_private_keys_backup.tar.gz ~/.docker/trust/private; umask 022
@@ -194,7 +195,9 @@ Para desabilitar a confiança de conteúdo do registro, primeiro, navegue até o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira [Confiança de conteúdo no Docker][docker-content-trust] para ver mais informações sobre a confiança de conteúdo. Apesar de vários pontos importantes terem sido abordados neste artigo, a confiança de conteúdo é um tópico amplo e será abordado com mais detalhes na documentação do Docker.
+* Confira [Confiança de conteúdo no Docker][docker-content-trust] para ver mais informações sobre a confiança de conteúdo. Apesar de vários pontos importantes terem sido abordados neste artigo, a confiança de conteúdo é um tópico amplo e será abordado com mais detalhes na documentação do Docker.
+
+* Consulte a documentação do [Azure Pipelines](/azure/devops/pipelines/build/content-trust) para obter um exemplo de como usar a confiança de conteúdo ao criar e efetuar push de uma imagem do Docker.
 
 <!-- IMAGES> -->
 [content-trust-01-portal]: ./media/container-registry-content-trust/content-trust-01-portal.png

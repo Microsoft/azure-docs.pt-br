@@ -1,22 +1,22 @@
 ---
-title: Desenvolver aplicativos com o SDK de Fala – Serviços de Fala
+title: Desenvolver aplicativos com o SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como criar aplicativos usando o SDK de Fala.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: d8330ff663a7adc2f1cae3ed6bdf1cec2fa972c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8192a2d731104fe898ca128a1d989783698567da
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66808446"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68559155"
 ---
 # <a name="ship-an-application"></a>Enviar um aplicativo
 
@@ -28,7 +28,7 @@ Dependendo da plataforma, existem dependências diferentes para executar seu apl
 
 O SDK dos Serviços Cognitivos de Fala é testado no Windows 10 e no Windows Server 2016.
 
-O SDK de fala dos serviços Cognitivos requer o [Microsoft Visual C++ Redistributable para Visual Studio de 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) no sistema. Você pode baixar instaladores para a versão mais recente do `Microsoft Visual C++ Redistributable for Visual Studio 2019`:
+O SDK de fala dos serviços cognitivas requer o [Microsoft Visual C++ redistribuível para Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) no sistema. Você pode baixar instaladores para a versão mais recente do `Microsoft Visual C++ Redistributable for Visual Studio 2019`:
 
 - [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
 - [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
@@ -39,17 +39,20 @@ Para a entrada do microfone, as bibliotecas do Media Foundation precisam ser ins
 
 Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Selecione a versão correta (Win32/x64) que corresponda ao seu aplicativo.
 
-| NOME | Função
+| Nome | Função
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK principal, necessário para implantação nativa e gerenciada
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada
 
 >[!NOTE]
-> Começando com a versão 1.3.0 o arquivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornecido em versões anteriores) não é mais necessário. A funcionalidade agora está integrada no núcleo do SDK.
+> A partir da versão 1.3.0, o `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` arquivo (fornecido em versões anteriores) não é mais necessário. A funcionalidade agora está integrada no SDK principal.
+
+>[!NOTE]
+> Para o projeto do .NET Framework (Windows Forms C# app), verifique se as bibliotecas estão incluídas nas configurações de implantação do projeto. Você pode verificar isso em `Properties -> Publish Section`. Clique no `Application Files` botão e localize as bibliotecas correspondentes na lista rolar para baixo. Verifique se o valor está definido como `Included`. O Visual Studio incluirá o arquivo quando o projeto for publicado/implantado.
 
 ## <a name="linux"></a>Linux
 
-O Speech SDK atualmente oferece suporte as distribuições Ubuntu 16.04, 18.04 Ubuntu e Debian 9.
+O SDK de fala atualmente dá suporte às distribuições Ubuntu 16, 4, Ubuntu 18, 4 e Debian 9.
 Para um aplicativo nativo, você precisa enviar a biblioteca do SDK de Fala, `libMicrosoft.CognitiveServices.Speech.core.so`.
 Selecione a versão (x86/x64) que corresponde ao seu aplicativo. Dependendo da versão do Linux, talvez você também precise incluir as seguintes dependências:
 
@@ -64,7 +67,7 @@ sudo apt-get update
 sudo apt-get install libssl1.0.0 libasound2
 ```
 
-No Debian 9 instale esses pacotes:
+No Debian 9, instale estes pacotes:
 
 ```sh
 sudo apt-get update

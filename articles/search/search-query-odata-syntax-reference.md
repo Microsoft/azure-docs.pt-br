@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: cccfb749af07d1deeeda6e94de9c2cd5ce5396f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ebe41ba61ac5136900328db9c35acb8551dcd5b2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079659"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428653"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-search"></a>Referência de sintaxe de expressão OData para o Azure Search
 
-O Azure Search usa [expressões OData](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) como parâmetros por toda a API. Normalmente, as expressões de OData são usadas para o `$orderby` e `$filter` parâmetros. Essas expressões podem ser complexas, que contém várias cláusulas, funções e operadores. No entanto, as expressões de OData até mesmo simples como propriedade caminhos são usados em muitas partes da API REST de pesquisa do Azure. Por exemplo, expressões de caminho são usadas para se referir a subcampos dos campos complexos em todos os lugares na API, como quando listagem inferior campos em um [sugestor](index-add-suggesters.md), um [função de pontuação](index-add-scoring-profiles.md), o `$select` parâmetro , ou até mesmo [pesquisa por campo em consultas Lucene](query-lucene-syntax.md).
+O Azure Search usa [expressões OData](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html) como parâmetros por toda a API. Normalmente, as expressões de OData são usadas para o `$orderby` e `$filter` parâmetros. Essas expressões podem ser complexas, que contém várias cláusulas, funções e operadores. No entanto, as expressões de OData até mesmo simples como propriedade caminhos são usados em muitas partes da API REST de pesquisa do Azure. Por exemplo, expressões de caminho são usadas para se referir a subcampos dos campos complexos em todos os lugares na API, como quando listagem inferior campos em um [sugestor](index-add-suggesters.md), um [função de pontuação](index-add-scoring-profiles.md), o `$select` parâmetro , ou até mesmo [pesquisa por campo em consultas Lucene](query-lucene-syntax.md).
 
 Este artigo descreve todos esses formatos de expressões de OData usando uma gramática formal. Há também uma [Diagrama interativo](#syntax-diagram) para ajudar a explorar visualmente a gramática.
 

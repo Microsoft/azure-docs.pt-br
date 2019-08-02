@@ -1,45 +1,45 @@
 ---
-title: 'Início Rápido: Executar os SDK de dispositivos de fala no Android - serviços de fala'
+title: 'Início Rápido: Executar o SDK de Dispositivos de Fala no Android – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
-description: Pré-requisitos e instruções para a guia de Introdução com um SDK do Android dispositivos de fala.
+description: Pré-requisitos e instruções para começar a usar com o SDK de Dispositivos de Fala do Android.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 5bebdd77afb9e9c77624ea4266ca217567dbf143
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 7eea978456ed565f8fc58647dc548d1a7bc76b27
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072388"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606373"
 ---
-# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de dispositivos de fala no Android
+# <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>Início Rápido: Executar o aplicativo de exemplo do SDK de Dispositivos de Fala no Android
 
-Neste início rápido, você aprenderá como usar o SDK de dispositivos de fala para Android para criar um produto habilitados para fala ou usá-la como uma [conversa transcrição](conversation-transcription-service.md) dispositivo.
+Neste início rápido, você aprenderá a usar o SDK de Dispositivos de Fala para Android para criar um produto habilitado para fala ou usá-lo como um dispositivo de [transcrição de conversas](conversation-transcription-service.md).
 
-Este guia exige uma [serviços Cognitivos do Azure](get-started.md) conta com um recurso de serviços de fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
+Este guia exige uma conta dos [Serviços Cognitivos do Azure](get-started.md) com um recurso dos Serviços de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](https://azure.microsoft.com/try/cognitive-services/) para obter uma chave de assinatura.
 
 O código-fonte para o aplicativo de exemplo é incluído com o SDK de Dispositivos de Fala. Também está [disponível no GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar a usar o SDK de dispositivos de fala, você precisará:
+Antes de começar a usar o SDK de Dispositivos de Fala, você precisará:
 
-* Siga as instruções fornecidas com sua [kit de desenvolvimento](get-speech-devices-sdk.md) para ligar o dispositivo.
+* Seguir as instruções fornecidas com o [kit de desenvolvimento](get-speech-devices-sdk.md) para ligar o dispositivo.
 
-* Baixe a versão mais recente do [fala dispositivos SDK](https://aka.ms/sdsdk-download)e extraia o arquivo. zip no diretório de trabalho.
+* Baixar a última versão do [SDK de Dispositivos de Fala](https://aka.ms/sdsdk-download) e extrair o arquivo .zip no diretório de trabalho.
    > [!NOTE]
-   > O arquivo de exemplo-Android-Release.zip inclui o aplicativo de exemplo do Android e este início rápido pressupõe que o aplicativo seja extraído para C:\SDSDK\Android-Sample-Release
+   > O arquivo Android-Sample-Release.zip inclui o aplicativo de exemplo do Android e este início rápido pressupõe que o aplicativo seja extraído para C:\SDSDK\Android-Sample-Release
 
-* Para obter um [chave de assinatura do Azure para serviços de fala](get-started.md)
+* Para obter uma [chave de assinatura do Azure para os Serviços de Fala](get-started.md)
 
-* Se você planeja usar a transcrição de conversa que você deve usar um [dispositivo microfone circular](get-speech-devices-sdk.md) e esse recurso só está disponível para "en-US" e "zh-CN" em regiões, "centralus" e "eastasia" no momento. Você deve ter uma chave de conversão de fala em uma dessas regiões para usar a transcrição de conversa.
+* Se você pretende usar a transcrição de conversas, use um [dispositivo de microfone circular](get-speech-devices-sdk.md); atualmente, esse recurso só está disponível para "en-US" e "zh-CN" nas regiões “centralus” e “eastasia”. Você precisará ter uma chave de fala em uma dessas regiões para usar a transcrição de conversas.
 
-* Se você planeja usar os serviços de fala para identificar tentativas (ou ações) de declarações de usuário, será necessário um [Service (Luis reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) assinatura. Para saber mais sobre o LUIS e reconhecimento de intenção, consulte [reconhecer intenções de fala com o LUIS, C# ](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
+* Se você pretender usar os Serviços de Fala para identificar intenções (ou ações) de enunciados do usuário, precisará de uma assinatura do [LUIS (Serviço de Reconhecimento vocal)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription). Para saber mais sobre o LUIS e o reconhecimento de intenção, confira [Reconhecer intenções de fala com o LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
     Você pode [criar um modelo simples de LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/) ou usar o modelo LUIS, LUIS-example.json. O exemplo de modelo LUIS está disponível na [site de download do SDK de Dispositivos de Fala](https://aka.ms/sdsdk-luis). Para carregar o arquivo JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione **Importar novo aplicativo**e, em seguida, selecione o arquivo JSON.
 
@@ -72,7 +72,7 @@ Antes de começar a usar o SDK de dispositivos de fala, você precisará:
 
 ## <a name="run-the-sample-application"></a>Executar o aplicativo de exemplo
 
-Para validar sua instalação do kit de desenvolvimento, compilar e instalar o aplicativo de exemplo:
+Para validar sua instalação do kit de desenvolvimento, crie e instale o aplicativo de exemplo:
 
 1. Inicie o Android Studio.
 
@@ -82,9 +82,9 @@ Para validar sua instalação do kit de desenvolvimento, compilar e instalar o a
 
 1. Vá para C:\SDSDK\Android-Sample-Release\example. Selecione **Ok** para abrir o projeto de exemplo.
 
-1. Adicione sua chave de assinatura de fala no código-fonte. Se você quiser experimentar o reconhecimento de intenção, adicione também sua chave de assinatura [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e ID do aplicativo.
+1. Adicione sua chave de assinatura de fala ao código-fonte. Se você quiser experimentar o reconhecimento de intenção, adicione também sua chave de assinatura [Serviço Inteligente de Reconhecimento Vocal](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e ID do aplicativo.
 
-   Para conversão de fala e LUIS, suas informações entra em mainactivity. Java:
+   Para a fala e o LUIS, suas informações são inseridas em MainActivity.java:
 
    ```java
     // Subscription
@@ -95,7 +95,7 @@ Para validar sua instalação do kit de desenvolvimento, compilar e instalar o a
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    Se você estiver usando a transcrição de conversa, suas informações de chave e a região de fala também são necessários no conversation.java:
+    Se você estiver usando a transcrição de conversas, suas informações de chave de fala e região também serão necessárias em conversation.java:
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
@@ -107,10 +107,10 @@ Para validar sua instalação do kit de desenvolvimento, compilar e instalar o a
    > [!TIP]
    > Você também pode [criar uma palavra de ativação personalizada](speech-devices-sdk-create-kws.md).
 
-    Para usar uma nova palavra wake, atualize as duas linhas seguintes no `MainActivity.java`e copie o pacote de palavra de ativação para seu aplicativo. Por exemplo, para usar a palavra de ativação 'Machine' de kws de pacote de word o wake-machine.zip:
+    Para usar uma nova palavra de ativação, atualize as duas linhas a seguir em `MainActivity.java` e copie o pacote de palavras de ativação para o aplicativo. Por exemplo, para usar a palavra de ativação 'Computador' do pacote de palavras de ativação kws-machine.zip:
 
-   * Copie o pacote de palavra de ativação para a pasta "C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\".
-   * Atualização de `MainActivity.java` com a palavra-chave e o nome do pacote:
+   * Copie o pacote de palavras de ativação para a pasta “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
+   * Atualize o `MainActivity.java` com a palavra-chave e o nome do pacote:
 
      ```java
      private static final String Keyword = "Machine";
@@ -124,7 +124,7 @@ Para validar sua instalação do kit de desenvolvimento, compilar e instalar o a
    private static final String SelectedGeometry = "Circular6+1";
    ```
 
-   Esta tabela lista os valores com suporte:
+   Esta tabela lista os valores compatíveis:
 
    |Variável|Significado|Valores disponíveis|
    |--------|-------|----------------|
@@ -135,7 +135,7 @@ Para validar sua instalação do kit de desenvolvimento, compilar e instalar o a
    |||Para um kit de desenvolvimento linear que usa todos os microfones: `Linear4`|
    |||Para um kit de desenvolvimento linear que usa dois microfones: `Linear2`|
 
-1. Para compilar o aplicativo, no menu **Executar**, selecione **Executar 'aplicativo'** . A caixa de diálogo **Selecionar o Destino de Implantação** aparece.
+1. Para compilar o aplicativo, no menu **Executar**, selecione **Executar 'aplicativo'**. A caixa de diálogo **Selecionar o Destino de Implantação** aparece.
 
 1. Selecione seu dispositivo e, em seguida, selecione **OK** para implantar o aplicativo no dispositivo.
 
@@ -145,24 +145,24 @@ Para validar sua instalação do kit de desenvolvimento, compilar e instalar o a
 
    ![Aplicativo de exemplo e opções do SDK de Dispositivos de Fala de Exemplo](media/speech-devices-sdk/qsg-8.png)
 
-1. Experimente a demonstração de transcrição de conversa novo. Inicie transcrevê com iniciar sessão. Por padrão, todas as pessoas são um convidado. No entanto, se você tiver assinaturas de voz do participante que eles podem ser colocados em um arquivo `/video/participants.properties` no dispositivo. Para gerar a assinatura de voz, examine [transcrever conversas (SDK)](how-to-use-conversation-transcription-service.md).
+1. Experimente a nova demonstração da transcrição de conversas. Comece a transcrição com 'Iniciar Sessão'. Por padrão, todas as pessoas são convidados. No entanto, se você tiver assinaturas de voz do participante, elas poderão ser colocadas em um arquivo `/video/participants.properties` no dispositivo. Para gerar a assinatura de voz, examine [Transcrever conversas (SDK)](how-to-use-conversation-transcription-service.md).
 
-   ![Aplicativo de demonstração de transcrição de conversa](media/speech-devices-sdk/qsg-15.png)
+   ![Aplicativo de transcrição de conversas de demonstração](media/speech-devices-sdk/qsg-15.png)
 
 1. Experimento!
 
 ## <a name="troubleshooting"></a>solução de problemas
 
-   Se você não pode se conectar ao dispositivo de fala. Digite o seguinte comando em uma janela de Prompt de comando. Ele retornará uma lista de dispositivos:
+   Se você não puder se conectar ao Dispositivo de Fala. Digite o comando a seguir em uma janela do prompt de comando. Ele retornará uma lista de dispositivos:
 
    ```powershell
     adb devices
    ```
 
    > [!NOTE]
-   > Esse comando usa o Android Debug Bridge `adb.exe`, que é parte da instalação do Android Studio. Essa ferramenta está localizada em C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. Você pode adicionar esse diretório para o caminho para que seja mais conveniente para invocar `adb`. Caso contrário, você deve especificar o caminho completo para a instalação do adb.exe em cada comando que invoca `adb`.
+   > Esse comando usa o Android Debug Bridge, `adb.exe`, que faz parte da instalação do Android Studio. Essa ferramenta está localizada em C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools. Você pode adicionar esse diretório para o caminho para que seja mais conveniente para invocar `adb`. Caso contrário, você deve especificar o caminho completo para a instalação do adb.exe em cada comando que invoca `adb`.
    >
-   > Se você vir um erro `no devices/emulators found` marcar seu cabo USB está conectado e certifique-se de um cabo de alta qualidade é usado.
+   > Se um erro `no devices/emulators found` for exibido, verifique se o cabo USB está conectado e se um cabo de alta qualidade está sendo usado.
    >
 
 ## <a name="next-steps"></a>Próximas etapas

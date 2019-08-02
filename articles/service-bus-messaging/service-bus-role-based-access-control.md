@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f5390162ce56a0e77ef41740d7e88f3546c5530
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979637"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444726"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 
@@ -33,12 +33,12 @@ Um aplicativo que usa o RBAC do Azure AD não precisa manipular regras e chaves 
 
 O Azure fornece as funções RBAC internas para autorizar o acesso a um namespace do barramento de serviço abaixo:
 
-* [Proprietário do serviço do barramento de dados (visualização)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Permite o acesso de dados para o namespace do barramento de serviço e suas entidades (filas, tópicos, assinaturas e filtros)
+* [Proprietário de dados do barramento de serviço do Azure (visualização)](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner-preview): Permite o acesso de dados para o namespace do barramento de serviço e suas entidades (filas, tópicos, assinaturas e filtros)
 
 >[!IMPORTANT]
 > Damos suporte anteriormente adicionando uma identidade gerenciada para o **"Proprietário"** ou **"Colaborador"** função.
 >
-> No entanto, privilégios de acesso a dados **"Proprietário"** e **"Colaborador"** função não será respeitada. Se você estivesse usando o **"Proprietário"** ou **"Colaborador"** função, então eles precisarão ser adaptado para utilizar o **"Proprietário dos dados do barramento de serviço"** função.
+> No entanto, privilégios de acesso a dados **"Proprietário"** e **"Colaborador"** função não será respeitada. Se você estivesse usando o **"Proprietário"** ou **"Colaborador"** função, então eles precisarão ser adaptado para utilizar o **"Do Azure Service Bus proprietário dos dados (visualização)"** função.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Usar o Barramento de Serviço com uma conta de usuário de domínio do Azure AD
 

@@ -1,6 +1,6 @@
 ---
-title: Colaboração
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Colaboração-LUIS
+titleSuffix: Azure Cognitive Services
 description: Os aplicativos LUIS exigem um único proprietário e colaboradores opcionais, permitindo que várias pessoas criem um único aplicativo.
 services: cognitive-services
 author: diberry
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: diberry
-ms.openlocfilehash: 294905ccfd0ce8db6da8737277b0ce978ba837ea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e53ba9f24e40837a823e6012340358113d490f46
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473523"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560799"
 ---
 # <a name="collaborating-with-other-authors"></a>Colaborar com outros autores
 
@@ -31,7 +31,7 @@ Consulte [Usuário do locatário do Azure Active Directory](luis-how-to-collabor
 
 ## <a name="luis-app-owner"></a>Proprietário do aplicativo LUIS
 
-A conta que cria um aplicativo é o proprietário e cada aplicativo tem um único proprietário. O proprietário é listado no aplicativo **[configurações](luis-how-to-collaborate.md)** página. O proprietário recebe email quando a cota de ponto de extremidade atinge de 75% do limite mensal. 
+A conta que cria um aplicativo é o proprietário e cada aplicativo tem um único proprietário. O proprietário é listado na página **[configurações](luis-how-to-collaborate.md)** do aplicativo. O proprietário recebe email quando a cota do ponto de extremidade atinge 75% do limite mensal. 
 
 ## <a name="authorization-roles"></a>Funções de autorização
 O LUIS não dá suporte a funções diferentes para os proprietários e colaboradores com uma exceção. O proprietário é a única conta que pode excluir o aplicativo.
@@ -63,9 +63,9 @@ Esse método permite que você tenha uma versão ativa, uma versão do estágio 
 
 Aplicativos exportados são arquivos formatados para JSON, que podem ser comparados com a exportação base quanto a alterações. Combine os arquivos para criar um único arquivo JSON da nova versão. Altere a propriedade **versionId** no JSON para significar a nova versão mesclada. Importe essa versão para o aplicativo original.
 
-## <a name="collaborator-roles-vs-entity-roles"></a>Funções de entidade do vs de funções de Colaborador
+## <a name="collaborator-roles-vs-entity-roles"></a>Funções de colaborador vs. funções de entidade
 
-[Funções de entidade](luis-concept-roles.md) se aplicam ao modelo de dados do aplicativo LUIS. As funções de Colaborador se aplicam aos níveis de acesso de criação. 
+As [funções de entidade](luis-concept-roles.md) se aplicam ao modelo de dados do aplicativo Luis. As funções de colaborador se aplicam a níveis de acesso de criação. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,10 +1,10 @@
 ---
-title: Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD | Microsoft Docs
+title: Problemas ao configurar o logon único com senha para o aplicativo da galeria do Azure AD | Microsoft Docs
 description: Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos já listados na Galeria do Aplicativo Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6c313cc654461ea22c126fede317ed230408b82
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60291595"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68381135"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
 

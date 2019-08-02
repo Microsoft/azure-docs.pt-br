@@ -1,26 +1,19 @@
 ---
 title: Solução de erros comuns de implantação do Azure | Microsoft Docs
 description: Descreve como resolver erros comuns ao implantar recursos no Azure usando o Azure Resource Manager.
-services: azure-resource-manager
-documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 keywords: erro de implantação, implantação do azure, implante no azure
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fea7f77b1f4bcace23ad9164354c4f42e868869f
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128628"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206332"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 

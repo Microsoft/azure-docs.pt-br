@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dbec81237edd7cbf51e4812e83da068b9a366e0
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992104"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541003"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Como os tópicos do barramento de serviço de uso e as assinaturas com Node. js e o pacote azure-sb
 > [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote de Node. js"]
@@ -48,7 +48,7 @@ Para saber mais sobre tópicos e assinaturas, consulte a seção [Próximas etap
     > Você aprenderá a criar uma **tópico** e uma **assinatura** para o tópico usando **Node. js** neste início rápido. 
 
 ## <a name="create-a-nodejs-application"></a>Criar um aplicativo do Node.js
-Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, confira [Criar e implantar um aplicativo Node.js em um site da Web do Azure], [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell ou Site com o WebMatrix.
+Criar um aplicativo Node.js em branco. Para obter instruções sobre como criar um aplicativo Node.js, consulte [Criar e implantar um aplicativo Node.js em um site da Web do Azure], [Serviço de Nuvem do Node.js][Node.js Cloud Service] usando o Windows PowerShell ou Site com o WebMatrix.
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configurar seu aplicativo para usar o Barramento de serviço
 Para usar o Barramento de Serviço, baixe o pacote do Node.js do Azure. Este pacote inclui um conjunto de bibliotecas que se comunicam com os serviços REST do barramento de serviço.
@@ -148,9 +148,9 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 As assinaturas do tópico também são criadas com o objeto **ServiceBusService**. As assinaturas são nomeadas e podem ter um filtro opcional que restringe o conjunto de mensagens entregues à fila virtual da assinatura.
 
 > [!NOTE]
-> As assinaturas são persistentes até que elas ou o tópico ao qual estão associadas sejam excluídos. Se o aplicativo contiver lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura existe usando o método `getSubscription`.
+> Por padrão, as assinaturas são persistentes até que elas ou o tópico ao qual estão associadas sejam excluídos. Se o aplicativo contiver lógica para criar uma assinatura, ele deverá primeiro verificar se a assinatura existe usando o método `getSubscription`.
 >
->
+> Você pode ter as assinaturas são excluídas automaticamente definindo a [AutoDeleteOnIdle propriedade](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>Criar uma assinatura com o filtro padrão (MatchAll)
 O filtro **MatchAll** é o filtro padrão usado quando uma assinatura é criada. Quando você usa o filtro **MatchAll**, todas as mensagens publicadas no tópico são colocadas na fila virtual da assinatura. O exemplo a seguir cria uma assinatura denominada AllMessages e usa o filtro padrão **MatchAll**.
@@ -314,7 +314,7 @@ Há também um tempo limite associado a uma mensagem bloqueada na assinatura. Se
 Caso o aplicativo falhe após o processamento da mensagem, mas antes que o método `deleteMessage` seja chamado, a mensagem será reenviada ao aplicativo quando for reiniciado. Esse comportamento geralmente é chamado de *Processamento Pelo menos uma Vez*. Ou seja, cada mensagem é processada pelo menos uma vez, mas em determinadas situações, a mesma mensagem poderá ser reenviada. Se o cenário não puder tolerar o processamento duplicado, será necessário adicionar lógica ao aplicativo para tratar a entrega de mensagens duplicadas. É possível usar a propriedade **MessageId** da mensagem, que permanece constante nas tentativas de entrega.
 
 ## <a name="delete-topics-and-subscriptions"></a>Excluir tópicos e assinaturas
-Os tópicos e as assinaturas são persistentes e devem ser explicitamente excluídos por meio do [Portal do Azure][Azure portal] ou de forma programática.
+Tópicos e assinaturas são persistentes, a menos que o [autoDeleteOnIdle propriedade](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) é definido e devem ser explicitamente excluídos por meio de [portal do Azure][Azure portal] ou programaticamente.
 O exemplo a seguir demonstra como excluir o tópico denominado `MyTopic`:
 
 ```javascript

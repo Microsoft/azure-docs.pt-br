@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: e4ba3ee0b2138cb83796be50efe129a993d07a8a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 19e87769bf4e49e5665d5f4887da9fd08e3cd6af
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996485"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67340668"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Usar um modelo de domínio usando a API REST e o Python na Pesquisa Visual Computacional
 
@@ -49,7 +49,7 @@ Para criar e executar o exemplo de ponto de referência, siga estas etapas:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -74,8 +74,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'landmarks'}
-data    = {'url': image_url}
+params = {'model': 'landmarks'}
+data = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -133,7 +133,7 @@ Para criar e executar o exemplo de ponto de referência, siga estas etapas:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -151,8 +151,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'celebrities'}
-data    = {'url': image_url}
+params = {'model': 'celebrities'}
+data = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571058"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67432639"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Criar um Hub IoT usando o portal do Azure
 
@@ -50,13 +50,15 @@ Clique em **Adicionar** para abrir a folha **Adicionar uma política de acesso c
 
 ![Captura de tela mostrando a adição de uma política de acesso compartilhado](./media/iot-hub-create-through-portal/iot-hub-add-shared-access-policy.png)
 
-* As políticas **Leitura do Registro** e **Gravação do Registro** concedem direitos de acesso de leitura e de gravação registro de identidade. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
+* As políticas **Leitura do Registro** e **Gravação do Registro** concedem direitos de acesso de leitura e de gravação registro de identidade. Essas permissões são usadas pelos serviços de nuvem de back-end para gerenciar identidades de dispositivo. A escolha da opção de gravação escolhe automaticamente a opção de leitura.
 
-* A política **Conectar serviço** concede permissão para acessar pontos de extremidade de serviço como **Receber o dispositivo para nuvem**. 
+* O **conexão de serviço** diretiva concede permissão para acessar os pontos de extremidade de serviço. Essa permissão é usada pelos serviços de nuvem de back-end para enviar e receber mensagens de dispositivos, bem como para atualizar e ler dados do dispositivo gêmeo e módulo gêmeo.
 
-* A política **Conectar dispositivo** concede permissões para enviar e receber mensagens usando os pontos de extremidade do lado do dispositivo do Hub IoT.
+* A política **Conectar dispositivo** concede permissões para enviar e receber mensagens usando os pontos de extremidade do lado do dispositivo do Hub IoT. Essa permissão é usada pelos dispositivos para enviar e receber mensagens de um hub IoT, atualizar e ler dados do dispositivo gêmeo e módulo gêmeo e realize carregamentos de arquivo.
 
 Clique em **Criar** para adicionar essa política recém-criada à lista existente.
+
+Para obter mais informações sobre o acesso concedido por permissões específicas, consulte [permissões de IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
 
 ## <a name="message-routing-for-an-iot-hub"></a>Roteamento de Mensagem para um hub IoT
 

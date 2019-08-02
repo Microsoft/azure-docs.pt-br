@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 775a03a82c1fc432e65ce45309a5af3febb448a9
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d2053ad07e555cc04cea714524141068f1404796
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428214"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67083889"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>Usuários, grupos, licenciamento e funções para organizações de grandes porte
 

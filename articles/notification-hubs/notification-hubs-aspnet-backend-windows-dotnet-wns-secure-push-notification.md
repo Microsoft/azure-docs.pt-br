@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2f18b4793d205cfa019f501549dedfcd62f501e7
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459132"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348601"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Enviar notificações por push com segurança do Hubs de Notificação do Azure
 
@@ -57,12 +57,12 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
 
 1. No projeto **NotifyUserWindowsPhone** , adicione o código a seguir em App.xaml.cs para registrar a tarefa de segundo plano de push. Adicione a seguinte linha de código ao final do método `OnLaunched()` :
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. Ainda no App.xaml.cs, adicione o código a abaixo imediatamente após o método `OnLaunched()` :
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -79,7 +79,7 @@ Este tutorial de Push Seguro mostra como enviar uma notificação por push de ma
     ```
 3. Adicione as seguintes instruções `using` na parte superior do arquivo App.xaml.cs:
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -147,7 +147,7 @@ A próxima etapa é criar o componente de segundo plano de push.
 9. De volta à caixa **Pesquisar** do NuGet, digite **Json.net**. Instale o pacote **Json.NET** e feche a janela do Gerenciador de Pacotes NuGet.
 10. Adicione as seguintes instruções `using` na parte superior do arquivo `PushBackgroundTask.cs`:
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;

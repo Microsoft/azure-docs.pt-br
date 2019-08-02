@@ -17,18 +17,6 @@
       href: quickstart-php.md
     - name: Criar aplicativo Node.js
       href: quickstart-nodejs.md
-    - name: Criar aplicativo Node.js usando o Docker e o Visual Studio Code
-      items:
-        - name: Introdução
-          href: tutorial-javascript-vscode-get-started.md
-        - name: Criar um registro de contêiner
-          href: tutorial-javascript-vscode-create-registry.md
-        - name: Criar a imagem
-          href: tutorial-javascript-vscode-containerize-app.md
-        - name: Implantar a imagem
-          href: tutorial-javascript-vscode-deploy-container.md
-        - name: Exibição de logs
-          href: tutorial-javascript-vscode-tail-logs.md
     - name: Criar aplicativo Java
       href: quickstart-java.md
     - name: Criar aplicativo Python

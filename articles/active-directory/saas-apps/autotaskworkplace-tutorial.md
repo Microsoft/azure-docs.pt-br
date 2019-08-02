@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e838dd3df417bd0b26167d5f316225520e7263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7be7d8b9fc9aa8b6c9c1d888744c25d710ca79a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-autotask-workplace"></a>Tutorial: Integração do Azure Active Directory ao Autotask Workplace
 
@@ -57,7 +57,7 @@ Para configurar a integração do Autotask Workplace ao Azure AD, você precisa 
 
 **Para adicionar o Autotask Workplace por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Para configurar o logon único do Azure AD com o Autotask Workplace, realize as 
 
     ![Informações de logon único de Domínio e URLs do Autotask Workplace](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.awp.autotask.net/singlesignon/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.awp.autotask.net/singlesignon/saml/SSO`
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Autotask Workplace, realize as 
 
     ![Configuração de Logon Único do Autotask](./media/autotaskworkplace-tutorial/tutorial_autotaskssoconfig1.png)
 
-     a. Selecione a opção **Arquivo de Metadados XML** e, em seguida, carregue o **XML de Metadados de Federação** baixado do portal do Azure.
+    a. Selecione a opção **Arquivo de Metadados XML** e, em seguida, carregue o **XML de Metadados de Federação** baixado do portal do Azure.
 
     b. Clique em **HABILITAR SSO**.
 
@@ -227,4 +227,4 @@ Quando clicar no bloco do Autotask Workplace no Painel de Acesso, você deverá 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

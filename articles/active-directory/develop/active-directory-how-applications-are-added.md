@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b784cafce08634f1026a908e8ccdaaed41b62a42
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e1b92b174d48c710a763857951d66d00956fa0f9
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111624"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483082"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 
@@ -79,8 +79,10 @@ Como os objetos de aplicativo, as entidades de serviço também podem ser criada
 * Programaticamente via API do Graph do Microsoft Azure AD ou PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Como os objetos de aplicativo e as entidades de serviço estão relacionados entre si?
+
 Um aplicativo tem um objeto de aplicativo no diretório base que é referenciado por uma ou mais entidades de serviço em cada um dos diretórios onde opera (incluindo o diretório base do aplicativo).
-![Um diagrama ilustrando como objetos de aplicativo e entidades de serviço interagem entre si e instâncias do Microsoft Azure AD.][apps_service_principals_directory]
+
+![Mostra a relação entre objetos de aplicativo e entidades de serviço][apps_service_principals_directory]
 
 No diagrama anterior, a Microsoft mantém dois diretórios internamente (mostrados à esquerda) que usa para publicar aplicativos:
 
@@ -96,6 +98,7 @@ Os aplicativos que você adiciona (representados como **Aplicativo (seu)** no di
 * Aplicativos que você publicou usando o proxy de aplicativo do Microsoft Azure AD
 
 ### <a name="notes-and-exceptions"></a>Notas e exceções
+
 * Nem todas as entidades de serviço apontam para um objeto de aplicativo. Quando o Microsoft Azure AD foi originalmente criado, os serviços fornecidos aos aplicativos eram mais limitados e a entidade de serviço era suficiente para estabelecer uma identidade do aplicativo. A entidade de serviço original era mais próxima, em termos de formato, da conta de serviço do Active Directory do Windows Server. Por esse motivo, ainda é possível criar entidades de serviço por meio de diferentes caminhos, como usar o PowerShell do Microsoft Azure AD, sem primeiro criar um objeto de aplicativo. A API do Graph do Microsoft Azure AD exige um objeto de aplicativo antes de criar uma entidade de serviço.
 * Nem todas as informações descritas acima estão expostas programaticamente. Os itens a seguir estão disponíveis apenas na interface do usuário:
   * Declara regras de transformação
@@ -105,6 +108,7 @@ Os aplicativos que você adiciona (representados como **Aplicativo (seu)** no di
   * [Entidade de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos integram-se ao Microsoft Azure AD?
+
 Os aplicativos são adicionados ao Microsoft Azure AD para aproveitar um ou mais dos serviços fornecidos, incluindo:
 
 * Autenticação e autorização de aplicativos
@@ -116,6 +120,7 @@ Os aplicativos são adicionados ao Microsoft Azure AD para aproveitar um ou mais
 * Publicação de aplicativo e proxy - Publique um aplicativo a partir de uma rede privada na Internet
 
 ## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Quem tem permissão para adicionar aplicativos à minha instância do AD do Azure?
+
 Embora existam algumas tarefas que apenas administradores globais podem realizar (por exemplo, adicionar aplicativos da galeria de aplicativos e configurar um aplicativo para usar o Proxy de Aplicativo), todos os usuários do diretório têm direitos para registrar objetos de aplicativo que estão desenvolvendo e discrição sobre quais aplicativos eles compartilham/fornecem acesso aos dados organizacionais por meio do consentimento. Se uma pessoa for o primeiro usuário no diretório a entrar em um aplicativo e conceder consentimento, isso criará uma entidade de serviço no locatário, caso contrário, as informações de concessão de consentimento serão armazenadas na entidade de serviço existente.
 
 Permitir que usuários registrem e forneçam consentimento a aplicativos inicialmente pode parecer preocupante, mas lembre-se do seguinte:
@@ -132,10 +137,11 @@ Se você ainda quiser impedir os usuários no seu diretório de registrarem apli
 
 * Para impedir usuários de consentirem aplicativos em seu próprio nome:
   1. No Portal do Azure, vá para a seção [Configurações de Usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) em Aplicativos Empresariais.
-  2. Altere **Os usuários podem consentir que os aplicativos acessem os dados da empresa em seu nome** para **Não**. 
+  2. Altere **Os usuários podem consentir que os aplicativos acessem os dados da empresa em seu nome** para **Não**.
      
      > [!NOTE]
-     > Se você decidir desativar o consentimento do usuário, será necessário que um administrador forneça consentimento a qualquer novo aplicativo que um usuário precise utilizar.    
+     > Se você decidir desativar o consentimento do usuário, será necessário que um administrador forneça consentimento a qualquer novo aplicativo que um usuário precise utilizar.
+
 * Para impedir que os usuários registrem seus próprios aplicativos:
   1. No Portal do Azure, vá para a seção [Configurações de Usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) em Azure Active Directory
   2. Altere **Os usuários podem registrar aplicativos** para **Não**.
@@ -145,4 +151,3 @@ Se você ainda quiser impedir os usuários no seu diretório de registrarem apli
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
-

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 15fac61856115ef5c4746c96b36e383b9a5b7b30
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4d105fd9d0611ad56cd5ec2ecaa36bdcf9deed18
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: Integração do Azure Active Directory com o Icertis Contract Management Platform
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com a Icertis Contract Management Pla
 
     ![Informações de logon de único de logon único de domínio e URLs da Icertis Contract Management Platform](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.icertis.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.icertis.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<company name>.icertis.com`
 
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com a Icertis Contract Management Pla
 
     ![Copiar URLs de configuração](media/icertisicm-tutorial/configurls.png)
 
-     a. Identificador do Azure AD
+    a. Identificador do Azure AD
 
     b. URL de logoff
 
@@ -197,4 +197,4 @@ Ao clicar no bloco Serviços de Gerenciamento de Participação no Painel de Ace
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

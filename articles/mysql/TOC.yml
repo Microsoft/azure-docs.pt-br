@@ -79,7 +79,7 @@
           href: concepts-ssl-connection-security.md
         - name: Proteção Avançada contra Ameaças
           href: concepts-data-access-and-security-threat-protection.md
-        - name: VNET
+        - name: Rede Virtual
           href: concepts-data-access-and-security-vnet.md
         - name: Arquitetura de conectividade
           href: concepts-connectivity-architecture.md

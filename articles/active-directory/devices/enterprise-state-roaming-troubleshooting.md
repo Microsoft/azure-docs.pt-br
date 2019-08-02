@@ -2,29 +2,21 @@
 title: Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory | Microsoft Docs
 description: Responde a algumas dúvidas que os administradores de TI podem ter sobre as configurações e a sincronização de dados do aplicativo.
 services: active-directory
-keywords: configurações do enterprise state roaming, nuvem do windows, perguntas frequentes sobre o enterprise state roaming
-documentationcenter: ''
+ms.service: active-directory
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
+ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-editor: ''
-ms.subservice: devices
-ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
-ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: joflore
 ms.reviewer: tanning
-ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b74be0dda8e5c79987479393ad0d8ef5c3bdd16
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cceae17b06e8b631dd530b0408008a8222bccbf
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67110659"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67481865"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Solucionando problemas de configurações do Enterprise State Roaming no Azure Active Directory
 
@@ -70,12 +62,11 @@ Esta seção fornece sugestões sobre como solucionar e diagnosticar problemas r
 
 O Enterprise State Roaming requer que o dispositivo seja registrado com o AD do Azure. Embora não seja específico ao Enterprise State Roaming, seguir as instruções abaixo poderá ajudar a confirmar se o Windows 10 Client está registrado, bem como confirmar a impressão digital, a URL das configurações do Azure AD, o status do NGC e outras informações.
 
-1.  Abra o prompt de comando sem privilégios elevados. Para fazer isso no Windows, abra o inicializador de Execução (Win + R) e digite “cmd” para abrir.
-2.  Depois de aberto o prompt de comando, digite “*dsregcmd.exe /status*”.
-3.  Para o resultado esperado, o valor do campo **AzureAdJoined** deve ser “YES”, o valor do campo **WamDefaultSet** deve ser “YES” e o valor do campo **WamDefaultGUID** deve ser um GUID com “(AzureAd)” no final.
+1. Abra o prompt de comando sem privilégios elevados. Para fazer isso no Windows, abra o inicializador de Execução (Win + R) e digite “cmd” para abrir.
+1. Depois de aberto o prompt de comando, digite “*dsregcmd.exe /status*”.
+1. Para o resultado esperado, o valor do campo **AzureAdJoined** deve ser “YES”, o valor do campo **WamDefaultSet** deve ser “YES” e o valor do campo **WamDefaultGUID** deve ser um GUID com “(AzureAd)” no final.
 
 **Problema em potencial**: o valor do campo **WamDefaultSet** e **AzureAdJoined** é "NÃO”, o dispositivo foi associado ao domínio e registrado com o AD do Azure AD e o dispositivo não sincroniza. Se isso estiver sendo exibido, pode ser necessário que o dispositivo aguarde até que a política seja aplicada ou a autenticação do dispositivo falhou ao se conectar ao AD do Azure. O usuário pode precisar aguardar algumas horas para que a política a seja aplicada. Outras etapas de solução de problemas podem incluir repetir o registro automático se desconectando e entrando novamente ou iniciar a tarefa no Agendador de tarefas. Em alguns casos, executar "*dsregcmd.exe /leave*" em uma janela de prompt de comando elevado, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
-
 
 **Problema em potencial**: o campo para **SettingsUrl** está vazio e o dispositivo não sincroniza. O usuário pode ter feito o último logon no dispositivo antes de o Enterprise State Roaming ser habilitado no portal do Azure Active Directory. Reinicie o dispositivo e faça o logon do usuário. Opcionalmente, no portal, peça para que o administrador de TI navegue até **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming** desabilitar e reabilitar **os usuários podem sincronizar configurações e dados de aplicativo entre dispositivos**. Uma vez reativado, reinicie o dispositivo e faça o login do usuário. Se isso não resolver o problema, **SettingsUrl** poderá estar vazio, no caso de um certificado de dispositivo inválido. Nesse caso, executar “*dsregcmd.exe /leave*” em uma janela de prompt de comandos com privilégios elevados, reinicializar e tentar se registrar novamente pode ajudar com esse problema.
 

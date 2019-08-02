@@ -1,106 +1,112 @@
 ### YamlMime:Landing
 title: Azure IoT Edge
-summary: 'O Azure IoT Edge é um serviço de Internet das Coisas (IoT) que se baseia em cima do Hub IoT. Este serviço destina-se a clientes que desejam analisar dados em dispositivos, ou “na borda”, em vez de na nuvem. Ao mover partes da sua carga de trabalho para a borda, seus dispositivos podem gastar menos tempo enviando mensagens para a nuvem e reagir mais rapidamente aos eventos.'
+summary: O Azure IoT Edge é um serviço de Internet das Coisas (IoT) que se baseia em cima do Hub IoT. Este serviço destina-se a clientes que desejam analisar dados em dispositivos, ou “na borda”, em vez de na nuvem. Ao mover partes da sua carga de trabalho para a borda, seus dispositivos podem gastar menos tempo enviando mensagens para a nuvem e reagir mais rapidamente aos eventos.
+metadata:
+  ms.topic: landing-page
+  ms.openlocfilehash: 71589d66856b4f6d3a32da50252fadff564373ff
+  ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 07/23/2019
+  ms.locfileid: "68414429"
 landingContent:
-  - title: Desenvolver para dispositivos Linux
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Implantar seu primeiro módulo do IoT Edge em um dispositivo Linux
-            url: quickstart-linux.md
-      - linkListType: tutorial
-        links:
-          - text: Desenvolver módulos do IoT Edge para dispositivos Linux
-            url: tutorial-develop-for-linux.md
-      - linkListType: how-to-guide
-        links:
-          - text: Usar o Visual Studio Code para desenvolver e depurar módulos
-            url: how-to-vs-code-develop-module.md
-  - title: Desenvolver para dispositivos Windows
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Implantar o primeiro módulo do IoT Edge em um dispositivo Windows
-            url: quickstart.md
-      - linkListType: tutorial
-        links:
-          - text: Desenvolver módulos do IoT Edge para dispositivos Windows
-            url: tutorial-develop-for-windows.md
-      - linkListType: how-to-guide
-        links:
-          - text: Usar o Visual Studio 2017 para desenvolver e depurar módulos
-            url: how-to-visual-studio-develop-module.md
-  - title: Provisionar dispositivos IoT Edge
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Instalar o IoT Edge em um Linux x64
-            url: how-to-install-iot-edge-linux.md
-          - text: Instalar o IoT Edge em um Linux ARM32
-            url: how-to-install-iot-edge-linux-arm.md
-          - text: Instalar o IoT Edge em um Windows x64
-            url: how-to-install-iot-edge-windows.md
-          - text: Provisionar automaticamente dispositivos Linux
-            url: how-to-auto-provision-simulated-device-linux.md
-          - text: Provisionar automaticamente dispositivos Windows
-            url: how-to-auto-provision-simulated-device-windows.md
-  - title: Participe da comunidade de open-source
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Repositório do IoT Edge
-            url: 'https://github.com/Azure/iotedge'
-          - text: Problemas de GitHub do IoT Edge
-            url: 'https://github.com/Azure/iotedge/issues'
-          - text: Logs de mudanças e versões mais recentes
-            url: 'https://github.com/Azure/azure-iotedge/releases'
-  - title: Usar dispositivos do IoT Edge como gateways
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Como um dispositivo IoT Edge pode ser usado como um gateway
-            url: iot-edge-as-gateway.md
-      - linkListType: how-to-guide
-        links:
-          - text: Criar um gateway transparente
-            url: how-to-create-transparent-gateway.md
-          - text: Autenticar um dispositivo downstream no Hub IoT do Azure
-            url: how-to-authenticate-downstream-device.md
-          - text: Conectar um dispositivo downstream a um gateway
-            url: how-to-connect-downstream-device.md
-  - title: Preparar para cenários de produção
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Entender as implantações automáticas
-            url: module-deployment-monitoring.md
-          - text: Suporte à plataforma
-            url: support.md
-          - text: Lista de verificação de implantação de produção
-            url: production-checklist.md
-          - text: Entender o uso do certificado do IoT Edge
-            url: iot-edge-certs.md
-          - text: Padrões de segurança para IoT Edge
-            url: security.md
-      - linkListType: how-to-guide
-        links:
-          - text: Implantar e monitorar em escala usando a CLI do Azure
-            url: how-to-deploy-monitor-cli.md
-          - text: Criar um pipeline de CI/CD com o Azure Pipelines
-            url: how-to-ci-cd.md
-      - linkListType: deploy
-        links:
-          - text: API REST para o Hub IoT
-            url: 'https://docs.microsoft.com/rest/api/iothub/'
-  - title: Implantar a IA na borda
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Implantar o Azure Machine Learning como um módulo do IoT Edge
-            url: tutorial-deploy-machine-learning.md
-          - text: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
-            url: tutorial-deploy-custom-vision.md
-      - linkListType: deploy
-        links:
-          - text: Localizar os módulos dos Serviços Cognitivos do Azure no Azure Marketplace
-            url: 'https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services'
+- title: Desenvolver para dispositivos Linux
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Implantar seu primeiro módulo do IoT Edge em um dispositivo Linux
+      url: quickstart-linux.md
+  - linkListType: tutorial
+    links:
+    - text: Desenvolver módulos do IoT Edge para dispositivos Linux
+      url: tutorial-develop-for-linux.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usar o Visual Studio Code para desenvolver e depurar módulos
+      url: how-to-vs-code-develop-module.md
+- title: Desenvolver para dispositivos Windows
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Implantar o primeiro módulo do IoT Edge em um dispositivo Windows
+      url: quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Desenvolver módulos do IoT Edge para dispositivos Windows
+      url: tutorial-develop-for-windows.md
+  - linkListType: how-to-guide
+    links:
+    - text: Usar o Visual Studio 2017 para desenvolver e depurar módulos
+      url: how-to-visual-studio-develop-module.md
+- title: Provisionar dispositivos IoT Edge
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Instalar o IoT Edge no Linux
+      url: how-to-install-iot-edge-linux.md
+    - text: Instalar o IoT Edge no Windows
+      url: how-to-install-iot-edge-windows.md
+    - text: Provisionar automaticamente dispositivos Linux
+      url: how-to-auto-provision-simulated-device-linux.md
+    - text: Provisionar automaticamente dispositivos Windows
+      url: how-to-auto-provision-simulated-device-windows.md
+- title: Participe da comunidade de open-source
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Repositório do IoT Edge
+      url: https://github.com/Azure/iotedge
+    - text: Problemas de GitHub do IoT Edge
+      url: https://github.com/Azure/iotedge/issues
+    - text: Logs de mudanças e versões mais recentes
+      url: https://github.com/Azure/azure-iotedge/releases
+- title: Usar dispositivos do IoT Edge como gateways
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Como um dispositivo IoT Edge pode ser usado como um gateway
+      url: iot-edge-as-gateway.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar um gateway transparente
+      url: how-to-create-transparent-gateway.md
+    - text: Autenticar um dispositivo downstream no Hub IoT do Azure
+      url: how-to-authenticate-downstream-device.md
+    - text: Conectar um dispositivo downstream a um gateway
+      url: how-to-connect-downstream-device.md
+- title: Preparar para cenários de produção
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Entender as implantações automáticas
+      url: module-deployment-monitoring.md
+    - text: Suporte à plataforma
+      url: support.md
+    - text: Lista de verificação de implantação de produção
+      url: production-checklist.md
+    - text: Entender o uso do certificado do IoT Edge
+      url: iot-edge-certs.md
+    - text: Padrões de segurança para IoT Edge
+      url: security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Implantar e monitorar em escala usando a CLI do Azure
+      url: how-to-deploy-monitor-cli.md
+    - text: Criar um pipeline de CI/CD com o Azure Pipelines
+      url: how-to-ci-cd.md
+  - linkListType: deploy
+    links:
+    - text: API REST para o Hub IoT
+      url: https://docs.microsoft.com/rest/api/iothub/
+- title: Implantar a IA na borda
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Implantar o Azure Machine Learning como um módulo do IoT Edge
+      url: tutorial-deploy-machine-learning.md
+    - text: Realizar a classificação de imagem na borda com o Serviço de Visão Personalizada
+      url: tutorial-deploy-custom-vision.md
+  - linkListType: deploy
+    links:
+    - text: Localizar os módulos dos Serviços Cognitivos do Azure no Azure Marketplace
+      url: https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?subcategories=iot-edge-modules&search=azure%20cognitive%20services

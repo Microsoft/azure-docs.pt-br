@@ -4,7 +4,7 @@ description: Neste tutorial, você aprenderá como usar a CLI do Azure para gere
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 ms.service: virtual-machines-linux
 ms.workload: infrastructure
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: d3182c51ca80a26159e962a6354a53b5283326a2
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 760055a831998aa026439302094e146fd4d39394
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343061"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708431"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Aprender sobre a governança de máquina virtual do Linux com a CLI do Azure
 
@@ -65,7 +65,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-Se você receber um erro informando **Entidade de segurança <guid> não existe no diretório**, o novo grupo ainda não foi propagado em todo o Azure Active Directory. Tente executar o comando novamente.
+Se você receber um erro informando: **A Entidade de Segurança \<guid> não existe no diretório**, o novo grupo ainda não foi propagado por todo o Azure Active Directory. Tente executar o comando novamente.
 
 Normalmente, você repete o processo para *Colaborador de Rede* e *Colaborador da Conta de Armazenamento*, visando certificar-se de que os usuários serão designados para gerenciar os recursos implantados. Neste artigo, você pode ignorar essas etapas.
 

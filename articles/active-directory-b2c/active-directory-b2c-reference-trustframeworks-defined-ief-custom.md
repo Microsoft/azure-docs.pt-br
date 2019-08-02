@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 47e45a7dac8abc65f414fedd0fd910e3a7a78113
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96ddcb904bbda6c3123ffc9d3da50ff80823689
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508818"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500023"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas confiáveis com a Estrutura de Experiência de Identidade do Azure AD B2C
 
 As políticas personalizadas do Azure AD B2C (Azure Active Directory B2C) que usam a Identity Experience Framework fornecem um serviço centralizado à sua organização. Esse serviço reduz a complexidade da federação de identidade em uma grande comunidade de interesse. A complexidade é reduzida para uma relação de confiança única e uma troca única de metadados.
 
-Políticas personalizadas do Azure AD B2C que usam a Identity Experience Framework para permitir que você responda às seguintes perguntas:
+Azure AD B2C políticas personalizadas usam a estrutura de experiência de identidade para permitir que você responda às seguintes perguntas:
 
 - Quais são as políticas jurídicas, de segurança, de privacidade e de proteção de dados que devem ser cumpridas?
 - Quem são os contatos e quais são os processos para se tornar um participante autorizado?

@@ -2,22 +2,22 @@
 title: 'Tutorial: Implantar os Gêmeos Digitais do Azure | Microsoft Azure'
 description: Saiba como implantar a instância dos Gêmeos Digitais do Azure e configurar seus recursos espaciais usando as etapas deste tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/17/2018
-ms.author: dkshir
-ms.openlocfilehash: 096df62305af91ac85ce9ddbcff5b0160aaa4e8a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 15a152d6941a8c77cae2ef7771be93db4ddceae4
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537449"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "67484685"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Tutorial: Implantar os Gêmeos Digitais do Azure e configurar um grafo espacial
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutorial: Implantar a Versão prévia dos Gêmeos Digitais do Azure e configurar um grafo espacial
 
-Você pode usar o serviço Gêmeos Digitais do Azure para reunir pessoas, lugares e dispositivos em um sistema espacial coerente. Esta série de tutoriais demonstra como usar os Gêmeos Digitais do Azure para detectar a ocupação de salas com condições ideais de temperatura e qualidade do ar. 
+Você pode usar o serviço de versão prévia dos Gêmeos Digitais do Azure para reunir pessoas, lugares e dispositivos em um sistema espacial coerente. Esta série de tutoriais demonstra como usar os Gêmeos Digitais do Azure para detectar a ocupação de salas com condições ideais de temperatura e qualidade do ar. 
 
 Esses tutoriais percorrerão com você um aplicativo de console do .NET para criar o cenário de um prédio de escritórios. O prédio tem vários andares e salas em cada andar. As salas contêm dispositivos com sensores conectados que detectam movimento, temperatura ambiente e qualidade do ar. 
 
@@ -103,7 +103,7 @@ Na pasta de exemplo extraída, abra o arquivo **digital-twins-samples-csharp\dig
 1. No Visual Studio Code, abra o arquivo [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) no projeto **occupancy-quickstart**. Atualize os seguintes valores:
    * **ClientId**: insira a ID de aplicativo do registro de seu aplicativo do Azure AD. Você anotou essa ID na seção onde [definiu permissões de aplicativo](#permissions).
    * **Tenant**: insira a ID de diretório de seu [locatário do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Você também anotou essa ID na seção onde [definiu permissões de aplicativo](#permissions).
-   * **BaseUrl**: insira a URL da instância dos Gêmeos Digitais. Para obter essa URL, substitua os espaços reservados nessa URL pelos valores da instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Você também pode obter essa URL modificando a URL da API de Gerenciamento na [seção de implantação](#deploy). Substitua **swagger/** por **api/v1.0/**.
+   * **BaseUrl**: insira a URL da instância dos Gêmeos Digitais. Para obter essa URL, substitua os espaços reservados nessa URL pelos valores da instância: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Você também pode obter essa URL modificando a URL da API de Gerenciamento na [seção de implantação](#deploy). Substitua **swagger/** por **api/v1.0/** .
 
 1. Confira uma lista de recursos dos Gêmeos Digitais que você pode explorar usando o exemplo. Execute o comando a seguir:
 

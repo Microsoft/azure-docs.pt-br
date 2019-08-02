@@ -7,13 +7,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
-ms.author: sujayt
-ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: sutalasi
+ms.openlocfilehash: 844563e03529e472624b35d2b545c3e432e4ea17
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789720"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876292"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Informações sobre rede para replicação do Azure para o Azure
 
@@ -48,10 +48,10 @@ Se você está usando um proxy de firewall baseado em URL para controlar a conec
 
 **URL** | **Detalhes**  
 --- | ---
-*.blob.core.windows.net | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber a todo o cache contas de armazenamento para suas VMs, você pode colocar as URLs de conta de armazenamento específico (Ex: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
+*.blob.core.windows.net | Necessário para que os dados possam ser gravados para a conta de armazenamento de cache da região de origem da VM. Se você souber todas as contas de armazenamento em cache para suas VMs, poderá colocar as URLs da conta de armazenamento específicas na lista de permissões (por exemplo: cache1.blob.core.windows.net e cache2.blob.core.windows.net) em vez de *. blob.core.windows.net
 login.microsoftonline.com | Necessário para autorização e autenticação para as URLs do serviço de recuperação de Site.
-*.hypervrecoverymanager.windowsazure.com | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM. Você pode usar o 'Site Recovery IP correspondente' se seu proxy de firewall dá suporte a IPs.
-*.servicebus.windows.net | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM. Você pode usar o 'Site Recovery monitoramento IP correspondente' se seu proxy de firewall dá suporte a IPs.
+*.hypervrecoverymanager.windowsazure.com | Necessário para que a comunicação de serviço de recuperação de Site possa ocorrer da VM. Você pode usar o ' Site Recovery IP ' correspondente se o proxy de firewall oferecer suporte a IPs.
+*.servicebus.windows.net | Necessário para que os dados de monitoramento e diagnóstico de recuperação de Site possam ser gravados da VM. Você pode usar o ' Site Recovery Monitoring IP ' correspondente se o proxy de firewall oferecer suporte a IPs.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
@@ -77,7 +77,7 @@ Os intervalos de endereços IP do Site Recovery são como os demonstrados a segu
    Centro-Norte dos EUA | 23.96.195.247 | 168.62.249.226
    Norte da Europa | 40.69.212.238 | 52.169.18.8
    Europa Ocidental | 52.166.13.64 | 40.68.93.145
-   Leste dos EUA | 13.82.88.226 | 104.45.147.24
+   East US | 13.82.88.226 | 104.45.147.24
    Oeste dos EUA | 40.83.179.48 | 104.40.26.199
    Centro-Sul dos Estados Unidos | 13.84.148.14 | 104.210.146.250
    Centro dos EUA | 40.69.144.231 | 52.165.34.144
@@ -170,4 +170,4 @@ Você pode substituir a rota de sistema padrão do Azure para o prefixo de ender
 ## <a name="next-steps"></a>Próximas etapas
 - Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure](site-recovery-azure-to-azure.md).
 - Saiba mais sobre [retenção de endereço IP](site-recovery-retain-ip-azure-vm-failover.md) para failover de máquina virtual do Azure.
-- Saiba mais sobre recuperação de desastres do [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).
+- Saiba mais sobre a recuperação de desastre de [máquinas virtuais do Azure com o ExpressRoute](azure-vm-disaster-recovery-with-expressroute.md).

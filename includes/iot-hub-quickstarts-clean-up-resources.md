@@ -9,11 +9,11 @@ ms.date: 06/19/2018
 ms.author: wesmc
 ms.custom: include file
 ms.openlocfilehash: 94cd178b925b0b55f0ed6ed38ed821820bb1e072
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66117448"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172033"
 ---
 Se você pretende continuar para o próximo artigo recomendado, é possível manter os recursos já criados e reutilizá-los.
 

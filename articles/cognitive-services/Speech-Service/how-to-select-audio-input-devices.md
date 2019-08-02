@@ -1,5 +1,5 @@
 ---
-title: Como selecionar um dispositivo de entrada de áudio com o SDK de Fala – Serviços de Fala
+title: Como selecionar um dispositivo de entrada de áudio com o SDK de fala-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: Saiba como selecionar dispositivos de entrada de áudio no SDK de Fala.
 services: cognitive-services
@@ -7,15 +7,15 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 2/20/2019
+ms.topic: conceptual
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: 8324f9fccbe46cf6fc0ce297aac29b0d8025b078
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010372"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562731"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selecionar um dispositivo de entrada de áudio com o SDK de Fala
 

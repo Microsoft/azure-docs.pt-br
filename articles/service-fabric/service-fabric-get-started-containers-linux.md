@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 58af752d8b7fcec5c681e2b8975d109a0f731878
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16f117e7c5291216b5716aee40995e6f224705fa
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302271"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359370"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar seu primeiro aplicativo de contêiner do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -84,17 +84,19 @@ from flask import Flask
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
-    
+
     return 'Hello World!'
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=80)
 ```
 
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o comando a seguir:
+Execute o comando `docker build` para criar a imagem que executa o seu aplicativo web. Abra uma janela do PowerShell e navegue até *c:\temp\helloworldapp*. Execute o seguinte comando:
 
 ```bash
 docker build -t helloworldapp .
@@ -122,7 +124,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* fornece um nome para o contêiner em execução (em vez da ID do contêiner).
 
-Conectar-se ao contêiner em execução. Abra um navegador da web apontando para o endereço IP retornado na porta 4000, por exemplo "http:\//localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ![Olá, Mundo!][hello-world]
 
@@ -141,9 +143,9 @@ docker rm my-web-site
 ## <a name="push-the-image-to-the-container-registry"></a>Enviar a imagem para o registro de contêiner
 Depois de verificar que o aplicativo é executado no Docker, envie a imagem por push para o registro no Registro de Contêiner do Azure.
 
-Execute `docker login` para entrar no seu registro de contêiner com sua [credenciais de registro](../container-registry/container-registry-authentication.md).
+Execute `docker login` para entrar no registro de contêiner com suas [credenciais de registro](../container-registry/container-registry-authentication.md).
 
-O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando seu nome de registro de usuário e senha.
+O seguinte exemplo passa a ID e senha de uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, você pode atribuir uma entidade de serviço ao registro para um cenário de automação. Ou, você pode entrar usando o nome de usuário e a senha do registro.
 
 ```bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -234,7 +236,7 @@ A [governança de recursos](service-fabric-resource-governance.md) restringe os 
 
 Iniciando a versão 6.1, o Service Fabric integra automaticamente os eventos do [HEALTHCHECK do Docker](https://docs.docker.com/engine/reference/builder/#healthcheck) em seu relatório de integridade do sistema. Isso significa que, se o contêiner tiver o **HEALTHCHECK** habilitado, o Service Fabric relatará a integridade sempre que o status de integridade do contêiner for alterado conforme relatado pelo Docker. Um relatório de integridade **OK** será exibido no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) quando o *health_status* for *íntegro* e um **AVISO** aparecerá quando o *health_status* for *não íntegro*. 
 
-Começando com a versão mais recente de atualização de v 6.4, você tem a opção para especificar que as avaliações de HEALTHCHECK do docker devem ser relatadas como um erro. Se essa opção estiver habilitada, uma **Okey** relatório de integridade será exibido quando *health_status* está *Íntegro* e **erro** aparecerá quando *health_status* é *Íntegro*.
+A partir da versão de atualização mais recente do v 6.4, você tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser relatadas como um erro. Se essa opção estiver habilitada, um relatório de integridade **OK** será exibido quando *health_status* estiver *íntegro* e o **erro** será exibido quando *health_status* não estiver *íntegro*.
 
 A instrução do **HEALTHCHECK** apontando para a verificação real que é executada para monitorar a integridade do contêiner deve estar presente no Dockerfile usado ao gerar a imagem de contêiner.
 
@@ -258,11 +260,11 @@ Você pode configurar o comportamento do **HEALTHCHECK** para cada contêiner es
     </Policies>
 </ServiceManifestImport>
 ```
-Por padrão *IncludeDockerHealthStatusInSystemHealthReport* é definido como **verdadeiro**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como  **False**, e *TreatContainerUnhealthyStatusAsError* é definido como **false**. 
+Por padrão, *IncludeDockerHealthStatusInSystemHealthReport* é definido **como true**, *RestartContainerOnUnhealthyDockerHealthStatus* é definido como **false**e *TreatContainerUnhealthyStatusAsError* é definido como **false** . 
 
 Se o *RestartContainerOnUnhealthyDockerHealthStatus* for definido como **true**, um contêiner relatando repetidamente um estado não íntegro será reiniciado (possivelmente em outros nós).
 
-Se *TreatContainerUnhealthyStatusAsError* é definido como **verdadeiro**, **erro** relatórios de integridade serão exibido quando o contêiner *health_status*está *Íntegro*.
+Se *TreatContainerUnhealthyStatusAsError* for definido como **true**, os relatórios de integridade de **erro** serão exibidos quando o *health_status* do contêiner não estiver *íntegro*.
 
 Se você deseja desabilitar a integração do **HEALTHCHECK** para todo o cluster do Service Fabric, precisará definir o [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) como **false**.
 
@@ -282,9 +284,9 @@ Use o script de instalação fornecido nos modelos em https://github.com/Azure-S
 ./install.sh
 ```
 
-Abra um navegador e navegue até o Service Fabric Explorer em http:\//localhost:19080 / Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant no Mac OS X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Abra um navegador e navegue até Service Fabric Explorer em http:\//localhost: 19080/Explorer (substitua localhost pelo IP privado da VM se estiver usando Vagrant em Mac os X). Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
 
-Conectar-se ao contêiner em execução. Abra um navegador da web apontando para o endereço IP retornado na porta 4000, por exemplo "http:\//localhost:4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
+Conectar-se ao contêiner em execução. Abra um navegador da Web apontando para o endereço IP retornado na porta 4000, por exemplo, "\/http:/localhost: 4000". Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ![Olá, Mundo!][hello-world]
 

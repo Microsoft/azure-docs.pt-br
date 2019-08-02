@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 490ef95e061da4a008bf50ef664aaa379d5b3062
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5fbec8b6a1a21826896f8e2499b1e8b7237d0ff9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258820"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-onetrust-privacy-management-software"></a>Tutorial: Integração do Azure Active Directory ao OneTrust Privacy Management Software
 
@@ -55,7 +55,7 @@ Para configurar a integração do software de gerenciamento de privacidade OneTr
 
 **Para adicionar o software de gerenciamento de privacidade OneTrust da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o softwar
 
     ![Informações de logon único de domínio e URLs do software de gerenciamento de privacidade OneTrust](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://www.onetrust.com/saml2`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://www.onetrust.com/saml2`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.onetrust.com/auth/consumerservice`
 

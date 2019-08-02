@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 83aef90702e4a4cc4fd9bdfda486841f9b2a63a4
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 0415dcae08c188c1758150c4b8b0df4dee014ce6
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124494"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448596"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Adicionar faces a um PersonGroup
 
@@ -60,10 +60,12 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>Etapa 2: Autorizar a chamada à API
 
-Ao usar uma biblioteca de clientes, você deve passar a sua chave de assinatura para o construtor da classe FaceServiceClient. Por exemplo: 
+Ao usar uma biblioteca de clientes, você deve passar a sua chave de assinatura para o construtor da classe **FaceClient**. Por exemplo:
 
 ```csharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
+private readonly IFaceClient faceClient = new FaceClient(
+    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
+    new System.Net.Http.DelegatingHandler[] { });
 ```
 
 Para obter a chave de assinatura, acesse o Azure Marketplace no portal do Azure. Para saber mais, confira [Assinaturas](https://www.microsoft.com/cognitive-services/sign-up).
@@ -77,7 +79,7 @@ O tempo da solicitação é enfileirado a `_timeStampQueue` para garantir a vali
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
+await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
 ## <a name="step-4-create-the-persons-for-the-persongroup"></a>Etapa 4: Criar as pessoas para o PersonGroup
@@ -91,7 +93,7 @@ Parallel.For(0, PersonCount, async i =>
     await WaitCallLimitPerSecondAsync();
 
     string personName = $"PersonName#{i}";
-    persons[i] = await faceServiceClient.CreatePersonAsync(personGroupId, personName);
+    persons[i] = await faceClient.PersonGroupPerson.CreateAsync(personGroupId, personName);
 });
 ```
 
@@ -112,7 +114,7 @@ Parallel.For(0, PersonCount, async i =>
 
         using (Stream stream = File.OpenRead(imagePath))
         {
-            await faceServiceClient.AddPersonFaceAsync(personGroupId, personId, stream);
+            await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(personGroupId, personId, stream);
         }
     }
 });

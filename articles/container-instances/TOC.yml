@@ -61,7 +61,7 @@
           href: container-instances-restart-policy.md
         - name: Definir variáveis de ambiente (env)
           href: container-instances-environment-variables.md
-        - name: Substituir o ponto de entrada do contêiner
+        - name: Definir o comando de inicialização do contêiner (entrypoint)
           href: container-instances-start-command.md
         - name: Executar um comando (exec)
           href: container-instances-exec.md
@@ -97,7 +97,7 @@
           href: container-instances-monitor.md
         - name: Obter eventos e logs de contêiner
           href: container-instances-get-logs.md
-        - name: Registrar em log com o Log Analytics do Azure
+        - name: Registrando com os logs do Azure Monitor
           href: container-instances-log-analytics.md
     - name: Solucionar problemas
       items:
@@ -137,3 +137,5 @@
       href: 'https://stackoverflow.com/questions/tagged/azure-container-instances'
     - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'
+    - name: Perguntas frequentes
+      href: container-instances-faq.md

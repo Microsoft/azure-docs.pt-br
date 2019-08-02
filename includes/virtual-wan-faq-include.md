@@ -5,19 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/18/2019
+ms.date: 07/22/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: a89a5d753eaa241b11eb4c7eed9500c9715d405d
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c46c11ead645b93d7710d1e11636037e4dcaf8e7
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150785"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444557"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>Qual é a diferença entre um gateway de rede virtual do Azure (Gateway de VPN) e um vpngateway de WAN Virtual do Azure?
 
-A WAN Virtual fornece conectividade site a site em larga escala e é criada visando produtividade, escalabilidade e facilidade de uso. A funcionalidade de conectividade ponto a site e ExpressRoute está atualmente em versão prévia. Dispositivos de branch CPE provisionam e se conectam automaticamente à WAN Virtual do Azure. Esses dispositivos estão disponíveis em um ecossistema crescente de SD-WAN e parceiros de VPN. Confira a [Lista de Parceiros Preferenciais](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+A WAN Virtual fornece conectividade site a site em larga escala e é criada visando produtividade, escalabilidade e facilidade de uso. Atualmente, o ExpressRoute para conectividade com o WAN Virtual está em versão prévia. Dispositivos de branch CPE provisionam e se conectam automaticamente à WAN Virtual do Azure. Esses dispositivos estão disponíveis em um ecossistema crescente de SD-WAN e parceiros de VPN. Confira a [Lista de Parceiros Preferenciais](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>O que é uma conexão de ramificação WAN Virtual do Azure?
+
+Uma conexão de um dispositivo de ramificação em WAN Virtual do Azure, composto de dois túneis de IPsec ativo/ativo.
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported-at-launch-time"></a>Quais provedores de dispositivo (parceiros de WAN Virtual) têm suporte no momento da inicialização?
 
@@ -29,7 +33,7 @@ Para conhecer as etapas de automação de parceiro, confira [Automação de parc
 
 ### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Eu sou obrigado a usar um dispositivo de parceiro preferido?
 
- Não. Você pode usar qualquer dispositivo com capacidade para VPN que siga os requisitos do Azure para suporte a IPsec IKEv2/IKEv1.
+Não. Você pode usar qualquer dispositivo com capacidade para VPN que siga os requisitos do Azure para suporte a IPsec IKEv2/IKEv1.
 
 ### <a name="how-do-virtual-wan-partners-automate-connectivity-with-azure-virtual-wan"></a>Como os parceiros de WAN Virtual automatizam a conectividade com a WAN Virtual do Azure?
 
@@ -45,7 +49,7 @@ Sim, a WAN Virtual apresenta novos recursos do Gerenciador de Recursos. Para sab
 
 ### <a name="how-many-vpn-devices-can-connect-to-a-single-hub"></a>Quantos dispositivos VPN podem se conectar a um único hub?
 
-O hub virtual é compatível com até 1000 conexões. Cada conexão é composta por dois túneis que estão em uma configuração ativa-ativa. Os túneis terminam em um vpngateway do Hub Virtual do Azure.
+O hub virtual é compatível com até 1.000 conexões. Cada conexão é composta por dois túneis que estão em uma configuração ativa-ativa. Os túneis terminam em um vpngateway do Hub Virtual do Azure.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>O dispositivo VPN local pode se conectar a vários hubs?
 
@@ -53,7 +57,7 @@ Sim. O fluxo de tráfego ao começar seria do dispositivo local para a borda da 
 
 ### <a name="is-global-vnet-peering-supported-with-azure-virtual-wan"></a>O emparelhamento VNet Global é compatível com a WAN Virtual do Azure? 
 
-  Não.
+ Não.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>VNets spoke conectadas a um hub virtual podem se comunicar umas com as outras?
 
@@ -65,7 +69,7 @@ Sim, você pode conectar a VNET da sua NVA (solução de virtualização de rede
 
 ### <a name="can-an-nva-vnet-have-a-virtual-network-gateway"></a>Uma VNet NVA pode ter um gateway de rede virtual?
 
- Não. A VNet NVA não pode ter um gateway de rede virtual se estiver conectada ao hub virtual. 
+Não. A VNet NVA não pode ter um gateway de rede virtual se estiver conectada ao hub virtual. 
 
 ### <a name="is-there-support-for-bgp"></a>Há suporte para BGP?
 
@@ -97,7 +101,7 @@ Uma configuração simples de uma WAN Virtual com um hub e um vpnsite pode ser c
 
 ### <a name="is-branch-to-branch-connectivity-allowed-in-virtual-wan"></a>A conectividade de branch para branch é permitida na WAN Virtual?
 
-Sim, a conectividade de branch a branch está disponível na WAN Virtual para VPN e da VPN para o ExpressRoute. Embora a VPN site a site já esteja disponível, o ExpressRoute ponto a site está atualmente em versão prévia.
+Sim, a conectividade de branch a branch está disponível na WAN Virtual para VPN e da VPN para o ExpressRoute. Embora a VPN site a site já esteja em disponibilidade geral, o ExpressRoute está atualmente em versão prévia.
 
 ### <a name="does-branch-to-branch-traffic-traverse-through-the-azure-virtual-wan"></a>O tráfego de branch para branch atravessa a WAN Virtual do Azure?
 
@@ -105,7 +109,7 @@ Sim.
 
 ### <a name="how-is-virtual-wan-different-from-the-existing-azure-virtual-network-gateway"></a>Como a WAN Virtual é diferente do Gateway de Rede Virtual do Azure existente?
 
-VPN de Gateway de Rede Virtual é limitada a 30 túneis. Para conexões, você deve usar a WAN Virtual para VPN em larga escala. Você pode conectar até 1000 conexões de branches com 2 Gbps no hub para todas as regiões, exceto a região Centro-oeste dos EUA. Para a região Centro-oeste dos EUA, há 20 Gbps disponíveis. No futuro será disponibilizado 20 Gbps para mais regiões. Uma conexão é um túnel de ativo-ativo do dispositivo VPN local para o hub virtual. Pode haver um hub por região, o que significa que você pode conectar a mais de 1000 branches entre os hubs.
+VPN de Gateway de Rede Virtual é limitada a 30 túneis. Para conexões, você deve usar a WAN Virtual para VPN em larga escala. Você pode conectar até 1.000 conexões de branch com 20 Gbps no hub para todas as regiões. Uma conexão é um túnel de ativo-ativo do dispositivo VPN local para o hub virtual. Pode haver um hub por região, o que significa que você pode conectar a mais de 1.000 branches entre os hubs.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Como o WAN Virtual dá suporte aos dispositivos SD-WAN?
 
@@ -117,7 +121,15 @@ Não, a WAN Virtual não exige o ExpressRoute de cada site. Ele usa a conectivid
 
 ### <a name="is-there-a-network-throughput-limit-when-using-azure-virtual-wan"></a>Há um limite de taxa de transferência de rede ao usar a WAN Virtual do Azure?
 
-O número de branches é limitado a 1000 conexões por hub/região e um total de 2 G no hub. A exceção é o Centro-oeste dos EUA, que tem um total de 20 Gbps. Lançaremos 20 Gbps para outras regiões no futuro.
+O número de branches é limitado a 1000 conexões por hub/região e um total de 20 Gbps no hub.
+
+### <a name="how-many-vpn-connections-does-a-virtual-wan-hub-support"></a>Um hub de WAN Virtual dá suporte a quantas conexões de VPN?
+
+Um hub de WAN Virtual do Azure pode dar suporte a até 1.000 conexões site a site e 10.000 conexões P2S simultaneamente.
+
+### <a name="what-is-the-total-vpn-throughput-of-a-vpn-tunnel-and-a-connection"></a>O que é a taxa de transferência total do VPN de um túnel VPN e de uma conexão?
+
+A taxa de transferência total do VPN de um hub é de até 20 Gbps com base na unidade de escala escolhida. Taxa de transferência é compartilhada por todas as conexões existentes.
 
 ### <a name="does-virtual-wan-allow-the-on-premises-device-to-utilize-multiple-isps-in-parallel-or-is-it-always-a-single-vpn-tunnel"></a>A WAN Virtual permite que o dispositivo local utilize vários ISPs em paralelo ou sempre será um único túnel VPN?
 

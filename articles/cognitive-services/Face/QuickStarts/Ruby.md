@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Detectar rostos em uma imagem usando a API REST e Ruby'
+title: 'Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, você detectará faces em uma imagem usando a API de Detecção Facial com Ruby.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 52faef37dbd9a3ce324db9665f04d6ac9b223d9c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 6583db5b1403f70593d586a610f4d06be15c729b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312388"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603349"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e Ruby
 
@@ -28,7 +28,7 @@ Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com
 
 ## <a name="write-the-script"></a>Escrever o script
 
-Crie um arquivo, _faceDetection.rb_ e adicione o código a seguir. Isso chamará a API de Detecção Facial para uma URL de imagem especificada.
+Crie um arquivo, _faceDetection.rb_ e adicione o código a seguir. Esse código chama a API de Detecção Facial para uma URL de imagem especificada.
 
 ```ruby
 require 'net/http'
@@ -64,7 +64,7 @@ puts response.body
 
 Você precisará atualizar o valor `request['Ocp-Apim-Subscription-Key']` com a chave de assinatura e talvez precise alterar a cadeia de caracteres `uri` para que ela contenha o identificador de região correto (confira os [documentos sobre a API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos de extremidade de região). 
 
-Talvez você também deseje alterar o campo `imageUri` para que ele aponte para sua própria imagem de entrada. Além disso, talvez você deseje alterar o campo `returnFaceAttributes`, que especifica quais atributos faciais devem ser recuperados.
+Talvez você também deseje alterar o campo `imageUri` para que ele aponte para sua própria imagem de entrada. Além disso, o ideal é alterar o campo `returnFaceAttributes`, que especifica quais atributos faciais devem ser recuperados.
 
 ## <a name="run-the-script"></a>Execute o script
 
@@ -74,7 +74,7 @@ Execute o script Ruby com o seguinte comando:
 ruby faceDetection.rb
 ```
 
-Você deverá ver uma cadeia de caracteres JSON dos dados faciais detectados impressos no console. Veja a seguir um exemplo de uma resposta JSON bem-sucedida.
+Você deverá ver uma cadeia de caracteres JSON dos dados faciais detectados impressos no console. O texto a seguir é um exemplo de uma resposta JSON bem-sucedida.
 
 ```json
 [

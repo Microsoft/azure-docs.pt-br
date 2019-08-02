@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 98962182da86fceb0b6fcc8540422f93bc0058f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 36f2fa65f47f824ccc3544f5c13b5f5ee9afd21a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65026294"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721747"
 ---
 # <a name="language-and-region-support-for-the-ink-recognizer-api"></a>Suporte de idioma e região para a API de reconhecimento de tinta
 
@@ -23,7 +23,7 @@ Este artigo explica quais linguagens têm suporte para a API de reconhecimento d
 
 ## <a name="supported-languages"></a>Idiomas com suporte
 
-| Linguagem                                   | Código de idioma   |
+| Idioma                                   | Código de idioma   |
 |:-------------------------------------------|:---------------:|
 | Africâner                                  |    `af-ZA`      |
 | Albanês                                   |     `sq-AL`     |

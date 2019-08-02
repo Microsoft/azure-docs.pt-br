@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
-ms.openlocfilehash: e461f210dc5b2d0dda0eabd5ea80dfcdc9ccebfb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.openlocfilehash: 30f912e9c1573b32247bb3c2a3f7d4026436748b
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66392802"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503045"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introdução ao Azure Dev Spaces com Node.js
 
@@ -55,7 +55,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Criar um cluster Kubernetes habilitado para Azure Dev Spaces
 
-No prompt de comando, crie o grupo de recursos em uma [região que dê suporte ao Azure Dev Spaces][supported-regions].
+No prompt de comando, crie o grupo de recursos em uma [região que dá suporte ao Azure Dev Spaces][supported-regions].
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -134,24 +134,27 @@ Examine a saída do console para obter informações sobre a URL pública criada
 
 ```
 (pending registration) Service 'webfrontend' port 'http' will be available at <url>
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
 ```
 
-Abra essa URL em uma janela do navegador e você deverá ver o aplicativo Web ser carregado. Conforme o contêiner é executado, a saída de `stdout` e `stderr` é transmitida para a janela do terminal.
+Identifique a URL pública do serviço na saída do comando `up`. Termina em `.azds.io`. No exemplo acima, a URL pública é `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+Para ver seu aplicativo Web, abra a URL pública em um navegador. Além disso, observe a saída de `stdout` e `stderr` é transmitida para a janela do terminal *azds trace* enquanto você interage com o aplicativo Web. Também é possível exibir informações de controle de solicitações HTTP à medida que passam pelo sistema. Isso facilita o acompanhamento de chamadas de vários serviços complexas durante o desenvolvimento. A instrumentação adicionada pelo Dev Spaces fornece essa solicitação de acompanhamento.
 
 > [!Note]
-> Na primeira execução, pode demorar vários minutos para o DNS público estar pronto. Se a URL pública não resolver, você poderá usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no AKS. Para sua conveniência e para facilitar a interação com o serviço em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure. Você poderá voltar e experimentar a URL pública quando o registro DNS estiver pronto.
+> Além da URL pública, você pode usar a URL `http://localhost:<portnumber>` alternativa exibida na saída do console. Se você usar a URL de host local, poderá parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está sendo executado no Azure. O Azure Dev Spaces usa Kubernetes com a funcionalidade de *encaminhamento de porta* para mapear a porta do localhost para o contêiner em execução no AKS. Isso facilita a interação com o serviço em seu computador local.
 
 ### <a name="update-a-content-file"></a>Atualizar um arquivo de conteúdo
 O Azure Dev Spaces não serve apenas para executar o código em Kubernetes; ele também serve para permitir que você veja as alterações de código entrarem em vigor de forma rápida e iterativa em um ambiente Kubernetes na nuvem.
 
-1. Localize o arquivo `./public/index.html` e edite o HTML. Por exemplo, altere a cor da tela de fundo da página para um tom de azul:
+1. Localize o arquivo `./public/index.html` e edite o HTML. Por exemplo, altere a cor de fundo da página para um tom de azul [na linha 15](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L15):
 
     ```html
     <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
     ```
 
-2. Salve o arquivo. Em seguida, na janela do Terminal, você verá uma mensagem informando que um arquivo no contêiner em execução foi atualizado.
+1. Salve o arquivo. Em seguida, na janela do Terminal, você verá uma mensagem informando que um arquivo no contêiner em execução foi atualizado.
 1. Volte para o navegador e atualize a página. Você verá a cor atualizada.
 
 O que aconteceu? Edições em arquivos de conteúdo, como HTML e CSS, não exigem a reinicialização do processo do Node.js em portanto, um comando `azds up` ativo sincronizam automaticamente os arquivos de conteúdo modificados diretamente no contêiner em execução no Azure, permitindo uma maneira rápida de ver suas edições de conteúdo.
@@ -161,7 +164,7 @@ Abra o aplicativo Web em um dispositivo móvel usando a URL pública para webfro
 
 Para corrigir isso, você adicionará uma marca META `viewport`:
 1. Abra o arquivo `./public/index.html`
-1. Adicione uma metamarca `viewport` ao elemento `head` existente:
+1. Adicione uma `viewport` meta tag ao elemento `head` existente que inicia [na linha 6](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/public/index.html#L6):
 
     ```html
     <head>
@@ -225,16 +228,24 @@ Pressione **F5** para depurar seu código no Kubernetes!
 Semelhante ao comando `up`, o código é sincronizado com o ambiente de desenvolvimento quando você inicia a depuração, e um contêiner é criado e implantado no Kubernetes. Desta vez, o depurador está anexado ao contêiner remoto.
 
 > [!Tip]
-> A barra de status do VS Code exibirá uma URL clicável.
+> A barra de status do VS Code ficará laranja, indicando que o depurador foi anexado. Isso também exibirá uma URL clicável, que você pode usar para abrir rapidamente seu site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, dentro de `app.get('/api'...` em `server.js`. Atualize a página do navegador ou pressione o botão 'Diga Novamente' para poder alcançar o ponto de interrupção e poder percorrer o código.
+Defina um ponto de interrupção em um arquivo de código do lado do servidor, por exemplo, em `app.get('/api'...` na [linha 13 de `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13). 
+
+    ```javascript
+    app.get('/api', function (req, res) {
+        res.send('Hello from webfrontend');
+    });
+    ```
+
+Atualize a página do navegador ou pressione o botão *Diga Novamente* para poder alcançar o ponto de interrupção e percorrer o código.
 
 Você tem acesso completo às informações de depuração exatamente como teria se o código fosse executado localmente, por exemplo, a pilha de chamadas, as variáveis locais, as informações de exceção etc.
 
 ### <a name="edit-code-and-refresh-the-debug-session"></a>Editar código e atualizar a sessão de depuração
-Com o depurador ativo, edite o código. Por exemplo, modifique a mensagem de saudação novamente:
+Com o depurador ativo, edite o código. Por exemplo, modifique a mensagem de saudação na [linha 13 `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L13) novamente:
 
 ```javascript
 app.get('/api', function (req, res) {
@@ -242,9 +253,9 @@ app.get('/api', function (req, res) {
 });
 ```
 
-Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Atualizar**. 
+Salve o arquivo e, no **painel Ações de depuração**, clique no botão **Reiniciar**. 
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+![](media/common/debug-action-refresh.png)
 
 Em vez de recompilar e reimplantar uma nova imagem de contêiner sempre que houver edições de código, o que geralmente levará um tempo considerável, o Azure Dev Spaces reiniciará o processo do Node.js entre as sessões de depuração para fornecer um loop de edição/depuração mais rápido.
 

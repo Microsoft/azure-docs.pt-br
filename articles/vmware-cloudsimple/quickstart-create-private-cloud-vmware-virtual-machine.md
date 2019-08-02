@@ -3,17 +3,17 @@ title: Guia de início rápido - criar uma VM do VMware em uma nuvem privada
 description: Descreve como criar e uma VM do VMware na nuvem privada CloudSimple
 author: sharaths-cs
 ms.author: b-shsury
-ms.date: 06/03/19
+ms.date: 06/03/2019
 ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5837fd615b8dbf32ff289a2e0d09da9db51a908d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33354ce09ad6ba1a9a7c08a8cd3b945f3788011a
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66481498"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595693"
 ---
 # <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>Criar máquinas virtuais VMware em sua nuvem privada
 
@@ -219,7 +219,7 @@ Inicie um servidor http que escuta na porta 80.
 python2.7 -m SimpleHTTPServer 80
 ```
 
-ou o
+ou
 
 ```
 python3 -m http.server 80

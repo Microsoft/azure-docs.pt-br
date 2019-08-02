@@ -188,8 +188,8 @@ O comando `az mysql server restore` precisa dos seguintes parâmetros:
 | Configuração | Valor sugerido | DESCRIÇÃO  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  O grupo de recursos no qual o servidor de origem existe.  |
-| Nome | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
-| Restauração-point-in-time | 2017-04-13T13:59:00Z | Selecione um point-in-time para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como `2017-04-13T05:59:00-08:00`, ou usar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
+| name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando de restauração. |
+| restore-point-in-time | 2017-04-13T13:59:00Z | Selecione um point-in-time para restaurar. Essa data e hora devem estar dentro do período de retenção de backup do servidor de origem. Use o formato ISO8601 de data e hora. Por exemplo, você pode usar seu próprio fuso horário local, como `2017-04-13T05:59:00-08:00`, ou usar o formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | O nome ou ID para restaurar a partir do servidor de origem. |
 
 Restaurar um servidor para um ponto no tempo cria um novo servidor, copiado como o servidor original do ponto no tempo que você especificar. O local e os valores de tipo de preço para o servidor restaurado são o mesmo que o servidor de origem.

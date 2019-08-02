@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 176e0c80b4b1c70c3f49a35ae04d6233bc080f43
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 63d7b6af8ff76c890b98c29ded0e8bdc637b45dd
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687803"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Tutorial: Integração do Azure Active Directory com o RFPIO
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o RFPIO, execute as seguintes eta
 
     ![Informações de logon único em Domínio e URLs do RFPIO](common/idp-identifier.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.rfpio.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.rfpio.com`
 
     b. Clique em **Definir URLs adicionais**.
 
@@ -161,7 +161,7 @@ Para configurar o logon único do Azure AD com o RFPIO, execute as seguintes eta
 
     ![Configurar o logon único](./media/rfpio-tutorial/app5.png)
     
-     a. Copie o conteúdo do **XML de Metadados baixado** e cole-o no campo de **configuração de identidade**.
+    a. Copie o conteúdo do **XML de Metadados baixado** e cole-o no campo de **configuração de identidade**.
 
     > [!NOTE]
     >Para copiar o conteúdo baixado do **XML de Metadados de Federação**, use o **Notepad++** ou o **Editor XML** adequado.
@@ -246,7 +246,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
     ![Configurar o logon único](./media/rfpio-tutorial/app8.png)
 
-     a. Insira **Endereço de email** no campo **Inserir um email por linha**.
+    a. Insira **Endereço de email** no campo **Inserir um email por linha**.
 
     b. Selecione **Função** de acordo com seus requisitos.
 
@@ -267,5 +267,5 @@ Ao clicar no bloco do RFPIO no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

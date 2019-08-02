@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Criar um projeto de detecção de objeto com o SDK de Visão Personalizada para Python'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Crie um projeto, adicione marcas, faça upload de imagens, treine seu projeto e detecte objetos usando o SDK do Python.
 services: cognitive-services
 author: areddish
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 07/03/2019
 ms.author: areddish
-ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 2994d696f463c32ed05fd42b694f29fa2035b9d2
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485961"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564164"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Início Rápido: Criar um projeto de detecção de objeto com o SDK do Python de Visão Personalizada
 
@@ -46,7 +46,7 @@ Crie um novo arquivo chamado *sample.py* no diretório de seu projeto de prefer�
 
 ### <a name="create-the-custom-vision-service-project"></a>Criar o projeto do Serviço de Visão Personalizada
 
-Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. Observe que a diferença entre criar uma detecção de objeto e um projeto de classificação de imagem é o domínio especificado na chamada **create_project**.
+Adicione o código a seguir ao seu script para criar um novo projeto do Serviço de Visão Personalizada. Insira as chaves de assinatura nas definições pertinentes. A diferença entre criar uma detecção de objetos e um projeto de classificação de imagens é o domínio especificado na chamada **create_project**.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
@@ -85,7 +85,7 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 Ao marcar imagens em projetos de detecção de objeto, você precisa especificar a região de cada objeto marcado usando coordenadas normalizadas.
 
-Para adicionar imagens, marcas e regiões ao projeto, insira o código a seguir após a criação da marca. Observe que, para este tutorial, as regiões são codificadas embutidas no código. As regiões de especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são fornecidas na ordem: esquerda, superior, largura e altura.
+Para adicionar imagens, marcas e regiões ao projeto, insira o código a seguir após a criação da marca. Neste tutorial, as regiões são embutidas no código. As regiões de especificam a caixa delimitadora em coordenadas normalizadas e as coordenadas são fornecidas na ordem: esquerda, superior, largura e altura.
 
 ```Python
 fork_image_regions = {

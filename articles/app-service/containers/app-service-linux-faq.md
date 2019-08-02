@@ -4,7 +4,7 @@ description: Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Lin
 keywords: serviço de aplicativo do Azure, aplicativo Web, perguntas frequentes, Linux, OSS, aplicativo Web para contêineres, vários contêineres
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec571555415a912a31b094722bd47f67210a0372
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65594268"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67617362"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
@@ -119,10 +119,7 @@ Sim, durante uma implantação do Git, o Kudu deve detectar que você está impl
 
 **Estou usando meu próprio contêiner personalizado. Quero que a plataforma monte um compartilhamento SMB para o diretório `/home/`.**
 
-É possível fazer isso, definindo a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração do aplicativo como *true*. Lembre-se de que isso fará com que o contêiner seja reiniciado quando o armazenamento da plataforma passar por uma alteração.
-
->[!NOTE]
->Se a `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração não for especificada ou definida como para *false*, o `/home/`diretório não será compartilhado entre as instâncias de escala e os arquivos gravados lá não serão mantidos nos reinícios.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` configuração é **não especificado** ou definido como *verdadeira*, o `/home/` diretório **serão compartilhados** entre instâncias de escala e arquivos gravados **persistirão** entre as reinicializações. Definindo explicitamente `WEBSITES_ENABLE_APP_SERVICE_STORAGE` à *falso* desabilitará a montagem.
 
 **Meu contêiner personalizado demora para iniciar e a plataforma o reinicia antes que ele termine a inicialização.**
 

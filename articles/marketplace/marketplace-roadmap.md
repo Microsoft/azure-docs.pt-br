@@ -6,24 +6,24 @@ author: qianw211
 manager: MaggiePucciEvans
 ms.service: marketplace
 ms.topic: article
-ms.date: 03/29/2019
-ms.author: BrianLevenson
-ms.openlocfilehash: 5e20d65160e66937668d9f504245a8c042d58fee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/17/2019
+ms.author: blevens
+ms.openlocfilehash: 83710085c4bdfc76b851e59046cb148f768e3513
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751659"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621414"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Roteiro do Azure Marketplace e do AppSource
 
-Este documento fornece uma exibição sobre as novidades para o Azure Marketplace, AppSource e programas de parceiros relacionados. Ele captura alguns dos recursos significativos que foram confirmadas, um período de tempo aproximado para quando você pode esperar para vê-los e serão atualizados mensalmente. Ele não é uma lista abrangente de todos os novos recursos, mas serve para fornecer visibilidade sobre nossos principais investimentos. Esses conjuntos de recursos e períodos de tempo de entrega são atuais e sujeitos a alterações.
+Este documento fornece uma exibição sobre o que vem a seguir para o marketplace de comercial da Microsoft para editores, vendedores e clientes. Ele captura alguns dos recursos significativos que foram confirmadas, um período de tempo aproximado para quando você pode esperar para vê-los e serão atualizados mensalmente. Ele não é uma lista abrangente de todos os novos recursos, mas serve para fornecer visibilidade sobre nossos principais investimentos. Esses conjuntos de recursos e os períodos de tempo de entrega são atuais e sujeitos a alterações.
 
 Agradecemos suas sugestões! Participe da conversa na [Comunidade de Parceiros da Microsoft](https://www.microsoftpartnercommunity.com/) para obter as atualizações mais recentes sobre os novos recursos, programas e eventos.
 
 
 ## <a name="roadmap"></a>Roteiro
-![](./media/marketplace-publishers-guide/roadmap.png)
+![Roteiro de mercado para junho](./media/marketplace-publishers-guide/roadmap-june19.png)
 
 
 ## <a name="recent-releases"></a>Lançamentos recentes
@@ -41,6 +41,14 @@ Depois que um recurso estiver ativo, ele será removido do roteiro. A funcionali
 * [Moedas e áreas geográficas do marketplace](https://docs.microsoft.com/azure/marketplace/marketplace-geo-availability-currencies)
 * [Insights do vendedor](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/si-changes)
 
+### <a name="for-may-2019"></a>Para maio de 2019
+
+* [Blog de Marketplace do Microsoft Build](https://azure.microsoft.com/blog/announcing-new-marketplace-revenue-opportunities/)
+* [Marketplace no Blog de atualizações de maio](https://azure.microsoft.com/blog/microsoft-commercial-marketplace-updates-may-2019/)
+* Partner Center: [Criar conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) / [Gerenciar conta](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account) / [migração do CPP](https://docs.microsoft.com/azure/marketplace/partner-center-portal/account-migration-from-cpp-to-pc)
+* Partner Center: [Criar oferta de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) / [Status da publicação](https://docs.microsoft.com/azure/marketplace/partner-center-portal/publishing-status
+) / [atualizar oferta existente](https://docs.microsoft.com/azure/marketplace/partner-center-portal/update-existing-offer) / [oferecer análises](https://docs.microsoft.com/azure/marketplace/partner-center-portal/analytics)
+* [Obtenha suporte para o marketplace no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/support)
 
 ## <a name="next-steps"></a>Próximas etapas
 

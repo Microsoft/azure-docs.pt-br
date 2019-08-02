@@ -3,19 +3,19 @@ title: Início rápido do Azure - Executar trabalho do Lote - Python
 description: Execute rapidamente um trabalho e tarefas do Lote usando a biblioteca de cliente do Python do Lote.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9ede1b48d1b69c738e335676f10233af72e8564e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f7170fbb4a258e9d8290ad9d207028087b22003a
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754414"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68322308"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido: Executar seu primeiro trabalho em Lotes com a API do Python
 
@@ -43,7 +43,7 @@ Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
 [Baixe ou clone o aplicativo de exemplo](https://github.com/Azure-Samples/batch-python-quickstart) do GitHub. Para clonar o repositório do aplicativo de exemplo com um cliente Git, use o seguinte comando:
 
-```
+```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
@@ -55,7 +55,7 @@ Em seu ambiente de desenvolvimento do Python, instale os pacotes necessários us
 pip install -r requirements.txt
 ```
 
-Abra o arquivo `config.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores obtidos para suas contas. Por exemplo: 
+Abra o arquivo `config.py`. Atualize as cadeias de credenciais da conta de armazenamento e do Lote com os valores obtidos para suas contas. Por exemplo:
 
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
@@ -69,7 +69,7 @@ _STORAGE_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB
 
 Para ver o fluxo de trabalho do Lote em ação, execute o script:
 
-```
+```bash
 python python_quickstart_client.py
 ```
 
@@ -77,7 +77,7 @@ Depois de executar o script, examine o código para saber o que cada parte do ap
 
 Quando você executa o aplicativo de exemplo, a saída do console fica mais ou menos assim. Durante a execução, você tem uma pausa em `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` enquanto os nós de computação do pool são iniciados. As tarefas são enfileiradas para execução assim que o primeiro nó de computação estiver em execução. Vá para sua conta do Lote no [Portal do Azure](https://portal.azure.com) para monitorar o pool, os nós de computação, os trabalhos e as tarefas em sua conta do Lote.
 
-```
+```output
 Sample start: 11/26/2018 4:02:54 PM
 
 Container [input] created.
@@ -92,7 +92,7 @@ Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
 
 Após a conclusão das tarefas, você verá uma saída semelhante à seguinte para cada tarefa:
 
-```
+```output
 Printing task output...
 Task: Task0
 Node: tvm-2850684224_3-20171205t000401z
@@ -127,9 +127,9 @@ blob_client = azureblob.BlockBlobService(
 O aplicativo usa a referência `blob_client` para criar um contêiner na conta de armazenamento e carregar os arquivos de dados no contêiner. Os arquivos no armazenamento são definidos como objetos [ResourceFile](/python/api/azure.batch.models.resourcefile) do Lote que ele pode baixar mais tarde para os nós de computação.
 
 ```python
-input_file_paths =  [os.path.join(sys.path[0], 'taskdata0.txt'),
-                     os.path.join(sys.path[0], 'taskdata1.txt'),
-                     os.path.join(sys.path[0], 'taskdata2.txt')]
+input_file_paths = [os.path.join(sys.path[0], 'taskdata0.txt'),
+                    os.path.join(sys.path[0], 'taskdata1.txt'),
+                    os.path.join(sys.path[0], 'taskdata2.txt')]
 
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
@@ -140,11 +140,11 @@ O aplicativo cria um objeto [BatchServiceClient](/python/api/azure.batch.batchse
 
 ```python
 credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
-    config._BATCH_ACCOUNT_KEY)
+                                              config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=config._BATCH_ACCOUNT_URL)
+    batch_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### <a name="create-a-pool-of-compute-nodes"></a>Criar um pool de nós de computação
@@ -164,7 +164,7 @@ new_pool = batch.models.PoolAddParameter(
             offer="UbuntuServer",
             sku="18.04-LTS",
             version="latest"
-            ),
+        ),
         node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=config._POOL_VM_SIZE,
     target_dedicated_nodes=config._POOL_NODE_COUNT
@@ -192,14 +192,14 @@ Depois, o aplicativo adiciona tarefas ao trabalho com o método [task.add_collec
 ```python
 tasks = list()
 
-for idx, input_file in enumerate(input_files): 
+for idx, input_file in enumerate(input_files):
     command = "/bin/bash -c \"cat {}\"".format(input_file.file_path)
     tasks.append(batch.models.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
         resource_files=[input_file]
     )
-)
+    )
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
@@ -211,12 +211,13 @@ O aplicativo monitora o estado da tarefa para certificar-se de foi concluída. D
 tasks = batch_service_client.task.list(job_id)
 
 for task in tasks:
-    
+
     node_id = batch_service_client.task.get(job_id, task.id).node_info.node_id
     print("Task: {}".format(task.id))
     print("Node: {}".format(node_id))
 
-    stream = batch_service_client.file.get_from_task(job_id, task.id, config._STANDARD_OUT_FILE_NAME)
+    stream = batch_service_client.file.get_from_task(
+        job_id, task.id, config._STANDARD_OUT_FILE_NAME)
 
     file_text = _read_stream_as_string(
         stream,

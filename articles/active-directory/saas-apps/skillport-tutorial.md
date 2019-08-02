@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 6bf79907feb4ec3b3747316f62102d2c235d407c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 09ccb9f095e58d8fa22ec3d119853c729f0c7026
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689211"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integração do Azure Active Directory com o Skillport
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Skillport, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Skillport](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL:
+    a. Na caixa de texto **URL de Logon**, digite a URL:
 
     Datacenter da UE: `https://adfs.skillport.eu`
 
@@ -208,5 +208,5 @@ Ao clicar no bloco do Skillport no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

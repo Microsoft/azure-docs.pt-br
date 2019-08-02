@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: zhiweiw
+ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbdeef7c591221756ad206bf2f3dd78ac3d26c4f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60349883"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702547"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticar e corrigir erros de sincronização de atributos duplicados
 
@@ -107,7 +107,7 @@ Para o **cenário de objeto órfão**, apenas o único usuário **Joe Johnson** 
 ### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Ambas as contas pertencem ao mesmo usuário?
 Essa pergunta verifica se um usuário conflitante de entrada e o objeto de usuário existente no Azure AD verificam se pertencem ao mesmo usuário.  
 1. O objeto conflitante é recém-sincronizado no Azure Active Directory. Compare os atributos dos objetos:  
-   - Nome para exibição
+   - Nome de exibição
    - Nome UPN
    - ID de objeto
 2. Se o Azure AD não conseguir compará-los, verifique se o Active Directory tem objetos com o  **UserPrincipalNames** fornecido. Responda **Não** se você encontrar os dois.
@@ -137,7 +137,7 @@ O usuário com atributo conflitante no Azure AD deve ser excluído antes de apli
 **Não há suporte para atualizar âncora de origem para usuário baseado em nuvem no locatário.**  
 O usuário baseado em nuvem no Azure AD não deve ter uma âncora de origem. Nesse caso, não há suporte para atualizar âncora de origem. É necessária a correção manual no local. 
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 **P.** O que acontece se a execução do **Apply Fix** falhar?  
 **A.** Se a execução falhar, é possível que o Azure AD Connect esteja executando um erro de exportação. Atualize a página do portal e tente novamente após a próxima sincronização. O ciclo de sincronização padrão é de 30 minutos. 
 

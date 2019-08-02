@@ -4,7 +4,7 @@ description: Saiba quais extensões estão disponíveis para as máquinas virtua
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-service-management,azure-resource-manager
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: c83eb1f6525c54bc44386f84498789b50bf19043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f22da9eabc6f539ef37009f565f073b9de89319
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64721142"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706736"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Recursos e extensões da máquina virtual para Linux
 
@@ -30,7 +30,7 @@ Este artigo fornece uma visão geral das extensões da VM, pré-requisitos para 
 
 ## <a name="use-cases-and-samples"></a>Casos de uso e exemplos
 
-Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
+Há várias extensões de VM do Azure diferentes disponíveis, cada uma com um caso de uso específico. Eis alguns exemplos:
 
 - Aplique as configurações de Estado Desejado do PowerShell a uma VM usando a extensão de DSC para Linux. Para saber mais, confira [Extensão de configuração de Estado Desejado do Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure o monitoramento de uma VM com a extensão de VM do Microsoft Monitoring Agent. Para saber mais, confira [Como monitorar uma VM Linux](../linux/tutorial-monitoring.md).

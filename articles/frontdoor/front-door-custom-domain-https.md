@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 48733a8c2a554fc62c7731b6c0fb4ef5b8d45159
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520485"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450185"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
@@ -77,12 +77,11 @@ Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse pro
 #### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Preparar a conta e o certificado do Azure Key Vault
  
 1. Azure Key Vault: é necessário ter uma conta do Azure Key Vault em execução na mesma assinatura que o Front Door para o qual você deseja habilitar o HTTPS personalizado. Crie uma conta do Azure Key Vault caso não tenha uma.
- 
-2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra.
 
 > [!WARNING]
-> </br> - No momento, o Azure Front Door Service dá suporte apenas a contas do Key Vault na mesma assinatura que a configuração do Front Door. Se você escolher um Key Vault com uma assinatura diferente do Front Door, ocorrerá uma falha.
-> </br> - No momento, o Azure Front Door Service dá suporte apenas a certificados cujo upload foi feito com PFX **sem** uma senha.
+> No momento, o Azure Front Door Service oferece suporte apenas a contas do Key Vault na mesma assinatura que a configuração do Front Door. Se você escolher um Key Vault com uma assinatura diferente do Front Door, ocorrerá uma falha.
+
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra.
 
 #### <a name="register-azure-front-door-service"></a>Registrar o Azure Front Door Service
 

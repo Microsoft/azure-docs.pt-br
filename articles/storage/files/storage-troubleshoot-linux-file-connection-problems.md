@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9c08cd52bba6391660bc5f28e5db2dbec1126951
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 232b4ca2ee4f3137069ed155cc82a5c5e3251420
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67118721"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807270"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Solucionar problemas de Arquivos do Azure no Linux
 
@@ -94,19 +94,30 @@ Há uma cota de 2.000 identificadores abertos em um único arquivo. Quando você
 
 Reduza o número de identificadores abertos simultâneos fechando alguns deles e repita a operação.
 
+Para exibir os identificadores abertos em um compartilhamento de arquivo, diretório ou arquivo, use o [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) cmdlet do PowerShell.  
+
+Para fechar identificadores abertos em um compartilhamento de arquivo, diretório ou arquivo, use o [AzStorageFileHandle fechar](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) cmdlet do PowerShell.
+
+> [!Note]  
+> Os cmdlets Get-AzStorageFileHandle e fechar AzStorageFileHandle estão incluídos no Az módulo do PowerShell versão 2.4 ou posterior. Para instalar o módulo do PowerShell de Az mais recente, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Cópia de arquivos bidirecional lenta dos Arquivos do Azure no Linux
 
 - Se você não tiver um requisito mínimo de tamanho de E / S específico, recomendamos usar 1 MiB como o tamanho de E / S para um desempenho ideal.
-- Se você sabe o tamanho final de um arquivo que está sendo estendido usando gravações, e seu software não apresenta problemas de compatibilidade quando uma cauda não escrita no arquivo contém zeros, defina o tamanho do arquivo antecipadamente em vez de tornar cada gravação estendendo a gravação.
 - Use o método de cópia correto:
     - Use o [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para todas as transferências entre dois compartilhamentos de arquivo.
-    - Usando cp com paralelo pode aumentar a velocidade de cópia, o número de threads depende do seu caso de uso e a carga de trabalho. Este exemplo usa seis: `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - Usando cp ou dd com paralelo pode aumentar a velocidade de cópia, o número de threads depende do seu caso de uso e a carga de trabalho. Os exemplos seguintes usam seis: 
+    - exemplo de CP (o cp usará o tamanho do bloco padrão do sistema de arquivos como o tamanho da parte): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`.
+    - exemplo de dd (esse comando define explicitamente o tamanho de bloco como 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Abra ferramentas de terceiros do código-fonte, como:
-        - [Paralelo de GNU](http://www.gnu.org/software/parallel/).
+        - [Paralelo de GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) - classifica os arquivos e empacota-los em partições.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -Fpart usa e uma ferramenta de cópia gerar várias instâncias para migrar dados de src_dir para dst_url.
         - [Várias](https://github.com/pkolano/mutil) -multithread de cp e md5sum com base em coreutils GNU.
+- Definindo o tamanho do arquivo antecipadamente, em vez de realizar cada gravação como uma gravação de extensão, ajuda a melhorar a velocidade de cópia em cenários em que o tamanho do arquivo é conhecido. Se estendendo gravações precisam ser evitado, você pode definir um tamanho de arquivo de destino com `truncate - size <size><file>` comando. Depois disso, `dd if=<source> of=<target> bs=1M conv=notrunc`comando copiará um arquivo de origem sem precisar atualizar várias vezes o tamanho do arquivo de destino. Por exemplo, você pode definir o tamanho do arquivo de destino para cada arquivo que você deseja copiar (supondo que um compartilhamento é montado em /mnt/Retention/ compartilhamento):
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - e, em seguida, - copie arquivos sem estender gravações em paralelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Erro de montagem(115): a operação está em andamento" durante a montagem dos Arquivos do Azure usando o SMB 3.0
@@ -140,6 +151,23 @@ Navegue até a conta de armazenamento onde o compartilhamento de arquivos do Azu
 ### <a name="solution-for-cause-2"></a>Solução para a causa 2
 
 Verifique se regras de firewall e de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtuais estão causando o problema, altere temporariamente a configuração da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, confira [Configurar redes virtuais e firewalls do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não é possível excluir um arquivo ou diretório em um compartilhamento de arquivos do Azure
+
+### <a name="cause"></a>Causa
+Esse problema normalmente ocorre se o arquivo ou diretório tem um identificador aberto. 
+
+### <a name="solution"></a>Solução
+
+Se os clientes SMB tem fechado todos os identificadores abertos e o problema persistir, execute o seguinte:
+
+- Use o [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) cmdlet do PowerShell para exibir os identificadores abertos.
+
+- Use o [AzStorageFileHandle fechar](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) cmdlet do PowerShell para fechar identificadores abertos. 
+
+> [!Note]  
+> Os cmdlets Get-AzStorageFileHandle e fechar AzStorageFileHandle estão incluídos no Az módulo do PowerShell versão 2.4 ou posterior. Para instalar o módulo do PowerShell de Az mais recente, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Desempenho lento em um compartilhamento de arquivos do Azure montado em uma VM Linux

@@ -2,7 +2,7 @@
 title: Usando exibições do T-SQL no Azure SQL Data Warehouse | Microsoft Docs
 description: Dicas para usar exibições T-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d4321f8aef6e754d8a1c5b16ac82b4fa62c40949
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a770e66120e69271744942899186ece39b2a3c3
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873604"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479515"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Exibições no Azure SQL Data Warehouse
 Dicas para usar exibições T-SQL no Azure SQL Data Warehouse para desenvolvimento de soluções. 
@@ -23,12 +23,18 @@ Dicas para usar exibições T-SQL no Azure SQL Data Warehouse para desenvolvimen
 ## <a name="why-use-views"></a>Por que usar exibições?
 As exibições podem ser usadas em diversas maneiras diferentes de melhorar a qualidade de sua solução.  Este artigo destaca alguns exemplos de como aprimorar sua solução com exibições, bem como as limitações que precisam ser consideradas.
 
+
+> [!IMPORTANT]
+> Consulte a nova sintaxe de exibição materializada em [criar exibição materializada como SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  Para obter mais informações, consulte as [notas de versão](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > A sintaxe para CREATE VIEW não é discutida neste artigo. Para saber mais, consulte a documentação [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql).
 > 
-> 
 
 ## <a name="architectural-abstraction"></a>Abstração de arquitetura
+
 Um padrão de aplicativo comum é recriar tabelas usando CREATE TABLE AS SELECT (CTAS) seguido por um objeto de renomeação do padrão durante o carregamento dos dados.
 
 O exemplo a seguir adiciona novos registros de data para uma dimensão de data. Observe como uma nova tabela, DimDate_New, é criada pela primeira vez e renomeada para substituir a versão original da tabela.

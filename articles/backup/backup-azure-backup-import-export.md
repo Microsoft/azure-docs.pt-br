@@ -1,19 +1,18 @@
 ---
 title: Backup do Azure - backup offline ou propagação inicial usando o serviço de Importação/Exportação do Azure
 description: Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: b6f0ce1939b2a78ca191d2feb0140506d130b9b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e852e1595be5b564bd1a6326d41115496284506f
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648186"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466781"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Fluxo de trabalho de backup offline no Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. Durante o processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup offline no Azure.
@@ -76,7 +75,7 @@ Esta seção descreve o fluxo de trabalho de backup offline para que os dados po
    A descrição das entradas é a seguinte:
 
     * **Local de preparo**: O local de armazenamento temporário no qual a cópia de backup inicial é gravada. O local de preparo pode estar em um compartilhamento de rede ou em um computador local. Se o computador de cópia e o computador de origem são diferentes, é recomendável especificar o caminho completo de rede do local de preparo.
-    * **Conta de Armazenamento do Azure Resource Manager**: O nome da conta de armazenamento de tipo do Resource Manager, em qualquer assinatura do Azure.
+    * **Conta de Armazenamento do Azure Resource Manager**: O nome da conta de armazenamento do tipo de Gerenciador de recursos (uso geral v1 ou uso geral v2) em qualquer assinatura do Azure.
     * **Contêiner do Armazenamento do Azure**: O nome do blob de armazenamento de destino na conta de Armazenamento do Azure em que os dados de backup são importados antes de serem copiados para o cofre de Serviços de Recuperação.
     * **ID de assinatura do Azure**: A ID da assinatura do Azure em que a conta de Armazenamento do Azure é criada.
     * **Nome do trabalho de importação do Azure**: O nome exclusivo pelo qual o serviço Importação do Azure e o Backup do Azure controlam a transferência de dados enviados em discos no Azure. 
@@ -119,7 +118,7 @@ O utilitário *AzureOfflineBackupDiskPrep* prepara as unidades SATA que são env
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | Parâmetro | DESCRIÇÃO |
+    | Parâmetro | Descrição |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar backup offline**. |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |

@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 5a34cf3e41e04367b1cf38015861518fb74dd3f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39d6090b14a16f505413154df2a78d42b3fb3f3c
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67070941"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333699"
 ---
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
 
@@ -36,7 +36,7 @@ Por exemplo, você pode usar a Exibição do Tráfego para entender quais regiõ
 A Exibição do Tráfego funciona com o Gerenciador de Tráfego examinando as consultas de entrada recebidas nos últimos sete dias em relação a um perfil com esse recurso habilitado. Com base nas informações das consultas de entrada, a Exibição de Tráfego extrai o IP de origem do resolvedor de DNS, que é usado como uma representação da localização dos usuários. Em seguida, eles são agrupados em uma granularidade no nível do resolvedor de DNS para criar regiões de base de usuários usando as informações geográficas dos endereços IP mantidos pelo Gerenciador de Tráfego. Em seguida, o Gerenciador de Tráfego analisa as regiões do Azure para as quais a consulta foi roteada e constrói um mapa de fluxo de tráfego para os usuários dessas regiões.  
 Na próxima etapa, o Gerenciador de Tráfego correlaciona o mapeamento da região da base de usuários à região do Azure com as tabelas de latência de inteligência de rede que ele mantém para diferentes redes de usuários finais, a fim de entender a latência média experimentada pelos usuários nessas regiões durante a conexão com as regiões do Azure. Em seguida, todos esses cálculos são combinados no nível do IP do resolvedor de DNS local antes de serem apresentados. Você pode consumir as informações de várias maneiras.
 
-A frequência de atualização de dados de exibição de tráfego depende de diversas variáveis de serviço interno. No entanto, os dados geralmente são atualizados uma vez a cada 24 horas.
+A frequência da atualização de dados da exibição de tráfego depende de várias variáveis de serviço internas. No entanto, os dados geralmente são atualizados uma vez a cada 24 horas.
 
 >[!NOTE]
 >A latência descrita na Exibição de Tráfego é uma latência representativa entre o usuário final e as regiões do Azure às quais ele se conectou e não é a latência de pesquisa de DNS. A Exibição de Tráfego faz a melhor estimativa possível da latência entre o resolvedor de DNS local e a região do Azure para a qual a consulta foi roteada. Se houver dados insuficientes disponíveis, a latência retornada será nula. 
@@ -68,6 +68,25 @@ Exiba os dados da Exibição de Tráfego em um formato de tabela no portal do Az
 
 Ao usar a Exibição do Tráfego, você é cobrado com base no número de pontos de dados usados para criar as informações apresentadas. Atualmente, o único tipo de ponto de dados usado são as consultas recebidas em seu perfil do Gerenciador de Tráfego. Para obter mais detalhes sobre os preços, visite o [página de preços do Gerenciador de Tráfego](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
+## <a name="faqs"></a>Perguntas Frequentes
+
+* [O que Exibição de Tráfego faz?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-does-traffic-view-do)
+
+* [Como posso aproveitar o uso de Exibição de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-benefit-from-using-traffic-view)
+
+* [Como o Exibição de Tráfego é diferente das métricas do Gerenciador de tráfego disponíveis por meio do Azure monitor?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-is-traffic-view-different-from-the-traffic-manager-metrics-available-through-azure-monitor)
+
+* [Exibição de Tráfego usar informações de sub-rede do cliente EDNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-view-use-edns-client-subnet-information)
+
+* [Quantos dias de dados Exibição de Tráfego usar?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-days-of-data-does-traffic-view-use)
+
+* [Como Exibição de Tráfego lidar com pontos de extremidade externos?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-handle-external-endpoints)
+
+* [Preciso Habilitar Exibição de Tráfego para cada perfil em minha assinatura?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription)
+
+* [Como desativo Exibição de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-turn-off-traffic-view)
+
+* [Como funciona a cobrança Exibição de Tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-view-billing-work)
 
 ## <a name="next-steps"></a>Próximas etapas
 

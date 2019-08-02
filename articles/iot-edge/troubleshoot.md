@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8eedea2e867dd2a5e2d9cf7e92f47c007bc48af1
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65797619"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707096"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
 
@@ -288,7 +288,7 @@ Talvez você encontre problemas de estabilidade em dispositivos com restrição 
 O hub do IoT Edge, que faz parte do tempo de execução do IoT Edge, é otimizado para desempenho por padrão e tenta alocar blocos grandes de memória. Essa otimização não é ideal para dispositivos de borda com restrição e pode causar problemas de estabilidade.
 
 ### <a name="resolution"></a>Resolução
-Para o hub do IoT Edge, definir uma variável de ambiente **OptimizeForPerformance** à **falso**. Há duas maneiras de fazer isso:
+Para o hub do IoT Edge, definir uma variável de ambiente **OptimizeForPerformance** à **falso**. Há duas formas de fazer isso:
 
 Na interface do usuário: 
 
@@ -296,7 +296,7 @@ No portal, navegue até **detalhes do dispositivo** > **definir módulos** > **d
 
 ![OptimizeForPerformance definido como false](./media/troubleshoot/optimizeforperformance-false.png)
 
-**OR**
+**OU**
 
 No manifesto de implantação:
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 O daemon do IoT Edge impõe a identificação do processo para todos os módulos que se conectam ao edgeHub por motivos de segurança. Ele verifica se todas as mensagens enviadas por um módulo vêm da ID do processo principal do módulo. Se uma mensagem estiver sendo enviada por um módulo de uma ID de processo diferente da estabelecida inicialmente, ele rejeitará a mensagem com uma mensagem de erro 404.
 
 ### <a name="resolution"></a>Resolução
+A partir da versão 1.0.7, todos os processos de módulo estão autorizados a se conectar. Se não for possível atualizar para o 1.0.7, conclua as etapas a seguir. Para obter mais informações, consulte o [log de alterações de versão 1.0.7](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Verifique se a mesma ID de processo sempre é usada pelo módulo personalizado do IoT Edge para enviar mensagens ao edgeHub. Por exemplo, certifique-se `ENTRYPOINT` em vez de `CMD` comando em seu arquivo do Docker, desde `CMD` levará a um processo de identificação para o módulo e outra ID de processo para o comando bash executando o programa principal, enquanto `ENTRYPOINT` levará a um ID de processo único.
 
 
@@ -351,7 +353,7 @@ O Azure IoT Edge permite a comunicação de um servidor de local para nuvem do A
 
 Embora o IoT Edge forneça configuração avançada para proteger o tempo de execução do Azure IoT Edge e os módulos implantados, ele ainda depende da configuração do computador e da rede subjacente. Portanto, é fundamental para garantir que a rede adequada e regras de firewall são configuradas para a borda segura para comunicação em nuvem. A tabela a seguir pode ser usada como uma diretriz quando regras de firewall de configuração para os servidores subjacentes em que o tempo de execução do IoT Edge do Azure está hospedado:
 
-|Protocol|Port|Entrada|Saída|Diretrizes|
+|Protocol|Porta|Entrada|Saída|Diretrizes|
 |--|--|--|--|--|
 |MQTT|8883|BLOQUEADO (padrão)|BLOQUEADO (padrão)|<ul> <li>Configure a Saída como Aberta ao usar o MQTT como o protocolo de comunicação.<li>Não há suporte para o 1883 para MQTT no IoT Edge. <li>As conexões de Entrada devem ser bloqueadas.</ul>|
 |AMQP|5671|BLOQUEADO (padrão)|ABERTO (padrão)|<ul> <li>Protocolo de comunicação padrão do IoT Edge. <li> Precisa ser configurado como Aberto, quando o Azure IoT Edge não está configurado para outros protocolos com suporte ou quando o AMQP é o protocolo de comunicação desejado.<li>Não há suporte para o 5672 para AMQP no IoT Edge.<li>Bloqueie essa porta quando o Azure IoT Edge usar outro protocolo do Hub IoT com suporte.<li>As conexões de Entrada devem ser bloqueadas.</ul></ul>|
@@ -380,7 +382,7 @@ O exemplo acima define o servidor DNS para um serviço DNS publicamente acessív
 
 Local `daemon.json` no local certo para sua plataforma: 
 
-| Plataforma | Local padrão |
+| Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host do Windows com contêineres do Windows | `C:\ProgramData\iotedge-moby\config` |

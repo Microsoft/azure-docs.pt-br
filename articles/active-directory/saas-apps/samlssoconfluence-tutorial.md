@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d948542cfac8624d70dd37d37fa967f72f22bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 54a248f64f4534a14d815ffe5865909024e20d31
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868513"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092144"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory ao SSO do SAML para o Confluence da resolution GmbH
 
@@ -53,7 +53,7 @@ Para configurar a integração do SSO do SAML para Confluence da Resolution GmbH
 
 **Para adicionar SSO do SAML para Confluence da Resolution GmbH da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SSO do SAML para o Confluence d
 
     ![Informações de logon único de Domínio e URLs do SSO do SAML para o Confluence da resolution GmbH](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -168,7 +168,7 @@ Para configurar o logon único do Azure AD com o SSO do SAML para o Confluence d
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon5a.png)
  
-     a. Definir o **Azure Active Directory** como o tipo de IdP.
+    a. Definir o **Azure Active Directory** como o tipo de IdP.
     
     b. Adicionar **Nome** do Provedor de Identidade (por exemplo, Azure AD).
     
@@ -184,7 +184,7 @@ Para configurar o logon único do Azure AD com o SSO do SAML para o Confluence d
 
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon5c.png)
 
-     a. Clique no botão **Carregar arquivo** e selecione o arquivo XML de metadados que você baixou na etapa 5.
+    a. Clique no botão **Carregar arquivo** e selecione o arquivo XML de metadados que você baixou na etapa 5.
 
     b. Clique no botão **Importar**.
     
@@ -204,7 +204,7 @@ Para configurar o logon único do Azure AD com o SSO do SAML para o Confluence d
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6b.png)
     
-17. Na caixa de diálogo que aparece com a mensagem **Ignorar o teste significa...**, clique em **OK**.
+17. Na caixa de diálogo que aparece com a mensagem **Ignorar o teste significa...** , clique em **OK**.
     
     ![Configurar o logon único](./media/samlssoconfluence-tutorial/addon6c.png)
 
@@ -272,11 +272,11 @@ No SSO do SAML para Confluence da Resolution GmbH, o provisionamento é uma tare
 
     ![Adicionar Funcionário](./media/samlssoconfluence-tutorial/user1.png) 
 
-3. Na seção usuários, clique na guia **Adicionar usuários**. Na página do diálogo **“Adicionar um usuário”**, realize as seguintes etapas:
+3. Na seção usuários, clique na guia **Adicionar usuários**. Na página do diálogo **“Adicionar um usuário”** , realize as seguintes etapas:
 
     ![Adicionar Funcionário](./media/samlssoconfluence-tutorial/user2.png) 
 
-     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brenda Fernandes.
+    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brenda Fernandes.
 
     b. Na caixa de texto **Nome completo**, digite o nome completo do usuário, como Brenda Fernandes.
 

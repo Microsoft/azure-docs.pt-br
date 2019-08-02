@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 7066b600cf50df583fbf8e9e674ef17d77b86183
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dfc48fec948ab0cf3d16a49bb60eb3c274f2864e
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061378"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67723277"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption para Data Warehouse e Banco de Dados SQL do Azure
 
@@ -33,7 +33,7 @@ O SQL Server em execução em uma máquina virtual do Azure também pode usar um
 
 ## <a name="service-managed-transparent-data-encryption"></a>Transparent Data Encryption de serviço gerenciado
 
-No Azure, a configuração padrão para Transparent Data Encryption é a chave de criptografia do banco de dados protegida por um certificado de servidor interno. O certificado do servidor interno é exclusivo para cada servidor do Azure. Se um banco de dados estiver em um relacionamento de replicação geográfica, tanto o banco de dados primário como o banco de dados geográfico secundário serão protegidos pela chave do servidor pai do banco de dados primário. Se dois bancos de dados estiverem conectados ao mesmo servidor, eles também compartilharão o mesmo certificado interno. A Microsoft gira automaticamente esses certificados em conformidade com a política de segurança interna e a chave raiz é protegida por um armazenamento secreto interno da Microsoft.  Os clientes possam verificar a conformidade de banco de dados SQL com as políticas de segurança interna em relatórios de auditoria independente de terceiros disponíveis na [Microsoft Trust Center](https://servicetrust.microsoft.com/).
+No Azure, a configuração padrão para Transparent Data Encryption é a chave de criptografia do banco de dados protegida por um certificado de servidor interno. O certificado do servidor interno é exclusivo para cada servidor e o algoritmo de criptografia usado é AES 256. Se um banco de dados estiver em um relacionamento de replicação geográfica, tanto o banco de dados primário como o banco de dados geográfico secundário serão protegidos pela chave do servidor pai do banco de dados primário. Se dois bancos de dados estiverem conectados ao mesmo servidor, eles também compartilharão o mesmo certificado interno.  A Microsoft gira automaticamente esses certificados em conformidade com a política de segurança interna e a chave raiz é protegida por um armazenamento secreto interno da Microsoft.  Os clientes possam verificar a conformidade de banco de dados SQL com as políticas de segurança interna em relatórios de auditoria independente de terceiros disponíveis na [Microsoft Trust Center](https://servicetrust.microsoft.com/).
 
 A Microsoft também move e gerencia as chaves conforme necessário para replicação geográfica e restaurações.
 

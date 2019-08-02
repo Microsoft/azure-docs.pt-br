@@ -12,12 +12,12 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd84b44c89c856036640757b7760d7c10bd36173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4951984d05e75b0271cf6592c77c54ad13678994
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824840"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476548"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>Configurar o modo como os usuários finais consentem em um aplicativo no Active Directory do Azure
 Aprenda a configurar a maneira como os usuários consentem com as permissões do aplicativo. Você pode simplificar a experiência do usuário concedendo o consentimento do administrador. Este artigo fornece as diferentes maneiras de configurar o consentimento do usuário. Os métodos se aplicam a todos os usuários finais do locatário do Azure AD (Azure Active Directory). 
@@ -38,9 +38,10 @@ Para conceder o consentimento do administrador a um aplicativo corporativo:
 2. Clique em **Todos os serviços** na parte superior do menu de navegação à esquerda. A **Extensão do Active Directory do Azure** é aberta.
 3. Na caixa de pesquisa de filtros, digite **"Azure Active Directory"** e selecione o item **Active Directory do Azure**.
 4. No menu de navegação, clique em **Aplicativos corporativos**.
-5. Clique em **consentimento do administrador conceder**. Você será solicitado a entrar para administrar o aplicativo.
-6. Faça login com uma conta que tenha permissões para conceder o consentimento do administrador para o aplicativo. 
-7. Consentimento para as permissões do aplicativo.
+5. Selecione o aplicativo de consentimento.
+6. Selecione **permissões** e, em seguida, clique em **conceder consentimento do administrador**. Você será solicitado a entrar para administrar o aplicativo.
+7. Faça login com uma conta que tenha permissões para conceder o consentimento do administrador para o aplicativo. 
+8. Consentimento para as permissões do aplicativo.
 
 Esta opção só funciona se o aplicativo for: 
 
@@ -54,8 +55,8 @@ Para conceder o consentimento do administrador ao registrar um aplicativo:
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
 2. Navegue para o blade **Registros de aplicativo**.
 3. Selecione o aplicativo para o consentimento.
-4. Selecione **Permissões necessárias**.
-5. Clique em **Conceder Permissões** na parte superior da lâmina.
+4. Selecione **Permissões de API**.
+5. Clique em **conceder consentimento do administrador**.
 
 
 ## <a name="grant-admin-consent-through-a-url-request"></a>Conceder consentimento do administrador por meio de uma solicitação de URL

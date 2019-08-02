@@ -3,18 +3,18 @@ title: Solução de problemas de Instâncias de Contêiner do Azure
 description: Saiba como solucionar problemas com as Instâncias de Contêiner do Azure
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65070859"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325594"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Solucionar problemas comuns nas Instâncias de Contêiner do Azure
 
@@ -22,13 +22,13 @@ Este artigo mostra como solucionar problemas ao gerenciar ou implantar contêine
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
-Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, consulte [Convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
+Ao definir a especificação de contêiner, alguns parâmetros exigem aderência às restrições de nomenclatura. Abaixo está uma tabela com requisitos específicos para o contêiner de propriedades do grupo. Para obter mais informações sobre convenções de nomenclatura do Azure, confira as [convenções de nomenclatura][azure-name-restrictions] no Azure Architecture Center.
 
-| Scope | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
+| Escopo | Comprimento | Capitalização | Caracteres válidos | Padrão sugerido | Exemplo |
 | --- | --- | --- | --- | --- | --- |
 | Nome do grupo de contêineres | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Nome do contêiner | 1-64 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Portas de contêiner | Entre 1 e 65535 |Número inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
+| Portas de contêiner | Entre 1 e 65535 |Inteiro |Um número inteiro entre 1 e 65535 |`<port-number>` |`443` |
 | Rótulo do nome DNS | 5 a 63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e hífen em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`frontend-site1` |
 | Variável de ambiente | 1-63 |Não diferencia maiúsculas de minúsculas |Alfanumérico e sublinhado (_) em qualquer lugar, exceto o primeiro ou último caractere |`<name>` |`MY_VARIABLE` |
 | Nome do volume | 5 a 63 |Não diferencia maiúsculas de minúsculas |Letras minúsculas, números e hifens em qualquer lugar, exceto o primeiro ou último caractere. Não pode conter dois hífenes consecutivos. |`<name>` |`batch-output-volume` |
@@ -46,7 +46,7 @@ Se você especificar uma imagem sem suporte das Instâncias de Contêiner do Azu
 }
 ```
 
-Esse erro geralmente ocorre quando implantando imagens do Windows que se baseiam no canal semestral versão 1709 ou 1803, que não têm suporte. Para imagens do Windows com suporte nas instâncias de contêiner do Azure, consulte [perguntas frequentes](container-instances-faq.md#what-windows-base-os-images-are-supported).
+Esse erro é encontrado com mais frequência ao implantar imagens do Windows baseadas na versão do canal semestral 1709 ou 1803, que não tem suporte. Para imagens do Windows com suporte em instâncias de contêiner do Azure, consulte [perguntas](container-instances-faq.md#what-windows-base-os-images-are-supported)frequentes.
 
 ## <a name="unable-to-pull-image"></a>Não é possível efetuar pull da imagem
 
@@ -54,7 +54,7 @@ Se as Instâncias de Contêiner do Azure não puderem efetuar pull da imagem ini
 
 Para resolver esse problema, exclua a instância de contêiner e tente a implantação novamente. Certifique-se de que a imagem existe no registro e que você digitou corretamente o nome da imagem.
 
-Se não for possível efetuar pull da imagem, eventos como a seguir serão mostrados na saída do [az container show][az-container-show]:
+Se a imagem não puder ser retirada, eventos como os mostrados a seguir serão exibidos na saída de [AZ container show][az-container-show]:
 
 ```bash
 "events": [
@@ -89,7 +89,7 @@ Se não for possível efetuar pull da imagem, eventos como a seguir serão mostr
 
 A [política de reinicialização](container-instances-restart-policy.md) padrão dos grupos de contêineres é **Sempre**; portanto, o grupo de contêineres sempre reiniciará após ser executado até a conclusão. Talvez seja necessário alterar isso para **OnFailure** ou **Nunca** se você pretende executar contêineres baseados em tarefa. Se você especificar **Em caso de Falha** e ainda continuar sendo reiniciado, pode haver um problema com o aplicativo ou script executado em seu contêiner.
 
-Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver esse problema, inclua um comando de início, semelhante à seguinte com sua implantação do grupo de contêiner para manter o contêiner em execução.
+Ao executar grupos de contêineres sem processos de longa execução, talvez você veja saídas e reinicializações repetidos com imagens como Ubuntu ou Alpine. Conectar-se por meio de [EXEC](container-instances-exec.md) não funcionará, porque o contêiner não tem nenhum processo que o mantenha ativo. Para resolver esse problema, inclua um comando Iniciar, como o seguinte, com a implantação do grupo de contêineres para manter o contêiner em execução.
 
 ```azurecli-interactive
 ## Deploying a Linux container
@@ -102,7 +102,7 @@ az container create -g myResourceGroup --name mywindowsapp --os-type Windows --i
  --command-line "ping -t localhost"
 ```
 
-A API de Instâncias de Contêiner e o portal do Azure incluem uma propriedade `restartCount`. Para verificar o número de reinícios de um contêiner, é possível usar o comando [az container show][az-container-show] na CLI do Azure. No seguinte exemplo de saída (que foi truncado para fins de brevidade), é possível ver a propriedade `restartCount` no final da saída.
+A API de Instâncias de Contêiner e o portal do Azure incluem uma propriedade `restartCount`. Para verificar o número de reinicializações de um contêiner, você pode usar o comando [AZ container show][az-container-show] no CLI do Azure. No seguinte exemplo de saída (que foi truncado para fins de brevidade), é possível ver a propriedade `restartCount` no final da saída.
 
 ```json
 ...
@@ -174,7 +174,7 @@ Outra maneira de reduzir o impacto do pull da imagem no tempo de inicialização
 
 ### <a name="cached-images"></a>Imagens armazenadas em cache
 
-As instâncias de contêiner do Azure usa um mecanismo de cache para ajudar a acelerar o tempo de inicialização de contêiner para imagens criadas em comum [imagens base do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluindo `nanoserver:1809`, `servercore:ltsc2019`, e `servercore:1809`. Normalmente usado imagens do Linux, como `ubuntu:1604` e `alpine:3.6` também são armazenados em cache. Para obter uma lista atualizada de imagens armazenadas em cache e marcas, use o [lista de imagens armazenadas em cache] [ list-cached-images] API.
+As instâncias de contêiner do Azure usam um mecanismo de cache para ajudar a acelerar o tempo de inicialização do contêiner para imagens `nanoserver:1809`criadas `servercore:ltsc2019`em [imagens básicas](container-instances-faq.md#what-windows-base-os-images-are-supported)comuns do Windows, incluindo, e `servercore:1809`. Imagens do Linux comumente usadas, `ubuntu:1604` como `alpine:3.6` e também são armazenadas em cache. Para obter uma lista atualizada de imagens e marcas armazenadas em cache, use a API da [lista de imagens em cache][list-cached-images] .
 
 > [!NOTE]
 > Use as imagens com base no Windows Server 2019 nas instâncias de contêiner do Azure nesta versão prévia.
@@ -206,7 +206,7 @@ No momento, as Instâncias de Contêiner do Azure não suportam o mapeamento de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba como [recuperar eventos e logs de contêiner](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
+Saiba como [recuperar logs de contêiner e eventos](container-instances-get-logs.md) para ajudar a depurar seus contêineres.
 
 <!-- LINKS - External -->
 [azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions

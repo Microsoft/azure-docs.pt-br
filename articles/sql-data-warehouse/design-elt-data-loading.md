@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
+ms.subservice: load-data
 ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5649498dddcec8c65f2cfca6dcb39fa20a9267
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa688f40f8eb968f2c388601b387e4f584951a91
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242256"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595600"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Criando um estratégia de carregamento de dados PolyBase para o SQL Data Warehouse do Azure
 
@@ -71,7 +71,7 @@ O PolyBase carrega dados de arquivos de texto delimitados e codificados de UTF-8
 |       timestamp       |                             date                             |
 |       timestamp       |                        smalldatetime                         |
 |       timestamp       |                          datetime2                           |
-|       timestamp       |                           Datetime                           |
+|       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
 |       date        | 1) carga como int e convertido em data </br> 2) [usar o conector do SQL DW do Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) com </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**atualizar em breve**) |
 |        decimal        | [Usar o conector do SQL DW do Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) com </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**atualizar em breve**) |

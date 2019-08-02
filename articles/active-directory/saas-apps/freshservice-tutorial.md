@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c87b23c338788804be22639f73acfb61ce8d6973
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 8fbf69ba814b99434e933ed700fb0c8c842c3312
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101849"
 ---
 # <a name="tutorial-integrate-freshservice-with-azure-active-directory"></a>Tutorial: Integrar o Freshservice ao Azure Active Directory
 
@@ -79,7 +79,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<democompany>.freshservice.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<democompany>.freshservice.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<democompany>.freshservice.com`
 
@@ -108,7 +108,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Para automatizar a configuração no Freshservice, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-    ![Extensão dos meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
 2. Após adicionar a extensão ao navegador, clicar em **Configurar o Freshservice** direcionará você ao aplicativo Freshservice. Nele, forneça as credenciais de administrador para entrar no Freshservice. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 6.
 
@@ -128,7 +128,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Logon Único](./media/freshservice-tutorial/ic790816.png "Logon Único")
 
-     a. Ative o **Logon Único**.
+    a. Ative o **Logon Único**.
 
     b. Selecione **SSO do SAML**.
 
@@ -146,7 +146,7 @@ Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do A
 
 1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
-1. Nas propriedades **Usuário**, siga estas etapas:
+1. Nas propriedades do **Usuário**, siga estas etapas:
    1. No campo **Nome**, insira `Britta Simon`.  
    1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
@@ -194,7 +194,7 @@ Para permitir que os usuários do Azure AD façam logon no FreshService, eles de
 
     ![Novo Solicitante](./media/freshservice-tutorial/ic790820.png "Novo Solicitante")  
 
-     a. Insira os atributos **Nome** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Insira os atributos **Nome** e **Email** de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
     b. Clique em **Save** (Salvar).
 
@@ -215,4 +215,4 @@ Quando escolher o bloco do Freshservice no Painel de Acesso, você deverá ser c
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

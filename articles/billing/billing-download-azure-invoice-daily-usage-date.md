@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: b78fb7d697f8a72b3c2f99c4509ea6ac5c5e5566
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16b2eaef74a7aa0e3e28bfcbb6dbd9da568db6cf
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616267"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491399"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Baixar ou exibir a fatura de cobrança e os dados de uso diário do Azure
 
@@ -56,9 +56,9 @@ Para saber mais sobre a fatura, confira [Entenda sua fatura do Microsoft Azure](
 
 ### <a name="download-invoices-for-a-microsoft-customer-agreement"></a>Download de faturas para um contrato de cliente da Microsoft
 
-As faturas são geradas para cada [perfil de cobrança](billing-mca-overview.md#understand-billing-profiles) no contrato do cliente Microsoft. Você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou Gerenciador de download de faturas do portal do Azure de nota fiscal.
+As faturas são geradas para cada [perfil de cobrança](billing-mca-overview.md#billing-profiles) no contrato do cliente Microsoft. Você deve ser um perfil de cobrança proprietário, colaborador, leitor, ou Gerenciador de download de faturas do portal do Azure de nota fiscal.
 
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. Pesquise **custo de gerenciamento + cobrança**.
 2. Selecione um perfil de cobrança.
 3. Selecione **Faturas**.
 4. Na grade de nota fiscal, localize a linha da fatura que você deseja baixar.
@@ -108,7 +108,7 @@ Você pode optar por não obter sua fatura por email, seguindo as etapas acima e
 
 Se você tiver um contrato de cliente da Microsoft, você pode optar por obter sua fatura em um email. Todos os cobrança perfil proprietários, colaboradores, leitores e fatura gerenciadores receberá a fatura por email. Os leitores não é possível atualizar a preferência de nota fiscal de email.
 
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. Pesquise **custo de gerenciamento + cobrança**.
 1. Selecione um perfil de cobrança.
 1. Em **Configurações**, selecione **Propriedades**.
 1. Sob **fatura por Email**, selecione **preferência de nota fiscal de email de atualização**.
@@ -169,7 +169,7 @@ Para exibir e baixar dados de uso para um perfil de cobrança, você deve ser um
 
 #### <a name="download-usage-for-billed-charges"></a>Baixar uso para encargos cobrados
 
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. Pesquise **custo de gerenciamento + cobrança**.
 2. Selecione um perfil de cobrança.
 3. Selecione **Faturas**.
 4. Na grade de nota fiscal, localize a linha da fatura correspondente para o uso que você deseja baixar.
@@ -180,7 +180,7 @@ Para exibir e baixar dados de uso para um perfil de cobrança, você deve ser um
 
 Você também pode baixar uso month-to-date para o período de cobrança atual, o que significa que os encargos não foram cobrados ainda.
 
-1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
+1. Pesquise **custo de gerenciamento + cobrança**.
 2. Selecione um perfil de cobrança.
 3. No **visão geral** folha, clique em **Baixe o uso do Azure e os encargos**.
 

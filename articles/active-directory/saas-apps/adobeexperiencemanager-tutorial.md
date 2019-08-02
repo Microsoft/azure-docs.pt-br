@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb066ce346d56b9b879a5e3cdcf30e7da77d94fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81032fbad21b18b0b7ca2e7662b0c4b4b6c10901
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859413"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Tutorial: Integração do Azure Active Directory ao Adobe Experience Manager
 
@@ -55,7 +55,7 @@ Para configurar a integração do Adobe Experience Manager ao Azure AD, será ne
 
 **Para adicionar o Adobe Experience Manager da galeria, siga as etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de logon único sobre Domínio e URLs do Adobe Experience Manager](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite um valor exclusivo definido também no servidor do AEM.
+    a. Na caixa de texto **Identificador**, digite um valor exclusivo definido também no servidor do AEM.
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<AEM Server Url>/saml_login`
 
@@ -182,7 +182,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Botão Salvar em Configurar Logon Único](./media/adobeexperiencemanager-tutorial/tutorial_adobeexperiencemanager_admin4.png)
 
-     a. Na caixa **Caminho**, digite **/**.
+    a. Na caixa **Caminho**, digite **/** .
 
     b. Na caixa **URL do IDP**, insira o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -271,4 +271,4 @@ Ao clicar no bloco do Adobe Experience Manager no Painel de Acesso, você dever�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

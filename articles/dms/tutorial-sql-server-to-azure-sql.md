@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/14/2019
-ms.openlocfilehash: 32d8bd528da2823907e4f992f977eef91e55b9b0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.date: 07/09/2019
+ms.openlocfilehash: c4d2e70d0f200f3a31948cfaa43def8e1b699878
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65605477"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706877"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para um banco de dados individual ou em pool no Banco de Dados SQL do Azure offline usando o DMS
 
@@ -41,7 +41,7 @@ Este artigo descreve uma migração offline do SQL Server para um banco de dados
 
 Para concluir este tutorial, você precisará:
 
-- Baixe e instale o [SQL Server 2016 ou posterior](https://www.microsoft.com/sql-server/sql-server-downloads) (qualquer edição).
+- Baixar e instalar o [SQL Server 2016 ou posterior](https://www.microsoft.com/sql-server/sql-server-downloads).
 - Habilitar o protocolo TCP/IP, que está desabilitado por padrão durante a instalação do SQL Server Express, seguindo as instruções no artigo [Habilitar ou desabilitar um protocolo de rede de servidor](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Crie um banco de dados individual (ou em pool) no Banco de Dados SQL do Azure seguindo os detalhes do artigo [Criar um banco de dados individual no Banco de Dados SQL do Azure usando o portal do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started).
 

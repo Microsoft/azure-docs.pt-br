@@ -1,23 +1,17 @@
 ---
 title: Marcar recursos do Azure para organização lógica | Microsoft Docs
 description: Mostra como aplicar marcas para organizar os recursos do Azure para cobrança e gerenciamento.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: AzurePortal
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ee1cc9673d5e4fbd71706af74e82f6520d42b6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e18fc040249954ce7ea6a8a686e121a4b56fb54a
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868769"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312131"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Usar marcações para organizar seus recursos do Azure
 
@@ -113,7 +107,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-Para aplicar todas as marcas de um grupo de recursos em seus próprios recursos, e *não manter as marcas existentes nos recursos*, use o seguinte script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -123,7 +117,7 @@ foreach ($g in $groups)
 }
 ```
 
-Para aplicar todas as marcas de um grupo de recursos em seus próprios recursos, e *manter as marcas existentes nos recursos que não são duplicatas*, use o seguinte script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *manter as marcas existentes nos recursos que não são duplicatas*, use o seguinte script:
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -220,7 +214,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-Para aplicar todas as marcas de um grupo de recursos em seus próprios recursos, e *não manter as marcas existentes nos recursos*, use o seguinte script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *não manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -236,7 +230,7 @@ do
 done
 ```
 
-Para aplicar todas as marcas de um grupo de recursos em seus próprios recursos, e *manter as marcas existentes nos recursos*, use o seguinte script:
+Para aplicar todas as marcas de um grupo de recursos a seus recursos e *manter as marcas existentes nos recursos*, use o seguinte script:
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -256,7 +250,148 @@ done
 
 ## <a name="templates"></a>Modelos
 
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+Para marcar um recurso durante a implantação, adicione `tags` o elemento ao recurso que você está implantando. Forneça o nome e o valor da marca.
+
+### <a name="apply-a-literal-value-to-the-tag-name"></a>Aplicar um valor literal ao nome da marca
+
+O exemplo a seguir mostra uma conta de armazenamento com duas marcas (`Dept` e `Environment`) que são definidas como valores literais:
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+Para definir uma marca para um valor DateTime, use a [função UtcNow](resource-group-template-functions-string.md#utcnow).
+
+### <a name="apply-an-object-to-the-tag-element"></a>Aplicar um objeto ao elemento da marca
+
+Você pode definir um parâmetro de objeto que armazena várias marcas e aplicar esse objeto para o elemento de marca. Cada propriedade no objeto se torna uma marca separada para o recurso. O exemplo a seguir tem um parâmetro chamado `tagValues` que é aplicado ao elemento de marca.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "tagValues": {
+            "type": "object",
+            "defaultValue": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagValues')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-a-json-string-to-the-tag-name"></a>Aplicar uma cadeia de caracteres JSON ao nome da marca
+
+Para armazenar diversos valores em uma única marca, aplica uma cadeia de caracteres JSON que representa os valores. A cadeia de caracteres JSON inteira é armazenada como uma marca que não pode exceder 256 caracteres. O exemplo a seguir tem uma única marca denominada `CostCenter` que contém vários valores de uma cadeia de caracteres JSON:  
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-tags-from-resource-group"></a>Aplicar marcas do grupo de recursos
+
+Para aplicar marcas de um grupo de recursos a um recurso, use a função [resourcegroup](resource-group-template-functions-resource.md#resourcegroup) . Ao obter o valor da marca, use `tags.[tag-name]` a sintaxe em vez `tags.tag-name` da sintaxe, porque alguns caracteres não são analisados corretamente na notação de ponto.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "[resourceGroup().tags['Dept']]",
+                "Environment": "[resourceGroup().tags['Environment']]"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
 
 ## <a name="portal"></a>Portal
 

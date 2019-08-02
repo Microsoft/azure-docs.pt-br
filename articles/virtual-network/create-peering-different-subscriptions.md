@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: cf414cf08771090990775d124e27222e51f786e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 11144b1595370f9eb17afce71e0302a63468a089
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66122011"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305693"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Criar um emparelhamento de rede virtual – Resource Manager, assinaturas diferentes
 
@@ -37,11 +37,11 @@ Este tutorial emparelha redes virtuais na mesma região. Você também pode empa
 
 Use o [portal do Azure](#portal), a [CLI](#cli) (interface de linha de comando) do Azure, o Azure [PowerShell](#powershell) ou um [modelo do Azure Resource Manager](#template) para criar um emparelhamento de rede virtual. Selecione um dos links de ferramentas anteriores para ir diretamente para as etapas para a criação de um emparelhamento de rede virtual usando a ferramenta de sua escolha.
 
+Se as redes virtuais estiverem em assinaturas diferentes e as assinaturas estiverem associadas a locatários Azure Active Directory diferentes, conclua as seguintes etapas antes de continuar:
+1. Adicione o usuário de cada locatário do Active Directory como [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto do Azure Active Directory.
+1. Cada usuário deve aceitar o convite de usuário convidado do locatário de Azure Active Directory oposto.
+
 ## <a name="portal"></a>Criar emparelhamento – portal do Azure
-
-Se as redes virtuais que você deseja emparelhar estiverem em assinaturas associadas a diferentes locatários do Azure Active Directory, siga as etapas na seção de CLI e PowerShell deste artigo. O portal não tem suporte para emparelhar redes virtuais pertencentes a assinaturas de diferentes locatários do Active Directory. 
-
-Observe que o Cloud Shell tem limitações na troca de assinaturas e locatários devido à qual o emparelhamento de rede virtual ou o emparelhamento VNet Global entre redes virtuais pertencentes a assinaturas em diferentes locatários do Azure Active Directory não funcionará. Use o PowerShell ou CLI.
 
 As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, pule as etapas para fazer logoff do portal e ignore as etapas para atribuir permissões de outro usuário para as redes virtuais.
 
@@ -61,7 +61,7 @@ As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver
 7. Selecione **Colaborador de rede** na caixa **Função**.
 8. Na caixa **Selecionar**, selecione *UserB* ou digite o endereço de email de UserB para pesquisar por ele.
 9. Clique em **Salvar**.
-10. Em **myVnetA – Controle de acesso (IAM)** , selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID DE RECURSO**, que é usada em uma etapa posterior. A ID de recurso é semelhante ao exemplo a seguir: `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`.
+10. Em **myVnetA – Controle de acesso (IAM)** , selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID DE RECURSO**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir `/subscriptions/<Subscription Id>/resourceGroups/myResourceGroupA/providers/Microsoft.Network/virtualNetworks/myVnetA`:.
 11. Faça logoff do portal como UserA e faça logon como UserB.
 12. Conclua as etapas 2 a 3, inserindo ou selecionando os seguintes valores na etapa 3:
 
@@ -74,7 +74,7 @@ As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver
     - **Localização**: *Leste dos EUA*
 
 13. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetB*. Selecione **myVnetB** quando ele for exibido nos resultados da pesquisa.
-14. Em **myVnetB**, selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID DE RECURSO**, que é usada em uma etapa posterior. A ID de recurso é semelhante ao exemplo a seguir: `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`.
+14. Em **myVnetB**, selecione **Propriedades** na lista vertical de opções no lado esquerdo. Copie a **ID DE RECURSO**, que é usada em uma etapa posterior. A ID do recurso é semelhante ao exemplo a seguir `/subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB`:.
 15. Selecione **Controle de acesso (IAM)** em **myVnetB** e conclua as etapas 5 a 10 para myVnetB, inserindo **UserA** na etapa 8.
 16. Faça logoff do portal como UserB e faça logon como UserA.
 17. Na caixa **Pesquisar recursos** na parte superior do portal, digite *myVnetA*. Selecione **myVnetA** quando ele for exibido nos resultados da pesquisa.
@@ -99,9 +99,7 @@ As etapas a seguir usam diferentes contas para cada assinatura. Se você estiver
 
 ## <a name="cli"></a>Criar emparelhamento – CLI do Azure
 
-Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB. Se as redes virtuais estiverem em diferentes assinaturas e as assinaturas estiverem associadas a diferentes locatários do Azure Active Directory, siga estas etapas antes de continuar:
- - Adicione o usuário de cada locatário do Active Directory como [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto do Azure Active Directory.
- - Cada usuário precisa aceitar o convite do usuário convidado do locatário oposto do Azure Active Directory.
+Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB. 
 
 Os seguintes scripts:
 
@@ -182,11 +180,8 @@ Todos os recursos do Azure criados na rede virtual agora podem se comunicar entr
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Este tutorial usa contas diferentes para cada assinatura. Se você estiver usando uma conta que tenha permissões para ambas as assinaturas, use a mesma conta para todas as etapas, ignore as etapas para fazer logoff do Azure e remova as linhas de script que criam atribuições de função de usuário. Substitua UserA@azure.com e UserB@azure.com em todos os scripts a seguir com os nomes de usuário que você está usando para UserA e UserB.
-Se as redes virtuais estiverem em diferentes assinaturas e as assinaturas estiverem associadas a diferentes locatários do Azure Active Directory, siga estas etapas antes de continuar:
- - Adicione o usuário de cada locatário do Active Directory como [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto do Azure Active Directory.
- - Cada usuário precisa aceitar o convite do usuário convidado do locatário oposto do Active Directory.
 
-1. Confirme se você tem o Azure PowerShell versão 1.0.0 ou superior. Você pode fazer isso executando o `Get-Module -Name Az` é recomendável instalar a versão mais recente do PowerShell [módulo Az](/powershell/azure/install-az-ps). Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirme se você tem Azure PowerShell versão 1.0.0 ou superior. Você pode fazer isso executando o `Get-Module -Name Az` recomendamos instalar a versão mais recente do [módulo AZ](/powershell/azure/install-az-ps)do PowerShell. Se você for novo no Azure PowerShell, consulte [Visão geral do Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 2. Inicie uma sessão do PowerShell.
 3. No PowerShell, faça logon no Azure como UserA inserindo o comando `Connect-AzAccount`. A conta com a qual você faz logon deve ter as permissões necessárias para criar um emparelhamento de rede virtual. Para obter uma lista de permissões, consulte [Permissões de emparelhamento de rede virtual](virtual-network-manage-peering.md#permissions).
 4. Crie um grupo de recursos e uma rede virtual A. Copie o script a seguir em um editor de texto em seu computador. Substitua `<SubscriptionA-Id>` pela ID da SubscriptionA. Se você não souber a ID da assinatura, insira o comando `Get-AzSubscription` para exibi-la. O valor da **ID** na saída retornada é sua ID da assinatura. Para executar o script, copie o script modificado, cole-o no PowerShell e pressione `Enter`.
@@ -249,10 +244,6 @@ Se as redes virtuais estiverem em diferentes assinaturas e as assinaturas estive
 14. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-powershell) deste artigo.
 
 ## <a name="template"></a>Criar emparelhamento – modelo do Resource Manager
-
-Se as redes virtuais estiverem em diferentes assinaturas e as assinaturas estiverem associadas a diferentes locatários do Azure Active Directory, siga estas etapas antes de continuar:
- - Adicione o usuário de cada locatário do Active Directory como [usuário convidado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) no locatário oposto do Azure Active Directory.
- - Cada usuário precisa aceitar o convite do usuário convidado do locatário oposto do Active Directory.
 
 1. Para criar uma rede virtual e atribuir as [permissões](virtual-network-manage-peering.md#permissions) apropriadas, conclua as etapas nas seções [Portal](#portal), [CLI do Azure](#cli) ou [PowerShell](#powershell) deste artigo.
 2. Salve o texto que se segue em um arquivo no computador local. Substitua `<subscription ID>` pela ID de assinatura de UserA. Você pode salvar o arquivo como vnetpeeringA.json, por exemplo.

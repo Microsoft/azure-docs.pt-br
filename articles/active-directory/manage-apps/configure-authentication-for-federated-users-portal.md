@@ -1,6 +1,6 @@
 ---
-title: Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial | Microsoft Docs
-description: Saiba como configurar a política de descoberta de Realm inicial para a autenticação do Active Directory do Azure para usuários federados, incluindo dicas de aceleração automática e de domínio.
+title: Configurar a aceleração automática de entrada usando a política de descoberta de realm inicial | Microsoft Docs
+description: Saiba como configurar a política de descoberta de realm inicial para autenticação Azure Active Directory para usuários federados, incluindo dicas de domínio e aceleração automática.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -15,16 +15,16 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18f7f6588cb4fb3b3b480402c3dad13be4a0ed2c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65781036"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68477216"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurar aceleração automática de entrada para um aplicativo usando a política Descoberta de Realm Inicial
 
-Este artigo fornece uma introdução à configuração de comportamento de autenticação do Active Directory do Azure para usuários federados. Ele abrange a configuração das restrições de aceleração automática e autenticação para usuários em domínios federados.
+Este artigo fornece uma introdução à configuração de Azure Active Directory comportamento de autenticação para usuários federados. Ele abrange a configuração das restrições de aceleração automática e autenticação para usuários em domínios federados.
 
 ## <a name="home-realm-discovery"></a>Descoberta de Realm Inicial
 Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  Ao entrar em um locatário do Azure AD para acessar um recurso, ou a página de entrada comum do Azure AD, um usuário digita um nome (UPN). O Azure AD usa esse nome para descobrir onde o usuário precisa entrar. 
@@ -209,7 +209,13 @@ Para aplicar a política de HRD depois de criá-la, você pode atribuí-la a vá
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>Etapa 2: Localizar a entidade de serviço à qual atribuir a política  
 Você precisa da **ObjectID** das entidades de serviço às quais deseja atribuir a política. Há várias maneiras de encontrar a **ObjectID** de entidades de serviço.    
 
-Você pode usar o portal ou consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir até a [Ferramenta Explorador do Graph](https://developer.microsoft.com/graph/graph-explorer) e entrar na conta do Azure AD para ver todas as entidades de serviço da organização. Como está usando o PowerShell, você pode usar o cmdlet get-AzureADServicePrincipal para listar as entidades de serviço e as IDs.
+Você pode usar o portal ou consultar [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Você também pode ir até a [Ferramenta Explorador do Graph](https://developer.microsoft.com/graph/graph-explorer) e entrar na conta do Azure AD para ver todas as entidades de serviço da organização. 
+
+Como você está usando o PowerShell, você pode usar o cmdlet a seguir para listar as entidades de serviço e suas IDs.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### <a name="step-3-assign-the-policy-to-your-service-principal"></a>Etapa 3: Atribuir a política à entidade de serviço  
 Depois que você tiver a **ObjectID** da entidade de serviço do aplicativo para o qual deseja configurar a aceleração automática, execute o comando a seguir. Esse comando associa a política HRD que você criou na etapa 1 à entidade de serviço que você localizou na etapa 2.
@@ -226,7 +232,7 @@ No caso de um aplicativo já ter uma política de HomeRealmDiscovery atribuída,
 Para verificar quais aplicativos têm a política de HRD configurada, use o cmdlet **Get-AzureADPolicyAppliedObject**. Passe o **ObjectID** da política que você deseja verificar.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### <a name="step-5-youre-done"></a>Etapa 5: Pronto!
 Tente o aplicativo para verificar se a nova política está funcionando.
@@ -244,7 +250,7 @@ Observe o **ObjectID** da política cujas atribuições você deseja listar.
 #### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Etapa 2: Listar as entidades de serviço às quais a política está atribuída  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### <a name="example-remove-an-hrd-policy-for-an-application"></a>Exemplo: Remover a política de HRD de um aplicativo
@@ -254,15 +260,15 @@ Use o exemplo anterior para obter a **ObjectID** da política e a entidade de se
 #### <a name="step-2-remove-the-policy-assignment-from-the-application-service-principal"></a>Etapa 2: Remover a atribuição de política da entidade de serviço do aplicativo  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### <a name="step-3-check-removal-by-listing-the-service-principals-to-which-the-policy-is-assigned"></a>Etapa 3: Verificar a remoção listando as entidades de serviço às quais a política está atribuída 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre como a autenticação funciona no Azure AD, consulte [Cenários de autenticação do Azure AD](../develop/authentication-scenarios.md).
-- Para obter mais informações sobre o logon único de usuário consulte [Acesso ao aplicativo e logon único com o Azure Active Directory](configure-single-sign-on-portal.md).
+- Para obter mais informações sobre o logon único do usuário, consulte [logon único para aplicativos no Azure Active Directory](what-is-single-sign-on.md).
 - Visite o [Guia do desenvolvedor do Active Directory](../develop/v1-overview.md) para obter uma visão geral de todo o conteúdo relacionado a desenvolvedor.

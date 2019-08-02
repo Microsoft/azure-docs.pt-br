@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Domain Services: Solução de problemas de configuração da entidade de serviço | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Solucionar problemas de entidades de serviço | Microsoft Docs'
 description: Solução de problemas de configuração da entidade de serviço para o Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: mstephen
-ms.openlocfilehash: a8c21e3b27a4868837d3e381c7c1868c89858bea
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 9e5fa8c84f5e7ca58117666846b603a118826150
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246488"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234133"
 ---
-# <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Solucionar problemas de configuração de entidade de serviço inválida para o domínio gerenciado
+# <a name="troubleshoot-invalid-service-principal-configurations-for-azure-active-directory-domain-services"></a>Solucionar problemas de configurações de entidade de serviço inválidas para Azure Active Directory Domain Services
 
 Este artigo ajuda você a solucionar problemas e resolver erros de configuração relacionados à entidade de serviço que resultam na seguinte mensagem de alerta:
 

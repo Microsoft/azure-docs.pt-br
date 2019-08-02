@@ -1,33 +1,33 @@
 ---
-title: Como criar vários Gatilhos do Azure Cosmos DB independentes
-description: Saiba como configurar vários Gatilhos do Azure Cosmos DB independentes para criar as arquiteturas orientadas a eventos do Azure Functions.
+title: Como criar vários gatilhos independentes do Azure Functions para o Cosmos DB
+description: Saiba como configurar vários gatilhos independentes do Azure Functions para o Cosmos DB a fim de criar arquiteturas orientadas a eventos.
 author: ealsur
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 722da9f0112d63af52be8c9c3a746f6da9638bac
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 315ac1025a2b05ec7b16f7f0b14b66f224905d92
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241943"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335686"
 ---
-# <a name="create-multiple-azure-cosmos-db-triggers"></a>Criar vários gatilhos do Azure Cosmos DB
+# <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Criar vários gatilhos do Azure Functions para o Cosmos DB
 
-Este artigo descreve como você pode configurar vários Gatilhos do Cosmos DB para funcionarem em paralelo e reagirem de modo independente a alterações.
+Este artigo descreve como você pode configurar vários gatilhos do Azure Functions para o Cosmos DB a fim de funcionarem em paralelo e reagirem de modo independente a alterações.
 
-![Funções baseadas em evento sem servidor operando com o Gatilho do Azure Cosmos DB e compartilhando um contêiner de concessões](./media/change-feed-functions/multi-trigger.png)
+![Funções baseadas em evento sem servidor operando com o gatilho do Azure Functions para o Cosmos DB e compartilhando um contêiner de concessões](./media/change-feed-functions/multi-trigger.png)
 
 ## <a name="event-based-architecture-requirements"></a>Requisitos de arquitetura baseada em evento
 
 Ao criar arquiteturas sem servidor com o [Azure Functions](../azure-functions/functions-overview.md), é [recomendado](../azure-functions/functions-best-practices.md#avoid-long-running-functions) criar pequenos conjuntos de função que funcionam juntos, em vez de funções grandes de execução prolongada.
 
-Conforme você cria fluxos sem servidor com base em evento usando o [Gatilho do Azure Cosmos DB](./change-feed-functions.md), executa o cenário em que você deseja realizar várias ações sempre que houver um novo evento em um [contêiner do Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers) em particular. Se as ações que você deseja disparar são independentes umas das outras, a solução ideal é **criar um gatilho do Cosmos DB por ação** que você deseja realizar, tudo escutando as alterações no mesmo contêiner do Azure Cosmos.
+Conforme criar fluxos sem servidor com base em eventos usando o [Gatilho do Azure Functions para o Cosmos DB](./change-feed-functions.md), você executará o cenário em que deseja realizar várias ações sempre que houver um novo evento em um [contêiner do Azure Cosmos](./databases-containers-items.md#azure-cosmos-containers) em particular. Se as ações que você deseja disparar são independentes umas das outras, a solução ideal é **criar um gatilho do Azure Functions para o Cosmos DB por ação** que você deseja realizar, tudo isso escutando as alterações no mesmo contêiner do Azure Cosmos.
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Otimizando contêineres para vários gatilhos
 
-Dados os *requisitos* do Gatilho do Cosmos DB, precisamos de um segundo contêiner para armazenar o estado, também chamado de *contêiner concessões*. Isso significa que você precisa de um contêiner de concessões separado para cada Azure Function?
+Dados os *requisitos* do gatilho do Azure Functions para o Cosmos DB, precisamos de um segundo contêiner para armazenar o estado, também chamado de *contêiner de concessões*. Isso significa que você precisa de um contêiner de concessões separado para cada Azure Function?
 
 Aqui você tem duas opções:
 
@@ -108,6 +108,6 @@ Para JavaScript, você pode aplicar a configuração no arquivo `function.json` 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Veja a configuração completa para o [Gatilho do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
+* Veja a configuração completa para o [Gatilho do Azure Functions para o Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
 * Verifique a [lista de exemplos](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) estendida para todos os idiomas.
 * Visite as receitas Sem Servidor com o [repositório do GitHub](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) do Azure Cosmos DB e do Azure Functions para obter mais exemplos.

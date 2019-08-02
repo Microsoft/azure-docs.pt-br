@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f61396d8fb0f02fe77f5ee35560f45a0c4698a10
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 87de721f596eb4148939c00bc4b4db270a87c24e
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65850775"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724075"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Alterar as informações de perfil de sua conta do Azure
 
@@ -87,10 +87,16 @@ Para recusar o recebimento de emails de marketing:
 1. Vá para o [formulário de solicitação](https://account.microsoft.com/profile/permissions-link-request) para enviar uma solicitação usando seu endereço de email do perfil. Você receberá um link por email para atualizar suas preferências.
 2. Selecione o link para abrir o **gerenciar permissões de comunicação** página. Esta página mostra os tipos de comunicações de marketing que o endereço de email tiver optado pela. Desmarque qualquer tópicos que você deseja recusar e, em seguida, selecione **salvar**.
 
-
 ![Exemplo da página para gerenciar permissões de comunicação](./media/billing-how-to-change-azure-account-profile/manage-communication-permissions.png)
 
 Quando você optar por não comunicações de marketing, você ainda receber notificações de serviço, com base em sua conta.
+
+## <a name="change-the-subscription-name"></a>Alterar o nome da assinatura
+
+1. Entrar para o [portal do Azure](https://portal.azure.com), selecione **assinatura** do painel esquerdo e, em seguida, selecione a assinatura que você deseja renomear.
+1. Selecione **visão geral**e, em seguida, selecione **Renomear** na barra de comandos.
+    ![Exemplo de renomeação de assinatura do Azure](./media/billing-how-to-change-azure-account-profile/rename-sub.png)
+1. Depois que você tiver alterado o nome, selecione **salvar**.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

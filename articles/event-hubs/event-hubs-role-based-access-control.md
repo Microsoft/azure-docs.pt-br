@@ -11,12 +11,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfdeee9591b5d6ccbadadaef83c6598dd0e850d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65978304"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448138"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controle de acesso baseado em função do Active Directory (versão prévia)
 
@@ -29,10 +29,10 @@ Um aplicativo que usa o RBAC do Azure AD não precisa manipular regras e chaves 
 ## <a name="event-hubs-roles-and-permissions"></a>Permissões e funções dos Hubs de Eventos
 O Azure fornece as seguintes funções internas de RBAC para autorizar o acesso a um namespace de Hubs de eventos:
 
-O [proprietário dos dados dos Hubs de eventos (visualização)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) função permite o acesso de dados para um namespace de Hubs de eventos e suas entidades (filas, tópicos, assinaturas e filtros)
+O [proprietário dos dados dos Hubs de eventos do Azure (visualização)](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner-preview) função permite o acesso de dados para um namespace de Hubs de eventos e suas entidades (filas, tópicos, assinaturas e filtros)
 
 >[!IMPORTANT]
-> Damos suporte anteriormente adicionando uma identidade gerenciada para o **proprietário** ou **Colaborador** função. No entanto, privilégios de acesso a dados **proprietário** e **Colaborador** função não são respeitadas. Se você estiver usando o **proprietário** ou **Colaborador** função, de switch usando o **proprietário dos dados dos Hubs de evento** função.
+> Damos suporte anteriormente adicionando uma identidade gerenciada para o **proprietário** ou **Colaborador** função. No entanto, privilégios de acesso a dados **proprietário** e **Colaborador** função não são respeitadas. Se você estiver usando o **proprietário** ou **Colaborador** função, de switch usando o **proprietário dos dados dos Hubs de eventos do Azure (visualização)** função.
 
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Usar Hubs de Eventos com uma conta de usuário de domínio do Azure AD

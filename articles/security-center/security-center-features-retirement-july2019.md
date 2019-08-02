@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d364da9506124a35c724209c68ff72db4243e80
+ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952144"
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67341567"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Desativação de recursos da Central de segurança (julho de 2019)
 
@@ -114,16 +114,18 @@ Incentivamos você a usar a funcionalidade de mapa de alertas criada à Central 
 
 ## Regras de alerta personalizadas (versão prévia)<a name="menu_customalerts"></a>
 
-Estamos [desativando a personalizar a experiência de alertas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) em 30 de junho de 2019 porque sua infraestrutura subjacente está sendo desativado. Até lá, você pode editar as regras de alerta personalizadas existentes, mas que não é possível adicionar novos. É recomendável que você habilite [Sentinel Azure](https://azure.microsoft.com/services/azure-sentinel/) automaticamente migrar seus alertas existentes e criar novos. Como alternativa, você pode criar seus alertas com alertas de log do Azure Monitor.
+Estamos [desativando a personalizar a experiência de alertas](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) em 30 de junho de 2019 porque sua infraestrutura subjacente está sendo desativado. Até lá, você pode editar as regras de alerta personalizadas existentes, mas que não é possível adicionar novos. Após a data de desativação, todos os alertas personalizados definidos não entrarão em vigor e não serão gerados alertas de segurança com base nessas regras.
+É recomendável que você habilite [Sentinel Azure](https://azure.microsoft.com/services/azure-sentinel/) e crie novamente os alertas de personalizado. Como alternativa, você pode criar seus alertas com alertas de log do Azure Monitor.
 
-Para manter os alertas existentes e migrá-los para o Azure Sentinel:
+Para manter os alertas existentes e criá-los com o Azure Sentinel:
 
-1. Abra o Azure Sentinel e selecione o espaço de trabalho onde os alertas personalizados são armazenados.
-1. Selecione **Analytics** no menu para migrar automaticamente os alertas.
+1. [Abra o Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview) e selecione o espaço de trabalho onde os alertas personalizados são armazenados
+1. Selecione **Analytics** no menu
+1. Siga as instruções a seguir [tutorial](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) sobre como criar alertas personalizados no Azure Sentinel
+
+Se você não estiver interessado em usar Sentinel do Azure, você pode criar seus alertas com alertas de log do Azure Monitor. Para obter instruções, consulte [criar, exibir e gerenciar alertas do log usando o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) e [alertas de Log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ![Alertas personalizados][13]
-
-Se você não estiver interessado em fazer a transição para o Azure Sentinel, incentivamos você a criar seus alertas com alertas de log do Azure Monitor. Para obter instruções, consulte [criar, exibir e gerenciar alertas do log usando o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) e [alertas de Log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 Para obter mais informações sobre a desativação de alertas personalizados, consulte [regras de alerta personalizadas na Central de segurança do Azure (visualização)](https://docs.microsoft.com/azure/security-center/security-center-custom-alert).
 

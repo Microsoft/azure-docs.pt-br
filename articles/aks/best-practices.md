@@ -2,17 +2,17 @@
 title: Práticas recomendadas para o Serviço de Kubernetes do Azure (AKS)
 description: Coleção de práticas recomendadas para o operador e o desenvolvedor do cluster para criar e gerenciar aplicativos no Serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 12/07/2018
-ms.author: iainfou
-ms.openlocfilehash: 20922f0fb6932191b8e522e4640b1ba4fecd5ca4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 7127894b364ac8f0fe1d87e13150d5522f5473e2
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514570"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615956"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>Práticas recomendadas para o operador e o desenvolvedor do cluster para criar e gerenciar aplicativos no Serviço de Kubernetes do Azure (AKS)
 

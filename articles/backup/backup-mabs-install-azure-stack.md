@@ -1,7 +1,6 @@
 ---
 title: Instalar Servidor de Backup do Azure no Azure Stack | Microsoft Docs
 description: Use o Servidor de Backup do Azure para proteger ou fazer backup de cargas de trabalho no Azure Stack.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
@@ -10,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 77f418a37c47850cf8a763dc399109d86925feff
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60851643"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465250"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalar Servidor de Backup do Azure no Azure Stack
 
@@ -325,8 +324,8 @@ Quando você souber o estado da conectividade do Azure e da assinatura do Azure,
 | --- | --- | --- | --- | --- | --- |
 | Conectado |Ativo |Permitido |Permitido |Permitido |Permitido |
 | Conectado |Expirado |Parado |Parado |Permitido |Permitido |
-| Conectado |Provisionamento Cancelado |Parado |Parado |Parado e pontos de recuperação do Azure excluídos |Parado |
-| Perda de conectividade > 15 dias |Ativo |Parado |Parado |Permitido |Permitido |
+| Conectado |Desprovisionado |Parado |Parado |Parado e pontos de recuperação do Azure excluídos |Parado |
+| Perda de conectividade > 15 dias |Ativos |Parado |Parado |Permitido |Permitido |
 | Perda de conectividade > 15 dias |Expirado |Parado |Parado |Permitido |Permitido |
 | Perda de conectividade > 15 dias |Provisionamento Cancelado |Parado |Parado |Parado e pontos de recuperação do Azure excluídos |Parado |
 
@@ -349,7 +348,7 @@ Depois que a conectividade com o Azure for restaurada para o Servidor de Backup 
 - Enquanto uma assinatura está com o estado *Desprovisionado*, ela perde a funcionalidade. Restaurar o estado da assinatura para *Ativo* reativa a funcionalidade de backup/restauração. Se os dados de backup no disco local forem mantidos com um período de retenção suficientemente grande, eles poderão ser recuperados. No entanto, os dados de backup no Azure serão irremediavelmente perdidos depois da assinatura entrar no estado *Desprovisionado*.
 - Enquanto uma assinatura está com o estado *Expirado*, ela perde a funcionalidade. Os backups agendados não são executados enquanto a assinatura está com o estado *Expirado*.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Se o servidor de Backup do Microsoft Azure falhar com erros durante a fase de instalação (ou no backup ou na restauração), consulte o [documento de códigos de erro](https://support.microsoft.com/kb/3041338).
 Você também pode consultar as [Perguntas frequentes relacionadas ao Backup do Azure](backup-azure-backup-faq.md)

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: c18227a491478d0d8010761440a54fd088344b39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.subservice: alerts
+ms.openlocfilehash: 91ec5aa42367f6caaa93aaf808fde504e92fbc04
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60776567"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67594332"
 ---
 # <a name="common-alert-schema"></a>Esquema comum de alertas
 
@@ -35,7 +35,7 @@ Isso significa que você pode potencialmente ter menos de integrações, tornand
 
 O esquema de alerta comuns principalmente se manifestará em suas notificações de alerta. Os aprimoramentos que você verá estão listados abaixo:
 
-| Ação | Melhorias|
+| Action | Melhorias|
 |:---|:---|
 | sms | Um modelo consistente de SMS para todos os tipos de alerta. |
 | Email | Um modelo de email consistente e detalhadas, permitindo que você diagnosticar facilmente problemas rapidamente. Links profundo inseridos para a instância de alerta no portal e os recursos afetados Certifique-se de que você pode ir rapidamente para o processo de correção. |
@@ -125,6 +125,7 @@ Por exemplo, a solicitação a seguir corpo feito para o [criar ou atualizar](ht
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Definições de alerta de esquema comuns para Runbooks de automação de funções/aplicativos/Azure Webhooks/lógica.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Saiba como criar um aplicativo lógico que utiliza o esquema de alerta comum para lidar com todos os alertas.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

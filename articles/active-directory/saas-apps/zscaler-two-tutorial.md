@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: dd334a33b270a8101ea8bf2c369a8059d4d2dfa0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 45ef7c61cadbf38c2f106e1fdc087f801dbefb4c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715025"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67085898"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Integração do Azure Active Directory com Zscaler Two
 
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
     | ---------| ------------ |
     | memberOf     | user.assignedroles |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -171,7 +171,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
    
     ![Administração](./media/zscaler-two-tutorial/ic800206.png "Administração")
 
-     a. Em Tipo de Autenticação, escolha **SAML**.
+    a. Em Tipo de Autenticação, escolha **SAML**.
 
     b. Clique em **Configurar SAML**.
 
@@ -179,7 +179,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
             
     ![Gerenciar usuários e autenticação](./media/zscaler-two-tutorial/ic800208.png "Gerenciar usuários e autenticação")
     
-     a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
+    a. Na caixa de texto **URL do Portal SAML**, cole o a **URL de Logon** copiada do portal do Azure.
 
     b. Na caixa de texto **Atributo de Nome de Logon**, insira **NameID**.
 
@@ -199,7 +199,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
 
     ![Administração](./media/zscaler-two-tutorial/ic800207.png)
 
-     a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
+    a. Passe o mouse sobre o menu **Ativação** na parte inferior esquerda.
 
     b. Clique em **Ativar**.
 
@@ -222,7 +222,7 @@ Para configurar o logon único do Azure AD com o Zscaler Two, siga as etapas aba
    
     ![Servidor proxy](./media/zscaler-two-tutorial/ic769494.png "Servidor proxy")
 
-     a. Selecione **Usar um servidor proxy para LAN**.
+    a. Selecione **Usar um servidor proxy para LAN**.
 
     b. Na caixa de texto Endereço, digite **gateway.Zscaler.Two.net**.
 
@@ -309,5 +309,5 @@ Quando você clicar no bloco do Zscaler Two no Painel de Acesso, deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

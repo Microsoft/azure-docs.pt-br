@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ee9a68df685095244fc9471b7d4ab0f6cee0642d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422891"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360270"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Tutorial: Acessar um laboratório no Azure DevTest Labs
 Neste tutorial, você usa o laboratório que foi criado no [Tutorial: Criar um laboratório no Azure DevTest Labs](tutorial-create-custom-lab.md).
@@ -58,8 +58,15 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     ![Conectar-se à máquina virtual](./media/tutorial-use-custom-lab/connect-button.png)
 2. Salvar o arquivo **RDP** baixado no seu disco rígido e use-o para se conectar à máquina virtual. Especifique o nome de usuário e a senha que você mencionou quando a VM foi criada na seção anterior. 
 
-    > [!NOTE] 
-    > Para se conectar a uma VM Linux, o acesso SSH e/ou RDP deve ser habilitado para a VM. Para obter os passos para se conectar a uma VM Linux via RDP, consulte [Instalar e configurar a Área de Trabalho Remota para conectar-se a uma VM Linux no Azure](../virtual-machines/linux/use-remote-desktop.md). 
+    Para se conectar a uma VM Linux, o acesso SSH e/ou RDP deve ser habilitado para a VM. Para obter os passos para se conectar a uma VM Linux via RDP, consulte [Instalar e configurar a Área de Trabalho Remota para conectar-se a uma VM Linux no Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
+    > [!NOTE]
+    > Há outras maneiras de acessar a página de máquina virtual da sua VM. Eis algumas delas: 
+    > 
+    > 1. Pesquise todas as VMs em sua assinatura. Selecione sua VM na lista de VMs para acessar a página de **Máquina Virtual**.
+    > 2. Navegue até a página de **Grupo de Recursos** para o grupo de recursos. Em seguida, selecione sua VM na lista de recursos no grupo de recursos para acessar a página de **Máquina Virtual**. 
+    >
+    > Não use o botão **Conectar** da barra de ferramentas na página de **Máquina Virtual** acessada usando essas opções. Em vez disso, navegue até a página de **Máquina Virtual** da página do **DevTest Labs**, conforme mostrado neste artigo e use o botão **Conectar** da barra de ferramentas.
 
 
 ## <a name="unclaim-the-vm"></a>Cancelar a VM

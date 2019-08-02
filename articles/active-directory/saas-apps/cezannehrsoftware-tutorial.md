@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407036"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao software Cezanne HR
 
@@ -53,7 +53,7 @@ Para configurar a integração do Cezanne HR Software com o Azure AD, você prec
 
 **Para adicionar o Cezanne HR Software por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Cezanne HR Software, execute as
 
     ![Informações de logon único de Domínio e URLs do Cezanne HR Software](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
     
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Cezanne HR Software, execute as
 
     ![Configurar o logon único no lado do aplicativo](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
 
-     a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
+    a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
 
     b. Na caixa de texto **Identificador da Entidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o Cezanne HR Software, execute as
 
     d. Na caixa de texto **Ponto de Extremidade de Serviço de Token de Segurança**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
-    e. Na caixa de texto "Nome do atributo de ID de usuário", digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Na caixa de texto "Nome do atributo de ID de usuário", digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Clique no ícone **Carregar** para carregar o certificado baixado do Portal do Azure.
 
@@ -233,7 +233,7 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
     ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_006.png "Novo Usuário")
 
-     a. Defina **Internal User** como OFF.
+    a. Defina **Internal User** como OFF.
 
     b. Na caixa de texto **Nome**, digite o Nome do usuário, como **Brenda**.  
 
@@ -245,7 +245,7 @@ Para habilitar usuários do AD do Azure a fazer logon no Cezanne HR Software, el
 
     ![Novo Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_007.png "Novo Usuário")
 
-     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
     b. Na caixa de texto **Senha**, digite a senha do usuário.
 
@@ -277,4 +277,4 @@ Ao clicar no bloco do Cezanne HR Software no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

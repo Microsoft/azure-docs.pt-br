@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
-ms.openlocfilehash: a30bc55c564f852a5fef6e71aad9e607e6aa1065
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: v-mohabe
+ms.openlocfilehash: 73480c6e24ab13b7764c5b72280c19971eb3d039
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67083665"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68296487"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitore a identidade e o acesso na Central de Segurança do Azure (Visualizar)
 Este artigo ajuda você a usar a Central de Segurança do Azure para monitorar a identidade e a atividade de acesso do usuário.
 
 > [!NOTE]
-> O "modo de exibição *clássico* identidade e acesso" link será desativado em 31 de julho de 2019. Clique em [aqui](security-center-features-retirement-july2019.md#menu_classicidentity) para saber mais sobre serviços alternativos.
+> O link "exibir acesso à identidade *clássica* &" será desativado em 31 de julho de 2019. Clique [aqui](security-center-features-retirement-july2019.md#menu_classicidentity) para saber mais sobre serviços alternativos.
 
 > [!NOTE]
 > O monitoramento de identidade e acesso está em pré-visualização e disponível apenas na camada Padrão da Central de Segurança. Confira os [Preços](security-center-pricing.md) para saber mais sobre os tipos de preço da Central de Segurança.
@@ -110,20 +110,20 @@ Use a tabela abaixo como referência para ajudá-lo a entender as recomendaçõe
 
 |Tipo de recurso|Classificação de segurança|Recomendações|DESCRIÇÃO|
 |----|----|----|----|
-|Assinatura|50|MFA deve ser habilitado em contas com permissões de proprietário em sua assinatura|Habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de administrador para evitar uma violação de conta ou recursos.|
-|Assinatura|40|MFA deve ser habilitada em suas contas de assinatura com permissões de gravação|Habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de gravação para evitar uma violação de conta ou recursos.|
+|Assinatura|50|A MFA deve ser habilitada em contas com permissões de proprietário em sua assinatura|Habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de administrador para evitar uma violação de conta ou recursos.|
+|Assinatura|40|A MFA deve ser habilitada em suas contas de assinatura com permissões de gravação|Habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de gravação para evitar uma violação de conta ou recursos.|
 |Assinatura|30|Contas externas com permissões de proprietário devem ser removidas da sua assinatura|Remova contas externas com permissões de proprietário da sua assinatura para impedir o acesso não monitorado.|
-|Assinatura|30|MFA deve ser habilitada em suas contas de assinatura com permissões de leitura|Habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de leitura para evitar uma violação de conta ou recursos.|
-|Assinatura|25|Contas externas com gravação permissões devem ser removidas de sua assinatura|Remova contas externas com permissões de gravação da sua assinatura para impedir o acesso não monitorado. |
+|Assinatura|30|A MFA deve ser habilitada em suas contas de assinatura com permissões de leitura|Habilite a MFA (Autenticação Multifator) para todas as contas de assinatura com privilégios de leitura para evitar uma violação de conta ou recursos.|
+|Assinatura|25|As contas externas com permissões de gravação do proprietário devem ser removidas da sua assinatura|Remova contas externas com permissões de gravação da sua assinatura para impedir o acesso não monitorado. |
 |Assinatura|20|Contas preteridas com permissões de proprietário devem ser removidas da sua assinatura|Remova contas preteridas com permissões de proprietário das suas assinaturas.|
-|Assinatura|5|Contas preteridas devem ser removidas da sua assinatura|Remova contas preteridas de suas assinaturas para habilitar o acesso a apenas usuários atuais. |
+|Assinatura|5|As contas preteridas devem ser removidas da sua assinatura|Remova contas preteridas de suas assinaturas para habilitar o acesso a apenas usuários atuais. |
 |Assinatura|5|Deve haver mais de um proprietário atribuído à sua assinatura|Designe mais de um proprietário da assinatura para poder ter redundância de acesso de administrador.|
-|Assinatura|5|Um máximo de 3 proprietários deve ser designado para a sua assinatura|Designe menos de três proprietários de assinaturas para reduzir o potencial de violação por um proprietário comprometido.|
-|Cofre de chaves|5|Logs de diagnóstico no cofre de chaves devem ser habilitados|Ativar os logs e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
+|Assinatura|5|Um máximo de 3 proprietários deve ser designado para sua assinatura|Designe menos de três proprietários de assinaturas para reduzir o potencial de violação por um proprietário comprometido.|
+|Cofre de chaves|5|Os logs de diagnóstico no Key Vault devem ser habilitados|Ativar os logs e mantenha-os por até um ano. Isso permite recriar trilhas de atividades para fins de investigação quando ocorre um incidente de segurança ou quando sua rede é comprometida. |
 |Assinatura|15|Contas externas com permissões de leitura devem ser removidas da sua assinatura|Remova contas externas com privilégios de leitura da sua assinatura para impedir o acesso não monitorado.| 
 
 > [!NOTE]
-> Se você criou uma política de acesso condicional que exige MFA, mas tem exclusões definida, a avaliação de recomendação de MFA da Central de segurança considera a política fora de conformidade, porque ela permite que alguns usuários para entrar no Azure sem o MFA.
+> Se você criou uma política de acesso condicional que exige MFA, mas tem exclusões definidas, a avaliação de recomendação do MFA da central de segurança considera a política como não compatível, pois permite que alguns usuários entrem no Azure sem MFA.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as recomendações que se aplicam aos outros tipos de recursos do Azure, consulte o seguinte:

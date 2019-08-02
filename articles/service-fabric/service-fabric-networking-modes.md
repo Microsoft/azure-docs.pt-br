@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: aljo, subramar
-ms.openlocfilehash: ecb7ac4d3359142d3aef247e4b918f517e10c3bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: subramar
+ms.openlocfilehash: 2dcb678e8350ae0de3317db3682f0e51e27ab6f5
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926124"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621928"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -200,14 +200,14 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
  
 3. Apenas para clusters do Windows, configure uma regra de grupo de segurança de rede (NSG) do Azure que abre a porta UDP/53 para a rede virtual com os seguintes valores:
 
-   |Configuração |Value | |
+   |Configuração |Valor | |
    | --- | --- | --- |
    |Prioridade |2000 | |
-   |NOME |Custom_Dns  | |
-   |source |VirtualNetwork | |
+   |Nome |Custom_Dns  | |
+   |Origem |VirtualNetwork | |
    |Destino | VirtualNetwork | |
    |Serviço | DNS (UDP/53) | |
-   |Ação | PERMITIR  | |
+   |Action | Allow  | |
    | | |
 
 4. Especifique o modo de rede no manifesto do aplicativo para cada serviço: `<NetworkConfig NetworkType="Open">`. O modo de rede **Aberto** resulta no fornecimento de um endereço IP dedicado para o serviço. Se um modo não for especificado, o serviço torna **nat** o modo padrão. Assim, no exemplo de manifesto a seguir, os serviços `NodeContainerServicePackage1` e `NodeContainerServicePackage2` podem escutar na mesma porta (os dois serviços estão escutando em `Endpoint1`). Quando o modo de rede Aberto é especificado, `PortBinding` as configurações não podem ser especificadas.

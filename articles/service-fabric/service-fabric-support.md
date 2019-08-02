@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 667ee6a49238c1ecaabec631cb72804b0c4b2323
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545054"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67304250"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opções de suporte do Azure Service Fabric
 
@@ -43,7 +43,7 @@ Saiba mais sobre:
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>Relatar problemas de produção ou solicitar o suporte pago para clusters independentes do Service Fabric
 
-Para relatar problemas no seu cluster do Service Fabric implantado localmente ou em outras nuvens, abra um tíquete para obter suporte profissional no [portal de suporte da Microsoft](https://support.microsoft.com/oas/default.aspx?prid=16146).
+Para relatar problemas no seu cluster do Service Fabric implantado localmente ou em outras nuvens, abra um tíquete para obter suporte profissional no [portal de suporte da Microsoft](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Saiba mais sobre:
 
@@ -60,11 +60,11 @@ Relate problemas do Azure Service Fabric no [repositório Git de problemas do Se
 
 ### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow e fóruns do MSDN
 
-A [marcação Service Fabric no StackOverflow][stackoverflow] e o [fórum do Service Fabric no MSDN][msdn-forum] devem ser usados para fazer perguntas sobre o funcionamento da plataforma e como determinadas tarefas podem ser realizadas com ela.
+O [marcação Service Fabric no StackOverflow][stackoverflow] and the [Service Fabric forum on MSDN][msdn-forum] devem ser usados para fazer perguntas sobre como a plataforma funciona e como você pode realizar certas tarefas com ele.
 
 ### <a name="azure-feedback-forum"></a>Fórum de Comentários do Azure
 
-O [Fórum de Comentários do Azure sobre o Service Fabric][uservoice-forum] é o melhor local para enviar grandes ideias de recursos para o produto, pois examinamos as solicitações mais populares como parte de nosso planejamento de médio a longo prazo. Incentivamos você a conseguir suporte para suas sugestões na comunidade.
+O [Fórum de comentários do Azure Service Fabric][uservoice-forum] é o melhor local para enviar grandes ideias de recursos para o produto pois examinamos as solicitações mais populares são parte do nosso médio para planejamento de longo prazo. Incentivamos você a conseguir suporte para suas sugestões na comunidade.
 
 ## <a name="service-fabric-preview-versions---unsupported-for-production-use"></a>Versões prévias do Service Fabric – sem suporte para uso em produção
 

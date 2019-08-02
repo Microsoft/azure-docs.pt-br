@@ -2,19 +2,19 @@
 title: O que é o Tradutor Personalizado?
 titleSuffix: Azure Cognitive Services
 description: O Tradutor Personalizado oferece recursos semelhantes ao que o Hub do Microsoft Translator faz em relação à SMT (Tradução Automática Estatística), mas exclusivamente para sistemas de NMT (Tradução Automática Neural).
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: 5ce73e28d25f0e517da08895764adc5a31740a7e
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: cdbbe9006f57c8b29e19fda85eefc0795da95a00
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389648"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595497"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 

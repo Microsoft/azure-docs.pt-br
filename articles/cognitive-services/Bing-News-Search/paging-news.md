@@ -1,6 +1,6 @@
 ---
 title: Como paginar os resultados da API de Pesquisa de Notícias do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como paginar os artigos de notícias retornados pela API de Pesquisa de Notícias do Bing.
 services: cognitive-services
 author: swhite-msft
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 1eab92dcc9c1890e82f9999e26e54378a3687c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5f8dce1a03e44758eea737ad2da419fa67c36a2
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390490"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423737"
 ---
 # <a name="how-to-page-through-news-search-results"></a>Como paginar os resultados da pesquisa de notícias
 
@@ -35,7 +35,7 @@ O exemplo a seguir mostra o campo `totalEstimatedMatches` que uma resposta de No
 Para paginar os artigos disponíveis, use os parâmetros de consulta [contagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#offset).  
  
 
-|Parâmetro  |DESCRIÇÃO  |
+|Parâmetro  |Descrição  |
 |---------|---------|
 |`count`     | Especifica o número de resultados a serem retornados na resposta. O número máximo de resultados que você pode solicitar na resposta é 100. O padrão é 10. O número real entregue pode ser menor que o solicitado.        |
 |`offset`     | Especifica o número de resultados para ignorar. O `offset` é baseado em zero e deve ser menor que (`totalEstimatedMatches` - `count`).          |

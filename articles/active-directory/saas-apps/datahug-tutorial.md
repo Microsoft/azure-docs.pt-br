@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08de78e598ef7fa751c5474a248f8d901c694ea8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1107369f048a006767e4b9bd642df4ffdc0708c9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104335"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-datahug"></a>Tutorial: Integração do Azure Active Directory com o Datahug
 
@@ -53,7 +53,7 @@ Para configurar a integração do Datahug ao Azure AD, é necessário adicionar 
 
 **Para adicionar o Datahug da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Datahug, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Datahug](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://apps.datahug.com/identity/<uniqueID>/acs`
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o Datahug, execute as seguintes e
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-     a. Selecione **Assinar declaração SAML** na **Opção de Assinatura**.
+    a. Selecione **Assinar declaração SAML** na **Opção de Assinatura**.
 
     b. Selecione **SHA-1** no **Algoritmo de Assinatura**.
     
@@ -164,7 +164,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com

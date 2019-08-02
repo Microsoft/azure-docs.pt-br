@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 276e691351d852d6dcb0075d47bf33af6767fc10
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60879099"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226088"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controle de acesso no Azure Data Lake Storage Gen1
 
@@ -71,15 +71,15 @@ No modelo de estilo POSIX usado pelo Data Lake Storage Gen1, as permissões para
 
 A seguir estão alguns cenários comuns para ajudá-lo a compreender quais permissões são necessárias para executar determinadas operações em uma conta do Data Lake Storage Gen1.
 
-| Operação | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+| Operação | Objeto              |    /      | Seattle/   | Portland/   | Data.txt       |
 |-----------|---------------------|-----------|------------|-------------|----------------|
 | Ler      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Acrescentar a | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
 | Excluir    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
 | Criar    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Listar      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| Listar      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| Listar      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| Lista      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lista      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lista      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -166,7 +166,7 @@ def access_check( user, desired_perms, path ) :
   # Handle the owning user. Note that mask IS NOT used.
   entry = get_acl_entry( path, OWNER )
   if (user == entry.identity)
-      return ( (desired_perms & e.permissions) == desired_perms )
+      return ( (desired_perms & entry.permissions) == desired_perms )
 
   # Handle the named users. Note that mask IS used.
   entries = get_acl_entries( path, NAMED_USER )
@@ -216,9 +216,9 @@ Quando um novo arquivo ou pasta é criado em uma pasta existente, a ACL Padrão 
 
 ### <a name="umask"></a>umask
 
-Ao criar um arquivo ou uma pasta, o umask é usado para modificar como as ACLs padrão são definidas no item filho. O umask é um valor de 9 bits nas pastas pai que contém um valor RWX para o **usuário proprietário**, o **grupo proprietário** e **outros**.
+Ao criar um arquivo ou uma pasta, o umask é usado para modificar como as ACLs padrão são definidas no item filho. umask é um valor de 9 bits em pastas pai que contém um valor de RWX para **usuário proprietário**, **grupo proprietário**e **outros**.
 
-O umask do Azure Data Lake Storage Gen1 é um valor constante definido como 007. Esse valor é convertido em
+O umask para Azure Data Lake Storage Gen1 é um valor constante definido como 007. Esse valor é convertido em
 
 | Componente umask     | Formato numérico | Formato curto | Significado |
 |---------------------|--------------|------------|---------|
@@ -250,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário habilitar o suporte para ACLs?
 
-Não. O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Storage Gen1.
+Nº O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente uma pasta e seu conteúdo?
 

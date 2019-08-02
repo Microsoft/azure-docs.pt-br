@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a6958e88e7e20b94a54216a92651c2f6d3fe650e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950924"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Azure Active Directory com a ClickUp Productivity Platform
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com a ClickUp Productivity Platform, 
 
     ![Informações de logon de único de logon único de URLs e Domínio da ClickUp Productivity Platform](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://app.clickup.com/login/sso`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://app.clickup.com/login/sso`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://api.clickup.com/v1/team/<team_id>/microsoft`
 
@@ -131,7 +131,7 @@ Para configurar o logon único do Azure AD com a ClickUp Productivity Platform, 
 
     ![Configuração de produtividade do ClickUp](./media/clickup-productivity-platform-tutorial/configure3.png)
 
-     a. Clique em **Copiar** para copiar o valor de ID da entidade e cole-o na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica de SAML** no portal do Azure.
+    a. Clique em **Copiar** para copiar o valor de ID da entidade e cole-o na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica de SAML** no portal do Azure.
     
     b. Na caixa de texto **URL de Metadados de Federação do Azure**, cole o valor de URL de Metadados de Federação de Aplicativos que você copiou do portal do Azure e clique em **Salvar**.
 
@@ -217,5 +217,5 @@ Quando você clica no bloco da ClickUp Productivity Platform no Painel de Acesso
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7c3651e81cd3916bccc859bc3bc010511b2a114a
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869952"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095271"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Tutorial: Integração do Azure Active Directory ao Palo Alto Networks – Captive Portal
 
@@ -78,12 +78,12 @@ Você configurará e testará o logon único do Azure AD com o Palo Alto Network
 
 Para configurar e testar o logon único do Azure AD com o Palo Alto Networks – Captive Portal, realize as tarefas a seguir:
 
-1. **[Configurar logon único do Azure AD](#configure-azure-ad-single-sign-on)**: Habilite o usuário para usar esse recurso.
-2. **[Configurar o logon único do Palo Alto Networks – Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Defina as configurações de logon único no aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)**: Teste o logon único do Azure AD com a usuária *Brenda Fernandes*.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)**: Configure Brenda Fernandes para usar o logon único do Azure AD.
+1. **[Configurar logon único do Azure AD](#configure-azure-ad-single-sign-on)** : Habilite o usuário para usar esse recurso.
+2. **[Configurar o logon único do Palo Alto Networks – Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)** : Defina as configurações de logon único no aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** : Teste o logon único do Azure AD com a usuária *Brenda Fernandes*.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** : Configure Brenda Fernandes para usar o logon único do Azure AD.
 5. **Criar um usuário de teste da Palo Alto Networks – Captive Portal**: Crie um usuário da contraparte *Brenda Fernandes* no Palo Alto Networks – Captive Portal que esteja vinculado ao usuário do Azure AD.
-6. **[Testar o logon único](#test-single-sign-on)**: Verifique se a configuração funciona.
+6. **[Testar o logon único](#test-single-sign-on)** : Verifique se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
@@ -158,7 +158,7 @@ Em seguida, você criará uma usuária de teste no portal do Azure chamada *Bren
 
     1. Em **Nome**, insira **BrendaFernandes**.
   
-    2. Em **Nome de usuário**, insira **BrendaFernandes\@\<domínio_da_empresa\>**. Por exemplo, **BrendaFernandes\@contoso.com**.
+    2. Em **Nome de usuário**, insira **BrendaFernandes\@\<domínio_da_empresa\>** . Por exemplo, **BrendaFernandes\@contoso.com**.
 
     3. Em **Senha**, insira uma senha. É recomendável que você mantenha um registro da senha inserida. Você pode marcar a caixa de seleção **Mostrar senha** para exibir a senha.
 
@@ -207,5 +207,5 @@ Para saber mais, consulte os seguintes artigos:
 
 - [Tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Logon único em aplicativos no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Acesso condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Acesso Condicional no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

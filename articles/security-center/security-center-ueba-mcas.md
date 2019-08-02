@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7ffb9684045031c5bca7a79a15db7cb16fc99e9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af7896ec4afaeefda7261542bf593a89a7bb9ae8
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332358"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551794"
 ---
 # <a name="ueba-for-azure-resources-and-users"></a>UEBA para usuários e recursos do Azure 
 
@@ -55,8 +55,8 @@ A Central de Segurança dá suporte a alertas de detecção de anomalias do Clou
 
 Esses alertas são habilitados por padrão, mas você pode desabilitá-los:
 
-1. Na folha Central de Segurança, selecione **Política de segurança**. Para a assinatura que você deseja alterar, clique em **Editar configurações**.
-2.  Clique em **Detecção de ameaças**.
+1. Na folha da Central de segurança, selecione **preços & configurações** e selecione a assinatura aplicável.
+2. Clique em **Detecção de ameaças**.
 3. Emb **Habilitar integrações**, desmarque a opção **Permitir que o Microsoft Cloud App Security acesse meus dados** e clique em **Salvar**.
 
    ![alerta de detecção de ameaças](./media/security-center-ueba-mcas/security-center-mcas-optout.png)

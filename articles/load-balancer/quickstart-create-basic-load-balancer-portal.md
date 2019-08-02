@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um balanceador de carga Básico público usando o portal do Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727590"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274097"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início Rápido: Criar um Load Balancer Básico usando o portal do Azure
 
@@ -41,9 +41,9 @@ Primeiro, crie um Load Balancer Básico usando o portal. O nome e o endereço IP
     | ---                     | ---                                                |
     | Assinatura               | Selecione sua assinatura.    |    
     | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
-    | NOME                   | *myLoadBalancer*                                   |
+    | Nome                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
-    | Type          | Selecione **Público**.                                        |
+    | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic**.                          |
     | Endereço IP público | Selecione **Criar novo**. |
     | Nome do endereço IP público              | *MyPublicIP*   |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c24cbf8ad21c7dd5875a71532a5278e313774e66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 232742c9ca3f090e2900566c1e80f9720e284135
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883960"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Tutorial: Integração do Microsoft Azure Active Directory ao dmarcian
 
@@ -53,7 +53,7 @@ Para configurar a integração do dmarcian ao Azure AD, você precisará adicion
 
 **Para adicionar o dmarcian da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o dmarcian, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do dmarcian](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     | |
     | -- |
@@ -169,7 +169,7 @@ Para configurar o logon único do Azure AD com o dmarcian, execute as seguintes 
         > [!Note]
         > Você pode modificar a **URL de Logon** de acordo com a sua organização.
 
-    * Clique em **Salvar**.
+    * Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -187,7 +187,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -242,7 +242,7 @@ Para permitir que os usuários do Azure AD entrem no dmarcian, eles devem ser pr
 
     ![O novo usuário](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-     a. Na caixa de texto **Email do novo usuário**, insira o email do usuário como **brendafernandes\@contoso.com**.
+    a. Na caixa de texto **Email do novo usuário**, insira o email do usuário como **brendafernandes\@contoso.com**.
 
     b. Se você quiser conceder direitos de administrador ao usuário, selecione **Tornar o Usuário um Administrador**.
 
@@ -260,5 +260,5 @@ Ao clicar no bloco do dmarcian no Painel de Acesso, você deve ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e5df48e7fdd766a7f4ae264b1989507e0c280be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d5ee500624e44fa7412ad8c98a02a0614e85820
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838724"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106762"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>Tutorial: Integração do Azure Active Directory ao Aravo
 
@@ -53,7 +53,7 @@ Para configurar a integração do Aravo ao Azure AD, você precisa adicionar o A
 
 **Para adicionar o Aravo da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Aravo, realize as seguintes eta
 
     ![Informações de logon único em Domínio e URLs do Aravo](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.aravo.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.aravo.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<companyname>.aravo.com/aems/login.do`
 

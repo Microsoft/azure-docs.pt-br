@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 6/1/2019
 ms.author: victorh
-ms.openlocfilehash: 25779cd62f70df41a7734d2f8097504923dcb3a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71f1beb68171613fe926ba4d87a13ef58cac1edf
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430875"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67655268"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de aplicativo
 
@@ -45,7 +45,7 @@ Ver [suporte HTTP/2](https://docs.microsoft.com/azure/application-gateway/config
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>Quais recursos têm suporte como parte de um pool de back-end?
 
-Ver [suporte para recursos de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool).
+Ver [suporte para recursos de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pools).
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>Em quais regiões o Gateway de aplicativo está disponível?
 
@@ -105,7 +105,7 @@ Implantações que usam o SKU v2 podem levar até 6 minutos para ser provisionad
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Pode usar o Exchange Server como um back-end com o Gateway de aplicativo?
 
-Não. O Gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
+Nº O Gateway de aplicativo não dá suporte a protocolos de email como SMTP, IMAP e POP3. 
 
 ## <a name="performance"></a>Desempenho
 
@@ -125,7 +125,7 @@ Sim, o SKU Application Gateway v2 suporta escalonamento automático. Para obter 
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Não escala manual para cima ou reduzir verticalmente causa tempo de inatividade?
 
-Não. As instâncias são distribuídas entre domínios de atualização e domínios de falha.
+Nº As instâncias são distribuídas entre domínios de atualização e domínios de falha.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>O Gateway de Aplicativo suporta a drenagem de conexão?
 
@@ -147,7 +147,7 @@ Desde que tenham conectividade IP, Gateway de aplicativo podem se comunicar com 
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Posso implantar coisa na sub-rede do gateway de aplicativo?
 
-Não. Mas você pode implantar outros gateways de aplicativo na sub-rede.
+Nº Mas você pode implantar outros gateways de aplicativo na sub-rede.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Há suporte para grupos de segurança de rede na sub-rede do gateway de aplicativo?
 
@@ -179,7 +179,7 @@ Há suporte para arquitetura de Microsserviço. Para investigação em portas di
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>Investigações personalizadas têm suporte curingas ou regex nos dados de resposta?
 
-Não. 
+Nº 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Como as regras de roteamento são processadas no Gateway de aplicativo?
 
@@ -195,7 +195,7 @@ Sim. Ver [restringir o acesso a IPs de origem específico](https://docs.microsof
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>Pode usar a mesma porta para ouvintes voltados ao público e privado voltado?
 
-Não.
+Nº
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>Há diretrizes disponíveis para migrar do SKU v1 para o SKU do v2?
 
@@ -296,7 +296,7 @@ Monitorar o WAF por meio do log de diagnóstico. Para obter mais informações, 
 
 ### <a name="does-detection-mode-block-traffic"></a>Modo de detecção bloqueia o tráfego?
 
-Não. Modo de detecção apenas registra o tráfego que dispara uma regra WAF.
+Nº Modo de detecção apenas registra o tráfego que dispara uma regra WAF.
 
 ### <a name="can-i-customize-waf-rules"></a>Como posso personalizar regras WAF?
 

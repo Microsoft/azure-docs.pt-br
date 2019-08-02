@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f45b0779693433f1b1fad3c5bfd4323eacb9a63b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd0ca3bb356319f4661e24b192a5f7e776d14cd0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Tutorial: Integração do Azure Active Directory ao Palo Alto Networks – Admin UI
 
@@ -54,7 +54,7 @@ Para configurar a integração do Palo Alto Networks – Admin UI com o Azure AD
 
 **Para adicionar o Palo Alto Networks – Admin UI da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI
 
     ![Informações de logon único de Domínio e URLs do Palo Alto Networks – Admin UI](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<Customer Firewall FQDN>/php/login.php`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<Customer Firewall FQDN>/php/login.php`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<Customer Firewall FQDN>:443/SAML20/SP`
 
@@ -131,7 +131,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI
     | adminrole | customadmin |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -184,7 +184,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI
 
     ![A janela "Perfil do Servidor de Provedor de Identidade SAML"](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_idp.png)
 
-     a. Na caixa **Nome do Perfil**, forneça um nome (por exemplo, **AzureAD Admin UI**).
+    a. Na caixa **Nome do Perfil**, forneça um nome (por exemplo, **AzureAD Admin UI**).
     
     b. Em **Metadados do Provedor de Identidade**, selecione **Procurar** e selecione o arquivo metadata.xml que você baixou anteriormente no portal do Azure.
     
@@ -202,7 +202,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI
 
     ![A janela "Perfil do Servidor de Provedor de Identidade do SAML"](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_slo.png)
   
-     a. Na caixa **URL de SLO do Provedor de Identidade**, substitua a URL de SLO importada anteriormente pela seguinte URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
+    a. Na caixa **URL de SLO do Provedor de Identidade**, substitua a URL de SLO importada anteriormente pela seguinte URL: `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0`
   
     b. Selecione **OK**.
 
@@ -222,7 +222,7 @@ Para configurar o logon único do Azure AD com o Palo Alto Networks – Admin UI
 
     ![A janela "Perfil de Autenticação"](./media/paloaltoadmin-tutorial/tutorial_paloaltoadmin_authentication_profile.png)
 
-     a. Na caixa de texto **Nome**, forneça um nome (por exemplo, **AzureSAML_Admin_AuthProfile**).
+    a. Na caixa de texto **Nome**, forneça um nome (por exemplo, **AzureSAML_Admin_AuthProfile**).
 
     b. Na lista suspensa **Tipo**, escolha **SAML**. 
 

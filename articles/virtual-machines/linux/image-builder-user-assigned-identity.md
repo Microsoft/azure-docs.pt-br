@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: b0a6c016b2be12ac6686b3748b4b16281899323e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: b6347765f8d2e21c352834dc8d28b65c28f99758
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65511055"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671442"
 ---
 # <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Criar uma imagem e usar uma identidade atribuída pelo usuário gerenciada para acessar arquivos no armazenamento do Azure 
 
@@ -185,7 +185,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Aguarde a conclusão da compilação. Isso pode levar cerca de 15 minutos.
+Aguarde a conclusão do build. Isso pode levar cerca de 15 minutos.
 
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
 

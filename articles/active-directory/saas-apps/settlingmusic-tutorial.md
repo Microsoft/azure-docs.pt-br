@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713ca571a4321eded82cbc9db56dae7616126e2a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 08f084bc0231bceeaf2c7d87dc0a160cdf188978
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902405"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090976"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integração do Azure Active Directory com Settling music
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Settling music, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Settling music](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Settling music, execute as segu
 
     ![Settling music etapa 5](./media/settlingmusic-tutorial/tutorial_settlingmusic_step4.png)
 
-     a. Clique **para habilitar**.
+    a. Clique **para habilitar**.
 
     b. Na caixa de texto **URL de Logon do provedor de identidade**, cole o valor de **URL de Logon** que você copiou do portal do Azure.
 
@@ -223,4 +223,4 @@ Ao clicar no bloco do Settling music no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

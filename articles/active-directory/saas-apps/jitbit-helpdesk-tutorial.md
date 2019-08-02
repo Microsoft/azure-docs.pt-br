@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 29addcd62afd193af83196b2d942e9778ff3f031
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898010"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integração do Azure Active Directory com o Jitbit Helpdesk
 
@@ -53,7 +53,7 @@ Para configurar a integração do Jitbit Helpdesk ao Azure AD, você precisará 
 
 **Para adicionar o Jitbit Helpdesk por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Jitbit Helpdesk, siga estas eta
 
     ![Informações de logon único de Domínio e URLs do Jitbit Helpdesk](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     | |
     | ----------------------------------------|
     | `https://<hostname>/helpdesk/User/Login`|
@@ -115,7 +115,7 @@ Para configurar o logon único do Azure AD com o Jitbit Helpdesk, siga estas eta
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com a URL de Logon real. Para obter esse valor, entre em contato com a [equipe de suporte do cliente Jitbit Helpdesk](https://www.jitbit.com/support/).
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL como a seguinte: `https://www.jitbit.com/web-helpdesk/`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL como a seguinte: `https://www.jitbit.com/web-helpdesk/`
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o Jitbit Helpdesk, siga estas eta
 
     ![Configurações de autenticação](./media/jitbit-helpdesk-tutorial/ic777683.png "Configurações de autenticação")
 
-     a. Selecione **Habilitar logon único SAML 2.0** para entrar usando SSO (Logon Único) com **OneLogin**.
+    a. Selecione **Habilitar logon único SAML 2.0** para entrar usando SSO (Logon Único) com **OneLogin**.
 
     b. Na caixa de texto **URL de ponto de extremidade**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -230,9 +230,9 @@ Para permitir que os usuários do Azure AD entrem no Jitbit Helpdesk, eles devem
 
     ![Criar](./media/jitbit-helpdesk-tutorial/ic777686.png "Criar")
 
-    a. Na caixa de texto **Nome de usuário**, digite o nome do usuário como **BrendaFernandes**.
+   a. Na caixa de texto **Nome de usuário**, digite o nome do usuário como **BrendaFernandes**.
 
-   b. Na caixa de texto **Email**, digite o email do usuário como **BrittaSimon@contoso.com**.
+   b. Na caixa de texto **Email**, digite o email do usuário como **BrittaSimon@contoso.com** .
 
    c. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
@@ -255,4 +255,4 @@ Ao clicar no bloco do Jitbit Helpdesk no Painel de Acesso, você deverá entrar 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

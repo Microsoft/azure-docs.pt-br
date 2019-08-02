@@ -7,19 +7,19 @@ author: zhangmanling
 manager: erikre
 editor: ''
 ms.assetid: 1e85b809-e1a9-4473-b835-69d1b4ed3393
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4b8cbc27757cf6c321ea4b3c27720a129aa27c1b
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335625"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593472"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas em tempo real na CDN do Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -30,7 +30,7 @@ Este documento explica os alertas em tempo real na CDN do Microsoft Azure. Essa 
 * Largura de banda
 * Códigos de status
 * Status do Cache
-* conexões
+* Conexões
 
 ## <a name="creating-a-real-time-alert"></a>Criar um alerta em tempo real
 1. No [Portal do Azure](https://portal.azure.com), navegue para seu perfil CDN.

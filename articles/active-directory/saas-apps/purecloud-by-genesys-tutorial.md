@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac476e2a66f7fd1d315adb37258917b3ff47373f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093456"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutorial: Integração do Azure Active Directory ao PureCloud by Genesys
 
@@ -52,7 +52,7 @@ Para configurar a integração do PureCloud by Genesys ao Azure AD, você precis
 
 **Para adicionar o PureCloud by Genesys por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o PureCloud by Genesys, execute a
 
     ![Informações de logon único de Domínio e URLs do PureCloud by Genesys](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL de acordo com sua região:
+    a. Na caixa de texto **Identificador**, digite uma URL de acordo com sua região:
 
     | |
     |--|
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o PureCloud by Genesys, execute a
     | Email | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -193,7 +193,7 @@ Para configurar o logon único do Azure AD com o PureCloud by Genesys, execute a
 
     ![Configurar o logon único](./media/purecloud-by-genesys-tutorial/configure02.png)
 
-     a. Clique em **Procurar** para carregar o certificado codificado em Base 64 baixado no portal do Azure no **Certificado do ADFS**.
+    a. Clique em **Procurar** para carregar o certificado codificado em Base 64 baixado no portal do Azure no **Certificado do ADFS**.
 
     b. Na caixa de texto **URI do Emissor do ADFS**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -276,7 +276,7 @@ Para permitir que os usuários do Azure AD façam logon no PureCloud by Genesys,
 
     ![Configurar o logon único](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-     a. Na caixa de texto **Nome Completo**, insira o nome do usuário como **Brendafernandes**.
+    a. Na caixa de texto **Nome Completo**, insira o nome do usuário como **Brendafernandes**.
 
     b. Na caixa de texto **Email**, insira o email do usuário como **brendafernandes\@contoso.com**.
     
@@ -294,5 +294,5 @@ Ao clicar no bloco do PureCloud by Genesys no Painel de Acesso, você deverá se
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

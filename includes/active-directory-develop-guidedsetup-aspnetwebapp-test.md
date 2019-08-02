@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66121752"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172531"
 ---
 ## <a name="test-your-code"></a>Testar seu código
 

@@ -7,12 +7,12 @@ ms.author: yizhon
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-ms.openlocfilehash: 9180c27e64f26c05e6e16007b74f9aa8a98bcfe5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 838d0cd4f40666bc3fced22a607b9f94f27b08d3
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61440294"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67535506"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Gerenciar a conectividade e mensagens confiáveis usando SDKs do dispositivo do Hub IoT do Azure
 
@@ -97,8 +97,8 @@ Os exemplos de código a seguir ilustram esse fluxo:
 O exemplo de código abaixo mostra como definir e definir a política de repetição padrão:
 
    ```csharp
-   # define/set default retry policy
-   RetryPolicy retryPolicy = new ExponentialBackoff(int.MaxValue, TimeSpan.FromMilliseconds(100), TimeSpan.FromSeconds(10), TimeSpan.FromMilliseconds(100));
+   // define/set default retry policy
+   IRetryPolicy retryPolicy = new ExponentialBackoff(int.MaxValue, TimeSpan.FromMilliseconds(100), TimeSpan.FromSeconds(10), TimeSpan.FromMilliseconds(100));
    SetRetryPolicy(retryPolicy);
    ```
 
@@ -107,8 +107,8 @@ Para evitar o alto uso da CPU, as novas tentativas são limitadas se o código f
 Se o serviço estiver respondendo com um erro de limitação, a política de repetição será diferente e não poderá ser alterada por meio da API pública:
 
    ```csharp
-   # throttled retry policy
-   RetryPolicy retryPolicy = new ExponentialBackoff(RetryCount, TimeSpan.FromSeconds(10), 
+   // throttled retry policy
+   IRetryPolicy retryPolicy = new ExponentialBackoff(RetryCount, TimeSpan.FromSeconds(10), 
      TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5)); SetRetryPolicy(retryPolicy);
    ```
 
@@ -120,7 +120,7 @@ Para obter exemplos de código em outros idiomas, revise os seguintes documentos
 
 * [SDK do C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
 
-* [SDK .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+* [SDK .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/retrypolicy.md)
 
 * [Java SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
 

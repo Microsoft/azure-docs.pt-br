@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b1a3b04427839736359c88f8ad6a8db5eedf8488
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294013"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67867721"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -43,7 +43,7 @@ Não, uma notificação não significa que seu aplicativo definitivamente tem um
 
 ## <a name="how-do-i-fix-it"></a>Como corrigi-la?
 
-As notificações incluem informações de diagnóstico. Aqui está um exemplo:
+As notificações incluem informações de diagnóstico. Veja um exemplo:
 
 
 ![Veja um exemplo de detecção de Degradação do tempo de resposta do servidor](media/proactive-performance-diagnostics/server_response_time_degradation.png)
@@ -58,7 +58,7 @@ As notificações incluem informações de diagnóstico. Aqui está um exemplo:
 
 ## <a name="configure-email-notifications"></a>Configurar notificações por email
 
-As notificações de Detecção Inteligente ficam habilitadas por padrão e são enviadas para aqueles que têm [acesso de proprietário, colaborador e leitor ao recurso do Application Insights](../../azure-monitor/app/resources-roles-access-control.md). Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
+As notificações de detecção inteligente são habilitadas por padrão e enviadas aos que têm acesso de [monitoramento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) e [monitoramento de colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) para a assinatura na qual reside o recurso de Application insights. Para alterar isso, clique em **Configurar** na notificação por email ou abra as configurações de Detecção Inteligente no Application Insights. 
   
   ![Configurações de Detecção Inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -66,10 +66,10 @@ As notificações de Detecção Inteligente ficam habilitadas por padrão e são
 
 Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a um email por dia por recurso do Application Insights. O email será enviado somente se houver pelo menos um novo problema que foi detectado no dia em questão. Você não receberá nenhuma mensagem repetida. 
 
-## <a name="faq"></a>Perguntas frequentes
+## <a name="faq"></a>Perguntas Frequentes
 
 * *Portanto, a equipe da Microsoft examina os meus dados?*
-  * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
+  * Nº O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](../../azure-monitor/app/data-retention-privacy.md).
 * *Todos os dados coletados pelo Application Insights são analisados?*
   * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. A análise de métricas adicionais está em nossa lista de pendências para o futuro.
 
@@ -85,7 +85,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
 * *Então isso substitui os [alertas de métrica](../../azure-monitor/app/alerts.md)?*
-  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
+  * Nº  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
 * *Se eu não fizer nada em resposta a uma notificação, receberei um lembrete?*

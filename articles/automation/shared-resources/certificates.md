@@ -4,17 +4,17 @@ description: Os certificados são com segurança na automação do Azure para qu
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d230fa97d009f0ee2a3bc86a0b6b7c8d40687a46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da116dd8c84e4aa96cc3254218f1ab5d14a8bd6b
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216011"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478186"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Ativos de certificado na Automação do Azure
 

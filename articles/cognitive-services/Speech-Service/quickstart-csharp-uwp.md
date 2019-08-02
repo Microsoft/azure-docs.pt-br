@@ -3,24 +3,24 @@ title: 'Início Rápido: Reconhecer fala, C# (UWP) – Serviços de Fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você criará um aplicativo UWP (Plataforma Universal do Windows) em C# usando o SDK de Fala dos Serviços Cognitivos. Você transcreverá a fala em texto em tempo real por meio do microfone do dispositivo. O aplicativo é criado com o pacote NuGet do SDK de Fala e o Microsoft Visual Studio 2017.
 services: cognitive-services
-author: wolfma61
+author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/06/2018
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: lisaweixu
 ms.custom: seodec18
-ms.openlocfilehash: 674bb3f22f7b8c7c7ea3b52c2f27d862a9961fcb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 25b3474e33351d6365af37d78f442768aba88625
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466242"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405918"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer a fala em um aplicativo UWP usando o SDK de Fala
 
-Guias de início rápido também estão disponíveis para a [tradução de fala](quickstart-translate-speech-uwp.md) e o [assistente virtual que tem como prioridade o uso de voz](quickstart-virtual-assistant-csharp-uwp.md).
+Guias de início rápido também estão disponíveis para a [tradução de texto em fala](quickstart-text-to-speech-csharp-uwp.md), [tradução de fala](quickstart-translate-speech-uwp.md) e [assistente virtual com prioridade do uso de voz](quickstart-virtual-assistant-csharp-uwp.md).
 
 Se desejar, escolha uma linguagem de programação e/ou ambiente diferente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

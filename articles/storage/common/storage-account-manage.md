@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
+ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61484228"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67303487"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gerenciar configurações de conta de armazenamento no portal do Azure
 
@@ -20,16 +20,13 @@ Há uma variedade de configurações para sua conta de armazenamento disponívei
 
 ## <a name="access-control"></a>Controle de acesso
 
-O armazenamento do Azure dá suporte à autenticação com o Azure Active Directory para o armazenamento de BLOBs e armazenamento de fila por meio do controle de acesso baseado em função (RBAC). Para obter mais informações sobre a autenticação com o Azure AD, consulte [autenticar o acesso ao Azure blobs e filas usando o Azure Active Directory](storage-auth-aad.md).
+O armazenamento do Azure oferece suporte à autorização com o Azure Active Directory para o armazenamento de BLOBs e armazenamento de fila por meio do controle de acesso baseado em função (RBAC). Para obter mais informações sobre a autorização com o Azure AD, consulte [autorizar o acesso ao Azure blobs e filas usando o Azure Active Directory](storage-auth-aad.md).
 
 As configurações de **Controle de acesso** no portal do Azure oferecem uma maneira simples de atribuir funções de RBAC a usuários, grupos, entidades de serviço e identidades gerenciadas. Para obter mais informações sobre como atribuir funções RBAC, consulte [gerenciar direitos de acesso a dados de blob e fila com RBAC](storage-auth-aad-rbac.md).
 
-> [!NOTE]
-> Autenticar usuários ou aplicativos usando as credenciais do Azure AD oferece mais segurança e facilidade ao usar os meios de autorização. Enquanto você pode continuar a usar a autorização de chave compartilhada com seus aplicativos, usando o AD do Azure evita a necessidade de armazenar sua chave de acesso da conta com o seu código. Também é possível continuar a usar assinaturas de acesso compartilhado (SAS) para conceder acesso refinado a recursos em sua conta de armazenamento, mas o Azure AD oferece recursos semelhantes sem a necessidade de gerenciar tokens SAS ou se preocupar sobre revogar uma SAS comprometida. 
-
 ## <a name="tags"></a>tags
 
-O Armazenamento do Azure é compatível com marcas do Azure Resource Manager para organizar seus recursos do Azure com uma taxonomia personalizada. Você pode aplicar marcas às suas contas de armazenamento, de modo que você pode agrupá-las dentro de sua assinatura de maneira lógica. 
+O Armazenamento do Azure é compatível com marcas do Azure Resource Manager para organizar seus recursos do Azure com uma taxonomia personalizada. Você pode aplicar marcas às suas contas de armazenamento, de modo que você pode agrupá-las dentro de sua assinatura de maneira lógica.
 
 Para contas de armazenamento, o nome da marca é limitado a 128 caracteres e o valor da marca é limitado a 256 caracteres.
 
@@ -41,24 +38,18 @@ Quando você cria uma conta de armazenamento, o Azure gera duas chaves de acesso
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-### <a name="view-and-copy-access-keys"></a>Exibir e copiar as chaves de acesso
+[!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-Para verificar as credenciais da conta de armazenamento:
+### <a name="view-account-keys-and-connection-string"></a>Exibir chaves de conta e a cadeia de caracteres de conexão
 
-1. Navegue até o [Portal do Azure](https://portal.azure.com).
-2. Localize sua cadeia de conexão.
-3. Na seção **Configurações** da visão geral da conta de armazenamento, selecione **Chaves de acesso**. Suas chaves de acesso da conta são exibidas, bem como a cadeia de conexão completa para cada chave.
-4. Encontre o valor da **Chave** em **key1** e clique no botão **Copiar** para copiar a chave de conta.
-5. Como alternativa, você pode copiar a cadeia de conexão inteira. Encontre o valor da **Cadeia de conexão** em **key1** e clique no botão **Copiar** para copiar a cadeia de conexão.
-
-    ![Captura de tela que mostra como exibir as chaves de acesso no portal do Azure](media/storage-manage-account/portal-connection-string.png)
+[!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
 
 A Microsoft recomenda que você regenere as chaves de acesso periodicamente para ajudar a proteger sua conta de armazenamento. Duas chaves de acesso são atribuídas para que você possa girar as chaves. Quando você gira as chaves, garante que seu aplicativo mantém o acesso ao Armazenamento do Azure em todo o processo. 
 
 > [!WARNING]
-> A regeneração das chaves de acesso pode afetar todos os aplicativos ou serviços do Azure que dependem da chave de conta de armazenamento. Todos os clientes que usam a chave de conta para acessar a conta de armazenamento devem ser atualizados para usar a nova chave, incluindo os serviços de mídia, nuvem, aplicativos para área de trabalho e móveis e aplicativos de interface gráfica do usuário para o Armazenamento do Azure, tais como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). 
+> A regeneração das chaves de acesso pode afetar todos os aplicativos ou serviços do Azure que dependem da chave de conta de armazenamento. Todos os clientes que usam a chave de conta para acessar a conta de armazenamento devem ser atualizados para usar a nova chave, incluindo os serviços de mídia, nuvem, aplicativos para área de trabalho e móveis e aplicativos de interface gráfica do usuário para o Armazenamento do Azure, tais como o [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/).
 
 Siga este processo para girar as chaves da conta de armazenamento:
 
@@ -74,6 +65,7 @@ Depois de criar uma conta de armazenamento, você pode modificar sua configuraç
 Alterar a configuração da conta de armazenamento pode resultar em custos adicionais. Para obter mais detalhes, confira a página [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="delete-a-storage-account"></a>Excluir uma conta de armazenamento
+
 Para remover uma conta de armazenamento que você não está mais usando, navegue até a conta de armazenamento do [portal do Azure](https://portal.azure.com)e clique em **Excluir**. A exclusão de uma conta de armazenamento exclui a conta inteira, incluindo todos os dados na conta.
 
 > [!WARNING]

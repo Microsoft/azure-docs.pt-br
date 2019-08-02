@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c3546dbadf64786b398610c19ee7f8e9e740d51
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: d76f4e9d61d8fd210fe9332084f9f44d19e54eed
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956824"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092675"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Tutorial: Integração do Azure Active Directory ao Rollbar
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Rollbar, execute as seguintes e
 
     ![Informações de logon único em Domínio e URLs do Rollbar](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite a URL `https://saml.rollbar.com`
+    a. Na caixa de texto **Identificador**, digite a URL `https://saml.rollbar.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://rollbar.com/<accountname>/saml/sso/azure/`
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Rollbar, execute as seguintes e
 
     ![Configuração](./media/rollbar-tutorial/configure2.png)
 
-     a. Selecione **AZURE** na lista suspensa **Provedor de Identidade do SAML**.
+    a. Selecione **AZURE** na lista suspensa **Provedor de Identidade do SAML**.
 
     b. Abra seu arquivo de metadados no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Metadados do SAML**.
 
@@ -162,7 +162,7 @@ Para configurar o logon único do Azure AD com o Rollbar, execute as seguintes e
     > Para concluir a etapa a seguir, você deve primeiro se adicionar como um usuário ao aplicativo Rollbar no Azure.
     >
 
-     a. Se deseja exigir que todos os usuários sejam autenticados por meio do Azure, clique em **Fazer logon por meio de seu provedor de identidade** para autenticar novamente por meio do Azure.  
+    a. Se deseja exigir que todos os usuários sejam autenticados por meio do Azure, clique em **Fazer logon por meio de seu provedor de identidade** para autenticar novamente por meio do Azure.  
 
     b.  Quando você retornar à tela, selecione a caixa de seleção **Exigir logon por meio do Provedor de Identidade do SAML**.
 
@@ -257,5 +257,5 @@ Ao clicar no bloco do Rollbar no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

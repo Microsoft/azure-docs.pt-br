@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 39f38af601888f847cd1a82da9e2e03e6893c28e
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60591555"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67607291"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar a instância de Cluster de Failover do SQL Server em máquinas virtuais do Azure
 
@@ -54,7 +54,7 @@ Em Máquinas Virtuais do Microsoft Azure você pode licenciar o SQL Server usand
 
 Com licenciamento PAYG, uma instância de cluster de failover (FCI) do SQL Server em Máquinas Virtuais do Microsoft Azure, incorre em encargos de todos os nós de FCI, incluindo os nós passivos. Para mais informações, consulte [Preços de Máquinas Virtuais do SQL Server Enterprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Os clientes com Contrato Enterprise com Software Assurance têm o direito de usar um nó FCI passivo livre para cada nó ativo. Para aproveitar esse benefício no Azure, use imagens de VM BYOL e, em seguida, use a mesma licença nos nós ativo e passivo da FCI. Para obter mais informações, consulte [Contrato Enterprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Os clientes com Contrato Enterprise com Software Assurance têm o direito de usar um nó FCI passivo livre para cada nó ativo. Para aproveitar esse benefício no Azure, use imagens de VM BYOL e, em seguida, use a mesma licença nos nós ativo e passivo da FCI. Para obter mais informações, consulte [Contrato Enterprise](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
 Para comparar licenciamento PAYG e BYOL para SQL Server em Máquinas Virtuais do Microsoft Azure, consulte [Introdução às VMs do SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
@@ -371,7 +371,7 @@ Para criar o balanceador de carga:
    - **Sub-rede**: a mesma sub-rede que a das máquinas virtuais.
    - **Endereço IP privado**: o mesmo endereço IP que foi atribuído ao recurso de rede de cluster de FCI do SQL Server.
    - **Assinatura**: Sua assinatura do Azure.
-   - **Grupo de recursos**: use o mesmo grupo de recursos que suas máquinas virtuais.
+   - **Grupo de Recursos**: use o mesmo grupo de recursos que suas máquinas virtuais.
    - **Localização**: use a mesma localização do Azure que suas máquinas virtuais.
    Confira a seguinte figura:
 
@@ -419,7 +419,7 @@ Para criar o balanceador de carga:
    - **Porta de back-end**: esse valor usa a mesma porta que o valor de **Porta** quando você habilita **IP flutuante (retorno de servidor direto)** .
    - **Pool de back-end**: use o nome do pool de back-end que você já configurou.
    - **Investigação de integridade**: use a investigação de integridade que você já configurou.
-   - **Persistência de sessão**: Nenhuma.
+   - **Persistência de sessão**: nenhuma.
    - **Tempo limite de ociosidade (minutos)** : 4.
    - **IP flutuante (retorno de servidor direto)** : Enabled
 
@@ -491,7 +491,7 @@ Em máquinas virtuais do Azure, o MSDTC não é suportado no Windows Server 2016
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. Com o Windows Server 2016, se você criar um recurso MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo se o armazenamento estiver lá. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não lida com portas RPC.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Instalação S2D com área de trabalho remota (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

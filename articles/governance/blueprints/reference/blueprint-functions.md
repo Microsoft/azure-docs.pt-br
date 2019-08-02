@@ -22,12 +22,12 @@ Há suporte para as funções a seguir:
 
 - [artifacts](#artifacts)
 - [concat](#concat)
-- [parâmetros](#parameters)
+- [parameters](#parameters)
 - [resourceGroup](#resourcegroup)
 - [resourceGroups](#resourcegroups)
 - [subscription](#subscription)
 
-## <a name="artifacts"></a>Artefatos
+## <a name="artifacts"></a>artifacts
 
 `artifacts(artifactName)`
 
@@ -37,7 +37,7 @@ Retorna que um objeto de propriedades preenchido com esse artefato do blueprint 
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| artifactName |Sim |cadeia de caracteres |O nome de um artefato de blueprint. |
+| artifactName |Sim |string |O nome de um artefato de blueprint. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -109,7 +109,7 @@ Alguns exemplos de recuperação de dados das _myTemplateArtifact_ exemplo são:
 
 | Expression | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Cadeia de caracteres | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | Cadeia de caracteres | "meu valor de cadeia de caracteres" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
@@ -126,8 +126,8 @@ Combina vários valores de cadeia de caracteres e retorna o resultado concatenad
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| string1 |Sim |cadeia de caracteres |O primeiro valor de concatenação. |
-| argumentos adicionais |Não |cadeia de caracteres |Valores adicionais em ordem sequencial para concatenação |
+| string1 |Sim |string |O primeiro valor de concatenação. |
+| argumentos adicionais |Não |string |Valores adicionais em ordem sequencial para concatenação |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -151,7 +151,7 @@ Retorna um valor de parâmetro de especificações técnicas. O nome do parâmet
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |cadeia de caracteres |O nome do parâmetro a retornar. |
+| parameterName |Sim |string |O nome do parâmetro a retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -272,7 +272,7 @@ Retorna um objeto que representa o artefato de grupo de recursos especificado. A
 
 | Parâmetro | Obrigatório | Type | DESCRIÇÃO |
 |:--- |:--- |:--- |:--- |
-| placeholderName |Sim |cadeia de caracteres |O nome do espaço reservado do artefato de grupo de recursos para retornar. |
+| placeholderName |Sim |string |O nome do espaço reservado do artefato de grupo de recursos para retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 

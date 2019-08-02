@@ -2,17 +2,17 @@
 title: Proteger os pods com políticas de rede no Serviço de Kubernetes do Azure (AKS)
 description: Saiba como proteger o tráfego que flui para dentro e fora de pods usando diretivas de rede do Kubernetes no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: a0512806ec797f43fc54d8a28a7cbadf86faf1d9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c9bf2c2c459999813c7fc30f95be653168d270ad
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65229986"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613964"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -22,14 +22,14 @@ Este artigo mostra como instalar o mecanismo de políticas de rede e criar polí
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Você precisa da CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa da CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar a CLI do Azure][install-azure-cli].
 
 > [!TIP]
 > Se você usou o recurso de política de rede durante a visualização, é recomendável que você [criar um novo cluster](#create-an-aks-cluster-and-enable-network-policy).
 > 
 > Se você quiser continuar usando os clusters de teste existente que usou a política de rede durante a visualização, atualizar seu cluster para um novas versões do Kubernetes para a versão mais recente do GA e, em seguida, implante o manifesto YAML a seguir para corrigir o servidor de métricas e o Kubernetes com falha Painel de controle. Essa correção só é necessária para clusters que usaram o mecanismo de diretiva de rede Malhado.
 >
-> Como prática recomendada de segurança, [reveja o conteúdo deste manifesto YAML] [ calico-aks-cleanup] para entender o que é implantado no cluster AKS.
+> Como prática recomendada de segurança, [reveja o conteúdo deste manifesto YAML][calico-aks-cleanup] para entender o que é implantado no cluster AKS.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -76,7 +76,7 @@ Para ver as políticas de rede em ação, vamos criar e, em seguida, expanda em 
 
 Primeiro, vamos criar um cluster do AKS que dá suporte à política de rede. O recurso de política de rede pode ser habilitado apenas quando o cluster é criado. Não é possível habilitar a política de rede em um cluster AKS existente.
 
-Para usar a diretiva de rede com um cluster do AKS, você deve usar o [plug-in do Azure CNI] [ azure-cni] e definir sua própria rede virtual e sub-redes. Para saber mais sobre como planejar os intervalos de sub-rede necessários, consulte [Configurar a rede avançada][use-advanced-networking].
+Para usar a diretiva de rede com um cluster do AKS, você deve usar o [plug-in do Azure CNI][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking].
 
 O exemplo de script a seguir:
 
@@ -138,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-São necessários alguns minutos para criar o cluster. Quando o cluster estiver pronto, configure `kubectl` para se conectar ao cluster Kubernetes usando o [az aks get-credentials] [ az-aks-get-credentials] comando. Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las:
+São necessários alguns minutos para criar o cluster. Quando o cluster estiver pronto, configure `kubectl` para se conectar ao cluster Kubernetes usando o [az aks get-credentials][az-aks-get-credentials] comando. Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -207,7 +207,7 @@ spec:
   ingress: []
 ```
 
-Aplicar a política de rede usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Aplicar a política de rede usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -265,7 +265,7 @@ spec:
 > [!NOTE]
 > Esta política de rede usa *namespaceSelector* e um elemento *podSelector* para a regra de entrada. A sintaxe YAML é importante para as regras de entrada ser aditivos. Neste exemplo, os dois elementos devem corresponder à regra de entrada a ser aplicada. As versões do Kubernetes anteriores ao *1.12* não pode interpretar esses elementos corretamente e restringir o tráfego de rede, conforme o esperado. Para obter mais informações sobre esse comportamento, consulte [comportamento de e para seletores][policy-rules].
 
-Aplicar a política de rede atualizado usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Aplicar a política de rede atualizado usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -388,7 +388,7 @@ spec:
 
 Nos exemplos mais complexos, você pode definir várias regras de entrada, como um *namespaceSelector* e, em seguida, um *podSelector*.
 
-Aplicar a política de rede atualizado usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Aplicar a política de rede atualizado usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```azurecli-interactive
 kubectl apply -f backend-policy.yaml
@@ -446,7 +446,7 @@ exit
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Neste artigo, criamos dois namespaces e aplicou uma política de rede. Para limpar esses recursos, use o [excluir kubectl] [ kubectl-delete] de comando e especifique os nomes de recursos:
+Neste artigo, criamos dois namespaces e aplicou uma política de rede. Para limpar esses recursos, use o [kubectl excluir][kubectl-delete] de comando e especifique os nomes de recursos:
 
 ```console
 kubectl delete namespace production

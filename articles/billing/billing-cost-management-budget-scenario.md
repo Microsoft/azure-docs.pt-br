@@ -3,7 +3,7 @@ title: Cenário de orçamento de gerenciamento de custos e cobrança do Azure | 
 description: Saiba como usar a automação do Azure para desligar as VMs com base nos limites do orçamento específico.
 services: billing
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 03/13/2019
-ms.author: erikre
-ms.openlocfilehash: 4bf76ac0bdd59764815f18a40a3e243d7cf9d920
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 37f129526cb184a2eeee9e36028e8f00b5bbc247
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60616947"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443472"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerenciar os custos com os Orçamentos do Azure
 
@@ -125,7 +125,7 @@ As etapas a seguir são necessários para criar o aplicativo lógico que executa
 
 Depois que o Azure implantar o aplicativo lógico, o **Designer de Aplicativos Lógicos** será aberto e mostrará uma folha com um vídeo de introdução os gatilhos normalmente usados.
 
-### <a name="add-a-trigger"></a>Adicionar um gatilho
+### <a name="add-a-trigger"></a>Adicione um gatilho
 
 Cada aplicativo lógico deve começar com um gatilho, que é disparado quando um evento específico ocorre ou quando uma condição específica é atendida. Cada vez que o disparador é acionado, o mecanismo de Aplicativos Lógicos cria uma instância de aplicativo lógico que inicia e executa o fluxo de trabalho. Ações são todas as etapas que ocorrem após o gatilho.
 
@@ -289,7 +289,7 @@ Você concluiu todos os componentes de suporte necessários para orquestrar seu 
 
 ## <a name="create-the-azure-budget"></a>Criar o orçamento do Azure
 
-Você pode criar um orçamento no portal do Azure usando o [recurso de orçamento](../cost-management/tutorial-acm-create-budgets.md) no gerenciamento de custos. Ou, você pode criar um orçamento usando APIs REST, cmdlets do Powershell, ou usar a CLI. O procedimento a seguir usa a API REST. Antes de chamar a API REST, você precisará de um token de autorização. Para criar um token de autorização, você pode usar o projeto [ARMClient](https://github.com/projectkudu/ARMClient). O **ARMClient** permite que você se autentique com o Azure Resource Manager e obtenha um token para chamar as APIs.
+Você pode criar um orçamento no portal do Azure usando o [recurso de orçamento](../cost-management/tutorial-acm-create-budgets.md) no gerenciamento de custos. Ou, você pode criar um orçamento usando as APIs REST, os cmdlets do PowerShell ou usar a CLI. O procedimento a seguir usa a API REST. Antes de chamar a API REST, você precisará de um token de autorização. Para criar um token de autorização, você pode usar o projeto [ARMClient](https://github.com/projectkudu/ARMClient). O **ARMClient** permite que você se autentique com o Azure Resource Manager e obtenha um token para chamar as APIs.
 
 ### <a name="create-an-authentication-token"></a>Criar um token de autenticação
 
@@ -328,7 +328,7 @@ Em seguida, você configurará **Postman** para criar um orçamento, chamando as
 8.  Defina o **Valor** para o token criado usando o ArmClient no final da última seção.
 9.  Selecione a guia **Corpo** no Postman.
 10. Selecione a opção de botão **bruto**.
-11. Na caixa de texto, cole a abaixo um exemplo de definição de orçamento, porém você deve substituir a **subscriptionid**, **budgetname**, e **actiongroupname** parâmetros com seu ID da assinatura, um nome exclusivo para seu orçamento e o nome de grupo de ação que você criou na URL e o corpo da solicitação:
+11. Na caixa de texto, cole na definição de orçamento de exemplo abaixo, no entanto , você deve substituir os parâmetros SubscriptionId, **orcaname**e **actiongroupname** pela sua ID de assinatura, um nome exclusivo para seu orçamento e o nome do grupo de ação Você criou tanto na URL quanto no corpo da solicitação:
 
     ```
         {

@@ -14,26 +14,22 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 5eb9d0631a4d5f4221b5184198290a5109655408
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864784"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326579"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início Rápido: Criar uma função do Azure com a Configuração de Aplicativo
+# <a name="quickstart-create-an-azure-function-with-azure-app-configuration"></a>Início Rápido: Criar uma função do Azure com a Configuração de Aplicativos do Azure
 
-A Configuração de Aplicativo do Azure é um serviço de configuração gerenciada no Azure. É possível utilizá-lo para armazenar e gerenciar facilmente todas as configurações de aplicativo em um local separado do código. Este início rápido mostra como incorporar o serviço em um Azure Functions. 
-
-Você pode usar qualquer editor de código para executar as etapas deste início rápido. O [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
-
-![Início rápido local completo](./media/quickstarts/dotnet-core-function-launch-local.png)
+Neste guia de início rápido, você incorpora o serviço de Configuração de Aplicativos do Azure em uma função do Azure para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer este início rápido, instale o [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Garanta que a carga de trabalho de **desenvolvimento do Azure** também seja instalada. Instale também as [ferramentas do Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version) mais recentes.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
+- [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de **desenvolvimento do Azure**.
+- [Ferramentas do Azure Functions](../azure-functions/functions-develop-vs.md#check-your-tools-version)
 
 ## <a name="create-an-app-configuration-store"></a>Criar um repositório de configurações de aplicativo
 
@@ -56,7 +52,7 @@ Para fazer este início rápido, instale o [Visual Studio 2019](https://visualst
 1. Clique com o botão direito do mouse no projeto e selecione **Gerenciar Pacotes do NuGet**. Na guia **Navegar**, pesquise e adicione os seguintes pacotes do NuGet ao projeto. Se você não conseguir localizá-los, marque a caixa de seleção **Incluir pré-lançamento**.
 
     ```
-    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 2.0.0-preview-009200001-1437 or later
     ```
 
 2. Abra *Function1.cs* e adicione uma referência ao provedor da Configuração de Aplicativos do .NET Core.

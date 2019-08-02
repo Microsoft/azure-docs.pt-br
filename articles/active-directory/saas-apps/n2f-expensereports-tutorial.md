@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 7380cf6727817d99edbedf5552c8bea42f177074
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7b38f26261625c6db8acb6653b3cd9353fdcc2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744511"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096511"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-n2f---expense-reports"></a>Tutorial: integração do Azure Active Directory ao N2F – Relatórios de despesas
 
@@ -52,7 +52,7 @@ Para configurar a integração do N2F - Expense reports ao Microsoft Azure Activ
 
 **Para adicionar o N2F - Expense reports da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o N2F – Expense reports, execut
 
     ![Configuração do N2F - Expense reports](./media/n2f-expensereports-tutorial/configure5.png)
 
-     a. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **ID da Entidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do portal do Azure.
 
@@ -229,13 +229,13 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
     ![Configuração do N2F - Expense reports](./media/n2f-expensereports-tutorial/user3.png)
 
-     a. Na caixa de texto **Endereço de email**, insira o endereço de email do usuário como **brendafernandes\@contoso.com**.
+    a. Na caixa de texto **Endereço de email**, insira o endereço de email do usuário como **brendafernandes\@contoso.com**.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     c. Na caixa de texto **Nome**, insira o nome de usuário, como **BrendaFernandes**.
 
-    d. Escolher **Função de gerente direto (N + 1)**, e **Divisão**, de acordo com o requisito da organização.
+    d. Escolher **Função de gerente direto (N + 1)** , e **Divisão**, de acordo com o requisito da organização.
 
     e. Clique em **Validar e Enviar convite**.
 
@@ -254,5 +254,5 @@ Ao clicar no bloco do N2F – Expense reports no Painel de Acesso, você deverá
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

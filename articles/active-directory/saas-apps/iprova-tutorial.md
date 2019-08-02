@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa5b66b3cf2ec038107293da7a821fcb75273fc9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bf685919879a9ee82cbaa3863826c891422d3013
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64718345"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099814"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Tutorial: Integração do Azure Active Directory ao iProva
 
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o iProva, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do iProva](common/sp-identifier-reply.png)
 
-     a. Preencha a caixa **Identificador** com o valor exibido por trás do rótulo **EntityID** na página **Informações de SAML2 do iProva**. Esta página ainda está aberta em outra guia do navegador.
+    a. Preencha a caixa **Identificador** com o valor exibido por trás do rótulo **EntityID** na página **Informações de SAML2 do iProva**. Esta página ainda está aberta em outra guia do navegador.
 
     b. Preencha a caixa **URL de resposta** com o valor exibido por trás do rótulo **URL de resposta** na página **Informações de SAML2 do iProva**. Esta página ainda está aberta em outra guia do navegador.
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o iProva, execute as seguintes et
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -287,4 +287,4 @@ Ao clicar no bloco do iProva no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

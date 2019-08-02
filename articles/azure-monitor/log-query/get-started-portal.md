@@ -1,27 +1,27 @@
 ---
-title: Introdução ao Log Analytics do Azure Monitor | Microsoft Docs
+title: Introdução ao Azure Monitor Log Analytics | Microsoft Docs
 description: Este artigo fornece um tutorial para usar o Log Analytics no portal do Azure para escrever consultas.
 services: log-analytics
 author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
-ms.openlocfilehash: af01ebdc72df096b45c4ca4e755b2ed3880bab65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf2aee475f5d3933421de45fa5b2ade687bed62f
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255273"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348077"
 ---
-# <a name="get-started-with-azure-monitor-log-analytics"></a>Introdução ao Log Analytics do Azure Monitor
+# <a name="get-started-with-log-analytics-in-azure-monitor"></a>Introdução ao Log Analytics no Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-Neste tutorial, você aprenderá como usar o Log Analytics do Azure Monitor no portal do Azure para escrever consultas de log do Azure Monitor. Ele irá ensiná-lo como para:
+Neste tutorial, você aprenderá a usar Log Analytics na portal do Azure para gravar Azure Monitor consultas de log. Ele irá ensiná-lo como para:
 
-- Escrever consultas simples
+- Usar Log Analytics para escrever uma consulta simples
 - Compreender o esquema de seus dados
 - Filtrar, classificar e agrupar resultados
 - Aplicar um intervalo de tempo
@@ -29,13 +29,22 @@ Neste tutorial, você aprenderá como usar o Log Analytics do Azure Monitor no p
 - Salvar e carregar consultas
 - Exportar e compartilhar consultas
 
+Para obter um tutorial sobre como escrever consultas de log, consulte Introdução [às consultas de log em Azure monitor](get-started-queries.md).<br>
+Para obter mais detalhes sobre consultas de log, consulte [visão geral das consultas de log no Azure monitor](log-query-overview.md).
 
-## <a name="meet-log-analytics"></a>Atender a Log Analytics
-Log Analytics é uma ferramenta da web usada para gravar e executar consultas de log do Azure Monitor. Abra-a selecionando **Logs** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
+## <a name="meet-log-analytics"></a>Atender Log Analytics
+Log Analytics é uma ferramenta da Web usada para gravar e executar Azure Monitor consultas de log. Abra-a selecionando **Logs** no menu do Azure Monitor. Ele começa com uma nova consulta em branco.
 
-![Página inicial](media/get-started-portal/homepage.png)
+![Home page](media/get-started-portal/homepage.png)
 
+## <a name="firewall-requirements"></a>Requisitos de firewall
+Para usar Log Analytics, seu navegador requer acesso aos endereços a seguir. Se seu navegador estiver acessando o portal do Azure por meio de um firewall, você deverá habilitar o acesso a esses endereços.
 
+| URI | IP | Portas |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinâmico | 80.443 |
+| api.loganalytics.io | Dinâmico | 80.443 |
+| docs.loganalytics.io | Dinâmico | 80.443 |
 
 ## <a name="basic-queries"></a>Consultas básicas
 As consultas podem ser usadas para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base em seus dados. Comece com uma consulta básica:
@@ -44,9 +53,9 @@ As consultas podem ser usadas para pesquisar termos, identificar tendências, an
 Event | search "error"
 ```
 
-Essa consulta pesquisa a tabela _Evento_ em busca de registros que contenham o termo "erro" em qualquer propriedade.
+Essa consulta pesquisa a tabela de _eventos_ em busca de registros que contenham o termo _erro_ em qualquer propriedade.
 
-Consultas podem começar com um nome de tabela ou um **pesquisa** comando. O exemplo acima começa com o nome da tabela _Evento_, que define o escopo da consulta. O caractere de barra vertical (|) separa os comandos, portanto, a saída da primeira serve como a entrada do comando a seguir. Você pode adicionar qualquer número de comandos para uma única consulta.
+Consultas podem começar com um nome de tabela ou um [pesquisa](/azure/kusto/query/searchoperator) comando. O exemplo acima começa com o _evento_table name, que recupera todos os registros da tabela de eventos. O caractere de pipe (|) separa os comandos, de modo que a saída do primeiro serve como entrada do comando a seguir. Você pode adicionar qualquer número de comandos para uma única consulta.
 
 Outra maneira de escrever essa mesma consulta seria:
 
@@ -54,18 +63,18 @@ Outra maneira de escrever essa mesma consulta seria:
 search in (Event) "error"
 ```
 
-Neste exemplo, a **pesquisa**  tem escopo para a tabela _Evento_ e todos os registros nessa tabela são pesquisados pelo termo "erro".
+Neste exemplo, a **pesquisa** tem o escopo definido para a tabela de _eventos_ , e todos os registros nessa tabela são pesquisados para o termo _erro_.
 
 ## <a name="running-a-query"></a>Executando uma consulta
 Executar uma consulta clicando o **executados** botão ou pressionando **Shift + Enter**. Considere os detalhes a seguir que determinam o código que será executado e os dados retornados:
 
-- Quebras de linha: uma única quebra torna sua consulta mais clara. Várias quebras de linha o dividiram em consultas separadas.
+- Quebras de linha: Uma única quebra torna sua consulta mais fácil de ler. Várias quebras de linha o dividiram em consultas separadas.
 - Cursor: coloque o cursor em algum lugar dentro da consulta para executá-la. A consulta atual é considerada como sendo o código até que uma linha em branco seja encontrada.
 - Intervalo - um intervalo de tempo de tempo _últimas 24 horas_ é definido por padrão. Para usar um intervalo diferente, use o seletor de tempo ou adicione um filtro de intervalo de tempo explícito à sua consulta.
 
 
 ## <a name="understand-the-schema"></a>Entenda o esquema
-O esquema é uma coleção de tabelas agrupadas visualmente em uma categoria lógica. Várias das categorias são de soluções de monitoramento. A categoria _LogManagement_ contém dados comuns, como eventos do Windows e do Syslog, dados de desempenho e pulsações do cliente.
+O esquema é uma coleção de tabelas agrupadas visualmente em uma categoria lógica. Várias das categorias são de soluções de monitoramento. A categoria _LogManagement_ contém dados comuns, como eventos do Windows e syslog, dados de desempenho e pulsações do agente.
 
 ![Esquema](media/get-started-portal/schema.png)
 
@@ -78,7 +87,7 @@ Comece obtendo tudo na tabela _Evento_.
 Event
 ```
 
-Log Analytics tem como escopo automaticamente os resultados por:
+Log Analytics os resultados de escopos automaticamente por:
 
 - Intervalo de tempo:  por padrão, consultas estão limitadas às últimas 24 horas.
 - Número de resultados: os resultados estão limitados a um máximo de 10.000 registros.
@@ -97,7 +106,7 @@ Agora vamos nos concentrar em eventos com severidade _erro_. Isso é especificad
 
 Clique no ícone Filtro ao lado do título da coluna e, na janela pop-up, selecione valores que _começa com_ o texto _erro_:
 
-![Filter](media/get-started-portal/filter.png)
+![Filtro](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>Ordenar e agrupar resultados
@@ -116,7 +125,7 @@ A tabela de resultados geralmente inclui muitas colunas. Você pode achar que al
 
 
 ## <a name="select-a-time-range"></a>Selecione um intervalo de tempo
-Por padrão, o Log Analytics se aplica a _últimas 24 horas_ intervalo de tempo. Para usar um intervalo diferente, selecione outro valor no seletor de tempo e clique em **Executar**. Além dos valores de predefinição, você pode usar o _intervalo de tempo personalizado_ opção para selecionar um intervalo absoluto para a sua consulta.
+Por padrão, Log Analytics aplica o intervalo de hora das _últimas 24 horas_ . Para usar um intervalo diferente, selecione outro valor no seletor de tempo e clique em **Executar**. Além dos valores de predefinição, você pode usar o _intervalo de tempo personalizado_ opção para selecionar um intervalo absoluto para a sua consulta.
 
 ![Seletor de tempo](media/get-started-portal/time-picker.png)
 
@@ -170,6 +179,9 @@ Você pode salvar toda a página de consulta ou uma única consulta como uma fun
 
 ![Salvar função](media/get-started-portal/save-function.png)
 
+>[!NOTE]
+>Os caracteres a seguir têm suporte `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` -no campo **nome** ao salvar ou editar a consulta salva.
+
 As consultas do Log Analytics são sempre salvas em um workspace selecionado e compartilhadas com outros usuários desse workspace.
 
 ## <a name="load-queries"></a>Carregar consultas
@@ -178,10 +190,10 @@ O ícone do Query Explorer está na área superior direita. Isso lista todas as 
 ![Gerenciador de consultas](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exportar e compartilhar como link
-Log Analytics dá suporte a vários métodos de exportação:
+O Log Analytics dá suporte a vários métodos de exportação:
 
 - Excel: salve os resultados como um arquivo CSV.
-- Power BI: exporte os resultados para o Power BI. Para obter mais detalhes, confira [Importar dados de log do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md).
+- Power BI: Exporte os resultados para Power BI. Para obter mais detalhes, confira [Importar dados de log do Azure Monitor para o Power BI](../../azure-monitor/platform/powerbi.md).
 - Compartilhar um link: a consulta em si pode ser compartilhada como um link, que pode ser enviado e executado por outros usuários que têm acesso ao mesmo espaço de trabalho.
 
 ## <a name="next-steps"></a>Próximas etapas

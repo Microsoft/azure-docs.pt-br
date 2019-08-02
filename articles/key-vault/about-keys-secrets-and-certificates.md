@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b50f98c4abaeda3ac1805b73aa18fe6c29596426
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52a0bc1b07ebf1aed55551e37ecc122ff393c0f7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64708695"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67703912"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre Chaves, Segredos e Certificados
 
@@ -69,7 +69,7 @@ Um identificador de objeto tem o seguinte formato geral:
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-Em que:  
+Sendo que:  
 
 |||  
 |-|-|  
@@ -198,7 +198,7 @@ Você pode especificar mais metadados específicos do aplicativo na forma de mar
 
 O controle de acesso para chaves gerenciados pelo Cofre de Chaves é fornecido no nível de um Cofre de Chaves que atua como o contêiner de chaves. A política de controle de acesso para chaves é diferente da política de controle de acesso para segredos no mesmo Key Vault. Os usuários podem criar um ou mais cofres para armazenar chaves e são solicitados a manter a segmentação e gerenciamento de chaves apropriados do cenário. O controle de acesso para chaves é independente do controle de acesso para segredos.  
 
-As seguintes permissões podem ser concedidas, por usuário / serviço, na entrada de controle de acesso de chaves em um cofre. Essas permissões refletem com maior exatidão as operações permitidas em um objeto de chave:  
+As seguintes permissões podem ser concedidas, por usuário / serviço, na entrada de controle de acesso de chaves em um cofre. Essas permissões refletem com maior exatidão as operações permitidas em um objeto de chave.  Conceder acesso a uma entidade de serviço no cofre de chaves é uma operação onetime, e ela será mantida mesma para todas as assinaturas do Azure. Você pode usá-lo para implantar certificados quantos desejar. 
 
 - Permissões para operações de gerenciamento de chaves
   - *obter*: Ler a parte pública de uma chave, além de seus atributos
@@ -330,7 +330,7 @@ Há mais atributos somente leitura que são incluídos em resposta:
 > [!Note] 
 > Se um certificado do Cofre de Chaves expirar, sua chave e segredo endereçáveis ficam inoperantes.  
 
-#### <a name="tags"></a>tags
+#### <a name="tags"></a>Marcas
 
  O dicionário de pares de valor de chave especificado pelo cliente, semelhantes às marcas em chaves e segredos.  
 
@@ -473,8 +473,7 @@ As seguintes permissões podem ser usadas ao autorizar um usuário ou entidade d
 
 Para obter mais informações, confira [Operações de conta de armazenamento na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [Cofres – atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 - [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)
-- [Versões do Cofre de Chaves](key-vault-versions.md)
 - [Guia do Desenvolvedor do Cofre de Chaves](/azure/key-vault/key-vault-developers-guide)

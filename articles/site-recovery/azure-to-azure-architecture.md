@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 25cf3914274e73e0789aa87e9288649d1b0cb1eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9f985260175e5f54a17799ef07b3a280f42b716e
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399586"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491877"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitetura de recuperação de desastre do Azure para o Azure
 
@@ -31,7 +31,7 @@ Os componentes envolvidos na recuperação de desastre para VMs do Azure são re
 **VMs na região de origem** | Uma ou mais VMs do Azure em uma [região de origem compatível](azure-to-azure-support-matrix.md#region-support).<br/><br/> As VMs podem executar qualquer [sistema operacional compatível](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 **Armazenamento das VMs de origem** | As VMs do Azure podem ser gerenciadas ou ter discos não gerenciados distribuídos em contas de armazenamento.<br/><br/>[Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---storage) sobre o armazenamento do Azure compatível.
 **Redes de VMs de origem** | As VMs podem estar localizadas em uma ou mais sub-redes de uma VNET (rede virtual) na região de origem. [Saiba mais](azure-to-azure-support-matrix.md#replicated-machines---networking) sobre os requisitos de rede.
-**Conta de armazenamento em cache** | Você precisa de uma conta de armazenamento em cache na rede de origem. Durante a replicação, as alterações na VM são armazenadas no cache antes de serem enviadas para o armazenamento de destino.<br/><br/> O uso de um cache garante um impacto mínimo nos aplicativos de produção que são executados em uma VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento em cache. 
+**Conta de armazenamento em cache** | Você precisa de uma conta de armazenamento em cache na rede de origem. Durante a replicação, as alterações na VM são armazenadas no cache antes de serem enviadas para o armazenamento de destino.  Contas de armazenamento em cache devem ser o padrão.<br/><br/> O uso de um cache garante um impacto mínimo nos aplicativos de produção que são executados em uma VM.<br/><br/> [Saiba mais](azure-to-azure-support-matrix.md#cache-storage) sobre os requisitos de armazenamento em cache. 
 **Recursos de destino** | Os recursos de destino são usados durante a replicação e quando ocorre um failover. O Site Recovery pode configurar o recurso de destino por padrão, ou você pode criá-lo/personalizá-lo.<br/><br/> Na região de destino, verifique se você consegue criar VMs e se a sua assinatura tem recursos suficientes para dar suporte a tamanhos de VM que serão necessários na região de destino. 
 
 ![Replicação de origem e de destino](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)

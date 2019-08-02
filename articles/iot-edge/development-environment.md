@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6fc2af0cbe770ee787da757966bbc1647717e5a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddfa93328fb3533a937cc7f0d81482b66275faf3
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66302676"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67848961"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o ambiente de desenvolvimento e teste para o IoT Edge
 
@@ -55,18 +55,18 @@ Os modelos de módulo para algumas linguagens e serviços têm os pré-requisito
 
 | Modelo do módulo | Pré-requisito |
 | --------------- | ------------ |
-| Funções do Azure | [SDK do .NET Core 2.1](https://www.microsoft.com/net/download) |
+| Verificação de | [SDK do .NET Core 2.1](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [SDK do .NET Core 2.1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](https://aka.ms/azure-jdks) <li> [Defina a variável de ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Gerador de módulo Node. js do IoT Edge do Azure](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-20172019-extension"></a>Extensão do Visual Studio 2017/2019
 
-As ferramentas do Azure IoT Edge para Visual Studio fornecem um IoT Edge criado no modelo do módulo de C# e C. 
+As ferramentas de Azure IoT Edge para o Visual Studio fornecem um modelo de módulo C# de IOT Edge baseado em e C. 
 
-Para obter mais informações e baixar, consulte [ferramentas do Azure IoT Edge para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) ou [ferramentas do Azure IoT Edge para Visual Studio de 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
+Para obter mais informações e baixar, consulte [Azure IOT Edge Tools for visual studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) ou [Azure IOT Edge Tools for Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>Ferramenta de desenvolvimento IoT Edge
 
@@ -109,7 +109,7 @@ Para obter mais informações, consulte[ Executar o Azure IoT Edge em um contêi
 
 ### <a name="iot-edge-device-container"></a>Contêiner de desenvolvimento de IoT Edge
 
-O contêiner de dispositivo do IoT Edge é um dispositivo de IoT Edge concluído, pronto para ser iniciado em qualquer computador com um mecanismo de contêiner. O contêiner de dispositivo inclui o tempo de execução do IoT Edge e um mecanismo de contêiner em si. Cada instância do contêiner é um dispositivo de IoT Edge de autoprovisionamento totalmente funcional. O contêiner do dispositivo dá suporte à depuração remota de módulos, desde que exista uma rota de rede para o módulo. O contêiner de dispositivo é bom para a criação rápida de grandes números de IoT Edge dispositivos para testar cenários em escala ou Pipelines do Azure. Ele também dá suporte à implantação de kubernetes por meio do helm. 
+O contêiner de dispositivo do IoT Edge é um dispositivo de IoT Edge concluído, pronto para ser iniciado em qualquer computador com um mecanismo de contêiner. O contêiner de dispositivo inclui o tempo de execução do IoT Edge e um mecanismo de contêiner em si. Cada instância do contêiner é um dispositivo de IoT Edge de autoprovisionamento totalmente funcional. O contêiner do dispositivo dá suporte à depuração remota de módulos, desde que exista uma rota de rede para o módulo. O contêiner do dispositivo é bom para criar rapidamente grandes números de dispositivos IoT Edge para testar cenários em escala ou Azure Pipelines. Ele também dá suporte à implantação de kubernetes por meio do helm. 
 
 Para obter mais informações, consulte[ Contêiner de desenvolvimento do Azure IoT Edge](https://github.com/toolboc/azure-iot-edge-device-container).
 

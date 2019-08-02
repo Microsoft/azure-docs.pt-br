@@ -1,7 +1,7 @@
 ---
-title: Transferir a propriedade de assinatura do Azure para outra conta | Microsoft Docs
-description: Descreve como transferir uma assinatura do Azure para outro usuário e algumas perguntas frequentes sobre o processo
-keywords: transferir assinatura do Azure, assinatura de transferência do Azure, mover assinatura do Azure para outra conta, alterar proprietário da assinatura do Azure, transferir assinatura do Azure para outra conta
+title: Transferir a propriedade de cobrança da assinatura do Azure para outra conta | Microsoft Docs
+description: Descreve como transferir a propriedade da cobrança de uma assinatura do Azure para outra conta e algumas perguntas frequentes (FAQ) sobre o processo
+keywords: transferir a assinatura de transferência de assinatura do azure, azure, mover assinatura do azure para outra conta, do azure Alterar proprietário da assinatura, transferir assinatura do azure para cobrança da transferência de outra conta, do azure
 author: bandersmsft
 manager: amberb
 tags: billing,top-support-issue
@@ -10,170 +10,205 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 07/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91880e43382662b5d55f112455ee8f4c92ad01c5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7d41e32065e3de37eb8f01ab1b836040e7f57b12
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66471589"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657911"
 ---
-# <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma assinatura do Azure para outra conta
+# <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
-Transfira sua assinatura para outro usuário no Centro de Contas para alterar o Administrador da Conta e passar a propriedade da cobrança da assinatura. Para alterar sua assinatura para uma oferta diferente, consulte [Trocar a assinatura do Azure por outra oferta](billing-how-to-switch-azure-offer.md).
+Talvez você queira transferir a propriedade de cobrança da sua assinatura do Azure se você deixa sua organização, ou se você deseja que sua assinatura será cobrado para outra conta. Transferir a propriedade para outra conta fornece os administradores da nova permissão de conta para executar tarefas de cobrança, como alterar o método de pagamento, Exibir encargos e cancelar a assinatura.
 
-> [!IMPORTANT]
->
-> Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino. Você também precisará recriar manualmente as identidades gerenciadas para recursos do Azure. Para obter mais informações, consulte [identidades gerenciadas de perguntas frequentes e problemas conhecidos com](../active-directory/managed-identities-azure-resources/known-issues.md).
+Se você quiser manter a propriedade de cobrança, mas a alteração do tipo de sua assinatura, consulte [alterar sua assinatura do Azure para outra oferta](billing-how-to-switch-azure-offer.md). Se você quiser controlar quem pode gerenciar recursos na assinatura, consulte [funções internas para recursos do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
-## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferir a propriedade de uma assinatura do Azure
+Se você for um cliente do Enterprise Agreement (EA), os administradores de empresa podem transferir a propriedade da cobrança de suas assinaturas entre contas. Para obter mais informações, consulte [transferir a propriedade de cobrança de assinaturas do Enterprise Agreement (EA)](#transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions).
 
-> [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
+## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Transferir a propriedade de cobrança de uma assinatura do Azure
 
+1. Entrar para o [portal do Azure](https://portal.azure.com) como administrador da conta de cobrança que tem a assinatura que você deseja transferir. Para saber se você for um administrador, consulte [perguntas frequentes](#faq).
 
-1. Entre no [Centro de Contas do Azure](https://account.windowsazure.com/Subscriptions) como o Administrador da Conta. Para descobrir quem é o Administrador da Conta da assinatura, consulte as [Perguntas frequentes](#faq).
+1. Pesquise **Gerenciamento de Custos do Azure + Cobrança**.
 
-1. Selecione a assinatura para transferir.
+   ![Captura de tela que mostra a pesquisa do portal do Azure](./media/billing-subscription-transfer/billing-search-cost-management-billing.png)
 
-1. Verifique se sua assinatura está qualificada para transferência de autoatendimento verificando a **Oferta** e a **ID da oferta** com a [lista de ofertas com suporte](#supported).
+1. Selecione **assinaturas** do painel esquerdo. Dependendo do seu acesso, você precisará selecionar um escopo de cobrança e, em seguida, selecione **inscrições** ou **assinaturas do Azure**.
 
-   ![Verifique a ID de oferta da assinatura no Centro de Contas](./media/billing-subscription-transfer/image0.png)
-1. Clique em **Transferir assinatura**.
+1. Selecione **transferir a propriedade de cobrança** para a assinatura que você deseja transferir. 
 
-   ![Guia de assinaturas de conta do Azure](./media/billing-subscription-transfer/image1.png)
-1. Especifique o destinatário.
+   ![Selecione a assinatura para transferir](./media/billing-subscription-transfer/billing-select-subscription-to-transfer.png)
 
-   > [!IMPORTANT]
-   >
-   > Se você transferir uma assinatura para um novo locatário do Azure Active Directory, todas as atribuições de função no [ RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) serão excluídas permanentemente do locatário de origem e não serão migradas para o locatário de destino. Você também precisará recriar manualmente as identidades gerenciadas para recursos do Azure. Para obter mais informações, consulte [identidades gerenciadas de perguntas frequentes e problemas conhecidos com](../active-directory/managed-identities-azure-resources/known-issues.md).
+1. Insira o endereço de email de um usuário que seja um administrador de cobrança da conta que será o novo proprietário da assinatura e, em seguida, selecione **enviar solicitação de transferência**.
 
-   ![Caixa de diálogo de assinatura de transferência](./media/billing-subscription-transfer/image2.PNG)
+    > [!IMPORTANT]
+    >
+    > Se você transferir a propriedade de cobrança da sua assinatura para uma conta de usuário no AD do Azure de outro locatário, todos os [controle de acesso baseado em função (RBAC)](../role-based-access-control/overview.md) atribuições para gerenciar recursos na assinatura serão removidas permanentemente. Somente o novo proprietário terá acesso para gerenciar recursos na assinatura. Para obter mais informações, consulte [transferir a assinatura a um usuário em outro locatário do Azure AD](../active-directory/managed-identities-azure-resources/known-issues.md).
+  
+    ![Enviar a página de transferência](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 
-1. O destinatário recebe automaticamente um email com um link de aceitação.
+1. O usuário recebe um email com instruções para revisar a solicitação de transferência.
 
-   ![Email de transferência de assinatura para o destinatário](./media/billing-subscription-transfer/image3.png)
-1. O destinatário clica no link e segue as instruções, incluindo inserir suas informações de pagamento.
+   ![Email de transferência de assinatura para o destinatário](./media/billing-subscription-transfer/billing-receiver-email.png)
 
-   ![Primeira página da Web de transferência de assinatura](./media/billing-subscription-transfer/image4.png)
+1. Para aprovar a solicitação de transferência, o usuário seleciona o link no email e segue as instruções. O usuário precisa selecionar um método de pagamento que será usado para pagar pela assinatura. Além disso, se o usuário não tiver uma conta do Azure, eles teria se inscrever para uma nova conta. 
 
-   ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/image5.png)
+   ![Primeira página da Web de transferência de assinatura](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
+
+   ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/billing-accept-ownership-step2.png)
+
+   ![Segunda página da Web de transferência de assinatura](./media/billing-subscription-transfer/billing-accept-ownership-step3.png)
+
 1. Sucesso! Agora a assinatura será transferida.
+
+## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>Transferência de assinatura para uma conta em outro locatário do Azure AD
+
+Um locatário do Azure Active Directory (AD) é criado quando você se inscrever para o Azure. O locatário representa sua conta. Você pode usar o locatário para gerenciar o acesso a suas assinaturas e recursos.
+
+Quando você cria uma nova assinatura, ele é hospedado no locatário do Azure AD da sua conta. Se você deseja fornecer a que outros usuários acessem a sua assinatura ou recursos, você precisa para convidá-los ao seu locatário. Isso ajuda a controlar o acesso a suas assinaturas e recursos.
+
+Quando você transfere a propriedade de cobrança da sua assinatura a uma conta no outro locatário do AD do Azure, a assinatura é movida para o locatário da nova conta. Todos os usuários, grupos ou entidades de serviço que tinham [(RBAC) de acesso baseado em função](../role-based-access-control/overview.md) perderão o acesso para gerenciar recursos na assinatura. Somente o usuário na nova conta que aceitar sua solicitação de transferência terá acesso para gerenciar os recursos. Para fornecer acesso aos usuários que originalmente tinham acesso, o novo proprietário teria [adicioná-los manualmente à assinatura](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+
+
+## <a name="transferring-visual-studio-microsoft-partner-network-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Transferindo o Visual Studio, Microsoft Partner Network (MPN) e assinaturas de desenvolvimento/teste pago conforme o uso
+
+As assinaturas do Visual Studio e o Microsoft Partner Network tem recorrente crédito mensal do Azure associado a eles. Quando você transfere essas assinaturas, seu crédito não está disponível na conta de cobrança de destino. A assinatura usa o crédito na conta de cobrança de destino. Por exemplo, se Pedro transfere uma assinatura do Visual Studio Enterprise para a conta em 9 de setembro de Alice e Jane aceita a transferência. Depois que a transferência for concluída, a assinatura é iniciado usando a crédito na conta de Jane. O crédito redefinirá todos os meses no dia 9. 
+
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-ea-customers"></a>Transferir a propriedade de assinatura para clientes do EA
+## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>Transferir a propriedade de cobrança de assinaturas do Enterprise Agreement (EA)
 
-O Administrador Corporativo pode transferir a propriedade das assinaturas em um registro. Para começar, confira [Transferir Propriedade da Conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
+O administrador da empresa pode transferir a propriedade de assinaturas entre contas dentro de um registro. Para obter mais informações, consulte [transferir propriedade da conta](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) no portal do EA.
 
-## <a name="next-steps-after-accepting-ownership"></a>Próximas etapas após aceitar a posse
+<a id="CSP"></a>
 
-1. Agora, você é o Administrador da Conta. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](billing-add-change-azure-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+## <a name="next-steps-after-accepting-billing-ownership"></a>Próximas etapas depois de aceitar a propriedade da cobrança
+
+Se você aceitou a propriedade da cobrança de uma assinatura do Azure, recomendamos que você examine as próximas etapas:
+
+1. Examine e atualize o Administrador de Serviços, os Coadministradores e outras funções do RBAC. Para obter mais informações, confira [Adicionar ou alterar os administradores de assinatura do Azure](billing-add-change-azure-subscription-administrator.md) e [Gerenciar o acesso usando o RBAC e o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 1. Atualize as credenciais associadas aos serviços dessa assinatura, incluindo:
    1. Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md)
    1. Teclas de acesso para serviços como Armazenamento. Para saber mais, consulte [Sobre as contas de Armazenamento do Azure](../storage/common/storage-create-storage-account.md)
    1. Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
-1. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nessa assinatura. Você pode atualizar a ID do parceiro no [Portal do Azure](https://portal.azure.com).
+1. Se estiver trabalhando com um parceiro, considere a atualização da ID do parceiro nessa assinatura. Você pode atualizar a ID do parceiro no [Portal do Azure](https://portal.azure.com). Para obter mais informações, consulte [vincular uma ID de parceiro a suas contas do Azure](billing-partner-admin-link-started.md)
 
 <a id="supported"></a>
 
-## <a name="supported-offers"></a>Ofertas com suporte
+## <a name="supported-subscription-types"></a>Tipos de assinatura com suporte
 
-A transferência de assinatura de autoatendimento está disponível para as ofertas ou tipos de assinatura listados na tabela a seguir. Atualmente, não é possível transferir assinaturas de Avaliação Gratuita ou [AIO (Azure via Open)](https://azure.microsoft.com/offers/ms-azr-0111p/). Para uma solução alternativa, consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md). Para transferir outras assinaturas, como [Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) ou planos de suporte, [contate o Suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Transferência de assinatura no portal do Azure está disponível para os tipos de assinatura listados abaixo. Atualmente, a transferência não há suporte para [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p/) ou [do Azure no Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/) assinaturas. Para uma solução alternativa, consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md). Para transferir outras assinaturas, como [patrocínio](https://azure.microsoft.com/offers/ms-azr-0036p/) ou planos de suporte, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-| Nome da oferta                                                                             | Número da oferta |
-|----------------------------------------------------------------------------------------|--------------|
-| [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
-| [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
-| [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
-| [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
-| [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)           | MS-AZR-0063P        |
-| [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P        |
-| [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)         | MS-AZR-0059P        |
-| [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)    | MS-AZR-0060P        |
+- [EA (Contrato Enterprise)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*
+- [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)  
+- [Assinantes do Visual Studio Enterprise (MPN)](https://azure.microsoft.com/offers/ms-azr-0029p/) 
+- [Plataformas MSDN](https://azure.microsoft.com/offers/ms-azr-0062p/)  
+- [Pré-paga](https://azure.microsoft.com/offers/ms-azr-0003p/) 
+- [Desenvolvimento/Teste pré-pago](https://azure.microsoft.com/offers/ms-azr-0023p/)
+- [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
+- [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/)
+- [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/)
+- [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/)
+- [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)\*\*
 
-\* [Via portal de EA](#EA)
+\* [No portal de EA](#EA).
+
+\*\* Suporte apenas para contas que são criadas durante a inscrição para cima no site do Azure. 
 
 <a id="faq"></a>
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ)
+## <a name="frequently-asked-questions-faq-for-senders"></a>Perguntas frequentes (FAQ para os remetentes)
 
-### <a name="whoisaa"></a> Quem é o Administrador da Conta da assinatura?
+Essas perguntas frequentes se aplicam a usuários, o que estiver transferindo a propriedade da cobrança de uma assinatura do Azure para outra conta.
 
-O Administrador da Conta é a pessoa que se inscreveu ou comprou a assinatura do Azure. Ele está autorizado a acessar o [Centro de Contas](https://account.azure.com/Subscriptions) e a realizar várias tarefas de gerenciamento, como criar assinaturas, cancelar assinaturas, alterar a cobrança de uma assinatura ou alterar o administrador de serviços. Para obter mais informações sobre noções básicas sobre funções de administrador e permissões, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+### <a name="whoisaa"></a> Quem é o administrador de cobrança de uma conta?
 
-Se você não tiver certeza de quem é o administrador da conta de uma assinatura, use as etapas a seguir para descobrir.
+Um administrador de cobrança é uma pessoa que tenha permissão para gerenciar a cobrança para uma conta. Eles estão autorizados a acessar a cobrança na [portal do Azure](https://portal.azure.com) e realizar diversas tarefas de cobrança, como criar assinaturas, exibição e pagar faturas ou atualizar métodos de pagamento.
 
-1. Acesse a [página Assinaturas no Portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Selecione a assinatura que você deseja verificar e olhe as **Configurações**.
-1. Selecione **Propriedades**. O administrador da conta da assinatura será exibido na caixa **Administrador da Conta** .
+Para identificar para o qual você seja um administrador de cobrança de assinaturas, use as seguintes etapas:
+
+1. Visite o [página de cobrança no portal do Azure do gerenciamento de custos +](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
+1. Selecione **assinaturas** do painel esquerdo. Dependendo do seu acesso, você precisará selecionar um escopo de cobrança e, em seguida, selecione **inscrições** ou **assinaturas do Azure**
+1. A página de assinaturas lista todas as assinaturas para o qual você é um administrador de cobrança.
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>Tudo é transferido? Incluindo grupos de recursos, VMs, discos e outros serviços em execução?
 
-Todos os recursos, como VMs, discos e sites, são transferidos para o novo proprietário. No entanto, todas as [funções de administrador](billing-add-change-azure-subscription-administrator.md) e políticas [RBAC (Controle de Acesso Baseado em Função)](../role-based-access-control/role-assignments-portal.md) configuradas não são transferidas entre diretórios diferentes. Além disso, os [registros de aplicativo](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos de locatário também não são transferidos.
-
-### <a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
-
-Infelizmente, transferência de assinatura de autoatendimento não está disponível para sua oferta. Exibir a lista de ofertas com suporte nas [suporte para ofertas](#supported-offers) seção deste artigo. Além disso, não bloquearemos a transferência de assinatura para todos os países. No entanto, país transferência não há suporte para. Para transferir sua assinatura cruzada país, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
-
+Todos os seus recursos, como VMs, discos e sites são transferidos para a nova conta. No entanto, se você transferir assinatura a uma conta no AD do Azure de outro locatário, qualquer [funções de administrador](billing-add-change-azure-subscription-administrator.md) e [controle de acesso baseado em função (RBAC)](../role-based-access-control/role-assignments-portal.md) atribuições na assinatura [não transferência](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). Além disso, [registros de aplicativo](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) e outros serviços específicos de locatário não são transferidas, juntamente com a assinatura.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>Posso transferir a propriedade a uma conta em outro país?
+Infelizmente, cruzada país transferências não podem ser executadas no portal do Azure. Para transferir sua assinatura em países [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-Infelizmente, o Azure não permite transferir o país. Para transferir sua assinatura cruzada país, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
+### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>Eu sou um administrador em duas contas. Para transferir uma assinatura de uma das minhas contas para outra?
+Sim, você pode transferir a assinatura entre suas contas. Suas contas conceitualmente são consideradas contas de dois usuários diferentes para que você pode usar as etapas acima para transferir as assinaturas entre suas contas.
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Uma transferência de assinatura resulta em qualquer tempo de inatividade do serviço?
 
-Não há nenhum impacto no serviço. A transferência da assinatura cancela a assinatura para o Administrador da Conta atual e cria uma assinatura na conta do destinatário. A nova assinatura é associada aos serviços do Azure subjacentes. A ID da assinatura permanece a mesma.
+Se você transferir uma assinatura a um usuário no mesmo locatário do AD do Azure, não há nenhum impacto sobre os recursos em execução na assinatura.  No entanto, se você transferir a assinatura para um usuário em outro locatário, todos os usuários, grupos e entidades de serviço que tinham [(RBAC) de acesso baseado em função](../role-based-access-control/overview.md) perderão o acesso para gerenciar recursos na assinatura. 
 
-### <a name="how-do-i-use-this-process-to-change-the-directory-for-subscription"></a>Como usar esse processo para alterar o diretório da assinatura?
+### <a name="does-the-recipient-have-access-to-usage-and-billing-history"></a>O destinatário tem acesso ao histórico de cobrança e de uso?
 
-Uma assinatura do Azure é criada no diretório ao qual o Administrador da Conta pertence. Para alterar o diretório, transfira a assinatura para uma conta de usuário no diretório de destino. Quando o usuário conclui as etapas para aceitar a transferência, a assinatura passa automaticamente para o diretório de destino.
+As únicas informações disponíveis para o destinatário serão o custo do mês passado para a sua assinatura. O restante do histórico de cobrança e uso não é transferida com a assinatura
 
-### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-organization-do-they-continue-to-have-access-to-my-resources"></a>Se eu assumir a propriedade da cobrança de uma assinatura de outra organização, eles continuarão a ter acesso aos meus recursos?
+### <a name="how-do-i-migrate-data-and-services-for-my-azure-subscription-to-new-subscription"></a>Como faço para migrar dados e serviços da minha assinatura do Azure para uma nova assinatura?
 
-Se a assinatura for transferida para outro locatário, os usuários associados ao locatário anterior perderão o acesso à assinatura. Mesmo que um usuário não seja mais um Administrador ou Coadministrador de Serviços, ele ainda terá acesso à assinatura por meio de outros mecanismos de segurança, que incluem:
+Se não for possível transferir a propriedade da assinatura, migre os recursos manualmente. Consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
+
+### <a name="if-i-transfer-a-visual-studio-or-microsoft-partner-network-subscription-does-my-credit-carry-forward-with-the-subscription-in-the-new-account"></a>Se eu transferir uma assinatura do Visual Studio ou Microsoft Partner Network, meu crédito são realizadas com a assinatura na nova conta?
+
+Não, seu crédito não está disponível na nova conta. O usuário que aceita a solicitação de transferência precisa ter uma licença do Visual Studio para aceitar a solicitação de transferência. A assinatura usa o crédito do Visual Studio que está disponível na conta do usuário. Para obter mais informações, consulte [transferindo Visual Studio, Microsoft Partner Network (MPN) e desenvolvimento/teste pago conforme o uso de assinaturas](#transferring-visual-studio-microsoft-partner-network-mpn-and-pay-as-you-go-devtest-subscriptions)
+
+
+## <a name="frequently-asked-questions-faq-for-recipients"></a>Perguntas frequentes (FAQ para os destinatários)
+
+Essas perguntas frequentes se aplicam aos usuários, que estão assumindo a propriedade de uma assinatura do Azure com outra conta de cobrança.
+
+### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>Se eu assumir a propriedade de uma assinatura com outra conta de cobrança, fazer os usuários em que a conta continuarão a ter acesso aos meus recursos?
+
+Se a assinatura é transferida para uma conta no mesmo locatário do AD do Azure, todos os usuários, grupos e entidades de serviço que tinham [(RBAC) de acesso baseado em função](../role-based-access-control/overview.md) para gerenciar recursos na assinatura retenham seu acesso. Para exibir os usuários que têm acesso RBAC à assinatura, use as seguintes etapas:
+
+1. Visite o [página de assinatura no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Selecione a assinatura que você deseja verificar e, em seguida, selecione **controle de acesso (IAM)** do painel esquerdo.
+1. Selecione **atribuições de função** da parte superior da página. A página de atribuições de função lista todos os usuários que têm acesso RBAC na assinatura.
+
+Se a assinatura é transferida para uma conta no outro locatário do AD do Azure, todos os usuários, grupos e entidades de serviço que tinham [(RBAC) de acesso baseado em função](../role-based-access-control/overview.md) perderão o acesso para gerenciar recursos na assinatura. No entanto, mesmo se eles não tiverem acesso RBAC mais, ele ainda terá acesso à assinatura por meio de alguns mecanismos de segurança, incluindo:
 
 * Certificados de gerenciamento que concedem ao usuário direitos de administrador aos recursos de assinatura. Para saber mais, confira [Criar e carregar um certificado de gerenciamento do Azure](../cloud-services/cloud-services-certs-create.md).
 * Teclas de acesso para serviços como Armazenamento. Para saber mais, confira [Sobre as contas de armazenamento do Azure](../storage/common/storage-create-storage-account.md).
 * Credenciais de Acesso Remoto para serviços como Máquinas Virtuais do Azure.
 
-Se o destinatário precisar restringir o acesso a seus recursos, ele deverá considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
+Se o destinatário precisar restringir, acesso a seus recursos, eles devem considerar a atualização dos segredos associados ao serviço. A maioria dos recursos pode ser atualizada usando as seguintes etapas:
 
-  1. Vá para o [Portal do Azure](https://portal.azure.com).
+  1. Entre no [Portal do Azure](https://portal.azure.com).
   2. No menu Hub, selecione **Todos os recursos**.
   3. Selecione o recurso.
-  4. Na folha de recursos, clique em **configurações**. Aqui você pode exibir e atualizar os segredos existentes.
+  4. Na página de recursos, clique em **configurações**. Aqui você pode exibir e atualizar os segredos existentes.
 
-### <a name="if-i-transfer-the-subscription-in-the-middle-of-the-billing-cycle-does-the-recipient-pay-for-the-entire-billing-cycle"></a>Se eu transferir a assinatura no meio do ciclo de cobrança, o destinatário pagará por todo o ciclo de cobrança?
+### <a name="if-i-take-over-the-billing-ownership-of-a-subscription-in-the-middle-of-the-billing-cycle-do-i-have-to-pay-for-the-entire-billing-cycle"></a>Se eu assumir a propriedade da cobrança de uma assinatura no meio do ciclo de cobrança, preciso pagar por todo o ciclo de cobrança?
 
-O remetente é responsável pelo pagamento por qualquer uso que foi relatado até o ponto no qual a transferência foi concluída. O destinatário é responsável por uso relatado a partir do momento da transferência em diante. Pode haver algum uso que ocorreu antes da transferência, mas foi relatado posteriormente. O uso está incluído na fatura do destinatário.
+Sua conta é responsável pelo pagamento por qualquer uso que será relatado a partir do momento da transferência em diante. Pode haver algum uso que ocorreu antes da transferência, mas foi relatado posteriormente. O uso é incluído na fatura da sua conta.
 
-### <a name="does-the-recipient-have-access-to-usage-and-billing-history"></a>O destinatário tem acesso ao histórico de cobrança e de uso?
+### <a name="can-i-use-a-different-payment-method"></a>Posso usar um método de pagamento diferente?
 
-  As únicas informações disponíveis para o destinatário serão o valor da última conta ou, se a assinatura tiver sido transferida antes que a primeira conta fosse gerada, o saldo atual. O restante do histórico de cobrança e uso não é transferido com a assinatura.
+Sim. Ao aceitar a solicitação de transferência, você pode selecionar um método de pagamento existente que esteja vinculado à sua conta ou adicionar um novo método de pagamento.
 
-### <a name="can-the-offer-be-changed-during-a-transfer"></a>A oferta pode ser alterada durante uma transferência?
+## <a name="troubleshooting"></a>Solução de problemas
 
-A oferta deve permanecer a mesma. Para alterar sua oferta, confira [Switch your Azure subscription to another offer](billing-how-to-switch-azure-offer.md) (Alternar assinatura do Azure para outra oferta).
+### <a id="no-button"></a> Por que não vejo o botão “Transferir Assinatura”?
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>Posso transferir uma assinatura para uma conta de usuário em outro país/região?
+Infelizmente, a transferência de assinatura de autoatendimento não está disponível para sua conta de cobrança. Atualmente, não damos suporte a transferência de propriedade de cobrança da conta do Enterprise Agreement (EA) no portal do Azure. Além disso, as contas de contrato de cliente da Microsoft que são criadas durante o trabalho por meio de vendas da Microsoft não oferecem suporte a transferir a propriedade de cobrança de assinaturas. 
 
-Não, não há suporte para transferir uma assinatura para uma conta de usuário em outro país/região. Conta de usuário do destinatário deve estar no mesmo país/região.
+### <a id="no-button"></a> Por que minha assinatura do tipo de transferência de suporte? 
 
-### <a name="can-the-recipient-use-a-different-payment-method"></a>O destinatário pode usar um método de pagamento diferente?
+Infelizmente, nem todos os tipos de assinaturas dão suporte a transferência de propriedade de cobrança. Para exibir a lista de tipos de assinatura que dá suporte a transferências, consulte [suporte para tipos de assinatura](#supported-subscription-types)
 
-Sim. Mas o histórico de cobrança da assinatura é dividido em duas contas.  
+### <a id="no-button"></a> Por que estou recebendo um erro de acesso negado ao tentar transferir a propriedade de cobrança de uma assinatura? 
 
-### <a name="is-the-payment-method-impacted-after-i-transferred-an-azure-subscription"></a>O método de pagamento será afetado depois que eu transferir uma assinatura do Azure?
+Você verá esse erro se você está tentando transferir uma assinatura do plano do Microsoft Azure e você não tiver a permissão necessária. Para transferir uma assinatura de plano do Microsoft Azure, você precisa ser um proprietário ou colaborador na seção de nota fiscal para o qual a assinatura é cobrada. Para obter mais informações, consulte [gerenciar assinaturas para a seção de nota fiscal](billing-understand-mca-roles.md#manage-subscriptions-for-invoice-section).
 
-Para aceitar uma transferência de assinatura, um cartão de crédito ou uma forma de pagamento semelhante deve ser fornecida para pagar pela assinatura. Por exemplo, se Pedro transferir uma assinatura para Clara e ela aceitar a transferência, Clara deverá fornecer uma forma de pagamento para pagar pela assinatura. Depois que a transferência for concluída, Clara será cobrada pela assinatura, não Pedro.
-
-### <a name="how-do-i-migrate-data-and-services-for-my-azure-subscription-to-new-subscription"></a>Como faço para migrar dados e serviços da minha assinatura do Azure para uma nova assinatura?
-
-Se não for possível transferir a propriedade da assinatura, migre os recursos manualmente. Consulte [Mover recursos para um novo grupo de recursos ou uma nova assinatura](../azure-resource-manager/resource-group-move-resources.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 

@@ -10,14 +10,13 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 640212b0ae3c9d5658b79652f394a1ad8b92e218
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/25/2019
+ms.openlocfilehash: 166643231e9f98cc3b8205bf0e9a8bb949ffbc3b
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65834511"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569887"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>Usar a CLI para mover um banco de dados SQL do Azure em um pool elástico do SQL
 
@@ -38,7 +37,7 @@ Se você optar por instalar e usar a CLI localmente, este tópico exigirá que v
 Use o comando a seguir para remover o grupo de recursos e todos os recursos associados a ele.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Explicação sobre o script

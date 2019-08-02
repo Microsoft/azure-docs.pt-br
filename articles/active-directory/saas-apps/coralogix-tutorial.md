@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/2/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0095a825f5582dc795f5bebdcf08be07a92946e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 721e0c40ec2e02dabee0681e01fea4182b906183
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900406"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coralogix"></a>Tutorial: Integração do Azure Active Directory ao Coralogix
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Coralogix, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Coralogix](common/sp-identifier.png)
 
-     a. Na caixa **URL de Logon**, insira uma URL com o seguinte padrão: `https://<SUBDOMAIN>.coralogix.com`
+    a. Na caixa **URL de Logon**, insira uma URL com o seguinte padrão: `https://<SUBDOMAIN>.coralogix.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, insira uma URL, como:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , insira uma URL, como:
     
     `https://api.coralogix.com/saml/metadata.xml`
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Coralogix, execute as seguintes
 
 6. Na seção **Declarações de Usuário**, na caixa de diálogo **Atributos de Usuário**, edite as declarações usando o ícone **Editar**. Adicione também as declarações usando **Adicionar nova declaração** para configurar o atributo do token SAML, conforme mostrado na imagem anterior. Em seguida, execute as etapas a seguir:
     
-     a. Selecione o **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
+    a. Selecione o **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações de usuário**.
 
     ![imagem](./media/coralogix-tutorial/tutorial_usermail.png) ![imagem](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
@@ -168,7 +168,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, insira "brittasimon@yourcompanydomain.extension". Por exemplo, nesse caso, você poderá inserir "brittasimon@contoso.com".
 

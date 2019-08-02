@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 93e4337f0593933a4e877f391df8132a9b2cd4af
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833040"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702693"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral da plataforma de identidade da Microsoft (v2.0)
 
@@ -37,7 +37,7 @@ A plataforma de identidade da Microsoft é uma evolução da plataforma de desen
 - **API de configuração de aplicativos e PowerShell**: que permitem a configuração programática de seus aplicativos por meio da API REST (Microsoft Graph e Azure Active Directory Graph 1.6) e do PowerShell, para que você possa automatizar suas tarefas de DevOps.
 - **Conteúdo para desenvolvedores**: documentação conceitual e de referência, exemplos de início rápido, exemplos de código, tutoriais e guias de instruções.
 
-Para desenvolvedores, a plataforma de identidade da Microsoft oferece uma integração perfeita em inovações no espaço de identidade e segurança, como autenticação sem senha, autenticação Step-up e acesso condicional.  Você não precisa implementar essa funcionalidade por conta própria: aplicativos integrados à plataforma de identidade da Microsoft se beneficiam nativamente dessas inovações.
+Para desenvolvedores, a plataforma de identidade da Microsoft oferece uma integração perfeita em inovações no espaço de identidade e segurança, como autenticação sem senha, autenticação Step-up e Acesso Condicional.  Você não precisa implementar essa funcionalidade por conta própria: aplicativos integrados à plataforma de identidade da Microsoft se beneficiam nativamente dessas inovações.
 
 Com a plataforma de identidade da Microsoft, você pode escrever código uma vez e abranger qualquer usuário. Você pode criar um aplicativo uma vez e ter ele funcionando em várias plataformas ou criar um aplicativo que funcione como um cliente, bem como um aplicativo de recurso (API).
 

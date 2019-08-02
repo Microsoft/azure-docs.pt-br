@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 498246292b3cf591433a709139621b039ac3af33
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: de170955ced45040541565800fc9853edea322f5
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002179"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603076"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em C++ no macOS usando o SDK de Fala
 
@@ -31,7 +31,7 @@ Você precisa de uma chave de assinatura dos Serviços de Fala para concluir est
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.5.1`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.6.0`.
 
 O SDK de Fala para o macOS pode ser baixado como um pacote compactado da estrutura de https://aka.ms/csspeech/macosbinary.
 
@@ -115,4 +115,3 @@ Baixe e instale o SDK conforme a seguir:
 
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de linguagem](how-to-customize-language-model.md)
-

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04-08-2019
+ms.date: 04/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91899b35f319dafd01a3f27d31aac53515b46d78
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6eb4ce8cbbfec58d9c7980954691fd6c71266d23
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565002"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skytap"></a>Tutorial: Integração do Azure Active Directory ao Skytap
 
@@ -54,7 +54,7 @@ Para configurar a integração do Skytap ao Azure AD, você precisará adicionar
 
 **Para adicionar o Skytap da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Skytap, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Skytap](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `http://pingone.com/<custom EntityID>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `http://pingone.com/<custom EntityID>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://sso.connect.pingidentity.com/sso/sp/ACS.saml2`
 
@@ -205,5 +205,5 @@ Ao clicar no bloco do Skytap no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

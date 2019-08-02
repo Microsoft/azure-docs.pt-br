@@ -6,7 +6,7 @@ metadata:
   description: 'Use a API do Detector de Anomalias para monitorar os dados ao longo do tempo e detectar anomalias no aprendizado de máquina. Obtenha insight sobre seus dados, independentemente do volume, do setor ou cenário.'
   services: cognitive-services
   author: aahill
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

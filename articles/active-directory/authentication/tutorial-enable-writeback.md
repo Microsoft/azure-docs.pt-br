@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabe0ad1a556ee43f3e6cae0e1cd421db5cde0fd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1efb67df6c31a3b03fdc45fffc0564fb09e39faf
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56183200"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853033"
 ---
 # <a name="tutorial-enabling-password-writeback"></a>Tutorial: Habilitando o write-back de senha
 
@@ -61,4 +61,4 @@ Habilitar o recurso de write-back de senha no Azure AD Connect é apenas metade 
 Neste tutorial, você habilitou o write-back de senha para a redefinição de senha de autoatendimento. Deixe a janela do portal do Azure aberta e continue para o próximo tutorial para definir as configurações adicionais relacionadas à redefinição de senha de autoatendimento antes de distribuir a solução no piloto.
 
 > [!div class="nextstepaction"]
-> [Habilitar o SSPR na tela de logon do Windows](tutorial-sspr-windows.md)
+> [Avaliar o risco ao entrar](tutorial-risk-based-sspr-mfa.md)

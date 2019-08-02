@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 964d7af92b087bd9905113a25513e2b2f7a3df17
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 25e223fc9e8222441e70fefb3c21f951b0ba06c6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922331"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096626"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure ao Mozy Enterprise
 
@@ -52,7 +52,7 @@ Para configurar a integração do Mozy Enterprise com o Azure AD, você precisar
 
 **Para adicionar o Mozy Enterprise por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -135,7 +135,7 @@ Para configurar o logon único do Azure AD com o Mozy Enterprise, realize as seg
    
     ![Política de autenticação](./media/mozy-enterprise-tutorial/ic777315.png "Política de autenticação")
    
-     a. Selecione **Serviço de Diretório** como **Provedor**.
+    a. Selecione **Serviço de Diretório** como **Provedor**.
    
     b. Selecione **Usar Push do LDAP**.
    
@@ -224,7 +224,7 @@ Para permitir que os usuários do AD do Azure façam logon no Mozy Enterprise, e
    
     ![Adicionar Usuários](./media/mozy-enterprise-tutorial/ic777318.png "Adicionar Usuários")
    
-     a. Na lista **Escolher um Grupo** , selecione um grupo.
+    a. Na lista **Escolher um Grupo** , selecione um grupo.
    
     b. Na lista **Wue tipo de usuário** , selecione um tipo.
    
@@ -234,7 +234,7 @@ Para permitir que os usuários do AD do Azure façam logon no Mozy Enterprise, e
    
     e. Selecione **Enviar email de instruções ao usuário**.
    
-    f. Clique em **Adicionar Usuário(s)**.
+    f. Clique em **Adicionar Usuário(s)** .
 
      >[!NOTE]
      > Após a criação do usuário, um email será enviado ao usuário do AD do Azure com um link para confirmar a conta antes que ela se torne ativa.
@@ -251,5 +251,5 @@ Ao clicar no bloco do Mozy Enterprise no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

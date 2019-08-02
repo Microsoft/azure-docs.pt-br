@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/02/2018
+ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea7b38f509fcdaa4e41ce17db3beca44b05a59b2
+ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64697325"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67514485"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolher a camada certa do Hub IoT para a solução
 
@@ -62,6 +62,9 @@ Após criar o hub IoT, você poderá fazer upgrade da camada básica para a cama
 
 A configuração da partição permanecerá inalterada quando você migrar da camada básica para a camada padrão.
 
+> [!NOTE]
+> A camada gratuita não dá suporte à atualização para básico ou padrão.
+
 ## <a name="iot-hub-rest-apis"></a>APIs REST do Hub IoT
 
 A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub IoT significa que algumas chamadas de API não funcionam com hubs de camada Básica. A tabela a seguir mostra quais APIs estão disponíveis:
@@ -70,26 +73,25 @@ A diferença nos recursos com suporte entre as camadas Básica e Standard do Hub
 | --- | ---------- | ------------- |
 | [Excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sim | Sim |
 | [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sim | Sim |
-| Excluir módulo | Sim | Sim |
-| Obter módulo | Sim | Sim |
+| [Excluir módulo](https://docs.microsoft.com/rest/api/iothub/service/deletemodule) | Sim | Sim |
+| [Obter módulo](https://docs.microsoft.com/rest/api/iothub/service/getmodule) | Sim | Sim |
 | [Obter estatísticas de registro](https://docs.microsoft.com/rest/api/iothub/service/getdeviceregistrystatistics) | Sim | Sim |
 | [Obter estatísticas de serviços](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Sim | Sim |
-| [Criar Ou Atualizar Dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sim | Sim |
-| Colocar módulo | Sim | Sim |
+| [Criar ou atualizar dispositivo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Sim | Sim |
+| [Criar ou atualizar o módulo](https://docs.microsoft.com/rest/api/iothub/service/createorupdatemodule) | Sim | Sim |
 | [Consulta Hub IoT](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Sim | Sim |
-| Consultar módulos | Sim | Sim |
 | [Criar URI de SAS de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Sim | Sim |
 | [Receber notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Sim | Sim |
 | [Enviar evento de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | Sim | Sim |
-| Enviar eventos de módulo | Sim | Sim |
+| Enviar eventos de módulo | AMQP e MQTT apenas | AMQP e MQTT apenas |
 | [Atualizar o status de upload de arquivo](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | Sim | Sim |
-| [Operação de dispositivo em massa](/rest/api/iot-dps/runbulkenrollmentgroupoperation/runbulkenrollmentgroupoperation) | Sim, exceto pelos recursos do IoT Edge | Sim | 
+| [Operação de dispositivo em massa](https://docs.microsoft.com/rest/api/iothub/service/bulkcreateorupdatedevices) | Sim, exceto pelos recursos do IoT Edge | Sim |
 | [Limpar fila de comandos](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | Sim |
 | [Obter dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | Sim |
-| Obter módulo gêmeo |   | Sim |
+| [Obter módulo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/getmoduletwin) |   | Sim |
 | [Invocar um método de dispositivo](https://docs.microsoft.com/rest/api/iothub/service/invokedevicemethod) |   | Sim |
-| [Atualizar dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sim | 
-| Atualizar módulo gêmeo |   | Sim | 
+| [Atualizar dispositivo gêmeo](https://docs.microsoft.com/rest/api/iothub/service/updatetwin) |   | Sim |
+| [Atualizar o gêmeo do módulo](https://docs.microsoft.com/rest/api/iothub/service/updatemoduletwin) |   | Sim |
 | [Abandonar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/abandondeviceboundnotification) |   | Sim |
 | [Completar notificação de limite de dispositivo](https://docs.microsoft.com/rest/api/iothub/device/completedeviceboundnotification) |   | Sim |
 | [Cancelar trabalho](https://docs.microsoft.com/rest/api/iothub/service/canceljob) |   | Sim |

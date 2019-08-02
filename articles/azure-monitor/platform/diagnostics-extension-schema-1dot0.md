@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60237851"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de Configuração do Azure Diagnostics 1.0
@@ -21,7 +21,7 @@ ms.locfileid: "60237851"
 > Diagnóstico do Azure é o componente usado para coletar contadores de desempenho e outras estatísticas de Máquinas Virtuais do Azure, Conjuntos de Escala de Máquina Virtual, Service Fabric e Serviços de Nuvem.  Esta página só é relevante se você estiver usando um desses serviços.
 >
 
-O diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e Log Analytics.
+O Diagnóstico do Azure é usado com outros produtos de diagnóstico da Microsoft, como Azure Monitor, que inclui Application Insights e Log Analytics.
 
 O arquivo de configuração do Diagnóstico do Azure define os valores que são usados para inicializar o Monitor de Diagnóstico. Esse arquivo é usado para inicializar as definições de configuração de diagnóstico quando o monitor de diagnóstico é iniciado.  
 
@@ -101,7 +101,7 @@ O elemento de nível superior do arquivo de configuração de diagnóstico.
 
 Atributos:
 
-|Atributo  |Type   |Obrigatório| Padrão | DESCRIÇÃO|  
+|Atributo  |Tipo   |Necessário| Padrão | Descrição|  
 |-----------|-------|--------|---------|------------|  
 |**configurationChangePollInterval**|duration|Opcional | PT1M| Especifica o intervalo no qual o monitor de diagnóstico sonda em busca de alterações de configuração de diagnóstico.|  
 |**overallQuotaInMB**|unsignedInt|Opcional| 4000 MB. Se você fornecer um valor, ele não deverá exceder esse valor |A quantidade total de armazenamento de sistema de arquivos alocado para todos os buffers de registro em log.|  
@@ -113,11 +113,11 @@ Elemento pai: Elemento DiagnosticMonitorConfiguration.
 
 Atributos:
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|cadeia de caracteres|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
+|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="logs-element"></a>Elemento Logs  
  Define a configuração de buffer para logs básicos do Azure.
@@ -126,11 +126,11 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|cadeia de caracteres|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
+|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="directories-element"></a>Elemento Directories  
 Define a configuração de buffer para logs baseados em arquivo que você pode definir.
@@ -140,10 +140,10 @@ Elemento pai: Elemento DiagnosticMonitorConfiguration.
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
+|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="crashdumps-element"></a>Elemento CrashDumps  
  Define o diretório de despejos de falha.
@@ -152,7 +152,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**contêiner**|cadeia de caracteres|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -164,7 +164,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**contêiner**|cadeia de caracteres|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -176,7 +176,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**contêiner**|cadeia de caracteres|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -193,7 +193,7 @@ Atributos:
 
 Atributos:
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**contêiner**|cadeia de caracteres|O nome do contêiner para onde o conteúdo do diretório será transferido.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica o tamanho máximo do diretório em megabytes.<br /><br /> O padrão é 0.|  
@@ -205,10 +205,10 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**path**|cadeia de caracteres|Obrigatório. O caminho absoluto para o diretório a ser monitorado.|  
-|**expandEnvironment**|boolean|Obrigatório. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
+|**path**|cadeia de caracteres|Obrigatória. O caminho absoluto para o diretório a ser monitorado.|  
+|**expandEnvironment**|boolean|Obrigatória. Se definido como **true**, as variáveis de ambiente no caminho serão expandidas.|  
 
 ## <a name="localresource-element"></a>Elemento LocalResource  
  Define um caminho relativo para um recurso local indicado na definição do serviço.
@@ -217,10 +217,10 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|cadeia de caracteres|Obrigatório. O nome do recurso local que contém o diretório a ser monitorado.|  
-|**relativePath**|cadeia de caracteres|Obrigatório. O caminho relativo a um recurso local a ser monitorado.|  
+|**name**|cadeia de caracteres|Obrigatória. O nome do recurso local que contém o diretório a ser monitorado.|  
+|**relativePath**|cadeia de caracteres|Obrigatória. O caminho relativo a um recurso local a ser monitorado.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
  Define o caminho para coleta do contador de desempenho.
@@ -230,10 +230,10 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
+|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="performancecounterconfiguration-element"></a>Elemento PerformanceCounterConfiguration  
  Define o contador de desempenho a ser coletado.
@@ -242,10 +242,10 @@ Atributos:
 
  Atributos:  
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**counterSpecifier**|cadeia de caracteres|Obrigatório. O caminho para coleta do contador de desempenho.|  
-|**sampleRate**|duration|Obrigatório. A taxa de coleta do contador de desempenho.|  
+|**counterSpecifier**|cadeia de caracteres|Obrigatória. O caminho para coleta do contador de desempenho.|  
+|**sampleRate**|duração|Obrigatória. A taxa de coleta do contador de desempenho.|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  Define os logs de eventos a serem monitorados.
@@ -254,11 +254,11 @@ Atributos:
 
   Atributos:
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|Opcional. Especifica a quantidade máxima de armazenamento do sistema de arquivos disponível para os dados especificados.<br /><br /> O padrão é 0.|  
 |**scheduledTransferLogLevelFilter**|cadeia de caracteres|Opcional. Especifica o nível de severidade mínimo para as entradas de log transferidas. O valor padrão é **Indefinido**. Outros possíveis valores são **Detalhado**, **Informação**, **Aviso**, **Erro** e **Crítico**.|  
-|**scheduledTransferPeriod**|duration|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
+|**scheduledTransferPeriod**|duração|Opcional. Especifica o intervalo entre as transferências agendadas de dados, arredondado para o minuto mais próximo.<br /><br /> O padrão é PT0S.|  
 
 ## <a name="datasource-element"></a>Elemento DataSource  
  Define o log de eventos a ser monitorado.
@@ -267,7 +267,7 @@ Atributos:
 
  Atributos:
 
-|Atributo|Type|DESCRIÇÃO|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
-|**name**|cadeia de caracteres|Obrigatório. Uma expressão XPath que especifica o log para coleta.|  
+|**name**|cadeia de caracteres|Obrigatória. Uma expressão XPath que especifica o log para coleta.|  
 

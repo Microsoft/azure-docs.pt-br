@@ -5,17 +5,17 @@ services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 7121d2f022f9c9a5bbc02f04955d2857f3ec986f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e4d410f32068b4d3035dcab0c61b7b9205103690
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241231"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67588673"
 ---
 # <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Configure a importância de carga de trabalho no Azure SQL Data Warehouse
 
@@ -53,4 +53,4 @@ CREATE WORKLOAD CLASSIFIER AdhocClassifier 
 - Para obter mais informações sobre a importância, consulte [importância da carga de trabalho](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Vá para gerenciar e monitorar a importância da carga de trabalho ](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
+> [Vá para gerenciar e monitorar a importância da carga de trabalho](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)

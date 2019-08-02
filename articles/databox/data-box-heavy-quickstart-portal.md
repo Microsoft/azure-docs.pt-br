@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: quickstart
 ms.date: 06/04/2019
 ms.author: alkohli
-ms.openlocfilehash: 930da7367b3f5d7e20617afedef007efea97c51a
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 3467b25c085fb86d4aed3918d5446d118f76ffb8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515935"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446727"
 ---
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>Início Rápido: Implantar o Azure Data Box Heavy usando o portal do Azure
 
@@ -57,7 +57,7 @@ Antes de começar, verifique se:
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no Portal do Azure em [http://portal.azure.com](http://portal.azure.com).
+Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Classificar
 
@@ -95,7 +95,7 @@ Essa etapa demora cerca de 10 a 15 minutos para ser concluída.
 
 Essa etapa demora cerca de 5 a 7 minutos para ser concluída.
 
-1. Para obter a senha do dispositivo, acesse **Geral > Detalhes do dispositivo** no [portal do Azure](http://portal.azure.com). A mesma senha é usada para os dois nós do dispositivo.
+1. Para obter a senha do dispositivo, acesse **Geral > Detalhes do dispositivo** no [portal do Azure](https://portal.azure.com). A mesma senha é usada para os dois nós do dispositivo.
 2. Atribua um endereço IP estático igual a 192.168.100.5 e a sub-rede 255.255.255.0 ao adaptador Ethernet no computador que você está usando para se conectar ao Data Box Heavy. Acesse a interface do usuário da Web local do dispositivo em `https://192.168.100.10`. A conexão poderá levar até 5 minutos após a ativação do dispositivo.
 3. Entre usando a senha do portal do Azure. Você verá um erro indicando um problema com o certificado de segurança do site. Siga as instruções específicas do navegador para continuar para a página da Web.
 4. Por padrão, as configurações de rede para as interfaces (exceto a MGMT) são definidas como DHCP. Se necessário, configure essas interfaces como estáticas e forneça um endereço IP.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 01877e4d982433608dd10fb44f2506b8bf71aff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33d6ddb4434813e87e0fa1be3b5335795e9774cb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858911"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106037"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bugsnag"></a>Tutorial: Integração do Azure Active Directory ao Bugsnag
 
@@ -53,7 +53,7 @@ Para configurar a integração do Bugsnag ao Azure AD, você precisará adiciona
 
 **Para adicionar o Bugsnag por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 

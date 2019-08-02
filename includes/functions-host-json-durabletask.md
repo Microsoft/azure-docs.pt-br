@@ -4,17 +4,17 @@ description: Arquivo de inclusão
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: d79d1bd5ec244ad4399a02c349e2504516d06ccd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2e30184c7273fad2f9bc8adb34834ee14840733b
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66131713"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608073"
 ---
 Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable-functions-overview.md).
 
@@ -38,7 +38,7 @@ Definições de configuração para [Funções Duráveis](../articles/azure-func
     "eventGridKeySettingName":  "EventGridKey",
     "eventGridPublishRetryCount": 3,
     "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Pending", "Failed", "Terminated"]
+    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
   }
 }
 ```
@@ -58,8 +58,8 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |azureStorageConnectionStringName |AzureWebJobsStorage|O nome da configuração de aplicativo que tem a cadeia de conexão do Armazenamento do Azure usada para gerenciar os recursos subjacentes do Armazenamento do Azure.|
 |trackingStoreConnectionStringName||O nome de uma cadeia de caracteres de conexão a ser usado para as tabelas de histórico e instâncias. Se não for especificado, o `azureStorageConnectionStringName` conexão é usada.|
 |trackingStoreNamePrefix||O prefixo a ser usado para as instâncias e o histórico de tabelas quando `trackingStoreConnectionStringName` for especificado. Se não configurado, o valor de prefixo padrão será `DurableTask`. Se `trackingStoreConnectionStringName` não for especificado, em seguida, usarão as tabelas de histórico e instâncias de `hubName` valor como seu prefixo e qualquer configuração para `trackingStoreNamePrefix` será ignorado.|
-|traceInputsAndOutputs |falso|Um valor que indica se as entradas e saídas de chamadas de função sertão rastreadas. O comportamento padrão durante o rastreamento de eventos de execução de função é incluir o número de bytes nas entradas e saídas serializadas para chamadas de função. Esse comportamento fornece algumas informações sobre as entradas e saídas como aparência sem sobrecarregar os logs ou inadvertidamente expor informações confidenciais. A definição dessa propriedade como true faz com que o log de função padrão registre todo o conteúdo de entradas e saídas da função.|
-|logReplayEvents|falso|Um valor que indica se é necessário gravar eventos de reprodução de orquestração para o Application Insights.|
+|traceInputsAndOutputs |false|Um valor que indica se as entradas e saídas de chamadas de função sertão rastreadas. O comportamento padrão durante o rastreamento de eventos de execução de função é incluir o número de bytes nas entradas e saídas serializadas para chamadas de função. Esse comportamento fornece algumas informações sobre as entradas e saídas como aparência sem sobrecarregar os logs ou inadvertidamente expor informações confidenciais. A definição dessa propriedade como true faz com que o log de função padrão registre todo o conteúdo de entradas e saídas da função.|
+|logReplayEvents|false|Um valor que indica se é necessário gravar eventos de reprodução de orquestração para o Application Insights.|
 |eventGridTopicEndpoint ||A URL de um ponto de extremidade de tópico personalizado da Grade de Eventos do Azure. Quando essa propriedade é definida, os eventos de notificação de ciclo de vida de orquestração são publicados para esse ponto de extremidade. Esta propriedade dá suporte à resolução de Configurações do Aplicativo.|
 |eventGridKeySettingName ||O nome da configuração de aplicativo que contém a chave usada para autenticar com o tópico personalizado da Grade de Eventos do Azure em `EventGridTopicEndpoint`.|
 |eventGridPublishRetryCount|0|O número de novas tentativas se a publicação no Tópico de Grade de Eventos falha.|

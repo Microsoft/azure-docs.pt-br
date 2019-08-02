@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f14e7e4a5699d00e9d94c1796e02e97a7a2441e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ff01d9bc07408fa825fa933966d583b3d6ff7f56
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901785"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Tutorial: Integração do Azure Active Directory ao Softeon WMS
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Softeon WMS, execute as seguint
 
     ![Informações de logon único de domínio e URLs do Softeon WMS](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.softeon.com/<instancename>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.softeon.com/<instancename>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.softeon.com/sp`
 
@@ -198,4 +198,4 @@ Ao clicar no bloco do Softeon WMS no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

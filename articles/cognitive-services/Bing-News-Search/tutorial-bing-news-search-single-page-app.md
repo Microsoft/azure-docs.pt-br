@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: criar um aplicativo Web de página única – API de Pesquisa de Notícias do Bing'
-titlesuffix: Azure Cognitive Services
+title: 'Tutorial: criar um aplicativo Web de página única usando a API de Pesquisa de Notícias do Bing'
+titleSuffix: Azure Cognitive Services
 description: Use este tutorial para criar um aplicativo Web de página única que pode enviar consultas de pesquisa para a API Bing Notícias e exiba os resultados na página da Web.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 01/10/2019
+ms.date: 07/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 78a985180fb2b665aed75b39acfc4d39ccd04132
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 424fdc9fa0f31b3de664945ff49b119939488fed
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798570"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423613"
 ---
 # <a name="tutorial-create-a-single-page-web-app"></a>Tutorial: criar um aplicativo Web de página única
 
@@ -381,7 +381,7 @@ A função de renderizador de notícias:
 > * Cria as marcas HTML `<a>` que fornecem links para a imagem e a página que a contém.
 > * Cria a descrição que exibe informações sobre a imagem e o site no qual ela está localizada.
 
-O tamanho da miniatura é usado na marcação `<img>` e nos campos `h` e `w` na URL da miniatura. Em seguida, o [serviço em miniatura do Bing](resize-and-crop-thumbnails.md) fornece uma miniatura exatamente desse tamanho.
+O tamanho da miniatura é usado na marcação `<img>` e nos campos `h` e `w` na URL da miniatura. Em seguida, o [serviço em miniatura do Bing](../bing-web-search/resize-and-crop-thumbnails.md) fornece uma miniatura exatamente desse tamanho.
 
 ## <a name="persisting-client-id"></a>Persistindo a ID do cliente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID` que deve ser enviado novamente para a API com solicitações sucessivas. Se várias APIs de Pesquisa do Bing estiverem sendo usadas, a mesma ID do cliente deverá ser usada com todas elas, se possível.
@@ -397,7 +397,7 @@ As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `
 > [!NOTE]
 > Em um aplicativo Web de produção, você deve executar a solicitação do servidor. Caso contrário, a chave de API de Pesquisa do Bing precisará ser incluída na página da Web, na qual ela estará disponível para qualquer pessoa que exiba a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
-Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e disponibiliza-os para o JavaScript.
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 

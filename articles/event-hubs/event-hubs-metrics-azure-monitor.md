@@ -15,12 +15,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: b5df69e9670c01b576afe242b39532acb1e1c526
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4caa9e78d72df37bec2351fa86ae6e60630d6047
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685863"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68370755"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de Eventos do Azure no Azure Monitor
 
@@ -40,7 +40,7 @@ As métricas estão habilitadas por padrão e você pode acessar os dados dos ú
 
 ![Exibir métricas bem-sucedidas][1]
 
-Você também pode acessar as métricas diretamente por meio do namespace. Para fazer isso, selecione seu namespace e, em seguida, clique em **métricas**. Para exibir as métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e clique em **Métricas**.
+Você também pode acessar as métricas diretamente por meio do namespace. Para fazer isso, selecione o namespace e clique em **métricas**. Para exibir as métricas filtradas para o escopo do hub de eventos, selecione o hub de eventos e clique em **Métricas**.
 
 Para métricas com suporte a dimensões, será necessário filtrar o valor da dimensão desejado, como mostrado no exemplo a seguir:
 
@@ -48,7 +48,7 @@ Para métricas com suporte a dimensões, será necessário filtrar o valor da di
 
 ## <a name="billing"></a>Cobrança
 
-O uso de métricas no Azure Monitor atualmente é gratuito. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Azure se você transmitir dados de métricas para os logs do Azure Monitor para análise avançada.
+O uso de métricas no Azure Monitor atualmente é gratuito. No entanto, se você usar outras soluções que ingerem dados de métricas, você poderá ser cobrado por essas soluções. Por exemplo, você será cobrado pelo Armazenamento do Azure se você arquivar dados de métrica para uma conta de Armazenamento do Azure. Você também será cobrado pelo Azure se você transmitir dados de métricas para Azure Monitor logs para análise avançada.
 
 As métricas a seguir oferecem uma visão geral da integridade do seu serviço. 
 
@@ -61,52 +61,52 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 Conta o número de solicitações de gerenciamento de dados e de operações.
 
-| Nome da métrica | DESCRIÇÃO |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Solicitações de entrada (versão prévia) | O número de solicitações feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
-| Solicitações bem-sucedidas (versão prévia)   | O número de solicitações bem sucedidas feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
-| Erros do servidor (versão prévia) | O número de solicitações não processadas devido a um erro no serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
-|Erros do usuário (versão prévia)|O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Erros de cota excedida (versão prévia)|O número de solicitações que excedeu a cota disponível. Consulte [este artigo](event-hubs-quotas.md) para ver mais informações sobre as cotas dos Hubs de Eventos.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+| Solicitações de Entrada  | O número de solicitações feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
+| Solicitações com êxito    | O número de solicitações bem sucedidas feitas ao serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
+| Erros do Servidor  | O número de solicitações não processadas devido a um erro no serviço de Hubs de Eventos do Azure durante um período específico. <br/><br/>Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
+|Erros do usuário |O número de solicitações não processadas devido a erros do usuário durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Erros de Cota excedida |O número de solicitações que excedeu a cota disponível. Consulte [este artigo](event-hubs-quotas.md) para ver mais informações sobre as cotas dos Hubs de Eventos.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="throughput-metrics"></a>Métricas de taxa de transferência
 
-| Nome da métrica | DESCRIÇÃO |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Solicitações restritas (versão prévia)|O número de solicitações que foram restringidas porque o uso de unidades da taxa de transferência foi excedido.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Solicitações limitadas |O número de solicitações que foram restringidas porque o uso de unidades da taxa de transferência foi excedido.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="message-metrics"></a>Métricas de mensagens
 
-| Nome da métrica | DESCRIÇÃO |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada (versão prévia)|O número de eventos ou mensagens enviadas para os Hubs de Eventos durante um período específico.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Mensagens de saída (versão prévia)|O número de eventos ou mensagens recuperadas dos Hubs de Eventos durante um período específico.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Bytes de entrada (versão prévia)|O número de bytes enviado ao serviço de Hubs de Eventos do Azure durante um período específico.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Bytes de saída (versão prévia)|O número de bytes recuperado do serviço de Hubs de Eventos do Azure durante um período específico.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens de Entrada |O número de eventos ou mensagens enviadas para os Hubs de Eventos durante um período específico.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens de Saída |O número de eventos ou mensagens recuperadas dos Hubs de Eventos durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Bytes de entrada |O número de bytes enviado ao serviço de Hubs de Eventos do Azure durante um período específico.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Bytes de saída |O número de bytes recuperado do serviço de Hubs de Eventos do Azure durante um período específico.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="connection-metrics"></a>Métricas de conexão
 
-| Nome da métrica | DESCRIÇÃO |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|ActiveConnections (versão prévia)|O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Conexões abertas (versão prévia)|O número de conexões abertas.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Conexões fechadas (versão prévia)|O número de conexões fechadas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|ActiveConnections |O número de conexões ativas em um namespace, bem como em uma entidade.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Conexões abertas |O número de conexões abertas.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Conexões fechadas |O número de conexões fechadas.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="event-hubs-capture-metrics"></a>Métricas de captura de Hubs de Eventos
 
 Monitore as métricas de captura de Hubs de Eventos habilitando o recurso de Captura para seus Hubs de Eventos. As métricas a seguir descrevem o que você pode monitorar com a Captura habilitada.
 
-| Nome da métrica | DESCRIÇÃO |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-|Capturar lista de pendências (versão prévia)|O número de bytes que ainda estão pendentes de captura para o destino escolhido.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Mensagens capturadas (versão prévia)|O número de mensagens ou eventos que são capturados para o destino escolhido durante um período específico.<br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Bytes capturados (versão prévia)|O número de bytes que são capturados para o destino escolhido durante um período específico.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Capturar registro posterior |O número de bytes que ainda estão pendentes de captura para o destino escolhido.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Mensagens capturadas |O número de mensagens ou eventos que são capturados para o destino escolhido durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
+|Bytes capturados |O número de bytes que são capturados para o destino escolhido durante um período específico.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensões das métricas
 
 Os Hubs de Evento do Azure dão suporte às seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às métricas é opcional. Se você não adicionar dimensões, as métricas serão especificadas no nível de namespace. 
 
-| Nome da métrica | DESCRIÇÃO |
+| Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |EntityName| Os Hubs de Eventos dão suporte às entidades de hub de evento sob o namespace.|
 

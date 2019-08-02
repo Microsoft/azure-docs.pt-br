@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/6/2019
 ms.author: srrengar
-ms.openlocfilehash: f1e7428bc0665cdd3f981bb9c2e7b1f564598f40
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7ae4c77f958bacabea50b7193817cd41ea54aa9
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074246"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449776"
 ---
 # <a name="eventstore-overview"></a>Visão geral de EventStore
 
 >[!NOTE]
 >A partir do Service Fabric 6.4. as APIs do EventStore estão apenas disponíveis para clusters do Windows somente na execução no Azure. Estamos trabalhando mover essa funcionalidade para Linux, assim como para nossos clusters independentes.
 
-## <a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão Geral
 
 O serviço de EventStore introduzido na versão 6.2, é uma opção de monitoramento no Service Fabric. O EventStore fornece uma maneira de entender o estado do cluster ou cargas de trabalho em um determinado ponto no tempo.
 O EventStore é um serviço do Service Fabric com monitoramento de estado que mantém os eventos do cluster. Os eventos são expostos por meio do Service Fabric Explorer, REST e APIs. As consultas do EventStore permitem que você consulte o cluster diretamente para obter dados de diagnóstico em qualquer entidade no cluster e devem ser usadas para ajudar a:
@@ -80,7 +80,7 @@ Se seu cluster do Azure é atualizado para a versão 6.5 ou superior, EventStore
     "fabricSettings": [
       …
     ],
-    "eventStoreEnabled": false
+    "eventStoreServiceEnabled": false
   ```
 
 ### <a name="azure-cluster-version-64"></a>Cluster do Azure versão 6.4

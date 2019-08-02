@@ -1,7 +1,6 @@
 ---
 title: 'Serviço de Backup do Azure: restaurar máquinas virtuais usando o portal do Azure'
 description: Restaure uma máquina virtual do Azure de um ponto de recuperação usando o portal do Azure
-services: backup
 author: geethalakshmig
 manager: vijayts
 keywords: restaurar o backup; como restaurar; ponto de recuperação;
@@ -9,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 951e42c4eb7a9d897140a7422364cdbfe83e57cc
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65906500"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466896"
 ---
 # <a name="restore-azure-vms"></a>Restaurar VMs do Azure
 
@@ -28,9 +27,9 @@ O Backup do Azure proporciona várias maneiras de restaurar uma VM.
 
 **Opção de restauração** | **Detalhes**
 --- | ---
-**Criar uma nova VM** | Cria e coloca rapidamente uma VM básica em funcionamento a partir de um ponto de restauração.<br/><br/> Você pode especificar um nome para a VM, selecione o grupo de recursos e a rede virtual (VNet) no qual ele será colocado e especifique uma conta de armazenamento para a VM restaurada.
+**Criar uma nova VM** | Cria e coloca rapidamente uma VM básica em funcionamento a partir de um ponto de restauração.<br/><br/> Você pode especificar um nome para a VM, selecionar o grupo de recursos e a rede virtual (VNet) na qual ele será colocado e especificar uma conta de armazenamento para a VM restaurada.
 **Restaurar disco** | Restaura um disco da VM que pode ser usado para criar uma nova VM.<br/><br/> O Backup do Azure fornece um modelo para ajudá-lo a personalizar e criar uma VM. <br/><br> O trabalho de restauração gera um modelo que você pode baixar e usar para especificar configurações de VM personalizadas e criar uma VM.<br/><br/> Os discos são copiados para a conta de armazenamento que você especificar.<br/><br/> Como alternativa, você pode anexar o disco a uma VM existente ou criar uma nova VM usando o PowerShell.<br/><br/> Essa opção é útil se você quiser personalizar a VM, adicionar configurações que não existiam no momento do backup ou adicionar configurações que devem ser definidas usando o modelo ou o PowerShell.
-**Substituir existente** | Você pode restaurar um disco e usá-lo para substituir um disco na VM existente.<br/><br/> A VM atual deve existir. Se ela tiver sido excluída, essa opção não poderá ser usada.<br/><br/> O Backup do Azure tira um instantâneo da VM existente antes de substituir o disco e o armazena no local de preparo que você especificar. Conectado à VM de discos existentes são substituídos com o ponto de restauração selecionado.<br/><br/> O instantâneo é copiado para o cofre e retido de acordo com a política de retenção. <br/><br/> Substituir existente tem suporte para VMs gerenciadas não criptografadas. Não há suporte para discos não gerenciados, [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), ou para VMs [criadas usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauração tem mais ou menos discos do que a VM atual, o número de discos no ponto de restauração reflete apenas a configuração da VM.<br/><br/>
+**Substituir existente** | Você pode restaurar um disco e usá-lo para substituir um disco na VM existente.<br/><br/> A VM atual deve existir. Se ela tiver sido excluída, essa opção não poderá ser usada.<br/><br/> O backup do Azure tira um instantâneo da VM existente antes de substituir o disco e a armazena no local de preparo que você especificar. Os discos existentes conectados à VM são substituídos pelo ponto de restauração selecionado.<br/><br/> O instantâneo é copiado para o cofre e mantido de acordo com a política de retenção. <br/><br/> Substituir existente tem suporte para VMs gerenciadas não criptografadas. Não há suporte para discos não gerenciados, [VMs generalizadas](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), ou para VMs [criadas usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauração tem mais ou menos discos do que a VM atual, o número de discos no ponto de restauração reflete apenas a configuração da VM.<br/><br/>
 
 
 > [!NOTE]
@@ -40,24 +39,24 @@ O Backup do Azure proporciona várias maneiras de restaurar uma VM.
 
 ## <a name="storage-accounts"></a>Contas de armazenamento
 
-Alguns detalhes sobre as contas de armazenamento:
+Alguns detalhes sobre contas de armazenamento:
 
 - **Criar VM**: Quando você cria uma nova VM, a VM será colocada na conta de armazenamento que você especificar.
-- **Restaurar disco**: Quando você restaurar um disco, o disco é copiado para a conta de armazenamento que você especificar. O trabalho de restauração gera um modelo que você pode baixar e usar para especificar configurações personalizadas de VM. Esse modelo é colocado na conta de armazenamento especificada.
-- **Substituir disco**: Quando você substituir um disco em uma VM existente, o Backup do Azure tira um instantâneo da VM existente antes de substituir o disco. O instantâneo é armazenado no local de preparo (conta de armazenamento) você especificar. Essa conta de armazenamento é usada para armazenar temporariamente o instantâneo durante o processo de restauração, e é recomendável que você crie uma nova conta para fazer isso, que pode ser facilmente removida posteriormente.
-- **Local da conta de armazenamento** : A conta de armazenamento deve estar na mesma região que o cofre. Somente essas contas são exibidas. Se não houver nenhuma conta de armazenamento no local, você precisa criá-lo.
+- **Restaurar disco**: Quando você restaura um disco, o disco é copiado para a conta de armazenamento que você especificar. O trabalho de restauração gera um modelo que você pode baixar e usar para especificar configurações de VM personalizadas. Esse modelo é colocado na conta de armazenamento especificada.
+- **Substituir disco**: Quando você substitui um disco em uma VM existente, o backup do Azure tira um instantâneo da VM existente antes de substituir o disco. O instantâneo é armazenado no local de preparo (conta de armazenamento) que você especificar. Essa conta de armazenamento é usada para armazenar temporariamente o instantâneo durante o processo de restauração e recomendamos que você crie uma nova conta para fazer isso, que pode ser facilmente removida posteriormente.
+- **Local da conta de armazenamento** : A conta de armazenamento deve estar na mesma região que o cofre. Somente essas contas são exibidas. Se não houver nenhuma conta de armazenamento no local, você precisará criar uma.
 - **Tipo de armazenamento** : Não há suporte para o armazenamento de BLOBs.
-- **Redundância de armazenamento**: Não há suporte para ZRS (Armazenamento com redundância de zona). As informações de replicação e a redundância para a conta são mostradas entre parênteses após o nome da conta. 
-- **O armazenamento Premium**:
-    - Durante a restauração de VMs não premium, contas de armazenamento premium não têm suporte.
-    - Quando a restauração de VMs gerenciadas, contas de armazenamento premium configuradas com as regras de rede não são suportadas.
+- **Redundância de armazenamento**: Não há suporte para ZRS (Armazenamento com redundância de zona). As informações de replicação e redundância para a conta são mostradas entre parênteses após o nome da conta. 
+- **Armazenamento Premium**:
+    - Ao restaurar VMs não Premium, as contas de armazenamento Premium não têm suporte.
+    - Ao restaurar VMs gerenciadas, não há suporte para contas de armazenamento Premium configuradas com regras de rede.
 
 
-## <a name="before-you-start"></a>Antes de começar
+## <a name="before-you-start"></a>Antes de iniciar
 
-Para restaurar uma VM (criar uma nova VM) Verifique se você tem o controle de acesso correto com base em função (RBAC) [permissões](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para a operação de restauração de VM.
+Para restaurar uma VM (criar uma nova VM), verifique se você tem as [permissões](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) de RBAC (controle de acesso baseado em função) corretas para a operação de restauração de VM.
 
-Se você não tiver permissões, você poderá [restaurar um disco](#restore-disks), e, em seguida, depois que o disco for restaurado, você pode [usar o modelo](#use-templates-to-customize-a-restored-vm) que foi gerado como parte da operação de restauração para criar uma nova VM.
+Se você não tiver permissões, poderá [restaurar um disco](#restore-disks)e, depois que o disco for restaurado, poderá [usar o modelo](#use-templates-to-customize-a-restored-vm) que foi gerado como parte da operação de restauração para criar uma nova VM.
 
 
 
@@ -89,7 +88,7 @@ Como uma das [opções de restauração](#restore-options), você pode criar uma
 2. Em **Nome da máquina virtual**, especifique uma máquina virtual que não exista na assinatura.
 3. No **Grupo de recursos**, selecione um grupo de recursos existente para a nova máquina virtual ou crie um novo com um nome exclusivo globalmente. Se você atribuir um nome que já existe, o Azure atribui ao grupo o mesmo nome da VM.
 4. Em **Rede virtual**, selecione a rede virtual na qual a VM será colocada. Todas as redes virtuais associadas à assinatura são exibidas. Escolher a sub-rede. A primeira sub-rede será selecionada por padrão.
-5. Na **local de armazenamento**, especifique a conta de armazenamento para a VM. [Saiba mais](#storage-accounts).
+5. Em **local de armazenamento**, especifique a conta de armazenamento para a VM. [Saiba mais](#storage-accounts).
 
     ![Assistente de configuração de restauração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -102,7 +101,7 @@ Como uma das [opções de restauração](#restore-options), você pode criar um 
 
 - Use o modelo gerado durante a operação de restauração para personalizar as configurações e disparar a implantação da VM. Você edita as configurações de modelo padrão e envia o modelo para implantação da VM.
 - [Anexe discos restaurados](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal) a uma VM existente.
-- [Criar uma nova VM](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) dos discos restaurados usando o PowerShell.
+- [Crie uma nova VM](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) com base nos discos restaurados usando o PowerShell.
 
 1. Em **Restaurar configuração** > **Criar nova** > **Tipo de restauração**, selecione **Restaurar discos**.
 2. No **Grupo de recursos**, selecione um grupo de recursos existente para os discos recuperados ou crie um novo com um nome exclusivo globalmente.
@@ -112,7 +111,7 @@ Como uma das [opções de restauração](#restore-options), você pode criar um 
 
 4. Em **Restaurar configuração**, selecione **OK**. Em **Restaurar**, clique em **Restaurar** para disparar a operação de restauração.
 
-Durante a restauração de VM, o Backup do Azure não usa a conta de armazenamento. Mas no caso de **restaurar discos** e **restauração instantânea**, conta de armazenamento é usada para armazenar o modelo.
+Durante a restauração da VM, o backup do Azure não usa a conta de armazenamento. Mas, no caso de **discos de restauração** e **restauração instantânea**, a conta de armazenamento é usada para armazenar o modelo.
 
 ### <a name="use-templates-to-customize-a-restored-vm"></a>Usar modelos para personalizar uma VM restaurada
 
@@ -141,7 +140,7 @@ Como uma das [opções de restauração](#restore-options), você pode substitui
 
 1. Em **Restaurar configuração**, clique em **Substituir existente**.
 2. Em **Tipo de Restauração**, selecione **Substituir disco**. Este é o ponto de restauração que será usado para substituir discos de VM existentes.
-3. Na **local de preparo**, especifique onde os instantâneos dos discos gerenciados atuais devem ser salvo durante o processo de restauração. [Saiba mais](#storage-accounts).
+3. Em **local de preparo**, especifique onde os instantâneos dos discos gerenciados atuais devem ser salvos durante o processo de restauração. [Saiba mais](#storage-accounts).
 
    ![Restaurar o Assistente de configuração de substituir existente](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 
@@ -154,13 +153,13 @@ Há vários cenários comuns nos quais você pode precisar restaurar VMs.
 --- | ---
 **Restaurar VMs usando Benefícios de uso híbrido** | Se uma VM do Windows usa o [licenciamento do Benefício de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure os discos e crie uma nova VM usando o modelo fornecido (com **Tipo de Licença** definido como **Windows_Server**) ou o PowerShell.  Essa configuração também pode ser aplicada após a criação da VM.
 **Restaurar VMs durante um desastre de datacenter do Azure** | Se o cofre usa GRS e o datacenter principal da VM ficar inativo, o Backup do Azure oferece suporte à restauração de VMs de backup no datacenter emparelhado. Você seleciona uma conta de armazenamento no datacenter emparelhado e a restaura normalmente. O Backup do Azure usa o serviço de computação no local emparelhado para criar a VM restaurada. [Saiba mais](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sobre a resiliência do datacenter.
-**Restaurar VM do controlador de domínio único no domínio único** | Restaure a VM como qualquer outra VM. Observe que:<br/><br/> Da perspectiva do Active Directory, a VM do Azure é como qualquer outra VM.<br/><br/> O DSRM (Modo de Restauração dos Serviços de Diretório) também está disponível, portanto, todos os cenários de recuperação do Active Directory são viáveis. [Saiba mais](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sobre considerações de backup e restauração para controladores de domínio virtualizados.
-**Restaurar várias VMs do controlador de domínio em domínio único** | Se outros controladores de domínio no mesmo domínio podem ser acessados pela rede, o controlador de domínio pode ser restaurado como qualquer máquina virtual. Se for o último controlador de domínio restante no domínio, ou uma recuperação em uma rede isolada for executada, use uma [recuperação de floresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Restaurar VM do controlador de domínio único no domínio único** | Restaure a VM como qualquer outra VM. Observe que:<br/><br/> De uma perspectiva Active Directory, a VM do Azure é como qualquer outra VM.<br/><br/> O DSRM (Modo de Restauração dos Serviços de Diretório) também está disponível, portanto, todos os cenários de recuperação do Active Directory são viáveis. [Saiba mais](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sobre considerações de backup e restauração para controladores de domínio virtualizados.
+**Restaurar várias VMs do controlador de domínio em domínio único** | Se outros controladores de domínio no mesmo domínio puderem ser acessados pela rede, o controlador de domínio poderá ser restaurado como qualquer VM. Se for o último controlador de domínio restante no domínio, ou uma recuperação em uma rede isolada for executada, use uma [recuperação de floresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restaurar vários domínios em uma floresta** | Recomendamos uma [recuperação de floresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauração bare-metal** | A principal diferença entre VMs do Azure e hipervisores locais é que não há nenhum console de VM disponível no Azure. Um console é necessário para determinados cenários, como a recuperação usando um backup do tipo BMR (recuperação bare-metal). No entanto, a restauração de VM do cofre é uma substituição completa para a BMR.
-**Restaurar VMs com configurações de rede especiais** | Configurações especiais de rede incluem VMs usando balanceamento de carga interno ou externo, usando vários NICS ou vários endereços IP reservados. Restaure essas VMs usando a [opção de disco de restauração](#restore-disks). Essa opção faz uma cópia dos VHDs na conta de armazenamento especificada e, em seguida, você pode criar uma VM com um [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) balanceador de carga, [várias NICS](../virtual-machines/windows/multiple-nics.md), ou [endereços IP reservados de vários](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), de acordo com a sua configuração.
-**Grupo de segurança de rede (NSG) na sub-rede/NIC** | O backup VM do Azure dá suporte a informações de Backup e restauração de NSG no nível da NIC, sub-rede e rede virtual.
-**Zona fixado VMs** | O Backup do Azure dá suporte a backup e restauração de VMs fixadas zoneadas. [Saiba mais](https://azure.microsoft.com/global-infrastructure/availability-zones/)
+**Restaurar VMs com configurações de rede especiais** | Configurações especiais de rede incluem VMs usando balanceamento de carga interno ou externo, usando vários NICS ou vários endereços IP reservados. Restaure essas VMs usando a [opção de disco de restauração](#restore-disks). Essa opção faz uma cópia dos VHDs na conta de armazenamento especificada e, em seguida, você pode criar uma VM com um balanceador de carga [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) ou [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) , [várias NICs](../virtual-machines/windows/multiple-nics.md)ou [vários endereços IP reservados](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), de acordo com seu configuração.
+**Grupo de segurança de rede (NSG) na NIC/sub-rede** | O backup de VM do Azure dá suporte a backup e restauração de informações de NSG em nível de rede virtual, sub-rede e NIC.
+**VMs fixadas pela zona** | O backup do Azure dá suporte ao backup e à restauração de VMs fixadas de zona. [Saiba mais](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## <a name="track-the-restore-operation"></a>Acompanhar a operação de restauração
 Após disparar a operação de restauração, o serviço de backup cria um trabalho para acompanhamento. O Backup do Azure exibe notificações sobre o trabalho no portal. Se não estiverem visíveis, clique no símbolo **Notificações** para vê-los.
@@ -185,7 +184,7 @@ Há vários itens a observar após a restauração de uma VM:
 
 - Extensões presentes durante a configuração do backup serão instaladas, mas não habilitadas. Se encontrar um problema, reinstale as extensões.
 - Se a VM de backup tiver um endereço IP estático, a VM restaurada terá um endereço IP dinâmico para evitar conflitos. Você pode [adicionar um endereço IP estático à VM restaurada](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
-- Uma VM restaurada não tem um conjunto de disponibilidade. Se você usar a opção de disco de restauração, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM a partir do disco usando o modelo fornecido ou o PowerShell.
+- Uma VM restaurada não tem um conjunto de disponibilidade. Se você usar a opção restaurar disco, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM a partir do disco usando o modelo ou o PowerShell fornecido.
 - Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/linux/reset-password.md). Recomendamos o uso de chaves SSH nessas distribuições, para que você não precise redefinir a senha após a restauração.
 
 

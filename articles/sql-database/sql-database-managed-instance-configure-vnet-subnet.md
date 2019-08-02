@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 168068094761fd35bf0386f476fbdd1262e9643f
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60700458"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228298"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configurar uma rede virtual existente para uma Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -31,6 +31,8 @@ Se um dos seguintes casos se aplica a você, você pode validar e modificar sua 
 
 > [!Note]
 > Você pode criar uma instância gerenciada somente em redes virtuais criadas por meio do modelo de implantação do Azure Resource Manager. Redes virtuais do Azure criadas por meio do modelo de implantação clássico não são compatíveis para esse fim. Calcule o tamanho da sub-rede, seguindo as diretrizes no artigo [Determinar o tamanho da sub-rede para Instâncias Gerenciadas](sql-database-managed-instance-determine-size-vnet-subnet.md). Você não poderá redimensionar a sub-rede depois de implantar os recursos dentro dela.
+>
+> Depois que uma instância gerenciada é criada, não há suporte para a movimentação da instância gerenciada ou da VNet para outro grupo de recursos ou assinatura.
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>Validar e modificar uma rede virtual existente
 

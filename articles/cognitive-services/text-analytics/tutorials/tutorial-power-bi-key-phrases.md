@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dba65e68e7c2204a4d4d7f80a603de607bba7609
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60003455"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68697341"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
 
@@ -36,7 +36,7 @@ Neste tutorial, você aprenderá como:
 - Microsoft Power BI Desktop. [Faça download sem qualquer custo](https://powerbi.microsoft.com/get-started/).
 - Uma conta do Microsoft Azure. [Inicie uma avaliação gratuita](https://azure.microsoft.com/free/) ou [entre](https://portal.azure.com/).
 - Uma conta da API de Serviços Cognitivos com a API de Análise de Texto. Se você não tiver uma, poderá [inscrever-se](../../cognitive-services-apis-create-account.md) e usar a camada gratuita para 5.000 transações/mês (consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) para concluir este tutorial.
-- A [chave de acesso da Análise de Texto](../how-tos/text-analytics-how-to-access-key.md) que foi gerada para você durante a inscrição.
+- A [chave de acesso da Análise de Texto](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) que foi gerada para você durante a inscrição.
 - Comentários do cliente. É possível usar [nossos dados de exemplo](https://aka.ms/cogsvc/ta) ou seus próprios dados. Este tutorial pressupõe que você está usando nossos dados de exemplo.
 
 ## <a name="load-customer-data"></a>Carregar dados do cliente
@@ -103,7 +103,7 @@ A [API de Frases-chave](https://westus.dev.cognitive.microsoft.com/docs/services
 Agora você está pronto para criar a função personalizada que integrará o Power BI e a Análise de Texto. A função recebe o texto a ser processado como um parâmetro. Ela converte os dados de e para o formato JSON necessário e realiza a solicitação HTTP para a API de Frases-chave. A função analisa a resposta da API e retorna uma cadeia de caracteres que contém uma lista separada por vírgulas das frases-chave extraídas.
 
 > [!NOTE]
-> As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmula Power Query M](https://msdn.microsoft.com/library/mt211003.aspx), ou sua forma abreviada "M”. M é uma linguagem de programação funcional com base em [F#](https://docs.microsoft.com/dotnet/fsharp/). Você não precisa ser um programador para concluir este tutorial, pois o código necessário está incluído abaixo.
+> As funções personalizadas do Power BI Desktop são escritas na [linguagem de fórmula Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference), ou sua forma abreviada "M”. M é uma linguagem de programação funcional com base em [F#](https://docs.microsoft.com/dotnet/fsharp/). Você não precisa ser um programador para concluir este tutorial, pois o código necessário está incluído abaixo.
 
 No Power BI Desktop, certifique-se de ainda estar na janela do Editor de consultas. Se não estiver, selecione a faixa de opções **Início** e, no grupo **Dados externos**, clique em **Editar consultas**.
 
@@ -144,7 +144,7 @@ No Power BI Desktop, na janela do Editor de Consultas, retorne para a consulta `
 
 A caixa de diálogo Invocar função personalizada é exibida. No **Novo nome da coluna**, insira `keyphrases`. Na **Consulta de função**, selecione a função personalizada que você criou, `KeyPhrases`.
 
-Um novo campo é exibido na caixa de diálogo **texto (opcional)**. Este campo está solicitando qual coluna queremos usar para fornecer valores para o parâmetro `text` da API de Frases-chave. (Lembre-se de que você já embutiu os valores em código para os parâmetros `language` e `id`.) Selecione `Merged` (a coluna que criamos [anteriormente](#PreparingData) mesclando os campos de assunto e mensagem) no menu suspenso.
+Um novo campo é exibido na caixa de diálogo **texto (opcional)** . Este campo está solicitando qual coluna queremos usar para fornecer valores para o parâmetro `text` da API de Frases-chave. (Lembre-se de que você já embutiu os valores em código para os parâmetros `language` e `id`.) Selecione `Merged` (a coluna que criamos [anteriormente](#PreparingData) mesclando os campos de assunto e mensagem) no menu suspenso.
 
 ![[Invocando uma função personalizada]](../media/tutorials/power-bi/invoke-custom-function.png)
 
@@ -188,7 +188,7 @@ Agora você usará esta coluna para gerar uma nuvem de palavras. Para começar, 
 > [!NOTE]
 > Por que usar frases-chave extraídas para gerar uma nuvem de palavras em vez de usar o texto completo de cada comentário? As frases-chave nos fornecem as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras na nuvem gerada não é distorcido pelo uso frequente de uma palavra em um número relativamente pequeno de comentários.
 
-Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências (**...** ) e escolha **Importar da Store**. Em seguida, pesquise "nuvem" e clique no botão **Adicionar** ao lado do objeto visual Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
+Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências ( **...** ) e escolha **Importar da Store**. Em seguida, pesquise "nuvem" e clique no botão **Adicionar** ao lado do objeto visual Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
 
 ![[adicionando um objeto visual personalizado]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -294,7 +294,7 @@ Saiba mais sobre o serviço Análise de Texto, a linguagem de fórmula Power Que
 > [Referência de API de Análise de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Referência do Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
+> [Referência do Power Query M](https://docs.microsoft.com/powerquery-m/power-query-m-reference)
 
 > [!div class="nextstepaction"]
 > [Documentação do Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

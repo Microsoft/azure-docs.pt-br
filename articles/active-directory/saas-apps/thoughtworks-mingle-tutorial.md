@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5acf02c021fdfd9f85eeb2b6b1c697ce92c48a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866100"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>Tutorial: Integração do Azure Active Directory ao Thoughtworks Mingle
 
@@ -53,7 +53,7 @@ Para configurar a integração do Thoughtworks Mingle ao Azure AD, você precisa
 
 **Para adicionar o Thoughtworks Mingle da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Thoughtworks Mingle, execute as
    
     ![Configuração de SSO](./media/thoughtworks-mingle-tutorial/ic785158.png "Configuração de SSO")
     
-     a. Para carregar o arquivo de metadados, clique em **Escolher arquivo**. 
+    a. Para carregar o arquivo de metadados, clique em **Escolher arquivo**. 
 
     b. Clique em **Salvar Alterações**.
 
@@ -214,7 +214,7 @@ Para usuários do Azure AD conseguirem entrar, eles devem ser provisionados para
    
     ![Caixa de diálogo Novo Usuário](./media/thoughtworks-mingle-tutorial/ic785163.png "Novo Usuário")  
  
-     a. Digite o **Nome de entrada**, **Nome de exibição**, **Escolher senha** e **Confirmar senha** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas. 
+    a. Digite o **Nome de entrada**, **Nome de exibição**, **Escolher senha** e **Confirmar senha** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas. 
 
     b. Para **Tipo de usuário**, selecione **Usuário completo**.
 
@@ -236,5 +236,5 @@ Ao clicar no bloco do Thoughtworks Mingle no Painel de Acesso, você deverá ser
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

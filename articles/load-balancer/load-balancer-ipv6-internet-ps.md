@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como criar um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, azure load balancer, pilha dual, ip público, ipv6 nativo, móvel, iot
 ms.service: load-balancer
 ms.custom: seodec18
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: kumud
-ms.openlocfilehash: e4bc889df008283f05be5f820b66415cd38c1595
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 12f9b8d3031d3b64e2f39f07763f7a75164aad25
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66149272"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274980"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Introdução à criação de um balanceador de carga para a Internet com IPv6 usando o PowerShell para Resource Manager
 
@@ -100,7 +100,7 @@ Verifique se você tem a versão de produção mais recente do módulo Azure Res
     $vnet = New-AzvirtualNetwork -Name VNet -ResourceGroupName NRP-RG -Location 'West US' -AddressPrefix 10.0.0.0/16 -Subnet $backendSubnet
     ```
 
-2. Crie recursos de PIP (Endereço IP Público) do Azure para o pool de endereços IP front-end. Certifique-se de alterar o valor de `-DomainNameLabel` antes de executar os comandos a seguir. O valor deve ser exclusivo dentro da região do Azure.
+2. Crie recursos de PIP (Endereço IP Público) do Azure para o pool de endereços IP front-end. Certifique-se de alterar o valor `-DomainNameLabel` de antes de executar os comandos a seguir. O valor deve ser exclusivo na região do Azure.
 
     ```azurepowershell-interactive
     $publicIPv4 = New-AzPublicIpAddress -Name 'pub-ipv4' -ResourceGroupName NRP-RG -Location 'West US' -AllocationMethod Static -IpAddressVersion IPv4 -DomainNameLabel lbnrpipv4

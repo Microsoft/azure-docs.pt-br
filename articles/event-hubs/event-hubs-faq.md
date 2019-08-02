@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: c5e58f7bc89fbe2d93f6610465abf4a92fd31406
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66b11ef8e746222074eadab2348f8a2cf9dab39f
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476122"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479140"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
@@ -24,14 +24,14 @@ ms.locfileid: "66476122"
 ### <a name="what-is-an-event-hubs-namespace"></a>O que é um namespace dos Hubs de Eventos?
 Um namespace é um contêiner de escopo do Hub de Eventos/Tópicos do Kafka. Ele fornece a você um [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) único. Um namespace serve como um contêiner de aplicativo que pode hospedar vários Hub de Eventos/Tópicos do Kafka. 
 
-### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando criar um novo namespace versus usar um namespace existente?
-Alocações de capacidade ([taxa de transferência TUs (unidades)](#throughput-units)) são cobrados no nível de namespace. Um namespace também está associado uma região.
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando crio um novo namespace versus uso um namespace existente?
+As alocações de capacidade ([Tus)](#throughput-units)são cobradas no nível do namespace. Um namespace também está associado a uma região.
 
-Você talvez queira criar um novo namespace em vez de usar um um existente em um dos seguintes cenários: 
+Talvez você queira criar um novo namespace em vez de usar um existente em um dos seguintes cenários: 
 
-- Você precisa de um Hub de eventos associado com uma nova região.
-- Você precisa de um Hub de eventos associado com uma assinatura diferente.
-- Você precisa de um Hub de eventos com uma alocação de capacidade distintas (ou seja, a capacidade precisa para o namespace com o hub de evento adicionado excederia o limite de TUS 40 e você não deseja ir para o cluster dedicado)  
+- Você precisa de um hub de eventos associado a uma nova região.
+- Você precisa de um hub de eventos associado a uma assinatura diferente.
+- Você precisa de um hub de eventos com uma alocação de capacidade distinta (ou seja, a capacidade necessária para o namespace com o Hub de eventos adicionado excederia o limite de 40 TU e você não quer ir para o cluster dedicado)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>Qual é a diferença entre os níveis Basic e Standard dos Hubs de Eventos?
 
@@ -60,46 +60,46 @@ Atualmente, o tipo Standard dos Hubs de Eventos dá suporte a um período de ret
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como monitorar meus Hubs de Eventos?
 Os Hubs de Eventos emitem métricas exaustivas que fornecem o estado de seus recursos ao [Azure Monitor](../azure-monitor/overview.md). Eles também permitem a avaliação da integridade geral do serviço do Hubs de Eventos, não apenas no nível do namespace, mas também no nível da entidade. Saiba qual monitoramento é oferecido para os [Hubs de Eventos do Azure](event-hubs-metrics-azure-monitor.md).
 
-### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas preciso abrir o firewall? 
-Você pode usar os seguintes protocolos de barramento de serviço do Azure para enviar e receber mensagens:
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quais portas eu preciso abrir no firewall? 
+Você pode usar os seguintes protocolos com o barramento de serviço do Azure para enviar e receber mensagens:
 
 - Advanced Message Queuing Protocol (AMQP)
 - HTTP
 - Apache Kafka
 
-Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os Hubs de eventos do Azure. 
+Consulte a tabela a seguir para as portas de saída que você precisa abrir para usar esses protocolos para se comunicar com os hubs de eventos do Azure. 
 
 | Protocol | Portas | Detalhes | 
 | -------- | ----- | ------- | 
-| AMQP | 5671 e 5672 | Consulte [guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| AMQP | 5671 e 5672 | Consulte o [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |
-| Kafka | 9093 | Consulte [usar Hubs de eventos de aplicativos do Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+| Kafka | 9093 | Consulte [usar hubs de eventos de aplicativos Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP é necessário à lista de permissões?
-Para localizar os endereços IP corretos para a lista branca para suas conexões, siga estas etapas:
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
+Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Anote o endereço IP retornado na `Non-authoritative answer`. Esse endereço IP é estático. O único ponto no tempo que ele seria alterado é se você restaurar o namespace de logon em um cluster diferente.
+2. Anote o endereço IP retornado em `Non-authoritative answer`. O único ponto no tempo que seria alterado seria se você restaurasse o namespace em um cluster diferente.
 
-Se você usar a redundância de zona para seu namespace, você precisará seguir algumas etapas adicionais: 
+Se você usar a redundância de zona para seu namespace, precisará executar algumas etapas adicionais: 
 
-1. Primeiro, você execute nslookup no namespace.
+1. Primeiro, execute nslookup no namespace.
 
     ```
     nslookup <yournamespace>.servicebus.windows.net
     ```
-2. Anote o nome na **resposta não autoritativa** seção, que está em um dos seguintes formatos: 
+2. Anote o nome na seção de **resposta não autoritativa** , que está em um dos seguintes formatos: 
 
     ```
     <name>-s1.servicebus.windows.net
     <name>-s2.servicebus.windows.net
     <name>-s3.servicebus.windows.net
     ```
-3. Execute nslookup para cada um deles com sufixos s1, s2 e s3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade 
+3. Execute nslookup para cada um com sufixos S1, S2 e S3 para obter os endereços IP de todas as três instâncias em execução em três zonas de disponibilidade, 
 
 ## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 
@@ -120,7 +120,7 @@ Observação: Se sasl.jaas.config não for uma configuração compatível com su
 ### <a name="what-is-the-messageevent-size-for-kafka-enabled-event-hubs"></a>Qual é o tamanho de mensagem/evento para Hubs de Eventos habilitados para Kafka?
 O tamanho máximo de mensagem permitido para os Hubs de Eventos habilitados para Kafka é de 1MB.
 
-## <a name="throughput-units"></a>Unidades de transferência
+## <a name="throughput-units"></a>Unidades de produtividade
 
 ### <a name="what-are-event-hubs-throughput-units"></a>O que são unidades de produtividade dos Hubs de Eventos?
 A taxa de transferência nos Hubs de Eventos define a quantidade de dados em megabytes ou o número (em milhares) de eventos de 1 KB que entram e saem por meio dos Hubs de Eventos. Essa taxa de transferência é medida em unidades de produtividade (TUs). Compre TUs antes de começar a usar o serviço Hubs de Eventos. Seleciona explicitamente as TUs dos Hubs de Eventos usando o portal do Azure ou de modelos do Resource Manager dos Hubs de Eventos. 
@@ -185,8 +185,9 @@ Crie um cluster dedicado de Hubs de Eventos enviando uma [solicitação de supor
 ## <a name="best-practices"></a>Práticas recomendadas
 
 ### <a name="how-many-partitions-do-i-need"></a>De quantas partições preciso?
+O número de partições é especificado na criação do Hub de Eventos e deve estar entre 2 e 32. A contagem de partições não é mutável, portanto você deve considerar a escala de longo prazo ao definir a contagem de partições. As partições são um mecanismo de organização de dados relacionados ao paralelismo de downstream necessário no consumo de aplicativos. O número de partições em um hub de eventos está diretamente relacionado ao número de leitores simultâneos que você espera ter. Para obter mais informações sobre partições, consulte [partições](event-hubs-features.md#partitions).
 
-A contagem de partições em um Hub de Eventos não pode ser modificada após a instalação. Com isso em mente, é importante pensar sobre quantas partições você precisa antes de começar. 
+Talvez você queira defini-lo para ser o maior valor possível, que é 32, no momento da criação. Lembre-se de que ter mais de uma partição resultará em eventos enviados a várias partições sem reter o pedido, a menos que você configure os remetentes para enviar somente para uma única partição fora do 32 deixando as 31 restantes de partições redundantes. No primeiro caso, você terá que ler eventos em todas as partições 32. No último caso, não há nenhum custo adicional óbvio da configuração extra que você precisa fazer no host do processador de eventos.
 
 Hubs de Eventos são projetados para permitir um único leitor de partição por grupo de consumidores. Na maioria dos casos de uso, a configuração padrão de quatro partições é suficiente. Se você estiver buscando dimensionar o processamento de eventos, convém considerar a inclusão de partições adicionais. Não há nenhum limite específico de taxa de transferência em uma partição, no entanto, a taxa de transferência agregada em seu namespace é limitada pelo número de unidades de taxa de transferência. Conforme você aumenta o número de unidades de taxa de transferência no seu namespace, talvez você deseje partições adicionais para permitir que cada um dos leitores simultâneos alcance sua taxa de transferência máxima.
 
@@ -230,7 +231,7 @@ A Captura usa uma conta de armazenamento fornecida quando habilitado em um Hub d
 
 Para obter uma lista de todas as cotas de Hubs de Eventos, consulte [cotas](event-hubs-quotas.md).
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>Por que não eu consigo criar um namespace após excluí-lo de outra assinatura? 
 Quando você exclui um namespace de uma assinatura, aguarde até 4 horas antes de recriá-lo com o mesmo nome em outra assinatura. Caso contrário, a seguinte mensagem de erro será exibida: `Namespace already exists`. 

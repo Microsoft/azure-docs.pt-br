@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: ada93903113cedd68e23ec66a36dceef99ec1233
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8652073eb3d7d154958566b68fb6e27c35d8da30
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896167"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086529"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integração do Azure Active Directory ao XaitPorter
 
@@ -53,7 +53,7 @@ Para configurar a integração do XaitPorter ao Azure AD, você precisará adici
 
 **Para adicionar o XaitPorter da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o XaitPorter, execute as seguinte
 
     ![Informações de logon único em de URLs e Domínio do XaitPorter](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com/saml/login`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com/saml/login`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.xaitporter.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do XaitPorter](https://www.xait.com/support/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o XaitPorter, execute as seguinte
 
     ![Configurar o logon único](./media/xaitporter-tutorial/user3.png)
 
-     a. Selecione **Habilitar Autenticação de Logon Único**.
+    a. Selecione **Habilitar Autenticação de Logon Único**.
 
     b. Na caixa de texto **Configurações do Provedor de Identidade**, cole a **URL de Metadados de Federação de Aplicativos** que você copiou do Portal do Azure e clique em **Buscar**.
 
@@ -216,5 +216,5 @@ Ao clicar no bloco do XaitPorter no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

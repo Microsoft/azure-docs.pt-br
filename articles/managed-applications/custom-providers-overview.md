@@ -1,91 +1,131 @@
 ---
-title: Visão geral da visualização do Azure provedores personalizados
-description: Descreve os conceitos para a criação de um provedor de recursos personalizado com o Azure Resource Manager
-author: MSEvanhi
+title: Visão geral dos provedores de recursos personalizados do Azure
+description: Saiba mais sobre provedores de recursos personalizado do Azure e como estender o plano de API do Azure de acordo com seus fluxos de trabalho.
+author: jjbfour
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/01/2019
-ms.author: evanhi
-ms.openlocfilehash: bbfb10f612690af0f4fd3683e0f58986a21048d8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/19/2019
+ms.author: jobreen
+ms.openlocfilehash: d25ef00adc307bae57da2c04d4472874f8d67bcd
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159849"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67796074"
 ---
-# <a name="azure-custom-providers-preview-overview"></a>Visão geral do Azure de visualização de provedores personalizados
+# <a name="azure-custom-resource-providers-overview"></a>Visão geral dos provedores de recurso personalizada do Azure
 
-Com provedores de personalizado do Azure, você pode estender o Azure para trabalhar com seu serviço. Você criar seu próprio provedor de recursos, incluindo tipos de recurso personalizado e ações. O provedor personalizado é integrado com o Azure Resource Manager. Você pode usar os recursos do Gerenciador de recursos, como implantações de modelo e controle de acesso baseado em função, implantar e proteger seu serviço.
+Provedores de recursos personalizado do Azure é uma plataforma de extensibilidade para o Azure. Ele permite que você definir para APIs personalizadas que podem ser usadas para enriquecer o padrão a experiência do Azure. Esta documentação descreve:
 
-Este artigo fornece uma visão geral dos provedores personalizados e seus recursos. A imagem a seguir mostra o fluxo de trabalho para recursos e as ações definidas em um provedor personalizado.
+- Como criar e implantar um provedor de recursos personalizado do Azure.
+- Como utilizar provedores de recursos do Azure personalizado para estender os fluxos de trabalho existentes.
+- Onde encontrar os guias e exemplos de código para começar a usar.
 
 ![Visão geral do provedor personalizado](./media/custom-providers-overview/overview.png)
 
 > [!IMPORTANT]
 > Provedores personalizados está atualmente em visualização pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="define-your-custom-provider"></a>Definir o provedor personalizado
+## <a name="what-can-custom-resource-providers-do"></a>O que podem fazer de provedores de recursos personalizados
 
-Iniciar, permitindo que o Azure Resource Manager saber sobre o provedor personalizado. Implantar no Azure um recurso de provedor personalizado, que usa o tipo de recurso **Microsoft.CustomProviders/resourceProviders**. Esse recurso, você define os recursos e as ações para o seu serviço.
+Aqui estão alguns exemplos de como o que você pode obter com provedores de recursos do Azure personalizado:
 
-Por exemplo, se seu serviço precisar de um tipo de recurso denominado **usuários**, inclua esse tipo de recurso em sua definição de provedor personalizado. Para cada tipo de recurso, você deve fornecer um ponto de extremidade que oferece as operações de REST (PUT, GET, DELETE) para esse tipo de recurso. O ponto de extremidade pode ser hospedado em qualquer ambiente, e contém a lógica de como seu serviço lida com operações no tipo de recurso.
+- Estenda a REST API do Azure Resource Manager para incluir serviços internos e externos.
+- Habilite cenários personalizados na parte superior de fluxos de trabalho existentes do Azure.
+- Personalize o controle de modelos do Azure Resource Manager e o efeito.
 
-Você também pode definir a ações personalizadas para seu provedor de recursos. Ações representam operações POST. Use ações para operações como iniciar, parar ou reiniciar. Você fornece um ponto de extremidade que manipula a solicitação.
+## <a name="what-is-a-custom-resource-provider"></a>O que é um provedor de recursos personalizado
 
-O exemplo a seguir mostra como definir um provedor personalizado com uma ação e um tipo de recurso.
+Provedores de recursos personalizado do Azure são feitos com a criação de um contrato entre o Azure e um ponto de extremidade. Este contrato define uma lista de novos recursos e ações por meio de um novo recurso, **Microsoft.CustomProviders/resourceProviders**. O provedor de recursos personalizado, em seguida, irá expor essas novas APIs no Azure. Provedores de recurso personalizada do Azure são compostos de três partes: o provedor de recursos personalizado **pontos de extremidade**e os recursos personalizados.
 
-```json
+## <a name="how-to-build-custom-resource-providers"></a>Como criar provedores de recursos personalizados
+
+Provedores de recursos personalizados são uma lista de contratos entre o Azure e pontos de extremidade. Este contrato descreve como o Azure deve interagir com um ponto de extremidade. O Age de provedor de recursos, como um proxy e para encaminhar solicitações e respostas de e para especificado **ponto de extremidade**. Um provedor de recursos pode especificar dois tipos de contratos: [ **resourceTypes** ](./custom-providers-resources-endpoint-how-to.md) e [ **ações**](./custom-providers-action-endpoint-how-to.md). Esses são habilitados por meio das definições de ponto de extremidade. Uma definição de ponto de extremidade é composta por três campos: **nome**, **routingType**, e **ponto de extremidade**.
+
+Ponto de extremidade de exemplo:
+
+```JSON
 {
-  "apiVersion": "2018-09-01-preview",
-  "type": "Microsoft.CustomProviders/resourceProviders",
-  "name": "[parameters('funcName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "actions": [
-      {
-        "name": "ping",
-        "routingType": "Proxy",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ],
-    "resourceTypes": [
-      {
-        "name": "users",
-        "routingType": "Proxy,Cache",
-        "endpoint": "[concat('https://', parameters('funcName'), '.azurewebsites.net/api/{requestPath}')]"
-      }
-    ]
-  }
-},
-```
-
-Para **routingType**, os valores aceitos são `Proxy` e `Cache`. Proxy significa que as solicitações para o tipo de recurso ou ação são manipuladas pelo ponto de extremidade. A configuração de cache só há suporte para tipos de recursos, não ações. Para especificar o cache, você também deve especificar o proxy. Cache significa que as respostas do ponto de extremidade são armazenadas para otimizar operações de leitura. Usar a configuração de cache torna mais fácil de implementar uma API que é consistente e em conformidade com outros serviços do Gerenciador de recursos.
-
-## <a name="deploy-your-resource-types"></a>Implantar os seus tipos de recursos
-
-Depois de definir o provedor personalizado, você pode implantar seus tipos de recurso personalizado. O exemplo a seguir mostra o JSON que você incluir em seu modelo para implantar o tipo de recurso para o provedor personalizado. Esse tipo de recurso pode ser implantado no mesmo modelo com outros recursos do Azure.
-
-```json
-{
-    "apiVersion": "2018-09-01-preview",
-    "type": "Microsoft.CustomProviders/resourceProviders/users",
-    "name": "[concat(parameters('rpname'), '/santa')]",
-    "location": "[parameters('location')]",
-    "properties": {
-        "FullName": "Santa Claus",
-        "Location": "NorthPole"
-    }
+  "name": "{endpointDefinitionName}",
+  "routingType": "Proxy",
+  "endpoint": "https://{endpointURL}/"
 }
 ```
 
-## <a name="manage-access"></a>Gerenciar acesso
+Propriedade | Obrigatório | DESCRIÇÃO
+---|---|---
+name | *Sim* | O nome da definição do ponto de extremidade. Azure vai expor esse nome por meio de sua API em ' /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/<br>resourceProviders/{resourceProviderName}/{endpointDefinitionName}'
+routingType | *no* | Determina o tipo de contrato com o **ponto de extremidade**. Se não for especificado, o padrão será "Proxy".
+ponto de extremidade | *Sim* | O ponto de extremidade para encaminhar as solicitações. Isso irá manipular a resposta, bem como os efeitos colaterais da solicitação.
 
-Usar o Azure [controle de acesso baseado em função](../role-based-access-control/overview.md) para gerenciar o acesso ao seu provedor de recursos. Você pode atribuir [funções internas](../role-based-access-control/built-in-roles.md) como proprietário, colaborador ou leitor para os usuários. Ou, você pode definir [funções personalizadas](../role-based-access-control/custom-roles.md) que são específicos para as operações no seu provedor de recursos.
+### <a name="building-custom-resources"></a>Criando recursos personalizados
+
+**ResourceTypes** descrevem novos recursos personalizados que são adicionados ao Azure. Eles expõem métodos básicos de CRUD RESTful. Consulte [mais sobre como criar recursos personalizados](./custom-providers-resources-endpoint-how-to.md)
+
+Provedor de recursos personalizado com de exemplo **resourceTypes**:
+
+```JSON
+{
+  "properties": {
+    "resourceTypes": [
+      {
+        "name": "myCustomResources",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+APIs adicionadas para o Azure para o exemplo acima:
+
+HttpMethod | URI de exemplo | DESCRIÇÃO
+---|---|---
+PUT | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | A chamada de API REST do Azure para criar um novo recurso.
+DELETE | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | A chamada de API REST do Azure para excluir um recurso existente.
+OBTER | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources/{customResourceName}?api-version=2018-09-01-preview | A chamada de API REST do Azure para recuperar um recurso existente.
+OBTER | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomResources?api-version=2018-09-01-preview | A chamada de API REST do Azure para recuperar a lista de recursos existentes.
+
+### <a name="building-custom-actions"></a>Criação de ações personalizadas
+
+**Ações** descrevem novas ações que são adicionadas ao Azure. Eles podem ser expostos sobre o provedor de recursos ou aninhados em uma **resourceType**. Consulte [mais sobre a criação de ações personalizadas](./custom-providers-action-endpoint-how-to.md)
+
+Provedor de recursos personalizado com de exemplo **ações**:
+
+```JSON
+{
+  "properties": {
+    "actions": [
+      {
+        "name": "myCustomAction",
+        "routingType": "Proxy",
+        "endpoint": "https://{endpointURL}/"
+      }
+    ]
+  },
+  "location": "eastus"
+}
+```
+
+APIs adicionadas para o Azure para o exemplo acima:
+
+HttpMethod | URI de exemplo | DESCRIÇÃO
+---|---|---
+POSTAR | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>myCustomAction?api-version=2018-09-01-preview | A chamada de API REST do Azure para ativar a ação.
+
+## <a name="looking-for-help"></a>Procurando ajuda
+
+Se você tiver perguntas para o desenvolvimento do provedor de recursos do Azure personalizada, experimente perguntar [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-custom-providers). Uma pergunta semelhante pode já foram solicitada e respondida, portanto, verifique primeiro antes de lançamento. Adicione a marca ```azure-custom-providers``` para obter uma resposta rápida!
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu sobre provedores personalizados. Vá para o próximo artigo para criar um provedor personalizado.
 
-> [!div class="nextstepaction"]
-> [Tutorial: Criar um provedor personalizado e implantar recursos personalizados](create-custom-provider.md)
+- [Início Rápido: Criar provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
+- [Tutorial: Criar ações personalizadas e os recursos no Azure](./tutorial-custom-providers-101.md)
+- [Como: Adicionar ações personalizadas a API REST do Azure](./custom-providers-action-endpoint-how-to.md)
+- [Como: Adicionar recursos personalizados à API REST do Azure](./custom-providers-resources-endpoint-how-to.md)

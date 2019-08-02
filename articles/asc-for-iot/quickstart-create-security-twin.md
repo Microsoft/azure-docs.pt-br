@@ -2,24 +2,25 @@
 title: Criar um módulo gêmeo de segurança para a Versão Prévia da Central de Segurança do Azure para IoT | Microsoft Docs
 description: Aprenda como criar um módulo gêmeo da Central de Segurança do Azure para IoT para usar com a ASC para IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: c782692e-1284-4c54-9d76-567bc13787cc
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: af952b59a2f4924be79c0ac7dc728f1d9bd0d641
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0e042942be63fdcd97c7cda6003e6d55376ca1a1
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200728"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616664"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início Rápido: Criar um módulo gêmeo azureiotsecurity
 

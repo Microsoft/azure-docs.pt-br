@@ -7,25 +7,26 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 63aa93e72d76d430fc7e026478d91e496f27eae6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 82c1be335bfd39d641f0203116e68a4cb4c0a674
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055107"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654222"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta da Microsoft usando o Azure Active Directory B2C
 
 ## <a name="create-a-microsoft-account-application"></a>Criar um aplicativo de conta da Microsoft
 
-Para usar uma conta da Microsoft como um [provedor de identidade](active-directory-b2c-reference-oidc.md) no Azure AD (Azure Active Directory) B2C, é preciso criar um aplicativo no locatário que o representa. Se ainda não tiver uma conta da Microsoft, consiga uma conta em [https://www.live.com/](https://www.live.com/).
+Para usar uma conta da Microsoft como um [provedor de identidade](active-directory-b2c-reference-oidc.md) no Azure Active Directory (Azure AD) B2C, você precisa criar um aplicativo no locatário do AD do Azure. Locatário do Azure AD não é o mesmo que seu locatário do Azure AD B2C. Se você ainda não tiver uma conta da Microsoft, você pode obter um de cada [ https://www.live.com/ ](https://www.live.com/).
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
-1. Selecione **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registros de aplicativo**.
-1. Selecione **novo registro**
+1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Verifique se você está usando o diretório que contém seu locatário do Azure AD clicando nos **filtros de assinatura e diretório** no menu superior e escolhendo o diretório que contém o locatário do Azure AD.
+1. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
+1. Selecione **Novo registro**.
 1. Insira um **Nome** para seu aplicativo. Por exemplo, *MSAapp1*.
 1. Sob **suporte para tipos de conta**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, o Skype, Xbox, Outlook.com)** . Essa opção destina-se o conjunto mais amplo de identidades da Microsoft.
 

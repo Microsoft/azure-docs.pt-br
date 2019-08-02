@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: a2b92b7673ed852e203ca0926421be6ee8cf977d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24d6658733ea38c15f0673d10db3c0ff5ef51c23
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058180"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190157"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure
 
@@ -62,6 +62,17 @@ O processo de instalação é o seguinte:
 2. Provisione um Namespace Premium do Barramento de Serviço ***secundário*** em uma região *diferente de onde o namespace primário está provisionado*. Isso ajuda a permitir o isolamento de falhas nas diferentes regiões de datacenter.
 
 3. Crie o emparelhamento entre os namespaces primário e secundário para obter o ***alias***.
+
+    >[!NOTE] 
+    > Se você tiver [migrado seu namespace de barramento de serviço de Azure Standard para Premium do barramento de serviço do Azure](service-bus-migrate-standard-premium.md), em seguida, você deve usar o alias já existente (ou seja, o barramento de serviço Standard namespace conexão cadeia de caracteres) para criar a recuperação de desastre configuração por meio de **PS/CLI** ou **API REST**.
+    >
+    >
+    > Isso ocorre porque, durante a migração, seu nome de DNS/cadeia de caracteres de conexão namespace Standard de barramento de serviço do Azure em si se torna um alias para seu namespace do barramento de serviço Premium do Azure.
+    >
+    > Seus aplicativos cliente devem utilizar este alias (ou seja, a Azure Service Bus Standard namespace conexão cadeia de caracteres) para se conectar ao namespace Premium em que o emparelhamento de recuperação de desastre tiver sido configurado.
+    >
+    > Se você usar o Portal para configurar a configuração de recuperação de desastre, o portal será abstrair essa limitação de você.
+
 
 4. Use o ***alias*** obtido na etapa 3 para conectar os aplicativos clientes ao namespace primário habilitado para recuperação de desastre geográfico. Inicialmente, o alias aponta para o namespace primário.
 

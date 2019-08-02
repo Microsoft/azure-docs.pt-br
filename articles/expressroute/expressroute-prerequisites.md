@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: mialdrid
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: afe8d3971a51d57498e3e32b7e1cf5bf5a3263d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f16f797afca6d60029c1f39fea7235ce84e4f954
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883214"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442206"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>Pré-requisitos e lista de verificação do ExpressRoute
 Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, você precisa verificar se os requisitos listados nas seções a seguir foram atendidos.
@@ -30,8 +30,8 @@ Para se conectar aos serviços de nuvem da Microsoft usando o ExpressRoute, voc�
 * Se seu provedor não for um parceiro de conectividade do ExpressRoute, você ainda poderá se conectar à nuvem da Microsoft por meio de um [provedor de troca de nuvem](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## <a name="network-requirements"></a>Requisitos de rede
-* **Redundância em cada local de emparelhamento**: A Microsoft requer sessões BGP redundantes para ser definida entre os roteadores da Microsoft e os roteadores emparelhados em cada circuito do ExpressRoute (mesmo quando você tem apenas [uma conexão física para uma troca de nuvem](expressroute-faqs.md#onep2plink)).
-* **Redundância para recuperação de desastres**: Microsoft recomenda que você configurar pelo menos dois circuitos de ExpressRoute em diferentes locais de emparelhamento para evitar um ponto único de falha.
+* **Redundância em cada local de emparelhamento**: A Microsoft exige que sessões BGP redundantes sejam configuradas entre os roteadores da Microsoft e os roteadores de emparelhamento em cada circuito do ExpressRoute (mesmo quando você tem apenas [uma conexão física com uma troca de nuvem](expressroute-faqs.md#onep2plink)).
+* **Redundância para recuperação de desastres**: A Microsoft recomenda enfaticamente que você configure pelo menos dois circuitos de ExpressRoute em diferentes locais de emparelhamento para evitar um ponto único de falha.
 * **Roteamento**: dependendo de como você se conecta ao Microsoft Cloud, você ou seu provedor precisarão configurar e gerenciar as sessões BGP para [domínios de roteamento](expressroute-circuit-peerings.md). Alguns provedores de conectividade Ethernet ou os provedores de troca de nuvem podem oferecer gerenciamento BGP como um serviço de valor agregado.
 * **NAT**: a Microsoft só aceita endereços IP públicos por meio de emparelhamento da Microsoft. Se você estiver usando endereços IP privados em sua rede local, você ou seu provedor precisará converter os endereços IP privados em endereços IP públicos [usando NAT](expressroute-nat.md).
 * **QoS**: o Skype for Business tem vários serviços (por exemplo: voz, vídeo, texto) que exigem tratamento diferenciado de QoS. Você e seu provedor devem seguir os [requisitos de QoS](expressroute-qos.md).
@@ -50,10 +50,7 @@ Se você planeja habilitar o Office 365 no ExpressRoute, consulte os documentos 
 * [Vídeos de treinamento avançados do ExpressRoute no Office 365](https://channel9.msdn.com/series/aer/)
 
 ## <a name="dynamics-365"></a>Dynamics 365
-Se você planeja habilitar o Dynamics 365 no ExpressRoute, consulte os documentos a seguir para saber mais sobre os requisitos do Dynamics 365
-
-* [Whitepaper Dynamics 365 e ExpressRoute](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
-* [Intervalos de endereços IP](https://support.microsoft.com/kb/2655102) e [URLs do Dynamics 365](https://support.microsoft.com/kb/2728473)
+Se você planeja habilitar o Dynamics 365 no ExpressRoute, examine as [URLs do dynamics 365](https://support.microsoft.com/kb/2655102) e os [intervalos de endereços IP](https://support.microsoft.com/kb/2728473).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter mais informações sobre o ExpressRoute, consulte [Perguntas Frequentes sobre ExpressRoute](expressroute-faqs.md).

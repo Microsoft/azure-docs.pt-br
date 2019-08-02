@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 06/24/2019
 ms.author: orspodek
-ms.openlocfilehash: f501257903f3b7c621512f06d1c8c7109e22db1e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 438adcd70c1be308c2b5779de0442486b303cfdd
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394499"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449642"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Explorer usando o Azure Data Factory
 
@@ -140,6 +140,7 @@ Para copiar dados do Azure Data Explorer, defina a propriedade **type** na fonte
 | type | A propriedade **type** da fonte da atividade de cópia deve ser definida como: **AzureDataExplorerSource** | Sim |
 | query | Uma solicitação somente leitura fornecida em um [formato KQL](/azure/kusto/query/). Use a consulta KQL personalizada como referência. | Sim |
 | queryTimeout | O tempo de espera antes que a solicitação de consulta expire. O valor padrão é 10 min (00:10:00); o valor máximo permitido é 1 hora (01: 00:00). | Não |
+| noTruncation | Indica se é necessário truncar o conjunto de resultados retornado. Por padrão, o resultado é truncado após 500.000 registros ou de 64MB. O truncamento é altamente recomendável para um comportamento adequado da atividade. |Não |
 
 >[!NOTE]
 >Fonte de dados Explorer do Azure por padrão tem um limite de tamanho de 500.000 registros ou 64 MB. Para recuperar todos os registros sem truncamento, você pode especificar `set notruncation;` no início de sua consulta. Consulte a [limites de consulta](https://docs.microsoft.com/azure/kusto/concepts/querylimits) em mais detalhes.

@@ -1,23 +1,23 @@
 ---
 title: Padrões de Coluna do Fluxo de Dados do Mapeamento do Azure Data Factory
-description: Saiba como usar padrões de coluna do Azure Data Factory no mapeamento de fluxo de dados para criar padrões de modelo generalizado para transformar os campos em um fluxo de dados sem levar em consideração os metadados de esquema subjacente
+description: Criar padrões de transformação de dados generalizados usando Azure Data Factory padrões de coluna no mapeamento de fluxos de dados
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 08cdaafe00b7dc586ea75f6ff03fdb89107edee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 076c3318a68a50e6bd1b4f9f2a4a4b9a034533c6
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66430762"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68346578"
 ---
-# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Padrões de coluna de fluxos de dados de mapeamento do Azure data factory
+# <a name="azure-data-factory-mapping-data-flows-column-patterns"></a>Padrões de coluna de fluxos de dados de mapeamento de data factory do Azure
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Várias transformações de Fluxo de Dados do Azure Data Factory dão suporte à ideia de "Padrões de colunas" para que você possa criar colunas de modelo com base nos padrões em vez de nomes de coluna embutidos em código. Você pode usar esse recurso no construtor de expressões para definir padrões para correspondência das colunas para a transformação em vez de exigir nomes de campo exato e específico. Padrões são úteis se a entrada campos de origem são alterados com frequência, especialmente no caso de alterar as colunas nos arquivos de texto ou bancos de dados NoSQL. Essa condição é, às vezes, conhecida como "Descompasso do esquema".
+Várias transformações de Fluxo de Dados do Azure Data Factory dão suporte à ideia de "Padrões de colunas" para que você possa criar colunas de modelo com base nos padrões em vez de nomes de coluna embutidos em código. Você pode usar esse recurso no construtor de expressões para definir padrões para corresponder colunas para transformação em vez de exigir nomes de campo específicos e exatos. Padrões são úteis se os campos de origem de entrada são alterados com frequência, especialmente no caso de alteração de colunas em arquivos de texto ou bancos de dados NoSQL. Essa condição às vezes é chamada de "descompasso de esquema".
 
 ![padrões de coluna](media/data-flow/columnpattern2.png "Padrões de coluna")
 
@@ -27,6 +27,16 @@ Ao adicionar uma expressão a uma transformação que aceita padrões, escolha "
 
 Ao criar padrões de coluna de modelo, use `$$` na expressão para declarar uma referência para cada campo correspondente do fluxo de dados de entrada.
 
-Se você optar por usar uma das funções de construtor de expressões de regex, você pode, posteriormente, usar $1, 2 de US $, $3... Para fazer referência as subpadrões combinados a partir de sua expressão regex.
+Se optar por usar uma das funções regex do Construtor de Expressões, você poderá, posteriormente, usar $1, $2, $3 ... para fazer referência a subpadrões com correspondência de sua expressão regex.
 
-Um exemplo de cenário de Padrão de Coluna está usando SUM com uma série de campos de entrada. Os cálculos SUM agregados ficam na transformação de agregação. Você pode usar soma em cada correspondência dos tipos de campo que correspondem à "integer" e, em seguida, use $$ para cada correspondência na sua expressão de referência.
+Um exemplo de cenário de Padrão de Coluna está usando SUM com uma série de campos de entrada. Os cálculos SUM agregados ficam na transformação de agregação. Em seguida, você pode usar SUM em cada correspondência de tipos de campo que correspondem a "Integer" e, em seguida, use $ $ para fazer referência a cada correspondência em sua expressão.
+
+## <a name="match-columns"></a>Colunas de correspondência
+![tipos de padrões de coluna](media/data-flow/pattern2.png "Tipos de padrões")
+
+Para criar padrões com base em colunas, você pode corresponder ao nome da coluna, ao tipo, ao fluxo ou à posição e usar qualquer combinação delas com funções de expressão e expressões regulares.
+
+![posição da coluna](media/data-flow/position.png "Posição da coluna")
+
+## <a name="next-steps"></a>Próximas etapas
+Saiba mais sobre a [linguagem de expressão](https://aka.ms/dataflowexpressions) de fluxo de dados de mapeamento do ADF para transformações de dados

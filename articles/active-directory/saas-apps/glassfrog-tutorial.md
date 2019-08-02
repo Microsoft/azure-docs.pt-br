@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: c2b32d1c96a01282aa8cdbae1d55976a89abea81
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: a816cd6df8351a9b9daefd569d1fad2ec0763832
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563992"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101556"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-glassfrog"></a>Tutorial: Integração do Azure Active Directory com o GlassFrog
 
@@ -53,7 +53,7 @@ Para configurar a integração do GlassFrog ao Azure AD, você precisará adicio
 
 **Para adicionar o GlassFrog da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 

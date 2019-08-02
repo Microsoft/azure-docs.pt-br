@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este início rápido mostra como criar um Balanceador de Carga Básico usando o PowerShell
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
+ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 5b77087557bc4ca1bea3cb4a36a50d787a5edf4d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 58b36265a5e440dbf33a5d6fb85e791abbd006a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66729841"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274239"
 ---
 # <a name="get-started"></a>Início Rápido: criar um balanceador de carga público usando o Azure PowerShell
 

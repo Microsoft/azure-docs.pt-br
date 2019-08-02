@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 519066651bec85e593079a833b15dc80e5df8d9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6491013cb35f2473eff6c2019fe2a80dd9e9b08
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865183"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>Tutorial: Integração do Azure Active Directory com Software de Produtividade Wizergos
 
@@ -53,7 +53,7 @@ Para configurar a integração do Wizergos Productivity Software com o Azure AD,
 
 **Para adicionar o Wizergos Productivity Software da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Azure AD com o Wizergos Productivity Software,
 
     ![Configurar o logon único no lado do aplicativo](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_003.png)
     
-     a. Clique no ícone **Carregar** para carregar o certificado baixado do Azure AD.
+    a. Clique no ícone **Carregar** para carregar o certificado baixado do Azure AD.
     
     b. Na caixa de texto **URL do Emissor**, cole o valor **Identificador do Azure AD** que você copiou do portal do Azure.
     
@@ -213,5 +213,5 @@ Quando você clica no bloco Wizergos Productivity Software no painel de acesso, 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

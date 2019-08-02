@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 126d5b501b9c4239fbdbe06318604bcfaf861150
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 08cc13f8e8b1329794231f0a1d0821679abf811e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838340"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kronos"></a>Tutorial: Integração do Azure Active Directory com o Kronos
 
@@ -53,7 +53,7 @@ Para configurar a integração do Kronos ao Azure AD, você precisará adicioná
 
 **Para adicionar o Kronos da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Kronos, realize as seguintes et
 
     ![Informações de Domínio e URLs do Kronos para logon único](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.kronos.net/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.kronos.net/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company name>.kronos.net/wfc/navigator/logonWithUID`
 
@@ -117,17 +117,17 @@ Para configurar o logon único do Azure AD com o Kronos, realize as seguintes et
 
 6. Na seção **Declarações de Usuário** do diálogo **Atributos de Usuário**, configure o atributo de token SAML conforme mostrado na imagem acima e execute as seguintes etapas:
     
-     a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
+    a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
 
     ![image](./media/kronos-tutorial/tutorial_usermail.png)
 
     ![image](./media/kronos-tutorial/tutorial_usermailedit.png)
 
-    b. Na lista **Transformação**, selecione **ExtractMailPrefix()**.
+    b. Na lista **Transformação**, selecione **ExtractMailPrefix()** .
 
     c. Na lista **Parâmetro 1**, selecione **user.userprinicipalname**.
 
-    d. Clique em **Salvar**.
+    d. Clique em **Save** (Salvar).
 
 7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -204,5 +204,5 @@ Ao clicar no bloco do Kronos no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

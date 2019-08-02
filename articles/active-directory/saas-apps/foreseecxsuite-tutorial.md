@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c78fa8ec470f04bcd88ab403249f77a65120c707
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65988037"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550399"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Azure Active Directory com o ForeSee CX Suite
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o ForeSee CX Suite, execute as se
 
 4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](common/upload-metadata.png)
 
@@ -117,9 +117,9 @@ Para configurar o logon único do Azure AD com o ForeSee CX Suite, execute as se
 
     ![Informações de logon único de Domínio e URLs do ForeSee CX Suite](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL: `https://cxsuite.foresee.com/`
+    a. Na caixa de texto **URL de Logon**, digite uma URL: `https://cxsuite.foresee.com/`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: https:\//www.okta.com/saml2/service-provider/<UniqueID>
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: https:\//www.okta.com/saml2/service-provider/\<UniqueID>
 
     > [!Note]
     > Se o valor de **Identificador** não for populado automaticamente, preencha o valor manualmente de acordo com o padrão acima. O valor do Identificador não é real. Atualize esse valor com o Identificador real. Entre em contato com a [equipe de suporte ao cliente do ForeSee CX Suite](mailto:support@foresee.com) para obter esse valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -208,5 +208,5 @@ Ao clicar no bloco do ForeSee CX Suite no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

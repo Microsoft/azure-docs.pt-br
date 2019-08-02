@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/23/2019
-ms.openlocfilehash: 98bd70d9f6eb70cb7848dfa74e19c78e55a34991
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: 4e63e1e477ce82221e5121815b609326cc2c1112
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240349"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447179"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para pools elásticos usando os limites do modelo de compra baseado no vCore
 
@@ -36,6 +36,9 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 > Os limites de recursos de bancos de dados individuais em pools elásticos geralmente são os mesmos dos bancos de dados individuais fora dos pools com o mesmo tamanho da computação. Por exemplo, o máximo de trabalhos simultâneos para um banco de dados GP_Gen4_1 é 200. Assim, o máximo de trabalhos simultâneos para um banco de dados em um pool de GP_Gen4_1 também é 200. Observe que o número total de trabalhos simultâneos no pool de GP_Gen4_1 é 210.
 
 ## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço de Uso Geral: Tamanhos de armazenamento e tamanhos da computação
+
+> [!IMPORTANT]
+> Não há suporte para novos bancos de dados Gen4 na região AustraliaEast.
 
 ### <a name="general-purpose-service-tier-generation-4-compute-platform-part-1"></a>Camada de serviço de Uso Geral: Plataforma de computação de geração 4 (parte 1)
 
@@ -138,8 +141,8 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Latência de E/S (aproximada)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|5-7 ms (gravação)<br>5-10 ms (leitura)|
 |IOPS de destino (64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |Limites de taxa de log (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
-|Máximo de trabalhos simultâneos por pool (solicitações)*|1680|1\.890|2\.100|2520|33\.600|4200|8400|
-|Máximo de logons simultâneos por pool (solicitações) *|1680|1\.890|2\.100|2520|33\.600|4200|8400|
+|Máximo de trabalhos simultâneos por pool (solicitações)*|1680|1\.890|2\.100|2520|33.600|4200|8400|
+|Máximo de logons simultâneos por pool (solicitações) *|1680|1\.890|2\.100|2520|33.600|4200|8400|
 |Opções mínimas/máximas de vCore do pool elástico por banco de dados|0, 0,25, 0,5, 1…16|0, 0,25, 0,5, 1…18|0, 0,25, 0,5, 1…20|0, 0,25, 0,5, 1…20, 24|0, 0,25, 0,5, 1…20, 24, 32|0, 0,25, 0,5, 1…16, 24, 32, 40|0, 0.25, 0,5, 1…16, 24, 32, 40, 80|
 |Número de réplicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
@@ -149,6 +152,9 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 \* Para o máximo de trabalhos (solicitações) simultâneos para qualquer banco de dados individual, confira [Limites de recursos do banco de dados individual](sql-database-vcore-resource-limits-single-databases.md). Por exemplo, se o pool elástico estiver usando Gen5 e seu máximo de vCore por banco de dados for 2, então o máximo de trabalhos simultâneos é 200.  Se máximo de vCore por banco de dados for 0,5, o máximo de trabalhos simultâneos é 50, pois há um máximo de 100 trabalhos simultâneos por vcore na Gen5.  Para outras configurações de máximo de vCore por banco de dados que sejam menores que 1 vCore, o número máximo de trabalhos simultâneos é redimensionado de forma semelhante.
 
 ## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Camada de serviço Comercialmente Crítico: Tamanhos de armazenamento e tamanhos da computação
+
+> [!IMPORTANT]
+> Não há suporte para novos bancos de dados Gen4 na região AustraliaEast.
 
 ### <a name="business-critical-service-tier-generation-4-compute-platform-part-1"></a>Camada de serviço Comercialmente Crítico: Plataforma de computação de geração 4 (parte 1)
 
@@ -193,7 +199,7 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Tamanho máximo de log (GB)|195|195|195|195|307|307|
 |Tamanho de TempDB (GB)|224|256|288|320|384|384|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|35\.000|40000|45000|50000|80000|120000|
+|IOPS de destino (64 KB)|35.000|40000|45000|50000|80000|120000|
 |Limites de taxa de log (MBps)|70|80|80|80|80|80|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|1\.470|1680|1\.890|2\.100|3360|5040|
 |Máximo de logons simultâneos por pool (solicitações) *|1\.470|1680|1\.890|2\.100|3360|5040|
@@ -221,7 +227,7 @@ Você pode definir a camada de serviço, o tamanho da computação e a quantidad
 |Tamanho de TempDB (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|SSD Local|
 |Latência de E/S (aproximada)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|1-2 ms (gravação)<br>1-2 ms (leitura)|
-|IOPS de destino (64 KB)|5\.000|10000|15000|20000|25000|30000|35\.000|
+|IOPS de destino (64 KB)|5\.000|10000|15000|20000|25000|30000|35.000|
 |Limites de taxa de log (MBps)|15|30|45|60|75|90|105|
 |Máximo de trabalhos simultâneos por pool (solicitações)*|210|420|630|840|1\.050|1260|1\.470|
 |Máximo de logons simultâneos por pool (solicitações) *|210|420|630|840|1\.050|1260|1\.470|

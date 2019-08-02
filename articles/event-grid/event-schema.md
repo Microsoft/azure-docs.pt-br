@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8193d21bbc1d0af933657705e605ce31589cbf
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304244"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785860"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos da Grade de Eventos do Azure
 
@@ -83,16 +83,16 @@ Por exemplo, o esquema publicado para um evento de armazenamento de Blob do Azur
 
 Todos os eventos terão os mesmos dados de nível superior a seguir:
 
-| Propriedade | Type | DESCRIÇÃO |
+| Propriedade | Tipo | DESCRIÇÃO |
 | -------- | ---- | ----------- |
-| topic | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
-| subject | string | Caminho definido pelo fornecedor para o assunto do evento. |
-| eventType | string | Um dos tipos de evento registrados para a origem do evento. |
-| eventTime | string | A hora em que o evento é gerado com base na hora UTC do provedor. |
-| id | string | Identificador exclusivo do evento. |
+| topic | cadeia de caracteres | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Grade de Eventos fornece esse valor. |
+| subject | cadeia de caracteres | Caminho definido pelo fornecedor para o assunto do evento. |
+| eventType | cadeia de caracteres | Um dos tipos de evento registrados para a origem do evento. |
+| eventTime | cadeia de caracteres | A hora em que o evento é gerado com base na hora UTC do provedor. |
+| id | cadeia de caracteres | Identificador exclusivo do evento. |
 | data | objeto | Dados do evento específicos ao provedor de recursos. |
-| dataVersion | string | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
-| metadataVersion | string | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
+| dataVersion | cadeia de caracteres | A versão do esquema do objeto de dados. O fornecedor define a versão do esquema. |
+| metadataVersion | cadeia de caracteres | A versão do esquema do metadados de evento. Grade de Eventos define o esquema de propriedades de nível superior. Grade de Eventos fornece esse valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, consulte a origem do evento:
 
@@ -104,6 +104,7 @@ Para saber mais sobre as propriedades no objeto de dados, consulte a origem do e
 * [Serviços de Mídia](../media-services/latest/media-services-event-schemas.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 * [Grupos de recursos (operações de gerenciamento)](event-schema-resource-groups.md)
 * [Barramento de Serviço](event-schema-service-bus.md)
+* [Azure SignalR](event-schema-azure-signalr.md)
 
 Para tópicos personalizados, o publicador do evento determina o objeto de dados. Os dados de nível superior devem ter os mesmos campos do que os eventos definidos pelo recurso padrão.
 

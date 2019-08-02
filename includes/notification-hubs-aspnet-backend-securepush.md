@@ -4,16 +4,16 @@ ms.service: service-bus
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
-ms.openlocfilehash: b8cf4217ca6c80be998b92e71c3ba29c4f68bce2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b150cad22528234286fa7939bf7055e8312ed361
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66111531"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68229171"
 ---
 ## <a name="webapi-project"></a>Projeto WebAPI
 1. No Visual Studio, abra o projeto **AppBackend** que você criou no tutorial **Notificar Usuários** .
-2. Em Notifications.cs, substitua toda a classe **Notifications** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal do Azure](http://portal.azure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
+2. Em Notifications.cs, substitua toda a classe **Notifications** pelo código a seguir. Certifique-se de substituir os espaços reservados por sua cadeia de conexão (com acesso completo) para seu hub de notificação e pelo nome do hub. Você pode obter esses valores do [Portal do Azure](https://portal.azure.com). Esse módulo agora representa as diferentes notificações seguras que serão enviadas. Em uma implementação completa, as notificações são armazenadas em um banco de dados; por questão de simplicidade, neste caso as armazenaremos na memória.
    
         public class Notification
         {

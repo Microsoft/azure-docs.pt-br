@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675ce4f9b6b34f98c81ad85f03a7c7cb178f1d6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 776333fa3bf0ca868f2e4109464f492e824b038b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893128"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brandfolder"></a>Tutorial: Integração do Azure Active Directory com Brandfolder
 
@@ -55,7 +55,7 @@ Para configurar a integração do Brandfolder ao Azure AD, você precisará adic
 
 **Para adicionar o Brandfolder da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Brandfolder, execute as seguint
 
     ![Informações de logon único em Domínio e URLs do Brandfolder](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://brandfolder.com/organizations/<ORG_SLUG>/saml/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://brandfolder.com/organizations/<ORG_SLUG>/saml/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://brandfolder.com/organizations/<ORG_SLUG>/saml`
 
@@ -138,7 +138,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -189,5 +189,5 @@ Ao clicar no bloco do Brandfolder no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

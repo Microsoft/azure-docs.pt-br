@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4464796e655cefd28f858cb732ff3d5721a7aa47
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086064"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206808"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Início Rápido: Integrar sua assinatura do Azure à Central de Segurança Standard
 A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção contra ameaças nas cargas de trabalho da sua nuvem híbrida. Enquanto a camada Gratuita oferece segurança limitada para somente os recursos do Azure, a camada Standard estende esses recursos para o local e outras nuvens. A Central de Segurança Standard ajuda a localizar e corrigir vulnerabilidades de segurança, aplicar controles de acesso e de aplicativo para bloquear atividades mal-intencionadas, detectar ameaças usando a análise e inteligência e responder rapidamente quando sob ataque. Você pode experimentar a Central de Segurança Standard sem nenhum custo. Para saber mais, consulte a [página de preços](https://azure.microsoft.com/pricing/details/security-center/).
@@ -74,10 +74,10 @@ Quando o provisionamento automático está habilitado, a Central de Segurança i
 Para habilitar o provisionamento automático do Microsoft Monitoring Agent:
 
 1. No menu principal da Central de Segurança, selecione **Política de Segurança**.
-2. Na linha da assinatura, selecione **Editar configurações>**.
+2. Na linha da assinatura, selecione **Editar configurações>** .
 3. Na guia **Coleta de Dados**, defina **Provisionamento automático** como **Ativado**.
 4. Clique em **Salvar**.
-****
+---
   ![Habilitar o provisionamento automático][6]
 
 Com essa nova percepção de suas VMs do Azure, a Central de Segurança pode fornecer Recomendações adicionais relacionadas ao status de atualização do sistema, configurações de segurança do SO, proteção de ponto de extremidade, além de gerar alertas de Segurança adicionais.
@@ -88,14 +88,14 @@ Com essa nova percepção de suas VMs do Azure, a Central de Segurança pode for
 Outros guias de início rápido e tutoriais da coleção aproveitam esse guia de início rápido. Se você planeja continuar a trabalhar com os tutoriais e os guias de início rápido subsequentes, continue executando a camada Standard e mantenha o provisionamento automático habilitado. Se você não planejar continuar ou quiser retornar para a camada Gratuita:
 
 1. Retorne ao menu principal da Central de Segurança e selecione a **Política de segurança**.
-2. Na linha da assinatura que você deseja retornar para gratuita, selecione **Editar configurações>**.
+2. Na linha da assinatura que você deseja retornar para gratuita, selecione **Editar configurações>** .
 3. Selecione **Tipo de preço** e selecione **Gratuito** para alterar a assinatura da camada Standard para a camada Gratuita.
 5. Clique em **Salvar**.
 
 Se quiser desabilitar o provisionamento automático:
 
 1. Retorne ao menu principal da Central de Segurança e selecione **Política de segurança**.
-2. Na linha da assinatura em que você deseja desabilitar o provisionamento automático, selecione **Editar configurações>**.
+2. Na linha da assinatura em que você deseja desabilitar o provisionamento automático, selecione **Editar configurações>** .
 3. Na guia **Coleta de Dados**, defina **Provisionamento automático** como **Desativado**.
 4. Clique em **Salvar**.
 

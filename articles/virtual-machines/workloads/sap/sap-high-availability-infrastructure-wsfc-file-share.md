@@ -4,7 +4,7 @@ description: Preparação da infraestrutura do Azure para alta disponibilidade d
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b3577128e66112bda5a5e3e08097d14604043cbd
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409607"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708986"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
@@ -223,8 +223,8 @@ Antes de iniciar a instalação, leia este artigo:
 | --- | --- | --- | --- |
 | Primeiro cluster ASCS/SCS do nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo cluster ASCS/SCS do nó de cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome da rede de clusters |ascs-cl | 10.0.6.6 | n/d |
-| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
+| Nome da rede de clusters |ascs-cl | 10.0.6.6 | N/D |
+| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | N/D |
 
 
 **Tabela 1**: Cluster ASCS/SCS
@@ -241,8 +241,8 @@ Antes de iniciar a instalação, leia este artigo:
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terceiro nó de cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome da rede de clusters | sofs-cl | 10.0.6.13 | n/d |
-| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n/d |
+| Nome da rede de clusters | sofs-cl | 10.0.6.13 | N/D |
+| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | N/D |
 
 **Tabela 3**: Cluster de servidor de arquivos de escalabilidade horizontal
 
@@ -251,30 +251,30 @@ Antes de iniciar a instalação, leia este artigo:
 
 Para preparar a infraestrutura do Azure, faça o seguinte:
 
-* [Prepare a infraestrutura para os modelos arquitetônicos 1, 2 e 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+* [Preparar a infraestrutura para os modelos arquitetônicos 1, 2 e 3][sap-high-availability-infrastructure-wsfc-shared-disk].
 
-* [Crie uma rede virtual do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+* [Criar uma rede virtual do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
 
-* [Defina os endereços IP necessários do DNS][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
+* [Definir endereços de IP de DNS necessários][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
 
-* [Defina endereços IP estáticos para as máquinas virtuais do SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
+* [Definir endereços IP estáticos para as máquinas virtuais SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
 
-* [Defina um endereço IP estático para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
+* [Definir um endereço IP estático para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
 
-* [Defina regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
+* [Regras padrão de conjunto de balanceamento de carga do ASCS/SCS para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
 
-* [Altere as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+* [Alterar a regras para o balanceador de carga interno do Azure de balanceamento de carga do ASCS/SCS padrão][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
 
-* [Adicione máquinas virtuais do Windows ao domínio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Adicionar máquinas de virtuais do Windows ao domínio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* [Adicione entradas de registro em ambos os nós de cluster da instância ASCS/SCS do SAP][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+* [Adicionar entradas de registro em ambos os nós de cluster da instância SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
 
-* Com o uso do Windows Server 2016, é recomendável configurar a [Testemunha em Nuvem do Azure][deploy-cloud-witness].
+* Como usar o Windows Server 2016, é recomendável que você configure [testemunha de nuvem do Azure][deploy-cloud-witness].
 
 
 ## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
 
-Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
+Você pode implantar o cluster de servidor de arquivos de escalabilidade horizontal Microsoft manualmente, conforme descrito no blog [espaços de armazenamento diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
 
 
 ```powershell
@@ -319,7 +319,7 @@ Você também pode automatizar a implantação de Servidor de Arquivos de Escala
 
 ### <a name="use-managed-disks"></a>Usar discos gerenciados
 
-O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de Escalabilidade Horizontal com Espaços de Armazenamento Diretos e Discos Gerenciados do Azure está disponível em [GitHub][arm-sofs-s2d-managed-disks].
+O modelo do Azure Resource Manager para implantar o servidor de arquivos de escalabilidade horizontal com espaços de armazenamento diretos e o Azure Managed Disks está disponível no [GitHub][arm-sofs-s2d-managed-disks].
 
 Recomendamos o uso de Discos Gerenciados.
 
@@ -335,7 +335,7 @@ No modelo, faça o seguinte:
 
 ### <a name="use-unmanaged-disks"></a>Usar discos não gerenciados
 
-O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de Escalabilidade Horizontal com Espaços de Armazenamento Diretos e Discos Não Gerenciados do Azure está disponível em [GitHub][arm-sofs-s2d-non-managed-disks].
+O modelo do Azure Resource Manager para implantar o servidor de arquivos de escalabilidade horizontal com espaços de armazenamento diretos e discos não gerenciados do Azure está disponível no [GitHub][arm-sofs-s2d-non-managed-disks].
 
 ![Figura 2: Tela de interface do usuário para o modelo do Gerenciador de recursos do Azure do servidor de arquivos de escalabilidade horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
 
@@ -345,7 +345,7 @@ Na caixa **Tipo de Conta de Armazenamento**, selecione **Armazenamento Premium**
 
 ## <a name="adjust-cluster-timeout-settings"></a>Ajustar as configurações de tempo limite do cluster
 
-Depois de instalar com êxito o cluster de servidor de arquivos de escalabilidade horizontal do Windows, adapte os limites de tempo limite para detecção de failover às condições no Azure. Os parâmetros a serem alterados estão documentados no blog [Ajustar os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que suas VMs em cluster estejam na mesma sub-rede, altere os parâmetros a seguir para esses valores:
+Depois de instalar com êxito o cluster de servidor de arquivos de escalabilidade horizontal do Windows, adapte os limites de tempo limite para detecção de failover às condições no Azure. Os parâmetros a serem alterados estão documentados em [ajuste os limites de rede de cluster de failover][tuning-failover-cluster-network-thresholds]. Supondo que suas VMs em cluster estejam na mesma sub-rede, altere os parâmetros a seguir para esses valores:
 
 - SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
@@ -355,4 +355,4 @@ Essas configurações foram testadas com clientes e oferecem um boa comprometime
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP][sap-high-availability-installation-wsfc-file-share]
+* [Instalar o SAP NetWeaver de alta disponibilidade em um Windows failover cluster e compartilhamento de arquivos para instâncias SAP ASCS/SCS][sap-high-availability-installation-wsfc-file-share]

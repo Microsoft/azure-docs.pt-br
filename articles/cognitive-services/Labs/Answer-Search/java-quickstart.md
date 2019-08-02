@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Pesquisa de Resposta do Projeto, Java'
+title: 'Início Rápido: Pesquisa de Resposta do Projeto, Java'
 titlesuffix: Azure Cognitive Services
 description: Comece a usar a Pesquisa de Resposta de Projeto em Java.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: fc0f8519644c5b9f722ab67f2e9d600a0be7960b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 26a9fc60c90f536e4ef9f03e96545e493a60f206
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883518"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698091"
 ---
 # <a name="quickstart-project-answer-search-query-in-java"></a>Início Rápido: Consulta de Pesquisa de Resposta de Projeto em Java
 Este artigo utiliza Java para demonstrar a API de Pesquisa de Notícias do Bing, parte dos Serviços Cognitivos da Microsoft no Azure. A API é um serviço Web REST compatível com qualquer linguagem de programação que possa fazer solicitações HTTP e analisar o JSON.
@@ -24,7 +24,7 @@ O exemplo de código usa Java com dependências externas mínimas.  Você també
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## <a name="request"></a>Solicitação 
 

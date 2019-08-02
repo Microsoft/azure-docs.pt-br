@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88d181c2e761679d7f52208b2086404411bc2012
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a312e0ca70ef3a37b43f1ffb68a974a8aedaf982
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898172"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>Tutorial: Integração do Azure Active Directory ao IdeaScale
 
@@ -53,7 +53,7 @@ Para configurar a integração do IdeaScale ao Azure AD, você precisará adicio
 
 **Para adicionar o IdeaScale da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do IdeaScale](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.ideascale.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.ideascale.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -151,7 +151,7 @@ Para configurar o logon único do Azure AD com o IdeaScale, execute as seguintes
 
     ![Configurações de Logon Único](./media/ideascale-tutorial/ic790850.png "Configurações de Logon Único")
 
-     a. Na caixa de texto **ID da Entidade de IdP SAML**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **ID da Entidade de IdP SAML**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
     b. Abra o arquivo de metadados baixado do portal do Azure no Bloco de notas, copie o conteúdo dele e cole-o na caixa de texto **Metadados do IdP SAML**.
 
@@ -232,7 +232,7 @@ Para permitir que os usuários do Azure AD façam logon no IdeaScale, eles dever
 
     ![Adicionar Novo Membro](./media/ideascale-tutorial/ic790853.png "Adicionar Novo Membro")
 
-     a. Na caixa de texto **Endereços de Email**, digite o endereço de email de uma conta válida do Azure AD que deseja provisionar.
+    a. Na caixa de texto **Endereços de Email**, digite o endereço de email de uma conta válida do Azure AD que deseja provisionar.
 
     b. Clique em **Salvar Alterações**.
 
@@ -254,5 +254,5 @@ Ao clicar no bloco do IdeaScale no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

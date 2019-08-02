@@ -5,6 +5,7 @@
     - name: Sobre as Âncoras Espaciais
       href: overview.md
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Criar aplicativo para Unity
       href: unity-overview.yml

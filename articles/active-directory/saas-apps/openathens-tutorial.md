@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 544c74dc5bd336ab79593fc081b4e48ac0caf3ac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891721"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095538"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integração do Azure Active Directory ao OpenAthens
 
@@ -55,7 +55,7 @@ Para configurar a integração do OpenAthens ao Azure AD, você precisará adici
 
 **Para adicionar o OpenAthens da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o OpenAthens, execute as seguinte
 
 5. Na seção **Configuração Básica do SAML**, carregue o **Arquivo de metadados do Provedor de Serviços**, cujas etapas são mencionadas mais adiante neste tutorial.
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![carregar metadados do OpenAthens](common/upload-metadata.png)
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o OpenAthens, execute as seguinte
 
     ![Configurar o logon único](./media/openathens-tutorial/tutorial_openathens_application4.png)
 
-     a. Em **Mapeamento do nome de exibição**, selecione **Usar atributo**.
+    a. Em **Mapeamento do nome de exibição**, selecione **Usar atributo**.
 
     b. Na caixa de texto **Exibir atributo do nome**, insira o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
@@ -226,5 +226,5 @@ Ao clicar no bloco do OpenAthens no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

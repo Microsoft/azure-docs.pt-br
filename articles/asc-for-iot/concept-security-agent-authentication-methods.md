@@ -2,24 +2,25 @@
 title: Métodos de autenticação para a Central de segurança do Azure para a versão prévia do IoT | Microsoft Docs
 description: Saiba mais sobre os diferentes métodos de autenticação disponíveis ao usar a Central de segurança do Azure para o serviço de IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 10b38f20-b755-48cc-8a88-69828c17a108
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 634d1aedfaf868766e3c1bf97373b9c310885835
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d5701ae37d64e25fba981cd85deed2c4e4d87a15
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198370"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618348"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticação do agente de segurança 
 
@@ -64,7 +65,7 @@ Esses argumentos são documentados na tabela a seguir.
 |Parâmetro|DESCRIÇÃO|Opções|
 |---------|---------------|---------------|
 |**identidade**|Modo de autenticação| **Módulo** ou **dispositivo**|
-|**type**|Tipo de autenticação.|**SymmetricKey** ou **SelfSignedCertificate**|
+|**type**|Tipo de autenticação|**SymmetricKey** ou **SelfSignedCertificate**|
 |**filePath**|Absoluto caminho completo do arquivo que contém o certificado ou a chave simétrica| |
 |**gatewayHostname**|FQDN do Hub IoT|Exemplo: ContosoIotHub.azure-devices.net|
 |**deviceId**|Id do Dispositivo|Exemplo: MyDevice1|

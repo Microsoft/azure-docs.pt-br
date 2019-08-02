@@ -1,20 +1,18 @@
 ---
 title: Visão geral dos discos gerenciados do Armazenamento em Disco do Azure para VMs do Linux | Microsoft Docs
 description: Visão geral dos discos gerenciados do Azure, que lida com as contas de armazenamento ao usar VMs do Linux
-services: virtual-machines-linux,storage
 author: roygara
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: vm-linux
 ms.topic: overview
 ms.date: 04/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 18dc1bd2eea232d0c2eb73d496dd4bd9d2d5016e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5052504b4fb63ce9d638a9d2505ad1c08d3324de
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707811"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68695459"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 

@@ -3,7 +3,7 @@ title: Criar um aplicativo de contêiner Linux no Service Fabric no Azure | Micr
 description: Nesse início rápido, você construirá uma imagem do Docker com o seu aplicativo, enviará por push a imagem para um registro de contêiner e implantará um contêiner a um cluster do Service Fabric.
 services: service-fabric
 documentationcenter: linux
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
-ms.author: aljo,suhuruli
+ms.date: 07/22/2019
+ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 1487c9e3e57a2fe4dcdcab04aa81cd81315decfd
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 0f6e24d2790f78ab0ec7292640fda3ab30e03a03
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302387"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68599410"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início Rápido: Implantar contêineres do Linux no Service Fabric
 
@@ -188,7 +188,7 @@ ResourceGroupName="containertestcluster"
 az group delete --name $ResourceGroupName
 ```
 
-Se você concluiu o trabalho com o cluster, remova o certificado do repositório de certificados. Por exemplo: 
+Se você concluiu o trabalho com o cluster, remova o certificado do repositório de certificados. Por exemplo:
 - No Windows: Use o [snap-in MMC de certificados](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in). Selecione **Minha conta de usuário** ao adicionar o snap-in. Navegue até `Certificates - Current User\Personal\Certificates` e remova o certificado.
 - No Mac: Use o aplicativo de Conjunto de Chaves.
 - No Ubuntu: siga as etapas usadas para exibir certificados e remova o certificado.

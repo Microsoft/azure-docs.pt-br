@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: 9016fa159e868f649901928cdf2dca2f08725e77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: 883f780059e38c53dedda309dd059cc714539f80
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079386"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462083"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o banco de dados do Azure para desempenho MariaDB com consulta Store
 
 **Aplica-se a:**  banco de dados do Azure para MariaDB 10.2
 
 > [!NOTE]
-> Consulta Store está em visualização. Suporte para consulta Store no portal do Azure está sendo distribuído e não ainda estejam disponível em sua região.
+> Consulta Store está em visualização.
 
 O recurso de Store de consulta no banco de dados do Azure para Mariadb fornece uma maneira de acompanhar o desempenho de consulta ao longo do tempo. O Repositório de Consultas simplifica a solução de problemas ajudando você a rapidamente localizar as consultas de execução mais longa e que consomem mais recursos. O Repositório de Consultas captura automaticamente um histórico das estatísticas de tempo de execução e consultas e o retém para sua análise. Ele separa os dados por janelas de tempo para que você possa ver padrões de uso do banco de dados. Dados para todos os usuários, bancos de dados e consultas são armazenados na **mysql** banco de dados de esquema no banco de dados do Azure para MariaDB de instância.
 
@@ -29,10 +29,6 @@ Repositório de consultas pode ser usado em vários cenários, incluindo o segui
 - Detectando as consultas retornadas
 - Determinação do número de vezes que uma consulta foi executada em uma determinada janela de tempo
 - Comparar o tempo médio de execução de uma consulta entre janelas de tempo para ver grandes deltas
-- Identificar consultas de execução mais longas nas últimas X horas
-- Identificar as principais N consultas que estão aguardando recursos
-- Natureza de espera de compreensão para uma consulta
-- Noções básicas sobre as tendências de esperas de recursos e em que existe contenção de recursos
 
 ## <a name="enabling-query-store"></a>Habilitando o Repositório de Consultas
 
@@ -120,7 +116,7 @@ Consultas são normalizadas examinando sua estrutura após a remoção de litera
 
 Essa exibição retorna todos os dados no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário e ID de consulta distinta.
 
-| **Nome** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Name** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
 | `schema_name`| varchar(64) | NÃO | Nome do esquema |
 | `query_id`| bigint(20) | NÃO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerado |
@@ -153,7 +149,7 @@ Essa exibição retorna todos os dados no Repositório de Consultas. Há uma lin
 
 Essa exibição retorna os dados de eventos de espera no Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distinto.
 
-| **Nome**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Name**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
 | `interval_start` | timestamp | NÃO| Início do intervalo (incremento de 15 minutos)|
 | `interval_end` | timestamp | NÃO| Final do intervalo (incremento de 15 minutos)|
@@ -167,7 +163,7 @@ Essa exibição retorna os dados de eventos de espera no Repositório de Consult
 
 ### <a name="functions"></a>Funções
 
-| **Nome**| **Descrição** |
+| **Name**| **Descrição** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Limpa todos os dados de repositório de consulta antes do carimbo de hora determinada |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Espera de removerá todos os dados de evento antes do carimbo de hora determinada |

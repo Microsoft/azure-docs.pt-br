@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: e9e497c8f10108b8e05314f35546345f7f812524
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: bcfd1ef02c68de7709cb8642b94f23a6884ea156
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66507798"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464755"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>Tutorial: Habilitar autenticação em um aplicativo Web usando o Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo. 
+- [Crie fluxos de usuário](tutorial-create-user-flows.md) para habilitar experiências de usuário em seu aplicativo.
 - Instale o [Visual Studio 2019](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento Web e do ASP.NET**.
 
 ## <a name="update-the-application"></a>Atualizar o aplicativo
@@ -64,8 +64,9 @@ A seguir, há dois projetos estão na solução de exemplo:
 Altere o exemplo para usar o aplicativo registrado no locatário, que inclui a ID do aplicativo e a chave registrada anteriormente. Além disso, configure os fluxos de usuário que você criou. O exemplo define os valores de configuração como configurações no arquivo Web.config. Para alterar as configurações:
 
 1. Abra a solução **B2C-WebAPI-DotNet** no Visual Studio.
-2. No projeto **TaskWebApp**, abra o arquivo **Web.config**. Substitua o valor de `ida:Tenant` pelo nome do locatário que você criou. Substitua o valor de `ida:ClientId` pela ID do aplicativo que você registrou. Substitua o valor de `ida:ClientSecret` pela chave que você registrou.
+2. No projeto **TaskWebApp**, abra o arquivo **Web.config**. Substitua o valor de `ida:Tenant` pelo nome do locatário que você criou. Substitua o valor de `ida:ClientId` pela ID do aplicativo que você registrou. Substitua o valor de `ida:ClientSecret` pela chave que você registrou. É necessário codificar o segredo do cliente em XML antes de adicioná-lo a Web.config.
 3. No arquivo **Web.config**, substitua o valor de `ida:SignUpSignInPolicyId` por `b2c_1_signupsignin1`. Substitua o valor de `ida:EditProfilePolicyId` por `b2c_1_profileediting1`. Substitua o valor de `ida:ResetPasswordPolicyId` por `b2c_1_passwordreset1`.
+
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
@@ -76,9 +77,9 @@ Altere o exemplo para usar o aplicativo registrado no locatário, que inclui a I
 
 1. Clique em **Inscrever-se/Entrar** para inscrever-se como um usuário do aplicativo. O fluxo de usuário **b2c_1_signupsignin1** é usado.
 2. O Azure AD B2C apresenta uma página de entrada com um link de inscrição. Como você ainda não tem uma conta, selecione **Inscrever-se agora**. O fluxo de trabalho de inscrição apresenta uma página para coletar e verificar a identidade do usuário usando um endereço de email. O fluxo de trabalho de inscrição também coleta a senha do usuário e os atributos solicitados definidos no fluxo de usuário.
-3. Use um endereço de email válido e valide-o usando o código de verificação. Defina uma senha. Insira valores para os atributos necessários. 
+3. Use um endereço de email válido e valide-o usando o código de verificação. Defina uma senha. Insira valores para os atributos necessários.
 
-    ![Fluxo de trabalho de inscrição](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.png)
+    ![Página de inscrição mostrada como parte do fluxo de trabalho de entrada/inscrição](media/active-directory-b2c-tutorials-web-app/sign-up-workflow.PNG)
 
 4. Clique em **Criar** para criar uma conta local no locatário do Azure AD B2C.
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23669671c9aec2ebad8e03e06a0ea1b139214cad
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0b830f0760b768826b2d937b4a8b2ffbd8e9e2a2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902849"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-business-bydesign"></a>Tutorial: Integração do Azure Active Directory ao SAP Business ByDesign
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o SAP Business ByDesign, execute 
 
     ![Informações de logon único de Domínio e URLs do SAP Business ByDesign](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<servername>.sapbydesign.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<servername>.sapbydesign.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<servername>.sapbydesign.com`
 
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o SAP Business ByDesign, execute 
 
 7. Na seção **Gerenciar declarações do usuário**, realize as seguintes etapas: ![imagem](media/sapbusinessbydesign-tutorial/mail-prefix2.png)
 
-     a. Selecione **Transformação** como uma **Origem**.
+    a. Selecione **Transformação** como uma **Origem**.
 
     b. Na lista suspensa **Transformação**, selecione **ExtractMailPrefix()** .
 
@@ -257,4 +257,4 @@ Quando clicar no bloco do SAP Business ByDesign no Painel de Acesso, você dever
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/29/2019
 ms.author: erhopf
-ms.openlocfilehash: 9cad860b8808dd2682995768c282d8376ab5d9be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22a95be43f06e95a6067b179b3023ba94ee5795d
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66145397"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362442"
 ---
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Cada solicitação requer um cabeçalho de autorização. Esta tabela ilustra quais cabeçalhos são suportados para cada serviço:
 
@@ -26,8 +26,7 @@ Ao usar o cabeçalho `Ocp-Apim-Subscription-Key`, você só precisa fornecer sua
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
-Ao usar o cabeçalho `Authorization: Bearer`, você precisa fazer uma solicitação ao `issueToken` endpoint. Nesta solicitação, você troca sua chave de assinatura por um token de acesso válido por 10 minutos. Nas próximas seções, você aprenderá como obter um token, usar um token e atualizar um token.
-
+Ao usar o cabeçalho `Authorization: Bearer`, você precisa fazer uma solicitação ao `issueToken` endpoint. Nesta solicitação, você troca sua chave de assinatura por um token de acesso válido por 10 minutos. Nas próximas seções, você aprenderá a obter um token e usará um token.
 
 ### <a name="how-to-get-an-access-token"></a>Como obter um token de acesso
 
@@ -130,6 +129,7 @@ public class Authentication
 import requests
 
 subscription_key = 'REPLACE_WITH_YOUR_KEY'
+
 
 def get_token(subscription_key):
     fetch_token_url = 'https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken'

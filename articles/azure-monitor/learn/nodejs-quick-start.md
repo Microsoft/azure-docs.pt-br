@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 07/12/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: c6979ce5cade09d4daa4e6eddd79fb69175ec902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d92a96f928c859fba056f1d98c07ee4852aad0f1
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849384"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68002745"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>Começar a monitorar o aplicativo Web Node.js
 
@@ -45,16 +45,15 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Adicionando um Recurso do Application Insights](./media/nodejs-quick-start/1createresourseappinsights.png)
 
-   ![Adicionando um Recurso do Application Insights](./media/nodejs-quick-start/2createnodejs.png)
+   > [!NOTE]
+   >Se esta for a primeira vez criando um recurso do Application Insights, você pode aprender mais no documento [Criar um recurso do Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
-
-   Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
+   Uma página de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada. 
 
     | Configurações        | Valor           | DESCRIÇÃO  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Tipo de Aplicativo** | Aplicativo Node.js | O tipo do aplicativo que você está monitorando |
-   | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
    | **Localidade** | Leste dos EUA | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
 
 2. Clique em **Criar**.

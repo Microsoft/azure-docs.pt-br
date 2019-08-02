@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: c8d5df0f83a7ae37b9f06a5e255e9809288b6d67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c62fb466774a3599972d6a9cc340cca300eee59
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64917023"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67696197"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replicação transacional do SQL Server com bancos de dados individuais, em pool e de instâncias no Banco de Dados SQL do Azure
 
@@ -50,7 +50,7 @@ O **distribuidor** é uma instância ou um servidor que coleta as alterações n
 
 O **assinante** é uma instância ou um servidor que está recebendo as alterações feitas no publicador. Os assinantes podem ser bancos de dados individuais, em pool e de instâncias do Banco de Dados SQL do Azure ou de bancos de dados do SQL Server. Um assinante em um banco de dados individuais ou em pool precisa ser configurado como um assinante push. 
 
-| Função | Bancos de dados individuais e em pool | Bancos de dados de instâncias |
+| Role | Bancos de dados individuais e em pool | Bancos de dados de instâncias |
 | :----| :------------- | :--------------- |
 | **Publicador** | Não | Sim | 
 | **Distribuidor** | Não | Sim|
@@ -66,11 +66,10 @@ Existem diferentes [tipos de replicação](https://docs.microsoft.com/sql/relati
 
 | Replicação | Bancos de dados individuais e em pool | Bancos de dados em instâncias|
 | :----| :------------- | :--------------- |
-| [**Transacional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
+| [**Standard transacional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Sim (somente como assinante) | Sim | 
 | [**Instantâneo**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Sim (somente como assinante) | Sim|
 | [**Replicação de mesclagem**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | Não | Não|
 | [**Entre pares**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | Não | Não|
-| **Unidirecional** | Sim | Sim|
 | [**Bidirecional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | Não | Sim|
 | [**Assinaturas atualizáveis**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | Não | Não|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -140,13 +139,13 @@ Nessa configuração, um Banco de Dados SQL do Azure (banco de dados individual,
 
 ## <a name="next-steps"></a>Próximas etapas
 
-1. [Configurar a replicação transacional para uma Instância Gerenciada](replication-with-sql-database-managed-instance.md). 
+1. [Configurar a replicação entre duas instâncias gerenciadas](replication-with-sql-database-managed-instance.md). 
 1. [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
-1. [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor de Banco de Dados SQL do Azure como o assinante (por exemplo, `N'azuresqldbdns.database.windows.net` e o nome do Banco de Dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
+1. [Crie uma assinatura push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando o nome do servidor do Banco de Dados SQL do Azure como o assinante (por exemplo, `N'azuresqldbdns.database.windows.net` e o nome do Banco de Dados SQL do Azure como o banco de dados de destino (por exemplo, **AdventureWorks**. )
 
 
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Consulte também  
 
 - [Replicação para um Banco de Dados SQL](replication-to-sql-database.md)
 - [Replicação para Instância Gerenciada](replication-with-sql-database-managed-instance.md)

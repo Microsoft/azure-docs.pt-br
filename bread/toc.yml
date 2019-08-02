@@ -74,6 +74,9 @@
         - name: Azure PowerShell
           tocHref: /azure/api-management/scripts/
           topicHref: /azure/api-management/powershell-samples/
+    - name: Avere vFXT para Azure
+      tocHref: /azure/avere-vfxt/
+      topicHref: /azure/avere-vfxt/
     - name: Configuração de Aplicativo do Azure
       tocHref: /azure/azure-app-configuration/
       topicHref: /azure/azure-app-configuration/
@@ -117,6 +120,9 @@
     - name: Gêmeos Digitais do Azure
       tocHref: /azure/digital-twins/
       topicHref: /azure/digital-twins/
+    - name: Azure Lighthouse
+      tocHref: /azure/lighthouse/
+      topicHref: /azure/lighthouse/
     - name: Azure Monitor
       tocHref: /azure/azure-monitor/
       topicHref: /azure/azure-monitor/
@@ -136,6 +142,9 @@
         - name: Funções duráveis
           tocHref: /azure/azure-functions/durable/
           topicHref: /azure/azure-functions/durable/durable-functions-overview
+    - name: Azure Austrália
+      tocHref: /azure/azure-australia/
+      topicHref: /azure/azure-australia/
     - name: Azure Government
       tocHref: /azure/azure-government/
       topicHref: /azure/azure-government/
@@ -336,6 +345,18 @@
         - name: Projeto Acústico
           tocHref: /azure/cognitive-services/acoustics/
           topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
+        - name: Reconhecimento de Formulários
+          tocHref: /azure/cognitive-services/form-recognizer/
+          topicHref: /azure/cognitive-services/form-recognizer/
+        - name: Reconhecimento de Tinta Digital
+          tocHref: /azure/cognitive-services/Ink-Recognizer/
+          topicHref: /azure/cognitive-services/Ink-Recognizer/
+        - name: Personalizador
+          tocHref: /azure/cognitive-services/personalizer/
+          topicHref: /azure/cognitive-services/personalizer/
+        - name: Leitura Avançada
+          tocHref: /azure/cognitive-services/immersive-reader/
+          topicHref: /azure/cognitive-services/immersive-reader/
     - name: Conectores
       tocHref: /azure/connectors/
       topicHref: /azure/connectors/
@@ -358,6 +379,9 @@
         - name: kubernetes
           tocHref: /azure/container-service/kubernetes/
           topicHref: /azure/container-service/kubernetes/
+    - name: Bastion
+      tocHref: /azure/bastion/
+      topicHref: /azure/bastion/
     - name: Cosmos DB
       tocHref: /azure/cosmos-db/
       topicHref: /azure/cosmos-db/
@@ -407,6 +431,9 @@
     - name: Serviço de Front Door
       tocHref: /azure/frontdoor/
       topicHref: /azure/frontdoor/
+    - name: FXT Edge Filer
+      tocHref: /azure/fxt-edge-filer/
+      topicHref: /azure/fxt-edge-filer/
     - name: Genomics
       tocHref: /azure/genomics/
       topicHref: /azure/genomics/
@@ -466,6 +493,9 @@
     - name: Key Vault
       tocHref: /azure/key-vault/
       topicHref: /azure/key-vault/
+    - name: Azure Kinect DK
+      tocHref: /azure/kinect-dk/
+      topicHref: /azure/kinect-dk/
     - name: Serviços de Laboratório
       tocHref: /azure/lab-services/
       topicHref: /azure/lab-services/
@@ -514,6 +544,9 @@
         - name: Video Indexer
           tocHref: /azure/media-services/video-indexer/
           topicHref: /azure/media-services/video-indexer/
+    - name: Migrar
+      tocHref: /azure/migrate/
+      topicHref: /azure/migrate/
     - name: Mobile Engagement
       tocHref: /azure/mobile-engagement/
       topicHref: /azure/mobile-engagement/

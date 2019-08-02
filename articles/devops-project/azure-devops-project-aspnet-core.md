@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 5fabe9ba03c9516f5df41645fc6ab1b7a0cb2050
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 387801f2ecb2f5fa1639005726218efb54d75dc8
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262169"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67331433"
 ---
 # <a name="create-a-cicd-pipeline-for-net-with-azure-devops-projects"></a>Criar um pipeline de CI/CD para .NET com o Azure DevOps Projects
 
@@ -44,51 +44,45 @@ O DevOps Projects cria um pipeline de CI/CD no Azure DevOps. É possível criar 
 
 ## <a name="select-a-sample-application-and-azure-service"></a>Selecionar um aplicativo de exemplo e o serviço do Azure
 
-1. Selecione o aplicativo de exemplo do .NET. Os exemplos do .NET incluem uma opção de estrutura do ASP.NET de fonte aberta ou estrutura do .NET Core de plataforma cruzada.
+1. Selecione o aplicativo de exemplo do **.NET**. Os exemplos do .NET incluem uma opção de estrutura do ASP.NET de fonte aberta ou estrutura do .NET Core de plataforma cruzada.
 
-    ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
+   ![.NET Framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
-1. Selecione a estrutura de aplicativo do .NET Core.  
-    Este exemplo é um aplicativo ASP.NET Core MVC.
+2. Este exemplo é um aplicativo ASP.NET Core MVC. Selecione a estrutura de aplicativo do **.NET Core** e selecione **Avançar**.    
     
-2. Selecione **Avançar**.  
-    O aplicativo Web no Windows é o destino de implantação padrão.  Opcionalmente, você pode escolher Aplicativo Web no Linux ou Aplicativo Web para Contêineres.  A estrutura do aplicativo escolhida anteriormente determina o tipo de destino de implantação do serviço do Azure disponível aqui.  
-    
-3. Mantenha o serviço padrão e selecione **Avançar**.
+3. Selecione **Aplicativo Web do Windows** como um destino de implantação, em seguida, selecione **Avançar**. Opcionalmente, você pode escolher outros serviços do Azure para sua implantação. A estrutura do aplicativo, que foi escolhida anteriormente, determina o tipo de destino de implantação do serviço do Azure disponível aqui.
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar o Azure DevOps e uma assinatura do Azure 
 
-1. Crie uma nova organização do Azure DevOps gratuita ou escolha uma existente.
+1. Insira um **Nome de projeto**.
 
-     a. Escolha um nome para o projeto. 
+2. Crie uma nova **Organização do Azure DevOps** gratuita ou escolha uma existente no menu suspenso.
 
-    b. Selecione a assinatura e o local do Azure, escolha um nome para o aplicativo e selecione **Concluído**.  
-    Após alguns minutos, o painel do DevOps Projects é exibido no portal do Azure. Um aplicativo de exemplo é configurado em um repositório em sua organização do Azure DevOps, é executado um build, e seu aplicativo é implantado no Azure. Esse painel oferece visibilidade ao seu repositório de código, pipeline de CI/CD e seu aplicativo no Azure.
-    
+3. Selecione sua **Assinatura do Azure**, insira um nome para seu **aplicativo Web** ou utilize o padrão e selecione **Concluído**. Após alguns minutos, a Visão geral de implantação do DevOps Projects é exibida no portal do Azure. 
 
-2. À direita do painel, selecione **Procurar** para exibir seu aplicativo em execução.
+4. Selecione **Ir para o recurso** para exibir o painel do DevOps Project. No canto superior direito, fixe o **Projeto** ao seu painel para ter acesso rápido. Um aplicativo de exemplo é configurado em um repositório em sua **Organização do Azure DevOps**. Uma compilação é executada e seu aplicativo é implantado no Azure.
 
-    ![Exibição Painel](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
+5. O painel oferece visibilidade no seu repositório de código, pipeline de CI/CD e aplicativo no Azure. À direita, em recursos do Azure, selecione **Procurar** para exibir o aplicativo em execução.
+
+   ![Exibição Painel](_img/azure-devops-project-aspnet-core/dashboardnopreview.png) 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Confirmar as alterações de código e executar CI/CD
 
- O DevOps Projects criou um repositório Git no Azure Repos ou GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
+O DevOps Projects criou um repositório Git no Azure Repos ou GitHub. Para exibir o repositório e fazer alterações de código no seu aplicativo, faça o seguinte:
 
-1. À esquerda do painel do DevOps Projects, selecione o link para seu branch **mestre**.  
-Esse link abre uma exibição do repositório de Git recém-criado.
+1. À esquerda do painel do DevOps Projects, selecione o link para seu branch **mestre**. Esse link abre uma exibição do repositório de Git recém-criado.
 
-1. Para exibir a URL de clone do repositório, selecione **Clone** na parte superior direita do navegador.  
-Você pode clonar seu repositório Git no seu IDE favorito.  Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch mestre.
+2. Nas próximas etapas, você pode usar o navegador da Web para criar e confirmar as alterações de código diretamente no branch **mestre**. Também pode clonar seu repositório Git no seu IDE favorito, selecionando **Clonar** na parte superior direita da página de repositório. 
 
-1. À esquerda do navegador, vá até o arquivo **Views/Home/index.cshtml**.
+3. À esquerda, navegue pela estrutura de arquivos do aplicativo até **Application/aspnet-core-dotnet-core/Pages/Index.cshtml**.
 
-1. Selecione **Editar**, depois faça uma alteração no cabeçalho h2. Por exemplo, digite **Começar agora mesmo com o Azure DevOps Projects** ou faça outra alteração.
+4. Selecione **Editar**, depois faça uma alteração no cabeçalho h2. Por exemplo, digite **Começar agora mesmo com o Azure DevOps Projects** ou faça outra alteração.
 
-    ![Edições de código](_img/azure-devops-project-aspnet-core/codechange.png)
+      ![Edições de código](_img/azure-devops-project-aspnet-core/codechange.png)
 
-1. Selecione **Confirmar**, depois salve as alterações.
+5. Selecione **Confirmar**, deixe um comentário e selecione **Confirmar** novamente.
 
-1. No seu navegador, vá até o painel do Azure DevOps Project.  Agora você deve ver uma compilação que está em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
+6. No seu navegador, vá até o painel do Azure DevOps Project.  Agora você deve ver uma compilação que está em andamento. As alterações feitas são automaticamente compiladas e implantadas via pipeline de CI/CD.
 
 ## <a name="examine-the-cicd-pipeline"></a>Examinar o pipeline de CI/CD
 

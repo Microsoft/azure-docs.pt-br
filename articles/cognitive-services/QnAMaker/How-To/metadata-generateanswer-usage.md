@@ -3,19 +3,19 @@ title: Metadados com a API de GenerateAnswer – QnA Maker
 titleSuffix: Azure Cognitive Services
 description: O QnA Maker permite adicionar metadados na forma de pares chave-valor aos conjuntos de perguntas/respostas. Você pode filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas nas conversas de acompanhamento.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/30/2019
-ms.author: tulasim
-ms.openlocfilehash: b18d47b4b09c6fa9c4d5f0ef87d7ebe73f151c60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/27/2019
+ms.author: diberry
+ms.openlocfilehash: 6bfcb531d0e4e8073a5553f7bc84a25e4f8a92a9
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693235"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67785690"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta com a API GenerateAnswer e metadados
 
@@ -37,13 +37,13 @@ Cada entidade QnA tem uma ID exclusiva e persistente. Você pode usar a ID para 
 
 ## <a name="get-answer-predictions-with-the-generateanswer-api"></a>Obter previsões de resposta com a API GenerateAnswer
 
-Você usa a API GenerateAnswer em seu aplicativo ou bot para consultar sua base de dados de conhecimento com uma pergunta do usuário obter a melhor correspondência da pergunta e resposta define.
+Você usa o [GenerateAnswer API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer) no bot ou aplicativo para consultar sua base de dados de conhecimento com uma pergunta do usuário obter a melhor correspondência da pergunta e resposta define.
 
 <a name="generateanswer-endpoint"></a>
 
 ## <a name="publish-to-get-generateanswer-endpoint"></a>Publicar para obter o ponto de extremidade GenerateAnswer 
 
-Depois de publicar sua base de dados de Conhecimento, a partir de [portal QnA Maker](https://www.qnamaker.ai), ou usando o [API](https://go.microsoft.com/fwlink/?linkid=2092179), você pode obter os detalhes do ponto de extremidade GenerateAnswer.
+Depois de publicar sua base de dados de Conhecimento, a partir de [portal QnA Maker](https://www.qnamaker.ai), ou usando o [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), você pode obter os detalhes do ponto de extremidade GenerateAnswer.
 
 Para obter os detalhes do ponto de extremidade:
 1. Entre em [https://www.qnamaker.ai](https://www.qnamaker.ai).
@@ -59,34 +59,21 @@ Também é possível obter os detalhes de ponto de extremidade na guia **Configu
 
 ## <a name="generateanswer-request-configuration"></a>Configuração de solicitação GenerateAnswer
 
-Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de exemplo que mostra como chamar o GenerateAnswer, consulte os [inícios rápidos](../quickstarts/csharp.md).
+Você chama o GenerateAnswer com uma solicitação HTTP POST. Para código de exemplo que mostra como chamar o GenerateAnswer, consulte os [inícios rápidos](../quickstarts/csharp.md). 
 
-O **URL de solicitação** tem o seguinte formato: 
+Usa a solicitação POST:
+
+* Necessário [parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
+* Exigido [propriedade header](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, para segurança
+* Exigido [propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+
+A URL GenerateAnswer tem o seguinte formato: 
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-|Propriedade de solicitação HTTP|NOME|Type|Finalidade|
-|--|--|--|--|
-|Parâmetro de rota de URL|ID da base de dados de Conhecimento|cadeia de caracteres|o GUID da base de dados de conhecimento.|
-|Parâmetro de rota de URL|Host do ponto de extremidade QnAMaker|cadeia de caracteres|o nome do host do ponto de extremidade implantado na sua assinatura do Azure. Isso está disponível na **configurações** página depois de publicar a base de Conhecimento. |
-|Cabeçalho|Tipo de conteúdo|cadeia de caracteres|o tipo de mídia do corpo enviado para a API. Valor padrão é: '|
-|Cabeçalho|Autorização|cadeia de caracteres|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
-|Corpo do POST|Objeto JSON|JSON|A pergunta com as configurações.|
-
-
-O corpo JSON tem várias configurações:
-
-|Propriedade de corpo JSON|Obrigatório|Type|Finalidade|
-|--|--|--|--|
-|`question`|obrigatório|cadeia de caracteres|Uma pergunta do usuário a serem enviados para sua base de dados de Conhecimento.|
-|`top`|opcional|inteiro|o número de resultados classificados para incluir na saída. O valor padrão é 1.|
-|`userId`|opcional|cadeia de caracteres|ID exclusiva para identificar o usuário. Essa ID será registrada nos logs de chat.|
-|`scoreThreshold`|opcional|inteiro|Somente respostas com pontuação de confiança acima desse limite serão retornadas. O valor padrão é 0.|
-|`isTest`|opcional|Boolean|Se definido como true, retorna os resultados dos `testkb` índice de pesquisa em vez de índice publicado.|
-|`strictFilters`|opcional|cadeia de caracteres|se especificado, informa ao QnA Maker para retornar apenas as respostas com os metadados especificados. Use `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
-|`RankerType`|opcional|cadeia de caracteres|Se for especificado como `QuestionOnly`, informa ao QnA Maker para pesquisar somente perguntas. Se não for especificado, o QnA Maker pesquisa perguntas e respostas.
+Lembre-se de definir a propriedade de cabeçalho HTTP do `Authorization` com um valor da cadeia de caracteres `EndpointKey` com à direita de espaço, em seguida, a chave de ponto de extremidade encontrada na **configurações** página.
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -109,19 +96,7 @@ Um exemplo de corpo JSON é semelhante a:
 
 ## <a name="generateanswer-response-properties"></a>Propriedades da resposta GenerateAnswer
 
-Uma resposta bem-sucedida retorna um status de 200 e uma resposta JSON. 
-
-|Propriedade de respostas (classificada pela pontuação)|Finalidade|
-|--|--|
-|para seu app&#39;s|uma pontuação de classificação entre 0 e 100.|
-|ID|a ID exclusiva atribuída à resposta.|
-|Perguntas|as perguntas fornecidas pelo usuário.|
-|resposta|a resposta à pergunta.|
-|source|o nome da fonte da qual a resposta foi extraída ou salva na base de dados de conhecimento.|
-|metadata|os metadados associados à resposta.|
-|metadata.name|nome dos metadados. (cadeia de caracteres, Comprimento máx.: 100, obrigatório)|
-|metadata.value|valor dos metadados. (cadeia de caracteres, Comprimento máx.: 100, obrigatório)|
-
+O [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#successful-query) é um objeto JSON incluindo todas as informações necessárias exibir a resposta e a próxima ativar na conversa, se disponível.
 
 ```json
 {
@@ -144,6 +119,40 @@ Uma resposta bem-sucedida retorna um status de 200 e uma resposta JSON.
     ]
 }
 ```
+
+## <a name="use-qna-maker-with-a-bot-in-c"></a>Use o QnA Maker com um bot emC#
+
+A estrutura de bot fornece acesso às propriedades do QnA Maker:
+
+```csharp
+using Microsoft.Bot.Builder.AI.QnA;
+var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
+var qnaOptions = new QnAMakerOptions();
+
+qnaOptions.Top = Constants.DefaultTop;
+qnaOptions.ScoreThreshold = 0.3F;
+var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
+```
+
+O bot de suporte tenha [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) com esse código.
+
+## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Use o QnA Maker com um bot no Node. js
+
+A estrutura de bot fornece acesso às propriedades do QnA Maker:
+
+```javascript
+const { QnAMaker } = require('botbuilder-ai');
+this.qnaMaker = new QnAMaker(endpoint);
+
+// Default QnAMakerOptions
+var qnaMakerOptions = {
+    ScoreThreshold: 0.03,
+    Top: 3
+};
+var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
+```
+
+O bot de suporte tenha [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) com esse código.
 
 <a name="metadata-example"></a>
 

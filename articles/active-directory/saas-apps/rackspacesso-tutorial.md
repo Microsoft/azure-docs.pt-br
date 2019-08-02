@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: fd420ea3fc4faae7fe4510a72204d71acaa3549a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 31826f5d4d88c977f859a009bface2fddf3a1c88
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890817"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093190"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rackspace-sso"></a>Tutorial: Integração do Azure Active Directory ao Rackspace SSO
 
@@ -53,7 +53,7 @@ Para configurar a integração do Rackspace SSO ao Microsoft Azure AD, é necess
 
 **Para adicionar o Rackspace SSO da galeria, execute as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -103,7 +103,7 @@ Para configurar o logon único do Microsoft Azure AD com o Rackspace SSO, siga a
 
 4. Na seção **Configuração básica de SAML**, carregue o **arquivo de metadados do Provedor de Serviço** que você pode baixar da [URL](https://login.rackspace.com/federate/sp.xml) e execute as seguintes etapas:
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![image](common/upload-metadata.png)
 
@@ -244,5 +244,5 @@ Você também pode usar o botão **Validar** nas configurações de logon único
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

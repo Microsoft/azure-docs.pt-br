@@ -4,7 +4,7 @@ description: Entenda como usar gatilhos de temporizador no Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funções, processamento de eventos, computação dinâmica, arquitetura sem servidor
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 0a202621a9da031815ebbff3b121ea7f5e1eccfe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef02c8120775aa119aff44ff7a06bccf2bc70a21
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062178"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377335"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions 
 
@@ -51,7 +51,7 @@ Consulte o exemplo específico a um idioma:
 
 ### <a name="c-example"></a>Exemplo de C#
 
-A exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que é executado sempre que os minutos têm um valor divisível por cinco (por exemplo, se a função começa em 18:57:00, o desempenho da próxima será 19:00:00). O [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) que é executada cada vez que os minutos têm um valor divisível por cinco (por exemplo, se a função começar em 18:57:00, o próximo desempenho será em 19:00:00). O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
@@ -67,7 +67,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ### <a name="c-script-example"></a>Exemplo 2 de C# script
 
-O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. O [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
+O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -95,7 +95,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 ### <a name="f-example"></a>Exemplo de F#
 
-O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função de script F#](functions-reference-fsharp.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. O [ `TimerInfo` ](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
+O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função de script F#](functions-reference-fsharp.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. O [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objeto é passado para a função.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -135,7 +135,7 @@ public void keepAlive(
 
 ### <a name="javascript-example"></a>Exemplo de JavaScript
 
-O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. Um [objeto timer](#usage) é passado para a função.
+O exemplo a seguir mostra uma associação de gatilho de temporizador em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função grava um log que indica se esta chamada de função deve-se a uma ocorrência de agendamento ausente. Um [objeto de timer](#usage) é passado para a função.
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -166,7 +166,7 @@ module.exports = function (context, myTimer) {
 
 ### <a name="python-example"></a>Exemplo de Python
 
-O exemplo a seguir usa um gatilho de temporizador associação cuja configuração é descrita a *Function. JSON* arquivo. O valor real [função Python](functions-reference-python.md) que usa a associação é descrita no  *__init__. py* arquivo. O objeto passado para a função é do tipo [azure.functions.TimerRequest objeto](/python/api/azure-functions/azure.functions.timerrequest). A lógica da função grava os logs que indica se a invocação da atual é devido a uma ocorrência de agendamento ausente. 
+O exemplo a seguir usa uma associação de gatilho de temporizador cuja configuração é descrita no arquivo *Function. JSON* . A [função Python](functions-reference-python.md) real que usa a associação é descrita no arquivo  *__init__. py* . O objeto passado para a função é do tipo [objeto Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). A lógica de função grava nos logs indicando se a invocação atual é devido a uma ocorrência de agendamento ausente. 
 
 Aqui estão os dados de associação no arquivo *function.json*:
 
@@ -186,6 +186,7 @@ import datetime
 import logging
 
 import azure.functions as func
+
 
 def main(mytimer: func.TimerRequest) -> None:
     utc_timestamp = datetime.datetime.utcnow().replace(
@@ -217,13 +218,13 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no `TimerTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json* e no atributo `TimerTrigger`.
 
 |Propriedade function.json | Propriedade de atributo |DESCRIÇÃO|
 |---------|---------|----------------------|
-|**type** | n/d | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
-|**direction** | n/d | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
-|**name** | n/d | O nome da variável que representa o objeto de temporizador no código de função. | 
+|**type** | N/D | Deve ser definido como "timerTrigger". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | N/D | Deve ser definido como "in". Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | N/D | O nome da variável que representa o objeto de temporizador no código de função. | 
 |**schedule**|**ScheduleExpression**|Um [expressão CRON](#cron-expressions) ou um valor [TimeSpan](#timespan). É possível usar um `TimeSpan` somente para um aplicativo de função executado em um Plano do Serviço de Aplicativo. Você pode colocar a expressão de agendamento em uma configuração de aplicativo e definir essa propriedade como o nome da configuração do aplicativo envolvido em sinais **%** , como neste exemplo: "%ScheduleAppSetting%". |
 |**runOnStartup**|**runOnStartup**|Se `true`, a função será invocada quando o tempo de execução for iniciado. Por exemplo, o tempo de execução inicia quando o aplicativo de função desperta depois de ficar ocioso devido à inatividade. Quando o aplicativo de função reinicia devido a alterações de função e quando o aplicativo de função é escalado horizontalmente. Portanto, **runOnStartup** deve raramente ou nunca ser definido como `true`, especialmente em produção. |
 |**useMonitor**|**UseMonitor**|Definido como `true` ou `false` para indicar se o agendamento deve ser monitorado. Agendar o monitoramento persiste as ocorrências de agendamento para ajudar a garantir que o agendamento seja mantido corretamente mesmo quando instâncias do aplicativo de função forem reiniciadas. Se não for definido explicitamente, o padrão será `true` para agendamentos que têm um intervalo de recorrência maior que 1 minuto. Para agendamentos que disparam mais de uma vez por minuto, o padrão é `false`.
@@ -231,11 +232,11 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 > [!CAUTION]
-> Recomendamos a configuração **runOnStartup** para `true` em produção. Usar essa configuração faz com que código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é acionado sempre que seu aplicativo de funções é expandido. Verifique se você compreender totalmente o comportamento de produção de suas funções antes de habilitar **runOnStartup** em produção.   
+> Recomendamos a configuração **runOnStartup** para `true` em produção. Usar essa configuração faz com que código seja executado em momentos altamente imprevisíveis. Em determinadas configurações de produção, essas execuções extras podem resultar em custos significativamente mais altos para aplicativos hospedados em planos de consumo. Por exemplo, com **runOnStartup** habilitado, o gatilho é invocado sempre que seu aplicativo de funções é dimensionado. Verifique se você compreender totalmente o comportamento de produção de suas funções antes de habilitar **runOnStartup** em produção.   
 
 ## <a name="usage"></a>Uso
 
-Quando uma função de gatilho de temporizador é chamada, um objeto de timer é passado para a função. O JSON a seguir é uma representação de exemplo do objeto timer.
+Quando uma função de gatilho de temporizador é invocada, um objeto de temporizador é passado para a função. O JSON a seguir é uma representação de exemplo do objeto timer.
 
 ```json
 {
@@ -260,7 +261,7 @@ O Azure Functions usa a biblioteca [NCronTab](https://github.com/atifaziz/NCront
 
 Cada campo pode ter um dos seguintes tipos de valores:
 
-|Type  |Exemplo  |Quando disparado  |
+|Tipo  |Exemplo  |Quando disparado  |
 |---------|---------|---------|
 |Um valor específico |<nobr>"0 5 * * * *"</nobr>|em hh:05:00, em que hh é cada hora (uma vez por hora)|
 |Todos os valores (`*`)|<nobr>"0 * 5 * * *"</nobr>|em 5:mm: 00 diariamente, em que mm é cada minuto da hora (60 vezes por dia)|
@@ -268,12 +269,7 @@ Cada campo pode ter um dos seguintes tipos de valores:
 |Um conjunto de valores (`,` operador)|<nobr>"5,8,10 * * * * *"</nobr>|em hh:mm:05, hh:mm:08 e hh:mm:10, em que hh é cada minuto de cada hora (3 vezes por minuto)|
 |Um valor de intervalo (`/` operador)|<nobr>"0 */5 * * * *"</nobr>|em hh:05:00, hh:10:00, hh:15:00 e assim por diante por meio de hh:55:00, em que hh é cada hora (12 vezes por hora)|
 
-Para especificar meses ou dias, você pode usar valores numéricos, nomes ou abreviações de nomes:
-
-* Por dias, os valores numéricos são 0 a 6, onde 0 começa com o domingo.
-* Nomes estão em inglês. Por exemplo, `Monday`, `January`.
-* Os nomes não diferenciam maiúsculas de minúsculas.
-* Os nomes podem ser abreviados. Três letras é o comprimento de abreviação recomendada.  Por exemplo, `Mon`, `Jan`. 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>Exemplos de CRON
 
@@ -323,7 +319,8 @@ Expresso como uma cadeia de caracteres, o formato `TimeSpan` é `hh:mm:ss` quand
 |---------|---------|
 |"01:00:00" | a cada hora        |
 |"00:01:00"|a cada minuto         |
-|"24:00:00" | todos os dias        |
+|"24:00:00" | a cada 24 dias        |
+|"1,00:00:00" | todo dia        |
 
 ## <a name="scale-out"></a>Escalabilidade
 
@@ -337,7 +334,7 @@ Se você compartilhar uma conta de Armazenamento em vários aplicativos de funç
 
 Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente após a falha de uma função. Quando uma função falha, ele não é chamado novamente até a próxima vez na agenda.
 
-## <a name="troubleshooting"></a>solução de problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Para obter informações sobre o que fazer quando o gatilho de timer não funcionar conforme o esperado, confira [Investigar e relatar problemas com funções disparadas de timer não acionadas](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 

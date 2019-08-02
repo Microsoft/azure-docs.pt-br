@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57ab281e8d07537c22bd3cf60306dfb1c7e81541
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65991411"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67566071"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão de barramento de serviço do Azure existentes para a camada premium
 Anteriormente, o barramento de serviço do Azure oferecidos namespaces apenas na camada standard. Namespaces são instalações de multilocatário que são otimizadas para ambientes de desenvolvedor e baixa taxa de transferência. A camada premium oferece recursos dedicados por namespace para latência previsível e maior taxa de transferência a um preço fixo. A camada premium é otimizada para ambientes de produção que exigem recursos empresarias adicionais e alta taxa de transferência.
@@ -117,6 +117,28 @@ Migração usando o portal do Azure tem o mesmo fluxo lógico de migração usan
 1. Examine as alterações na página de resumo. Selecione **concluir a migração** para alternar os namespaces e concluir a migração.
     ![Alternar o namespace - opção de menu][] a página de confirmação é exibida quando a migração for concluída.
     ![Namespace de switch - êxito][]
+
+## <a name="caveats"></a>Limitações
+
+Alguns dos recursos fornecidos pela camada Standard do barramento de serviço do Azure não são suportados pela camada Premium do barramento de serviço do Azure. Esses são por design, pois a camada premium oferece recursos dedicados a taxa de transferência previsível e a latência.
+
+Aqui está uma lista de recursos sem suporte Premium e seu tamanho máximo- 
+
+### <a name="express-entities"></a>Entidades expressas
+
+   Não há suporte para as entidades expressas não confirmadas quaisquer dados de mensagem para o armazenamento no Premium. Recursos dedicados fornecido melhoria da taxa de transferência significativo, garantindo que dados sejam persistidos, como é esperado a partir de qualquer sistema corporativo de mensagens.
+   
+   Durante a migração, qualquer uma das suas entidades expressas em seu namespace padrão será criado no namespace Premium como uma entidade não express.
+   
+   Se você utilizar os modelos do Azure Resource Manager (ARM), verifique se que você remova o sinalizador 'enableExpress' da configuração de implantação para que os fluxos de trabalho automatizados executados sem erros.
+
+### <a name="partitioned-entities"></a>Entidades particionadas
+
+   Entidades particionadas tinham suporte na camada Standard para fornecer melhor disponibilidade em uma configuração de vários locatário. Com o provisionamento de recursos dedicados disponíveis por namespace na camada Premium, isso não é mais necessário.
+   
+   Durante a migração, qualquer entidade particionada no namespace padrão é criada no namespace Premium como uma entidade não particionada.
+   
+   Se seu modelo ARM define enablePartitioning como 'true' para uma fila ou um tópico específico, em seguida, ele será ignorado pelo agente.
 
 ## <a name="faqs"></a>Perguntas frequentes
 

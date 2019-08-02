@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6da53c14546fbe08206e5ba026a7b9176da2577e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 6f4fb9cf4986d7cc0e4083add586cde585adab80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902242"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-seismic"></a>Tutorial: Integração do Azure Active Directory ao Seismic
 
@@ -52,7 +52,7 @@ Para configurar a integração do Seismic ao Azure AD, você precisará adiciona
 
 **Para adicionar o Seismic por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o Seismic, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Seismic](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.seismic.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.seismic.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.seismic.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.seismic.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Seismic](mailto:support@seismic.com) para obter esses valores. Carregue também os **Metadados do Provedor de Serviços** para popular automaticamente o valor do Identificador. Para obter mais informações sobre os **Metadados do Provedor de Serviços**, contate a [equipe de suporte do Seismic](mailto:support@seismic.com).
@@ -196,4 +196,4 @@ Ao clicar no bloco do Seismic no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

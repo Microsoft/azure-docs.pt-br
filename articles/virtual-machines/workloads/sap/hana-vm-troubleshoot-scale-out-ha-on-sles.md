@@ -4,7 +4,7 @@ description: Guia para verificar e solucionar problemas de uma configuração de
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermannd
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b794b045efa4be20a63e9996425d69f0212ae0d7
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477006"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707249"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -42,16 +42,16 @@ Este artigo ajuda você a verificar a configuração de cluster do Pacemaker par
 ## <a name="important-notes"></a>Observações importantes
 
 Todos os testes para expansão do SAP HANA em combinação com a replicação de sistema do SAP HANA e o Pacemaker foi feita somente com o SAP HANA 2.0. A versão do sistema operacional era SUSE Linux Enterprise Server 12 SP3 para aplicativos SAP. O pacote RPM mais recente, SAPHanaSR-ScaleOut do SUSE, foi usado para configurar o cluster do Pacemaker.
-O SUSE publicou uma [descrição detalhada dessa configuração otimizada para desempenho][sles-hana-scale-out-ha-paper].
+SUSE publicado uma [descrição detalhada do que essa configuração de otimização de desempenho][sles-hana-scale-out-ha-paper].
 
-Para tipos de máquinas virtuais compatíveis com expansão SAP HANA, verifique o [diretório IaaS certificado pelo SAP HANA][sap-hana-iaas-list].
+Para tipos de máquinas virtuais que têm suporte para expansão do SAP HANA, verifique as [diretório de IaaS certificadas pelo SAP HANA][sap-hana-iaas-list].
 
 Houve um problema técnico com expansão do SAP HANA em combinação com várias sub-redes e vNICs e configuração de HSR. É obrigatório usar os patches mais recentes do SAP HANA 2.0 em que esse problema foi corrigido. Há suporte para as seguintes versões do SAP HANA: 
 
 * rev2.00.024.04 ou superior 
 * rev2.00.032 ou superior
 
-Se você precisar de suporte do SUSE, siga este [guide][suse-pacemaker-support-log-files]. Colete todas as informações sobre o cluster do SAP HANA alta disponibilidade (HA), conforme descrito no artigo. Suporte do SUSE precisa dessas informações para análise posterior.
+Se você precisar de suporte do SUSE, siga este [guia][suse-pacemaker-support-log-files]. Colete todas as informações sobre o cluster do SAP HANA alta disponibilidade (HA), conforme descrito no artigo. Suporte do SUSE precisa dessas informações para análise posterior.
 
 Durante os testes internos, a configuração do cluster foi confundida por um encerramento normal e normal da VM por meio do portal do Azure. Portanto, recomendamos que você teste um failover de cluster por outros métodos. Use métodos como forçar um pânico do kernel, ou desligar as redes ou migrar o recurso **msl**. Consulte os detalhes nas seções a seguir. A suposição é que um desligamento padrão acontece de modo intencional. O melhor exemplo de um desligamento intencional é para manutenção. Consulte os detalhes [manutenção planejada](#planned-maintenance).
 
@@ -94,7 +94,7 @@ Seguindo as recomendações de rede do SAP HANA, três sub-redes foram criadas e
 
 Para obter informações sobre a configuração do SAP HANA relacionada ao uso de várias redes, consulte [SAP HANA global.ini](#sap-hana-globalini).
 
-Cada VM no cluster possui três vNICs que correspondem ao número de sub-redes. [Como criar uma máquina virtual Linux no Azure com várias placas de interface de rede][azure-linux-multiple-nics] descreve um possível problema de roteamento no Azure ao implantar uma VM Linux. Este artigo de roteamento específico se aplica apenas ao uso de vários vNICs. O problema é resolvido pelo SUSE, por padrão, no SLES 12 SP3. Para obter mais informações, consulte [Multi-NIC com cloud-netconfig no EC2 e no Azure][suse-cloud-netconfig].
+Cada VM no cluster possui três vNICs que correspondem ao número de sub-redes. [Como criar uma máquina virtual Linux no Azure com rede várias placas de interface][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
 
 Para verificar se o SAP HANA está configurado corretamente para usar várias redes, execute os seguintes comandos. Primeiro, verifique no nível do sistema operacional que todos os três endereços IP internos das três sub-redes estão ativos. Se você definiu as sub-redes com diferentes intervalos de endereços IP, terá que adaptar os comandos:
@@ -126,7 +126,7 @@ Para encontrar os números de porta corretos, você pode procurar, por exemplo, 
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
 </code></pre>
 
-Para encontrar todas as portas usadas na pilha de software SAP, incluindo o SAP HANA, pesquise [portas TCP / IP de todos os produtos SAP][sap-list-port-numbers].
+Para localizar cada porta que é usada na pilha de software SAP, incluindo o SAP HANA, pesquise [portas de TCP/IP de todos os produtos SAP][sap-list-port-numbers].
 
 Dado o número da instância **00** no sistema de teste do SAP HANA 2.0, o número da porta para o servidor de nomes é **30001**. É o número da porta para comunicação de metadados HSR **40002**. Uma opção é entrar um nó de trabalho e, em seguida, verificar os serviços do nó mestre. Para este artigo, verificamos o nó do trabalhador 2 no site 2 tentando se conectar ao nó mestre no site 2.
 
@@ -173,7 +173,7 @@ O arquivo de configuração **corosync** precisa estar correto em todos os nós 
 
 O conteúdo do **corosync.conf** do sistema de teste é um exemplo.
 
-A primeira seção é **totem**, conforme descrito em [Instalação do cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), etapa 11. Você pode ignorar o valor para **mcastaddr**. Apenas mantenha a entrada existente. As entradas para o **token** e **consenso** devem ser definidas de acordo com a [documentação do Microsoft Azure SAP HANA][sles-pacemaker-ha-guide].
+A primeira seção é **totem**, conforme descrito em [Instalação do cluster](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), etapa 11. Você pode ignorar o valor para **mcastaddr**. Apenas mantenha a entrada existente. As entradas para **token** e **consenso** deve ser definida de acordo com a [documentação do SAP HANA no Microsoft Azure][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -657,7 +657,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## <a name="failover-or-takeover"></a>Failover ou a tomada de controle
 
-Conforme discutido em [Notas importantes](#important-notes), você não deve usar um desligamento padrão para testar o failover do cluster ou o controle SAP HANA HSR. Em vez disso, recomendamos que você acione um pânico do kernel, forçar uma migração de recurso ou, possivelmente, encerrar todas as redes no nível do SO de uma VM. Outro método é o comando **crm\< node \>standby**. Veja o [documento do SUSE][sles-12-ha-paper]. 
+Conforme discutido em [Notas importantes](#important-notes), você não deve usar um desligamento padrão para testar o failover do cluster ou o controle SAP HANA HSR. Em vez disso, recomendamos que você acione um pânico do kernel, forçar uma migração de recurso ou, possivelmente, encerrar todas as redes no nível do SO de uma VM. Outro método é o comando **crm\< node \>standby**. Consulte a [documento SUSE][sles-12-ha-paper]. 
 
 Os três comandos de amostra a seguir podem forçar um failover de cluster:
 
@@ -726,7 +726,7 @@ Transition Summary:
 ## <a name="planned-maintenance"></a>Manutenção planejada 
 
 Há diferentes casos de uso que dizem respeito à manutenção planejada. Uma questão é se é apenas manutenção de infraestrutura, como alterações no nível do sistema operacional e na configuração do disco ou uma atualização do HANA.
-Você pode encontrar informações adicionais em documentos do SUSE como [Rumo a inatividade zero][sles-zero-downtime-paper] ou [Cenário otimizado para desempenho do SAP HANA SR][sles-12-for-sap]. Esses documentos também incluem amostras que mostram como migrar manualmente um primário.
+Você pode encontrar informações adicionais em documentos do SUSE, como [no tempo de inatividade Zero][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. Esses documentos também incluem amostras que mostram como migrar manualmente um primário.
 
 Intensos testes internos foram feitos para verificar o caso de uso de manutenção de infraestrutura. Para evitar problemas relacionados à migração do primário, decidimos sempre migrar um primário antes de colocar um cluster no modo de manutenção. Dessa forma, não é necessário fazer com que o cluster esqueça a situação anterior: qual lado era primário e qual era secundário.
 
@@ -979,5 +979,5 @@ Esta captura de tela final mostra a seção **Detalhes** de uma única transiç�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este guia de solução de problemas descreve a alta disponibilidade do SAP HANA em uma configuração de expansão. Além do banco de dados, outro componente importante em um cenário SAP é a pilha do SAP NetWeaver. Saiba sobre a [alta disponibilidade do SAP NetWeaver em máquinas virtuais do Azure que usam o SUSE Enterprise Linux Server][sap-nw-ha-guide-sles].
+Este guia de solução de problemas descreve a alta disponibilidade do SAP HANA em uma configuração de expansão. Além do banco de dados, outro componente importante em um cenário SAP é a pilha do SAP NetWeaver. Saiba mais sobre [alta disponibilidade para SAP NetWeaver em máquinas virtuais do Azure que usam o SUSE Enterprise Linux Server][sap-nw-ha-guide-sles].
 

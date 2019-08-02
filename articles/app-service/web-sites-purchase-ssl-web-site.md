@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
-ms.author: apurvajo;cephalin
+ms.author: cephalin
+ms.reviewer: apurvajo
 ms.custom: seodec18
-ms.openlocfilehash: 0febb8fadd973b67ed232d6094d85894fb383d14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e7768eb29caf66fd8f666a9475ac0787826a47e0
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65955715"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618911"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o Serviço de Aplicativo do Azure
 
@@ -49,7 +50,7 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Ao terminar, cl
 
 | Configuração | DESCRIÇÃO |
 |-|-|
-| NOME | Um nome amigável para o seu certificado de Serviço de Aplicativo. |
+| Nome | Um nome amigável para o seu certificado de Serviço de Aplicativo. |
 | Nome do Host do Domínio Raiz | Se você especificar o domínio raiz aqui, você obtém um certificado que protege *os dois*: o domínio raiz e o subdomínio `www`. Para proteger apenas um subdomínio qualquer, especifique aqui o nome de domínio totalmente qualificado do subdomínio (por exemplo, `mysubdomain.contoso.com`). |
 | Assinatura | O datacenter onde o aplicativo Web está hospedado. |
 | Grupo de recursos | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que seu aplicativo de Serviço de Aplicativo, por exemplo. |
@@ -72,7 +73,7 @@ Na página **Status do Key Vault**, clique em **Repositório do Key Vault** para
 |-|-|
 | NOME | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
 | Grupo de recursos | Como recomendação, selecione o mesmo grupo de recursos do seu certificado de Serviço de Aplicativo. |
-| Local padrão | Selecione o mesmo local que o aplicativo de Serviço de Aplicativo. |
+| Location | Selecione o mesmo local que o aplicativo de Serviço de Aplicativo. |
 | Tipo de preço | Para obter mais informações, confira [Detalhes de preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define os aplicativos e o acesso permitido aos recursos do cofre. Você pode configurá-lo mais tarde seguindo as etapas em [Conceder acesso de vários aplicativos a um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Acesso à Rede Virtual | Restringir o acesso do cofre a determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde seguindo as etapas em [Configurar o Redes Virtuais e Firewall do Azure Key Vault](../key-vault/key-vault-network-security.md) |

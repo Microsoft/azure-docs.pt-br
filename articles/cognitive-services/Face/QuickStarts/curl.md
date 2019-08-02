@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 212b935e8986731940effe79ec80f52c0d7b64c4
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 68cdd147977294954051735d70307305aa5dc0cb
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308921"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603323"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Início Rápido: Detectar rostos em uma imagem com a API REST de Detecção Facial e cURL
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="write-the-command"></a>Escrever o comando
  
-Você usará um comando semelhante ao seguinte para chamar a API de Detecção Facial e obter dados de atributo de face de uma imagem. Primeiro, copie o código para um editor de texto&mdash;você precisará fazer alterações em determinadas partes do comando antes de você poder executá-lo.
+Você usará um comando semelhante ao mostrado a seguir para chamar a API de Detecção Facial e obter dados de atributo de rosto de uma imagem. Primeiro, copie o código para um editor de texto&mdash;você precisará fazer alterações em determinadas partes do comando antes de você poder executá-lo.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
@@ -40,7 +40,7 @@ Substitua `<Subscription Key>` pela sua chave de assinatura de Detecção Facial
 
 ### <a name="face-endpoint-url"></a>URL de ponto de extremidade de detecção facial
 
-A URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Talvez seja necessário alterar a primeira parte dessa URL para corresponder à região de sua chave de assinatura (consulte os [documentos da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista com todos os pontos de extremidade de região).
+A URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indica o ponto de extremidade da Detecção Facial do Azure para consulta. Talvez você precise alterar a primeira parte dessa URL para que ela corresponda à região referente à sua chave de assinatura. Confira a [documentação da API de Detecção Facial](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter uma lista de todos os pontos de extremidade de região.
 
 ### <a name="url-query-string"></a>Cadeia de consulta de URL
 
@@ -51,7 +51,7 @@ A cadeia de consulta da URL de ponto de extremidade de Detecção Facial especif
 ```
 
 ### <a name="image-source-url"></a>URL de origem da imagem
-A URL de origem indica que a imagem a ser usada como entrada. Você pode alterar isso a fim de apontar para qualquer imagem que você queira analisar.
+A URL de origem indica que a imagem a ser usada como entrada. Você pode alterar isso para que ele aponte para qualquer imagem que deseje analisar.
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
@@ -59,7 +59,7 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 
 ## <a name="run-the-command"></a>Executar o comando
 
-Depois de fazer suas alterações, abra um prompt de comando e digite o novo comando. Você verá as informações faciais exibidas como dados JSON na janela do console. Por exemplo: 
+Depois de fazer suas alterações, abra um prompt de comando e digite o novo comando. Você verá as informações faciais exibidas como dados JSON na janela do console. Por exemplo:
 
 ```json
 [

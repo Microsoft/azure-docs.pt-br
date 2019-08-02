@@ -1,6 +1,6 @@
 ---
 title: Enviar dados de tinta para a API de Reconhecimento de Tinta Digital
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como chamar a API do Analisador de Tinta Digital para diferentes aplicativos
 services: cognitive-services
 author: erhopf
@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 5a212c7332d085c15baabef8650572162c47903d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 23431a6171f9ce4d2550ee62ac84679ce36126de
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025450"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721763"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Enviar dados de tinta para a API de Reconhecimento de Tinta Digital 
 

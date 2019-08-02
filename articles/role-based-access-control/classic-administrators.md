@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c2096b6c5ddb72c8ab5c5d3203a05c94db51f6c5
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64924646"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444344"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores da assinatura clássica do Azure
 
@@ -91,7 +91,7 @@ Há duas maneiras de alterar o Administrador de Serviços. É possível alterar 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Verifique se há suporte para o seu cenário, verificando as limitações para alterar os administradores de serviço.
+1. Verifique se o cenário tem suporte verificando as limitações para alterar os administradores de serviço.
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como Administrador da Conta.
 
@@ -107,9 +107,9 @@ Há duas maneiras de alterar o Administrador de Serviços. É possível alterar 
 
 1. Selecione um novo Administrador de Serviços e clique em **Salvar**.
 
-### <a name="account-center"></a>Centro de Contas
+### <a name="account-center"></a>Centro de contas
 
-1. Verifique se há suporte para o seu cenário, verificando as limitações para alterar os administradores de serviço.
+1. Verifique se o cenário tem suporte verificando as limitações para alterar os administradores de serviço.
 
 1. Entre no [Centro de Contas](https://account.windowsazure.com/subscriptions) como o Administrador da Conta.
 
@@ -129,7 +129,7 @@ Há duas maneiras de alterar o Administrador de Serviços. É possível alterar 
 
 Cada assinatura está associada a um diretório do Azure AD. Para localizar o diretório ao qual a assinatura está associada, abra **Assinaturas** no portal do Azure e selecione uma assinatura para visualizar o diretório.
 
-Se você estiver conectado com uma conta corporativa ou de estudante, poderá adicionar outras contas na organização como Administrador de Serviços. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços, mas não pode adicionar john@notcontoso.com, a menos que john@notcontoso.com esteja no diretório contoso.com. Usuários conectados com contas corporativas ou de estudante podem continuar adicionando usuários da conta da Microsoft como Administrador de Serviços.
+Se você estiver conectado com uma conta corporativa ou de estudante, poderá adicionar outras contas na organização como Administrador de Serviços. Por exemplo, abby@contoso.com pode adicionar bob@contoso.com como Administrador de Serviços, mas não pode adicionar john@notcontoso.com, a menos que john@notcontoso.com esteja no diretório contoso.com. Usuários conectados com contas corporativas ou de estudante podem continuar adicionando usuários da conta da Microsoft como Administrador de Serviços. Só pode haver um administrador de serviços por assinatura do Azure.
 
   | Método de entrada | Adicionar usuário da conta Microsoft como Administrador de Serviços? | Adicionar conta corporativa ou de estudante na mesma organização que um Administrador de Serviços? | Adicionar conta corporativa ou de estudante em organização diferente como Administrador de Serviços? |
   | --- | --- | --- | --- |

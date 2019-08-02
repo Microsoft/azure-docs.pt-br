@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/12/2019
+ms.date: 06/19/2019
 ms.author: bwren
-ms.openlocfilehash: c80736dcd8be0c7ff3aae850aaaf9659f47daf36
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 56dd1c29d5606da96bbc6d519b70caf580852446
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996085"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67273072"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados de atividades no Azure Monitor
 A fonte de dados de logs personalizados no Azure Monitor permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog. Depois de coletados, você pode analisar os dados em campos individuais em suas consultas ou extrair os dados durante a coleta de campos individuais.
@@ -35,11 +35,7 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 - O arquivo de log deve usar a codificação ASCII ou UTF-8.  Não há suporte para outros formatos, como UTF-16.
 
 >[!NOTE]
->Se houver entradas duplicadas no arquivo de log, o Azure Monitor irá coletá-los.  No entanto, os resultados da consulta serão inconsistentes onde os resultados do filtro mostram mais eventos do que a contagem de resultados.  É importante que você valide o log para determinar se o aplicativo que cria está causando o problema e resolvê-lo se possível, antes de criar a definição de coleção de log personalizado.  
->
-  
->[!NOTE]
-> Se seu aplicativo criar um arquivo de log por dia ou quando atingir um determinado tamanho, o agente do Log Analytics para Linux somente os descobrirá quando for reiniciado. Isso ocorre porque o agente só enumera e inicia o monitoramento de padrões com os logs especificados ao ser iniciado e, por isso, você precisa planejar essa questão automatizando a reinicialização do agente.  Essa limitação não existe com o agente do Log Analytics para Windows.  
+> Se houver entradas duplicadas no arquivo de log, o Azure Monitor irá coletá-los. No entanto, os resultados da consulta serão inconsistentes onde os resultados do filtro mostram mais eventos do que a contagem de resultados. É importante que você valide o log para determinar se o aplicativo que cria está causando o problema e resolvê-lo se possível, antes de criar a definição de coleção de log personalizado.  
 >
 
 >[!NOTE]

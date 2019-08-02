@@ -62,12 +62,12 @@ A tabela a seguir mostra os cabeçalhos HTTP que são usados para solicitações
 
 Cabeçalho |Value |Comentários
 ----|----|----
-Tipo de conteúdo | application/ssml+xml | O tipo do conteúdo de entrada.
+Content-Type | application/ssml+xml | O tipo do conteúdo de entrada.
 X-Microsoft-OutputFormat | **1.** ssml-16khz-16bit-mono-tts <br> **2.** raw-16khz-16bit-mono-pcm <br>**3.** audio-16khz-16kbps-mono-siren <br> **4.** riff-16khz-16kbps-mono-siren <br> **5.** riff-16khz-16bit-mono-pcm <br> **6.** audio-16khz-128kbitrate-mono-mp3 <br> **7.** audio-16khz-64kbitrate-mono-mp3 <br> **8.** audio-16khz-32kbitrate-mono-mp3 | O formato de áudio de saída.
 X-Search-AppId | Um GUID (somente hexadecimal, sem traços) | Uma ID que identifica exclusivamente o aplicativo cliente. Pode ser a ID de armazenamento de aplicativos. Se uma não estiver disponível, a ID pode ser gerada pelo usuário para um aplicativo.
 X-Search-ClientID | Um GUID (somente hexadecimal, sem traços) | Uma ID que identifica exclusivamente uma instância de aplicativo para cada instalação.
 User-Agent | Nome do aplicativo | O nome do aplicativo é necessário e deve ter menos de 255 caracteres.
-Autorização | Token de autorização |  Veja a seção <a href="#Subscription">Token de autorização</a>.
+Authorization | Token de autorização |  Veja a seção <a href="#Subscription">Token de autorização</a>.
 
 ### <a name="InputParam"></a>Parâmetros de entrada
 

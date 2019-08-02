@@ -3,18 +3,18 @@ title: Autenticação com os Azure Mapas | Microsoft Docs
 description: Autenticação para uso dos serviços dos Azure Mapas.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4608d0631c9a590fdde583e399883a023275c30
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66393670"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67838048"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com Azure Mapas
 
@@ -31,7 +31,7 @@ Para obter informações sobre como exibir suas chaves, consulte [Exibir detalhe
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Autenticação com o Azure Active Directory (versão prévia)
 
-Os Azure Mapas agora oferecem a integração do [Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para a autenticação de solicitações de serviços dos Azure Mapas. O Azure AD fornece autenticação baseada em identificação, incluindo o [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/overview) para permitir acesso no nível do usuário ou do aplicativo aos recursos dos Azure Mapas. As seções a seguir podem ajudá-lo a entender os conceitos e os componentes da integração entre o Azure AD e os Azure Mapas.
+Os Azure Mapas agora oferecem a integração do [Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) para a autenticação de solicitações de serviços dos Azure Mapas. O Azure AD fornece a autenticação baseada em identidade, incluindo [controle de acesso baseado em função (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview), para conceder acesso de nível de usuário, o nível de grupo e o nível de aplicativo aos recursos do mapas do Azure. As seções a seguir podem ajudá-lo a entender os conceitos e os componentes da integração entre o Azure AD e os Azure Mapas.
 
 ## <a name="authentication-with-oauth-access-tokens"></a>Autenticação com tokens de acesso OAuth
 
@@ -54,7 +54,7 @@ Para obter informações gerais sobre como solicitar tokens do Azure AD, consult
 
 Depois que um token é recebido do Azure AD, uma solicitação pode ser enviada para os Azure Mapas com os dois seguintes conjuntos de cabeçalhos de solicitação obrigatórios:
 
-| Cabeçalho da solicitação    |    Value    |
+| Cabeçalho da solicitação    |    Valor    |
 |:------------------|:------------|
 | x-ms-client-id    | 30d7cc….9f55|
 | Autorização     | Portador eyJ0e….HNIVN |
@@ -75,9 +75,9 @@ Para obter informações sobre como exibir a ID do cliente, consulte [Exibir det
 
 ## <a name="control-access-with-rbac"></a>Controlar o acesso com RBAC
 
-O Azure AD permite controlar o acesso a recursos protegidos por meio de RBAC. Depois que a sua conta dos Azure Mapas for criada e você registrar o aplicativo do Azure AD e do Azure Mapas em seu locatário do Azure AD, você poderá configurar o RBAC para um usuário, um aplicativo ou um recurso do Azure na página do portal de contas dos Azure Mapas.
+O Azure AD permite controlar o acesso a recursos protegidos por meio de RBAC. Depois de criar sua conta de mapas do Azure e registrar seu aplicativo de mapas do Azure AD do Azure em seu locatário do Azure AD, você pode configurar o RBAC para um usuário, grupo, aplicativo ou recurso do Azure, na página de portal da conta de mapas do Azure.
 
-Os Azure Mapas dão suporte ao controle de acesso de leitura para usuários individuais do Azure AD, aplicativos ou serviços do Azure por meio de identidades gerenciadas para recursos do Azure.
+Mapas do Azure dá suporte a controle de acesso de leitura para a pessoa que os usuários, grupos, aplicativos e serviços do Azure por meio de identidades gerenciadas para recursos do Azure AD do Azure.
 
 ![Leitor de dados do Azure Mapas (versão prévia)](./media/azure-maps-authentication/concept.png)
 

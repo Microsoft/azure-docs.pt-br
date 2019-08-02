@@ -1,19 +1,18 @@
 ---
 title: Gerenciar servidores e cofres dos Serviços de Recuperação do Microsoft Azure
 description: Gerenciar trabalhos e alertas em um cofre dos Serviços de Recuperação do Azure.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 07/08/2019
 ms.author: raynew
-ms.openlocfilehash: f7d97866bb3ae895f83fff248ceec2e83dd60bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5876ce4a511617d8465cdf008ea0ce14b3ad15d4
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66688905"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466364"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Monitorar e gerenciar cofres dos Serviços de Recuperação
 
@@ -85,7 +84,7 @@ A lista de Alertas de Backup exibe as informações selecionadas para os alertas
 
 | Nível de alerta | Eventos que geram alertas |
 | ----------- | ----------- |
-| Crítico | Você recebe alertas críticos quando: Falha dos trabalhos de backup, falha dos trabalhos de recuperação e quando você parar a proteção em um servidor, mas retém os dados.|
+| Crítica | Você recebe alertas críticos quando: Falha dos trabalhos de backup, falha dos trabalhos de recuperação e quando você parar a proteção em um servidor, mas retém os dados.|
 | Aviso | Você receberá o aviso de alertas quando: Trabalhos de Backup são concluídos com avisos, por exemplo quando menos de 100 arquivos ficam sem backup devido a problemas de corrupção, ou quando o backup de mais de 1.000.000 de arquivos é feito com êxito). |
 | Informativo | no momento, nenhum alerta informativo está em uso. |
 
@@ -100,9 +99,9 @@ Por padrão, todos os detalhes, exceto **Última hora da ocorrência**, são exi
 * Alerta
 * Item de backup
 * Servidor protegido
-* Severity
-* Duration
-* Hora de criação
+* Severidade
+* Duração
+* Hora de Criação
 * Status
 * Última hora da ocorrência
 
@@ -221,7 +220,7 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 É possível exibir uma única operação ou todas as operações. Não é possível selecionar duas ou três operações. As Operações disponíveis são:
 
 * Todas as operações
-* Registrar
+* Registro
 * Configurar o backup
 * Backup
 * Restaurar
@@ -235,8 +234,8 @@ O Tipo de Item é o tipo de gerenciamento de backup da instância protegida. Há
 * Todos os status
 * Concluído
 * Em andamento
-* Com falha
-* Cancelado
+* Falhou
+* Cancelada
 * Concluído com avisos
 
 #### <a name="start-time"></a>Hora de início
@@ -260,21 +259,6 @@ O bloco Armazenamento de Backup no painel mostra o armazenamento consumido no Az
 * Uso do armazenamento LRS de nuvem associado ao cofre
 * Uso do armazenamento GRS de nuvem associado ao cofre
 
-
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Quanto tempo leva para refletir no portal o status de trabalho do agente de backup do Azure?
-O portal do Azure pode levar até 15 minutos para refletir o status de trabalho do agente de backup do Azure.
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>Quando um trabalho de backup falha, quanto tempo demora para gerar um alerta?
-Um alerta é gerado em 20 minutos após a falha de backup do Azure.
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>Há um caso em que um email não será enviado se as notificações forem configuradas?
-Sim. Nas situações a seguir, notificações por email não serão enviadas.
-
-* Se as notificações forem configuradas por hora e um alerta for gerado e resolvido em uma hora
-* Quando um trabalho é cancelado
-* Se um segundo trabalho de backup falhou porque o trabalho de backup original estava em andamento
 
 ## <a name="troubleshooting-monitoring-issues"></a>Solucionando problemas de monitoramento
 

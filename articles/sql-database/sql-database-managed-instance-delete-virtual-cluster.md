@@ -1,9 +1,8 @@
 ---
-title: Excluir rede virtual depois de excluir o banco de dados SQL de instância gerenciada | Microsoft Docs
-description: Saiba como excluir a rede virtual depois de excluir o banco de dados SQL de instância gerenciada.
+title: Excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure | Microsoft Docs
+description: Saiba como excluir uma rede virtual do Azure depois de excluir uma instância gerenciada do banco de dados SQL do Azure.
 services: sql-database
 ms.service: sql-database
-ms.subservice: management
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,40 +10,43 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: ead7ea91e172f608c5364e4d5164d2a71dbf2f5f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65791384"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297633"
 ---
-# <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Excluir sub-rede depois de excluir o banco de dados SQL de instância gerenciada
+# <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Excluir uma sub-rede depois de excluir uma instância gerenciada do banco de dados SQL do Azure
 
-Este artigo fornece diretrizes sobre como excluir manualmente a sub-rede depois de excluir o último banco de dados SQL a instância gerenciada do que residem nele.
+Este artigo fornece diretrizes sobre como excluir uma sub-rede manualmente depois de excluir a última instância gerenciada do banco de dados SQL do Azure que a reside.
 
-O [cluster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que continha o excluído a instância gerenciada será mantida por 12 horas contra a exclusão da instância. O cluster virtual é mantido ativo por design para habilitar agiliza a criação de instâncias gerenciadas na mesma sub-rede. Manter um cluster virtual vazio está disponível gratuitamente. Durante esse período, a sub-rede associada ao cluster virtual não pode ser excluída.
+O banco de dados SQL usa um [cluster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) para conter a instância gerenciada excluída. O cluster virtual persiste por 12 horas após a exclusão da instância, para permitir que você crie rapidamente instâncias gerenciadas na mesma sub-rede. Não há nenhum encargo para manter um cluster virtual vazio. Durante esse período, a sub-rede associada ao cluster virtual não pode ser excluída.
 
-Versão imediata da sub-rede usada por um cluster virtual vazio é possível por meio de exclusão manual do cluster virtual. Exclusão do cluster virtual pode ser obtido por meio do portal do Azure ou API de clusters virtuais.
+Se você não quiser aguardar 12 horas e preferir excluir o cluster virtual e sua sub-rede imediatamente, poderá fazer isso manualmente. Exclua o cluster virtual manualmente usando a portal do Azure ou a API de clusters virtuais.
 
 > [!NOTE]
-> O cluster virtual não deve conter nenhuma instância gerenciada para a exclusão seja bem-sucedida.
+> O cluster virtual não deve conter nenhuma instância gerenciada para que a exclusão seja bem-sucedida.
 
-## <a name="delete-virtual-cluster-from-azure-portal"></a>Excluir o cluster virtual do portal do Azure
+## <a name="delete-virtual-cluster-from-the-azure-portal"></a>Excluir o cluster virtual do portal do Azure
 
-Para excluir um cluster virtual usando o portal do Azure, pesquise os recursos de cluster virtual usando a pesquisa interna.
+Para excluir um cluster virtual usando o portal do Azure, procure os recursos do cluster virtual.
 
-![Pesquisar cluster virtual.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
+![Captura de tela da portal do Azure, com a caixa de pesquisa realçada](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-search.png)
 
-Depois que você localize o cluster virtual que deseja excluir, selecione esse recurso e selecione a opção de exclusão. Você será solicitado a confirmar a exclusão de cluster virtual.
+Depois de localizar o cluster virtual que você deseja excluir, selecione esse recurso e selecione **excluir**. Você será solicitado a confirmar a exclusão do cluster virtual.
 
-![Exclua o cluster virtual.](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
+![Captura de tela do painel portal do Azure clusters virtuais, com a opção Excluir realçada](./media/sql-database-managed-instance-delete-virtual-cluster/virtual-clusters-delete.png)
 
-Confirmação de que o cluster virtual foi excluído é fornecida em notificações do portal do Azure. Exclusão bem-sucedida de cluster virtual libera imediatamente a sub-rede para uso posterior.
+A área notificações de portal do Azure mostra a confirmação de que o cluster virtual foi excluído. A exclusão bem-sucedida do cluster virtual libera a sub-rede imediatamente para reutilização.
 
-## <a name="delete-virtual-cluster-using-api"></a>Excluir o cluster virtual usando a API
+> [!TIP]
+> Se não houver nenhuma instância gerenciada mostrada no cluster virtual e você não puder excluir o cluster virtual, certifique-se de que você não tenha uma implantação de instância em andamento. Isso inclui implantações iniciadas e canceladas que ainda estão em andamento. Revisando a guia implantações do grupo de recursos em que a instância foi implantada indicará todas as implantações em andamento. Nesse caso, aguardar a conclusão da implantação, excluir instância gerenciada e, em seguida, o cluster virtual.
 
-Para excluir uma máquina virtual de cluster por meio do uso da API os parâmetros do URI especificados na [método de exclusão de clusters virtuais](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
+## <a name="delete-virtual-cluster-by-using-the-api"></a>Excluir o cluster virtual usando a API
+
+Para excluir um cluster virtual por meio da API, use os parâmetros de URI especificados no [método de exclusão de clusters virtuais](https://docs.microsoft.com/rest/api/sql/virtualclusters/delete).
 
 ## <a name="next-steps"></a>Próximas etapas
 

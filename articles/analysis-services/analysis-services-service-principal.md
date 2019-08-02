@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65518157"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347963"
 ---
 # <a name="automation-with-service-principals"></a>Automação com entidades de serviço
 
@@ -21,7 +21,7 @@ As entidades de serviço são um recurso de aplicativo do Azure Active Directory
 
 No Analysis Services, as entidades de serviço são usadas com o Automação do Azure, o modo autônomo do PowerShell, aplicativos cliente personalizados e aplicativos Web para automatizar tarefas comuns. Por exemplo, servidores de provisionamento, modelos de implantação, atualização de dados, escalar verticalmente/reduzir verticalmente e pausar/continuar podem ser automatizados usando entidades de serviço. As permissões são atribuídas a entidades de serviço por meio da associação de funções, semelhante às contas comuns de UPN do Microsoft Azure AD.
 
-Analysis Services também dá suporte a operações executadas pelo identidades gerenciadas usando as entidades de serviço. Para obter mais informações, consulte [identidades para recursos do Azure gerenciadas](../active-directory/managed-identities-azure-resources/overview.md) e [serviços do Azure que autenticação de suporte do Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+O Analysis Services também dá suporte a operações executadas por identidades gerenciadas usando entidades de serviço. Para saber mais, confira [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md) e [Serviços do Azure que dão suporte à autenticação do Azure ad](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Criar entidades de serviço
  
@@ -49,11 +49,11 @@ AppID de entidade de serviço e senha ou certificado podem ser usados em cadeias
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo Az.AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo AZ. AnalysisServices
 
-Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o [Az.AnalysisServices](/powershell/module/az.analysisservices) módulo, use `Connect-AzAccount` cmdlet. 
+Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` o cmdlet. 
 
-No exemplo a seguir, a appID e uma senha são usados para executar operações do plano de controle para a sincronização de réplicas somente leitura e escalar vertical/horizontal:
+No exemplo a seguir, appID e uma senha são usados para executar operações de plano de controle para sincronização para réplicas somente leitura e escala vertical/horizontal:
 
 ```powershell
 Param (
@@ -97,7 +97,7 @@ Ao conectar com aplicativos cliente e aplicativos Web, os pacotes instaláveis d
 
 No exemplo a seguir, `appID` e `password` são usados para executar uma operação de atualização de modelo de banco de dados:
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://westus.asazure.windows.net/<servername>;User ID=app:{appId};Password={authKey};";

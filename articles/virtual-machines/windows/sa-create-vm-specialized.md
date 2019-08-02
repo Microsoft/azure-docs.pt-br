@@ -4,7 +4,7 @@ description: Criar uma nova VM anexando um disco não gerenciado, no modelo de i
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 3b7d3cd5-e3d7-4041-a2a7-0290447458ea
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: f2110a749c41f59b11a6d400faa2e42e751305fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8833ddf487c36446b5e5b4ce1d6cfc6363d3ceeb
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693826"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710382"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>Criar uma VM a partir de um VHD especializado em uma conta de armazenamento
 
@@ -186,7 +186,7 @@ Transfer failed:         0
 Elapsed time:            00.00:13:07
 ```
 
-### <a name="troubleshooting"></a>solução de problemas
+### <a name="troubleshooting"></a>Solução de problemas
 * Ao usar o AZCopy, se você receber o erro “Falha do servidor em autenticar a solicitação”, verifique se o valor do cabeçalho Authorization está formado corretamente, incluindo a assinatura. Se estiver usando a Chave 2 ou a chave de armazenamento secundária, tente usar a chave primária ou a primeira chave de armazenamento.
 
 ## <a name="create-the-new-vm"></a>Crie a nova VM 

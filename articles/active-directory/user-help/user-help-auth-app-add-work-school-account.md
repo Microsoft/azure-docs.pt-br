@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 231f3c44344f4119bab6e1efb5546e6fded0c784
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a73500d17a0dd5d55e60700f7c0b6dbe92a3f96b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473833"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382519"
 ---
 # <a name="add-your-work-or-school-account"></a>Adicionar a conta corporativa ou de estudante
+
 Se a organização usa a verificação de dois fatores, você pode configurar sua conta corporativa ou de estudante para usar o aplicativo Microsoft Authenticator como um dos métodos de verificação.
 
 >[!Important]
@@ -30,12 +31,12 @@ Se a organização usa a verificação de dois fatores, você pode configurar su
 1. Em seu computador, vá para a página [Verificação de segurança adicional](https://aka.ms/mfasetup).
 
     >[!Note]
-    >Caso não veja a página **Verificação de segurança adicional**, é possível que o administrador tenha ativado a experiência de informações de segurança (versão prévia). Se esse for o caso, você deverá seguir as instruções da seção [Configurar informações de segurança para usar um aplicativo Authenticator](security-info-setup-auth-app.md). Se não for o caso, você precisará entrar em contato com o suporte técnico da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [visão geral de informações (versão prévia) de segurança](user-help-security-info-overview.md).
+    >Caso não veja a página **Verificação de segurança adicional**, é possível que o administrador tenha ativado a experiência de informações de segurança (versão prévia). Se esse for o caso, você deverá seguir as instruções da seção [Configurar informações de segurança para usar um aplicativo Authenticator](security-info-setup-auth-app.md). Se não for o caso, você precisará entrar em contato com o suporte técnico da sua organização para obter assistência. Para obter mais informações sobre informações de segurança, consulte [visão geral de informações de segurança (versão prévia)](user-help-security-info-overview.md).
 
 2. Marque a caixa ao lado de **aplicativo do autenticador** e selecione **Configurar**.
 
     A página **Configurar aplicativo móvel** é exibida.
-    
+
     ![Tela que fornece o código QR](./media/user-help-auth-app-download-install/auth-app-barcode.png)
 
 3. Abra o aplicativo Microsoft Authenticator, selecione **adicionar conta** da **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **trabalho ou conta de escola**.

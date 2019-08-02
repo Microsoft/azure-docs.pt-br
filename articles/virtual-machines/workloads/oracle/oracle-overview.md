@@ -4,7 +4,7 @@ description: Saiba mais sobre as opções para implantar aplicativos Oracle e so
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-management
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: b5e40975fca491f289d949ee273d13053897fc6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b8bfa0dfa82f73cad010a608150eac48c7f3d4c8
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743629"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707446"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Visão geral de aplicativos Oracle e soluções no Azure
 

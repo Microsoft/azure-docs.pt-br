@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786b5ed99cce29c7217bfa42446821848ca8e05f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b9ca4862f129b2da23a1d1ad8bb0b1bd0a5078f
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60288099"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476283"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Descobrir os recursos do Azure para gerenciar no PIM
 
@@ -37,15 +37,15 @@ Quando você configura pela primeira vez os recursos do PIM para o Azure, é nec
 
     Se esta for a primeira vez que você usa recursos do PIM para o Azure, você verá um painel Recursos do Discover.
 
-    ![Descubra recursos - primeira vez](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
+    ![Descubra o painel de recursos sem recursos listados para a primeira experiência de tempo](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
     Se outro administrador de recurso ou diretório em sua organização já estiver gerenciando recursos do Azure no PIM, você verá uma lista dos recursos que estão sendo gerenciados no momento.
 
-    ![Descubra recursos de painel](./media/pim-resource-roles-discover-resources/discover-resources.png)
+    ![Descobrir recursos de listagem de painel de recursos que estão sendo gerenciados](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
 1. Clique em **Descobrir recursos** para iniciar a experiência de descoberta.
 
-    ![Painel de descoberta](./media/pim-resource-roles-discover-resources/discovery-pane.png)
+    ![Listagem de recursos que podem ser gerenciados, como assinaturas e grupos de gerenciamento de painel de descoberta](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
 1. No painel Descoberta, use **Filtro de estado de recurso** e **Selecione o tipo de recurso** para filtrar os grupos de gerenciamento ou assinaturas para os quais você tem permissão de gravação. Ele provavelmente é mais fácil para começar **todos** os inicialmente.
 
@@ -58,11 +58,11 @@ Quando você configura pela primeira vez os recursos do PIM para o Azure, é nec
     > [!NOTE]
     > Depois que um grupo de gerenciamento ou assinatura for definido como gerenciado, ele não poderá ser gerenciado. Isso impede que outro administrador de recursos remova as configurações do PIM.
 
-    ![Descoberta - gerenciar recursos](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
+    ![Painel de descoberta com um recurso selecionado e a opção de recurso de gerenciar realçada](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
 1. Se você receber uma mensagem solicitando a confirmação da integração do recurso selecionado para o gerenciamento, clique em **Sim**.
 
-    ![Descoberta – mensagem Gerenciar recurso](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
+    ![Mensagem confirmando para integrar os recursos selecionados para gerenciamento](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 78ee2c1ce402a29f1a9dfdd29f31daef09134eba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 09fd569ebfe8bc7f287eeb2a0b830399250c3a7a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60611331"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67701504"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a Atividade Pig no Azure Data Factory
 > [!div class="op_single_selector" title1="Atividades de transformação"]
@@ -220,7 +220,7 @@ Para usar os scripts Pig parametrizado, faça o seguinte:
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 * [Atividade de Hive](data-factory-hive-activity.md)
 * [Atividade MapReduce](data-factory-map-reduce.md)
 * [Atividade de Transmissão do Hadoop](data-factory-hadoop-streaming-activity.md)

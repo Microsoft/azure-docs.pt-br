@@ -4,17 +4,17 @@ description: Este artigo fornece informações sobre a solução de problemas do
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a6610b5cb3f01fc70b1737fc4492e09d9a7637b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f733db97f79282bfc255e3ac4b9991a3b6abc18
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61085312"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67477540"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Solucionar problemas do Controle de Alterações e do Inventário
 

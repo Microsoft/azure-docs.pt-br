@@ -5,14 +5,14 @@ author: DCtheGeek
 manager: carmonm
 ms.service: blueprints
 ms.topic: sample
-ms.date: 04/22/2019
+ms.date: 06/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 03813bb440e90dd7a1d2caec543756f7fffc221b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ccee11a9b2e5505073bac9f5cb2e9d3efb8816e1
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685575"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68249603"
 ---
 # <a name="azure-blueprints-samples"></a>Exemplos do Azure Blueprints
 
@@ -24,6 +24,10 @@ A tabela a seguir contém links para exemplos do Azure Blueprints. Cada exemplo 
 |---------|---------|
 | [Serviços Compartilhados ISO 27001](./iso27001-shared/index.md) | Oferece um conjunto de padrões de infraestrutura e proteções de política em conformidade que ajudam na certificação ISO 27001. |
 | [Carga de trabalho do Ambiente do Serviço de Aplicativo/Banco de Dados SQL ISO 27001](./iso27001-ase-sql-workload/index.md) | Oferece infraestrutura adicional para o exemplo de blueprint dos [Serviços Compartilhados ISO 27001](./iso27001-shared/index.md). |
+| [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | Fornece as diretrizes para a conformidade com o NIST SP 800-53 R4. |
+| [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | Fornece um conjunto de políticas para auxiliar em conformidade com PCI-DSS v3.2.1. |
+| [Governança de NHS do Reino Unido e OFICIAL do Reino Unido](./ukofficial/index.md) | Oferece um conjunto de padrões de infraestrutura e proteções de política em conformidade que ajudam na certificação OFICIAL do Reuno Unido e da NHS do Reino Unido. |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

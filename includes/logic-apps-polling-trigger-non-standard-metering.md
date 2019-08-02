@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: estfan
 ms.openlocfilehash: 3fa71085d649ace95aa24ac87c8714a7268f5386
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161951"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172515"
 ---
 Para estimar custos de consumo mais precisos, considere o número possível de mensagens ou eventos que podem chegar em qualquer dia, em vez de basear os cálculos somente no intervalo de votação. Quando um evento ou mensagem atende aos critérios do gatilho, muitos disparadores imediatamente tentam ler todos e quaisquer outros eventos ou mensagens em espera que atendam aos critérios. Esse comportamento significa que, mesmo quando você seleciona um intervalo de sondagem mais longo, o gatilho dispara com base no número de eventos ou mensagens em espera que qualificam-se para iniciar os fluxos de trabalho. Os disparadores que seguem esse comportamento incluem o Barramento de Serviço do Azure e o Hub de Eventos do Azure.
 

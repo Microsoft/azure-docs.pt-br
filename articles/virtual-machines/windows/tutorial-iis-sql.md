@@ -4,7 +4,7 @@ description: Neste tutorial, você aprende a instalar a pilha Azure SQL, IIS, .N
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 770fa89bc08b448482b4a74d21ee307df8a9f836
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88a7a1ea736a418f4b08a22b3fa7b45ab0e126ff
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58167908"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67708030"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutorial: Instalar a pilha do SQL, do IIS, do .NET em uma VM do Windows com o Azure PowerShell
 

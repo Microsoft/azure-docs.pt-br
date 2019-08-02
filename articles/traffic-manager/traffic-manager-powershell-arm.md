@@ -61,7 +61,7 @@ A tabela a seguir lista os parâmetros:
 
 | Parâmetro | DESCRIÇÃO |
 | --- | --- |
-| NOME |O nome do recurso para o recurso do perfil do Gerenciador de Tráfego. Perfis no mesmo grupo de recursos devem ter nomes exclusivos. Esse nome é diferente do nome DNS usado para consultas de DNS. |
+| Name |O nome do recurso para o recurso do perfil do Gerenciador de Tráfego. Perfis no mesmo grupo de recursos devem ter nomes exclusivos. Esse nome é diferente do nome DNS usado para consultas de DNS. |
 | ResourceGroupName |O nome do grupo de recursos que contém o recurso do perfil. |
 | TrafficRoutingMethod |Especifica o método de roteamento de tráfego usado para determinar qual ponto de extremidade é retornado na resposta a consulta DNS. Os valores possíveis são “Desempenho”, “Ponderado” ou “Prioridade”. |
 | RelativeDnsName |Especifica a parte do nome de host do nome DNS fornecido por esse perfil do Gerenciador de Tráfego. Esse valor é combinado ao nome de domínio DNS usado pelo Gerenciador de Tráfego do Azure para formar o nome de domínio totalmente qualificado (FQDN) do perfil. Por exemplo, definindo o valor de “contoso” se torna “contoso.trafficmanager.net.” |

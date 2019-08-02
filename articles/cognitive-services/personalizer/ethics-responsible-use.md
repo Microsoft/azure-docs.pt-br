@@ -2,19 +2,20 @@
 title: Ética e uso responsável – Personalizador
 titleSuffix: Azure Cognitive Services
 description: O objetivo dessas diretrizes é ajudar você a implementar a personalização de uma maneira que ajude você a criar uma relação de confiança em sua empresa e no seu serviço. Pare para pesquisar novamente, aprender e discutir o impacto da personalização nas vidas das pessoas. Em caso de dúvida, procure orientação.
-author: edjez
+services: cognitive-services
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 06/12/2019
+ms.author: diberry
+ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239883"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68662780"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para a implementação responsável do Personalizador
 
@@ -182,7 +183,7 @@ Considere a criação de métodos para membros da equipe, usuários e proprietá
 
 Qualquer pessoa que pensar nos efeitos colaterais do uso de qualquer tecnologia estará limitada à sua perspectiva e experiência de vida. Expanda a variedade de opiniões disponíveis levando vozes mais diversas para suas equipes, usuários ou conselhos, de forma que eles possam se manifestar e serem incentivados a fazer isso. Considere materiais de treinamento e de aprendizado para expandir mais ainda o conhecimento da equipe nesse domínio e para adicionar uma funcionalidade para discutir tópicos complexos e confidenciais.
 
-Considere tratar as tarefas com relação ao uso responsável assim como outras tarefas transversais no ciclo de vida do aplicativo, como tarefas relacionadas à experiência do usuário, à segurança ou a DevOps. Essas tarefas e seus respectivos requisitos não podem ser uma consideração a posteriori. O uso responsável deve ser discutido e verificado ao longo do ciclo de vido do aplicativo.
+Considere tratar tarefas relacionadas ao uso responsável, assim como outras tarefas de transversais no ciclo de vida do aplicativo, como tarefas relacionadas à experiência do usuário, segurança ou DevOps. Essas tarefas e seus respectivos requisitos não podem ser uma consideração a posteriori. O uso responsável deve ser discutido e verificado ao longo do ciclo de vido do aplicativo.
  
 ## <a name="questions-and-feedback"></a>Perguntas e comentários
 
@@ -196,7 +197,7 @@ A Microsoft está continuamente dispendendo esforços em ferramentas e documento
 * [Ética e Ciência de dados](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/), de DJ Patil, Hilary Mason, Mike Loukides.
 * [Código de Ética do ACM](https://www.acm.org/code-of-ethics)
 * [Lei de Não Discriminação de Informações Genéticas – GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [Princípios FATML para algoritmos responsáveis](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [Princípios FATML para algoritmos responsáveis](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## <a name="next-steps"></a>Próximas etapas

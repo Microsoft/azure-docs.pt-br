@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 73a19fa97a898e2c51912a18f46751e855ee0303
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c2c153d8e67ff952add177d8a98b7561c3165774
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272080"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-impac-risk-manager"></a>Tutorial: Integração do Azure Active Directory ao IMPAC Risk Manager
 
@@ -53,7 +53,7 @@ Para configurar a integração do IMPAC Risk Manager ao Azure AD, você precisar
 
 **Para adicionar o IMPAC Risk Manager da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure Active Directory com o IMPAC Risk Manage
 
     ![Informações de logon único em Domínio e URLs do IMPAC Risk Manager](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite um valor fornecido pelo IMPAC
+    a. Na caixa de texto **Identificador**, digite um valor fornecido pelo IMPAC
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
 
@@ -221,4 +221,4 @@ Ao clicar no bloco IMPAC Risk Manager no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

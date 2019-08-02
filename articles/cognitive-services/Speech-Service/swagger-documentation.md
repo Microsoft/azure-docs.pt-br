@@ -1,5 +1,5 @@
 ---
-title: Documentação do Swagger – Serviços de Fala
+title: Documentação do Swagger-serviço de fala
 titleSuffix: Azure Cognitive Services
 description: A documentação do Swagger pode ser usada para gerar SDKs automaticamente para várias linguagens de programação. Todas as operações em nosso serviço são compatíveis com o Swagger
 services: cognitive-services
@@ -7,19 +7,19 @@ author: PanosPeriorellis
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: overview
-ms.date: 04/12/2019
+ms.topic: reference
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 6cf3ab6480900aa763598120e6ff7e308f5044e1
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
-ms.translationtype: HT
+ms.openlocfilehash: 232435a424d2461bce4598356a986473cb1d3644
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66743215"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68552569"
 ---
 # <a name="swagger-documentation"></a>Documentação do Swagger
 
-Os Serviços de Fala oferecem uma especificação do Swagger para interagir com uma variedade de APIs REST usadas para importar dados, criar modelos, testar a precisão do modelo, criar pontos de extremidade personalizados, colocar transcrições de lote na fila e gerenciar assinaturas. A maioria das operações disponíveis por meio do portal de Fala Personalizada pode ser concluída de forma programática usando essas APIs. 
+Os Serviços de Fala oferecem uma especificação do Swagger para interagir com uma variedade de APIs REST usadas para importar dados, criar modelos, testar a precisão do modelo, criar pontos de extremidade personalizados, colocar transcrições de lote na fila e gerenciar assinaturas. A maioria das operações disponíveis por meio do portal de Fala Personalizada pode ser concluída de forma programática usando essas APIs.
 
 > [!NOTE]
 > Há suporte para operações de conversão de fala em texto e texto em fala disponíveis como APIs REST, que, por vez, estão documentadas na especificação do Swagger.

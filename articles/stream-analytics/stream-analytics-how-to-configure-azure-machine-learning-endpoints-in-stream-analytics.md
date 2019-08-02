@@ -7,23 +7,23 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: dfb34f8c0fca792618860e0a8d5a1bf1736f3611
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/11/2019
+ms.openlocfilehash: 650f8952e58046082768007295208f52113b5f81
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65416042"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620901"
 ---
-# <a name="machine-learning-integration-in-stream-analytics-preview"></a>Integração do Learning no Stream Analytics (visualização) de máquina
-O Stream Analytics dá suporte a funções definidas pelo usuário que chamam pontos de extremidade do Azure Machine Learning. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
+# <a name="azure-machine-learning-studio-integration-in-stream-analytics-preview"></a>Integração do Azure do estúdio de Machine Learning no Stream Analytics (visualização)
+Stream Analytics dá suporte a funções definidas pelo usuário que chamem pontos de extremidade do Azure Machine Learning Studio. O suporte da API REST para esse recurso é detalhado na [biblioteca de API REST do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx). Este artigo fornece informações complementares necessárias para a implementação bem-sucedida desse recurso no Stream Analytics. Um tutorial também foi publicado e está disponível [aqui](stream-analytics-machine-learning-integration-tutorial.md).
 
-## <a name="overview-azure-machine-learning-terminology"></a>Visão geral: Terminologia do Azure Machine Learning
-O Microsoft Azure Machine Learning fornece uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada de *Azure Machine Learning Studio*. O estúdio é usado para interagir com os recursos do Machine Learning e para compilar, testar e iterar facilmente em seu design. Veja abaixo esses recursos e suas definições.
+## <a name="overview-azure-machine-learning-studio-terminology"></a>Visão geral: Terminologia de Machine Learning Studio do Azure
+Microsoft Azure Machine Learning Studio fornece uma ferramenta colaborativa de arrastar e soltar, que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. Essa ferramenta é chamada de *Azure Machine Learning Studio*. O estúdio é usado para interagir com os recursos do Machine Learning e para compilar, testar e iterar facilmente em seu design. Veja abaixo esses recursos e suas definições.
 
 * **Workspace**: O *workspace* é um contêiner que mantém todos os outros recursos de Machine Learning em um contêiner para gerenciamento e controle.
 * **Experimento**: Os *Experimentos* são criados por cientistas de dados a fim de usar conjuntos de dados e treinar um modelo de machine learning.
-* **Ponto de extremidade**: Os *Pontos de extremidade* são objetos de Azure Machine Learning usados para aproveitar recursos como entrada, aplicar um modelo de machine learning especificado e retornar a saída pontuada.
+* **Ponto de extremidade**: *Pontos de extremidade* são o objeto de Azure Machine Learning Studio usado para aproveitar recursos como entrada, aplicar um modelo de aprendizado de máquina especificada e retornar a saída pontuada.
 * **Serviço Web de pontuação**: Um *serviço da Web de pontuação* é uma coleção de pontos de extremidade, conforme mencionado acima.
 
 Cada ponto de extremidade tem APIs para execução em lote e execução síncrona. O Stream Analytics usa a execução síncrona. O serviço específico é chamado de [Serviço de Solicitação/Resposta](../machine-learning/studio/consume-web-services.md) no Azure Machine Learning Studio.
@@ -42,7 +42,7 @@ Com as APIs REST, você pode configurar seu trabalho para chamar funções de Li
 6. Iniciar o trabalho
 
 ## <a name="creating-a-udf-with-basic-properties"></a>Criação de uma UDF com propriedades básicas
-Por exemplo, o exemplo de código a seguir cria uma UDF escalar chamada *newudf* que realiza um vínculo a um ponto de extremidade de Azure Machine Learning. Observe que o *ponto de extremidade* (URI de serviço) pode ser encontrado na página de ajuda da API do serviço escolhido e a *apiKey* pode ser encontrada na página principal de Serviços.
+Por exemplo, o código de exemplo a seguir cria uma UDF escalar chamada *newudf* que associa a um ponto de extremidade do Azure Machine Learning Studio. Observe que o *ponto de extremidade* (URI de serviço) pode ser encontrado na página de ajuda da API do serviço escolhido e a *apiKey* pode ser encontrada na página principal de Serviços.
 
 ```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
@@ -69,7 +69,7 @@ Exemplo de corpo de solicitação:
 ```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Chamar o ponto de extremidade RetrieveDefaultDefinition para UDF padrão
-Após a criação do esqueleto da UDF, é necessário obter a definição completa da UDF. O ponto de extremidade RetrieveDefaultDefinition ajuda a obter a definição padrão para uma função de valor escalar associada a um ponto de extremidade do Azure Machine Learning. A carga abaixo exige que você obtenha definição padrão da UDF para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. Ela não especifica o ponto de extremidade real, pois ele já foi fornecido durante a solicitação PUT. O Stream Analytics chamará o ponto de extremidade fornecido na solicitação se ele for fornecido explicitamente. Caso contrário, ele usa o ponto referenciado originalmente. Neste exemplo, a UDF usa um parâmetro de cadeia de caracteres única (uma sentença) e retorna uma saída única do tipo de cadeia de caracteres que indica o rótulo "sentimento" daquela sentença.
+Após a criação do esqueleto da UDF, é necessário obter a definição completa da UDF. O ponto de extremidade RetrieveDefaultDefinition ajuda você a obter a definição padrão para uma função escalar que está associada a um ponto de extremidade do Azure Machine Learning Studio. A carga abaixo exige que você obtenha definição padrão da UDF para uma função escalar associada a um ponto de extremidade de Azure Machine Learning. Ela não especifica o ponto de extremidade real, pois ele já foi fornecido durante a solicitação PUT. O Stream Analytics chamará o ponto de extremidade fornecido na solicitação se ele for fornecido explicitamente. Caso contrário, ele usa o ponto referenciado originalmente. Neste exemplo, a UDF usa um parâmetro de cadeia de caracteres única (uma sentença) e retorna uma saída única do tipo de cadeia de caracteres que indica o rótulo "sentimento" daquela sentença.
 
 ```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
@@ -195,5 +195,5 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

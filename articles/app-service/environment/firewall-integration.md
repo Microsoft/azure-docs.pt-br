@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6dae2d40650b9fdb8df2d3bdb74b2df78639dc11
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b57ac43b02e8630528e7ed3f77f51befa52ed45f
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058053"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68498468"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Bloqueando um Ambiente do Serviço de Aplicativo
 
@@ -33,16 +33,16 @@ A solução para proteger os endereços de saída está em usar um dispositivo d
 
 ## <a name="system-architecture"></a>Arquitetura do sistema
 
-Implantar um ASE com tráfego de saída, passando por um dispositivo de firewall exige a alteração de rotas na sub-rede do ASE. Rotas operam em um nível de IP. Se não for cuidadoso na definição de suas rotas, você pode forçar o tráfego de resposta TCP para outro endereço de origem. Isso é chamado de roteamento assimétrico e ele será interrompido TCP.
+Implantar um ASE com tráfego de saída passando por um dispositivo de firewall requer a alteração de rotas na sub-rede do ASE. As rotas operam em um nível de IP. Se você não tiver cuidado ao definir suas rotas, poderá forçar o tráfego de resposta TCP para a origem de outro endereço. Isso é chamado de roteamento assimétrico e interromperá o TCP.
 
-Deve haver rotas definidas para que o tráfego de entrada para o ASE poderá responder novamente que da mesma forma que o tráfego chegou. Isso é verdadeiro para solicitações de gerenciamento de entrada e é verdadeiro para solicitações de entrada do aplicativo.
+Deve haver rotas definidas para que o tráfego de entrada para o ASE possa responder da mesma maneira que o tráfego chegou. Isso é verdadeiro para solicitações de gerenciamento de entrada e é verdadeiro para solicitações de aplicativos de entrada.
 
-O tráfego em um ASE deve obedecer as convenções a seguir
+O tráfego de e para um ASE deve obedecer às convenções a seguir
 
-* Não há suporte para o tráfego para o SQL Azure, armazenamento e o Hub de eventos com o uso de um dispositivo de firewall. Esse tráfego deve ser enviado diretamente para esses serviços. A maneira de fazer o que acontece é configurar pontos de extremidade de serviço para esses três serviços. 
-* Regras de tabela de rota devem ser definidas que enviam tráfego de gerenciamento de entrada de onde ele veio.
-* Regras de tabela de rota devem ser definidas que enviam tráfego de entrada do aplicativo novamente de onde ele veio. 
-* Todos os outros tráfegos, deixando o ASE podem ser enviado ao seu dispositivo de firewall com uma regra de tabela de rota.
+* O tráfego para o SQL do Azure, o armazenamento e o Hub de eventos não têm suporte com o uso de um dispositivo de firewall. Esse tráfego deve ser enviado diretamente para esses serviços. A maneira de fazer isso acontecer é configurar pontos de extremidade de serviço para esses três serviços. 
+* As regras da tabela de rotas devem ser definidas para enviar o tráfego de gerenciamento de entrada de onde ele foi fornecido.
+* As regras da tabela de rotas devem ser definidas para enviar o tráfego do aplicativo de entrada de onde ele foi fornecido. 
+* Todo o outro tráfego que sai do ASE pode ser enviado ao seu dispositivo de firewall com uma regra de tabela de rotas.
 
 ![ASE com o fluxo de conexão do Firewall do Azure][5]
 
@@ -106,32 +106,32 @@ As informações a seguir só são necessárias se você deseja configurar um di
 
 #### <a name="service-endpoint-capable-dependencies"></a>Dependências com capacidade de Ponto de Extremidade de Serviço 
 
-| Ponto de extremidade |
+| Ponto de Extremidade |
 |----------|
-| SQL do Azure |
+| Azure SQL |
 | Armazenamento do Azure |
-| Hub de Eventos do Azure |
+| Hub de eventos do Azure |
 
 #### <a name="ip-address-dependencies"></a>Dependências de endereço IP
 
-| Ponto de extremidade | Detalhes |
+| Ponto de Extremidade | Detalhes |
 |----------| ----- |
 | \*:123 | Verificação do relógio do NTP. O tráfego é verificado em vários pontos de extremidade na porta 123 |
 | \*:12000 | Essa porta é usada para alguns tipos de monitoramento do sistema. Se ela estiver bloqueada, alguns problemas serão mais difíceis de serem passados pela triagem, mas o ASE continuará funcionando |
-| 40.77.24.27:80 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 40.77.24.27:443 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 13.90.249.229:80 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 13.90.249.229:443 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 104.45.230.69:80 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 104.45.230.69:443 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 13.82.184.151:80 | Necessários para monitorar e alertar sobre problemas de ASE |
-| 13.82.184.151:443 | Necessários para monitorar e alertar sobre problemas de ASE |
+| 40.77.24.27:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 40.77.24.27:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.90.249.229:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.90.249.229:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 104.45.230.69:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 104.45.230.69:443 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.82.184.151:80 | Necessário para monitorar e alertar sobre problemas do ASE |
+| 13.82.184.151:443 | Necessário para monitorar e alertar sobre problemas do ASE |
 
 Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado com as marcas FQDN. 
 
 #### <a name="fqdn-httphttps-dependencies"></a>Dependências de HTTP/HTTPS do FQDN 
 
-| Ponto de extremidade |
+| Ponto de Extremidade |
 |----------|
 |graph.windows.net:443 |
 |login.live.com:443 |
@@ -182,6 +182,8 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 |flighting.cp.wd.microsoft.com:443 |
 |dmd.metaservices.microsoft.com:80 |
 |admin.core.windows.net:443 |
+|prod.warmpath.msftcloudes.com:443 |
+|prod.warmpath.msftcloudes.com:80 |
 |azureprofileruploads.blob.core.windows.net:443 |
 |azureprofileruploads2.blob.core.windows.net:443 |
 |azureprofileruploads3.blob.core.windows.net:443 |
@@ -190,7 +192,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 
 #### <a name="wildcard-httphttps-dependencies"></a>Dependências de HTTP/HTTPS de curinga 
 
-| Ponto de extremidade |
+| Ponto de Extremidade |
 |----------|
 |gr-Prod-\*.cloudapp.net:443 |
 | \*.management.azure.com:443 |
@@ -199,7 +201,7 @@ Com um Firewall do Azure, você obtém automaticamente tudo abaixo configurado c
 
 #### <a name="linux-dependencies"></a>Dependências do Linux 
 
-| Ponto de extremidade |
+| Ponto de Extremidade |
 |----------|
 |wawsinfraprodbay063.blob.core.windows.net:443 |
 |registry-1.docker.io:443 |

@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: 7c6d5034335a455d24b1f22919b672e2ead2810d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 30689e05a2567646ff541818dc68a90c13da7a56
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510853"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297251"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Java no Serviço de Aplicativo no Linux
 
@@ -62,50 +62,69 @@ Em seguida, adicione a seguinte definição de plug-in ao elemento `<build>` do 
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.4</version>
-        <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
-            <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
-   
-            <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime> 
-            <deployment>
-                <resources>
-                    <resource>
-                        <directory>${project.basedir}/target</directory>
-                        <includes>
-                            <include>*.war</include>
-                        </includes>
-                    </resource>
-                </resources>
-            </deployment>
-        </configuration>
+        <version>1.7.0</version>
     </plugin>
 </plugins>
-```    
+```
 
+O processo de implantação no Serviço de Aplicativo do Azure usa credenciais de conta da CLI do Azure. [Entre com a CLI do Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) antes de continuar.
 
-> [!NOTE] 
+```azurecli
+az login
+```
+
+Você pode configurar a implantação, execute o comando maven `mvn azure-webapp:config` no Prompt de comando e usar as configurações padrão pressionando **ENTER** até chegar a **Confirmar (S/N)** e, em seguida, pressione **'y'** e a configuração está concluída.
+
+```cmd
+~@Azure:~/helloworld$ mvn azure-webapp:config
+[INFO] Scanning for projects...
+[INFO]
+[INFO] ----------------------< example.demo:helloworld >-----------------------
+[INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
+[INFO] --------------------------------[ war ]---------------------------------
+[INFO]
+[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
+[WARNING] The plugin may not work if you change the os of an existing webapp.
+Define value for OS(Default: Linux):
+1. linux [*]
+2. windows
+3. docker
+Enter index to use:
+Define value for javaVersion(Default: jre8):
+1. jre8 [*]
+2. java11
+Enter index to use:
+Define value for runtimeStack(Default: TOMCAT 8.5):
+1. TOMCAT 9.0
+2. jre8
+3. TOMCAT 8.5 [*]
+4. WILDFLY 14
+Enter index to use:
+Please confirm webapp properties
+AppName : helloworld-1558400876966
+ResourceGroup : helloworld-1558400876966-rg
+Region : westeurope
+PricingTier : Premium_P1V2
+OS : Linux
+RuntimeStack : TOMCAT 8.5-jre8
+Deploy to slot : false
+Confirm (Y/N)? : Y
+```
+
+> [!NOTE]
 > Neste artigo, estamos trabalhando apenas com aplicativos Java empacotados em arquivos WAR. O plug-in também oferece suporte a aplicativos Web JAR, visite [Implantar um arquivo JAR do Java SE para o Serviço de Aplicativo no Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para experimentá-lo.
 
+Navegue até `pom.xml` novamente para ver se a configuração de plug-in foi atualizada. Você poderá modificar outras configurações do Serviço de Aplicativo diretamente em seu arquivo pom se necessário. Alguns comuns estão listados abaixo:
 
-Atualize os seguintes espaços reservados na configuração do plug-in:
-
-| Placeholder | DESCRIÇÃO |
-| ----------- | ----------- |
-| `SUBSCRIPTION_ID` | A ID exclusiva da assinatura em que você deseja implantar seu aplicativo. A ID da assinatura padrão pode ser encontrada no Cloud Shell ou na CLI usando o comando `az account show`. Para todas as assinaturas disponíveis, use o comando `az account list`.|
-| `RESOURCEGROUP_NAME` | Nome do novo grupo de recursos no qual criar o aplicativo. Ao colocar todos os recursos para um aplicativo em um grupo, você pode gerenciá-los juntos. Por exemplo, excluir o grupo de recursos excluiria todos os recursos associados ao aplicativo. Atualize esse valor com um novo nome de grupo de recursos exclusivo, por exemplo, *TestResources*. Você usará esse nome de grupo de recursos para limpar todos os recursos do Azure em uma seção posterior. |
-| `WEBAPP_NAME` | O nome do aplicativo fará parte do nome do host do aplicativo quando implantado no Azure (NOME_APLICATIVO_WEB.azurewebsites.net). Atualize esse valor com um nome exclusivo para o novo aplicativo do Serviço de Aplicativo, que hospedará o aplicativo Java, por exemplo, *contoso*. |
-| `REGION` | Uma região do Azure na qual o aplicativo está hospedado, por exemplo, `westus2`. Você pode obter uma lista de regiões do Cloud Shell ou da CLI usando o comando `az account list-locations`. |
+ Propriedade | Obrigatório | DESCRIÇÃO | Versão
+---|---|---|---
+`<schemaVersion>` | falso | Especifique a versão do esquema de configuração. Os valores suportados são: `v1`, `v2`. | 1.5.2
+`<resourceGroup>` | verdadeiro | Grupo de recursos do Azure para seu aplicativo Web. | 0.1.0+
+`<appName>` | verdadeiro | O nome do seu aplicativo Web. | 0.1.0+
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | verdadeiro | Especifica a região onde seu aplicativo Web será hospedado; o valor padrão é **westus**. Todas as regiões válidas na seção [Regiões com suporte](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region). | 0.1.0+
+[`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | falso | O tipo de preço do seu aplicativo Web. O valor padrão é **P1V2**.| 0.1.0+
+[`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | verdadeiro | A configuração do ambiente de tempo de execução. Você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting). | 0.1.0+
+[`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | verdadeiro | A configuração de implantação. Você pode ver os detalhes [aqui](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting). | 0.1.0+
 
 ## <a name="deploy-the-app"></a>Implantar o aplicativo
 
@@ -117,11 +136,19 @@ mvn package azure-webapp:deploy
 
 Após a conclusão da implantação, navegue até o aplicativo implantado usando a URL a seguir no navegador da Web, por exemplo, `http://<webapp>.azurewebsites.net`. 
 
-![Aplicativo de exemplo em execução no Azure](media/quickstart-java/java-hello-world-in-browser-curl.png)
+![Aplicativo de exemplo em execução no Azure](media/quickstart-java/java-hello-world-in-browser.png)
 
 **Parabéns!** Você implantou seu primeiro aplicativo Java no Serviço de Aplicativo no Linux.
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Nas etapas anteriores, você criou os recursos do Azure em um grupo de recursos. Se você acha que não precisará desses recursos no futuro, exclua o grupo de recursos executando o seguinte comando no Cloud Shell:
+
+```azurecli-interactive
+az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
+```
+
+Esse comando pode demorar um pouco para ser executado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

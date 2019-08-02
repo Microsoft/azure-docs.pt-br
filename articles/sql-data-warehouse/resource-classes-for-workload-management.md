@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: workload management
-ms.date: 05/22/2019
+ms.subservice: workload-management
+ms.date: 06/20/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1c15778eb2ce38efb65e777578008b61e7066d67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 548271e888344eeb0d111c074153ef7492af5b33
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66244515"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595528"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gerenciamento de carga de trabalho com classes de recursos no SQL Data Warehouse do Azure
 
@@ -275,7 +275,7 @@ A instrução a seguir cria Table1 que é usada nos exemplos anteriores.
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 

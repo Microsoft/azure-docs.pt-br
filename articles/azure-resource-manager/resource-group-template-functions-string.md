@@ -1,23 +1,17 @@
 ---
 title: Funções do modelo do Azure Resource Manager – cadeia de caracteres | Microsoft Docs
 description: Descreve as funções a serem usadas em um modelo do Azure Resource Manager para trabalhar com cadeias de caracteres.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 82b9403a3d5a5b6938f5b95bbfce888d1e70e451
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 979474ea6b5b61935742591f8fba87d200d618e4
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66431219"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206354"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos do Azure Resource Manager
 
@@ -38,10 +32,10 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
-* [Comprimento](#length)
+* [length](#length)
 * [newGuid](#newguid)
 * [padLeft](#padleft)
-* [substitui](#replace)
+* [replace](#replace)
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
@@ -50,7 +44,7 @@ O Gerenciador de Recursos fornece as seguintes funções para trabalhar com cade
 * [take](#take)
 * [toLower](#tolower)
 * [toUpper](#toupper)
-* [cortar](#trim)
+* [trim](#trim)
 * [uniqueString](#uniquestring)
 * [uri](#uri)
 * [uriComponent](#uricomponent)

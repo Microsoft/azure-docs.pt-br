@@ -4,7 +4,7 @@ description: Configuração do Pacemaker no SUSE Linux Enterprise Server no Azur
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 9a23f13947c4c7a77460ff389861e1dcc1de3c7f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd377e78abe328814795bb1f75465b090a13e456
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992116"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68228359"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuração do Pacemaker no SUSE Linux Enterprise Server no Azure
 
@@ -84,7 +84,7 @@ Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI*
 
 Execute os seguintes comandos em todas as **máquinas virtuais de destino iSCSI** para criar os discos iSCSI para os clusters usados por seus sistemas SAP. No exemplo a seguir, os dispositivos SBD para vários clusters são criados. Ele mostra como você usaria um servidor de destino iSCSI para vários clusters. Os dispositivos SBD são colocados no disco do SO. Certifique-se de que você tenha espaço suficiente.
 
-**`nfs`** é usado para identificar o cluster NFS **ascsnw1** é usado para identificar o cluster do ASCS **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1** , **nfs-0** e **nfs 1** são os nomes de host de nós do cluster NFS **nw1-xscs-0** e **nw1-xscs-1**são os nomes de host a **NW1** nós de cluster ASCS e **nw1-db-0** e **nw1-db-1** são os nomes de host do banco de dados em nós do cluster. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
+**`nfs`** é usado para identificar o cluster NFS, **ascsnw1** é usado para identificar o cluster ASCS de **NW1**, **dbnw1** é usado para identificar o cluster de banco de dados de **NW1**, **NFS-0** e **NFS-1** são os nomes de host dos nós de cluster NFS,  **NW1-xscs-0** e **NW1-xscs-1** são os nomes de host dos  nós de cluster NW1 ASCS e **NW1-dB-0** e **NW1-DB-1** são os nomes de host dos nós de cluster de banco de dados. Substitua-os pelos nomes do hoste do seus nós de cluster e pelo SID do sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -321,7 +321,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]**  Configurar o sistema operacional
+1. **[A]** configurar o sistema operacional
 
    Em alguns casos, o Pacemaker cria muitos processos e esgota, assim, o número permitido de processos. Nesse caso, uma pulsação entre os nós de cluster pode falhar e levar a failover de seus recursos. Recomendamos aumentar o máximo permitido de processos definindo o parâmetro a seguir.
 
@@ -348,9 +348,9 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    vm.dirty_background_bytes = 314572800
    </code></pre>
 
-1. **[A]**  Configurar netconfig-azure-nuvem para o Cluster de HA
+1. **[A]** configurar nuvem-netconfig-Azure para cluster de alta disponibilidade
 
-   Altere o arquivo de configuração para o adaptador de rede, conforme mostrado abaixo para impedir que o plug-in de rede de nuvem removendo o endereço IP virtual (Pacemaker deve controlar a atribuição de VIP). Para obter mais informações, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+   Altere o arquivo de configuração para a interface de rede, conforme mostrado abaixo para impedir que o plug-in de rede de nuvem remova o endereço IP virtual (pacemaker deve controlar a atribuição de VIP). Para obter mais informações, consulte [SuSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
    <pre><code># Edit the configuration file
    sudo vi /etc/sysconfig/network/ifcfg-eth0 
@@ -448,7 +448,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    <pre><code>sudo vi /etc/corosync/corosync.conf
    </code></pre>
 
-   Adicione o seguinte conteúdo em negrito para o arquivo se os valores não forem diferentes ou estiverem ausentes. Altere o token para 30.000 para permitir a manutenção da preservação da Memória. Para obter mais informações, consulte [este artigo para Linux][virtual-machines-linux-maintenance] ou [Windows][virtual-machines-windows-maintenance]. Além disso, certifique-se de remover o parâmetro mcastaddr.
+   Adicione o seguinte conteúdo em negrito para o arquivo se os valores não forem diferentes ou estiverem ausentes. Altere o token para 30.000 para permitir a manutenção da preservação da Memória. Para obter mais informações, consulte [Este artigo para Linux][virtual-machines-linux-maintenance] or [Windows][virtual-machines-windows-maintenance]. Além disso, certifique-se de remover o parâmetro mcastaddr.
 
    <pre><code>[...]
      <b>token:          30000
@@ -495,17 +495,18 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
 
 O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microsoft Azure. Siga estas etapas para criar uma Entidade de Serviço.
 
-1. Vá até [https://portal.azure.com](https://portal.azure.com)
+1. Acesse <https://portal.azure.com>
 1. Abra a folha Azure Active Directory  
    Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
-1. Clique em Adicionar
-1. Digite um Nome, selecione o Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http\://localhost) e clique em Criar
-1. A URL de logon não é usada e pode ser qualquer URL válida
-1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
-1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
+1. Clique em novo registro
+1. Insira um nome, selecione "contas somente neste diretório da organização" 
+2. Selecione o tipo de aplicativo "Web", insira uma URL de logon (por exemplo,\/http:/localhost) e clique em Adicionar  
+   A URL de logon não é usada e pode ser qualquer URL válida
+1. Selecione certificados e segredos e clique em novo segredo do cliente
+1. Insira uma descrição para uma nova chave, selecione "nunca expira" e clique em Adicionar
 1. Anote o Valor. Ele é usado como **senha** da Entidade de Serviço
-1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**ID de logon** nas etapas abaixo) da Entidade de Serviço
+1. Selecione visão geral. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**ID de logon** nas etapas abaixo) da Entidade de Serviço
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Criar uma função personalizada para o agente de isolamento
 
@@ -576,16 +577,16 @@ sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
    op monitor interval="15" timeout="15"
 </code></pre>
 
-## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Eventos agendados de configuração do pacemaker para o Azure
+## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuração do pacemaker para eventos agendados do Azure
 
-O Azure oferece [eventos agendados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Eventos agendados são fornecidos por meio do serviço de metadados e aguarde para que o aplicativo para se preparar para eventos, como desligamento da VM, reimplantação da VM, etc. Agente de recursos **[eventos do azure](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitora os eventos agendados do Azure. Se os eventos são detectados, o agente tentará parar todos os recursos na VM afetado e movê-los para outro nó no cluster. Deve ser configurado atingir esse recursos adicionais do Pacemaker. 
+O Azure oferece [eventos agendados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Os eventos agendados são fornecidos por meio do serviço de metadados e permitem tempo para o aplicativo se preparar para eventos como desligamento de VM, reimplantação de VM, etc. Agente de recursos **[Azure-](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitores de eventos para eventos agendados do Azure. Se forem detectados eventos, o agente tentará interromper todos os recursos na VM afetada e movê-los para outro nó no cluster. Para obter os recursos adicionais do pacemaker, é necessário configurá-los. 
 
-1. **[A]**  Instalar o **eventos do azure** agente. 
+1. **[A]** instalar o agente **do Azure-Events** . 
 
 <pre><code>sudo zypper install resource-agents
 </code></pre>
 
-2. **[1]**  Configurar os recursos no Pacemaker. 
+2. **[1]** configurar os recursos no pacemaker. 
 
 <pre><code>
 #Place the cluster in maintenance mode
@@ -600,17 +601,17 @@ sudo crm configure property maintenance-mode=false
 </code></pre>
 
    > [!NOTE]
-   > Depois de configurar os recursos do Pacemaker para o agente de eventos do azure, quando você coloca o cluster ou não ao modo de manutenção, você pode receber mensagens de aviso como:  
-     Aviso: cib-bootstrap-options: atributo desconhecido ' hostName_  <strong>hostname</strong>'  
-     Aviso: cib-bootstrap-options: atributo desconhecido 'azure-events_globalPullState'  
-     Aviso: cib-bootstrap-options: atributo desconhecido ' hostName_ <strong>hostname</strong>'  
+   > Depois de configurar os recursos do pacemaker para o agente do Azure-Events, ao colocar o cluster dentro ou fora do modo de manutenção, você poderá receber mensagens de aviso como:  
+     Aviso: CIB-Bootstrap-Options: atributo desconhecido ' hostName_ <strong>hostname</strong>'  
+     Aviso: CIB-Bootstrap-Options: atributo desconhecido ' Azure-events_globalPullState '  
+     Aviso: CIB-Bootstrap-Options: atributo desconhecido ' hostName_ <strong>hostname</strong>'  
    > Essas mensagens de aviso podem ser ignoradas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Planejamento e implementação de Máquinas Virtuais do Azure para SAP][planning-guide]
-* [Implantação de Máquinas Virtuais do Azure para SAP][deployment-guide]
-* [Implantação DBMS de Máquinas Virtuais do Azure para SAP][dbms-guide]
-* [Alta disponibilidade do NFS em VMs do Azure no SUSE Linux Enterprise Server][sles-nfs-guide]
+* [Planejamento e implementação de máquinas virtuais do Azure para SAP][planning-guide]
+* [Implantação de máquinas virtuais do Azure para SAP][deployment-guide]
+* [Implantação de DBMS de máquinas virtuais do Azure para SAP][dbms-guide]
+* [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server][sles-nfs-guide]
 * [Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP][sles-guide]
-* Para saber como estabelecer a alta disponibilidade e o plano de recuperação de desastre do SAP HANA em VMs do Azure, confira [Alta disponibilidade do SAP HANA em VMs (Máquinas Virtuais) do Azure][sap-hana-ha]
+* Para saber como estabelecer alta disponibilidade e planejar a recuperação de desastre de SAP HANA em VMs do Azure, consulte [alta disponibilidade de SAP Hana em VMS (máquinas virtuais) do Azure][sap-hana-ha]

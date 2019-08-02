@@ -2,18 +2,18 @@
 title: Tutorial de Kubernetes no Azure - Criar um registro de contêiner
 description: Neste tutorial do Serviço de Kubernetes do Azure (AKS), você cria uma instância de Registro de Contêiner do Azure e carrega uma imagem de contêiner do aplicativo de exemplo.
 services: container-service
-author: tylermsft
+author: mlearned
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: twhitney
+ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 1bd41dc464c251a2e7dab3087f3feffb15db785f
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304421"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67614238"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutorial: Implantar e usar o Registro de Contêiner do Azure
 
@@ -31,7 +31,7 @@ Em tutoriais adicionais, essa instância do ACR será integrada a um cluster do 
 
 No [tutorial anterior][aks-tutorial-prepare-app], uma imagem de contêiner foi criada para um aplicativo de Votação do Azure simples. Se você não tiver criado a imagem do aplicativo de Votação do Azure, retorne ao [Tutorial 1 – Criar imagens de contêiner][aks-tutorial-prepare-app].
 
-Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
+Este tutorial exige a execução da CLI do Azure versão 2.0.53 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure][azure-cli-install].
 
 ## <a name="create-an-azure-container-registry"></a>Criar um Registro de Contêiner do Azure
 
@@ -43,7 +43,7 @@ Crie um grupo de recursos com o comando [az group create][az-group-create]. No e
 az group create --name myResourceGroup --location eastus
 ```
 
-Crie uma instância de Registro de Contêiner do Azure com o comando [az acr create][az-acr-create] e forneça seu próprio nome de registro. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No restante deste tutorial, `<acrName>` é usado como um espaço reservado para o nome do registro de contêiner. Forneça seu próprio nome de registro exclusivo. A SKU *Basic* é um ponto de entrada de otimização de custo para fins de desenvolvimento que fornece um equilíbrio entre o armazenamento e taxa de transferência.
+Crie uma instância do Registro de Contêiner do Azure com o comando [az acr create][az-acr-create] e forneça seu próprio nome de registro. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. No restante deste tutorial, `<acrName>` é usado como um espaço reservado para o nome do registro de contêiner. Forneça seu próprio nome de registro exclusivo. A SKU *Basic* é um ponto de entrada de otimização de custo para fins de desenvolvimento que fornece um equilíbrio entre o armazenamento e taxa de transferência.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -51,7 +51,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 ## <a name="log-in-to-the-container-registry"></a>Logon no registro de contêiner
 
-Para usar a instância do ACR, você deve primeiro fazer logon. Use o comando [az acr login][az-acr-login] e forneça o nome exclusivo fornecido para o registro de contêiner na etapa anterior.
+Para usar a instância do ACR, você deve primeiro fazer logon. Use o comando [az acr login][az-acr-login] e forneça o nome exclusivo especificado para o registro de contêiner na etapa anterior.
 
 ```azurecli
 az acr login --name <acrName>
@@ -61,7 +61,7 @@ O comando retorna uma mensagem de *Logon bem-sucedido* quando é concluído.
 
 ## <a name="tag-a-container-image"></a>Marcar uma imagem de contêiner
 
-Para consultar uma lista das suas imagens locais atuais, utilize o comando [docker images][docker-images]:
+Para ver uma lista das imagens locais atuais, use o comando [docker images][docker-images]:
 
 ```
 $ docker images
@@ -74,7 +74,7 @@ tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ag
 
 Para usar a imagem de contêiner *azure-vote-front* com o ACR, a imagem precisa ser marcada com o endereço do servidor de logon do seu registro. Essa marca é usada para roteamento ao enviar imagens de contêiner por push a um registro da imagem.
 
-Para obter o endereço do servidor de logon, use o comando [az acr list][az-acr-list] e consulte por *loginServer* da seguinte maneira:
+Para obter o endereço do servidor de logon, use o comando [az acr list][az-acr-list] e consulte o *loginServer* da seguinte maneira:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -86,7 +86,7 @@ Agora, marque a imagem local *azure-vote-front* com o endereço *acrloginServer*
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Para verificar se as marcas são aplicadas, execute [docker images][docker-images] novamente. Uma imagem é marcada com o endereço de instância do ACR e um número de versão.
+Para verificar se as marcas foram aplicadas, execute [docker images][docker-images] novamente. Uma imagem é marcada com o endereço de instância do ACR e um número de versão.
 
 ```
 $ docker images
@@ -100,7 +100,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 
 ## <a name="push-images-to-registry"></a>Efetuar push de imagens para registro
 
-Com a imagem criada e marcada, envie por push a imagem *azure-vote-front* para a instância do ACR. Use [docker push][docker-push] e forneça seu próprio endereço *acrLoginServer* para o nome da imagem da seguinte maneira:
+Com a imagem criada e marcada, envie por push a imagem *azure-vote-front* para a instância do ACR. Use [docker push][docker-push] e forneça seu próprio endereço do *acrLoginServer* para o nome da imagem da seguinte maneira:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
@@ -110,7 +110,7 @@ A conclusão do envio por push da imagem para o ACR pode levar alguns minutos.
 
 ## <a name="list-images-in-registry"></a>Lista de imagens no registro
 
-Para retornar uma lista de imagens que foram enviadas por push para a instância do ACR, use o comando [az acr repository list][az-acr-repository-list]. Forneça seu próprio `<acrName>` da seguinte maneira:
+Para retornar uma lista das imagens que foram enviadas por push para a instância do ACR, use o comando [az acr repository list][az-acr-repository-list]. Forneça seu próprio `<acrName>` da seguinte maneira:
 
 ```azurecli
 az acr repository list --name <acrName> --output table
@@ -124,7 +124,7 @@ Result
 azure-vote-front
 ```
 
-Para ver as marcas para uma imagem específica, use o comando [az acr repository show-tags][az-acr-repository-show-tags] conforme a seguir:
+Para ver as marcas para uma imagem específica, use o comando [az acr repository show-tags][az-acr-repository-show-tags] da seguinte maneira:
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table

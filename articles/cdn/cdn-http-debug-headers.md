@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2018
 ms.author: magattus
-ms.openlocfilehash: e5693e0e191b36aa8d4552824c649a38d2f17b5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dec753d7c891d226aa2e6d3efa993d8d24adfbaa
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475294"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593833"
 ---
 # <a name="x-ec-debug-http-headers-for-azure-cdn-rules-engine"></a>Cabeçalhos HTTP Verizon X-EC-Debug para o Mecanismo de regras de CDN do Azure
 O cabeçalho da solicitação de depuração de cache `X-EC-Debug` fornece informações adicionais sobre a política de cache que é aplicada para o ativo solicitado. Esses cabeçalhos são específicos para **Premium do Azure CDN dos produtos Verizon**.
@@ -103,7 +103,7 @@ O `X-EC-Debug` cabeçalho de reposta relatando se uma solicitação pode ter sid
 
 Os termos usados na sintaxe são definidos da seguinte maneira:
 
-Value  | DESCRIÇÃO
+Valor  | DESCRIÇÃO
 -------| --------
 SIM    | Indica que o conteúdo solicitado estava elegível para cache.
 NÃO     | Indica que o conteúdo solicitado estava inelegível para cache. Esse status pode ser devido a um dos seguintes motivos: <br /> Configuração específica do cliente: Uma configuração específica à sua conta pode impedir que os servidores pop armazenem um ativo de cache. Por exemplo, mecanismo de regras pode impedir um ativo que está sendo armazenado em cache, permitindo que o recurso Ignorar Cache qualifique as solicitações.<br /> -Cabeçalhos de resposta de cache: Cabeçalhos de Cache-Control e Expires do ativo solicitado podem impedir que os servidores POP em cache.

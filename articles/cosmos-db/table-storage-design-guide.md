@@ -8,12 +8,12 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: af155b5adb2e4b45412a8b84818852ed1b1c5e72
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966101"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447294"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de design de Tabela do Armazenamento do Azure: Criar tabelas escalonáveis e de alto desempenho
 
@@ -203,7 +203,7 @@ Os exemplos a seguir pressupõem que o serviço Tabela é armazenar entidades de
 | **PartitionKey** (nome de departamento) |Cadeia de caracteres |
 | **RowKey** (Id do funcionário) |Cadeia de caracteres |
 | **Nome** |Cadeia de caracteres |
-| **Sobrenome** |Cadeia de caracteres |
+| **Sobrenome** |String |
 | **Idade** |Número inteiro |
 | **EmailAddress** |Cadeia de caracteres |
 
@@ -255,7 +255,7 @@ Muitos designs devem atender aos requisitos para habilitar a pesquisa de entidad
 Os resultados de consulta retornados pelo serviço Tabela são classificados em ordem crescente com base em **PartitionKey** e, em seguida, em **RowKey**.
 
 > [!NOTE]
-> Resultados de consulta retornados pela API de tabela do Azure no banco de dados do Azure não são classificados por chave de partição ou a chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Resultados de consulta retornados pela API de tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou a chave de linha. Para obter uma lista detalhada das diferenças entre os recursos, confira [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabela do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 As chaves na tabela do Armazenamento do Azure são valores de cadeia de caracteres e, para garantir que os valores numéricos sejam classificados corretamente, você deve convertê-los em um comprimento fixo e preenchê-los com zeros. Por exemplo, se o valor da ID de funcionário que você usa como a **RowKey** for um valor inteiro, você deverá converter a ID do funcionário **123** em **00000123**. 
 
@@ -723,7 +723,7 @@ Os padrões e diretrizes a seguir também podem ser relevantes ao implementar es
 Recupere as *n* entidades adicionadas recentemente em uma partição usando um valor de **RowKey** que classifica em ordem de data e hora inversa.  
 
 > [!NOTE]
-> Resultados de consulta retornados pela API de tabela do Azure no banco de dados do Azure não são classificados por chave de partição ou chave de linha. Portanto, esse padrão é adequado para o Armazenamento de Tabelas do Azure e não para o Azure Cosmos DB. Para obter uma lista detalhada das diferenças entre os recursos, consulte [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Resultados de consulta retornados pela API de tabela do Azure no Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Portanto, esse padrão é adequado para o Armazenamento de Tabelas do Azure e não para o Azure Cosmos DB. Para obter uma lista detalhada das diferenças entre os recursos, consulte [Diferenças entre a API de Tabela no Azure Cosmos DB e no Armazenamento de Tabelas do Azure](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### <a name="context-and-problem"></a>Contexto e problema
 Um requisito comum é conseguir recuperar as entidades criadas mais recentemente, por exemplo, as dez solicitações de despesas mais recentes enviadas por um funcionário. As consultas de tabela dão suporte a uma operação de consulta **$top** para retornar as primeiras *n* entidades de consulta de um conjunto: não há uma operação de consulta equivalente para retornar as últimas n entidades de um conjunto.  

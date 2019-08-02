@@ -1,19 +1,18 @@
 ---
 title: Use o Armazenamento de Backup Moderno com o Servidor de Backup do Azure
 description: Conheça os novos recursos do Servidor de Backup do Azure. Este artigo descreve como atualizar sua instalação do servidor de Backup.
-services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: 621d071f98701ff3a949f4172fef1d13819d7192
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a265579593c8eb39f0df4037f8ec39c788ddbce
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813117"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465117"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Adicionar armazenamento ao Servidor de Backup do Azure
 
@@ -75,7 +74,7 @@ Com o armazenamento com reconhecimento de carga de trabalho, você pode selecion
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Você pode configurar o armazenamento de reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um servidor de Backup do Azure. 
+Você pode configurar o armazenamento com reconhecimento de carga de trabalho usando o cmdlet do PowerShell Update-DPMDiskStorage, que atualiza as propriedades de um volume no pool de armazenamento em um Servidor de Backup do Azure. 
 
 Sintaxe:
 

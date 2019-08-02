@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42ba62dafd935da0cb43bdaa9cffa4960c571ffc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f751eb9dfb8ef65bea80993ddbd3a682b1d47111
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874737"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098052"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lifesize-cloud"></a>Tutorial: Integração do Azure Active Directory ao Lifesize Cloud
 
@@ -55,7 +55,7 @@ Para configurar a integração do Lifesize Cloud ao Azure AD, você precisará a
 
 **Para adicionar o Lifesize Cloud da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Lifesize Cloud, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Lifesize Cloud](common/sp-identifier-relay.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://login.lifesizecloud.com/ls/?acs`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://login.lifesizecloud.com/ls/?acs`
 
     b. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.lifesizecloud.com/<companyname>`
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Lifesize Cloud, execute as segu
 
     ![Configurar o logon único](./media/lifesize-cloud-tutorial/tutorial_lifesizecloud_08.png)
 
-     a. Na caixa de texto **Emissor do Provedor de Identidade**, cole o valor de **Identificador do Azure AD** copiado do portal do Azure.
+    a. Na caixa de texto **Emissor do Provedor de Identidade**, cole o valor de **Identificador do Azure AD** copiado do portal do Azure.
 
     b.  Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -187,7 +187,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -238,4 +238,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

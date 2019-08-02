@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 07/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7aef7eb2e3d88bef7d2700d9945b9ff343c17536
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787295"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812812"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs HTTP nas Funções Duráveis (Azure Functions)
 
@@ -45,12 +45,13 @@ A classe [DurableOrchestrationClient](https://azure.github.io/azure-functions-du
 Estas funções de exemplo produzem os seguintes dados de resposta JSON. O tipo de dados de todos os campos é `string`.
 
 | Campo                   |DESCRIÇÃO                           |
-|-------------------------|--------------------------------------|
-| **`id`**                |A ID da instância de orquestração. |
-| **`statusQueryGetUri`** |A URL de status da instância de orquestração. |
-| **`sendEventPostUri`**  |A URL "acionar evento" da instância de orquestração. |
-| **`terminatePostUri`**  |A URL "encerrar" da instância de orquestração. |
-| **`rewindPostUri`**     |A URL para “retroceder” do status da instância de orquestração. |
+|-----------------------------|--------------------------------------|
+| **`id`**                    |A ID da instância de orquestração. |
+| **`statusQueryGetUri`**     |A URL de status da instância de orquestração. |
+| **`sendEventPostUri`**      |A URL "acionar evento" da instância de orquestração. |
+| **`terminatePostUri`**      |A URL "encerrar" da instância de orquestração. |
+| **`purgeHistoryDeleteUri`** |A URL da instância de orquestração "Limpar histórico". |
+| **`rewindPostUri`**         |(visualização) A URL "rewind" da instância de orquestração. |
 
 Aqui está um exemplo de resposta:
 
@@ -65,6 +66,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
     "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
     "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "purgeHistoryDeleteUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
     "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
@@ -373,7 +375,7 @@ A carga de resposta para o **HTTP 200** caso é um objeto JSON com o seguinte ca
 
 | Campo                  | Tipo de dados | DESCRIÇÃO |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | inteiro   | O número de instâncias excluídas. No caso de única instância, esse valor deve ser sempre `1`. |
+| **`instancesDeleted`** | integer   | O número de instâncias excluídas. No caso de única instância, esse valor deve ser sempre `1`. |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -435,7 +437,7 @@ A carga de resposta para o **HTTP 200** caso é um objeto JSON com o seguinte ca
 
 | Campo                   | Tipo de dados | DESCRIÇÃO |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | inteiro   | O número de instâncias excluídas. |
+| **`instancesDeleted`**  | integer   | O número de instâncias excluídas. |
 
 Veja um exemplo de carga de resposta (formatada para facilitar a leitura):
 
@@ -547,11 +549,11 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 
 As respostas para esta API não têm nenhum conteúdo.
 
-## <a name="rewind-instance-preview"></a>Instância Gerenciada (versão prévia)
+### <a name="rewind-instance-preview"></a>Instância Gerenciada (versão prévia)
 
 Restaura uma instância de orquestração com falha em um estado de execução ao reproduzir novamente as operações com falha mais recentes.
 
-### <a name="request"></a>Solicitação
+#### <a name="request"></a>Solicitação
 
 Para a versão 1.x do tempo de execução de funções, a solicitação é formatado da seguinte maneira (várias linhas são mostradas para fins de clareza):
 
@@ -580,7 +582,7 @@ Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado
 | **`instanceId`**  | URL             | A ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para retroceder a instância de orquestração. |
 
-### <a name="response"></a>Response
+#### <a name="response"></a>Response
 
 Vários valores de código de status possíveis podem ser retornados.
 
@@ -595,6 +597,89 @@ POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7
 ```
 
 As respostas para esta API não têm nenhum conteúdo.
+
+### <a name="signal-entity-preview"></a>Entidade de sinal (visualização)
+
+Envia uma mensagem de operação unidirecional para um [durável entidade](durable-functions-types-features-overview.md#entity-functions). Se a entidade não existir, ele será criado automaticamente.
+
+#### <a name="request"></a>Solicitação
+
+A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para fins de clareza):
+
+```http
+POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+    &op={operationName}
+```
+
+Parâmetros de solicitação para essa API incluem o conjunto padrão mencionado anteriormente, bem como o parâmetro exclusivo a seguir:
+
+| Campo             | Tipo de parâmetro  | DESCRIÇÃO |
+|-------------------|-----------------|-------------|
+| **`entityType`**  | URL             | O tipo de entidade. |
+| **`entityKey`**   | URL             | O nome exclusivo da entidade. |
+| **`op`**          | Cadeia de consulta    | Opcional. O nome da operação definida pelo usuário para invocar. |
+| **`{content}`**   | Conteúdo da solicitação | A carga do evento em formato JSON. |
+
+Aqui está um exemplo de solicitação que envia uma mensagem de "Adicionar" definida pelo usuário para um `Counter` entidade chamada `steps`. O conteúdo da mensagem é o valor `5`. Se a entidade ainda não existir, ele será criado por esta solicitação:
+
+```http
+POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
+Content-Type: application/json
+
+5
+```
+
+#### <a name="response"></a>Response
+
+Esta operação tem várias respostas possíveis:
+
+* **HTTP 202 (Aceito)** : A operação de sinal foi aceita para processamento assíncrono.
+* **HTTP 400 (Solicitação Incorreta)** : O conteúdo da solicitação não era do tipo `application/json`, não era um JSON válido ou tinha um inválido `entityKey` valor.
+* **HTTP 404 (Não Encontrado)** : Especificado `entityType` não foi encontrado.
+
+Uma solicitação HTTP bem-sucedida não contém qualquer conteúdo na resposta. Uma solicitação HTTP com falha pode conter informações de erro formatada em JSON no conteúdo da resposta.
+
+### <a name="query-entity-preview"></a>Consulta de entidade (visualização)
+
+Obtém o estado da entidade especificada.
+
+#### <a name="request"></a>Solicitação
+
+A solicitação HTTP é formatada da seguinte maneira (várias linhas são mostradas para fins de clareza):
+
+```http
+GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
+    ?taskHub={taskHub}
+    &connection={connectionName}
+    &code={systemKey}
+```
+
+#### <a name="response"></a>Response
+
+Esta operação tem duas possíveis respostas:
+
+* **HTTP 200 (OK)** : A entidade especificada existe.
+* **HTTP 404 (Não Encontrado)** : A entidade especificada não foi encontrada.
+
+Uma resposta bem-sucedida contém o estado serializado JSON da entidade como seu conteúdo.
+
+#### <a name="example"></a>Exemplo
+A seguir está um exemplo de uma solicitação HTTP que obtém o estado de existente `Counter` entidade chamada `steps`:
+
+```http
+GET /runtime/webhooks/durabletask/entities/Counter/steps
+```
+
+Se o `Counter` entidade simplesmente continha uma série de etapas salvado em um `currentValue` campo, o conteúdo da resposta pode parecer com o seguinte (formatado para legibilidade):
+
+```json
+{
+    "currentValue": 5
+}
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

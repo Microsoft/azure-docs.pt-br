@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/11/2019
 ms.author: v-mohabe
-ms.openlocfilehash: 04cfe489e9eea53bf58dd64e0eac3e5a95033bcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca96ba4c6b0de8ad39866a0783e7091fb4755164
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966850"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706248"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
@@ -91,17 +91,17 @@ Usando as pessoas explicadas no diagrama anterior, o seguinte RBAC seria necess�
 
 **David (segurança de TI)**
 
-* Proprietário da assinatura/Colaborador ou o administrador de segurança
+* Proprietário/colaborador da assinatura ou administrador de segurança
 
 **Judy (Operações de Segurança)**
 
 * Leitor de assinatura ou o Leitor de segurança para exibir alertas
-* Proprietário/Colaborador ou Administrador de Segurança da assinatura necessário para descartar os alertas
+* Proprietário/colaborador da assinatura ou administrador de segurança necessário para descartar os alertas
 
 **Sam (Analista de Segurança)**
 
 * Leitor de assinatura para exibir alertas
-* Proprietário/Colaborador da Assinatura necessário para descartar os alertas
+* Proprietário/colaborador da assinatura necessário para descartar os alertas
 * O acesso ao workspace poderá ser exigido
 
 Algumas informações importantes a serem consideradas:
@@ -134,7 +134,7 @@ A Central de Segurança cria automaticamente uma política de segurança padrão
 Antes de configurar as políticas de segurança, examine cada uma das [recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations)e determine se essas políticas são apropriadas para suas várias assinaturas e grupos de recursos. Também é importante entender que ação deve ser realizada para lidar com as recomendações de segurança e quem na sua organização será responsável por monitorar novas recomendações e tomar as medidas necessárias.
 
 ## <a name="data-collection-and-storage"></a>Coleta de dados e armazenamento
-Central de segurança do Azure usa o Microsoft Monitoring Agent – este é o mesmo agente usado pelo serviço do Azure Monitor – para coletar dados de segurança de suas máquinas virtuais. Os [dados coletados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por esse agente são armazenados nos seus workspaces do Log Analytics.
+Central de segurança do Azure usa o Microsoft Monitoring Agent – este é o mesmo agente usado pelo serviço do Azure Monitor – para coletar dados de segurança de suas máquinas virtuais. Os [dados coletados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) por esse agente são armazenados nos seus espaços de trabalho do Log Analytics existentes.
 
 ### <a name="agent"></a>Agente
 

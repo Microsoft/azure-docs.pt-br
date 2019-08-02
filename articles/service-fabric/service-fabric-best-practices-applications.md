@@ -1,6 +1,6 @@
 ---
-title: Azure Service Fabric application práticas recomendadas de design | Microsoft Docs
-description: Práticas recomendadas para o desenvolvimento de aplicativos do Service Fabric.
+title: Práticas recomendadas de design de aplicativo Service Fabric do Azure | Microsoft Docs
+description: Práticas recomendadas para o desenvolvimento de aplicativos Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: markfussell
@@ -12,81 +12,84 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/26/2019
-ms.author: msfussell
-ms.openlocfilehash: 55f043effc7cdb102acea856e89c58f660d0cde5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/18/2019
+ms.author: mfussell
+ms.openlocfilehash: 06af1f4326e3f6a6dcb53c8710a126f43e2d2f6a
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65237741"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875110"
 ---
-# <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric application práticas recomendadas de design
+# <a name="azure-service-fabric-application-design-best-practices"></a>Práticas recomendadas de design do aplicativo Service Fabric do Azure
 
-Este artigo fornece diretrizes de práticas recomendadas para a criação de aplicativos e serviços no Service Fabric.
+Este artigo fornece orientações de práticas recomendadas para a criação de aplicativos e serviços no Azure Service Fabric.
  
 ## <a name="get-familiar-with-service-fabric"></a>Familiarize-se com o Service Fabric
-* [Portanto, você deseja saber mais sobre o Service Fabric?](service-fabric-content-roadmap.md)
-* Leia sobre [cenários de aplicativo do Service Fabric](service-fabric-application-scenarios.md)
-* Em seguida, compreender as opções de modelo de programação com [visão geral do modelo de programação do Service Fabric](service-fabric-choose-framework.md)
+* Leia o artigo [para saber mais sobre Service Fabric?](service-fabric-content-roadmap.md) .
+* Leia sobre [cenários de aplicativo Service Fabric](service-fabric-application-scenarios.md).
+* Entenda as opções do modelo de programação lendo [Service Fabric visão geral do modelo de programação](service-fabric-choose-framework.md).
 
 
 
 ## <a name="application-design-guidance"></a>Diretrizes de design de aplicativo
-Familiarize-se com o [arquitetura geral](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) de um aplicativo do Service Fabric e seu [considerações de design](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
+Familiarize-se com a [arquitetura geral](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) de aplicativos Service Fabric e suas [considerações de design](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric#design-considerations).
 
-### <a name="choose-an-api-gateway"></a>Escolha um gateway de API
-Use um serviço de gateway de API que se comunica com os serviços de back-end que podem ser escalados horizontalmente. Os serviços de gateway de API mais comuns usados são:
+### <a name="choose-an-api-gateway"></a>Escolher um gateway de API
+Use um serviço de gateway de API que se comunica com serviços de back-end que podem ser escalados horizontalmente. Os serviços de gateway de API mais comuns usados são:
 
-- [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), que é [integrado com o Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management)
-- [O IoT Hub](https://docs.microsoft.com/azure/iot-hub/) ou [Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/) usando o [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) para ler de partições do Hub de eventos
-- [Proxy reverso do Træfik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) usando o [provedor do Azure Service Fabric](https://docs.traefik.io/configuration/backends/servicefabric/)
-- [O Gateway de aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/) Observação: isso não é integrado diretamente com o Service Fabric e gerenciamento de API do Azure normalmente é uma opção preferencial
-- Criar seu próprio [ASP.NET Core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) gateway de aplicativo web
+- [Gerenciamento de API do Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview), que é [integrado com Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management).
+- [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), usando o [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) para ler as partições do hub de eventos.
+- [Træfik proxy reverso](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/), usando o [provedor de Service Fabric do Azure](https://docs.traefik.io/configuration/backends/servicefabric/).
+- [Gateway de Aplicativo do Azure](https://docs.microsoft.com/azure/application-gateway/).
 
-### <a name="choose-stateless-services"></a>Escolha os serviços sem monitoração de estado
-É recomendável que você comece pela criação de serviços sem monitoração de estado usando sempre [Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) armazenar o estado em um banco de dados do Azure, Azure CosmosDB ou armazenamento do Azure. Ter estado externalizado é a abordagem mais familiar para a maioria dos desenvolvedores e permite que você também tirar proveito dos recursos de consulta no repositório.  
+   > [!NOTE] 
+   > Aplicativo Azure gateway não está diretamente integrado ao Service Fabric. O gerenciamento de API do Azure é normalmente a escolha preferida.
+- Seu próprio gateway de aplicativo Web [ASP.NET Core](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-aspnetcore) criado de forma personalizada.
 
-### <a name="when-to-choose-stateful-services"></a>Quando escolher os serviços com estado
-Quando você tiver um cenário de baixa latência e precisa manter os dados próximos a computação, considere os serviços com estado. Alguns exemplos incluem dispositivos do IoT gêmeo digital, o estado do jogo, o estado de sessão, cache de dados de um banco de dados e fluxos de trabalho para rastrear chamadas para outros serviços de longa execução.
+### <a name="stateless-services"></a>Serviços sem estado
+Recomendamos que você sempre comece criando serviços sem estado usando [Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction) e armazenando o estado em um banco de dados do azure, Azure Cosmos DB ou armazenamento do Azure. O estado externaled é a abordagem mais familiar para a maioria dos desenvolvedores. Essa abordagem também permite que você aproveite os recursos de consulta no repositório.  
 
-Decida o período de retenção de dados:
+### <a name="when-to-use-stateful-services"></a>Quando usar serviços com estado
+Considere serviços com estado quando você tiver um cenário de baixa latência e precisar manter os dados próximos à computação. Alguns cenários de exemplo incluem dispositivos de alta do IoT digital, estado do jogo, estado da sessão, cache de dados de um banco e fluxos de trabalho de longa duração para rastrear chamadas para outros serviços.
 
-- Dados armazenados em cache - é usar o cache em que a latência em armazenamentos externos é um problema. Usar um serviço com estado, como seus próprios dados de cache ou considere usar o [SoCreate service-fabric--cache distribuído software livre](https://github.com/SoCreate/service-fabric-distributed-cache). Nesse cenário, você pode perder todos os dados no cache e não importa.
-- Dados de limite de tempo - você precisa manter dados próximos para calcular a latência por um período de tempo, mas esse tipo de dados pode sejam perdidas em uma *desastres* cenário. Por exemplo, em muitas soluções de IoT dados precisam estar próximo a computação, por exemplo calcular a temperatura média nos últimos dias, no entanto, se esses dados são perdidos, em seguida, os específicos de pontos de dados registradas não é tão importante. Também neste cenário não normalmente faz sobre o backup dos pontos de dados individuais, somente dos valores de média de computadas que são gravados no armazenamento externo periodicamente.  
-- Dados de longo prazo - coleções confiáveis podem armazenar seus dados permanentemente. No entanto, nesse caso, você precisará [preparar para recuperação de desastres](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery) incluindo [configurar políticas de backup periódicas](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup) para seus clusters. Na verdade, você configurar o que acontece se o cluster for destruído em um cenário de desastre, em que você precisa criar um novo cluster e como implantar novas instâncias de aplicativo e recuperar a partir do backup mais recente.
+Decida sobre o período de retenção de dados:
 
-Economizar custos e melhorar a disponibilidade:
-- Você pode reduzir os custos com serviços com estado, pois não incorrem em custos de acesso e transações de dados do armazenamento remoto e não é necessário usar outro serviço, como Redis do Azure.
-- Usando os serviços com monitoração de estado principalmente para armazenamento e não para a computação é caro e não é recomendado. Considere a possibilidade de serviços com monitoração de estado como a computação com barato armazenamento local.
-- Removendo dependências em outros serviços, você pode melhorar a disponibilidade do serviço. Ter o estado gerenciado com alta disponibilidade no cluster, você isola de outros tempos de inatividade do serviço ou problemas de latência.
+- **Dados armazenados em cache**. Use o Caching quando a latência para armazenamentos externos for um problema. Use um serviço com estado como seu próprio cache de dados ou considere o uso do SoCreate de software livre [Service Fabric cache distribuído](https://github.com/SoCreate/service-fabric-distributed-cache). Nesse cenário, você não precisa se preocupar se perder todos os dados no cache.
+- **Dados associados ao tempo**. Nesse cenário, você precisa manter os dados próximos para serem computados por um período de tempo para latência, mas pode perder os dados em um *desastre*. Por exemplo, em muitas soluções de IoT, os dados precisam ser próximos de computação, como quando a temperatura média nos últimos dias está sendo calculada, mas se esses dados forem perdidos, os pontos de dados específicos registrados não serão importantes. Além disso, nesse cenário, normalmente, você não se preocupa em fazer backup dos pontos de dados individuais. Você faz backup somente dos valores médios computados que são gravados periodicamente no armazenamento externo.  
+- **Dados de longo prazo**. As coleções confiáveis podem armazenar seus dados permanentemente. Mas, nesse caso, você precisa [se preparar para a recuperação de desastre](https://docs.microsoft.com/azure/service-fabric/service-fabric-disaster-recovery), incluindo a [configuração de políticas de backup periódicos](https://docs.microsoft.com/azure/service-fabric/service-fabric-backuprestoreservice-configure-periodic-backup) para seus clusters. Na verdade, você configura o que acontece se o cluster for destruído em um desastre, onde você precisaria criar um novo cluster e como implantar novas instâncias de aplicativo e recuperar-se do backup mais recente.
 
-## <a name="how-to-properly-work-with-reliable-services"></a>Como trabalhar corretamente com os Reliable Services
-Reliable Services permitem que você crie facilmente serviços com e sem monitoração de estado. Leia o [Introdução aos Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction)
-- Sempre respeitam a [token de cancelamento](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) na `RunAsync()` método para serviços com e sem estado e o `ChangeRole()` método para serviços com monitoração de estado. Sem isso, o Service Fabric não sabe se seu serviço pode ser fechado. Por exemplo, não respeitar o token de cancelamento pode resultar em tempos de atualização de aplicativo muito mais.
--   Abertura e fechamento [ouvintes de comunicação](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) de maneira oportuna e honrar os tokens de cancelamento.
--   Nunca misture código de sincronização com o código assíncrono. Por exemplo, não use `.GetAwaiter().GetResult()` em suas chamadas de async; ele precisa ser assíncrono *totalmente* por meio da pilha de chamadas.
+Economize custos e melhore a disponibilidade:
+- Você pode reduzir os custos usando serviços com estado porque não incorre em custos de acesso a dados e transações do repositório remoto e porque não precisa usar outro serviço, como o cache do Azure para Redis.
+- Usar serviços com estado principalmente para armazenamento e não para computação é caro e não é recomendável. Considere os serviços com estado como computação com armazenamento local barato.
+- Ao remover dependências de outros serviços, você pode melhorar a disponibilidade do serviço. O gerenciamento de estado com HA no cluster isola você de outros problemas de tempo de inatividade de serviço ou de latência.
 
-## <a name="how-to-properly-work-with-reliable-actors"></a>Como trabalhar corretamente com Reliable Actors
-Reliable Actors permite que você crie facilmente atores com monitoração de estado, virtuais. Leia o [Introdução aos Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction)
+## <a name="how-to-work-with-reliable-services"></a>Como trabalhar com Reliable Services
+Service Fabric Reliable Services permite que você crie facilmente serviços com e sem estado. Para obter mais informações, consulte a [introdução ao Reliable Services](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-introduction).
+- Sempre honra o [token](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-lifecycle#stateful-service-primary-swaps) de cancelamento no `RunAsync()` método para serviços com e sem estado e `ChangeRole()` o método para serviços com estado. Caso contrário, Service Fabric não saberá se o serviço pode ser fechado. Por exemplo, se você não honrar o token de cancelamento, poderão ocorrer tempos de atualização de aplicativos muito mais longos.
+-   Abra e feche os ouvintes de [comunicação](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication) em tempo hábil e aceite os tokens de cancelamento.
+-   Nunca misture código de sincronização com código assíncrono. Por exemplo, não use `.GetAwaiter().GetResult()` em suas chamadas assíncronas. Use Async *completamente* por meio da pilha de chamadas.
 
-- Considere seriamente o uso de mensagens entre seus atores para dimensionar o aplicativo pub/sub. Por exemplo, o [livre SoCreate pub/sub](https://service-fabric-pub-sub.socreate.it/) ou [do barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus/).
-- Verifique o estado do ator como [granular quanto possível](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
-- Gerenciar o [ciclo de vida do ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Exclua atores se você não vai usá-los novamente. Isso é especialmente verdadeiro ao usar o [VolatileState provedor](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication) como todo o estado é armazenado na memória.
-- Devido a seus [por sua vez com base em simultaneidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency) atores são melhor usados como objetos independentes. Não criar grafos de chamadas de método síncrono de ator várias (cada um deles provavelmente se torna uma chamada de rede separado) ou têm solicitações de ator circular; Esses serão afetar significativamente o desempenho e escala.
-- Não misture códigos de sincronização com o código assíncrono; ele precisa ser assíncrono todo o caminho, para evitar problemas de desempenho.
-- Não faça chamadas de longa execução nos atores, ela bloqueará outras chamadas para o mesmo ator, devido à simultaneidade baseada em turno.
-- Se comunicando-se com outros serviços usando o [comunicação remota do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e você estiver criando um `ServiceProxyFactory`, em seguida, crie a fábrica no [serviço de ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) nível e *não*no nível de ator.
+## <a name="how-to-work-with-reliable-actors"></a>Como trabalhar com Reliable Actors
+Service Fabric Reliable Actors permite que você crie facilmente atores com estado e virtual. Para obter mais informações, consulte a [introdução ao Reliable Actors](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction).
+
+- Considere seriamente o uso de mensagens pub/sub entre seus atores para dimensionar seu aplicativo. As ferramentas que fornecem esse serviço incluem o [SoCreate de código-fonte aberto Service Fabric pub/sub](https://service-fabric-pub-sub.socreate.it/) e o [barramento de serviço do Azure](https://docs.microsoft.com/azure/service-bus/).
+- Torne o estado do ator o mais [granular possível](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices).
+- Gerencie o [ciclo de vida do ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#best-practices). Exclua os atores se você não for usá-los novamente. Excluir atores desnecessários é especialmente importante quando você está usando o [provedor de estado volátil](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-state-management#state-persistence-and-replication), pois todo o estado é armazenado na memória.
+- Devido à sua [simultaneidade baseada em](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-introduction#concurrency)desligamento, os atores são mais bem usados como objetos independentes. Não crie grafos de chamadas de método síncronas multisservidor (cada uma delas mais provavelmente se tornará uma chamada de rede separada) ou crie solicitações de ator circulares. Isso irá afetar significativamente o desempenho e a escala.
+- Não misture o código de sincronização com código assíncrono. Use o Async de forma consistente para evitar problemas de desempenho.
+- Não faça chamadas de longa execução em atores. Chamadas de longa execução bloquearão outras chamadas para o mesmo ator, devido à simultaneidade baseada em desligamento.
+- Se você estiver se comunicando com outros serviços usando [Service Fabric comunicação remota](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-communication-remoting) e estiver criando `ServiceProxyFactory`um, crie a fábrica no nível de [serviço de ator](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-actors-using) e *não* no nível de ator.
 
 
 ## <a name="application-diagnostics"></a>Diagnóstico de aplicativo
-- Seja criterioso ao adicionando [log de aplicativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) em chamadas de serviço. Ele ajuda no diagnóstico de cenários em que os serviços chamam uns aos outros. Por exemplo, quando A -> B -> C -> D chamada poderia falhar em qualquer lugar; Se não for suficiente registro em log, é difícil de diagnosticar. Se os serviços estão fazendo muito por causa de volumes de chamada, pelo menos não se esqueça de registrar erros e avisos.
+Seja completo sobre a adição de [log de aplicativo](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-app) em chamadas de serviço. Ele o ajudará a diagnosticar cenários nos quais os serviços se chamam uns aos outros. Por exemplo, quando uma chamada B chama C calls D, ela pode falhar em qualquer lugar. Se você não tiver registro em log suficiente, as falhas serão difíceis de diagnosticar. Se os serviços estiverem registrando muito em log devido a volumes de chamada, certifique-se de pelo menos erros e avisos de log.
 
-## <a name="iot-and-messaging-applications"></a>Aplicativos de mensagens e IoT
-Ao ler mensagens do [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [Hubs de eventos](https://docs.microsoft.com/azure/event-hubs/) usar [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) que se integra com o Service Fabric Reliable Services para manter o partições de estado de leitura do Hub de eventos e envia novas mensagens para seus serviços por meio de `IEventProcessor::ProcessEventsAsync()` método.
+## <a name="iot-and-messaging-applications"></a>Aplicativos de mensagens e de IoT
+Quando você estiver lendo mensagens do [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/) ou [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/), use [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor). O ServiceFabricProcessor integra-se com Service Fabric Reliable Services para manter o estado de leitura das partições do hub de eventos e envia por push novas mensagens para `IEventProcessor::ProcessEventsAsync()` seus serviços por meio do método.
 
 
 ## <a name="design-guidance-on-azure"></a>Diretrizes de design no Azure
-* Visite o [Centro de arquitetura do Azure](https://docs.microsoft.com/azure/architecture/microservices/) para obter diretrizes de design sobre [criando microsserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* Visite o [centro de arquitetura do Azure](https://docs.microsoft.com/azure/architecture/microservices/) para obter diretrizes de design sobre como [criar microserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
-* Visite [Introdução ao Azure para jogos](https://docs.microsoft.com/gaming/azure/) para obter diretrizes de design sobre [usando o Service Fabric nos serviços de jogos](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf)
+* Visite [a introdução ao Azure para jogos](https://docs.microsoft.com/gaming/azure/) para obter diretrizes de design sobre como [usar Service Fabric nos serviços de jogos](https://docs.microsoft.com/gaming/azure/reference-architectures/multiplayer-synchronous-sf).

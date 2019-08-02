@@ -8,13 +8,13 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: agaiha
-ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 0627361fdd4f94a329b08b184dbd542e1927af39
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710400"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871920"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -127,7 +127,7 @@ Esse conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-NOME | Value
+Nome | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são gravados pela extensão.
 storageAccountEndPoint | (opcional) O ponto de extremidade que identifica a nuvem na qual existe a conta de armazenamento. Se essa configuração estiver ausente, o LAD utiliza como padrão a nuvem pública do Azure, `https://core.windows.net`. Para usar uma conta de armazenamento no Azure Alemanha, no Azure Governamental ou Azure China, defina este valor corretamente.
@@ -146,7 +146,7 @@ Você pode facilmente construir o token de SAS necessário por meio do Portal do
 1. Verifique as seções apropriadas conforme descrito anteriormente
 1. Clique no botão "Gerar SAS".
 
-![image](./media/diagnostics-linux/make_sas.png)
+![imagem](./media/diagnostics-linux/make_sas.png)
 
 Copie o SAS gerado no campo storageAccountSasToken; remova o ponto de interrogação ("?") do início.
 
@@ -167,7 +167,7 @@ Copie o SAS gerado no campo storageAccountSasToken; remova o ponto de interroga�
 
 Esta seção opcional define os destinos adicionais para os quais a extensão envia as informações coletadas. A matriz "coletor" contém um objeto para cada coletor de dados adicional. O atributo "tipo" determina os outros atributos no objeto.
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 name | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
 type | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
@@ -229,7 +229,7 @@ Essa estrutura contém vários blocos de configurações que controlam as inform
 }
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 StorageAccount | O nome da conta de armazenamento na qual os dados são gravados pela extensão. Deve ser o mesmo nome, conforme especificado nas [Configurações protegidas](#protected-settings).
 mdsdHttpProxy | (opcional) O mesmo que nas [Configurações protegidas](#protected-settings). O valor público é substituído pelo valor particular, se tiver sido definido. Coloque as configurações de proxy que contêm um segredo, como uma senha, nas [Configurações protegidas](#protected-settings).
@@ -252,7 +252,7 @@ Os elementos restantes serão descritos em detalhes nas seções a seguir.
 
 Essa estrutura opcional controla a reunião de métricas e logs de entrega para o serviço de Métricas do Azure e outros coletores de dados. Você deve especificar `performanceCounters` ou `syslogEvents`, ou ambos. Você deve especificar a estrutura `metrics`.
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 eventVolume | (opcional) Controla o número de partições criadas dentro da tabela de armazenamento. Pode ser `"Large"`, `"Medium"` ou `"Small"`. Se esse campo não for especificado, o valor padrão será `"Medium"`.
 sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas brutas (não agregadas). A menor taxa de amostra com suporte é de 15 segundos. Se esse campo não for especificado, o valor padrão será `15`.
@@ -269,9 +269,9 @@ sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas
 }
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
-ResourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
+resourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
 scheduledTransferPeriod | A frequência na qual as métricas agregadas serão computadas e transferidas para as Métricas do Azure, expressas como um intervalo de tempo de IS 8601. O menor período de transferência é 60 segundos, ou seja, PT1M. Você deve especificar pelo menos um scheduledTransferPeriod.
 
 As amostras de métricas especificados na seção performanceCounters são coletados a cada 15 segundos ou na taxa de amostra explicitamente definidas para o contador. Se várias frequências scheduledTransferPeriod aparecerem (como no exemplo), cada agregação será calculada independentemente.
@@ -309,7 +309,7 @@ Essa seção opcional controla a coleção de métricas. As amostras brutas são
 * valor coletado por último
 * contagem de amostras brutas usadas para computar a agregação
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métricas agregadas. Todas as métricas agregadas são publicadas em cada coletor listado. Veja [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
 type | Identifica o provedor real da métrica.
@@ -355,7 +355,7 @@ Essa seção opcional controla a coleção de eventos de log do syslog. Se a se�
 
 A coleção syslogEventConfiguration tem uma entrada para cada instalação de syslog de interesse. Se minSeverity for "NENHUM" para um recurso específico, ou se o recurso não aparecer no elemento, nenhum evento desse recurso será capturado.
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 coletores | Uma lista separada por vírgulas de nomes de coletores nos quais os eventos de log individuais são publicados. Todos os eventos de log correspondentes às restrições em syslogEventConfiguration são publicados em cada coletor listado. Exemplo: "EHforsyslog"
 facilityName | Um nome de recurso de syslog (como "LOG\_USER" ou "LOG\_LOCAL0"). Veja a seção "facility" da [página de manual do syslog](http://man7.org/linux/man-pages/man3/syslog.3.html) para obter a lista completa.
@@ -384,12 +384,12 @@ Essa seção controla a execução de consultas [OMI](https://github.com/Microso
 ]
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 namespace | (opcional) O namespace OMI dentro do qual a consulta deve ser executada. Se não for especificado, o valor padrão será "root/scx", implementado pelos [Provedores de várias plataformas do System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | A consulta OMI a ser executada.
 table | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (veja [Configurações protegidas](#protected-settings)).
-frequência | (opcional) O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é de 15 segundos.
+frequency | (opcional) O número de segundos entre a execução da consulta. O valor padrão é 300 (5 minutos); o valor mínimo é de 15 segundos.
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores adicionais para os quais os resultados brutos de métricas de amostras devem ser publicados. Nenhuma agregação desses exemplos brutos é calculada pela extensão ou Métricas do Azure.
 
 As informações de "tabela" ou "coletores" ou de ambos devem ser especificadas.
@@ -408,7 +408,7 @@ Controla a captura de arquivos de log. O LAD captura novas linhas de texto, como
 ]
 ```
 
-Elemento | Value
+Elemento | Valor
 ------- | -----
 file | O nome de caminho completo do arquivo de log a ser observado e capturado. O nome do caminho deve nomear um único arquivo; ele não pode nomear um diretório ou conter curingas.
 table | (opcional) A tabela de armazenamento do Azure, na conta de armazenamento designada (conforme especificado na configuração protegida), na qual novas linhas depois do "final" do arquivo são gravadas.
@@ -502,7 +502,7 @@ TransfersPerSecond | Operações de leitura ou gravação por segundo
 
 Os valores agregados em todos os sistemas de arquivo podem ser obtidos pela configuração `"condition": "IsAggregate=True"`. Os valores para um sistema de arquivos montado específico, como "/mnt", podem ser obtidos pela configuração `"condition": 'Name="/mnt"'`. 
 
-**OBSERVAÇÃO**: Se usando o Portal do Azure em vez de JSON, o formulário de campo de condição correto é nome ='/ /mnt '
+**OBSERVAÇÃO**: Se estiver usando o portal do Azure em vez de JSON, o formulário de campo de condição correto será Name = '/mnt '
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas internas para a classe Disk
 
@@ -688,7 +688,7 @@ O `resourceId` na configuração deve corresponder à da máquina virtual ou con
 
 Use o Portal do Azure para exibir dados de desempenho ou definir alertas:
 
-![image](./media/diagnostics-linux/graph_metrics.png)
+![imagem](./media/diagnostics-linux/graph_metrics.png)
 
 Os dados de `performanceCounters` são sempre armazenados em uma tabela de Armazenamento do Azure. As APIs do Armazenamento do Azure estão disponíveis em várias linguagens e plataformas.
 
@@ -701,7 +701,7 @@ Além disso, você pode usar essas ferramentas de interface do usuário para ace
 
 Esse instantâneo de uma sessão do Gerenciador de Armazenamento do Microsoft Azure mostra as tabelas do Armazenamento do Azure geradas e os contêineres de uma extensão de LAD 3.0 configurada corretamente em uma VM de teste. A imagem não coincide exatamente com a [configuração de amostra do LAD 3.0](#an-example-lad-30-configuration).
 
-![image](./media/diagnostics-linux/stg_explorer.png)
+![imagem](./media/diagnostics-linux/stg_explorer.png)
 
 Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-what-is-event-hubs.md) correspondente para aprender a consumir mensagens publicadas em um ponto de extremidade de EventHubs.
 

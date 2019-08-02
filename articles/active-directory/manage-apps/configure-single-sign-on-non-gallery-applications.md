@@ -12,12 +12,12 @@ ms.date: 05/08/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34e6257b4800387470cdc1b7d624bf3ebd1d3e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a72cb7bc7feeba984d568a0465d4f23a494496e8
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65989204"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807643"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurar o logon único para aplicativos na plataforma de identidade da Microsoft
 
@@ -50,13 +50,14 @@ Para registrar os aplicativos que usam todos os outros tipos de [suporte para me
 Para se conectar a um aplicativo não listado usando um modelo de integração do aplicativo, siga estas etapas:
 
 1. Entrar para o [portal do Azure Active Directory](https://aad.portal.azure.com/) usando sua conta de administrador do Microsoft identity platform.
-2. Selecione **aplicativos empresariais** > **novo aplicativo**.
-3. (Opcional mas recomendado) No **adicionar da galeria** caixa de pesquisa, digite o nome de exibição do aplicativo. Se o aplicativo for exibido nos resultados da pesquisa, selecione-o e ignore o restante deste procedimento.
-4. Selecione **aplicativo inexistente na galeria**. O **adicionar seu próprio aplicativo** página será exibida.
+1. Selecione **aplicativos empresariais** > **novo aplicativo**.
+1. (Opcional mas recomendado) No **adicionar da galeria** caixa de pesquisa, digite o nome de exibição do aplicativo. Se o aplicativo for exibido nos resultados da pesquisa, selecione-o e ignore o restante deste procedimento.
+1. Selecione **aplicativo inexistente na galeria**. O **adicionar seu próprio aplicativo** página será exibida.
 
-   ![Adicionar aplicativo](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
-5. Insira o nome de exibição para seu novo aplicativo.
-6. Selecione **Adicionar**.
+   ![Mostra a adicionar sua própria página de aplicativo](./media/configure-single-sign-on-non-gallery-applications/add-your-own-application.png)
+
+1. Insira o nome de exibição para seu novo aplicativo.
+1. Selecione **Adicionar**.
 
 Adicionando um aplicativo dessa maneira, você pode fornecer uma experiência semelhante àquela disponível para aplicativos pré-integrados. Primeiro, selecione **logon único** da barra lateral da caixa de diálogo. A próxima página (**selecionar um método de logon único**) apresenta as opções para configurar o SSO:
 
@@ -64,7 +65,7 @@ Adicionando um aplicativo dessa maneira, você pode fornecer uma experiência se
 - **Baseado em senha**
 - **Vinculado**
 
-![Selecionar um método de logon único](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
+![Mostra a seleção uma página de método de logon único](./media/configure-single-sign-on-non-gallery-applications/select-a-single-sign-on-method.png)
 
 Para obter mais informações sobre essas opções, consulte as seguintes seções deste artigo.
 
@@ -72,7 +73,7 @@ Para obter mais informações sobre essas opções, consulte as seguintes seçõ
 
 Selecione o **SAML** opção para configurar a autenticação baseada em SAML para o aplicativo. (Essa opção requer que o aplicativo oferecer suporte a SAML 2.0.) O **definir o logon único com SAML** página será exibida.
 
-![Configurar o logon único com SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
+![Mostra o conjunto de backup de logon único com página SAML](./media/configure-single-sign-on-non-gallery-applications/set-up-single-sign-on-with-saml.png)
 
 Esta página possui cinco títulos diferentes:
 
@@ -90,7 +91,7 @@ Agora, colete informações sobre como usar os recursos SAML do aplicativo antes
 
 Para configurar o AD do Azure, vá para o **básicas de configuração de SAML** título e selecione sua **editar** ícone (um lápis). Pode inserir os valores manualmente ou carregar um arquivo de metadados para extrair o valor dos campos.
 
-![Configuração básica do SAML](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
+![Mostra a página de configuração de SAML básico](./media/configure-single-sign-on-non-gallery-applications/basic-saml-configuration.png)
 
 Os dois campos a seguir são necessários:
 
@@ -141,7 +142,7 @@ Para exibir ou editar as declarações enviadas no token SAML para o aplicativo:
 
 - Vá para o **atributos de usuário e declarações** título e selecione o **editar** ícone. O **atributos de usuário & declarações** página será exibida.
 
-![Declarações e atributos de usuário](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
+![Mostra a página de atributos e declarações de usuário](./media/configure-single-sign-on-non-gallery-applications/user-attributes-and-claims.png)
 
 Talvez você precise editar as declarações emitidas no token SAML por dois motivos:
 
@@ -158,7 +159,7 @@ Do Azure AD, você pode baixar o certificado do Active Directory no formato Base
 
 Para exibir, criar ou fazer o download de seus certificados (ativos ou inativos), vá para o **certificado de autenticação SAML** título e selecione o **editar** ícone. O **certificado de autenticação SAML** é exibida.
 
-![Certificado de autenticação SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
+![Mostra a página de certificado de assinatura de SAML](./media/configure-single-sign-on-non-gallery-applications/saml-signing-certificate.png)
 
 Verifique se que o certificado tem:
 
@@ -182,13 +183,13 @@ Depois de configurar seu aplicativo para usar o Azure AD como um provedor de ide
 Para atribuir um novo usuário ou grupo ao seu aplicativo:
 
 1. Na barra lateral do aplicativo, selecione **usuários e grupos**. O  **\<nome do aplicativo >-usuários e grupos** página for exibida, que mostra a lista atual de usuários e grupos atribuídos.
-2. Selecione **adicionar usuários**. O **Adicionar atribuições** página será exibida.
-3. Selecione **usuários e grupos (\<número > selecionados)** . O **usuários e grupos** página for exibida, mostrando uma lista de usuários e grupos disponíveis.
-4. Tipo ou role para encontrar o usuário ou grupo que você deseja atribuir na lista.
-5. Selecione cada usuário ou grupo que você deseja adicionar e, em seguida, selecione a **selecionar** botão. O **usuários e grupos** desaparece da página.
-6. No **Adicionar atribuições** página, selecione **atribuir**. O  **<application name> -usuários e grupos** página será exibida com os mostrado na lista de usuários adicionais.
+1. Selecione **adicionar usuários**. O **Adicionar atribuições** página será exibida.
+1. Selecione **usuários e grupos (\<número > selecionados)** . O **usuários e grupos** página for exibida, mostrando uma lista de usuários e grupos disponíveis.
+1. Tipo ou role para encontrar o usuário ou grupo que você deseja atribuir na lista.
+1. Selecione cada usuário ou grupo que você deseja adicionar e, em seguida, selecione a **selecionar** botão. O **usuários e grupos** desaparece da página.
+1. No **Adicionar atribuições** página, selecione **atribuir**. O  **\<nome do aplicativo >-usuários e grupos** página será exibida com os mostrado na lista de usuários adicionais.
 
-   ![Grupos e usuários do aplicativo](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
+   ![Mostra a página de usuários e grupos de aplicativo](./media/configure-single-sign-on-non-gallery-applications/application-users-and-groups.png)
 
 Nesta lista, você pode:
 
@@ -213,26 +214,29 @@ Selecione esta opção para configurar [baseado em senha de logon único no](wha
 
 Depois de selecionar **baseado em senha**, você será solicitado a inserir a URL da baseado na web página de entrada do aplicativo.
 
-![Logon único baseado em senha](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
+![Mostra a página de URL de entrada para inserir a URL de logon](./media/configure-single-sign-on-non-gallery-applications/password-based-sso.png)
 
 Em seguida, siga estas etapas:
 
 1. Insira a URL. Essa cadeia de caracteres deve ser a página que inclui o campo de entrada de nome de usuário.
-2. Clique em **Salvar**. Azure AD tenta analisar a página de entrada para um nome de usuário de entrada e uma senha de entrada.
-3. Se a tentativa falhar de análise do Azure AD, selecione **configurar \<nome do aplicativo > configurações de logon único com senha** para exibir o **configura o logon** página. (Se a tentativa for bem-sucedida, você pode ignorar o restante deste procedimento.)
-4. Selecione **detectar manualmente campos de entrada**. Instruções adicionais que descrevem a detecção manual de campos de entrada são exibidos.
+1. Clique em **Salvar**. Azure AD tenta analisar a página de entrada para um nome de usuário de entrada e uma senha de entrada.
+1. Se a tentativa falhar de análise do Azure AD, selecione **configurar \<nome do aplicativo > configurações de logon único com senha** para exibir o **configura o logon** página. (Se a tentativa for bem-sucedida, você pode ignorar o restante deste procedimento.)
+1. Selecione **detectar manualmente campos de entrada**. Instruções adicionais que descrevem a detecção manual de campos de entrada são exibidos.
 
    ![Configuração manual de baseado em senha de logon único](./media/configure-single-sign-on-non-gallery-applications/password-configure-sign-on.png)
-5. Selecione **capturar campos de entrada**. Uma página de status de captura é aberta em uma nova guia, mostrando a mensagem **captura de metadados está atualmente em andamento**.
-6. Se o **extensão do painel de acesso necessária** caixa é exibida em uma nova guia, selecione **instalar agora** para instalar o **extensão de entrada segura dos meus aplicativos** extensão do navegador. (Requer que a extensão do navegador Microsoft Edge, Chrome ou Firefox.) Em seguida, instalar, iniciar, habilitar a extensão e atualize a página de status de captura.
+
+1. Selecione **capturar campos de entrada**. Uma página de status de captura é aberta em uma nova guia, mostrando a mensagem **captura de metadados está atualmente em andamento**.
+1. Se o **extensão do painel de acesso necessária** caixa é exibida em uma nova guia, selecione **instalar agora** para instalar o **extensão de entrada segura dos meus aplicativos** extensão do navegador. (Requer que a extensão do navegador Microsoft Edge, Chrome ou Firefox.) Em seguida, instalar, iniciar, habilitar a extensão e atualize a página de status de captura.
 
    A extensão do navegador, em seguida, abre outra guia que exibe a URL digitada.
-7. Na guia com a URL digitada, percorra o processo de logon. Preencha os campos de nome de usuário e senha e tente entrar. (Você não precisa fornecer a senha correta.)
+
+1. Na guia com a URL digitada, percorra o processo de logon. Preencha os campos de nome de usuário e senha e tente entrar. (Você não precisa fornecer a senha correta.)
 
    Um prompt pedirá que você salve os campos de entrada capturados.
-8. Selecione **OK**. Fecha a guia, a extensão do navegador atualiza a página de status de captura com a mensagem **metadados foi atualizado para o aplicativo**e esse navegador guia também é fechado.
-9. No Azure AD **configurar o logon** página, selecione **Okey, foi capaz de entrar no aplicativo com êxito**.
-10. Selecione **OK**.
+
+1. Selecione **OK**. Fecha a guia, a extensão do navegador atualiza a página de status de captura com a mensagem **metadados foi atualizado para o aplicativo**e esse navegador guia também é fechado.
+1. No Azure AD **configurar o logon** página, selecione **Okey, foi capaz de entrar no aplicativo com êxito**.
+1. Selecione **OK**.
 
 Após a captura da página de entrada, você pode atribuir usuários e grupos, e você pode configurar políticas de credencial como regular [aplicativos de SSO de senha](what-is-single-sign-on.md).
 

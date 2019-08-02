@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 06/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: dc2beda1ae017b5e81fddf08d0c7e88c785bcdf5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e29b8e23927ef2ff70416d1adc76e2b2b3f2d8a
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153890"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443707"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Conceder acesso a dados de blob e fila do Azure com o RBAC usando a CLI do Azure
 
-Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem os conjuntos de permissões usados para acessar dados de blob ou fila comuns. 
+Azure Active Directory (Azure AD) autoriza os direitos de acesso aos recursos protegidos por meio do [controle de acesso baseado em função (RBAC)](../../role-based-access-control/overview.md). O armazenamento do Azure define um conjunto de funções RBAC internas que abrangem os conjuntos de permissões usados para acessar dados de blob ou fila comuns.
 
 Quando uma função RBAC é atribuída a uma entidade de segurança do Azure AD, Azure concede acesso a esses recursos para essa entidade de segurança. O escopo do acesso pode ser definido para o nível de assinatura, o grupo de recursos, a conta de armazenamento ou um contêiner ou fila individual. Uma entidade de segurança do Azure AD pode ser um usuário, grupo, uma entidade de serviço de aplicativo, ou um [identidade de recursos do Azure gerenciado](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -52,9 +52,9 @@ Storage Queue Data Message Sender         Allows for sending of Azure Storage qu
 Storage Queue Data Reader                 Allows for read access to Azure Storage queues and queue messages
 ```
 
-## <a name="assign-an-rbac-role-to-a-user"></a>Atribuir uma função RBAC a um usuário
+## <a name="assign-an-rbac-role-to-a-security-principal"></a>Atribuir uma função RBAC para uma entidade de segurança
 
-Para atribuir uma função RBAC a um usuário, use o [atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) comando. O formato do comando pode mudar com base no escopo da atribuição. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos.
+Para atribuir uma função RBAC a uma entidade de segurança, use o [atribuição de função az criar](/cli/azure/role/assignment#az-role-assignment-create) comando. O formato do comando pode mudar com base no escopo da atribuição. Os exemplos a seguir mostram como atribuir uma função a um usuário em vários escopos, mas você pode usar o mesmo comando para atribuir uma função a qualquer entidade de segurança.
 
 ### <a name="container-scope"></a>Escopo do contêiner
 

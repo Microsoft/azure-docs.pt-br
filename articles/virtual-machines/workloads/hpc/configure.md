@@ -4,7 +4,7 @@ description: Saiba mais sobre computação de alto desempenho no Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: bcd121127721a6f76d76f11edf6574165c8e8ddb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 10549abfbdacf1fc1ae6b99f4cab20a290c32a2d
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809806"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707816"
 ---
 # <a name="optimization-for-linux"></a>Otimização para Linux
 
@@ -59,7 +59,7 @@ systemctl mask firewalld
 systemctl stop firewalld.service
 systemctl disable firewalld.service
 iptables -nL
-sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g'/etc/selinux/config
+sed -i -e's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/config
 ```
 
 ## <a name="disable-cpupower"></a>Desabilitar cpupower

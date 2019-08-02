@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5571f84de5c6dd4f5dffea5869c744b7e5c02e24
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255690"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875296"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -66,8 +66,9 @@ ms.locfileid: "66255690"
                                                     <div class="cardText">
                                                         <h3>O que há de novo?</h3>
                                                         <p>
-                                                            <a href="./app/kubernetes.md">Monitorar aplicativos do Kubernetes</a><br>
-                                                            <a href="./app/status-monitor-v2-overview.md">V2 do Monitor de status para aplicativos do IIS</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Monitoramento de código para VM do Azure e aplicativos do conjunto de dimensionamento de máquinas virtuais do Azure</a><br>
+                                                            <a href="./app/kubernetes.md">Monitorar aplicativos kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">Status Monitor v2 para aplicativos do IIS</a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3>Guia de início rápido</h3>
@@ -146,6 +147,7 @@ ms.locfileid: "66255690"
                                                             <a href="./app/asp-net.md">Configuração de monitoramento aprofundado</a><br>
                                                             <a href="./app/monitor-performance-live-website-now.md">Status Monitor</a><br>
                                                             <a href="./app/azure-web-apps.md">Monitoramento do Serviço de Aplicativo</a><br>
+                                                            <a href="./app/azure-vm-vmss-apps.md">Monitoramento de aplicativo de conjunto de dimensionamento de máquinas virtuais e VM</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">Eventos e métricas personalizados</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-dotnet">Abrir repositório GitHub do SDK do .NET de software livre</a>
                                                         </p>
@@ -221,7 +223,7 @@ ms.locfileid: "66255690"
                                                             <a href="./app/data-model-dependency-telemetry.md">Dependência</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Exceção</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">Rastreamento</a><br>
-                                                            <a href="./app/data-model-event-telemetry.md">Evento</a><br>
+                                                            <a href="./app/data-model-event-telemetry.md">Event</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">Métrica</a><br>
                                                             <a href="./app/data-model-context.md">Contexto</a>
                                                             </p>

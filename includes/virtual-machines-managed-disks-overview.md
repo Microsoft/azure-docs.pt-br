@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 444e64488b185b1ff2aa7cc63fbeffafc591dbfe
+ms.sourcegitcommit: 57a7d4f67635212f5bf0c56e58fd87c8ec366f2c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198794"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68320014"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -37,11 +37,23 @@ Os discos gerenciados dão suporte às [Zonas de Disponibilidade](../articles/av
 
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
-Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-introduction-to-azure-backup.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis à vontade. No momento, o Backup do Azure dá suporte a tamanhos de disco de até quatro TiB (tebibytes). Para saber mais, confira [Using Azure Backup for VMs with managed disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup) (Usando o Backup do Azure para VMs com discos gerenciados).
+Para proteger contra desastres regionais, o [Backup do Azure](../articles/backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM fáceis à vontade. No momento, o Backup do Azure dá suporte a tamanhos de disco de até quatro TiB (tebibytes).  O Backup do Azure é compatível com o backup e a restauração de discos gerenciados. [Saiba mais](../articles/backup/backup-support-matrix-iaas.md) sobre o suporte de backup da VM do Azure.
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
 É possível usar o [RBAC (Controle de acesso baseado em função) do Azure](../articles/role-based-access-control/overview.md) para atribuir permissões específicas de um disco gerenciado a um ou mais usuários. Os discos gerenciados expõem uma variedade de operações, incluindo leitura, gravação (criar/atualizar), exclusão e recuperação de um [URI de SAS (assinatura de acesso compartilhado)](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) para o disco. Conceda acesso somente às operações que uma pessoa necessita para executar seu trabalho. Por exemplo, se não quiser que uma pessoa copie um disco gerenciado em uma conta de armazenamento, opte por não conceder acesso à ação de exportação para esse disco gerenciado. Da mesma forma, se não quiser que uma pessoa use um URI de SAS para copiar um disco gerenciado, opte por não conceder essa permissão ao disco gerenciado.
+
+## <a name="encryption"></a>Criptografia
+
+Os discos gerenciados oferecem dois tipos diferentes de criptografia. O primeiro é o SSE (Criptografia do Serviço de Armazenamento), que é executado pelo serviço de armazenamento. O segundo é o Azure Disk Encryption, que pode ser habilitado nos discos do sistema operacional e de dados das VMs.
+
+### <a name="storage-service-encryption-sse"></a>SSE (Criptografia do Serviço de Armazenamento)
+
+A [Criptografia do Serviço de Armazenamento do Azure](../articles/storage/common/storage-service-encryption.md) fornece criptografia em repouso e protege seus dados para atender aos compromissos de conformidade e segurança da organização. O SSE está habilitado por padrão para todos os discos gerenciados, instantâneos e imagens em todas as regiões nas quais os discos gerenciados estão disponíveis. Visite o [página de Perguntas frequentes do Managed Disks](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption) para obter mais detalhes.
+
+### <a name="azure-disk-encryption-ade"></a>ADE (Azure Disk Encryption)
+
+O Azure Disk Encryption permite criptografar os discos do sistema operacional e os discos de dados usados por uma Máquina Virtual IaaS. Essa criptografia inclui discos gerenciados. No Windows, as unidades são criptografadas usando a tecnologia de criptografia BitLocker padrão do setor. No Linux, os discos são criptografados usando a tecnologia DM-Crypt. Esse processo de criptografia é integrado ao Azure Key Vault para permitir que você controle e gerencie as chaves de criptografia de disco. Para saber mais, confira [Azure Disk Encryption para VMs IaaS](../articles/security/azure-security-disk-encryption-overview.md).
 
 ## <a name="disk-roles"></a>Funções do disco
 
@@ -61,11 +73,11 @@ Esse disco tem uma capacidade máxima de 2.048 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-Cada VM contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Em VMs do Linux do Azure, o disco temporário é /dev/sdb por padrão e, em VMs do Windows, o disco temporário é E: por padrão. Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário devem persistir.
+Cada VM contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados, como arquivos de paginação ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](../articles/virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime) ou durante a [reimplantação de uma VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json). Em VMs do Linux do Azure, o disco temporário é /dev/sdb por padrão e, em VMs do Windows, o disco temporário é D: por padrão. Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário devem persistir.
 
 ## <a name="managed-disk-snapshots"></a>Instantâneos de disco gerenciado
 
-Um instantâneo de disco gerenciado é uma cópia completa somente leitura de um disco gerenciado que, por padrão, é armazenada como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. Eles são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB.  
+Um instantâneo de disco gerenciado é uma cópia completa consistente com falhas e somente leitura de um disco gerenciado que, por padrão, é armazenada como um disco gerenciado padrão. Com os instantâneos, você pode fazer backup de seus discos gerenciados a qualquer momento. Esses instantâneos existem independentemente do disco de origem e podem ser usados para criar novos discos gerenciados. Eles são cobrados com base no tamanho usado. Por exemplo, se você criar um instantâneo de um disco gerenciado com capacidade provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, esse instantâneo será cobrado apenas pelo tamanho de dados usados de 10 GiB.  
 
 Para saber mais sobre como criar instantâneos com discos gerenciados, confira os seguintes recursos:
 
@@ -89,6 +101,22 @@ Um instantâneo é uma cópia de um disco no momento exato em que o instantâneo
 
 Um instantâneo não tem reconhecimento de nenhum disco, exceto o contido por ele. Isso torna problemático usá-lo em cenários que precisam da coordenação de vários discos, como distribuição. Os instantâneos precisariam ser capazes de coordenar uns com os outros e, no momento, não há suporte para isso.
 
+## <a name="disk-allocation-and-performance"></a>Desempenho e alocação de disco
+
+O diagrama a seguir ilustra a alocação em tempo real de largura de banda e IOPS para discos, usando um sistema de provisionamento de três níveis:
+
+![Sistema de provisionamento de três níveis mostrando alocação de largura de banda e de IOPS](media/virtual-machines-managed-disks-overview/real-time-disk-allocation.png)
+
+O provisionamento do primeiro nível define a atribuição de IOPS e de largura de banda por disco.  No segundo nível, o host do servidor de computação implementa o provisionamento de SSD, aplicando-o aos dados armazenados no SSD do servidor, que inclui discos com armazenamento em cache (ReadWrite e ReadOnly), bem como discos locais e temporários. Por fim, o provisionamento da rede de VMs ocorre no terceiro nível para qualquer E/S que o host de computação envia para o back-end do Armazenamento do Azure. Com esse esquema, o desempenho de uma VM depende de uma variedade de fatores, desde a maneira como a VM usa o SSD local até o número de discos anexados, bem como o tipo de desempenho e de cache dos discos que ele anexou.
+
+Como um exemplo dessas limitações, uma VM Standard_DS1v1 é impedida de alcançar o potencial de 5 mil IOPS de um disco P30, esteja em cache ou não, devido aos limites nos níveis do SSD e de rede:
+
+![Alocação de exemplo de Standard_DS1v1](media/virtual-machines-managed-disks-overview/example-vm-allocation.png)
+
+O Azure usa um canal de rede priorizado para tráfego de disco, que prevalece sobre outra baixa prioridade do tráfego de rede. Isso ajuda os discos a manter o desempenho esperado em caso de contenções de rede. Da mesma forma, o Armazenamento do Azure lida com contenções de recursos e com outros problemas em segundo plano com balanceamento de carga automático. O Armazenamento do Azure aloca os recursos necessários quando você cria um disco e aplica o balanceamento proativo e reativo de recursos para lidar com o nível de tráfego. Com isso, os discos podem sustentar seus destinos de IOPS e de taxa de transferência esperados. Você pode usar as métricas em nível de VM e de disco para acompanhar o desempenho e os alertas de configuração, conforme necessário.
+
+Confira nosso artigo de [design para alto desempenho](../articles/virtual-machines/windows/premium-storage-performance.md) para aprender as melhores práticas para otimizar as configurações de VM + Disco para que você possa atingir o desempenho desejado
+
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os tipos de disco individuais oferecidos pelo Azure e qual tipo é uma boa opção para suas necessidades em nosso artigo sobre tipos de disco.
+Saiba mais sobre os tipos de disco individual oferecidos pelo Azure, qual tipo é uma boa opção para suas necessidades e sobre os destinos de desempenho em nosso artigo sobre tipos de disco.

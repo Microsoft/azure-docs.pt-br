@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7d405c1e4ac5de7591f92b391071cfd66371c088
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 55b442b74847ccbc0dcc944eada7b33ccd368bed
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003138"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605053"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início Rápido: Reconhecer fala em Objective-C no iOS usando o SDK de Fala
 
@@ -35,7 +35,7 @@ Antes de começar, aqui está uma lista de pré-requisitos:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-A versão atual do SDK de Fala dos Serviços Cognitivos é `1.5.1`.
+A versão atual do SDK de Fala dos Serviços Cognitivos é `1.6.0`.
 
 Atualmente, o SDK de Fala dos Serviços Cognitivos para iOS é distribuído como um Cocoa Framework.
 Ele pode ser baixado [aqui](https://aka.ms/csspeech/iosbinary). Baixe o arquivo para seu diretório inicial.
@@ -67,21 +67,21 @@ Nas caixas de diálogo que seguem, faça as seguintes seleções:
 
 O aplicativo de exemplo terá uma interface do usuário muito simples: Dois botões para iniciar o reconhecimento de fala da entrada do microfone ou do arquivo e um rótulo de texto para exibir o resultado.
 A interface do usuário é configurada no `Main.storyboard` como parte do projeto.
-Abra a exibição XML do storyboard clicando com o botão direito do mouse na entrada `Main.storyboard` na árvore do projeto e selecionando **Abrir como…** > **Código-Fonte**.
+Abra a exibição XML do storyboard clicando com o botão direito do mouse na entrada `Main.storyboard` na árvore do projeto e selecionando **Abrir como…**  > **Código-Fonte**.
 Substitua o XML gerado automaticamente por este código:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
 ## <a name="add-the-sample-code"></a>Adicione o código de amostra
 
-1. Baixe o [arquivo wav de amostra](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) clicando com o botão direito do mouse e escolhendo **Salvar destino como…**. Adicione o arquivo wav ao projeto como um recurso arrastando-o de uma janela do Finder para o nível raiz da exibição do Projeto.
+1. Baixe o [arquivo wav de amostra](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) clicando com o botão direito do mouse e escolhendo **Salvar destino como…** . Adicione o arquivo wav ao projeto como um recurso arrastando-o de uma janela do Finder para o nível raiz da exibição do Projeto.
    Clique em **Concluir** na seguinte caixa de diálogo sem alterar as configurações.
 1. Substitua o conteúdo do arquivo `ViewController.m` gerado automaticamente por:
 
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Substitua a cadeia de caracteres `YourSubscriptionKey` pela chave de assinatura.
 1. Substitua a cadeia de caracteres `YourServiceRegion` pela [região](regions.md) associada à assinatura (por exemplo, `westus` para a assinatura de avaliação gratuita).
-1. Adicione a solicitação de acesso do microfone. Clique com o botão direito do mouse na entrada `Info.plist` da árvore do projeto e selecione **Abrir como...** > **Código-fonte**. Adicione as seguintes linhas à seção `<dict>` e, em seguida, salve o arquivo.
+1. Adicione a solicitação de acesso do microfone. Clique com o botão direito do mouse na entrada `Info.plist` da árvore do projeto e selecione **Abrir como...**  > **Código-fonte**. Adicione as seguintes linhas à seção `<dict>` e, em seguida, salve o arquivo.
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -90,9 +90,8 @@ Substitua o XML gerado automaticamente por este código:
 ## <a name="building-and-running-the-sample"></a>Criação e execução da amostra
 
 1. Torne a saída de depuração visível (**Exibição** > **Área de Depuração** > **Ativar Console**).
-1. Escolha o simulador de iOS ou um dispositivo iOS conectado ao computador de desenvolvimento como o destino para o aplicativo da lista no menu **Produto** -> **Destino**.
-1. Compile e execute o exemplo de código no simulador do iOS selecionando **Produto** -> **Executar** no menu ou clicando no botão **Reproduzir**.
-   No momento, o SDK de Fala só dá suporte à plataforma iOS de 64 bits.
+1. Escolha o simulador de iOS ou um dispositivo iOS conectado ao computador de desenvolvimento como o destino para o aplicativo da lista no menu **Produto** > **Destino**.
+1. Compile e execute o exemplo de código no simulador do iOS selecionando **Produto** > **Executar** no menu ou clicando no botão **Reproduzir**.
 1. Depois de clicar no botão "Reconhecer (arquivo)" no aplicativo, você deve ver o conteúdo do arquivo de áudio de "Como está o clima?” na parte inferior da tela.
 
    ![Aplicativo do iOS simulado](media/sdk/qs-objectivec-simulated-app.png)
@@ -103,4 +102,3 @@ Substitua o XML gerado automaticamente por este código:
 
 > [!div class="nextstepaction"]
 > [Explorar amostras de Objective-C no GitHub](https://aka.ms/csspeech/samples)
-

@@ -2,21 +2,21 @@
 title: Entidades de serviço para o AKS (Serviço de Kubernetes do Azure)
 description: Criar e gerenciar uma entidade de serviço do Azure Active Directory para um cluster no AKS (Serviço de Kubernetes do Azure)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: iainfou
-ms.openlocfilehash: 82ceb332ca377da1953908abba3f7c52874b995e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: mlearned
+ms.openlocfilehash: 304b9dae9f3a1e134809d8959a96dc4e3ec0edd3
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066799"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67615118"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Entidades de serviço com o AKS (Serviço de Kubernetes do Azure)
 
-Para interagir com as APIs do Azure, um cluster do AKS requer uma [entidade de serviço do Azure AD (Active Directory)][aad-service-principal]. A entidade de serviço é necessária para criar e gerenciar outros recursos do Azure, como o Azure Load Balancer ou o ACR (Registro de Contêiner do Azure).
+Para interagir com as APIs do Azure, um cluster AKS requer uma [entidade de serviço do Azure Active Directory (AD)][aad-service-principal]. A entidade de serviço é necessária para criar e gerenciar outros recursos do Azure, como o Azure Load Balancer ou o ACR (Registro de Contêiner do Azure).
 
 Este artigo mostra como criar e usar uma entidade de serviço para seus clusters do AKS.
 
@@ -26,11 +26,11 @@ Para criar uma entidade de serviço do Azure AD, você deve ter permissões para
 
 Se você estiver usando uma entidade de serviço de um AD do Azure diferente locatário, há considerações adicionais para as permissões disponíveis quando você implanta o cluster. Você pode não ter as permissões apropriadas para ler e gravar informações de diretório. Para obter mais informações, consulte [quais são as permissões de usuário padrão no Azure Active Directory?][azure-ad-permissions]
 
-Você também precisa da CLI do Azure versão 2.0.59 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você também precisa da CLI do Azure versão 2.0.59 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Criar e usar uma entidade de serviço automaticamente
 
-Quando você cria um cluster do AKS no portal do Azure ou usando o comando [criar az aks] [ az-aks-create], o Azure pode gerar uma entidade de serviço automaticamente.
+Quando você cria um cluster AKS no Azure portal ou usando o [criar az aks][az-aks-create] comando, o Azure pode gerar automaticamente uma entidade de serviço.
 
 No exemplo a seguir da CLI do Azure, uma entidade de serviço não foi especificada. Neste cenário, a CLI do Azure cria um entidade de serviço para o cluster do AKS. Para concluir a operação com êxito, sua conta do Azure deve ter os direitos necessários para criar uma entidade de serviço.
 
@@ -40,7 +40,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 
 ## <a name="manually-create-a-service-principal"></a>Criar uma entidade de serviço manualmente
 
-Para criar uma entidade de serviço com a CLI do Azure manualmente, use o comando [az ad sp create-for-rbac][az-ad-sp-create]. No exemplo abaixo, o parâmetro `--skip-assignment` impede que outras atribuições padrão sejam atribuídas:
+Para criar manualmente uma entidade de serviço com a CLI do Azure, use o [az ad sp create-for-rbac][az-ad-sp-create] comando. No exemplo abaixo, o parâmetro `--skip-assignment` impede que outras atribuições padrão sejam atribuídas:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
@@ -60,7 +60,7 @@ A saída deverá ser semelhante ao seguinte exemplo: Anote seu próprio `appId` 
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Especificar uma entidade de serviço para um cluster do AKS
 
-Para usar uma entidade de serviço existente quando você criar um cluster do AKS usando o comando [criar az aks][az-aks-create], use os parâmetros `--service-principal` e `--client-secret` para especificar o `appId` e a `password` da saída do comando [az ad sp create-for-rbac] [ az-ad-sp-create]:
+Para usar uma entidade de serviço existente quando você cria um cluster AKS usando o [criar az aks][az-aks-create] de comando, use o `--service-principal` e `--client-secret` parâmetros para especificar o `appId` e `password` da saída das [az ad sp create-for-rbac][az-ad-sp-create] comando:
 
 ```azurecli-interactive
 az aks create \
@@ -81,7 +81,7 @@ Se você implantar um cluster do AKS usando o portal do Azure, na página *Auten
 
 A entidade de serviço do cluster do AKS pode ser usada para acessar outros recursos. Por exemplo, se você quiser implantar o cluster AKS em uma sub-rede de rede virtual do Azure existente ou conecte-se ao registro de contêiner do Azure (ACR), você precisará Delegar acesso a esses recursos para a entidade de serviço.
 
-Para delegar permissões, criar uma atribuição de função usando o [criar atribuição de função az] [ az-role-assignment-create] comando. Atribuir o `appId` em um escopo específico, como um grupo de recursos ou recurso de rede virtual. Em seguida, uma função define quais permissões a entidade de serviço tem no recurso, conforme mostrado no exemplo a seguir:
+Para delegar permissões, criar uma atribuição de função usando o [atribuição de função az criar][az-role-assignment-create] comando. Atribuir o `appId` em um escopo específico, como um grupo de recursos ou recurso de rede virtual. Em seguida, uma função define quais permissões a entidade de serviço tem no recurso, conforme mostrado no exemplo a seguir:
 
 ```azurecli
 az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
@@ -93,29 +93,29 @@ As seções a seguir detalham as delegações comuns que talvez você precise fa
 
 ### <a name="azure-container-registry"></a>Registro de Contêiner do Azure
 
-Se você usar o ACR (Registro de Contêiner do Azure) como seu repositório de imagens, precisará conceder permissões para seu cluster do AKS ler e efetuar pull de imagens. A entidade de serviço do cluster do AKS deve ser receber a função *Leitor* no registro. Para conferir as etapas detalhadas, confira [Conceder ao AKS acesso ao ACR][aks-to-acr].
+Se você usar o ACR (Registro de Contêiner do Azure) como seu repositório de imagens, precisará conceder permissões para seu cluster do AKS ler e efetuar pull de imagens. A entidade de serviço do cluster do AKS deve ser receber a função *Leitor* no registro. Para obter etapas detalhadas, consulte [acesso de Grant AKS ao ACR][aks-to-acr].
 
 ### <a name="networking"></a>Rede
 
 Você pode usar os recursos de rede quando rede e a sub-rede virtuais, ou endereços IP públicos, estiverem em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
 
-- Crie uma [função personalizada][rbac-custom-role] e defina as permissões de função a seguir:
+- Criar uma [função personalizada][rbac-custom-role] e definir as permissões de função a seguir:
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
   - *Microsoft.Network/virtualNetworks/subnets/write*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
-- Ou, atribua a função interna [Colaborador de Rede][rbac-network-contributor] na sub-rede dentro da rede virtual
+- Ou, atribua o [Colaborador de rede][rbac-network-contributor] função interna na sub-rede dentro da rede virtual
 
 ### <a name="storage"></a>Armazenamento
 
 Talvez você precise acessar os recursos de disco existentes em outro grupo de recursos. Atribua um dos seguintes conjuntos de permissões de função:
 
-- Crie uma [função personalizada][rbac-custom-role] e defina as permissões de função a seguir:
+- Criar uma [função personalizada][rbac-custom-role] e definir as permissões de função a seguir:
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
-- Ou, atribua a função interna [Colaborador da Conta de Armazenamento][rbac-storage-contributor] no grupo de recursos
+- Ou, atribua o [colaborador da conta de armazenamento][rbac-storage-contributor] função interna no grupo de recursos
 
 ### <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
@@ -126,13 +126,13 @@ Se você usar o Virtual Kubelet para integrar-se ao AKS e optar por executar ACI
 Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as considerações a seguir.
 
 - A entidade de serviço para o Kubernetes é parte da configuração do cluster. No entanto, não use a identidade para implantar o cluster.
-- Por padrão, as credenciais da entidade de serviço são válidas por um ano. Você pode [atualizar ou girar as credenciais da entidade de serviço] [ update-credentials] a qualquer momento.
+- Por padrão, as credenciais da entidade de serviço são válidas por um ano. Você pode [atualizar ou girar as credenciais da entidade de serviço][update-credentials] a qualquer momento.
 - Cada entidade de serviço é associada a um aplicativo Azure AD. A entidade de serviço de um cluster Kubernetes pode ser associada a qualquer nome de aplicativo válido do Azure AD (por exemplo: *https://www.contoso.org/example* ). A URL para o aplicativo não precisa ser um ponto de extremidade real.
 - Ao especificar a **ID do cliente** da entidade de serviço, use o valor de `appId`.
 - No nó de agente VMs no cluster Kubernetes, as credenciais da entidade de serviço são armazenadas no arquivo. `/etc/kubernetes/azure.json`
-- Se você usar o comando [az aks create][az-aks-create] para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
-- Ao excluir um cluster do AKS que foi criado por [az aks create][az-aks-create], a entidade de serviço que foi criada automaticamente não será excluída.
-    - Para excluir a entidade de serviço, consulte o cluster *servicePrincipalProfile.clientId* e, em seguida, exclua-a com [az ad app delete][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
+- Quando você usa o [criar az aks][az-aks-create] comando para gerar a entidade de serviço automaticamente, o serviço de credenciais de entidade são gravadas no arquivo `~/.azure/aksServicePrincipal.json` no computador usado para executar o comando.
+- Quando você exclui um cluster do AKS que foi criado por [criar az aks][az-aks-create], a entidade de serviço que foi criada automaticamente não será excluída.
+    - Para excluir a entidade de serviço, consultar seu cluster *servicePrincipalProfile.clientId* e, em seguida, excluir com [exclusão de aplicativo do ad az][az-ad-app-delete]. Substitua os seguintes nomes de cluster e de grupo de recursos por seus próprios valores:
 
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
@@ -140,7 +140,7 @@ Ao usar o AKS e as entidades de serviço do Azure AD, tenha em mente as consider
 
 ## <a name="troubleshoot"></a>Solução de problemas
 
-A CLI do Azure armazenados em cache as credenciais de entidade de serviço para um cluster do AKS. Se essas credenciais expiraram, você encontrar erros de implantação de clusters AKS. A seguinte mensagem de erro ao executar [criar az aks] [ az-aks-create] pode indicar um problema com as credenciais da entidade de serviço em cache:
+A CLI do Azure armazenados em cache as credenciais de entidade de serviço para um cluster do AKS. Se essas credenciais expiraram, você encontrar erros de implantação de clusters AKS. A seguinte mensagem de erro ao executar [criar az aks][az-aks-create] pode indicar um problema com as credenciais da entidade de serviço em cache:
 
 ```console
 Operation failed with status: 'Bad Request'.
@@ -158,7 +158,7 @@ O tempo de expiração padrão para as credenciais da entidade de serviço é um
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre entidades de serviço do Azure Active Directory, consulte [aplicativo e objetos de entidade de serviço][service-principal].
+Para obter mais informações sobre entidades de serviço do Azure Active Directory, consulte [objetos de entidade de serviço e aplicativo][service-principal].
 
 Para obter informações sobre como atualizar as credenciais, consulte [atualizar ou girar as credenciais para uma entidade de serviço no AKS][update-credentials].
 

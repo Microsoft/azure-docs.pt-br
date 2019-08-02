@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e62eb862cf6d6760ca67b9e948a724b16303e89
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799200"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305632"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar seus vídeos  
 
@@ -23,7 +23,7 @@ Ao carregar vídeos com a API do Video Indexer, você tem as seguintes opções 
 
 * Carregue o vídeo de uma URL (preferido),
 * envie o arquivo de vídeo como uma matriz de bytes no corpo da solicitação,
-* Usar o ativo de serviços de mídia do Azure existente, fornecendo os [ID do ativo](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (suporte somente para contas pagas).
+* Use o ativo dos serviços de mídia do Azure existente fornecendo a [ID do ativo](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (com suporte somente em contas pagas).
 
 O artigo mostra como usar a API [Fazer upload de vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para fazer upload e indexar seus vídeos com base em um URL. O exemplo de código no artigo inclui o código comentado que mostra como carregar a matriz de bytes. <br/>O artigo também discute alguns dos parâmetros que você pode definir na API para alterar o processo e a saída da API.
 
@@ -32,13 +32,13 @@ Depois que o vídeo tiver sido carregado, o Video Indexer codificará opcionalme
 ## <a name="uploading-considerations"></a>Carregando considerações
 
 - Ao fazer o upload do seu vídeo com base no URL (preferencial), o endpoint deve ser protegido com o TLS 1.2 (ou superior)
-- O tamanho de carregamento com a opção de URL é limitado a 30GB
+- O tamanho do carregamento com a opção de URL é limitado a 30 GB
 - O comprimento da URL de solicitação é limitado a 2048 caracteres
 - O tamanho de upload com a opção de matriz de bytes é limitado a 2 GB
 - A opção de matriz de bytes atinge o tempo limite após 30 min
 - A URL fornecida no `videoURL` param precisa ser codificado
-- Indexação de ativos de serviços de mídia tem a mesma limitação como a indexação de URL
-- Indexador de vídeo tem um limite de duração máxima de 4 horas para um único arquivo
+- A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL
+- Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo
 
 > [!Tip]
 > É recomendável usar o .NET Framework versão 4.6.2. ou superior porque versões mais antigas do .NET Framework não usam TLS 1.2 por padrão.
@@ -60,22 +60,22 @@ Uma URL usada para notificar o cliente (usando uma solicitação POST) sobre os 
 - Alteração de estado de indexação: 
     - Propriedades:    
     
-        |NOME|DESCRIÇÃO|
+        |Nome|DESCRIÇÃO|
         |---|---|
         |id|A ID do vídeo|
-        |estado|O estado do vídeo|  
-    - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+        |state|O estado do vídeo|  
+    - Exemplo: https:\//Test.com/Notifyme?projectName=MyProject&ID=1234abcd&State=Processed
 - Pessoa identificada no vídeo:
-  - propriedades
+  - Propriedades
     
-      |NOME|DESCRIÇÃO|
+      |Nome|DESCRIÇÃO|
       |---|---|
       |id| A ID do vídeo|
       |faceId|A identificação de face que aparece no índice de vídeo|
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de detecção facial|
       |personName|O nome da pessoa|
         
-    - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemplo: https:\//Test.com/Notifyme?projectName=MyProject&ID=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### <a name="notes"></a>Observações
 
@@ -291,4 +291,4 @@ Os códigos de status listados na tabela a seguir podem ser retornados pela oper
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Examine a saída do indexador de vídeo do Azure produzida pela API](video-indexer-output-json-v2.md)
+[Examinar a saída do Video Indexer do Azure produzida pela API](video-indexer-output-json-v2.md)

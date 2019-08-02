@@ -1,6 +1,6 @@
 ---
-title: Visão geral dos aprimoramentos de mensagem do IoT Hub do Azure
-description: Visão geral dos aprimoramentos de mensagem para mensagens do IoT Hub do Azure
+title: Visão geral dos aprimoramentos de mensagens do Hub IoT do Azure
+description: Visão geral dos aprimoramentos de mensagem para mensagens do Hub IoT do Azure
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,81 +8,86 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 13e35ab93fc37541548785c6355489eaf3a3efc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e24489ad2909879b035a08316e66788034e99bc
+ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754554"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68377203"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Aprimoramentos de mensagem para mensagens do IoT Hub do dispositivo para nuvem (visualização)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem (versão prévia)
 
-*Aprimoramentos da mensagem* é a capacidade do IoT Hub *carimbo de data /* mensagens com informações adicionais antes que as mensagens são enviadas ao ponto de extremidade designado. Um motivo para usar os aprimoramentos de mensagem é para incluir dados que podem ser usados para simplificar o processamento de downstream. Por exemplo, enriquecer mensagens de telemetria do dispositivo com uma marca de gêmeo de dispositivo pode reduzir a carga sobre os clientes façam chamadas de API para obter essas informações do dispositivo gêmeo.
+Os aprimoramentos de *mensagens* são a capacidade do Hub IOT de *carimbar* mensagens com informações adicionais antes que as mensagens sejam enviadas para o ponto de extremidade designado. Um motivo para usar os aprimoramentos de mensagem é incluir dados que possam ser usados para simplificar o processamento de downstream. Por exemplo, enriquecer mensagens de telemetria do dispositivo com uma marca de dispositivo de Altova pode reduzir a carga em clientes para fazer chamadas à API do dispositivo.
 
-![Aprimoramentos de mensagem de fluxo](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
+![Fluxo de aprimoramentos de mensagens](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
-O enriquecimento da mensagem tem três elementos principais:
+Um enriquecimento de mensagem tem três elementos principais:
 
-* Enriquecimento nome ou chave
+* Nome ou chave de enriquecimento
 
 * Um valor
 
-* Um ou mais [pontos de extremidade](iot-hub-devguide-endpoints.md) para que o enriquecimento deve ser aplicado.
+* Um ou mais [pontos de extremidade](iot-hub-devguide-endpoints.md) para os quais o enriquecimento deve ser aplicado.
 
 A chave pode ser qualquer cadeia de caracteres.
 
-O valor pode ser qualquer um dos exemplos a seguir:
+O valor pode ser qualquer um dos seguintes exemplos:
 
-* Qualquer cadeia de caracteres estática. Os valores dinâmicos, como condições, lógica, operações e funções não são permitidos. Por exemplo, se você desenvolver um aplicativo SaaS que é usado por vários clientes, você pode atribuir um identificador para cada cliente e disponibilizar esse identificador no aplicativo. Quando o aplicativo é executado, o IoT Hub será carimbar o dispositivo de mensagens de telemetria com o identificador do cliente, tornando possível processar as mensagens de forma diferente para cada cliente.
+* Qualquer cadeia de caracteres estática. Valores dinâmicos, como condições, lógica, operações e funções, não são permitidos. Por exemplo, se você desenvolver um aplicativo SaaS que é usado por vários clientes, poderá atribuir um identificador a cada cliente e torná-lo disponível no aplicativo. Quando o aplicativo for executado, o Hub IoT carimbará as mensagens de telemetria do dispositivo com o identificador do cliente, tornando possível processar as mensagens de forma diferente para cada cliente.
 
-* Informações do dispositivo gêmeo, como o seu caminho. Exemplos seriam *$twin.tags.field* e *$twin.tags.latitude*.
+* O nome do Hub IoT que envia a mensagem. Esse valor é *$iothubname*.
 
-* O nome do hub IoT enviar a mensagem. Esse valor é *$iothubname*.
+* Informações do dispositivo de dados, como seu caminho. Os exemplos são *$Twin. Tags. Field* e *$Twin. Tags. latitude*.
 
-## <a name="applying-enrichments"></a>Aprimoramentos de aplicação
+   > [!NOTE]
+   > Neste momento, somente $iothubname, $twin. Tags, $twin. Properties. Desired e $twin. Properties. Reported são variáveis com suporte para o enriquecimento de mensagens.
 
-As mensagens podem vir de qualquer fonte de dados com suporte pelo [roteamento de mensagens do IoT Hub](iot-hub-devguide-messages-d2c.md), incluindo os exemplos a seguir:
+Os aprimoramentos de mensagens são adicionados como propriedades do aplicativo às mensagens enviadas para os pontos de extremidade escolhidos.  
 
-* Telemetria do dispositivo, como temperatura ou pressão
-* notificações de alteração de gêmeo do dispositivo – as alterações no dispositivo gêmeo
-* eventos de ciclo de vida do dispositivo, como quando o dispositivo é criado ou excluído
+## <a name="applying-enrichments"></a>Aplicando aprimoramentos
 
-Você pode adicionar aprimoramentos para mensagens que serão o ponto de extremidade interno de um IoT Hub, ou que estão sendo roteadas para os pontos de extremidade personalizados, como o armazenamento de BLOBs do Azure, uma fila do barramento de serviço ou um tópico do barramento de serviço.
+As mensagens podem vir de qualquer fonte de dados com suporte no [Roteamento de mensagens do Hub IOT](iot-hub-devguide-messages-d2c.md), incluindo os seguintes exemplos:
 
-Você também pode adicionar aprimoramentos para as mensagens que estão sendo publicadas, selecionando o ponto de extremidade como a grade de eventos à grade de eventos. Para obter mais informações, consulte [Iot Hub e a grade de eventos](iot-hub-event-grid.md).
+* telemetria do dispositivo, como temperatura ou pressão
+* notificações de alteração de troca de dispositivo--alterações no dispositivo.
+* eventos do ciclo de vida do dispositivo, como quando o dispositivo é criado ou excluído
 
-Aprimoramentos são aplicados por ponto de extremidade. Se você especificar cinco aprimoramentos ser marcada para um ponto de extremidade específico, todas as mensagens enviadas para esse ponto de extremidade são marcadas com os mesmos aprimoramentos de cinco.
+Você pode adicionar aprimoramentos a mensagens que vão para o ponto de extremidade interno de um hub IoT ou mensagens que estão sendo roteadas para pontos de extremidades personalizados, como o armazenamento de BLOBs do Azure, uma fila do barramento de serviço ou um tópico do barramento de serviço.
 
-Para ver como experimentar os aprimoramentos de mensagem, consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md)
+Você também pode adicionar aprimoramentos às mensagens que estão sendo publicadas na grade de eventos selecionando o ponto de extremidade como grade de eventos. Para obter mais informações, consulte [Hub IOT e grade de eventos](iot-hub-event-grid.md).
+
+Os aprimoramentos são aplicados por ponto de extremidade. Se você especificar cinco aprimoramentos a serem carimbados para um ponto de extremidade específico, todas as mensagens que vão para esse ponto de extremidade serão carimbadas com os mesmos cinco aprimoramentos.
+
+Para ver como experimentar os aprimoramentos de mensagens, consulte o tutorial de aprimoramentos de [mensagem](tutorial-message-enrichments.md)
 
 ## <a name="limitations"></a>Limitações
 
-* Você pode adicionar até 10 aprimoramentos por IoT Hub para os hubs na camada standard ou básica. Para os Hubs IoT na camada gratuita, você pode adicionar até 2 aprimoramentos.
+* Você pode adicionar até 10 aprimoramentos por Hub IoT para esses hubs na camada Standard ou básica. Para os hubs IoT na camada gratuita, você pode adicionar até 2 aprimoramentos.
 
-* Em alguns casos, se você estiver aplicando um aprimoramento com um valor definido como uma marca ou propriedade no dispositivo gêmeo, o valor será marcado como um valor de cadeia de caracteres. Por exemplo, se um valor de enriquecimento é definido como $twin.tags.field, as mensagens serão carimbadas com a cadeia de caracteres "$twin.tags.field" em vez do valor do campo do gêmeo. Isso acontece nos seguintes casos:
+* Em alguns casos, se você estiver aplicando um enriquecimento com um valor definido para uma marca ou propriedade no dispositivo de texto, o valor será marcado como um valor de cadeia de caracteres. Por exemplo, se um valor de enriquecimento for definido como $twin. Tags. Field, as mensagens serão carimbadas com a cadeia de caracteres "$twin. Tags. Field" em vez do valor desse campo a partir de o texto. Isso acontece nos seguintes casos:
 
-   * O IoT Hub está na camada básica. Hubs de IoT de camada básica não dão suporte a dispositivos gêmeos.
+   * O Hub IoT está na camada básica. Os hubs IoT da camada básica não dão suporte a dispositivos gêmeos.
 
-   * O IoT Hub está na camada standard, mas o dispositivo que envia a mensagem não tem nenhum dispositivo gêmeo.
+   * O Hub IoT está na camada Standard, mas o dispositivo que está enviando a mensagem não tem nenhum dispositivo.
 
-   * O IoT Hub está na camada standard, mas o caminho do dispositivo gêmeo usado para o valor o enriquecimento de não existe. Por exemplo, se o valor de enriquecimento é definido como $twin.tags.location e o dispositivo gêmeo não tem uma propriedade de local nas marcas, a mensagem é marcada com a cadeia de caracteres "$twin.tags.location". 
+   * O Hub IoT está na camada Standard, mas o caminho de Altova do dispositivo usado para o valor do enriquecimento não existe. Por exemplo, se o valor de enriquecimento for definido como $twin. Tags. Location e o dispositivo "r" não tiver uma propriedade Location em marcas, a mensagem será carimbada com a cadeia de caracteres "$twin. Tags. Location". 
 
-* Atualizações para um dispositivo gêmeo podem levar até cinco minutos para ser refletida no valor enriquecimento correspondente.
+* As atualizações em um dispositivo de atualização podem levar até cinco minutos para serem refletidas no valor de enriquecimento correspondente.
 
-* O tamanho total de mensagens, incluindo aprimoramentos, não pode exceder 256 KB. Se um tamanho de mensagem exceder 256 KB, o IoT Hub descartará a mensagem. Você pode usar [métricas do IoT Hub](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são descartadas. Por exemplo, você pode monitorar d2c.telemetry.egress.invalid.
+* O tamanho total da mensagem, incluindo os aprimoramentos, não pode exceder 256 KB. Se um tamanho de mensagem exceder 256 KB, o Hub IoT removerá a mensagem. Você pode usar [métricas do Hub IOT](iot-hub-metrics.md) para identificar e depurar erros quando as mensagens são descartadas. Por exemplo, você pode monitorar D2C. telemetria. egresso. Invalid.
 
 ## <a name="pricing"></a>Preços
 
-Aprimoramentos de mensagem estão disponíveis sem nenhum custo adicional. No momento, você será cobrado quando você envia uma mensagem para um IoT Hub. Você é cobrado apenas uma vez para a mensagem, mesmo se a mensagem é enviada para vários pontos de extremidade.
+Os aprimoramentos de mensagens estão disponíveis sem custo adicional. Atualmente, você é cobrado quando envia uma mensagem para um hub IoT. Você é cobrado apenas uma vez por essa mensagem, mesmo que a mensagem vá para vários pontos de extremidade.
 
 ## <a name="availability"></a>Disponibilidade
 
-Esse recurso está disponível em visualização e está disponível em todas as regiões, exceto o Leste dos EUA, oeste dos EUA, Europa Ocidental, [do Azure governamental](/azure/azure-government/documentation-government-welcome), [do Azure na China 21Vianet](/azure/china), e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
+Essa funcionalidade está disponível na versão prévia e está disponível em todas as regiões, exceto leste dos EUA, oeste dos EUA, Europa Ocidental, [Azure governamental](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china)e [Azure Alemanha](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Confira estes artigos para obter mais informações sobre como rotear mensagens para um IoT Hub:
+Confira estes artigos para obter mais informações sobre como rotear mensagens para um hub IoT:
 
-* [Usar o roteamento de mensagens do IoT Hub para enviar mensagens do dispositivo para nuvem para pontos de extremidade diferentes](iot-hub-devguide-messages-d2c.md)
+* [Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade](iot-hub-devguide-messages-d2c.md)
 
-* [Tutorial: Roteamento do IoT Hub](tutorial-routing.md)
+* [Tutorial: Roteamento do Hub IoT](tutorial-routing.md)

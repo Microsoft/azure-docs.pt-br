@@ -1,21 +1,20 @@
 ---
-title: Manipulação de tipos de conteúdo - Aplicativos lógicos do Azure | Microsoft Docs
+title: Manipular tipos de conteúdo-aplicativos lógicos do Azure
 description: Saiba como os Aplicativos Lógicos manipulam tipos de conteúdo em tempo de design e tempo de execução
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a9318317d5a01136a42b4fb6d580bafaf53ec4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.topic: conceptual
+ms.date: 07/20/2018
+ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685709"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868925"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Manipular tipos de conteúdo em Aplicativos Lógicos do Azure
 
@@ -30,7 +29,7 @@ Para determinar a maneira apropriada de manipular tipos de conteúdo, os Aplicat
 
 <a name="application-json"></a>
 
-## <a name="applicationjson"></a>aplicativo/json
+## <a name="applicationjson"></a>application/json
 
 Os Aplicativos Lógicos armazenam e manipulam qualquer solicitação com o tipo de conteúdo *aplicativo/json* como um objeto JSON (JavaScript Object Notation). Por padrão, é possível analisar o conteúdo do JSON sem qualquer conversão. Para analisar uma solicitação que tenha um cabeçalho com o tipo de conteúdo "application/json", é possível usar uma expressão. Este exemplo retorna o valor `dog` da matriz `animal-type` sem conversão: 
  
@@ -140,15 +139,16 @@ Para preservar alguns tipos de dados, os Aplicativos Lógicos convertem o conte�
 
 Esta lista descreve como os Aplicativos Lógicos convertem o conteúdo quando você usa as seguintes [funções](../logic-apps/workflow-definition-language-functions-reference.md):
 
-* `json()`: Conversões de dados para `application/json`
-* `xml()`: Conversões de dados para `application/xml`
-* `binary()`: Conversões de dados para `application/octet-stream`
-* `string()`: Conversões de dados para `text/plain`
-* `base64()`: Converte o conteúdo em uma cadeia de caracteres base64
-* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 `text/plain`
-* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 `application/octet-stream`
-* `encodeDataUri()`: Codifica uma cadeia de caracteres como uma matriz de bytes dataUri
-* `decodeDataUri()`: Decodifica um `dataUri` em uma matriz de bytes
+* `json()`: Converte dados em`application/json`
+* `xml()`: Converte dados em`application/xml`
+* `binary()`: Converte dados em`application/octet-stream`
+* `string()`: Converte dados em`text/plain`
+* `base64()`: Converte o conteúdo em uma cadeia de caracteres codificada em base64
+* `base64toString()`: Converte uma cadeia de caracteres codificada em base64 em`text/plain`
+* `base64toBinary()`: Converte uma cadeia de caracteres codificada em base64 em`application/octet-stream`
+* `dataUri()`: Converte uma cadeia de caracteres em um URI de dados
+* `dataUriToBinary()`: Converte um URI de dados em uma cadeia de caracteres binária
+* `dataUriToString()`: Converte um URI de dados em uma cadeia de caracteres
 
 Por exemplo, se você receber uma solicitação HTTP em que `Content-Type` é definido como `application/xml`, tal como este conteúdo:
 

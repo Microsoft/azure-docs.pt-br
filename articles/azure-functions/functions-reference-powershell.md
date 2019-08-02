@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
-ms.openlocfilehash: fa82725174645a0e5f1d957d8423c97547682542
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: tyleonha
+ms.reviewer: glenga
+ms.openlocfilehash: a75bdaf0e26193a5b2792b52923c085eff89b83f
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065490"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706408"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do PowerShell de funções do Azure
 
@@ -58,7 +59,7 @@ PSFunctionApp
 
 Na raiz do projeto, há um compartilhado [ `host.json` ](functions-host-json.md) arquivo que pode ser usado para configurar o aplicativo de funções. Cada função tem uma pasta com seu próprio arquivo de código (. ps1) e o arquivo de configuração de associação (`function.json`). O nome da pasta pai do arquivo de Function. JSON é sempre o nome da sua função.
 
-Determinadas associações exigem a presença de um `extensions.csproj` arquivo. Associando extensões, necessárias no [versão 2. x](functions-versions.md) de tempo de execução de funções, são definidos na `extensions.csproj` arquivo, com os arquivos de biblioteca real no `bin` pasta. Ao desenvolver localmente, você precisa [registrar as extensões de associação](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
+Determinadas associações exigem a presença de um `extensions.csproj` arquivo. Associando extensões, necessárias no [versão 2. x](functions-versions.md) de tempo de execução de funções, são definidos na `extensions.csproj` arquivo, com os arquivos de biblioteca real no `bin` pasta. Ao desenvolver localmente, você precisa [registrar as extensões de associação](functions-bindings-register.md#extension-bundles). Ao desenvolver funções no portal do Azure, esse registro é feito para você.
 
 Em aplicativos de funções do PowerShell, você pode, opcionalmente, ter uma `profile.ps1` que é executado quando um aplicativo de função começa a ser executado (caso contrário, conhecido como um  *[inicialização a frio](#cold-start)* . Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
 
@@ -81,7 +82,7 @@ O `TriggerMetadata` parâmetro é usado para fornecer informações adicionais s
 $TriggerMetadata.sys
 ```
 
-| Propriedade   | Description                                     | Type     |
+| Propriedade   | Description                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, no UTC, a função foi disparada        | DateTime |
 | MethodName | O nome da função que foi disparado     | cadeia de caracteres   |
@@ -133,10 +134,10 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Estes são os parâmetros válidos para a chamada `Push-OutputBinding`:
 
-| NOME | Type | Position | DESCRIÇÃO |
+| Nome | Tipo | Position | DESCRIÇÃO |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Cadeia de caracteres | 1 | O nome da associação de saída que você deseja definir. |
-| **`-Value`** | Object | 2 | O valor da associação de saída você deseja definir, que é aceito na pipeline ByValue. |
+| **`-Name`** | string | 1 | O nome da associação de saída que você deseja definir. |
+| **`-Value`** | Objeto | 2 | O valor da associação de saída você deseja definir, que é aceito na pipeline ByValue. |
 | **`-Clobber`** | SwitchParameter | nomeado | (Opcional) Quando especificado, obrigará o valor a ser definido para uma associação de saída especificado. | 
 
 Também há suporte para os seguintes parâmetros comuns: 
@@ -302,7 +303,7 @@ HTTP e gatilhos de webhook e associações de saída HTTP usam objetos de solici
 
 O objeto de solicitação que é passado para o script é do tipo `HttpRequestContext`, que tem as seguintes propriedades:
 
-| Propriedade  | Description                                                    | Type                      |
+| Propriedade  | Description                                                    | Tipo                      |
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo da solicitação. `Body` é serializado no melhor tipo com base nos dados. Por exemplo, se os dados JSON, ele é passado como uma tabela de hash. Se os dados forem uma cadeia de caracteres, ele é passado como uma cadeia de caracteres. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de solicitação.                | Dicionário < cadeia de caracteres, cadeia de caracteres ><sup>*</sup> |
@@ -317,7 +318,7 @@ O objeto de solicitação que é passado para o script é do tipo `HttpRequestCo
 
 O objeto de resposta que você deve enviar de volta é do tipo `HttpResponseContext`, que tem as seguintes propriedades:
 
-| Propriedade      | Description                                                 | Type                      |
+| Propriedade      | Description                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
 | **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | cadeia de caracteres                    |
@@ -602,7 +603,7 @@ O script é executado em cada invocação. Evite usar `Install-Module` em seu sc
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais, consulte os recursos a seguir:
+Para obter mais informações, consulte os seguintes recursos:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)

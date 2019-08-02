@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: b9e249885bd0e930773d4b374f85d72e60abdbdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6097dba9193fce4c8158137b488080107881994a
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66427748"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839772"
 ---
-# <a name="azure-data-box-heavy-system-requirements-preview"></a>Requisitos de sistema pesadas de caixa de dados do Azure (visualização)
+# <a name="azure-data-box-heavy-system-requirements"></a>Requisitos de sistema pesadas de caixa de dados do Azure
 
 Este artigo descreve os requisitos de sistema importantes para seu dispositivo pesada de caixa de dados do Azure e para clientes que se conectam ao dispositivo. Recomendamos que você examine as informações com atenção antes de implantar seu pesada de caixa de dados e, em seguida, voltar a ela conforme necessário durante a implantação e operação subsequente.
 
@@ -51,6 +51,12 @@ Os requisitos de software incluem as informações sobre os sistemas operacionai
 ## <a name="networking-requirements"></a>Requisitos de rede
 
 Seu datacenter deve ter uma rede de alta velocidade. Para velocidades de cópia mais rápidas, duas conexões de 40 GbE podem ser utilizadas em paralelo (uma por nó). Se você não tenha 40-GbE disponível, recomendamos que você tenha pelo menos duas conexões de 10 GbE (uma por nó).
+
+### <a name="port-requirements"></a>Requisitos de porta
+
+A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego SMB ou NFS. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *-Out* ou *saída* refere-se à direção na qual o seu dispositivo pesada de caixa de dados envia dados externamente, além da implantação: por exemplo, saída à Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

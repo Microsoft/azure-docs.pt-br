@@ -21,6 +21,8 @@
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: Usar o SDK do .NET
       items:
+        - name: Criar e gerenciar um aplicativo
+          href: sdk-csharp-quickstart-authoring-app.md
         - name: Ponto de extremidade de previsão da consulta
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
     - name: Usar APIs REST
@@ -85,12 +87,24 @@
           displayName: roles
         - name: Extrair dados de forma livre
           href: luis-tutorial-pattern-any.md
-    - name: Usar a estrutura de bot V4
+    - name: Usar com o bot
       items:
         - name: 'Com C#'
-          href: luis-csharp-tutorial-bf-v4.md
+          items:
+            - name: 1. Criar bot básico
+              href: luis-csharp-tutorial-bf-v4.md
+              displayName: 'bot framework, framework, sdk, abs'
+            - name: 2. Adicionar telemetria no Application Insights
+              href: luis-tutorial-bot-csharp-appinsights.md
+              displayName: 'Application insight, kusto'
         - name: Com Node.js
-          href: luis-nodejs-tutorial-bf-v4.md
+          items:
+            - name: 1. Criar bot básico
+              displayName: 'bot framework, framework, sdk, abs'
+              href: luis-nodejs-tutorial-bf-v4.md
+            - name: 2. Adicionar telemetria no Application Insights
+              displayName: 'Application insight, kusto'
+              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -200,14 +214,6 @@
           href: luis-tutorial-bing-spellcheck.md
         - name: Com Serviço de fala
           href: ../speech-service/how-to-recognize-intents-from-speech-csharp.md?toc=/azure/cognitive-services/luis/toc.json&bc=/azure/cognitive-services/luis/breadcrumb/toc.json
-        - name: Bot com o Application Insights
-          items:
-            - name: Node.js
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
-            - name: 'C#'
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-csharp-appinsights.md
     - name: Melhorar a precisão da previsão
       items:
         - name: Usando o dashboard
@@ -254,7 +260,7 @@
           href: luis-migration-api-v1-to-v2.md
         - name: Migrar para API REST V3
           href: luis-migration-api-v3.md
-          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference'
+          displayName: 'json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override'
     - name: Usar contêineres
       items:
         - name: Instalar e executar contêineres
@@ -262,6 +268,8 @@
           href: luis-container-howto.md
         - name: Configurar contêineres
           href: luis-container-configuration.md
+        - name: Usar instâncias de contêiner
+          href: deploy-luis-on-container-instances.md
 - name: Referência
   items:
     - name: Privacidade do usuário
@@ -298,6 +306,8 @@
           href: luis-reference-prebuilt-number.md
         - name: Entidade ordinal
           href: luis-reference-prebuilt-ordinal.md
+        - name: Entidade do ordinal V2
+          href: luis-reference-prebuilt-ordinal-v2.md
         - name: Entidade de percentual
           href: luis-reference-prebuilt-percentage.md
         - name: Entidade PersonName
@@ -311,6 +321,18 @@
     - name: Referência de domínio predefinido
       href: luis-reference-prebuilt-domains.md
       displayName: 'Calendar, Communication,Email,HomeAutomation,Note,Places, RestaurantReservation,ToDo,Utilities,Weather,Web'
+    - name: Referência de entidade personalizada
+      items:
+        - name: Entidade composta
+          href: reference-entity-composite.md
+        - name: Entidade de lista
+          href: reference-entity-list.md
+        - name: Entidade pattern.any
+          href: reference-entity-pattern-any.md
+        - name: Entidade de expressão regular
+          href: reference-entity-regular-expression.md
+        - name: Entidade simples
+          href: reference-entity-simple.md
     - name: CLI do Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092156'
     - name: PowerShell do Azure RM

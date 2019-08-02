@@ -8,12 +8,12 @@ manager: barbkess
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: 00274f8e15006f6f58a7c5f153bf0bbc0d26afb9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45499dac3cc50e2b6e79f9ebcb1bc3e7b4330beb
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416430"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165844"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -73,6 +73,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Armazenamento do Azure|[Criptografia do Serviço de Armazenamento usando chaves gerenciadas pelo cliente no Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Repositório Azure Data Lake|[Criptografia de dados no Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) com uma chave gerenciada pelo cliente.|
 |Azure Databricks|[Serviço de análise rápida, fácil e colaborativa, com base no Apache Spark](../azure-databricks/what-is-azure-databricks.md)|
+|Gerenciamento de API do Azure|[Implantar certificados para o domínio personalizado do Key Vault usando o MSI](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 
 
 

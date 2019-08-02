@@ -4,26 +4,44 @@ description: SKUs para SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/20/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b80f872c82061c0cb87f4f1e2714183e71cf02cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7961578a1daf67176312d4257a4e86a7091082f0
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794012"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869245"
 ---
 # <a name="available-skus-for-hli"></a>SKUs disponíveis para HLI
 
-O serviço SAP HANA no Azure (Instâncias Grandes) está disponível em várias configurações nas regiões Azure do Oeste dos EUA e Leste dos EUA, Leste da Austrália, Sudeste da Austrália, Europa Ocidental, Norte da Europa, Leste do Japão e Oeste do Japão.
+SAP HANA no serviço do Azure (instâncias grandes) com base em carimbos de revisão 3 está disponível em várias configurações nas regiões do Azure de:
+
+- Oeste dos EUA
+- East US
+- Leste da Austrália
+- Sudeste da Austrália
+- Europa Ocidental
+- Norte da Europa
+- Leste do Japão
+- Oeste do Japão
+
+SAP HANA no serviço do Azure (instâncias grandes) com base na revisão 4 carimbos está disponível em várias configurações nas regiões do Azure de:
+
+- Oeste dos EUA 2
+- East US
+- Europa Ocidental
+- Norte da Europa
+
+
 
 [SKUs certificados pelo SAP HANA de instâncias grandes do HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) listam como:
 
@@ -43,12 +61,12 @@ O serviço SAP HANA no Azure (Instâncias Grandes) está disponível em várias 
 |---| SAP HANA no Azure S960m<br /> – 20 x processadores Intel® Xeon® E7-8890 v4<br /> 480 núcleos de CPU e 960 threads de CPU |  20,0 TB |  46 TB | Disponível |
 
 
-No SAP HANA TDIv5, a SAP permite dimensionamentos específicos do cliente e projetos específicos do cliente, o que pode levar a configurações do servidor que não estão listadas como certificadas em:
+Em SAP HANA TDIv5, o SAP permite o dimensionamento específico do cliente e projetos específicos do cliente, o que pode levar a configurações do servidor, que não estão listadas como certificadas no:
 
 - [Appliances certificados SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
 - [Plataformas IaaS certificadas pelo SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-Em muitos casos, essas configurações de servidor específicas do cliente carregam mais memória do que as unidades de servidor certificadas com o SAP. Ao trabalhar com a SAP, os clientes têm a possibilidade de obter suporte SAP e certificar suas configurações de servidor de tamanho específico do cliente. No Azure, os SKUs padrão do HANA Large Instance a seguir estão disponíveis e na lista de preços da Microsoft para esses projetos de dimensionamento específicos ao cliente do TDIv5.
+Em muitos casos, essas configurações de servidor específicas do cliente carregam mais memória do que as unidades de servidor certificadas com o SAP. Ao trabalhar com a SAP, os clientes têm a possibilidade de obter suporte SAP e certificar suas configurações de servidor de tamanho específico do cliente. No Azure, os SKUs padrão do SAP HANA em instâncias grandes estão disponíveis e na lista de preços da Microsoft para esses projetos de dimensionamento específicos do cliente TDIv5.
 
 | SKU|CPU | Memória | Armazenamento | Disponibilidade |
 | ---| --- | --- | --- | --- |
@@ -72,7 +90,7 @@ As configurações específicas de escolhido dependem da carga de trabalho, recu
 A base de hardware para as ofertas, exceto unidades para projetos de dimensionamento específicos do cliente, é certificada pelo SAP HANA TDI. Duas classes diferentes de hardware dividem as SKUs em:
 
 - S72, S72m, S96, S144, S144m, S192, S192m e S192m, que são chamados de "Classe Tipo I" de SKUs.
-- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que são chamados de "Classe Tipo II" de SKUs.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm e S960m, que são chamados de "classe do tipo II" de SKUs.
 
 Um carimbo do SAP HANA em Instâncias Grandes completo não é alocado exclusivamente para uso de um único cliente. Esse fato se aplica aos racks de recursos de computação e armazenamento conectados por meio de uma malha de rede implantada no Azure também. A infraestrutura do SAP HANA em Instâncias Grandes, como o Azure, implanta &quot;locatários&quot; diferentes do cliente isolados uns dos outros nos três níveis a seguir:
 

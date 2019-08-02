@@ -18,7 +18,7 @@
   items:
     - name: Linux
       href: features-linux.md
-    - name: ' Windows'
+    - name: Windows
       href: features-windows.md
 - name: Guias de instruções
   items:
@@ -26,13 +26,17 @@
       items:
         - name: Linux
           href: azure-disk-enc-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: azure-disk-enc-windows.md
+    - name: Backup do Azure para SQL Server
+      items:
+        - name: Backup do Azure para SQL Server
+          href: backup-azure-sql-server-running-azure-vm.md
     - name: Custom Script
       items:
         - name: Linux — Versão 2
           href: custom-script-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: custom-script-windows.md
     - name: Antimalware de IaaS do Windows
       href: iaas-antimalware-windows.md
@@ -40,25 +44,25 @@
       items:
         - name: Linux
           href: vmsnapshot-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: vmsnapshot-windows.md
     - name: Agente do observador de rede
       items:
         - name: Linux
           href: network-watcher-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: network-watcher-windows.md
     - name: Drivers de GPU NVIDIA
       items:
         - name: Linux
           href: hpccompute-gpu-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: hpccompute-gpu-windows.md
     - name: Log Analytics
       items:
         - name: Linux
           href: oms-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: oms-windows.md
     - name: Azure Monitor para VMs
       items:
@@ -83,7 +87,7 @@
       items:
         - name: Linux
           href: diagnostics-linux.md
-        - name: ' Windows'
+        - name: Windows
           href: diagnostics-windows.md
         - name: Usar modelos
           href: diagnostics-template.md
@@ -107,7 +111,7 @@
       items:
         - name: Linux
           href: extensions-rmpolicy-howto-cli.md
-        - name: ' Windows'
+        - name: Windows
           href: extensions-rmpolicy-howto-ps.md
     - name: Atualizar agente do Linux
       href: update-linux-agent.md

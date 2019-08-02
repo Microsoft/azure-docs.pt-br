@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 042277899ff22066cfa890e64f5c6c0f2e0134f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080469"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67428311"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador da solução Connected Factory
 
@@ -29,7 +29,7 @@ Cada fábrica da Contoso tem linhas de produção compostas por três estações
 * Estação de teste
 * Estação de empacotamento
 
-Esses servidores OPC UA têm nós OPC UA e o [Editor de OPC](https://github.com/Azure/iot-edge-opc-publisher) envia os valores desses nós a uma Connected Factory. Isso inclui:
+Esses servidores OPC UA têm nós OPC UA e o [Editor de OPC](overview-opc-publisher.md) envia os valores desses nós a uma Connected Factory. Isso inclui:
 
 * Status operacional atual, como o consumo de energia atual.
 * Informações de produção, como o número de produtos produzidos.
@@ -267,7 +267,7 @@ As propriedades nesta categoria definem a aparência do painel Connected Factory
 * NOME
 * DESCRIÇÃO
 * Image
-* Local padrão
+* Location
 * Unidades
 * Visible
 
@@ -307,7 +307,7 @@ Para determinadas operações, como visualizar o último valor ou criar consulta
 
   Identifica o valor do nó do servidor de OPC UA. O formato da propriedade deve ser conforme especificado na especificação do OPC UA. Nas mensagens ingeridas, essa propriedade é enviada como **NodeId**.
 
-Verifique [esta](https://github.com/Azure/iot-edge-opc-publisher) página do GitHub para obter mais informações sobre como os dados de telemetria são ingeridos na Connected Factory usando o Editor de OPC.
+Ver [o que é o publicador de OPC](overview-opc-publisher.md) para obter mais informações sobre como os dados de telemetria são ingeridos na fábrica conectada.
 
 ## <a name="example-how-kpi1-is-calculated"></a>Exemplo: Como o KPI1 é calculado
 

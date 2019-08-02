@@ -98,7 +98,7 @@ Os clientes *devem* oferecer suporte os mecanismos de redirecionamento padrão e
 
 Os clientes *devem* usar um ponto de extremidade apropriado do serviço de fala. O ponto de extremidade é baseado no modo de reconhecimento e idioma. A tabela abaixo mostra alguns exemplos.
 
-| Modo | Caminho | URI de serviço |
+| Modo | Path | URI de serviço |
 | -----|-----|-----|
 | Interativo | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
 | Conversação | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
@@ -152,8 +152,8 @@ Os cabeçalhos a seguir são necessários para todas as mensagens de origem de c
 
 | Cabeçalho | Value |
 |----|----|
-| Caminho | Caminho da mensagem conforme especificado neste documento |
-| X-RequestId | UUID no formato de "não-traço" |
+| Path | Caminho da mensagem conforme especificado neste documento |
+| X-RequestId | UUID no formato de "no-dash" |
 | X-Timestamp | Carimbo de hora do relógio cliente UTC no formato ISO 8601 |
 
 #### <a name="x-requestid-header"></a>Cabeçalho X-RequestId
@@ -175,15 +175,15 @@ Os clientes *devem* enviar uma `speech.config` mensagem imediatamente depois de 
 | Campo | DESCRIÇÃO |
 |----|----|
 | Codificação de mensagem WebSocket | Text |
-| Corpo | O conteúdo útil como uma estrutura JSON |
+| Body | O conteúdo útil como uma estrutura JSON |
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessários
 
 | Nome do cabeçalho | Value |
 |----|----|
-| Caminho | `speech.config` |
+| Path | `speech.config` |
 | X-Timestamp | Carimbo de hora do relógio cliente UTC no formato ISO 8601 |
-| Tipo de conteúdo | application/json; charset=utf-8 |
+| Content-Type | application/json; charset=utf-8 |
 
 Assim como acontece com todas as mensagens originadas pelo cliente no protocolo de Serviço de Fala, a `speech.config` mensagem *deve* incluir um cabeçalho *X-Timestamp* que registra a hora do relógio cliente UTC quando a mensagem for enviada para o serviço. A `speech.config` mensagem *não* exigem um cabeçalho *X RequestId* porque esta mensagem não está associada uma solicitação de fala em particular.
 
@@ -244,7 +244,7 @@ O serviço de fala usa a primeira `audio` mensagem que contém um identificador 
 | Campo | DESCRIÇÃO |
 |-------------|----------------|
 | Codificação de mensagem WebSocket | Binary |
-| Corpo | Dados binários para a parte de áudio. O tamanho máximo é de 8.192 bytes. |
+| Body | Dados binários para a parte de áudio. O tamanho máximo é de 8.192 bytes. |
 
 #### <a name="required-message-headers"></a>Cabeçalhos de mensagem necessários
 
@@ -252,10 +252,10 @@ Os cabeçalhos a seguir são necessários `audio` para todas as mensagens.
 
 | Cabeçalho         |  Value     |
 | ------------- | ---------------- |
-| Caminho | `audio` |
-| X-RequestId | UUID no formato de "não-traço" |
+| Path | `audio` |
+| X-RequestId | UUID no formato de "no-dash" |
 | X-Timestamp | Carimbo de hora do relógio cliente UTC no formato ISO 8601 |
-| Tipo de conteúdo | O tipo de conteúdo de áudio. O tipo deve ser *áudio/x-wav* (PCM) ou *áudio/silk* (SILK). |
+| Content-Type | O tipo de conteúdo de áudio. O tipo deve ser *áudio/x-wav* (PCM) ou *áudio/silk* (SILK). |
 
 #### <a name="supported-audio-encodings"></a>Codificações com suporte de áudio
 
@@ -308,10 +308,10 @@ Os clientes devem reconhecer o fim de uma curva, enviando uma `telemetry` mensag
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `telemetry` |
+| Path | `telemetry` |
 | X-Timestamp | Carimbo de hora do relógio cliente UTC no formato ISO 8601 |
-| Tipo de conteúdo | `application/json` |
-| Corpo | Uma estrutura JSON que contém informações de cliente sobre a ativar |
+| Content-Type | `application/json` |
+| Body | Uma estrutura JSON que contém informações de cliente sobre a ativar |
 
 O esquema para o corpo da `telemetry` mensagem é definido na seção [esquema de Telemetria](#telemetry-schema).
 
@@ -330,9 +330,9 @@ A `speech.startDetected` mensagem indica que o Serviço de Fala detectado fala n
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `speech.startDetected` |
-| Tipo de conteúdo | application/json; charset=utf-8 |
-| Corpo | Estrutura JSON que contém informações sobre as condições quando o início da fala foi detectado. O campo de *deslocamento* nessa estrutura especifica o deslocamento (em unidades de 100 nanossegundos) quando a fala for detectada no fluxo de áudio, em relação ao início do fluxo. |
+| Path | `speech.startDetected` |
+| Content-Type | application/json; charset=utf-8 |
+| Body | Estrutura JSON que contém informações sobre as condições quando o início da fala foi detectado. O campo de *deslocamento* nessa estrutura especifica o deslocamento (em unidades de 100 nanossegundos) quando a fala for detectada no fluxo de áudio, em relação ao início do fluxo. |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -355,10 +355,10 @@ Durante o reconhecimento de fala, o serviço de fala gera periodicamente hipóte
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `speech.hypothesis` |
-| X-RequestId | UUID no formato de "não-traço" |
-| Tipo de conteúdo | aplicativo/json |
-| Corpo | Hipótese de fala de estrutura JSON |
+| Path | `speech.hypothesis` |
+| X-RequestId | UUID no formato de "no-dash" |
+| Content-Type | aplicativo/json |
+| Body | Hipótese de fala de estrutura JSON |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -387,9 +387,9 @@ Quando o serviço de fala determina que ele tem informações suficientes para p
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `speech.phrase` |
-| Tipo de conteúdo | aplicativo/json |
-| Corpo | Estrutura JSON de frase de fala |
+| Path | `speech.phrase` |
+| Content-Type | aplicativo/json |
+| Body | Estrutura JSON de frase de fala |
 
 O esquema JSON de frase de fala inclui os seguintes campos: `RecognitionStatus`, `DisplayText`, `Offset`, e `Duration`. Para obter mais informações sobre esses campos, consulte [respostas de Transcrição](../concepts.md#transcription-responses).
 
@@ -415,9 +415,9 @@ A `speech.endDetected` mensagem especifica que o aplicativo cliente deve parar o
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `speech.endDetected` |
-| Corpo | A estrutura JSON que contém o deslocamento ao final da fala foi detectado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é usado para o reconhecimento. |
-| Tipo de conteúdo | application/json; charset=utf-8 |
+| Path | `speech.endDetected` |
+| Body | A estrutura JSON que contém o deslocamento ao final da fala foi detectado. O deslocamento é representado no deslocamento de unidades de 100 nanossegundos desde o início de áudio que é usado para o reconhecimento. |
+| Content-Type | application/json; charset=utf-8 |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -440,9 +440,9 @@ O `turn.start` sinaliza o início de uma curva da perspectiva do serviço. A `tu
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `turn.start` |
-| Tipo de conteúdo | application/json; charset=utf-8 |
-| Corpo | Estrutura JSON |
+| Path | `turn.start` |
+| Content-Type | application/json; charset=utf-8 |
+| Body | Estrutura JSON |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 
@@ -467,8 +467,8 @@ O `turn.end` sinaliza o início de uma curva da perspectiva do serviço. A `turn
 | Campo | DESCRIÇÃO |
 | ------------- | ---------------- |
 | Codificação de mensagem WebSocket | Text |
-| Caminho | `turn.end` |
-| Corpo | Nenhum |
+| Path | `turn.end` |
+| Body | Nenhum |
 
 #### <a name="sample-message"></a>Mensagem de exemplo
 

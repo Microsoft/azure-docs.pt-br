@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bef3960e5c117a131b59a65196214c51e01bd3c8
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65441645"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204589"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página de entrada de sua empresa no Azure Active Directory
 Use o logotipo da organização e os esquemas de cores personalizados para fornecer uma aparência consistente nas páginas de entrada do Azure AD (Azure Active Directory). As páginas de entrada aparecem quando os usuários entram nos aplicativos baseados na Web da organização, como o Office 365, que usam o Azure AD como provedor de identidade.
@@ -58,7 +58,7 @@ Sua identidade visual personalizada não aparecerá imediatamente quando os usu�
 
         - **Logotipo do banner.** Selecione uma versão .png ou .jpg do logotipo para aparecer na página de entrada, depois que o usuário inserir um nome de usuário e na página do portal **Meus Aplicativos**.
             
-            A imagem não pode ser mais alta que 36 pixels ou mais larga que 245 pixels. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
+            A imagem não pode ser mais alto que 60 pixels ou mais de 280 pixels. É recomendável usar uma imagem transparente, já que o plano de fundo pode não ser adequado ao plano de fundo do logotipo. Além disso, é recomendável não adicionar preenchimento ao redor da imagem, pois pode fazer seu logotipo parecer pequeno.
 
         - **Dica de nome de usuário.** Digite o texto de dica que aparecerá aos usuários, caso não se lembrem do nome de usuário. Esse texto deve ser Unicode, sem links ou código, e não pode exceder 64 caracteres. Se os visitantes entrarem no aplicativo, sugerimos que você não adicione essa dica.
 

@@ -1,5 +1,5 @@
 ---
-title: Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics (versão prévia)
+title: Usar dados de referência de banco de dados SQL para um trabalho do Azure Stream Analytics
 description: Este artigo descreve como usar um Banco de Dados SQL como entrada de dados de referência para um trabalho do Azure Stream Analytics no portal do Azure e no Visual Studio.
 services: stream-analytics
 author: mamccrea
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae1954b99e268e8bc44c4ba29bbc79d7734fda6e
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304983"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67461745"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usar dados de referência de um Banco de Dados SQL para um trabalho do Azure Stream Analytics (versão prévia)
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usar dados de referência de banco de dados SQL para um trabalho do Azure Stream Analytics
 
 O Azure Stream Analytics dá suporte ao Banco de Dados SQL do Azure como uma fonte de entrada para dados de referência. É possível usar o Banco de Dados SQL como dados de referência para o trabalho do Stream Analytics no portal do Azure e no Visual Studio com as ferramentas do Stream Analytics. Este artigo monstra como realizar ambos os métodos.
 

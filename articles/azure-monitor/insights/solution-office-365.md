@@ -6,18 +6,18 @@ documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: ''
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: bwren
-ms.openlocfilehash: 4c7e1225a8da1e20bc90986d1530b781f7f2c11a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f4b0ad8b7aad01472a76db67f2c07e03e978e41
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66357572"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673054"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -25,7 +25,7 @@ ms.locfileid: "66357572"
 
 
 > [!NOTE]
-> O método recomendado para instalar e configurar a solução do Office 365 é a habilitação de [conector do Office 365](../../sentinel/connect-office-365.md) na [Azure Sentinel](../../sentinel/overview.md) em vez de usar as etapas neste artigo. Isso é uma versão atualizada da solução do Office 365 com uma experiência aprimorada de configuração. Para conectar os logs do Azure AD, use o [conector do Azure Sentinel Azure AD](../../sentinel/connect-azure-active-directory.md), que fornece dados de log mais avançados que os logs de gerenciamento do Office 365. 
+> O método recomendado para instalar e configurar a solução do Office 365 é a habilitação de [conector do Office 365](../../sentinel/connect-office-365.md) na [Azure Sentinel](../../sentinel/overview.md) em vez de usar as etapas neste artigo. Isso é uma versão atualizada da solução do Office 365 com uma experiência aprimorada de configuração. Para conectar os logs do Azure AD, você pode usar o [Sentinela do Azure do Azure AD connector](../../sentinel/connect-azure-active-directory.md) ou [definir configurações de diagnóstico do Azure AD](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), que fornece dados de log avançados que os logs de gerenciamento do Office 365. 
 >
 > Quando você [Sentinel integrados do Azure](../../sentinel/quickstart-onboard.md), especifique o espaço de trabalho do Log Analytics que você deseja que a solução do Office 365 instalada no. Depois de habilitar o conector, a solução estará disponível no espaço de trabalho e usado exatamente como outras soluções de monitoramento que você instalou.
 >
@@ -64,7 +64,7 @@ Comece adicionando a [solução do Office 365 à sua assinatura](solutions.md#in
 
 Antes de iniciar este procedimento, reúna as informações a seguir.
 
-Do seu espaço de trabalho do Log Analytics:
+Do seu workspace do Log Analytics:
 
 - Nome do workspace: O workspace de onde os dados do Office 365 serão coletados.
 - Nome do grupo de recursos: O grupo de recursos que contém os workspace.
@@ -194,7 +194,7 @@ Para habilitar a conta administrativa pela primeira vez, forneça consentimento 
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Assinar o espaço de trabalho do Log Analytics
 
-A última etapa é assinar o aplicativo em seu espaço de trabalho do Log Analytics. Faça isso também com um script do PowerShell.
+A última etapa é assinar o aplicativo em seu workspace do Log Analytics. Faça isso também com um script do PowerShell.
 
 1. Salve o script a seguir como *office365_subscription.ps1*.
 
@@ -372,7 +372,7 @@ A última etapa é assinar o aplicativo em seu espaço de trabalho do Log Analyt
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troubleshooting"></a>solução de problemas
+### <a name="troubleshooting"></a>Solução de problemas
 
 Você poderá ver o erro a seguir se o aplicativo já estiver inscrito nesse workspace ou se esse locatário estiver inscrito em outro workspace.
 
@@ -541,7 +541,7 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 
 | Propriedade | Description |
 |:--- |:--- |
-| Type | *OfficeActivity* |
+| Tipo | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido no formato de endereço IPv4 ou IPv6. |
 | OfficeWorkload | Serviço Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operação | O nome da atividade do usuário ou administrador.  |

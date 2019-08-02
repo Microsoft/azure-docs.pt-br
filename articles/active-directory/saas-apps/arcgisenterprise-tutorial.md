@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/28/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9275129c4339a6eae7ea8a44b22cbc78303cbf01
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9642dc67a3707862009efa59d99f0cef54b9b878
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889532"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Tutorial: Integração do Azure Active Directory com o ArcGIS Enterprise
 
@@ -57,7 +57,7 @@ Para configurar a integração do ArcGIS Enterprise com o Azure AD, você precis
 
 **Para adicionar o ArcGIS Enterprise da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -109,7 +109,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de domínio e de URLs do ArcGIS Enterprise para logon único](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<EXTERNAL_DNS_NAME>.portal`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `<EXTERNAL_DNS_NAME>.portal`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin2`
 
@@ -117,7 +117,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de domínio e de URLs do ArcGIS Enterprise para logon único](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao cliente do ArcGIS Enterprise](mailto:support@esri.com) para obter esses valores. Você obterá o valor do identificador na seção **Definir provedor de identidade**, que será explicada mais adiante neste tutorial.
@@ -146,7 +146,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Configuração do ArcGIS Enterprise](./media/arcgisenterprise-tutorial/configure4.png)
 
-     a. Forneça um nome como **Teste do Azure Active Directory** na caixa de texto **Nome**.
+    a. Forneça um nome como **Teste do Azure Active Directory** na caixa de texto **Nome**.
 
     b. Na caixa de texto **URL**, cole o valor da **URL de Metadados de Federação do Aplicativo** que você copiou do portal do Azure.
 
@@ -174,7 +174,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -226,5 +226,5 @@ Ao clicar no bloco do ArcGIS Enterprise no Painel de Acesso, você deverá ser c
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Obter respostas da base de dados de conhecimento – REST, Go – QnA Maker'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Este início rápido de Go baseado em REST fornece uma orientação para obtenção de uma resposta de uma base de dados de conhecimento de forma programática.
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 49734e50d616b3f88149f3c759e2a306ff8f136a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b903dfea11e5ac2390eb437e699ee8ec790a5061
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794888"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562983"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Obter respostas a uma pergunta de uma base de dados de conhecimento com Go
 

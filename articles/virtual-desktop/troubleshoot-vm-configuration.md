@@ -4,15 +4,15 @@ description: Como resolver problemas quando você estiver configurando uma sess�
 services: virtual-desktop
 author: ChJenk
 ms.service: virtual-desktop
-ms.topic: troubleshoot
-ms.date: 04/08/2019
+ms.topic: troubleshooting
+ms.date: 07/10/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 38d59fb20776470cb683f2a2146838bb217addf7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96a9d8fc7495ea473b0a3250b34251afc5f30c13
+ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64928116"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67786718"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Criação do pool de host e de locatário
 
@@ -284,6 +284,18 @@ Se seu sistema operacional é o Microsoft Windows 10, continue com as instruçõ
     ```
 
 16. Quando terminar os cmdlets em execução, reinicie a VM com a pilha de lado a lado com defeito.
+
+## <a name="remote-licensing-model-is-not-configured"></a>Modelo de licença remoto não está configurado
+
+Se você entrar várias sessões de Windows 10 Enterprise usando uma conta administrativa, você poderá receber uma notificação que diz: "modo de licenciamento de área de trabalho remota não está configurado, os serviços de área de trabalho remota vai parar de funcionar em X dias. No servidor do agente de Conexão, use o Gerenciador do servidor para especificar o modo de licenciamento de área de trabalho remota". Se você vir essa mensagem, isso significa que você precisa configurar manualmente o modo de licenciamento **por usuário**.
+
+Para configurar manualmente o modo de licenciamento:  
+
+1. Vá para seu **menu Iniciar** caixa de pesquisa, em seguida, localize e abra **gpedit. msc** para acessar o editor de diretiva de grupo local. 
+2. Vá para **configuração do computador** > **modelos administrativos** > **componentes do Windows**  >   **Serviços de área de trabalho remota** > **Host da sessão da área de trabalho remota** > **licenciamento**. 
+3. Selecione **definir o modo de licenciamento de área de trabalho remota** e altere-a para **por usuário**.
+
+Estamos no momento, analisando problemas de tempo limite de notificação e o período de carência e planeja resolvê-los em uma atualização futura. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

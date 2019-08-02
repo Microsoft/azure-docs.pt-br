@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ed056bf28881f391ed1ba16a875259e8e420b39d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c173da9bfb60f74b90a17f4f3c5ea6f930ca528
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66137893"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67705829"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>Tutorial: Autenticar e autorizar usuários de ponta a ponta no Serviço de Aplicativo do Azure no Linux
 
@@ -101,7 +101,7 @@ az webapp create --resource-group myAuthResourceGroup --plan myAuthAppServicePla
 
 ### <a name="configure-cors"></a>Configurar o CORS
 
-Essa etapa não está relacionada ao recurso de autenticação e autorização. No entanto, você precisa dele posteriormente ao [chamar a API de back-end do código do navegador de front-end](#call-api-securely-from-browser-code), de modo que seu navegador permita que as chamadas de API do seu aplicativo Angular.js entre domínios. O Serviço de Aplicativo no Linux não tem funcionalidade interna de CORS como [sua contraparte do Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality), logo você precisa adicioná-la manualmente ao aplicativo de back-end.
+Essa etapa não está relacionada ao recurso de autenticação e autorização. No entanto, você precisa dele posteriormente ao [chamar a API de back-end do código do navegador de front-end](#call-api-securely-from-browser-code), de modo que seu navegador permita que as chamadas de API do seu aplicativo Angular.js entre domínios. Agora, o Serviço de Aplicativo no Linux dá suporte à funcionalidade CORS, assim como [seu equivalente no Windows](../app-service-web-tutorial-rest-api.md#add-cors-functionality).
 
 No repositório local, abra o arquivo _Startup.cs_. No método `ConfigureServices(IServiceCollection services)`, adicione a linha de código a seguir:
 
@@ -109,7 +109,7 @@ No repositório local, abra o arquivo _Startup.cs_. No método `ConfigureService
 services.AddCors();
 ```
 
-No método `Configure(IApplicationBuilder app)`, adicione a seguinte linha de código ao início (substitua *\<front_end_app_name >*):
+No método `Configure(IApplicationBuilder app)`, adicione a seguinte linha de código ao início (substitua *\<front_end_app_name >* ):
 
 ```csharp
 app.UseCors(builder =>
@@ -242,7 +242,7 @@ Use o Azure Active Directory como o provedor de identidade. Para saber mais, con
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>Habilitar autenticação e autorização para o aplicativo de back-end
 
-No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** > _\<back\_end\_app\_name>_.
+No [portal do Azure](https://portal.azure.com), abra a página de gerenciamento do aplicativo de back-end clicando no menu à esquerda: **Grupos de recursos** > **myAuthResourceGroup** >  _\<back\_end\_app\_name>_ .
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/portal-navigate-back-end.png)
 
@@ -291,7 +291,7 @@ Clique em **Gerenciar Permissões** > **Adicionar** > **Selecionar uma API**.
 
 Na página **Selecionar uma API**, digite o nome do aplicativo AD do seu aplicativo de back-end, que é o mesmo do aplicativo de back-end por padrão. Selecione-o na lista e clique em **Selecionar**.
 
-Marque a caixa de seleção ao lado **Acessar  _&lt;nome\_aplicativo\_AD>_**. Clique em **Selecionar** > **Concluído**.
+Marque a caixa de seleção ao lado **Acessar  _&lt;nome\_aplicativo\_AD>_** . Clique em **Selecionar** > **Concluído**.
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/select-permission-front-end.png)
 
@@ -303,7 +303,7 @@ Entre no [Azure Resource Explorer](https://resources.azure.com). Na parte superi
 
 ![API do ASP.NET Core em execução no Serviço de Aplicativo do Azure](./media/tutorial-auth-aad/resources-enable-write.png)
 
-No navegador à esquerda, clique em **assinaturas** > **_&lt;sua\_assinatura >_**   >  **resourceGroups** > **myAuthResourceGroup** > **provedores** > **Microsoft.Web**  >  **sites** > **_\<nome\_aplicativo\_front\_end>_**   >  **config** > **authsettings**.
+No navegador à esquerda, clique em **assinaturas** >  **_&lt;sua\_assinatura >_**   >  **resourceGroups** > **myAuthResourceGroup** > **provedores** > **Microsoft.Web**  >  **sites** >  **_\<nome\_aplicativo\_front\_end>_**   >  **config** > **authsettings**.
 
 No modo de exibição **authsettings**, clique em **Editar**. Defina `additionalLoginParams` para a cadeia de caracteres JSON a seguir usando a ID do aplicativo copiada. 
 

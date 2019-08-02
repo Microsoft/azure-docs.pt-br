@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Pesquisar imagens – API REST de Pesquisa de Imagem do Bing e Java'
+title: 'Início Rápido: usar Java para chamar a API REST de Pesquisa de Imagem do Bing'
 titleSuffix: Azure Cognitive Services
 description: Use este Início Rápido para enviar solicitações de pesquisa de imagens para a API REST de Pesquisa de Imagem do Bing usando Java e receba respostas JSON.
 services: cognitive-services
@@ -9,15 +9,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
-ms.openlocfilehash: 620e2ad66547939c24cbcf369705e4ab3ce59753
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.custom: seodec2018, seo-java-july2019
+ms.openlocfilehash: a4a8535aa204cbad76d4da4c466c0f4aba99db9a
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383678"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489647"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-java"></a>Início Rápido: pesquisar imagens usando a API REST de Pesquisa de Imagem do Bing e Java
 

@@ -4,17 +4,17 @@ description: Fazer backup consistente de aplicativo da máquina virtual para o A
 services: backup, virtual-machines-windows
 documentationcenter: ''
 author: trinadhk
-manager: jeconnoc
+manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 0392a187bf40e1fe35053b493733c7e89aa6969e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e6468d06341f49e3c57532df8cacb0b6eb25b05
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799423"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706584"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Extensão de janelas de VM instantânea para Azure Backup
 
@@ -61,7 +61,7 @@ O JSON a seguir mostra o esquema para a extensão de VM instantânea. A extensã
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | cadeia de caracteres |

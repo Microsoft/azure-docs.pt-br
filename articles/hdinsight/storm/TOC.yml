@@ -4,20 +4,25 @@
   items:
     - name: O que é o Apache Storm no HDInsight?
       href: apache-storm-overview.md
-- name: Introdução
+- name: Guia de início rápido
+  expanded: true
   items:
-    - name: Crie um cluster do Apache Storm
-      href: apache-storm-tutorial-get-started-linux.md
-    - name: Instalar aplicativos HDInsight
-      href: ../hdinsight-apps-install-applications.md
-    - name: planejamento de capacidade
-      href: ../hdinsight-capacity-planning.md
+    - name: Criar uma topologia do Apache Storm no HDInsight
+      href: ./apache-storm-quickstart.md
+- name: Tutoriais
+  items:
+    - name: Usar o Apache Storm para gravar no armazenamento
+      href: apache-storm-write-data-lake-store.md
 - name: Conceitos
   items:
     - name: Componentes do Apache Hadoop no HDInsight
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
+    - name: Instalar aplicativos HDInsight
+      href: ../hdinsight-apps-install-applications.md
+    - name: planejamento de capacidade
+      href: ../hdinsight-capacity-planning.md
 - name: Como
   items:
     - name: Desenvolver topologias do Apache Storm
@@ -42,10 +47,6 @@
           href: 'https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/'
         - name: 'Hub de Eventos e Apache Storm (C# e Java)'
           href: apache-storm-develop-csharp-event-hub-topology.md
-        - name: Armazenamento do Azure/Data Lake Storage (Java)
-          href: apache-storm-write-data-lake-store.md
-        - name: 'Hub de Eventos, Apache HBase (Java)'
-          href: apache-storm-sensor-data-analysis.md
     - name: Estender clusters
       items:
         - name: Personalizar clusters usando Bootstrap
@@ -215,10 +216,14 @@
       items:
         - name: Arquitetura de rede virtual do HDInsight
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planejar VNETs para o HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Criar VNETs para o HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Endereços IP necessários para NSGs e UDRs
+          href: ../hdinsight-management-ip-addresses.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight na VNet do Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
     - name: Monitorando com os logs do Azure Monitor

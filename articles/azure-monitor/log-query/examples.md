@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: bwren
-ms.openlocfilehash: 2c35bc4026c81cbc8b95225e688a3922bc320554
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d50a680ed2b054f87a9cf36e761bd16d79677fb3
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60759904"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68304693"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exemplos de consulta de log do Azure Monitor
 Este artigo inclui vários exemplos de [consultas](log-query-overview.md) usando a [linguagem de consulta do Kusto](/azure/kusto/query/) para recuperar os diferentes tipos de dados de log do Azure Monitor. Diferentes métodos são usados para consolidar e analisar os dados, de modo que você pode usar esses exemplos para identificar estratégias diferentes que pode usar para seus próprios requisitos.  
 
 Veja a [referência da linguagem Kusto](https://docs.microsoft.com/azure/kusto/query/) para obter detalhes sobre as diferentes palavras-chave usadas nesses exemplos. Confira uma [lição sobre como criar consultas](get-started-queries.md) se você não tiver experiência com o Azure Monitor.
 
-## <a name="events"></a>Events
+## <a name="events"></a>Eventos
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Pesquisar eventos de nível de aplicativo descritos como "Criptográficos"
 Este exemplo pesquisa a tabela **Eventos** em busca de registros em que **EventLog** é _Application_ e **RenderedDescription** contém _cryptographic_. Inclui registros das últimas 24 horas.
@@ -34,7 +34,7 @@ Este exemplo pesquisa a tabela **Eventos** em busca de registros em que **EventL
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>Pesquisar eventos relacionados a unmarshaling

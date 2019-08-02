@@ -4,14 +4,12 @@ title: Documentação dos Conjuntos de Dimensionamento de Máquina Virtual
 metadata:
   title: 'Os conjuntos de dimensionamento de máquinas virtuais do Azure lhe permitem criar e gerenciar um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático. Aprenda a criar, configurar, gerenciar e dimensionar automaticamente os conjuntos de dimensionamento de máquinas virtuais com nossos inícios rápidos, tutoriais e exemplos.'
   services: virtual-machine-scale-sets
-  author: carolz
-  manager: czeumault
+  author: georgewallace
+  manager: gwallace
   ms.service: virtual-machine-scale-sets
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/14/2018
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'Os conjuntos de dimensionamento de máquinas virtuais do Azure lhe permitem criar e gerenciar um grupo de VMs idênticas, com balanceamento de carga e dimensionamento automático. Aprenda a criar, configurar, gerenciar e dimensionar automaticamente os conjuntos de dimensionamento de máquinas virtuais com nossos inícios rápidos, tutoriais e exemplos.'
 sections:

@@ -3,17 +3,17 @@ title: Registro de Contêiner do Azure - funções e permissões
 description: Use o controle de acesso baseado nas função do Azure (RBAC) e o gerenciamento de identidades e acesso (IAM) para fornecer permissões refinadas a recursos em um registro de contêiner do Azure.
 services: container-registry
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 ms.service: container-registry
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
-ms.openlocfilehash: d62dd6c65975d63a0127bb5dd1c62cd741b59ac6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 793dbf056201a3315a9b77dfebbb9331a8ed7db1
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067993"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68310594"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Funções e permissões do Registro de Contêiner do Azure
 
@@ -63,7 +63,7 @@ A capacidade de `docker pull` uma imagem de não quarentena, ou de enviar por pu
 
 ## <a name="delete-image-data"></a>Excluir dados de imagem
 
-A capacidade [excluir imagens de contêiner](container-registry-delete.md), ou excluir outros [suporte artefatos](container-registry-image-formats.md) como gráficos do Helm, de um registro.
+A capacidade de [Excluir imagens de contêiner](container-registry-delete.md)ou excluir outros [artefatos com suporte](container-registry-image-formats.md) , como gráficos Helm, de um registro.
 
 ## <a name="change-policies"></a>Alterar políticas
 

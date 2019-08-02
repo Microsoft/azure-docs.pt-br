@@ -7,18 +7,18 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: operations-management-suite
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a4f982f6265d1c8cab2ae666b9d6e2e33beb5064
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596646"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672935"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>Práticas recomendadas para a criação de soluções de gerenciamento no Azure (versão prévia)
 > [!NOTE]
@@ -38,7 +38,7 @@ Este artigo apresenta as práticas recomendadas para a [criação de um arquivo 
 - Inclua na solução o [módulo IngestionAPI](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) a ser usado pelos runbooks que gravam dados no repositório do Log Analytics.  Configure a solução para [fazer referência](solutions-solution-file.md#solution-resource) a esse recurso, de modo que ele permaneça caso a solução seja removida.  Isso permite que várias soluções compartilhem o módulo.
 - Use [Variáveis de automação](../../automation/automation-schedules.md) para fornecer à solução valores que os usuários talvez queiram mudar posteriormente.  Mesmo que a solução esteja configurada para conter a variável, seu valor ainda poderá ser alterado.
 
-## <a name="views"></a>Modos de exibição
+## <a name="views"></a>Exibições
 - Todas as soluções devem incluir uma única exibição que é mostrada no portal do usuário.  A exibição pode conter várias [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para ilustrar diferentes conjuntos de dados.
 - Adicione uma mensagem de [Verificação do Fluxo de Dados](../../azure-monitor/platform/view-designer-tiles.md) a todas as exibições em sua solução a fim de orientar o usuário sobre as fontes de dados que precisam ser configuradas para que os dados necessários sejam coletados.
 - Configure a solução para [conter](solutions-solution-file.md#solution-resource) a exibição, de modo que ela seja removida caso a solução seja removida.

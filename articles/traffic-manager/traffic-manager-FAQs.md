@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 640d36649f59842a740b4c12b4e3ab39a6d98c13
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37f1a0d9c70afc0a3a86ac76b682ee7b2adb253d
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67050957"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335800"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -31,7 +31,7 @@ Portanto, o Gerenciador de Tráfego não fornece um ponto de extremidade ou o en
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Que tipos de tráfego podem ser roteados usando Gerenciador de Tráfego?
 Conforme explicado em [Como o Gerenciador de Tráfego Funciona](../traffic-manager/traffic-manager-how-it-works.md), um ponto de extremidade de Gerenciador de Tráfego pode ser qualquer internet voltada para o serviço hospedado dentro ou fora do Azure. Portanto, Gerenciador de Tráfego pode rotear tráfego que origina da internet pública para um conjunto de pontos de extremidade que também são voltado para a internet. Se você tiver pontos de extremidade que estão dentro de uma rede privada (por exemplo, uma versão interna do [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou têm usuários fazendo solicitações DNS de tais redes internas, será possível usar o Gerenciador de Tráfego do Microsoft Azure para rotear esse tráfego.
 
-### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gerenciador de Tráfego dá suporte a sessões “temporárias”?
+### <a name="does-traffic-manager-support-sticky-sessions"></a>O Gerenciador de tráfego dá suporte a sessões "adesivas"?
 
 Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manager/traffic-manager-how-it-works.md), o Gerenciador de Tráfego funciona no nível do DNS. Ele usa as respostas DNS para direcionar os clientes ao ponto de extremidade de serviço apropriado. Os clientes se conectam diretamente ao ponto de extremidade de serviço, não pelo Gerenciador de Tráfego. Portanto, o Gerenciador de Tráfego não vê o tráfego HTTP entre o cliente e o servidor.
 
@@ -57,9 +57,9 @@ O método por Desempenho encaminha o tráfego para o ponto de extremidade mais p
 
 Conforme explicado em [Como funciona o Gerenciador de Tráfego](../traffic-manager/traffic-manager-how-it-works.md), o Gerenciador de Tráfego funciona no nível do DNS. Após a conclusão da pesquisa de DNS, os clientes se conectam diretamente ao ponto de extremidade do aplicativo, não pelo Gerenciador de Tráfego. Portanto, a conexão pode usar qualquer protocolo de aplicativo. Se você selecionar TCP como protocolo de monitoramento, o monitoramento de integridade do ponto de extremidade do Gerenciador de Tráfego poderá ser feito sem usar qualquer protocolo de aplicativo. Se você optar por ter a integridade verificada usando um protocolo de aplicativo, o ponto de extremidade precisará ser capaz de responder às solicitações HTTP ou HTTPS GET.
 
-### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Posso usar o Gerenciador de Tráfego com um nome de domínio raiz?
+### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?
 
-Sim. Para saber como criar um registro de alias para o apex de nome de domínio fazer referência a um perfil do Gerenciador de tráfego do Azure, consulte [configurar um registro de alias para dar suporte a nomes de domínio com o Gerenciador de tráfego do apex](../dns/tutorial-alias-tm.md).
+Sim. Para saber como criar um registro de alias para o Apex do nome de domínio para fazer referência a um perfil do Gerenciador de tráfego do Azure, consulte [configurar um registro de alias para dar suporte a nomes de domínio Apex com o Gerenciador de tráfego](../dns/tutorial-alias-tm.md).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>O Gerenciador de Tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS? 
 
@@ -356,7 +356,7 @@ Sim. O Gerenciador de Tráfego oferece suporte à investigação por HTTPS. Conf
 O Gerenciador de Tráfego não pode fornecer nenhuma validação de certificado, incluindo:
 
 * Certificados no lado do servidor não estão validados
-* Certificados do lado do servidor SNI não são validados.
+* Os certificados do lado do servidor SNI não são validados
 * Não há suporte para certificados de cliente
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Eu devo usar um endereço IP ou um nome DNS ao adicionar um ponto de extremidade?
@@ -385,10 +385,10 @@ Para perfis com qualquer método de roteamento que não seja de Múltiplos Valor
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade|  Resposta fornecida|
 |--|--|--|
 |QUALQUER |  A / AAAA / CNAME |  Ponto de extremidade de destino| 
-|O |    A / CNAME | Ponto de extremidade de destino|
-|O |    AAAA |  NODATA |
+|A |    A / CNAME | Ponto de extremidade de destino|
+|A |    AAAA |  NODATA |
 |AAAA | AAAA / CNAME |  Ponto de extremidade de destino|
-|AAAA | O | NODATA |
+|AAAA | A | NODATA |
 |CNAME |    CNAME | Ponto de extremidade de destino|
 |CNAME  |A / AAAA | NODATA |
 |
@@ -398,7 +398,7 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 |Solicitação de consulta de entrada|    Tipo de ponto de extremidade | Resposta fornecida|
 |--|--|--|
 |QUALQUER |  Combinação de A e AAAA | Pontos de extremidade de destino|
-|O |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
+|A |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
 |AAAA   |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA | NODATA |
 
@@ -406,9 +406,9 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 
 Sim, é possível, com a exceção de que um perfil do tipo Múltiplos Valores não pode ser um perfil pai em um conjunto de perfis aninhados.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parar a um ponto de extremidade do aplicativo web no meu perfil do Gerenciador de tráfego, mas não estou recebendo tráfego mesmo depois de reiniciar. Como posso corrigir isso?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Parei um ponto de extremidade do aplicativo Web no meu perfil do Gerenciador de tráfego, mas não estou recebendo nenhum tráfego mesmo depois de reiniciá-lo. Como posso corrigir isso?
 
-Quando um ponto de extremidade do aplicativo web do Azure é interrompido o Gerenciador de tráfego para a verifica sua integridade e reinicia as verificações de integridade somente depois de detectar que o ponto de extremidade for reiniciado. Para evitar esse atraso, desabilite e reabilite esse ponto de extremidade no perfil do Gerenciador de Tráfego depois de reiniciar o ponto de extremidade.
+Quando um ponto de extremidade de aplicativo Web do Azure é interrompido, o Gerenciador de tráfego para de verificar sua integridade e reinicia as verificações de integridade somente após detectar que o ponto de extremidade foi reiniciado. Para evitar esse atraso, desabilite e reabilite esse ponto de extremidade no perfil do Gerenciador de Tráfego depois de reiniciar o ponto de extremidade.
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Posso usar o Gerenciador de Tráfego mesmo se o aplicativo não tiver suporte para HTTP ou HTTPS?
 
@@ -438,7 +438,7 @@ As configurações de monitoramento do Gerenciador de Tráfego estão em um nív
 O Gerenciador de Tráfego permite especificar cabeçalhos personalizados nas verificações de integridade de HTTP(S) que ele inicia nos pontos de extremidade. Se você quiser especificar um cabeçalho personalizado, poderá fazer isso no nível do perfil (aplicável a todos os pontos de extremidade) ou especificá-lo no nível do ponto de extremidade. Se um cabeçalho for definido em ambos os níveis, o especificado no nível do ponto de extremidade substituirá o nível de perfil um.
 Um caso de uso comum para isso é especificar cabeçalhos de host para que as solicitações do Gerenciador de Tráfego sejam roteadas corretamente para um ponto de extremidade hospedado em um ambiente de vários locatários. Outro caso de uso disso é identificar as solicitações do Gerenciador de Tráfego dos logs de solicitações HTTP(S) de um ponto de extremidade
 
-## <a name="what-host-header-do-endpoint-health-checks-use"></a>Qual cabeçalho host as verificações de integridade do ponto de extremidade usam?
+### <a name="what-host-header-do-endpoint-health-checks-use"></a>Qual cabeçalho host as verificações de integridade do ponto de extremidade usam?
 
 Se nenhuma configuração de cabeçalho de host personalizado for fornecida, o cabeçalho de host usado pelo Gerenciador de Tráfego será o nome DNS do destino do ponto de extremidade configurado no perfil, se disponível.
 
@@ -484,7 +484,7 @@ Para obter detalhes completos, consulte a [página de preços do Gerenciador de 
 
 ### <a name="is-there-a-performance-impact-for-nested-profiles"></a>Há impacto no desempenho para perfis aninhados?
 
-Não. Não há nenhum impacto no desempenho ao usar perfis aninhados.
+Nº Não há nenhum impacto no desempenho ao usar perfis aninhados.
 
 Os servidores de nomes do Gerenciador de Tráfego atravessam a hierarquia de perfil internamente durante o processamento de cada consulta DNS. Uma consulta DNS a um perfil pai pode receber uma resposta DNS com um ponto de extremidade de um perfil filho. Um único registro CNAME é usado se você está usando um único perfil ou perfis aninhados. Não é necessário criar um registro CNAME para cada perfil na hierarquia.
 

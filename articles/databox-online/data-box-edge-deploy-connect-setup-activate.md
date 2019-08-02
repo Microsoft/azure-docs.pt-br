@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 3e951e44aeaa4ca8d3d06bae80a80bcb2eb1dd52
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf2aa9bc1234f8bc92829b107d1a788b75d56a6b
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924550"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67075081"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectar, configurar e ativar o Azure Data Box Edge 
 
@@ -44,7 +44,7 @@ Antes de configurar e configurar seu dispositivo Data Box Edge, verifique o segu
     ![Backplane de um dispositivo cabeado](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
 
-3. Abrir uma janela do navegador e acessar o local da web da interface do usuário do dispositivo em https://192.168.100.10.  
+3. Abrir uma janela do navegador e acessar o local da web da interface do usuário do dispositivo em `https://192.168.100.10`.  
     Essa ação pode levar alguns minutos depois que você tenha ativado o dispositivo. 
 
     Você verá um erro ou um aviso indicando que há um problema com o certificado de segurança do site. 
@@ -94,7 +94,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
    
    Na página **Configurações de proxy Web**, faça o seguinte:
    
-    a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FQDN:Port number`. Não há suporte para URLs HTTPS.
+   a. Na **URL do proxy Web**, digite a URL neste formato: `http://host-IP address or FQDN:Port number`. Não há suporte para URLs HTTPS.
 
    b. Em **Autenticação**, selecione **Nenhuma** ou **NTLM**.
 
@@ -119,7 +119,7 @@ O painel exibe as várias configurações necessárias para configurar e registr
 
         ![Página "Configurações de tempo" da IU da Web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. (Opcional) No painel esquerdo, selecione **Configurações de armazenamento** para configurar a resiliência do armazenamento em seu dispositivo. Esse recurso está atualmente em versão prévia. Por padrão, o armazenamento no dispositivo não é resiliente e há perda de dados se um disco de dados falha no dispositivo. Quando você habilita a opção resiliente, o armazenamento do dispositivo é reconfigurado e o dispositivo pode suportar a falha de um disco de dados sem perda de dados. Configurar o armazenamento como resiliente reduzirá a capacidade utilizável do seu dispositivo.
+5. (Opcional) No painel esquerdo, selecione **Configurações de armazenamento** para configurar a resiliência do armazenamento em seu dispositivo. Esse recurso está atualmente na visualização. Por padrão, o armazenamento no dispositivo não é resiliente e há perda de dados se um disco de dados falha no dispositivo. Quando você habilita a opção resiliente, o armazenamento do dispositivo é reconfigurado e o dispositivo pode suportar a falha de um disco de dados sem perda de dados. Configurar o armazenamento como resiliente reduzirá a capacidade utilizável do seu dispositivo.
 
     > [!IMPORTANT] 
     > A resiliência só pode ser configurada antes de ativar o dispositivo. 

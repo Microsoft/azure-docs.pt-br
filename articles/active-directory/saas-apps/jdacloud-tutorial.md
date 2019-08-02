@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 36ac284bdf14272e7dbfd16c303d5357f216ecba
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e7a6aa3cd023533dc1197e1addf3c9be76a9c1db
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099759"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jda-cloud"></a>Tutorial: Integração do Azure Active Directory com o JDA Cloud
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o JDA Cloud, execute as seguintes
 
     ![Informações de logon de único de URLs e domínio de nuvem JDA](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.jdadelivers.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.jdadelivers.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.jdadelivers.com/sp/ACS.saml2`
 
@@ -203,4 +203,4 @@ Ao clicar no bloco JDA Cloud no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

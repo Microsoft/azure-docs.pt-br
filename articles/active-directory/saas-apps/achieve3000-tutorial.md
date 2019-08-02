@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ddac8a87bb557daadf0a6ea0f1303545ec63d50
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8aa86f75d70e7253fa250893ce685b90d6a02f01
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65886605"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107414"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutorial: Integração do Azure Active Directory com o Achieve3000
 
@@ -53,7 +53,7 @@ Para configurar a integração do Achieve3000 ao Azure AD, você precisará adic
 
 **Para adicionar o Achieve3000 por meio galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Achieve3000, realize as seguint
 
     ![Informações de logon único em Domínio e URLs do Achieve3000](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://saml.achieve3000.com/district/<District Identifier>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://saml.achieve3000.com/district/<District Identifier>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite um valor: `achieve3000-saml`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite um valor: `achieve3000-saml`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate a [Equipe de suporte ao cliente do Achieve3000](https://www.achieve3000.com/contact-us/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o Achieve3000, realize as seguint
     | studentID     | user.mail |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -226,5 +226,5 @@ Ao clicar no bloco do Achieve3000 no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

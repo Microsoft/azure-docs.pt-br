@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: f78555b37cc82c1e97a6f51ec504bc47937ee8c4
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66493424"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612373"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analisar os dados de uma chamada telefônica com o Stream Analytics e visualizar os resultados em um dashboard do Power BI
 
@@ -191,7 +191,7 @@ A última etapa é definir um coletor de saída para o trabalho em que ele pode 
 
 ## <a name="define-a-query-to-analyze-input-data"></a>Definir uma consulta para analisar os dados de entrada
 
-A próxima etapa é criar uma transformação que analisa os dados em tempo real. Defina a consulta de transformação usando a [Linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/dn834998.aspx). A consulta usada neste tutorial detecta chamadas fraudulentas nos dados do telefone.
+A próxima etapa é criar uma transformação que analisa os dados em tempo real. Defina a consulta de transformação usando a [Linguagem de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). A consulta usada neste tutorial detecta chamadas fraudulentas nos dados do telefone.
 
 Neste exemplo, as chamadas fraudulentas são feitas pelo mesmo usuário em cinco segundos, mas em lugares diferentes. Por exemplo, o mesmo usuário não pode legitimamente fazer uma chamada da Austrália e dos Estados Unidos ao mesmo tempo. Para definir a consulta de transformação para o trabalho do Stream Analytics:
 
@@ -212,7 +212,7 @@ Neste exemplo, as chamadas fraudulentas são feitas pelo mesmo usuário em cinco
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Para verificar chamadas fraudulentas, você pode fazer a autojunção dos dados de streaming com base no valor `CallRecTime`. Em seguida, você pode procurar registros de chamada em que o valor `CallingIMSI` (o número de origem) é o mesmo, mas o valor `SwitchNum` (país/região de origem) é diferente. Quando você usa uma operação JOIN com os dados de streaming, a junção deve fornecer alguns limites sobre a distância de tempo que as linhas correspondentes podem ter umas das outras. Como o fluxo de dados é infinito, os limites de tempo para a relação são especificados dentro da cláusula **ON** da junção, usando a função [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics).
+   Para verificar chamadas fraudulentas, você pode fazer a autojunção dos dados de streaming com base no valor `CallRecTime`. Em seguida, você pode procurar registros de chamada em que o valor `CallingIMSI` (o número de origem) é o mesmo, mas o valor `SwitchNum` (país/região de origem) é diferente. Quando você usa uma operação JOIN com os dados de streaming, a junção deve fornecer alguns limites sobre a distância de tempo que as linhas correspondentes podem ter umas das outras. Como o fluxo de dados é infinito, os limites de tempo para a relação são especificados dentro da cláusula **ON** da junção, usando a função [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Essa consulta é como uma junção SQL normal, exceto pela função **DATEDIFF**. A função **DATEDIFF** usada nessa consulta é específica do Stream Analytics e ela deverá ser exibida dentro na cláusula `ON...BETWEEN`.
 

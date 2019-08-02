@@ -1,21 +1,21 @@
 ---
 title: O que é API de Verificação Ortográfica do Bing?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre a API de Verificação Ortográfica do Bing, que usa aprendizado de máquina e tradução automática estatística para fazer a verificação ortográfica contextual.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 22f75efb3cb4baa645030e7ad64072674de662ed
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 996db9690d19cc40c3963922d4edb3b59469752b
+ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60593201"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514805"
 ---
 # <a name="what-is-the-bing-spell-check-api"></a>O que é API de Verificação Ortográfica do Bing?
 

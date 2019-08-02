@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 7298c8a9220332f1361e673b5000c2df37a88865
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 68de8ee9ee3168d1a8eba4878f81f62cfb02d1fb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904983"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096525"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-namely"></a>Tutorial: Integração do Azure Active Directory ao Namely
 
@@ -52,7 +52,7 @@ Para configurar a integração do Namely ao AD do Azure, você precisa adicionar
 
 **Para adicionar o do Namely da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o Namely, execute as seguintes et
 
     ![Informações de logon único de domínio e URLs do Namely](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.namely.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.namely.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.namely.com/saml/metadata`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.namely.com/saml/metadata`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Namely](https://www.namely.com/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Namely, execute as seguintes et
    
     ![Configurar o logon único](./media/namely-tutorial/tutorial_namely_09.png)
  
-     a. Clique em **Habilitar SAML**. 
+    a. Clique em **Habilitar SAML**. 
 
     b. Na caixa de texto **URL de SSO do Provedor de Identidade**, cole o valor de **URL de Logon** que você copiou do portal do Azure.
     
@@ -226,7 +226,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Namely
 
 5. Na caixa de diálogo **Adicionar Nova Pessoa** , execute as seguintes etapas:
 
-     a. Na caixa de texto **Nome**, digite **Brenda**.
+    a. Na caixa de texto **Nome**, digite **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite **Fernandes**.
 

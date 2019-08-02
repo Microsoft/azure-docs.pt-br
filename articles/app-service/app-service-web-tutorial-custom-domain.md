@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/06/201
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1b43463537f620eb59f78184de41ec37c26b97ed
-ms.sourcegitcommit: 7042ec27b18f69db9331b3bf3b9296a9cd0c0402
+ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66742906"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67595025"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -68,7 +68,7 @@ No menu à esquerda, selecione **Serviços de Aplicativos** e, em seguida, selec
 
 A página de gerenciamento do aplicativo do Serviço de Aplicativo é exibida.  
 
-<a name="checkpricing"></a>
+<a name="checkpricing" aria-hidden="true"></a>
 
 ### <a name="check-the-pricing-tier"></a>Verifique o tipo de preço
 
@@ -82,7 +82,7 @@ A camada atual do aplicativo é realçada por uma borda azul. Verifique se o apl
 
 Se o plano do Serviço de Aplicativo não estiver na camada **F1**, feche a página **Escalar verticalmente** e vá para [Mapear um registro CNAME](#cname).
 
-<a name="scaleup"></a>
+<a name="scaleup" aria-hidden="true"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>Escalar verticalmente o plano do Serviço de Aplicativo
 
@@ -96,7 +96,7 @@ Quando você receber a notificação a seguir, a operação de escala terá sido
 
 ![Confirmação da operação de escala](./media/app-service-web-tutorial-custom-domain/scale-notification.png)
 
-<a name="cname"></a>
+<a name="cname" aria-hidden="true"></a>
 
 ## <a name="map-your-domain"></a>Mapear seu domínio
 
@@ -156,13 +156,13 @@ Pode levar algum tempo para que o novo domínio personalizado seja refletido na 
 ![Registro CNAME adicionado](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> Um rótulo **Anotação Segura** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
 
 ![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-<a name="a"></a>
+<a name="a" aria-hidden="true"></a>
 
 ### <a name="map-an-a-record"></a>Mapear um registro A
 
@@ -213,7 +213,7 @@ Quando os registros são adicionados, a página de registros DNS fica parecida c
 
 ![Página de Registros DNS](./media/app-service-web-tutorial-custom-domain/a-record.png)
 
-<a name="enable-a"></a>
+<a name="enable-a" aria-hidden="true"></a>
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>Habilitar o mapeamento de registro A no aplicativo
 
@@ -240,13 +240,13 @@ Pode levar algum tempo para que o novo domínio personalizado seja refletido na 
 ![Registro A adicionado](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> Um rótulo **Anotação Segura** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
+> Um rótulo **Não seguro** para o domínio personalizado significa que ele ainda não está associado a um certificado SSL, e qualquer solicitação HTTPS em um navegador para o domínio personalizado receberá um erro ou um aviso, dependendo do navegador. Para adicionar uma associação SSL, confira [Associar um certificado SSL personalizado existente ao Serviço de Aplicativo do Azure](app-service-web-tutorial-custom-ssl.md).
 
 Se você perdeu uma etapa ou cometeu um erro de digitação em algum lugar anteriormente, você verá um erro de verificação na parte inferior da página.
 
 ![Erro de verificação](./media/app-service-web-tutorial-custom-domain/verification-error.png)
 
-<a name="wildcard"></a>
+<a name="wildcard" aria-hidden="true"></a>
 
 ### <a name="map-a-wildcard-domain"></a>Mapear um domínio curinga
 
@@ -310,7 +310,7 @@ Se você receber um erro HTTP 404 (não encontrado) ao navegar para a URL do seu
 - O domínio personalizado configurado não tem um registro A e/ou um registro CNAME.
 - O cliente do navegador armazenou em cache o endereço IP antigo do seu domínio. Desmarque a resolução DNS de teste e cache novamente. Em um computador Windows, limpe o cache com o `ipconfig /flushdns`.
 
-<a name="virtualdir"></a>
+<a name="virtualdir" aria-hidden="true"></a>
 
 ## <a name="migrate-an-active-domain"></a>Migrar um domínio ativo
 

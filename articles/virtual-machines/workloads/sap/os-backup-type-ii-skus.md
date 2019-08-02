@@ -1,44 +1,48 @@
 ---
 title: Backup do sistema operacional e restauração do SAP HANA em SKUs do tipo II (Instâncias Grandes) do Azure | Microsoft Docs
-description: Realizar backup do sistema operacional e restauração do SAP HANA em SKUs do tipo II (Instâncias Grandes) do Azure
+description: Executar backup e restauração do sistema operacional para SAP HANA em SKUs do tipo II do Azure (instâncias grandes)
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
-ms.author: saghorpa
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c82c5c74fe13bad99528486be69089df5f477457
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3afcd429351a0d988ff0e82ecf09f524ceac70f1
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60708545"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868961"
 ---
-# <a name="os-backup-and-restore-for-type-ii-skus"></a>Backup e restauração do sistema operacional para SKUs do tipo II
+# <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>Backup e restauração do so para SKUs do tipo II de carimbos de revisão 3
 
-Este documento descreve as etapas para executar um backup e uma restauração em nível de arquivo do sistema operacional para as **SKUs Tipo II** das instâncias grandes do HANA. 
+Este documento descreve as etapas para executar um backup e restauração no nível de arquivo do sistema operacional para os **SKUs do tipo II** das instâncias grandes Hana da revisão 3. 
+
+>[!Important]
+> **Este artigo não se aplica a implantações de SKU do tipo II na revisão 4 carimbos de instância grande do HANA.** LUNS de inicialização do tipo II as unidades de instância grande do HANA que são implantadas na revisão 4 é possível fazer backup de carimbos de instância grande do HANA com instantâneos de armazenamento, pois esse é o caso com SKUs do tipo I já nos carimbos de revisão 3
+
 
 >[!NOTE]
 >Os scripts de backup do sistema operacional usam o software ReaR, que vem pré-instalado no servidor.  
 
-Depois que o provisionamento for concluído pela equipe do Microsoft Service Management, por padrão, o servidor será configurado com dois agendamentos de backups para fazer backup do backup do sistema operacional no nível do sistema de arquivos. Verifique o status do agendamento do trabalho de backup usando o comando a seguir:
+Depois que o provisionamento for concluído pela equipe da Microsoft `Service Management` , por padrão, o servidor será configurado com duas agendas de backup para fazer backup do nível do sistema de arquivos de volta do sistema operacional. Você pode verificar os agendamentos dos trabalhos de backup usando o seguinte comando:
 ```
 #crontab –l
 ```
-É possível alterar o agendamento de backup a qualquer momento usando o seguinte comando:
+Você pode alterar o agendamento de backup a qualquer momento usando o seguinte comando:
 ```
 #crontab -e
 ```
 ## <a name="how-to-take-a-manual-backup"></a>Como fazer um backup manual?
 
-O backup do sistema operacional já é agendado usando um **trabalho cron**. No entanto, você também pode executar manualmente o backup em nível de arquivo do sistema operacional. Para fazer um backup manual, execute o seguinte comando:
+O backup do sistema de arquivos do so já está agendado usando um **trabalho cron** . No entanto, você também pode executar manualmente o backup em nível de arquivo do sistema operacional. Para fazer um backup manual, execute o seguinte comando:
 
 ```
 #rear -v mkbackup
@@ -64,7 +68,7 @@ O comando a seguir mostra a restauração de um arquivo */etc/fstabfrom* do arqu
 >[!NOTE] 
 >É necessário copiar o arquivo para o local desejado após a restauração do backup.
 
-Captura de tela a seguir mostra a restauração de um backup completo:
+A captura de tela a seguir mostra a restauração de um backup completo:
 
 ![HowtoRestoreaBackup.PNG](media/HowToHLI/OSBackupTypeIISKUs/HowtoRestoreaBackup.PNG)
 
@@ -96,4 +100,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-Captura de tela a seguir mostra a restauração de um backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+A captura de tela a seguir mostra a restauração de um backup completo: ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

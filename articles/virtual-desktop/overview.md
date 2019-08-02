@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 07/17/2019
 ms.author: helohr
-ms.openlocfilehash: 296ea271e88dfbbd91b901dc1b24d49fc31c139e
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 03105232cb92a65f8c38d6d755910739a3fc4720
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476733"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305061"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é a Versão Prévia da Área de Trabalho Virtual do Windows? 
 
@@ -105,10 +105,6 @@ A Área de Trabalho Virtual do Windows dá suporte às seguintes imagens de sist
 
 * Windows 10 Enterprise de várias sessões
 * Windows Server 2016
-
-## <a name="provide-feedback"></a>Fornecer comentários
-
-Visite a [Comunidade Tecnológica da Área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para comentar sobre o serviço da Área de Trabalho Virtual do Windows com a equipe do produto e membros ativos da comunidade. Atualmente, não estamos usando casos de suporte durante a versão prévia da Área de Trabalho Virtual do Windows.
 
 ## <a name="next-steps"></a>Próximas etapas
 

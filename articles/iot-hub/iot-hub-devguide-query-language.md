@@ -1,22 +1,22 @@
 ---
 title: Entender a linguagem de consulta do Hub IoT do Azure | Microsoft Azure
 description: Guia do desenvolvedor – descrição da linguagem de consulta do Hub IoT semelhante a SQL, usada para recuperar informações sobre dispositivos/módulos gêmeos e trabalhos do seu Hub IoT.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
-ms.openlocfilehash: e5387f1e44a55b0a30f8620b49d237ac1e1ec2b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: robinsh
+ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67450072"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguagem de consulta do Hub IoT para dispositivos e módulos gêmeos, trabalhos e roteamento de mensagens
 
-O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação de informações sobre [dispositivos gêmeos](iot-hub-devguide-device-twins.md), [trabalhos](iot-hub-devguide-jobs.md) e [roteamento de mensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
+O IoT Hub fornece uma linguagem semelhante à SQL poderosa para recuperar informações sobre [gêmeos](iot-hub-devguide-device-twins.md), [módulos gêmeos](iot-hub-devguide-module-twins.md), [trabalhos](iot-hub-devguide-jobs.md), e [deroteamentodemensagens](iot-hub-devguide-messages-d2c.md). Este artigo apresenta:
 
 * Uma introdução aos principais recursos da linguagem de consulta do Hub IoT e
 * Uma descrição mais detalhada da linguagem. Para obter detalhes sobre a linguagem de consulta do roteamento de mensagens, confira [consultas no roteamento de mensagens](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +25,7 @@ O Hub IoT fornece uma linguagem avançada semelhante à SQL para recuperação d
 
 ## <a name="device-and-module-twin-queries"></a>Consultas de dispositivos e módulos gêmeos
 
-Os [dispositivos gêmeos](iot-hub-devguide-device-twins.md) e os módulos gêmeos podem conter objetos JSON arbitrários como sinalizadores e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
+[Dispositivos gêmeos](iot-hub-devguide-device-twins.md) e [módulos gêmeos](iot-hub-devguide-module-twins.md) pode conter objetos JSON arbitrários como tags e propriedades. O Hub IoT permite consultar dispositivos e módulos gêmeos como um único documento JSON que contém todas as informações do dispositivo ou módulo gêmeo.
 
 Suponha, por exemplo, que os seus dispositivos gêmeos do Hub IoT possuam a seguinte estrutura (o módulo gêmeo seria semelhante, somente com um moduleId adicional):
 
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Consultas de módulo gêmeo
 
-Consultar módulos gêmeos é semelhante a consultar dispositivos gêmeos, mas usando uma coleção/namespace diferente, ou seja, em vez de “from devices”, é possível consultar device.modules:
+Consultando em módulos gêmeos é semelhante ao consultar em dispositivos gêmeos, mas usando um coleção/namespace diferente; em vez de partir **dispositivos**, você consulta do **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -315,7 +315,7 @@ No momento, as consultas em **devices.jobs** não dão suporte a:
 
 ## <a name="basics-of-an-iot-hub-query"></a>Noções básicas de uma consulta de Hub IoT
 
-Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**devices** ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
+Todas as consultas de Hub IoT são compostas por cláusulas SELECT e FROM, com cláusulas WHERE e GROUP BY opcionais. Cada consulta é executada em uma coleção de documentos JSON, por exemplo, dispositivos gêmeos. A cláusula FROM indica a coleção de documentos a ser iterada em (**dispositivos**, **devices.modules**, ou **devices.jobs**). Em seguida, o filtro na cláusula WHERE é aplicado. Com agregações, os resultados dessa etapa são agrupados conforme especificado na cláusula GROUP BY. Para cada grupo, uma linha é gerada conforme especificado na cláusula SELECT.
 
 ```sql
 SELECT <select_list>
@@ -326,10 +326,10 @@ SELECT <select_list>
 
 ## <a name="from-clause"></a>Cláusula FROM
 
-A cláusula **FROM <from_specification>** pode assumir somente dois valores: **FROM devices** para consultar dispositivos gêmeos ou **FROM devices.jobs** para consultar detalhes por dispositivo.
-
+O **FROM < from_specification >** cláusula pode assumir somente três valores: **DE dispositivos** para consultar dispositivos gêmeos **de devices.modules** consultar Gêmeos de módulo, ou **FROM devices.jobs** para detalhes da consulta trabalho por dispositivo.
 
 ## <a name="where-clause"></a>Cláusula WHERE
+
 A cláusula **WHERE <filter_condition>** é opcional. Ela especifica uma ou mais condições que os documentos JSON na coleção FROM devem satisfazer para serem incluídos como parte dos resultados. Todos os documentos JSON devem avaliar as condições especificadas como “true” para ser incluídos no resultado.
 
 As condições permitidas são descritas na seção [Expressões e condições](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -366,6 +366,7 @@ SELECT [TOP <max number>] <projection list>
 No momento, as cláusulas de seleção diferentes de **SELECT*** têm suporte apenas em consultas de agregação em dispositivos gêmeos.
 
 ## <a name="group-by-clause"></a>Cláusula GROUP BY
+
 A cláusula **GROUP BY <group_specification>** é uma etapa opcional que executa após o filtro especificado na cláusula WHERE e antes da projeção especificada no SELECT. Ela agrupa documentos com base no valor de um atributo. Esses grupos são usados para gerar valores agregados conforme especificado na cláusula SELECT.
 
 Um exemplo de uma consulta usando GROUP BY é:
@@ -393,9 +394,9 @@ No momento, a cláusula GROUP BY tem suporte apenas ao consultar dispositivos g�
 > [!IMPORTANT]
 > O termo `group` atualmente é tratado como uma palavra-chave especial em consultas. No caso, você usa `group` como seu nome de propriedade, considere colocá-lo entre colchetes duplos para evitar erros, por exemplo, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## <a name="expressions-and-conditions"></a>Expressões e condições
+
 Em um alto nível, uma *expressão*:
 
 * Avalia para uma instância de um tipo JSON (por exemplo, booliano, número, cadeia de caracteres, matriz ou objeto).
@@ -443,6 +444,7 @@ Para entender o que significa cada símbolo na sintaxe de expressões, consulte 
 | string_literal |Literais de cadeia de caracteres são cadeias de caracteres Unicode representadas por uma sequência de zero ou mais caracteres Unicode ou sequências de escape. As literais de cadeia de caracteres são colocadas entre aspas simples ou aspas duplas. Escapes permitidos: `\'`, `\"`, `\\`, `\uXXXX` para caracteres Unicode definidos por quatro dígitos hexadecimais. |
 
 ### <a name="operators"></a>Operadores
+
 Há suporte para os seguintes operadores:
 
 | Família | Operadores |
@@ -452,6 +454,7 @@ Há suporte para os seguintes operadores:
 | Comparação |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Funções
+
 Ao consultar gêmeos e trabalhos, a única função com suporte é:
 
 | Função | DESCRIÇÃO |

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c8c813a2304797e71499a916e29c18f8bec2b389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa0a1fc2acdc9687030040c23cdb1781e9529169
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65787806"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605686"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2: regressão: Prever o preço e comparar algoritmos
 
@@ -96,3 +96,4 @@ Explore os outros exemplos disponíveis para a interface visual:
 - [Exemplo 3: classificação: Prever o risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
 - [Exemplo 4: classificação: Prever o risco de crédito (custo confidencial)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemplo 5: classificação: Prever a variação](ui-sample-classification-predict-churn.md)
+- [Exemplo 6 - classificação: Prever os atrasos de voo](ui-sample-classification-predict-flight-delay.md)

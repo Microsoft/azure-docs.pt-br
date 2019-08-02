@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: dc72ec9bf2e7e7c5c77685368167357a0108f2d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a1497211cc42c702537cbbdfea32ff71a400c7c
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60335413"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836677"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados do Amazon Redshift usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -44,7 +44,7 @@ Você pode criar um pipeline com uma atividade de cópia para mover dados de uma
 
 A maneira mais fácil de criar um pipeline é usando o Assistente de Cópia do Azure Data Factory. Para obter um rápido passo a passo sobre como criar um pipeline usando o Assistente de Cópia, confira o [Tutorial: Criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md).
 
-Você também pode criar um pipeline usando o Portal do Azure, o Visual Studio, o Azure PowerShell ou outras ferramentas. Modelos do Azure Resource Manager, a API do .NET ou a API REST também pode ser usada para criar o pipeline. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode criar um pipeline usando o Visual Studio, o Azure PowerShell ou outras ferramentas. Modelos do Azure Resource Manager, a API do .NET ou a API REST também pode ser usada para criar o pipeline. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -335,13 +335,13 @@ Os seguintes mapeamentos são usados quando a Atividade de Cópia converte os da
 | BIGINT |Int64 |
 | DECIMAL |Decimal |
 | REAL |Single |
-| DOUBLE PRECISION |Double |
-| BOOLEAN |Cadeia de caracteres |
-| CHAR |Cadeia de caracteres |
-| VARCHAR |Cadeia de caracteres |
+| DOUBLE PRECISION |Duplo |
+| Boolean |String |
+| CHAR |string |
+| VARCHAR |string |
 | DATE |DateTime |
 | TIMESTAMP |DateTime |
-| TEXT |Cadeia de caracteres |
+| TEXT |string |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre como mapear colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

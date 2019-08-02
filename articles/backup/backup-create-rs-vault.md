@@ -1,20 +1,19 @@
 ---
-title: 'Serviço de Backup do Azure: Criar cofres de serviços de recuperação'
-description: criação de cofres de serviços de recuperação que armazena os backups e pontos de recuperação
-services: backup
+title: 'Serviço de Backup do Azure: Criar cofres dos serviços de recuperação'
+description: Criando cofres dos serviços de recuperação que armazenam os backups e os pontos de recuperação
 author: sogup
 manager: vijayts
-keywords: Cofre de serviços de recuperação. Backup VM do Azure; Restauração de VM do Azure;
+keywords: Cofre dos serviços de recuperação; Backup de VM do Azure; Restauração de VM do Azure;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: sogup
-ms.openlocfilehash: 9fba7d679b7d0edb3c99207c99b23f9616c6fa0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95ffe6aa0f65690e2df71c94b87d3e9f1ac7f7e5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66477576"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465179"
 ---
 # <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
@@ -62,23 +61,23 @@ Para criar um cofre de Serviços de Recuperação:
 
 ## <a name="set-storage-redundancy"></a>Definir redundância de armazenamento
 
-O Backup do Azure controla automaticamente o armazenamento para o cofre. Você precisa especificar como esse armazenamento é replicado.
+O backup do Azure manipula automaticamente o armazenamento para o cofre. Você precisa especificar como esse armazenamento é replicado.
 
-1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Sob o **as configurações** seção, clique em **propriedades**.
-2. Na **propriedades**, em **configuração de Backup**, clique em **atualização**.
+1. Na folha **Cofres dos Serviços de Recuperação**, clique no novo cofre. Na seção **configurações** , clique em **Propriedades**.
+2. Em **Propriedades**, em **configuração de backup**, clique em **Atualizar**.
 
-3. Selecione o tipo de replicação de armazenamento e, em seguida, clique em **salvar**.
+3. Selecione o tipo de replicação de armazenamento e clique em **salvar**.
 
      ![Definir a configuração de armazenamento para o novo cofre](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-   - Recomendamos que se você estiver usando o Azure como um ponto de extremidade do armazenamento de backup principal, continue a usar o padrão **georredundante** configuração.
+   - Recomendamos que, se você estiver usando o Azure como um ponto de extremidade de armazenamento de backup primário, continue a usar a configuração padrão **com redundância geográfica** .
    - Se você não usar o Azure como um ponto de extremidade de armazenamento de backup principal, escolha **Localmente redundante**, que reduz os custos de armazenamento do Azure.
-   - Saiba mais sobre [geográfica](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) redundância.
+   - Saiba mais sobre a redundância [geográfica](../storage/common/storage-redundancy-grs.md) e [local](../storage/common/storage-redundancy-lrs.md) .
 
 > [!NOTE]
-> Alterando **tipo de replicação de armazenamento** (localmente redundante / geograficamente redundante) para uma recuperação de Cofre de serviços precisam ser realizadas antes de configurar os backups no cofre. Depois que você configura o backup, a opção de modificar está desabilitada e não é possível alterar o **tipo de replicação de armazenamento**. 
+> A alteração do **tipo de replicação de armazenamento** (com redundância local/geograficamente) para um cofre dos serviços de recuperação deve ser feita antes de configurar backups no cofre. Depois de configurar o backup, a opção para modificar é desabilitada e você não pode alterar o **tipo de replicação de armazenamento**. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre](backup-azure-recovery-services-vault-overview.md) cofres dos serviços de recuperação.
-[Saiba mais sobre](backup-azure-delete-vault.md) cofres dos serviços de recuperação de excluir.
+[Saiba mais](backup-azure-recovery-services-vault-overview.md) Cofres dos serviços de recuperação.
+[Saiba mais](backup-azure-delete-vault.md) Excluir cofres dos serviços de recuperação.

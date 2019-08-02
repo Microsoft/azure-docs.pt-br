@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e76ca7198bfded725d89f04fd162d470a85da904
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898293"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Azure Active Directory ao HR2day by Merces
 
@@ -105,14 +105,14 @@ Para configurar o logon único do Azure AD com o HR2day by Merces, execute as se
 
     ![Informações de logon único em domínio e URLs do HR2day by Merces](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.force.com/<instancename>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.force.com/<instancename>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://hr2day.force.com/<companyname>`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente HR2day by Merces](mailto:servicedesk@merces.nl) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-5. Seu aplicativo HR2day by Merces espera as declarações de SAML em um formato específico, o que exige adicionar mapeamentos de atributo personalizados à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário** .
+5. Seu aplicativo HR2day by Merces espera as declarações de SAML em um formato específico, o que exige adicionar mapeamentos de atributo personalizados à configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
     ![image](common/edit-attribute.png)
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o HR2day by Merces, execute as se
     | ATTR_LOGINCLAIM | `join([mail],"102938475Z","@"` |
     | | |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -218,7 +218,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure ao
 
 ### <a name="create-hr2day-by-merces-test-user"></a>Criar um usuário de teste do HR2day by Merces
 
-Nesta seção, você cria um usuário chamado Brenda Fernandes no HR2day by Merces. Trabalhe com a [equipe de suporte do HR2day by Merces](mailto:servicedesk@merces.nl) para adicionar os usuários à plataforma do HR2day by Merces. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você cria um usuário chamado Brenda Fernandes no HR2day by Merces. Trabalhe com a [equipe de suporte do HR2day by Merces](mailto:servicedesk@merces.nl) para adicionar os usuários à plataforma do HR2day by Merces. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 > [!NOTE]
 > Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao cliente do HR2day by Merces](mailto:servicedesk@merces.nl).
@@ -235,4 +235,4 @@ Ao clicar no bloco do HR2day by Merces no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

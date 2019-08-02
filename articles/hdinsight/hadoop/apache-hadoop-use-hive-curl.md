@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/23/2018
+ms.date: 06/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 82e08a8eeeb86d407be61c299656abe79a6f90f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 334d7b886aa4e2130a12f0c8a7919986fdac55d1
+ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078339"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67508132"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Executar consultas do Apache Hive com o Apache Hadoop no HDInsight usando a REST
 
@@ -23,48 +23,64 @@ Aprenda a usar a API REST do WebHCat para executar consultas do Apache Hive com 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um Hadoop baseado em Linux no cluster HDInsight versão 3.4 ou maior.
+* Um cluster do Apache Hadoop no HDInsight. Consulte [Introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-* Um cliente REST. Este documento usa exemplos de Windows PowerShell e [Curl](https://curl.haxx.se/).
+* Um cliente REST. Este documento usa [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest) no Windows PowerShell e [Curl](https://curl.haxx.se/) na [Bash](https://docs.microsoft.com/windows/wsl/install-win10).
 
-    > [!NOTE]  
-    > O Azure PowerShell fornece cmdlets dedicados para trabalhar com o Hive no HDInsight. Para obter mais informações, consulte o documento [Usar Apache Hive com o Azure PowerShell](apache-hadoop-use-hive-powershell.md).
+* Se você usar o Bash, você também precisará jq, um processador JSON de linha de comando.  Veja [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
-Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.io/jq/) para processar os dados JSON retornados de solicitações REST.
+## <a name="base-uri-for-rest-api"></a>Base de URI para a API Rest
+
+É a base URI Uniform Resource Identifier () para a API REST no HDInsight `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`, onde `CLUSTERNAME` é o nome do seu cluster.  Nomes de cluster nos URIs são **diferencia maiusculas de minúsculas**.  Embora o nome do cluster na parte do FQDN (nome) de domínio totalmente qualificado do URI (`CLUSTERNAME.azurehdinsight.net`) diferencia maiusculas de minúsculas, outras ocorrências no URI diferenciam maiusculas de minúsculas.
+
+## <a name="authentication"></a>Authentication
+
+Ao usar o cURL ou qualquer outra comunicação REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight. A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor, sempre faça solicitações usando HTTPS (HTTP seguro).
+
+### <a name="setup-preserve-credentials"></a>Instalação (preservar credenciais)
+Preserve suas credenciais para evitar a reinserção-los para cada exemplo.  O nome do cluster será preservado em uma etapa separada.
+
+**A. Bash**  
+Edite o script abaixo, substituindo `PASSWORD` com sua senha real.  Em seguida, digite o comando.
+
+```bash
+export password='PASSWORD'
+```  
+
+**B. PowerShell** executar o código a seguir e insira suas credenciais na janela pop-up:
+
+```powershell
+$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
+```
+
+### <a name="identify-correctly-cased-cluster-name"></a>Identificar o nome do cluster com maiusculas e minúsculas corretamente
+A grafia de maiúsculas e minúsculas real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado.  As etapas aqui mostram o uso de maiusculas e minúsculas real e, em seguida, armazená-lo em uma variável para todos os exemplos subsequentes.
+
+Editar os scripts a seguir para substituir `CLUSTERNAME` pelo nome do cluster. Em seguida, digite o comando. (O nome do cluster para o FQDN não diferencia maiusculas de minúsculas).
+
+```bash
+export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+echo $clusterName
+```  
+
+```powershell
+# Identify properly cased cluster name
+$resp = Invoke-WebRequest -Uri "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" `
+    -Credential $creds -UseBasicParsing
+$clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
+
+# Show cluster name
+$clusterName
+```
 
 ## <a id="curl"></a>Executar um trabalho do Hive
 
-> [!NOTE]  
-> Ao usar o cURL ou qualquer outra comunicação REST com WebHCat, você deve autenticar as solicitações, fornecendo o nome de usuário e a senha para o administrador do cluster HDInsight.
->
-> A API REST é protegida por meio de [autenticação básica](https://en.wikipedia.org/wiki/Basic_access_authentication). Para ajudar a garantir que suas credenciais sejam enviadas com segurança para o servidor, sempre faça solicitações usando HTTPS (HTTP seguro).
-
-1. Para definir o logon de cluster que é usado pelos scripts neste documento, use um dos seguintes comandos:
+1. Para verificar se você pode se conectar ao cluster HDInsight, use os seguintes comandos:
 
     ```bash
-    read -p "Enter your cluster login account name: " LOGIN
+    curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/status
     ```
 
-    ```powershell
-    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
-    ```
-
-2. Para definir o nome do cluster, use um dos seguintes comandos:
-
-    ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
-    ```
-
-    ```powershell
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    ```
-
-3. Para verificar se você pode se conectar ao cluster HDInsight, use os seguintes comandos:
-
-    ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-    ```
-    
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/status" `
        -Credential $creds `
@@ -83,10 +99,10 @@ Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.i
     * `-u` - O nome de usuário e a senha usados para autenticar a solicitação.
     * `-G` - Indica que essa solicitação é uma operação GET.
 
-   O início da URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, é o mesmo para todas as solicitações. O caminho, `/status`, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor. Você também pode solicitar a versão do Hive usando o comando a seguir:
+1. O início da URL, `https://$CLUSTERNAME.azurehdinsight.net/templeton/v1`, é o mesmo para todas as solicitações. O caminho, `/status`, indica que a solicitação é para retornar o status de WebHCat (também conhecido como Templeton) ao servidor. Você também pode solicitar a versão do Hive usando o comando a seguir:
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/version/hive
+    curl -u admin:$password -G https://$clusterName.azurehdinsight.net/templeton/v1/version/hive
     ```
 
     ```powershell
@@ -99,18 +115,18 @@ Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.i
     Essa solicitação retorna uma resposta semelhante ao seguinte texto:
 
     ```json
-        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
-4. Use o seguinte para criar uma tabela chamada **log4jLogs**:
+1. Use o seguinte para criar uma tabela chamada **log4jLogs**:
 
     ```bash
-    JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
-    echo $JOBID
+    jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.net/templeton/v1/hive | jq -r .id)
+    echo $jobid
     ```
 
     ```powershell
-    $reqParams = @{"user.name"="admin";"execute"="set hive.execution.engine=tez;DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
+    $reqParams = @{"user.name"="admin";"execute"="DROP TABLE log4jLogs;CREATE EXTERNAL TABLE log4jLogs(t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) ROW FORMAT DELIMITED BY ' ' STORED AS TEXTFILE LOCATION '/example/data/;SELECT t4 AS sev,COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' GROUP BY t4;";"statusdir"="/example/rest"}
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/templeton/v1/hive" `
        -Credential $creds `
        -Body $reqParams `
@@ -127,7 +143,7 @@ Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.i
      * `statusdir` - O diretório no qual o status deste trabalho é gravado.
 
    Essas instruções executam as seguintes ações:
-   
+
    * `DROP TABLE` - Se a tabela já existir, ela será excluída.
    * `CREATE EXTERNAL TABLE` - Cria uma nova tabela ‘externa’ no Hive. As tabelas externas armazenam apenas a definição da tabela no Hive. Os dados são mantidos no local original.
 
@@ -145,10 +161,10 @@ Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.i
 
       Esse comando retorna uma ID de trabalho que pode ser usada para verificar o status do trabalho.
 
-5. Para verificar o status do trabalho, use o comando a seguir:
+1. Para verificar o status do trabalho, use o comando a seguir:
 
     ```bash
-    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
+    curl -u admin:$password -d user.name=admin -G https://$clusterName.azurehdinsight.net/templeton/v1/jobs/$jobid | jq .status.state
     ```
 
     ```powershell
@@ -165,7 +181,7 @@ Este documento também usa o Windows PowerShell e [Jq](https://stedolan.github.i
 
     Se o trabalho foi concluído, o estado será **SUCCEEDED**.
 
-6. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/rest`. Esse endereço armazena a saída do diretório `example/curl` no armazenamento padrão de clusters.
+1. Depois que o estado do trabalho for alterado para **SUCCEEDED**, você poderá recuperar os resultados do trabalho no Armazenamento de Blobs do Azure. O parâmetro `statusdir` transmitido com a consulta contém a localização do arquivo de saída; nesse caso, `/example/rest`. Esse endereço armazena a saída do diretório `example/curl` no armazenamento padrão de clusters.
 
     Você pode listar e baixar esses arquivos usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para obter mais informações sobre como usar a CLI do Azure com o Armazenamento do Azure, consulte o documento [Usar a CLI do Azure com o Armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-azure-cli#create-and-manage-blobs).
 
@@ -181,27 +197,3 @@ Para obter informações sobre outras maneiras que você pode trabalhar com Hado
 * [Usar o MapReduce com o Apache Hadoop no HDInsight](hdinsight-use-mapreduce.md)
 
 Para obter mais informações sobre a API REST usada nesse documento, consulte o documento [Referência de WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).
-
-[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
-
-[apache-tez]: https://tez.apache.org
-[apache-hive]: https://hive.apache.org/
-[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
-[hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-
-
-[hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
-
-
-
-
-[hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
-[hdinsight-upload-data]: hdinsight-upload-data.md
-
-[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
-
-

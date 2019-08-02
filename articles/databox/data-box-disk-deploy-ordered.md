@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 02/27/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 39d39b313cd2e65989989080d4cb0729b0be1e65
+ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603173"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67561462"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicitar um Azure Data Box Disk
 
@@ -49,7 +49,12 @@ Antes de começar, verifique se:
 
 ## <a name="order-data-box-disk"></a>Solicitar Data Box Disk
 
-Execute as etapas a seguir no [portal do Azure](https://aka.ms/azuredataboxfromdiskdocs) para solicitar o Data Box Disk.
+Entrar em:
+
+- O portal do Azure nesta URL: https://portal.azure.com a ordem do Data Box Disk.
+- Ou no portal do Azure Governamental nesta URL: https://portal.azure.us. Para obter mais detalhes, acesse [Conectar-se ao Azure Governamental usando o portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+
+Faça o seguinte para solicitar o Data Box Disk.
 
 1. No canto superior esquerdo do portal, clique em **+ Criar um recurso** e procure *Azure Data Box*. Clique em **Azure Data Box**.
     
@@ -82,7 +87,7 @@ Execute as etapas a seguir no [portal do Azure](https://aka.ms/azuredataboxfromd
     |Região do Azure de destino| Selecione uma região para sua conta de armazenamento.<br> Atualmente, há suporte para contas de armazenamento em todas as regiões nos EUA, na Europa Setentrional e na Europa Ocidental, no Canadá e na Austrália. |
     |Tamanho estimado de dados em TB| Insira uma estimativa em TB. <br>Com base no tamanho dos dados, a Microsoft envia um número apropriado de SSDs de 8 TB (7 TB de capacidade utilizável). <br>A capacidade máxima de uso de 5 discos é de 35 TB. |
     |Chave de acesso do disco| Forneça a chave de acesso do disco se você marcar **Usar chave personalizada em vez da chave de acesso gerada pelo Azure**. <br> Forneça uma chave de 12 a 32 caracteres alfanuméricos que tenha pelo menos um caractere numérico e um caractere especial. Os caracteres especiais permitidos são `@?_+`. <br> Você pode optar por ignorar essa opção e usar a chave de acesso gerada pelo Azure para desbloquear os discos.|
-    |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser vinculada a até 10 contas de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br>Não é possível usar contas de armazenamento que tenham regras configuradas. As contas de armazenamento precisam **permitir o acesso em todas as redes** na seção de firewalls e redes virtuais.|
+    |Destino de armazenamento     | Escolha entre conta de armazenamento, discos gerenciados ou ambos. <br> Com base na região especificada do Azure, selecione uma conta de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box Disk pode ser vinculado a apenas 1 conta de armazenamento. <br> Você também pode criar uma nova conta de **Uso geral v1**, **Uso geral v2** ou de **Armazenamento de Blobs**. <br>Contas de armazenamento com redes virtuais são compatíveis. Para permitir que o serviço do Data Box trabalhe com contas de armazenamento protegido, habilite os serviços confiáveis em definições de firewall de rede da conta de armazenamento. Para obter mais informações, confira como [Adicionar o Azure Data Box como um serviço confiável](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).|
 
     Se usar a conta de armazenamento como o destino de armazenamento, você verá a seguinte captura de tela:
 

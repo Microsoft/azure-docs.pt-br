@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 05/06/2019
-ms.openlocfilehash: 520dba611e6791fca990e21173424a914c3d8e14
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/26/2019
+ms.openlocfilehash: e9d1ce3bcd3bf958be0a7837e8416300af03f5a2
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66693340"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449742"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Escolha entre as camadas de serviço vCore e migrar das camadas de serviço DTU
 
@@ -28,6 +28,8 @@ O vCore (núcleo virtual)-modelo de compra baseado em permite dimensionar os rec
 
 Hardware Ger 4 oferece substancialmente mais memória por vCore. No entanto, o hardware Gen5 permite que você amplie recursos de computação muito maiores.
 
+> [!IMPORTANT]
+> Não há suporte para novos bancos de dados Gen4 na região AustraliaEast.
 > [!NOTE]
 > Para obter informações sobre as camadas de serviço baseado em DTU, consulte [camadas para o modelo de compra baseado em DTU de serviço](sql-database-service-tiers-dtu.md). Para obter informações sobre as diferenças entre as camadas de serviço para o baseado em DTU e modelos de compra baseado em vCore, consulte [modelos de compra do Azure SQL Database](sql-database-purchase-models.md).
 

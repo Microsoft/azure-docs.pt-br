@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 06/12/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 74c5fcfabe0f24127c4eddb3a019f8ea5debe453
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4bfa325017d485a76bfe87c0f7facde4acf8f2b4
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67066092"
 ---
-# <a name="quickstart-create-an-apache-spark-cluster-in-hdinsight-using-template"></a>Início Rápido: Criar um cluster do Apache Spark no HDInsight usando um modelo
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-resource-manager-template"></a>Início Rápido: Criar um cluster do Apache Spark no Azure HDInsight usando o modelo do Resource Manager
 
 Saiba como criar um cluster do [Apache Spark](https://spark.apache.org/) no Azure HDInsight e como executar consultas Spark SQL nas tabelas do [Apache Hive](https://hive.apache.org/). O Apache Spark permite análises rápidas de dados e computação de cluster usando processamento na memória. Para obter informações sobre o Spark no HDInsight, confira [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md).
 
@@ -40,7 +40,7 @@ Crie um cluster Spark do HDInsight usando um modelo do Azure Resource Manager. O
 
     | Propriedade | Valor |
     |---|---|
-    |**Assinatura**|Selecione sua assinatura do Azure usada para criar este cluster. A assinatura usada para este início rápido é **&lt;nome da assinatura do Azure>**. |
+    |**Assinatura**|Selecione sua assinatura do Azure usada para criar este cluster. A assinatura usada para este início rápido é **&lt;nome da assinatura do Azure>** . |
     | **Grupo de recursos**|Crie um grupo de recursos ou selecione um existente. O grupo de recursos é usado para gerenciar recursos do Azure em seus projetos. O novo nome do grupo de recursos usado para este início rápido é **myspark20180403rg**.|
     | **Localidade**|Selecione um local para o grupo de recursos. O modelo usa esse local para criar o cluster, bem como para o armazenamento de cluster padrão. O local usado para este início rápido é **Leste dos EUA 2**.|
     | **ClusterName**|Insira um nome para o cluster HDInsight que você deseja criar. O novo nome do cluster usado para este início rápido é **myspark20180403**.|

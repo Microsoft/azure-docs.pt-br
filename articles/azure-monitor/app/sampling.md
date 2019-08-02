@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: c94167929782a2deca7bba19924bfe67dd46bf29
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: 4da91150999864c64ead28b74242e85d23a51ead
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388382"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67310443"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -53,7 +53,7 @@ Se a amostragem de taxa Adaptável ou Fixa estiver em operação, a amostragem d
 
 Amostragem adaptável está disponível para o SDK do Application Insights para ASP.NET v 2.0.0-Beta3 e posterior, o SDK de aspnetcore v 2.2.0-beta1 e versões posteriores e é habilitado por padrão.
 
-A amostragem adaptável afeta o volume de telemetria enviado do seu aplicativo de servidor Web para o end-point do serviço Application Insights. O volume é ajustado automaticamente para se manter em uma taxa máxima especificada de tráfego e é controlado por meio da configuração `MaxTelemetryItemsPerSecond`. Se o aplicativo produz uma quantidade pequena de telemetria, como durante a depuração ou devido ao baixo uso, os itens não seja amostradas desde que o volume estiver abaixo de `MaxTelemetryItemsPerSecond`. Como o volume de telemetria aumenta, a taxa de amostragem é ajustada para atingir o volume de destino.
+A amostragem adaptável afeta o volume de telemetria enviado do seu aplicativo de servidor Web para o end-point do serviço Application Insights. O volume é ajustado automaticamente para se manter em uma taxa máxima especificada de tráfego e é controlado por meio da configuração `MaxTelemetryItemsPerSecond`. Se o aplicativo produz uma quantidade pequena de telemetria, como durante a depuração ou devido ao baixo uso, itens não serão descartados pelo processador de amostragem desde que o volume estiver abaixo de `MaxTelemetryItemsPerSecond`. Como o volume de telemetria aumenta, a taxa de amostragem é ajustada para atingir o volume de destino.
 
 Para atingir o volume de destino, parte da telemetria gerada é descartada. Assim como os outros tipos de amostragem, o algoritmo retém os itens de telemetria relacionados. Por exemplo, quando você estiver analisando a telemetria na Pesquisa, poderá localizar a solicitação relacionada a uma exceção específica.
 
@@ -313,7 +313,7 @@ No Metrics Explorer, as taxas como as contagens de solicitações e de exceçõe
                     <Add name = "SamplingPercentage" value = "50" />
                 </Processor>
             </BuiltInProcessors>
-        <TelemetryProcessors/>
+        </TelemetryProcessors>
     ```
 
 3. Você pode incluir ou excluir tipos específicos de telemetria da Amostragem usando as seguintes marcas dentro da marca do processador "FixedRateSamplingTelemetryProcessor"

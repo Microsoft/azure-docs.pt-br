@@ -1,19 +1,18 @@
 ---
 title: 'Serviço de Backup do Azure: Restaurar o estado do sistema para um Windows Server'
 description: Explicação passo a passo para restaurar o estado do sistema do Windows Server de um backup no Azure.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: 6619611bee96089e465feb6f50d38caeada06dd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48eb9fce7b9863c84518546270a6566bb0cec711
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472499"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465642"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -93,7 +92,7 @@ A terminologia usada nessas etapas inclui:
 6. No painel Selecionar Servidor de Backup, selecione o *Computador de origem* na lista de computadores exibidos.
 7. No painel Selecionar Modo de Recuperação, escolha **Estado do Sistema** e clique em **Avançar**.
 
-    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No Calendário no painel **Selecionar Volume e Data**, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se houver vários pontos de recuperação disponíveis, escolha o ponto de recuperação específico no menu suspenso **Hora**.
 

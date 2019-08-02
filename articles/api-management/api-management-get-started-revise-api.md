@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: 757c710ddca72ec6a1383b51a8b536d196e6cb8c
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414450"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203640"
 ---
 # <a name="use-revisions-to-make-non-breaking-changes-safely"></a>Usar revisões para fazer alterações sem interrupções com segurança
 Quando sua API estiver pronta e começar a ser usada por desenvolvedores, e algum momento será necessário fazer alterações nessa API e, ao mesmo tempo, não interromper os chamadores de sua API. Também é útil permitir que os desenvolvedores saibam sobre as alterações feitas por você. Podemos fazer isso usando **revisões** no Gerenciamento de API do Azure. Para obter mais informações, consulte [Versões e revisões](https://blogs.msdn.microsoft.com/apimanagement/2017/09/14/versions-revisions/) e [Controle de versão de API com o Gerenciamento de API do Azure](https://blogs.msdn.microsoft.com/apimanagement/2017/09/13/api-versioning-with-azure-api-management/).
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Adicionar uma nova revisão
@@ -50,7 +50,7 @@ Neste tutorial, você aprenderá como:
 4. Selecione **+ Adicionar Revisão**
 
     > [!TIP]
-    > Você também pode escolher **Adicionar Revisão** no menu de contexto (**...**) da API.
+    > Você também pode escolher **Adicionar Revisão** no menu de contexto ( **...** ) da API.
 
 5. Forneça uma descrição para a nova revisão, para ajudar você a se lembrar de sua função.
 6. Escolha **Criar**
@@ -82,9 +82,9 @@ Neste tutorial, você aprenderá como:
 
     ![O menu de revisão na tela de revisão.](media/api-management-getstarted-revise-api/RevisionsMenu.PNG)
 
-2. Abra o menu de contexto (**...**) para a **Revisão 2**.
+2. Abra o menu de contexto ( **...** ) para a **Revisão 2**.
 3. Selecione **Tornar Atual**.
-4. Marque **Postar no log de alterações públicas para esta API** se você quiser postar observações sobre essa alteração. Forneça uma descrição para a alteração que os desenvolvedores vejam, por exemplo **Testando revisões. Adicionada uma nova operação de "teste".**
+4. Marque **Postar no log de alterações públicas para esta API** se você quiser postar observações sobre essa alteração. Forneça uma descrição para a alteração que os desenvolvedores vejam, por exemplo: **Teste de revisões. Adicionada uma nova operação de "teste".**
 5. Agora, a **Revisão 2** é a atual.
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Procurar no portal do desenvolvedor para ver as alterações e o log de alterações

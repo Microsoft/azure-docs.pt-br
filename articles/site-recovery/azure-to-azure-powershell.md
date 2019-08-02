@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: c585b300a65091bee3320a21b7bce7ba94d269ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258796"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671897"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação de desastre para máquinas virtuais do Azure usando o Azure PowerShell
 
@@ -153,6 +153,16 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+Para uma migração do Azure para o Azure, você pode definir o contexto do cofre para o cofre recém-criado: 
+
+```azurepowershell
+
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+
+```
+
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>Preparar o cofre para iniciar a replicação de máquinas virtuais do Azure
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>Criar um objeto de malha do Site Recovery para representar a região primária (origem)
@@ -405,7 +415,7 @@ $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0].StorageAccoun
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0].StorageAccountType
 
 $DataDisk1ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
-         -DiskId $datadiskId1 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
 #Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
@@ -600,6 +610,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 Depois que a nova proteção for concluída, você poderá iniciar failover na direção inversa (Oeste dos EUA no Leste dos EUA) e o failback para a região de origem.
+
+## <a name="disable-replication"></a>Desabilitar a replicação
+
+Você pode desabilitar a replicação usando o cmdlet Remove-ASRReplicationProtectedItem.
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Modo de exibição de [referência do PowerShell do Azure Site Recovery](https://docs.microsoft.com/powershell/module/az.RecoveryServices) para saber como você pode executar outras tarefas, como criar planos de recuperação e testar o failover dos planos de recuperação por meio do PowerShell.

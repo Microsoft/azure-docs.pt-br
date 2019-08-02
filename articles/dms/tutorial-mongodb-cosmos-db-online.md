@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/29/2019
-ms.openlocfilehash: 0bd271dbf173885cbd5f7835c5dc6b672a3e6035
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.date: 07/04/2019
+ms.openlocfilehash: 17f1b36ba5d5b699cce621db3917ef92654047ff
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66298956"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565571"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>Tutorial: Migrar o MongoDB para a API do Azure Cosmos DB para MongoDB online usando o DMS
 
@@ -150,7 +150,14 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
      * Para despejos JSON, os arquivos no contêiner de blobs devem ser inseridos em pastas nomeadas de acordo com os bancos de dados que as contêm. Dentro de cada pasta de banco de dados, os arquivos de dados devem ser inseridos em uma subpasta chamada “dados” e nomeados usando o formato *collection*.json. Arquivos de metadados (se houver) devem ser inseridos em uma subpasta chamada “metadados” e nomeada usando o mesmo formato, *collection*.json. Os arquivos de metadados devem estar no mesmo formato que o produzido pela ferramenta bsondump MongoDB.
 
-   Você pode usar o endereço IP para situações em que a resolução de nome DNS não é possível.
+    > [!IMPORTANT]
+    > Não é recomendado usar um certificado autoassinado no servidor do Mongo. No entanto, se um certificado for usado, conecte-se ao servidor usando o **modo de cadeia de conexão** e verifique se a cadeia de conexão tem “”
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    Você pode usar o endereço IP para situações em que a resolução de nome DNS não é possível.
 
    ![Especifique as configurações de origem](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 

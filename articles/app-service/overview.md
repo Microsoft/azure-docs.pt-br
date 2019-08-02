@@ -15,16 +15,16 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a3ff9b6fc1abf36bf2feddf518e4e920f18a3c23
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5ce8abd08f82a2a8b69cc996bfd8f7f060bb8c23
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60835338"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205043"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
-O *Serviço de Aplicativo do Azure* é um serviço de hospedagem de aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Os aplicativos são executados e dimensionados com facilidade em ambientes baseados no Windows e no Linux. Para ambientes baseados em Linux, confira [Serviço de Aplicativo do Azure](containers/app-service-linux-intro.md). 
+O *Serviço de Aplicativo do Azure* é um serviço com base em HTTP para hospedagem de aplicativos Web, APIs REST e back-ends móveis. Você pode desenvolver usando sua linguagem favorita, seja .NET, .NET Core, Java, Ruby, Node.js, PHP ou Python. Os aplicativos são executados e dimensionados com facilidade em ambientes baseados no Windows e no Linux. Para ambientes baseados em Linux, confira [Serviço de Aplicativo do Azure](containers/app-service-linux-intro.md). 
 
 O Serviço de Aplicativo não agrega apenas o poder do Microsoft Azure ao seu aplicativo, como segurança, balanceamento de carga, dimensionamento automático e gerenciamento automatizado. Você pode também aproveitar seus recursos de DevOps, como implantação contínua desde o Azure DevOps, GitHub, Hub do Docker e outras fontes, gerenciamento de pacote, ambientes de preparo, domínio personalizado e certificados SSL. 
 

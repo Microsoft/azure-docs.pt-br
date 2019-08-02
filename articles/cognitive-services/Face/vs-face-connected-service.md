@@ -1,21 +1,21 @@
 ---
 title: 'Tutorial: API de Detecção Facial C#'
 titleSuffix: Azure Cognitive Services
-description: Crie um aplicativo do Windows simples que use a API de Detecção Facial dos Serviços Cognitivos para detectar recursos de faces em uma imagem.
+description: Crie um aplicativo do Windows que usa a API de Detecção Facial de Serviços Cognitivos para detectar características de rostos em uma imagem.
 services: cognitive-services
 author: ghogen
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 05/07/2018
+ms.date: 07/03/2019
 ms.author: ghogen
-ms.openlocfilehash: 492161a9a47627db8a06686daf953e99ca652e02
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 7907a79289149d9e165dd6df0c09bee596e624e2
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827674"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606807"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Conectar a API de Detecção Facial dos Serviços Cognitivos usando Serviços Conectados no Visual Studio
 
@@ -147,7 +147,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre o uso do recurso
             });
         }
    ```
-    O código nesta etapa constrói uma solicitação HTTP com uma chamada à API REST de Detecção Facial, usando a chave adicionada quando você adicionou o serviço conectado.
+    O código desta etapa constrói uma solicitação HTTP com uma chamada à API REST de Detecção Facial usando a chave adicionada quando você adicionou o serviço conectado.
 
 1. Adicione as funções auxiliares GetImageAsByteArray e JsonPrettyPrint.
 
@@ -241,7 +241,7 @@ Quando não for mais necessário, exclua o grupo de recursos. Isso exclui o serv
 
 1. Insira o nome do grupo de recursos na caixa de pesquisa na parte superior do portal. Quando você vir o grupo de recursos usado neste início rápido nos resultados da pesquisa, selecione-o.
 1. Selecione **Excluir grupo de recursos**.
-1. Na caixa **DIGITE O NOME DO GRUPO DE RECURSOS:** , digite o nome do grupo de recursos e selecione **Excluir**.
+1. Na caixa **DIGITE O NOME DO GRUPO DE RECURSOS:**, digite o nome do grupo de recursos e selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 

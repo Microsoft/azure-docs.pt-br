@@ -4,15 +4,15 @@ description: Como configurar um contêiner de perfil FSLogix para um pool de hos
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 692902c28b336dd46a7c6f00d5cf5a61ee9f7328
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925206"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67619113"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar um compartilhamento de perfil do usuário para um pool de host
 
@@ -62,7 +62,7 @@ Para configurar as máquinas virtuais com o software FSLogix, faça o seguinte e
 6. Crie uma chave nomeada **perfis**.
 7. Crie os seguintes valores para a chave de perfis:
 
-| NOME                | Type               | Dados/valor                        |
+| NOME                | Tipo               | Dados/valor                        |
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadeia de caracteres múltipla | "Caminho de rede para o compartilhamento de arquivos"     |

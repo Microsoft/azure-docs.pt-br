@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Executar uma pesquisa de notícias com Python – API REST de Pesquisa de Notícias do Bing'
-titlesuffix: Azure Cognitive Services
+title: 'Início Rápido: Executar uma pesquisa de notícias usando Python e a API REST de Pesquisa de Notícias do Bing'
+titleSuffix: Azure Cognitive Services
 description: Use este Início Rápido para enviar uma solicitação para a API REST de Pesquisa de Notícias do Bing usando Python e receber uma resposta JSON.
 services: cognitive-services
 author: aahill
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 7745db722d1862e5254c0e0fb07605799a8f7457
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fc67cbfedccd69ff9063b0575ae51197eceb09d
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076710"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68423690"
 ---
 # <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>Início Rápido: Executar uma pesquisa de notícias usando Python e a API REST de Pesquisa de Notícias do Bing
 
@@ -77,7 +77,8 @@ Essas descrições podem então ser renderizadas como uma tabela com a palavra-c
 
 ```python
 from IPython.display import HTML
-rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
+rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc)
+                  for desc in descriptions])
 HTML("<table>"+rows+"</table>")
 ```
 

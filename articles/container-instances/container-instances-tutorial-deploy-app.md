@@ -3,17 +3,18 @@ title: Tutorial – Implantar aplicativo contêiner em Instâncias de Contêiner
 description: Tutorial das Instâncias de Contêiner do Azure, parte 3 de 3 – Implantar um aplicativo de contêiner nas Instâncias de Contêiner do Azure
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 210254a4404a5280e326bf40057331a784ff6148
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326732"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325626"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>Tutorial: Implantar um aplicativo de contêiner nas Instâncias de Contêiner do Azure
 
@@ -66,13 +67,13 @@ Repita o comando [az container show][az-container-show] até que o estado mude d
 
 ## <a name="view-the-application-and-container-logs"></a>Exibir os logs do aplicativo e do contêiner
 
-Depois que a implantação for bem-sucedida, exiba o nome de domínio totalmente qualificado (FQDN) do contêiner com o comando [az container show][az-container-show]:
+Depois que a implantação for bem-sucedida, exiba o FQDN (nome de domínio totalmente qualificado) do contêiner com o comando [az container show][az-container-show]:
 
 ```bash
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-Por exemplo: 
+Por exemplo:
 ```console
 $ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 "aci-demo.eastus.azurecontainer.io"
@@ -99,7 +100,7 @@ listening on port 80
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se não precisar mais de nenhum dos recursos criados nessa série de tutoriais, você poderá executar o comando [az group delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Esse comando exclui o Registro de contêiner que você criou, bem como o contêiner em execução e todos os recursos relacionados.
+Se você não precisar mais de nenhum dos recursos criados nessa série de tutoriais, pode executar o comando [az group delete][az-group-delete] para remover o grupo de recursos e todos os recursos que ele contém. Esse comando exclui o Registro de contêiner que você criou, bem como o contêiner em execução e todos os recursos relacionados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d1aa3e3a23acf82af8435cbb075fac38353500e5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 70c496aef0ff2f34c917fd594767d464cab3e625
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538724"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67603419"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início rápido: Detectar rostos em uma imagem usando a API REST e JavaScript
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Início Rápido: Detectar rostos em uma imagem usando a API REST e JavaScript
 
 Neste Início Rápido, você usará a API REST de Detecção Facial do Azure com o JavaScript para detectar rostos humanos em uma imagem.
 
@@ -41,7 +41,7 @@ Crie um arquivo HTML, *detectFaces.html*, e adicione o código a seguir.
 </html>
 ```
 
-Em seguida, adicione o código a seguir dentro do elemento `body` do documento. Isso configurará uma interface do usuário básica com um campo de URL, um botão **Analisar rosto**, um painel de resposta e um painel de exibição de imagens.
+Em seguida, adicione o código a seguir dentro do elemento `body` do documento. Esse código configura uma interface do usuário básica com um campo de URL, um botão **Analisar rosto**, um painel de resposta e um painel de exibição de imagens.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -65,7 +65,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>Escrever o script JavaScript
 
-Adicione o código a seguir imediatamente acima do elemento `h1` no documento. Isso configura o código JavaScript que chama a API de Detecção Facial.
+Adicione o código a seguir imediatamente acima do elemento `h1` no documento. Esse código configura o código JavaScript que chama a API de Detecção Facial.
 
 ```html
 <script type="text/javascript">
@@ -140,7 +140,7 @@ Abra *detectFaces.html* no navegador. Quando você clicar no botão **Analisar r
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Veja a seguir um exemplo de uma resposta JSON bem-sucedida.
+O texto a seguir é um exemplo de uma resposta JSON bem-sucedida.
 
 ```json
 [

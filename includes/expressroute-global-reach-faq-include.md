@@ -9,11 +9,11 @@ ms.date: 03/19/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 317a480c13c5c6e00653fd61878a379df3f65ac4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170720"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171658"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>O que é o Alcance Global do ExpressRoute?
 

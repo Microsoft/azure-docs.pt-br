@@ -7,12 +7,12 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: eea4366ca19c01af1f79566a5ca6bcae8805b6c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a955060eb5f19544860c1c97abe1577084bef24
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242488"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67985538"
 ---
 # <a name="connect-qlik-sense-to-azure-cosmos-db-and-visualize-your-data"></a>Conectar o Qlik Sense ao Azure Cosmos DB e visualizar seus dados
 
@@ -44,7 +44,7 @@ Antes de seguir as instruções deste artigo, verifique se você tem os seguinte
 
 * Crie uma conta de API SQL do Azure Cosmos DB usando as etapas descritas na seção [criar uma conta](create-sql-api-dotnet.md#create-account) do artigo de início rápido.
 
-* [Criar um banco de dados e uma coleção](create-sql-api-dotnet.md#create-collection-database) – Você pode usar o valor de taxa de transferência da coleção para 1000 RU/s. 
+* [Criar um banco de dados e uma coleção](create-sql-api-java.md#add-a-container) – Você pode usar o valor de taxa de transferência da coleção para 1000 RU/s. 
 
 * Carregue os exemplos de dados de vendas de videogame em sua conta do Cosmos DB. Você pode importar os dados usando a ferramenta de migração de dados do Azure Cosmos DB, com uma [importação sequencial](import-data.md#SQLSeqTarget) ou [em massa](import-data.md#SQLBulkTarget) dos dados. A importação dos dados para a conta do Cosmos DB demora cerca de 3 a 5 minutos.
 

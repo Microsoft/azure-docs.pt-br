@@ -1,26 +1,26 @@
 ---
-title: Criar base de dados de conhecimento
-titleSuffix: QnA Maker API - Azure Cognitive Services
-description: Use o portal de serviço de API do QnA Maker, para adicionar criar uma base de conhecimento com chit-bate-papo. Isso torna seu aplicativo envolvente. Adicione um conjunto pré-populado do bate-papo principal à sua base de dados de conhecimento como ponto de partida para o bate-papo do seu bot, economizando o tempo e o custo de escrevê-lo do zero.
+title: Criar base de dados de conhecimento-QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Use o portal de serviço API de QnA Maker para adicionar criar uma base de dados de conhecimento com o Chit-Chat. Isso torna seu aplicativo envolvente. Adicione um conjunto pré-populado do bate-papo principal à sua base de dados de conhecimento como ponto de partida para o bate-papo do seu bot, economizando o tempo e o custo de escrevê-lo do zero.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dfd0663c09b78539a1d6b78aa7820385b9ddbdca
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65541785"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563083"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início Rápido: Criar uma base de dados de conhecimento usando o portal do serviço de API do QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início Rápido: Criar uma base de dados de conhecimento usando o portal do serviço API de QnA Maker
 
-O portal de serviços de API do QnA Maker facilita adicionar suas fontes de dados existentes ao criar uma base de Conhecimento. Você pode criar uma nova base de dados de conhecimento do QnA Maker dos seguintes tipos de documento:
+O portal do serviço API de QnA Maker simplifica a adição de suas fontes de dados existentes ao criar uma base de conhecimento. Você pode criar uma nova base de dados de conhecimento do QnA Maker dos seguintes tipos de documento:
 
 <!-- added for scanability -->
 * Páginas de perguntas frequentes
@@ -50,7 +50,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
     - Carregue arquivos para os dados que você deseja extrair. Consulte as [informações sobre preços](https://aka.ms/qnamaker-pricing) para ver quantos documentos é possível adicionar.
     - Se você quiser adicionar manualmente QnAs, poderá ignorar a **Etapa 4** mostrada na imagem anterior.
 
-1. Adicione **Bate-papo** à sua base de dados de conhecimento. Escolha adicionar suporte de bate-papo de chit para o bot, escolhendo uma das personalidades. 
+1. Adicione **Bate-papo** à sua base de dados de conhecimento. Escolha entre adicionar o suporte ao Chit para o bot, escolhendo um dos personalidades. 
 
     ![Adicionar bate-papo à base de dados de conhecimento](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 
@@ -70,7 +70,7 @@ Quando terminar de usar a base de dados de conhecimento, remova a base no portal
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter medidas de economia de custo, você pode [compartilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) algumas, mas nem todos os recursos do Azure criados para o QnA Maker.
+Para medidas de economia de custo, você pode [compartilhar](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alguns, mas não todos os recursos do Azure criados para QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Adicionar personalidade ao bate-papo](./chit-chat-knowledge-base.md)

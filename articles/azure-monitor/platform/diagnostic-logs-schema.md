@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 468bcdb6aa688157196bb9cba8added623a857d3
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65789313"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67155299"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
@@ -55,7 +55,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 | Lote do Azure |[Logs de diagnóstico do Lote do Azure](../../batch/batch-diagnostics.md) |
 | Banco de Dados do Azure para MySQL | [Banco de dados do Azure para logs de Diagnóstico do MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Banco de Dados do Azure para PostgreSQL | [Banco de dados do Azure para logs de Diagnóstico do MySQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
-| Serviços Cognitivos | Esquema não disponível. |
+| Serviços Cognitivos | [Log de diagnóstico para serviços Cognitivos do Azure](../../cognitive-services/diagnostic-logging.md) |
 | Rede de Distribuição de Conteúdo | [Logs de diagnóstico do Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Registro em log do Azure Cosmos DB](../../cosmos-db/logging.md) |
 | Data Factory | [Monitorar data factories usando o Azure Monitor](../../data-factory/monitor-using-azure-monitor.md) |
@@ -209,4 +209,3 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 * [Transmitir logs de diagnóstico de recurso os **Hubs de Eventos**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [Alterar as configurações de diagnóstico do recurso usando a API REST do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
 * [Analisar logs do Armazenamento do Azure com o Log Analytics](../../azure-monitor/platform/collect-azure-metrics-logs.md)
-

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/01/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 6d26cedb0dd836846d7e9f00539fe101c944f478
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595741"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442218"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Começar a monitorar o aplicativo Web ASP.NET
 
@@ -63,13 +63,13 @@ Agora você pode abrir o Application Insights no Portal do Azure para exibir vá
 
 1. Expanda a pasta **Serviços Conectados** (ícone de nuvem e plugue) da pasta Gerenciador de Soluções, clique com o botão direito do mouse na pasta **Application Insights** e clique em **Abrir Portal do Application Insights**.  Você pode ver algumas informações sobre seu aplicativo e uma variedade de opções.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/4overview.png)
+    ![Mapa de aplicativo](media/quick-monitor-portal/04-overview.png)
 
 2. Clique em **Mapa do aplicativo** para obter um layout visual das relações de dependência entre os componentes do aplicativo.  Cada componente mostra KPIs como alertas, desempenho, falhas e carregamento.
 
-    ![Mapa de aplicativo](media/quick-monitor-portal/5appmap.png)
+    ![Mapa de aplicativo](media/quick-monitor-portal/05-appmap.png)
 
-3. Clique no ícone **Análise do Aplicativo** ![Mapa do Aplicativo](media/quick-monitor-portal/app-analytics-icon.png) **Exibir no Analytics** em um dos componentes do aplicativo. Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights.  Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
+3. Clique no ícone **Análise do Aplicativo** ![Mapa do Aplicativo](media/quick-monitor-portal/app-viewinlogs-icon.png) **Exibir em Logs (Análise)** em um dos componentes do aplicativo. Isso abre o **Logs (Análise)** , que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
     ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 

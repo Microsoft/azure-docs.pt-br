@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 8fce54cba0b0b64390256bc9669821fa582c2e8a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: af0748f36e8d2299921f987c517f7a4923bd0d55
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920124"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086467"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Tutorial: Integração do Azure Active Directory ao Yodeck
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Yodeck, execute as seguintes et
 
     ![Configuração do Yodeck](./media/yodeck-tutorial/configure2.png)
 
-     a. Selecione **Importar da URL**.
+    a. Selecione **Importar da URL**.
 
     b. Na caixa de texto **URL**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure e clique em **Importar**.
     
@@ -207,7 +207,7 @@ Para permitir que os usuários do Azure AD entrem no Yodeck, eles devem ser prov
 
     ![Adicionar Funcionário](./media/yodeck-tutorial/user3.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o Sobrenome do usuário, como **Fernandes**.
 
@@ -229,5 +229,5 @@ Ao clicar no bloco do Yodeck no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

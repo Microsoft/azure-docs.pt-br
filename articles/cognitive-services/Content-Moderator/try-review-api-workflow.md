@@ -1,7 +1,7 @@
 ---
-title: Definir fluxos de trabalho de moderação com o console de API REST - Content Moderator
-titlesuffix: Azure Cognitive Services
-description: Você pode usar as APIs de revisão do moderador de conteúdo do Azure para definir limites com base em suas políticas de conteúdo e fluxos de trabalho personalizados.
+title: Definir fluxos de trabalho de moderação com o console da API REST-Content Moderator
+titleSuffix: Azure Cognitive Services
+description: Você pode usar as APIs de revisão de Content Moderator do Azure para definir fluxos de trabalho e limites personalizados com base em suas políticas de conteúdo.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
@@ -10,41 +10,41 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 71b7be74ca7b6ac072dfd7c9fa6b8efa72361dfa
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60605860"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561197"
 ---
-# <a name="define-and-use-moderation-workflows-rest"></a>Definir e usar fluxos de trabalho de moderação (REST)
+# <a name="define-and-use-moderation-workflows-rest"></a>Definir e usar os fluxos de trabalho de moderação (REST)
 
-Fluxos de trabalho são filtros personalizados baseados em nuvem que você pode usar para manipular o conteúdo com mais eficiência. Fluxos de trabalho podem se conectar a uma variedade de serviços para filtrar o conteúdo de maneiras diferentes e, em seguida, execute a ação apropriada. Este guia mostra como usar o APIs REST, do fluxo de trabalho, por meio do console de API, para criar e usar fluxos de trabalho. Depois de compreender a estrutura das APIs, você poderá transportar facilmente essas chamadas para qualquer plataforma compatível com REST.
+Os fluxos de trabalho são filtros personalizados baseados em nuvem que você pode usar para lidar com o conteúdo com mais eficiência. Os fluxos de trabalho podem se conectar a uma variedade de serviços para filtrar conteúdo de maneiras diferentes e, em seguida, executar a ação apropriada. Este guia mostra como usar as APIs REST do fluxo de trabalho, por meio do console de API, para criar e usar fluxos de trabalho. Depois de entender a estrutura das APIs, você pode facilmente portar essas chamadas para qualquer plataforma compatível com REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Entrar ou criar uma conta no Content Moderator [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) site.
+- Entre ou crie uma conta no site da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
 ## <a name="create-a-workflow"></a>Criar um fluxo de trabalho
 
-Para criar ou atualizar um fluxo de trabalho, vá para o **[fluxo de trabalho - Criar ou atualizar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API página de referência e selecione o botão para a sua região de chave (você pode encontrá-lo na URL do ponto de extremidade no **credenciais**  página do [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/)). Isso inicia o console de API, onde você pode facilmente construir e executar chamadas à API REST.
+Para criar ou atualizar um fluxo de trabalho, vá para a página **[fluxo de trabalho – criar ou atualizar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** referência de API e selecione o botão para a região de chave (você pode encontrá-lo na URL do ponto de extremidade na página **credenciais** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/)). Isso inicia o console de API, no qual você pode facilmente construir e executar chamadas à API REST.
 
 ![Seleção de região da página Fluxo de trabalho - Criar ou atualizar](images/test-drive-region.png)
 
-### <a name="enter-rest-call-parameters"></a>Insira os parâmetros da chamada REST
+### <a name="enter-rest-call-parameters"></a>Inserir parâmetros de chamada REST
 
-Insira valores para **team**, **workflowname**, e **Ocp-Apim-Subscription-Key**:
+Insira valores para **Team**, **workflowname**e **OCP-APIM-Subscription-Key**:
 
-- **team**: A ID da equipe que você criou quando você configurar seu [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) conta (encontrada na **Id** campo na tela de credenciais da sua ferramenta de revisão).
-- **workflowname**: O nome de um novo fluxo de trabalho para adicionar (ou um nome existente, se você quiser atualizar o fluxo de trabalho existente).
-- **Ocp-Apim-Subscription-Key**: Sua chave de Content Moderator. Você pode encontrá-lo na **as configurações** guia da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
+- **team**: A ID da equipe que você criou quando configurou sua conta de [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **ID** na tela de credenciais da ferramenta de revisão).
+- **workflowname**: O nome de um novo fluxo de trabalho a ser adicionado (ou um nome existente, se você quiser atualizar um fluxo de trabalho existente).
+- **Ocp-Apim-Subscription-Key**: Sua chave de Content Moderator. Você pode encontrá-lo na guia **configurações** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
 
 ![Cabeçalhos e parâmetros de consulta do console Fluxo de trabalho - Criar ou atualizar](images/workflow-console-parameters.PNG)
 
-### <a name="enter-a-workflow-definition"></a>Insira uma definição de fluxo de trabalho
+### <a name="enter-a-workflow-definition"></a>Inserir uma definição de fluxo de trabalho
 
-1. Editar o **corpo da solicitação** caixa para inserir a solicitação JSON com detalhes para **descrição** e **tipo** (tanto `Image` ou `Text`).
-2. Para **expressão**, copie o expressão de JSON do fluxo de trabalho do padrão. Sua cadeia de caracteres JSON final deve ter esta aparência:
+1. Edite a caixa **corpo da solicitação** para inserir a solicitação JSON com detalhes para **Descrição** e **tipo** ( `Text` `Image` ou).
+2. Para **expressão**, copie a expressão JSON do fluxo de trabalho padrão. A cadeia de caracteres JSON final deve ter a seguinte aparência:
 
 ```json
 {
@@ -76,7 +76,7 @@ Insira valores para **team**, **workflowname**, e **Ocp-Apim-Subscription-Key**:
 ```
 
 > [!NOTE]
-> Você pode definir expressões simples, complexas e aninhadas, mesmo para seus fluxos de trabalho usando essa API. O [fluxo de trabalho - Criar ou atualizar](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) documentação tem exemplos de uma lógica mais complexa.
+> Você pode definir expressões simples, complexas e até mesmo aninhadas para seus fluxos de trabalho usando essa API. A documentação [criar ou atualizar o fluxo de trabalho](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) tem exemplos de lógica mais complexa.
 
 ### <a name="submit-your-request"></a>Enviar a solicitação
   
@@ -84,25 +84,25 @@ Selecione **Enviar**. Se a operação for bem sucedida, o**Status da resposta** 
 
 ### <a name="examine-the-new-workflow"></a>Examinar o novo fluxo de trabalho
 
-No [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione **configurações** > **fluxos de trabalho**. Seu novo fluxo de trabalho deve aparecer na lista.
+Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione **configurações** > **fluxos de trabalho**. Seu novo fluxo de trabalho deve aparecer na lista.
 
 ![Revisar lista de ferramentas de fluxos de trabalho](images/workflow-console-new-workflow.PNG)
 
-Selecione o **edite** opção para seu fluxo de trabalho e vá para o **Designer** guia. Aqui, você pode ver uma representação intuitiva da lógica do JSON.
+Selecione a opção **Editar** para seu fluxo de trabalho e vá para a guia **Designer** . Aqui, você pode ver uma representação intuitiva da lógica JSON.
 
 ![Guia Designer para um fluxo de trabalho selecionado](images/workflow-console-new-workflow-designer.PNG)
 
 ## <a name="get-workflow-details"></a>Obter detalhes do fluxo de trabalho
 
-Para recuperar detalhes sobre o fluxo de trabalho existente, vá para o **[fluxo de trabalho - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)** página de referência de API e selecione o botão para a sua região (a região na qual a chave é administrada).
+Para recuperar detalhes sobre um fluxo de trabalho existente, vá para a página de referência do **[fluxo de trabalho-obter](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)** API e selecione o botão para sua região (a região em que sua chave é administrada).
 
 ![Seleção de região de Fluxo de trabalho - Get](images/test-drive-region.png)
 
-Insira os parâmetros da chamada REST como na seção acima. Certifique-se de que esse tempo, **workflowname** é o nome do fluxo de trabalho existente.
+Insira os parâmetros de chamada REST como na seção acima. Certifique-se de que,  desta vez, workflowname seja o nome de um fluxo de trabalho existente.
 
 ![Obter cabeçalhos e parâmetros de consulta](images/workflow-get-default.PNG)
 
-Selecione **Enviar**. Se a operação for bem-sucedida, o **status de resposta** é `200 OK`e o **conteúdo da resposta** caixa exibe o fluxo de trabalho no formato JSON, semelhante ao seguinte:
+Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá o fluxo de trabalho no formato JSON, como o seguinte:
 
 ```json
 {

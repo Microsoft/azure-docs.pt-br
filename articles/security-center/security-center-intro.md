@@ -3,7 +3,7 @@ title: O que é a Central de Segurança do Azure? | Microsoft Docs
 description: Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 13526268480c69798ee52078f7448605fc1afa9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.date: 6/06/2019
+ms.author: v-mohabe
+ms.openlocfilehash: 28e85f2e9caacc0cc30dcc1a073414c34bc2ab0e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242030"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67064321"
 ---
 # <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
 
@@ -125,6 +125,10 @@ A Central de Segurança ajuda a limitar a exposição a ataques de força bruta.
 ### <a name="protect-data-services"></a>Proteger serviços de dados
 
 A Central de Segurança inclui funcionalidades que ajudam você a realizar a classificação automática dos seus dados no SQL Azure. Você também pode obter avaliações de possíveis vulnerabilidades nos serviços de Armazenamento e SQL do Azure e recomendações de como mitigá-las.
+
+### <a name="protect-iot-and-hybrid-cloud-workloads-preview"></a>Proteger cargas de trabalho de nuvem da híbrida e da IoT (versão prévia)
+
+A Central de Segurança do Azure para IoT (Internet das Coisas) simplifica a proteção de carga de trabalho híbridas, oferecendo visibilidade unificada e controle, prevenção de ameaças adaptável, além de resposta e detecção de ameaças inteligente em cargas de trabalho em execução na borda, no local, no Azure e em outras nuvens. Para saber mais, consulte [Central de Segurança do Azure para IoT (Versão prévia)](https://docs.microsoft.com/azure/asc-for-iot/).
 
 ## <a name="get-secure-faster"></a>Ficar seguro com mais rapidez
 

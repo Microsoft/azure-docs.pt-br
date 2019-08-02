@@ -11,12 +11,12 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: f169f969a1acf4cefc8cee27f74a99730491176a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 309bbca762149f8804742d9ef02d4c3e8dfcdc6b
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389423"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67542761"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obter imagens da Web com a API de Pesquisa de Imagem do Bing
 
@@ -31,10 +31,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
+Use o [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#query) parâmetro de consulta para o termo de pesquisa codificado de url. Por exemplo, se você inserir *sailing dinghies* (bote à vela), defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+
 > [!IMPORTANT]
 > * Todas as solicitações precisam ser feitas por meio de um servidor, e não de um cliente.
 > * Se essa é a primeira vez que você chama uma das APIs de Pesquisa do Bing, não inclua o cabeçalho da ID do cliente. Só inclua a ID do cliente se já tiver chamado uma API do Bing que retornou uma ID do cliente para a combinação de usuário e dispositivo.
-> * As imagens precisam ser exibidas na ordem fornecida na resposta.
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Obter imagens de um domínio da Web específico
 
@@ -46,17 +47,6 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 
 > [!NOTE]
 > As respostas a consultas usando o operador `site:` podem incluir conteúdo para adultos, independentemente da configuração [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch). Só use `site:` se estiver ciente do conteúdo do domínio.
-
-O exemplo a seguir mostra como obter imagens pequenas de ContosoSailing.com que o Bing descobriu na última semana.  
-
-```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
-Ocp-Apim-Subscription-Key: 123456789ABCDE  
-X-MSEdge-ClientIP: 999.999.999.999  
-X-Search-Location: lat:47.60357;long:-122.3295;re:100  
-X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>  
-Host: api.cognitive.microsoft.com  
-```
 
 ## <a name="filter-images"></a>Filtrar imagens
 
@@ -73,9 +63,6 @@ Host: api.cognitive.microsoft.com
 
 Para obter imagens de um domínio específico, use o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
- > [!NOTE]
- > As respostas a consultas usando o operador `site:` podem incluir conteúdo para adultos, independentemente da configuração [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#safesearch). Só use `site:` se estiver ciente do conteúdo do domínio.
-
 O exemplo a seguir mostra como obter imagens pequenas de ContosoSailing.com que o Bing descobriu na última semana.  
 
 ```http
@@ -90,6 +77,10 @@ Host: api.cognitive.microsoft.com
 ## <a name="bing-image-search-response-format"></a>Formato de resposta da Pesquisa de Imagem do Bing
 
 A mensagem de resposta do Bing contém uma resposta [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) que contém uma lista de imagens que os Serviços Cognitivos consideraram relevantes para a consulta. Cada objeto [Image](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#image) da lista inclui as seguintes informações sobre a imagem: a URL, seu tamanho, suas dimensões, seu formato de codificação, uma URL para uma miniatura da imagem e as dimensões da miniatura.
+
+> [!NOTE]
+> * As imagens precisam ser exibidas na ordem fornecida na resposta.
+> * Porque os formatos de URL e os parâmetros estão sujeitos a alterações sem aviso prévio, use todas as URLs como-está. Você não deveria receber dependências no formato de URL ou parâmetros, exceto onde observado.
 
 ```json
 {

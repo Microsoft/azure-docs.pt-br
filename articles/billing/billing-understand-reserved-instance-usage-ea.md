@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: b2452580eaecc0ab922f8e7db48676f70831a8ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0c7c38ebabfdd142394152f735d40320a98dced
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66126854"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798152"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obter o uso e custos de reserva do Enterprise Agreement
 
@@ -92,7 +92,7 @@ No portal do Azure, navegue até [gerenciamento de custos + cobrança](https://p
 
 1. Selecione a conta de cobrança.
 2. Clique em **uso + encargos**.
-3. Clique em **Download**.  
+3. Clique em **Baixar**.  
 ![Exemplo mostrando onde baixar o arquivo de dados de uso do CSV no portal do Azure](./media/billing-understand-reserved-instance-usage-ea/portal-download-csv.png)
 4. Na **baixar uso + encargos** , em **detalhes de uso da versão 2** , selecione **todos os encargos (uso e compras)** e, em seguida, clique em baixar. Repita a operação em **amortizado encargos (uso e compras)** .
 
@@ -120,7 +120,7 @@ Obter dados de custo amortizado e filtro para um pedido de reserva usando _Produ
 
 - Recursos (como uma VM)
 - Grupo de recursos
-- tags
+- Marcas
 - Assinatura
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>Obter a taxa combinada de estorno
@@ -139,17 +139,17 @@ Obter os dados de custos Amortized e filtrar os dados para uma instância reserv
 2. Obtenha os custos de reserva. Soma de _custo_ valores para obter o valor monetário de você paga a instância reservada. Ele inclui os custos utilizados e não utilizados de reserva.
 3. Subtrai os custos de reserva de custos estimados de pago conforme o uso para obter a economia estimada.
 
-## <a name="reservation-purchases-and-amortization-in-azure-cost-analysis"></a>As compras de reserva e amortização na análise de custo do Azure
+## <a name="reservation-purchases-and-amortization-in-cost-analysis"></a>As compras de reserva e amortização na análise de custo
 
-Custo da instância reservada está disponível no [modo de visualização de análise de custo do Azure](https://preview.portal.azure.com/?feature.canmodifystamps=true&amp;microsoft_azure_costmanagement=stage2&amp;Microsoft_Azure_CostManagement_arm_canary=true&amp;Microsoft_Azure_CostManagement_apiversion=2019-04-01-preview&amp;Microsoft_Azure_CostManagement_amortizedCost=true#blade/Microsoft_Azure_CostManagement/Menu/costanalysis). Por padrão, o modo de exibição de dados de custo é para o custo real. Você pode alternar para o custo amortizado. Aqui está um exemplo.
+Os custos de reserva estão disponíveis no [análise de custo](https://aka.ms/costanalysis). Por padrão, mostra de análise de custo **custo real**, que é como os custos serão exibidos na sua fatura. Para exibir as compras dividido e associados com os recursos que é usado o benefício de reserva, mude **custo amortizado**:
 
 ![Exemplo mostrando onde selecionar custo amortizado na análise de custo](./media/billing-understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-Aplica filtros para ver os encargos por um tipo de reserva ou sem bateria. Agrupar em nome de reserva para ver os custos divididos por reservas.
+Agrupar por tipo de encargo para verificar um desdobramento de uso, compras e reembolsos; ou por reserva para uma divisão de custos de reserva e sob demanda. Lembre-se os custos de reserva única, que você verá ao examinar os custos reais são compras, mas os custos serão alocados para os recursos individuais que usado a vantagem ao examinar os custos amortizados. Você também verá uma nova **UnusedReservation** cobrar tipo quando observando o custo amortizado.
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Entre em contato conosco.
 
-Se você tiver dúvidas ou precisar de Ajuda, [criar uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Se você tiver dúvidas ou precisar de ajuda, [crie uma solicitação de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -157,7 +157,7 @@ Para saber mais sobre as Reservas do Azure, consulte os seguintes artigos:
 
 - [O que são Reservas do Azure?](billing-save-compute-costs-reservations.md)
 - [Pré-pagamento para máquinas virtuais com instâncias de VMs reservadas do Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
+- [Pagar antecipadamente por recursos de computação de banco de dados SQL com capacidade reservada do Banco de Dados SQL do Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gerenciar Reservas do Azure](billing-manage-reserved-vm-instance.md)
 - [Entender como o desconto de reserva é aplicado](billing-understand-vm-reservation-charges.md)
 - [Entender o uso de reserva para a sua assinatura paga conforme o uso](billing-understand-reserved-instance-usage.md)

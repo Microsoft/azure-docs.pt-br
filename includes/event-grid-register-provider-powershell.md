@@ -9,11 +9,11 @@ ms.date: 07/05/2018
 ms.author: tomfitz
 ms.custom: include file
 ms.openlocfilehash: 68a208af1a9aa9e73f2af99021d195f264fb21f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66155993"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172538"
 ---
 ## <a name="enable-event-grid-resource-provider"></a>Habilitar provedor de recursos da Grade de Eventos
 

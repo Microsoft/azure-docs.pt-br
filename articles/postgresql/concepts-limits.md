@@ -1,19 +1,20 @@
 ---
-title: Limitações no banco de dados do Azure para PostgreSQL – servidor único
-description: Este artigo descreve limitações no banco de dados do Azure para PostgreSQL – único servidor, como o número de opções de mecanismo de armazenamento e de conexão.
+title: Limites no banco de dados do Azure para PostgreSQL – servidor único
+description: Este artigo descreve os limites no banco de dados do Azure para PostgreSQL – único servidor, como o número de opções de mecanismo de armazenamento e de conexão.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 3e1597def26c09378d3917ad2d49163ef17732f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4752112acf136d9ffb19a0b7383bc3aff5de5e0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66732873"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448096"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitações no banco de dados do Azure para PostgreSQL – servidor único
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites no banco de dados do Azure para PostgreSQL – servidor único
 As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Se você quiser saber mais sobre as camadas de recursos (computação, memória, armazenamento), consulte o [tipos de preço](concepts-pricing-tiers.md) artigo.
 
 
@@ -34,7 +35,7 @@ O número máximo de conexões por tipo de preço e vCores é o seguinte:
 |Otimizado para memória| 4| 500|
 |Otimizado para memória| 8| 960|
 |Otimizado para memória| 16| 1900|
-|Otimizado para memória| 32| 1900|
+|Otimizado para memória| 32| 1987|
 
 Quando as conexões excederem o limite, você poderá receber o seguinte erro:
 > FATAL: já existem muitos clientes
@@ -48,6 +49,9 @@ O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azur
 
 ### <a name="server-version-upgrades"></a>Upgrade da versão do servidor
 - Não há suporte para a migração automatizada entre versões de mecanismo de banco de dados principal. Se você quiser atualizar para a próxima versão principal, faça um [despejo e restaure](./howto-migrate-using-dump-and-restore.md) para um servidor que foi criado com a nova versão do mecanismo.
+
+> Observe que, antes do PostgreSQL versão 10, o [política de controle de versão do PostgreSQL](https://www.postgresql.org/support/versioning/) considerado um _versão principal_ atualização seja um aumento na primeira _ou_ segundo número (para o exemplo, 9.5 para 9.6 era considerada um _principais_ atualização de versão).
+> A partir da versão 10, apenas uma alteração no primeiro número é considerada uma atualização de versão principal (por exemplo, 10.0 para 10.1 é um _secundárias_ atualização de versão e de 10 a 11 é uma _principais_ atualização de versão).
 
 ### <a name="vnet-service-endpoints"></a>Ponto de extremidade de serviço VNet
 - O suporte para ponto de extremidade de serviço de VNet é apenas para servidores de Uso Geral e Otimizados para Memória.

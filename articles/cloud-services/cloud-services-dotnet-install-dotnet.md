@@ -3,23 +3,19 @@ title: Instalar o .NET em funções dos Serviços de Nuvem do Azure | Microsoft 
 description: Este artigo descreve como instalar manualmente o .NET Framework em funções de trabalho e web de seu serviço de nuvem
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 8d1243dc-879c-4d1f-9ed0-eecd1f6a6653
+author: georgewallace
+manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/22/2018
-ms.author: jeconnoc
-ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: 25151f154b9806646406639df3efd7616e53f6bf
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699671"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359639"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidas com o SO convidado do Azure. Você pode usar o .NET no SO convidado para configurar as funções Web e de trabalho de seu serviço de nuvem.
@@ -34,7 +30,7 @@ Para instalar o .NET em suas funções web e de trabalho, inclua o instalador We
 ## <a name="add-the-net-installer-to-your-project"></a>Adicione o instalador do .NET ao seu projeto
 Para baixar o instalador da Web para o .NET Framework, escolha a versão que você deseja instalar:
 
-* [Instalador da web do .NET 4.8](https://dotnet.microsoft.com/download/thank-you/net48)
+* [Instalador da Web do .NET 4,8](https://dotnet.microsoft.com/download/thank-you/net48)
 * [Instalador da Web do .NET 4.7.2](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [Instalador da Web do .NET 4.6.2](https://www.microsoft.com/download/details.aspx?id=53345)
 
@@ -227,9 +223,9 @@ Esse XML configura o Diagnóstico para transferir os arquivos no diretório do l
 Quando você implanta o serviço de nuvem, as tarefas de inicialização instalam o .NET Framework se ele ainda não estiver instalado. As funções do serviço de nuvem ficam no estado *ocupado* enquanto o Framework está sendo instalado. Se a instalação do Framework exigir uma reinicialização, as funções do serviço também poderão ser reiniciadas. 
 
 ## <a name="additional-resources"></a>Recursos adicionais
-* [Instalação do .NET Framework][Installing the .NET Framework]
+* [Instalando o .NET Framework][Installing the .NET Framework]
 * [Determinar quais versões do .NET Framework estão instaladas][How to: Determine Which .NET Framework Versions Are Installed]
-* [Solução de problemas de instalações do .NET Framework][Troubleshooting .NET Framework Installations]
+* [Solução de problemas .NET Framework instalações][Troubleshooting .NET Framework Installations]
 
 [How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
 [Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers

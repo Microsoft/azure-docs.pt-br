@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 5/10/2019
-ms.openlocfilehash: 5d769e2198b714d611b3004e11ccc624d4c6acdf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/25/2019
+ms.openlocfilehash: 964a2931267ad2f1e2842693eadf43f8f629a084
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65546463"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357233"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Camadas de serviço no modelo de compra baseado em DTU
 
-As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por uma gama de tamanhos da computação com quantidade fixa de armazenamento incluído, período de retenção fixo para backups e preço fixo. Todas as camadas de serviço do modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos da computação sem tempo de inatividade. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho da computação.
+As camadas de serviço no modelo de compra baseado em DTU são diferenciadas por uma gama de tamanhos da computação com quantidade fixa de armazenamento incluído, período de retenção fixo para backups e preço fixo. Todas as camadas de serviço no modelo de compra baseado em DTU fornecem flexibilidade para alterar os tamanhos de computação com pouca [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); no entanto, há uma opção de período onde conectividade for perdida ao banco de dados por um curto período de tempo, qual pode ser reduzido usando lógica de repetição. Os bancos de dados individuais e os pools elásticos são cobrados por hora com base na camada de serviço e no tamanho da computação.
 
 > [!IMPORTANT]
 > A instância gerenciada do Banco de Dados SQL não dá suporte ao modelo de compra baseado em DTU. Para obter mais informações, consulte [Instância Gerenciada do Banco de Dados SQL do Azure](sql-database-managed-instance.md).

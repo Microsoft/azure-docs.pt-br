@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 94e0b365d159ef18d7c0e6216ac9f5babb0d6231
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 82d231eff4690dc060c01d41356933693d08c443
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65890514"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093253"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Tutorial: Integração do Azure Active Directory ao Recognize
 
@@ -53,7 +53,7 @@ Para configurar a integração do Recognize ao Azure AD, você precisará adicio
 
 **Para adicionar o Recognize da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Recognize, execute as seguintes
     >[!NOTE]
     >Você obterá o **arquivo de metadados do provedor de serviço**, da seção **Configurar o logon único do Recognize** do tutorial.
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![Carregar arquivo de metadados](common/upload-metadata.png)
 
@@ -153,7 +153,7 @@ Para configurar o logon único do Azure AD com o Recognize, execute as seguintes
    
     ![Configurar o logon único no lado do aplicativo](./media/recognize-tutorial/tutorial_recognize_002.png)
     
-     a. Em **Habilitar SSO**, selecione **ATIVADO**.
+    a. Em **Habilitar SSO**, selecione **ATIVADO**.
 
     b. Na caixa de texto **ID da Entidade de IdP**, cole o valor do **Identificador do Azure AD** que você copiou do portal do Azure.
     
@@ -241,7 +241,7 @@ Este aplicativo não dá suporte ao provisionamento de SCIM, mas tem uma sincron
    
     ![Novo Usuário](./media/recognize-tutorial/tutorial_recognize_005.png "Novo Usuário")
    
-     a. Em **Sincronização habilitada**, selecione **ATIVADO**.
+    a. Em **Sincronização habilitada**, selecione **ATIVADO**.
    
     b. Em **Escolher o provedor de sincronização**, selecione **Microsoft / Office 365**.
    
@@ -259,5 +259,5 @@ Ao clicar no bloco do Recognize no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

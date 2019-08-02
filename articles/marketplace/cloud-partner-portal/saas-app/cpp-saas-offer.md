@@ -1,24 +1,24 @@
 ---
-title: Oferta de aplicativo de SaaS do Azure | O Azure Marketplace
+title: Oferta de aplicativo SaaS do Azure | Azure Marketplace
 description: Visão geral do processo de publicação de um aplicativo SaaS do Azure no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 70801f7d616434df83a7fd3399780a73afde1f32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pabutler
+ms.openlocfilehash: de799780ecbfeb3cbe66c5cc57f0e6c3bd2d1350
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751690"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871994"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicativo de SaaS do Azure
 
-O [Portal do Cloud Partner](https://cloudpartner.azure.com/) não oferece suporte a criação e gerenciamento de ofertas de aplicativos SaaS.  Em vez disso, essa funcionalidade foi movida para o Microsoft [portal do Partner Center](https://partner.microsoft.com/pcv/).  Para obter mais informações, consulte [criar uma nova oferta de SaaS](../../partner-center-portal/create-new-saas-offer.md). 
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas de aplicativos SaaS.  Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/pcv/).  Para obter mais informações, consulte [criar uma nova oferta de SaaS](../../partner-center-portal/create-new-saas-offer.md). 
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Antes de criar uma nova oferta de aplicativo de SaaS, você deve ler o [guia de publicação da oferta de aplicativos de SaaS](../../marketplace-saas-applications-technical-publishing-guide.md) e examine as etapas de portal do Partner Center listadas na [lista de verificação de criação de oferta](../../partner-center-portal/offer-creation-checklist.md). 
+Antes de criar uma nova oferta de aplicativo SaaS, você deve ler o [Guia de publicação de ofertas de aplicativos SaaS](../../marketplace-saas-applications-technical-publishing-guide.md) e examinar as etapas do portal do Partner Center relacionadas na lista de verificação de criação da [oferta](../../partner-center-portal/offer-creation-checklist.md). 

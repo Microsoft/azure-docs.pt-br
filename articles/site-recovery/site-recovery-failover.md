@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 06/30/2019
 ms.author: raynew
-ms.openlocfilehash: a02a2be7fb3ed942b1359949e18ba7d3dee824ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d1471188999182623a57db50d3205a859c160a2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399963"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67491790"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Fazer failover de VMs e servidores físicos 
 
@@ -70,9 +70,9 @@ Máquinas virtuais/servidores físicos protegidos usando o Site Recovery também
 
 > [!NOTE]
 > Durante o failover de máquinas virtuais Hyper-v de um site local para outro site local, antes de voltar ao site local principal, você precisa fazer a **replicação inversa** da máquina virtual para o site principal e, depois, disparar um failover. Se a máquina virtual principal não estiver disponível, você vai precisar restaurar a máquina virtual de um backup antes de iniciar a **replicação inversa**.   
-> 
-> 
-> ## <a name="failover-job"></a>Trabalho de failover
+ 
+ 
+## <a name="failover-job"></a>Trabalho de failover
 
 ![Failover](./media/site-recovery-failover/FailoverJob.png)
 
@@ -111,7 +111,7 @@ Você talvez queira automatizar determinadas ações durante um failover. É pos
 ## <a name="post-failover-considerations"></a>Considerações de pós-failover
 Após o failover, considere as recomendações a seguir:
 ### <a name="retaining-drive-letter-after-failover"></a>Retenção da letra da unidade após failover
-Para manter a letra da unidade em máquinas virtuais após failover, você pode definir a **Política SAN** para a máquina virtual como **OnlineAll**. [Leia mais](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+O Azure Site Recovery lida com a retenção de letras de unidade. [Leia mais](vmware-azure-exclude-disk.md#example-1-exclude-the-sql-server-tempdb-disk) em como isso é feito quando você optar por excluir alguns discos.
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Preparar para conectar VMs do Azure após o failover
 

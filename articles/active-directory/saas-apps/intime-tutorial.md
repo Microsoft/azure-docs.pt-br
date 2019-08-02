@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bd1ed30d56e8d23057e560b1180c35e0a29542b6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9183928100d1e184435910ee11571da798a5dcf9
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898108"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intime"></a>Tutorial: Integração do Azure Active Directory ao InTime
 
@@ -53,7 +53,7 @@ Para configurar a integração do InTime ao Azure AD, você precisa adicionar o 
 
 **Para adicionar o InTime por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o InTime, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do InTime](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://intime6.intimesoft.com/mytime/login/login.xhtml`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://auth.intimesoft.com/auth/realms/master`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://auth.intimesoft.com/auth/realms/master`
 
 5. Seu aplicativo InTime espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **nameidentifier** é mapeado com **user.userprincipalname**. O aplicativo InTime espera que **nameidentifier** seja mapeado com **user.mail**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterando-o.
 
@@ -198,4 +198,4 @@ Ao clicar no bloco do InTime no Painel de Acesso, você será conectado automati
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

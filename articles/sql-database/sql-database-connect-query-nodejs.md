@@ -9,14 +9,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 8d050fe92af7b22363b0a9207201412bc12d9082
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 4a99acaaae0c0efee61d97605a81d74549e02509
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792178"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68569197"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Usar o Node.js para consultar um banco de dados SQL do Azure
 

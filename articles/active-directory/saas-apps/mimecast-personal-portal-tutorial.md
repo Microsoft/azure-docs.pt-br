@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed7d8d1a2c2f8c515fa520f6701068e4655cad35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871993"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097392"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>Tutorial: Integração do Azure Active Directory com Mimecast Personal Portal
 
@@ -53,7 +53,7 @@ Para configurar a integração do Mimecast Personal Portal ao Azure AD, é neces
 
 **Para adicionar o Mimecast Personal Portal por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Mimecast Personal Portal, reali
 
     ![Informações de logon único de Domínio e URLs do Mimecast Personal Portal](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL: 
+    a. Na caixa de texto **URL de Logon**, digite uma URL: 
 
     | Região  |  Valor | 
     | --------------- | --------------- | 
@@ -172,7 +172,7 @@ Para configurar o logon único do Azure AD com o Mimecast Personal Portal, reali
    
     ![Perfil de Autenticação](./media/mimecast-personal-portal-tutorial/ic795001.png "Perfil de Autenticação")
    
-     a. Na caixa de texto **Descrição** , digite um nome para a sua configuração.
+    a. Na caixa de texto **Descrição** , digite um nome para a sua configuração.
    
     b. Selecione **Impor Autenticação SAML para o Mimecast Personal Portal**.
    
@@ -184,7 +184,7 @@ Para configurar o logon único do Azure AD com o Mimecast Personal Portal, reali
    
     f. Na caixa de texto **URL de Logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
-    g. Abra o certificado codificado em **Base64** baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado do Provedor de Identidade (Metadados)**.
+    g. Abra o certificado codificado em **Base64** baixado no portal do Azure no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado do Provedor de Identidade (Metadados)** .
 
     h. Selecione **Permitir Logon Único**.
    
@@ -267,7 +267,7 @@ Você precisa registrar um domínio antes de criar usuários.
    
     ![Salvar](./media/mimecast-personal-portal-tutorial/ic795006.png "Salvar")
    
-     a. Na caixa de texto **Endereço de Email**, digite o **Endereço de Email** do usuário como **BrendaFernandes\@contoso.com**.
+    a. Na caixa de texto **Endereço de Email**, digite o **Endereço de Email** do usuário como **BrendaFernandes\@contoso.com**.
     
     b. Na caixa de texto **Nome Global**, digite o **nome de usuário** como **BrendaFernandes**.
 
@@ -290,5 +290,5 @@ Ao clicar no bloco do Mimecast Personal Portal no Painel de Acesso, você dever�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
-ms.author: rajraj
-ms.openlocfilehash: bab264769576b6e5478236c452d7de920d887c1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: drewm
+ms.openlocfilehash: f97c7e6971fb9c58a3f08959c00c84e64e160916
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60617972"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871952"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Escolher o número correto de domínios de falha para o conjunto de dimensionamento de máquinas virtuais
 Por padrão, os conjuntos de dimensionamento de máquinas virtuais são criados com cinco domínios de falha em regiões do Azure sem zonas. Em regiões com suporte para implantação zonal de conjuntos de dimensionamento de máquinas virtuais, o valor padrão da contagem de domínio de falha é 1 para cada uma das zonas. FD=1, nesse caso, implica que as instâncias de VM pertencentes ao conjunto de dimensionamento serão distribuídas em vários racks com base no melhor esforço.
@@ -47,4 +47,4 @@ az vmss create \
 Leva alguns minutos para criar e configurar todos os recursos e as VMs do conjunto de dimensionamento.
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [recursos de redundância e disponibilidade](../virtual-machines/windows/regions-and-availability.md) para ambientes do Azure.
+- Saiba mais sobre [recursos de redundância e disponibilidade](../virtual-machines/windows/availability.md) para ambientes do Azure.

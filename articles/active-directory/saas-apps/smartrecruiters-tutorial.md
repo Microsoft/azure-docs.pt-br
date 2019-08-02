@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 79223a7f5c1f16eaf09de8efd05e0ec096ac73ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20a8a63160a498b9789f77eededad1fd6a02906
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866944"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartrecruiters"></a>Tutorial: Integração do Azure Active Directory ao SmartRecruiters
 
@@ -53,7 +53,7 @@ Para configurar a integração do SmartRecruiters ao Azure AD, você precisará 
 
 **Para adicionar o SmartRecruiters da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SmartRecruiters, execute as seg
 
     ![Informações de logon único de URLs e Domínio do SmartRecruiters](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.smartrecruiters.com/web-sso/saml/<companyname>/callback`
 
@@ -152,7 +152,7 @@ Para configurar o logon único do Azure AD com o SmartRecruiters, execute as seg
 
     ![Configuração de SmartRecruiters](./media/smartrecruiters-tutorial/configure4.png)
 
-     a. Na caixa de texto **URL do Provedor de Identidade**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL do Provedor de Identidade**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Abra o **Certificado (Base64)** que você baixou do portal do Azure no Bloco de Notas, copie seu conteúdo e cole-o na caixa de texto **certificado do Provedor de Identidade**.
 
@@ -225,5 +225,5 @@ Ao clicar no bloco do SmartRecruiters no Painel de Acesso, você deverá entrar 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

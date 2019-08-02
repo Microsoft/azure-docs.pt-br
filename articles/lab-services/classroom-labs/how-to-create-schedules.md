@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 34bc8263053cd4a701c16ee1832cf1b27340a345
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60695924"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385593"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar agendamentos para laboratórios de sala de aula do Azure Lab Services 
 Agendamentos permitem que você configure um laboratório de sala de aula, de modo que as VMs no laboratório iniciam e desligam automaticamente em um horário especificado. Você pode definir um agendamento único ou recorrente. Os procedimentos a seguir fornecem as etapas para criar e gerenciar agendamentos para um laboratório de sala de aula: 
 
 > [!IMPORTANT]
-> O tempo de execução agendado de VMs não conta com a [cota alocada a um usuário](how-to-configure-student-usage.md#set-quotas-per-user). A cota é para o tempo fora dos horários agendados que um aluno passa em VMs. 
+> O tempo de execução agendado de VMs não conta com a [cota alocada a um usuário](how-to-configure-student-usage.md#set-quotas-for-users). A cota é para o tempo fora dos horários agendados que um aluno passa em VMs. 
 
 ## <a name="add-a-schedule-once"></a>Adicionar um agendamento (uma vez)
 
@@ -48,7 +48,7 @@ Agendamentos permitem que você configure um laboratório de sala de aula, de mo
     ![Botão Adicionar agendamento na página Agendamentos](../media/how-to-create-schedules/add-schedule-button.png)
 2. Na página **Adicionar agendamento**, alterne para **Semanal** na parte superior. 
 3. Para **Dias do agendamento (obrigatório)** , selecione os dias em que você deseja que o agendamento entre em vigor. No exemplo abaixo, a marca Segunda-Sexta foi selecionada. 
-4. No campo **De**, insira a **data de início do agendamento** ou escolha uma data, selecionando o botão **calendário**. Esse campo é obrigatório. 
+4. No campo **De**, insira a **data de início do agendamento** ou escolha uma data, selecionando o botão **calendário**. O campo é obrigatório. 
 5. Para **data de término do agendamento**, insira ou selecione uma data de término em que as VMs devem ser desligadas. 
 6. Para **Hora de início**, selecione a hora em que você deseja que as VMs sejam iniciadas. A hora de início é necessária se a hora de término não está definida. Selecione **Remover evento de início** se você quiser especificar apenas a hora de término. Se a **Hora de início** é desabilitada, selecione **Adicionar evento de início** ao lado da lista suspensa para habilitá-lo. 
 7. Para **Hora de término**, selecione a hora em que você deseja que as VMs sejam desligadas. A hora de término é necessária se a hora de início não está definida. Selecione **Remover evento de interrupção** se você quiser especificar apenas a hora de início. Se a **Hora de término** é desabilitada, selecione **Adicionar evento de interrupção** ao lado da lista suspensa para habilitá-lo.

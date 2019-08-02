@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
 ms.author: v-mohabe
-ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a6b5b6e247bd7c105286b86257a6ae11c1d1c60
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65966825"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551853"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteja o serviço de aplicativos com a Central de Segurança do Azure
 Este artigo ajuda você a usar a Central de Segurança do Azure para monitorar e proteger seus aplicativos executados em cima do Serviço de Aplicativo.
@@ -47,9 +47,8 @@ A Central de Segurança é integrada de maneira nativa ao Serviço de Aplicativo
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>Ativando o monitoramento e a proteção do Serviço de Aplicativo
 
 1. No Azure, escolha a Central de segurança.
-2. Vá para **Política de segurança** e escolha uma assinatura.
-3. No final da linha da assinatura, clique em **Editar configurações**.
-4. Em **Nível de preços**, na linha **Serviço de aplicativos**, alterne seu plano para **Ativado**.
+2. Vá para **preços & configurações** e escolha uma assinatura.
+3. Em **Nível de preços**, na linha **Serviço de aplicativos**, alterne seu plano para **Ativado**.
 
 ![alternância do serviço de aplicativo](./media/security-center-app-services/app-services-toggle.png)
 

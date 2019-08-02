@@ -17,6 +17,8 @@
       href: notifications.md
     - name: Qual é sua experiência de entrada?
       href: flows.md
+    - name: Usuários do Identity Protection e B2B
+      href: concept-identity-protection-b2b.md
 - name: Guias de instruções
   expanded: true
   items:
@@ -50,8 +52,6 @@
           href: howto-provide-risk-event-feedback.md
         - name: Configurar políticas de risco
           href: howto-configure-risk-policies.md
-        - name: Melhorar a precisão da detecção
-          href: howto-improve-detection-accuracy.md
         - name: Perguntas frequentes e problemas conhecidos
           href: known-issues.md
 - name: Referência

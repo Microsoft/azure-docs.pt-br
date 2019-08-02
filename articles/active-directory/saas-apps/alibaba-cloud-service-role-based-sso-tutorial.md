@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d4b154b8ce55c381f1398c696bc439067dccfab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: bdfd19d9a0e928e26ad6f01ba4b9c3f493aacb0c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899753"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107157"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do Azure Active Directory com o Alibaba Cloud Service (SSO baseado em função)
 
@@ -112,7 +112,7 @@ Para configurar o logon único do Azure AD com o Alibaba Cloud Service (SSO base
     >[!NOTE]
     >Você obterá os metadados do Provedor de Serviços nesta [URL](https://signin.alibabacloud.com/saml-role/sp-metadata.xml)
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![image](common/upload-metadata.png)
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o Alibaba Cloud Service (SSO base
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) para saber como configurar a **Função** no Azure AD
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -190,7 +190,7 @@ Para configurar o logon único do Azure AD com o Alibaba Cloud Service (SSO base
 
 7. Associe a função de RAM do Alibaba Cloud (AADrole) ao usuário do Azure AD (u2): Para associar a função de RAM ao usuário do Azure AD, você precisará criar uma função no Azure AD seguindo estas etapas:
 
-     a. Entre no [Explorador do Graph do Azure AD](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+    a. Entre no [Explorador do Graph do Azure AD](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
 
     b. Clique em **Modificar Permissões** para obter as permissões necessárias para a criação de uma função.
 
@@ -270,7 +270,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
@@ -339,5 +339,5 @@ Depois que as configurações anteriores forem concluídas, teste o Alibaba Clou
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

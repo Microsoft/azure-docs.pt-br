@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 07/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ff4f8f45bee86013b3f3603ba12fc121de9d7ce
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 7f631a641ab63d33d27d1e4520a000b4b01132be
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66475695"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478576"
 ---
 # <a name="tutorial-integrate-outsystems-azure-ad-with-azure-active-directory"></a>Tutorial: Integrar o OutSystems Azure AD ao Azure Active Directory
 
@@ -101,7 +101,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 ### <a name="configure-outsystems-azure-ad"></a>Configurar o OutSystems Azure AD
 
-Para configurar o logon único no lado do **OutSystems**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do OutSystems](mailto:support@outsystems.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do OutSystems, você precisará baixar o componente [IdP no Forge](https://www.outsystems.com/forge/component-overview/599/idp) e configurá-lo conforme mencionado nas [instruções](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Configure_your_application_to_use_IdP_connector). Depois de instalar o componente e fazer as alterações de código necessárias, configure o Azure AD baixando o XML de Metadados de Federação no portal do Azure e carregue no componente IdP do OutSystems, de acordo com as [instruções](https://success.outsystems.com/Documentation/Development_FAQs/How_to_configure_OutSystems_to_use_identity_providers_using_SAML#Azure_AD_.2F_ADFS) a seguir.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -135,7 +135,7 @@ Nesta seção, você permitirá que B. Fernandes use o logon único do Azure con
 
 ### <a name="create-outsystems-azure-ad-test-user"></a>Criar um usuário de teste do OutSystems Azure AD
 
-Nesta seção, um usuário chamado Brenda Fernandes será criado no OutSystems. O OutSystems dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no OutSystems, um novo será criado após a autenticação.
+Nesta seção, um usuário chamado B.Fernandes será criado no OutSystems. O OutSystems dá suporte ao provisionamento de usuário Just-In-Time, que está habilitado por padrão. Não há itens de ação para você nesta seção. Se um usuário ainda não existir no OutSystems, um novo será criado após a autenticação.
 
 ### <a name="test-sso"></a>Testar o SSO
 

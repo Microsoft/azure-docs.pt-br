@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ed3d89bc15f960947a48ac4364bd14f3fdf50cc2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7a547efb7af69c58f8e04615d24dd7c230f0c8b0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60505529"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67444641"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitar ou desabilitar uma regra de firewall em um sistema operacional convidado da VM do Azure
 
@@ -99,7 +99,7 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
 
 1.  Na solução de problemas da VM, inicie o Editor do Registro (regedit.exe) e selecione **Arquivo** >  **Conecte o Registro de Rede**.
 
-2.  Abra a ramificação  *TARGET MACHINE*\SYSTEM e especifique os seguintes valores:
+2.  Abra o *computador de destino*\SYSTEM ramificar e, em seguida, especifique os seguintes valores:
 
     * Para habilitar uma regra, abra o seguinte valor do Registro:
     
@@ -123,30 +123,30 @@ Se a VM estiver on-line e puder ser acessada em outra VM na mesma rede virtual, 
 
 Se você não puder acessar a VM por qualquer método, o uso da Extensão de script personalizada falhará e você terá que trabalhar no modo OFFLINE trabalhando diretamente no disco do sistema.
 
-Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
+Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afetada como um backup. Para obter mais informações, consulte [Instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
 
 1.  [Anexar o disco do sistema para uma VM de recuperação](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  Inicie uma conexão de área de trabalho remota para a VM de recuperação.
 
-3.  Certifique-se de que o disco esteja sinalizado como  **Online**  no console de gerenciamento de disco. Observe que a letra da unidade atribuída ao disco do sistema anexado.
+3.  Verifique se o disco está sinalizado como **Online** no console de Gerenciamento de Disco. Observe que a letra da unidade atribuída ao disco do sistema anexado.
 
-4.  Antes de fazer qualquer alteração, crie uma cópia da pasta\windows\system32\config no caso de ser necessária uma reversão das alterações.
+4.  Antes de fazer alterações, crie uma cópia da pasta \windows\system32\config no caso de uma reversão das alterações necessária.
 
-5.  Na solução de problemas da VM, inicie o Editor do Registro (regedit.exe).
+5.  Na VM para solução de problemas, inicie o Editor do registro (regedit.exe).
 
-6.  Realce a tecla **HKEY_LOCAL_MACHINE**  e, em seguida, selecione  **Arquivo** > **Carregar Apache Hive**  no menu.
+6.  Realçar a **HKEY_LOCAL_MACHINE** da chave e, em seguida, selecione **arquivo** > **Carregar Hive** no menu.
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  Localize e abra o arquivo\windows\system32\config\SYSTEM. 
 
     > [!Note]
-    > Você será solicitado para um nome. Insira  **BROKENSYSTEM** e, em seguida, expanda  **HKEY_LOCAL_MACHINE**. Agora, você verá uma chave adicional que é denominada **BROKENSYSTEM**. Para esta solução de problemas, estamos montando essas seções problemáticas como  **BROKENSYSTEM**.
+    > Você será solicitado para um nome. Insira **BROKENSYSTEM**e, em seguida, expanda **HKEY_LOCAL_MACHINE**. Agora, você verá uma chave adicional que é denominada **BROKENSYSTEM**. Para essa solução de problemas, nós são de montagem essas seções de problema como **BROKENSYSTEM**.
 
 8.  Faça as seguintes alterações no branch BROKENSYSTEM:
 
-    1.  Verifique qual **ControlSet** chave de registro da qual a VM está iniciando. Você verá seu número de chave em HKLM\BROKENSYSTEM\Select\Current.
+    1.  Verifique qual **ControlSet** chave de registro da qual a VM está iniciando. Você verá seu número de chaves na hklm\brokensystem\select\current.
 
     2.  Para habilitar uma regra, abra o seguinte valor do Registro:
     
@@ -164,8 +164,8 @@ Antes de seguir estas etapas, tire um instantâneo do disco do sistema da VM afe
         
         **v2.22 | Ação = permitir | Active Directory = FALSE | Dir = In | Protocolo = 6 | Perfil = Domain | Perfil = particular | Perfil = Public | LPort = 3389 | App=%SystemRoot%\System32\svchost.exe| SVC = termservice | Nome =\@FirewallAPI,-28775 | Desc =\@FirewallAPI,-28756 | EmbedCtxt =\@FirewallAPI,-28752 |**
 
-9.  Realçar **BROKENSYSTEM**e, em seguida, selecione **arquivo** > **Descarregar Hive** no menu.
+9.  Realçar **BROKENSYSTEM**e, em seguida, selecione **arquivo** > **Descarregar Hive** no menu.
 
-10. [Desanexar o disco do sistema e recriar a VM](troubleshoot-recovery-disks-portal-windows.md).
+10. [Desanexe o disco do sistema e recrie a VM](troubleshoot-recovery-disks-portal-windows.md).
 
 11. Verifique se o problema foi resolvido.

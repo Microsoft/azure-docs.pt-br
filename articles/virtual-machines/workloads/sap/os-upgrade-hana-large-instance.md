@@ -4,22 +4,22 @@ description: Executar a atualização de sistema operacional para o SAP HANA no 
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/28/2018
-ms.author: saghorpa
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d451f3831309b4755170915b35a23da8910510
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aa88e45f2523dd65c4f714bfeab1c0eda401d720
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935629"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869146"
 ---
 # <a name="operating-system-upgrade"></a>Atualização do Sistema Operacional
 Este documento descreve os detalhes sobre as atualizações de sistema operacional em Instâncias Grandes de HANA.
@@ -27,11 +27,11 @@ Este documento descreve os detalhes sobre as atualizações de sistema operacion
 >[!NOTE]
 >A atualização do sistema operacional é de responsabilidade do cliente, o suporte a operações da Microsoft pode orientá-lo para as áreas principais a serem observadas durante a atualização. Antes de planejar uma atualização, você deve consultar o fornecedor do sistema operacional.
 
-No momento do provisionamento da unidade HLI, a equipe de operações da Microsoft instalará o sistema operacional. Ao longo do tempo, você deverá manter o sistema operacional (exemplo: aplicação de patches, ajustes, atualizações, etc.) na unidade HLI.
+No momento, do provisionamento da unidade HLI, a equipe de operações da Microsoft instala o sistema operacional. Ao longo do tempo, você deverá manter o sistema operacional (exemplo: aplicação de patches, ajustes, atualizações, etc.) na unidade HLI.
 
-Antes das principais mudanças do sistema operacional (por exemplo, Atualização SP1 a SP2), você deve contatar a equipe da Microsoft Operations ao abrir m tíquete de suporte para consultar.
+Antes de fazer alterações importantes no sistema operacional (por exemplo, atualizar o SP1 para o SP2), você precisa entrar em contato com a equipe de operações da Microsoft abrindo um tíquete de suporte para consultar.
 
-Inclua em seu tíquete:
+Incluir no seu tíquete:
 
 * A ID da assinatura da HLI.
 * O nome do servidor.
@@ -47,9 +47,9 @@ Para a matriz de suporte das diferentes versões do SAP HANA com as diferentes v
 ## <a name="known-issues"></a>Problemas conhecidos
 
 A seguir estão alguns problemas conhecidos comuns durante a atualização:
-- Na SKU de classe Tipo II, o Software Foundation Server (SFS) é removido após a atualização do sistema operacional. Depois de atualizar o sistema operacional, você deverá reinstalar o SFS compatível.
-- Drivers de placa Ethernet (ENIC e FNIC) revertidos para a versão mais antiga. Você deverá reinstalar a versão compatível dos drivers após a atualização.
+- Na SKU de classe Tipo II, o Software Foundation Server (SFS) é removido após a atualização do sistema operacional. Você precisa reinstalar o SFS compatível após a atualização do sistema operacional.
+- Drivers de placa Ethernet (ENIC e FNIC) revertidos para a versão mais antiga. Você precisa reinstalar a versão compatível dos drivers após a atualização.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Consulte [Backup e restauração](hana-overview-high-availability-disaster-recovery.md) para classe de SKU Tipo I de backup de sistema operacional.
-- Consulte [Backup de Sistema Operacional para classe de SKU Tipo II](os-backup-type-ii-skus.md).
+- Consulte [backup do sistema operacional para SKUs do tipo II de carimbos de revisão 3](os-backup-type-ii-skus.md) para a classe SKU do tipo II.

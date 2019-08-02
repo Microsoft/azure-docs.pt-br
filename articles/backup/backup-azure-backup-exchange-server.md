@@ -1,19 +1,18 @@
 ---
 title: Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM
 description: Saiba como fazer backup de um servidor do Exchange no Backup do Azure usando o System Center 2012 R2 DPM
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: kasinh
-ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2d3670e2120e7c203e40d39ba9d82537da877ee5
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60647191"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466739"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM
 Este artigo descreve como configurar um servidor do System Center 2012 R2 DPM (Data Protection Manager) para fazer backup de um servidor do Microsoft Exchange no Backup do Azure.  
@@ -100,7 +99,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
 
     ![Especificar política de retenção online](./media/backup-azure-backup-exchange-server/specify-online-retention-policy.png)
 18. Confirme as configurações e clique em **Criar Grupo**.
-19. Clique em **fechar**
+19. Clique em **Fechar**.
 
 ## <a name="recover-the-exchange-database"></a>Recuperar o banco de dados do Exchange
 1. Para recuperar um banco de dados do Exchange, clique em **Recuperação** no Console do Administrador do DPM.

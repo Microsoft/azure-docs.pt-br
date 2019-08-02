@@ -1,6 +1,6 @@
 ---
 title: Vários endereços IP para máquinas virtuais do Azure – PowerShell | Microsoft Docs
-description: Saiba como atribuir vários endereços IP a uma máquina virtual usando o PowerShell. | Resource Manager
+description: Saiba como atribuir vários endereços IP a uma máquina virtual usando o PowerShell. | Gerenciador de recursos
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud;annahar
-ms.openlocfilehash: ee6a2d36d88d9a80ba7e64819344f6cca56e47cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: kumud
+ms.reviewer: annahar
+ms.openlocfilehash: e9bad6ad614855c543ee6d75d4e6f4dc8e2255aa
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730414"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876221"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
 
@@ -96,7 +97,7 @@ As etapas a seguir explicam como criar uma VM de exemplo com vários endereços 
 
 6. Defina a configuração de IP primário da NIC. Caso você não tenha usado o valor definido anteriormente, altere 10.0.0.4 para um endereço válido na sub-rede que você criou. Antes de atribuir um endereço IP estático, é recomendável que você primeiro confirme que ele ainda não está em uso. Digite o comando `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. Se o endereço está disponível, a saída retorna *True*. Se não está disponível, a saída retorna *False* e uma lista de endereços disponíveis. 
 
-    Nos comandos a seguir, **substituir \<substituir-com-your-exclusivo-name > pelo nome DNS exclusivo para usar.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Este é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
+    Nos comandos a seguir, **substitua \<o nome exclusivo do Replace-com-seu > pelo nome DNS exclusivo a ser usado.** O nome deve ser exclusivo entre todos os endereços IP públicos dentro de uma região do Azure. Este é um parâmetro opcional. Ele pode ser removido se você deseja conectar-se à VM usando o endereço IP público.
 
     ```powershell
     

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/26/2019
-ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/09/2019
+ms.openlocfilehash: 4b525c3cbea600859106062ed34dc6df9622dec5
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60387412"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807308"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Criando e usando a replicação geográfica ativa
 
@@ -43,7 +43,6 @@ Você pode gerenciar a replicação e o failover de um banco de dados individual
 - [Transact-SQL: Banco de dados individual ou pool elástico](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [API REST: banco de dados individual](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
-Após o failover, verifique se os requisitos de autenticação para o servidor e o banco de dados estão configurados no novo primário. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md).
 
 A replicação geográfica ativa aproveita a tecnologia [Always On](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server) do SQL Server para replicar de maneira assíncrona transações confirmadas no banco de dados primário para um banco de dados secundário usando isolamento de instantâneo. Os grupos de failover automático fornecem a semântica de grupo além da replicação geográfica ativa, mas o mesmo mecanismo de replicação assíncrona é usado. Embora, a qualquer momento, o banco de dados secundário possa estar um pouco atrás do banco de dados primário, os dados secundários têm a garantia de nunca terem transações parciais. A redundância entre regiões permite que os aplicativos se recuperem rapidamente de uma perda permanente de um datacenter inteiro ou de partes de um datacenter, causada por desastres naturais, falhas humanas catastróficas ou crimes. Os dados específicos de RPO podem ser encontrados em [Visão geral da continuidade de negócios](sql-database-business-continuity.md).
 
@@ -83,12 +82,12 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
 - **Failover planejado**
 
-  O failover planejado executa uma sincronização completa entre o banco de dados primário e o secundário antes de o secundário mudar para a função de primário. Isso assegura que não ocorra nenhuma perda de dados. O failover planejado é usado nos seguintes cenários: (a) para executar simulações de recuperação de desastre em produção quando a perda de dados não é aceitável; (b) para realocar o banco de dados para uma região diferente; e (c) para retornar o banco de dados para a região primária após a interrupção ter sido atenuada (failback).
+  Planejado failover comutadores as funções de bancos de dados primários e secundários após a sincronização completa. É uma operação online que não resulte em perda de dados. O tempo da operação depende do tamanho do log de transações na réplica primária que precisam ser sincronizados. Failover planejado foi projetado para os seguintes cenários: (a) para executar a recuperação de desastres detalha em produção quando a perda de dados não for aceitável; para realocar o banco de dados para uma região diferente; (b) e (c) para retornar o banco de dados para a região primária após a interrupção ter sido atenuada (failback).
 
 - **Failover não planejado**
 
-  Um failover forçado ou não planejado mudará imediatamente o secundário para a função primária, sem nenhuma sincronização com o primário. Esta operação pode resultar em perda de dados. Um failover não planejado é usado como um método de recuperação durante as interrupções quando o primário não está acessível. Quando o primário original estiver online novamente, ele se reconectará automaticamente sem sincronização e se tornará um novo secundário.
-
+  Um failover forçado ou não planejado mudará imediatamente o secundário para a função primária, sem nenhuma sincronização com o primário. Todas as transações confirmadas no primário, mas não são replicadas para o secundário serão perdidas. Esta operação foi projetada como um método de recuperação durante as interrupções quando o primário não estiver acessível, mas a disponibilidade do banco de dados deve ser restaurada rapidamente. Quando o primário original estiver novamente online será automaticamente reconectar-se e se tornar um novo secundário. Todas as transações não sincronizadas antes do failover serão preservadas no arquivo de backup, mas não serão sincronizadas com o novo primário para evitar conflitos. Essas transações precisará ser mesclada manualmente com a versão mais recente do banco de dados primário.
+ 
 - **Vários secundários legíveis**
 
   Até quatro bancos de dados secundários podem ser criado para cada primário. Se houver apenas um banco de dados secundário e ele falhar, o aplicativo será exposto a um risco maior até que um novo banco de dados secundário seja criado. Se existirem vários bancos de dados secundários, o aplicativo permanecerá protegido mesmo se houver uma falha em um dos bancos de dados secundários. Os secundários adicionais também podem ser usados para expandir as cargas de trabalho somente leitura
@@ -100,19 +99,33 @@ Para garantir a continuidade de negócios real, a adição de redundância de ba
 
   Cada banco de dados secundário pode participar separadamente de um pool elástico ou não estar em nenhum pool elástico. A escolha de pool para cada banco de dados secundário é separada e não depende da configuração de nenhum outro banco de dados secundário (seja ele primário ou secundário). Cada pool elástico está dentro de uma única região, portanto, vários bancos de dados secundários na mesma topologia nunca podem compartilhar um pool elástico.
 
-- **Tamanho de computação configurável do banco de dados secundário**
-
-  Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Um banco de dados secundário com tamanho da computação inferior sofre o risco de ter um maior retardo de replicação, potencial indisponibilidade do secundário e, consequentemente, o risco de perda substancial de dados após um failover. Como resultado, o RPO publicado = 5 segundos não pode ser garantido. O outro risco é que, após failover, o desempenho do aplicativo será afetado devido à falta de capacidade de computação do novo primário até que seja atualizado para um tamanho da computação superior. A hora da atualização depende do tamanho do banco de dados. Além disso, no momento, essa atualização requer que os bancos de dados primário e secundário estejam online e, portanto, não poderá ser concluída até que a interrupção seja atenuada. Se você decidir criar o secundário com tamanho da computação inferior, o gráfico de percentual de E/S do log no portal do Azure fornecerá uma boa maneira de estimar o tamanho da computação mínimo do secundário necessário para sustentar a carga de replicação. Por exemplo, se o banco de dados Primário for P6 (1000 DTUS) e seu percentual de E/S de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Você também pode recuperar os dados de E/S de log usando as exibições de banco de dados [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](sql-database-purchase-models.md).
 
 - **Failover e failback controlados pelo usuário**
 
   Um banco de dados secundário pode ser explicitamente alternado para a função primária a qualquer momento pelo aplicativo ou pelo usuário. Durante uma interrupção real a opção "não planejada" deve ser usada, o que promoverá imediatamente um secundário para primário. Quando o primário com falha se recuperar e estiver disponível novamente, o sistema o marcará automaticamente como um secundário e o atualizará de acordo com o novo primário. Devido à natureza assíncrona da replicação, uma pequena quantidade de dados poderá ser perdida durante failovers não planejados se o primário falhar antes de replicar as alterações mais recentes para o secundário. Quando um primário com vários secundários passar por failover, o sistema automaticamente reconfigurará as relações de replicação e vinculará os secundários restantes para o primário recém-promovido, sem a necessidade de intervenção do usuário. Depois que a interrupção que causou o failover for reduzida, poderá ser desejável retornar o aplicativo para a região primária. Para fazer isso, o comando de failover deve ser invocado com a opção "planejada".
 
-- **Manter credenciais e regras de firewall em sincronização**
+## <a name="preparing-secondary-database-for-failover"></a>Preparando o banco de dados secundário para failover
+
+Para garantir que seu aplicativo pode acessar imediatamente o novo primário após o failover, verifique se que os requisitos de autenticação para o servidor secundário e o banco de dados estão configurados corretamente. Para obter detalhes, consulte [Segurança do Banco de Dados SQL do Azure após a recuperação de desastre](sql-database-geo-replication-security-config.md). Para garantir a conformidade após o failover, certifique-se de que a política de retenção de backup no banco de dados secundário corresponde do primário. Essas configurações não fazem parte do banco de dados e não são replicadas. Por padrão, o secundário será configurado com um período de retenção PITR padrão de sete dias. Para obter detalhes, consulte [Backups automáticos do Banco de Dados SQL](sql-database-automated-backups.md).
+
+## <a name="configuring-secondary-database"></a>Configurando o banco de dados secundário
+
+Os bancos de dados primário e secundário devem ter a mesma camada de serviço. Também é altamente recomendável que o banco de dados secundário seja criado com o mesmo tamanho da computação (DTUs ou vCores) que o primário. Se o banco de dados primário está sofrendo uma carga de trabalho pesadas de gravação, um secundário com o menor tamanho de computação pode não ser capaz de manter-se com ele. Ele fará com que o retardo de refazer a indisponibilidade potencial e secundária. Um banco de dados secundário com atraso em relação ao primário também gera o risco de uma grande perda de dados caso um failover forçado seja necessário. Para atenuar esses riscos, replicação geográfica ativa em vigor limitará taxa de log do primário para permitir que seus secundários para ficar em dia. A outra consequência de uma configuração de secundário desequilibrada é que, após o failover, o desempenho do aplicativo sofrerá devido à capacidade de computação insuficiente do novo primário. Ela será necessária para atualizar para uma computação superior ao nível necessário, não será possível até que a interrupção for atenuada. 
+
+
+> [!IMPORTANT]
+> O RPO publicado = 5 s não pode ser garantida, a menos que o banco de dados secundário está configurado com o mesmo tamanho de computação que o primário. 
+
+
+Se você decidir criar o secundário com tamanho da computação inferior, o gráfico de percentual de E/S do log no portal do Azure fornecerá uma boa maneira de estimar o tamanho da computação mínimo do secundário necessário para sustentar a carga de replicação. Por exemplo, se o banco de dados Primário for P6 (1000 DTUS) e seu percentual de E/S de log for 50%, o secundário precisará ser pelo menos P4 (500 DTU). Você também pode recuperar os dados de E/S de log usando as exibições de banco de dados [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) ou [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database).  A limitação é relatada como um estado de espera em HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO a [. DM exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) e [DM os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) modos de exibição de banco de dados. 
+
+Para obter mais informações sobre os tamanhos da computação do Banco de Dados SQL, confira [Quais são as Camadas de Serviço do Banco de Dados SQL](sql-database-purchase-models.md).
+
+## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Mantendo credenciais e as regras de firewall em sincronia
 
 É recomendável usar [regras de firewall IP de nível de banco de dados](sql-database-firewall-configure.md) para replicação geográfica bancos de dados para que essas regras podem ser replicadas com o banco de dados para garantir que todos os bancos de dados secundários tenham as mesmas regras de firewall IP que o primário. Essa abordagem elimina a necessidade de os clientes configurarem manualmente e manterem as regras de firewall nos servidores que hospedam os bancos de dados primários e secundários. Da mesma forma, usar [usuários de banco de dados independente](sql-database-manage-logins.md) para o acesso a dados garante que os bancos de dados primários e secundários sempre tenham as mesmas credenciais de usuário para que, durante failovers, não haja interrupções devido à incompatibilidade nos logons e senhas. Com a adição de [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), os clientes podem gerenciar o acesso do usuário aos bancos de dados primários e secundários, eliminando a necessidade de gerenciamento de credenciais em todos os bancos de dados juntos.
 
-## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade de um banco de dados primário
+## <a name="upgrading-or-downgrading-primary-database"></a>Atualização ou o downgrade do banco de dados primário
 
 Você pode atualizar ou fazer downgrade de um banco de dados primário para um tamanho da computação diferente (dentro da mesma camada de serviço, não entre Uso Geral e Comercialmente Crítico) sem desconectar nenhum banco de dados secundário. Ao atualizar, recomendamos que você atualize primeiro o banco de dados secundário e, depois, atualize o primário. Ao fazer downgrade, inverta a ordem: faça primeiro o downgrade do banco de dados primário e, depois, faça do secundário. Quando você atualiza ou faz downgrade do banco de dados para uma camada de serviço diferente essa recomendação é imposta.
 
@@ -134,7 +147,7 @@ Devido à alta latência das redes de longa distância, a cópia contínua usa u
 
 ## <a name="monitoring-geo-replication-lag"></a>Monitoramento de latência de replicação geográfica
 
-Para monitorar a latência em relação ao RPO, use *replication_lag_sec* coluna da [DM geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra a latência em segundos entre as transações confirmadas no primário e persistidos no secundário. Por exemplo Se o valor da lentidão é 1 segundo, significa que se o primário for afetado por uma interrupção no momento e o failover é iniciada, 1 segundo de transtions o mais recente não serão salvas. 
+Para monitorar a latência em relação ao RPO, use *replication_lag_sec* coluna da [DM geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) no banco de dados primário. Ele mostra a latência em segundos entre as transações confirmadas no primário e persistidos no secundário. Por exemplo Se o valor da lentidão é 1 segundo, isso significa que se o primário for afetado por uma interrupção no momento e failover é iniciado, 1 segundo das transições mais recentes não serão salvas. 
 
 Para medir a latência com relação às alterações no banco de dados primário que foram aplicados na réplica secundária, ou seja, disponível para leitura do secundário, comparar *last_commit* tempo no banco de dados secundário com o mesmo valor no primário banco de dados.
 

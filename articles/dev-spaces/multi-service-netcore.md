@@ -3,18 +3,18 @@ title: Executar vários serviços dependentes usando .NET Core e VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-author: DrEsteban
-ms.author: stevenry
+author: zr-msft
+ms.author: zarhoads
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido de Kubernetes com contêineres e microsserviços no Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s '
-ms.openlocfilehash: 2d526ab9d4f13c8248b56a3f10bc950a1e6d25f8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
+ms.openlocfilehash: 2a1e99ba1c19dfdcaaf1b6709e6d3976968cf623
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65765045"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67503113"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desenvolvimento de vários serviços com Azure Dev Spaces
 
@@ -33,7 +33,7 @@ Por economizar tempo, vamos baixar o código de exemplo de um repositório do Gi
 1. Abra a pasta `mywebapi` em uma *janela separada do VS Code*.
 1. Abra a **Paleta de Comandos** (usando o menu **Exibir | Paleta de Comandos**) e use o preenchimento automático para digitar e selecionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Esse comando não é deve ser confundido com o `azds prep`, que configura o projeto para a implantação.
 1. Pressione F5 e aguarde a criação e implantação do serviço. Você saberá que ele está pronto quando o aplicativo  *for iniciado. Pressione Ctrl + C para desligar.* A mensagem aparece no console de depuração.
-1. A URL de ponto de extremidade será algo parecido com `http://localhost:<portnumber>`. **Dica: a barra de status do VS Code exibirá uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no nosso espaço de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
+1. A URL de ponto de extremidade será algo parecido com `http://localhost:<portnumber>`. **Dica: A barra de status do VS Code fica laranja e exibe uma URL clicável.** Pode parecer que o contêiner está sendo executado localmente, mas, na verdade, ele está em execução no nosso espaço de desenvolvimento no Azure. O motivo para o endereço do localhost é porque `mywebapi` não definiu nenhum ponto de extremidade público e somente pode ser acessado de dentro da instância de Kubernetes. Para sua conveniência e para facilitar a interação com o serviço privado em sua máquina local, o Azure Dev Spaces cria um túnel SSH temporário para o contêiner em execução no Azure.
 1. Quando `mywebapi` estiver pronto, abra seu navegador para o endereço do localhost. Acrescente `/api/values` na URL para invocar a API GET padrão para `ValuesController`.
 1. Se todas as etapas foram bem-sucedidas, você poderá ver uma resposta do serviço `mywebapi`.
 
@@ -69,39 +69,11 @@ O exemplo de código anterior encaminha o cabeçalho `azds-route-as` da solicita
 
 ### <a name="debug-across-multiple-services"></a>Depurar em vários serviços
 1. Neste ponto, `mywebapi` ainda deve estar em execução com o depurador anexado. Se não estiver, pressione F5 no projeto `mywebapi`.
-1. Definir um ponto de interrupção no método `Get(int id)` que manipula solicitações GET `api/values/{id}`.
-1. No projeto `webfrontend`, defina um ponto de interrupção antes que ele envie uma solicitação GET para `mywebapi/api/values`.
+1. Definir um ponto de interrupção no método `Get(int id)` que manipula solicitações GET `api/values/{id}`. Isso é aproximadamente na [linha 23 do arquivo *Controllers/ValuesController.cs*](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/mywebapi/Controllers/ValuesController.cs#L23).
+1. No projeto `webfrontend`, defina um ponto de interrupção antes que ele envie uma solicitação GET para `mywebapi/api/values`. Isso é aproximadamente na linha 32 do arquivo [*Controllers*](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs) que você modificou na seção anterior.
 1. Pressione F5 no projeto `webfrontend`.
 1. Invoque o aplicativo Web e percorra o código em ambos os serviços.
 1. No aplicativo Web, a página Sobre exibirá uma mensagem concatenada pelos dois serviços: "Olá de webfrontend e Olá de mywebapi".
-
-### <a name="automatic-tracing-for-http-messages"></a>Rastreamento automático de mensagens HTTP
-Você deve ter observado que, embora *webfrontend* não contenha nenhum código especial para imprimir a chamada HTTP que faz para *mywebapi*, o HTTP rastreia mensagens na janela de saída:
-```
-// The request from your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io --gyk-> webfrontend:
-   GET /Home/About HTTP/1.1
-
-// *webfrontend* reaching out to *mywebapi*
-webfrontend-668b7ddb9f-n5rhj --pu5-> mywebapi:
-   GET /api/values/1 HTTP/1.1
-
-// Response from *mywebapi*
-webfrontend-668b7ddb9f-n5rhj <-pu5-- mywebapi:
-   HTTP/1.1 200 OK
-   Hello from mywebapi
-
-// Response from *webfrontend* to your browser
-default.webfrontend.856bb3af715744c6810b.eus.azds.io <-gyk-- webfrontend:
-   HTTP/1.1 200 OK
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <meta charset="utf-8" />
-       <meta name="viewport" content="width=device-width, initial-sc...<[TRUNCATED]>
-```
-Este é um dos benefícios "gratuitos" que você obtém com a instrumentação do Azure Dev Spaces. Nós inserimos componentes que rastreiam solicitações HTTP conforme elas passam pelo sistema para facilitar o rastreamento de chamadas de vários serviços complexas durante o desenvolvimento.
-
 
 ### <a name="well-done"></a>Muito bem!
 Agora você tem um aplicativo de vários contêineres em que cada contêiner pode ser desenvolvido e implantado separadamente.

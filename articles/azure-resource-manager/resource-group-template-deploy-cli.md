@@ -1,23 +1,17 @@
 ---
 title: Implantar recursos com a CLI do Azure e o modelo | Microsoft Docs
-description: Use o Azure Resource Manager e a CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
-services: azure-resource-manager
-documentationcenter: na
+description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager.
 author: tfitzmac
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/28/2019
+ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6cccae343e0a06af88c2e996c37910de72138c60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 93b1b16776bac6cb24996d6fa08a547318802f32
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66475047"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853841"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -29,23 +23,23 @@ Se você não tiver a CLI do Azure instalada, você pode usar o [Cloud Shell](#d
 
 ## <a name="deployment-scope"></a>Escopo da implantação
 
-Você pode direcionar sua implantação para uma assinatura do Azure ou um grupo de recursos dentro de uma assinatura. Na maioria dos casos, você irá focar a implantação para um grupo de recursos. Use implantações de assinatura para aplicar políticas e as atribuições de função entre a assinatura. Você também pode usar implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você deve usar comandos diferentes.
+Você pode direcionar sua implantação para uma assinatura do Azure ou um grupo de recursos em uma assinatura. Na maioria dos casos, você direcionará a implantação para um grupo de recursos. Use implantações de assinatura para aplicar políticas e atribuições de função na assinatura. Você também usa implantações de assinatura para criar um grupo de recursos e implantar recursos nele. Dependendo do escopo da implantação, você usará comandos diferentes.
 
-Para implantar em um **grupo de recursos**, use [implantação de grupo az criar](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+Para implantar em um **grupo de recursos**, use [AZ Group Deployment Create](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
 
 ```azurecli
 az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
 ```
 
-Para implantar em um **assinatura**, use [implantação az criar](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+Para implantar em uma **assinatura**, use [AZ Deployment Create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
 
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-Atualmente, as implantações do grupo de gerenciamento só têm suporte por meio da API REST. Ver [implantar recursos com modelos do Resource Manager e a REST API do Gerenciador de recursos](resource-group-template-deploy-rest.md).
+Atualmente, as implantações de grupo de gerenciamento só têm suporte por meio da API REST. Consulte [implantar recursos com modelos do Resource Manager e a API REST do Gerenciador de recursos](resource-group-template-deploy-rest.md).
 
-Os exemplos neste artigo usam a implantações do grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
+Os exemplos neste artigo usam implantações de grupo de recursos. Para obter mais informações sobre implantações de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Implantar o modelo local
 
@@ -104,12 +98,12 @@ az group deployment create --resource-group examplegroup \
 
 ## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando ocorrer falha na implantação
 
-Esse recurso também é conhecido como *reversão em erro*. Quando uma implantação falha, é possível reimplantar automaticamente uma implantação anterior bem-sucedida com base em seu histórico de implantações. Para especificar a reimplantação, use o parâmetro `--rollback-on-error` no comando de implantação. Essa funcionalidade é útil se você tem um bom estado conhecido para sua implantação de infra-estrutura e deseja reverter para esse estado. Há uma série de limitações e restrições:
+Esse recurso também é conhecido como *reversão em caso de erro*. Quando uma implantação falha, é possível reimplantar automaticamente uma implantação anterior bem-sucedida com base em seu histórico de implantações. Para especificar a reimplantação, use o parâmetro `--rollback-on-error` no comando de implantação. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Há várias limitações e restrições:
 
-- A reimplantação é executada exatamente como ele foi executado anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
-- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e quaisquer configurações de recurso são definidas para seu estado anterior. Certifique-se de entender completamente o [modos de implantação](./deployment-modes.md).
+- A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
+- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e as configurações de recurso são definidas para o estado anterior. Certifique-se de compreender totalmente os [modos de implantação](./deployment-modes.md).
 - A reimplantação afeta apenas os recursos, as alterações de dados não são afetadas.
-- Esse recurso só tem suporte em implantações do grupo de recursos, não implantações de nível da assinatura. Para obter mais informações sobre a implantação de nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
+- Esse recurso só tem suporte em implantações de grupo de recursos, não em implantações de nível de assinatura. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
 
 Para usar essa opção, as implantações devem ter nomes exclusivos para que possam ser identificadas no histórico. Se você não tiver nomes exclusivos, a implantação atual com falha pode substituir a implantação bem-sucedida anteriormente no histórico. Você só pode usar essa opção com implantações de nível raiz. Implantações de um modelo aninhado não estão disponíveis para reimplantação.
 
@@ -151,6 +145,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+Se você estiver usando CLI do Azure com prompt de comando do Windows (CMD) ou PowerShell, passe a matriz no formato `exampleArray="['value1','value2']"`:.
 
 Você também pode obter o conteúdo do arquivo e fornecer esse conteúdo como um parâmetro embutido.
 

@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Aprenda como habilitar eventos de alerta e analisar o log de status de integridade para o Public Basic Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,15 +12,15 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
-ms.author: kumud
-ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 1995ad5e8179fdee11e960c2ad0e7c03602ebd31
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861127"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274809"
 ---
-# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs de Monitor do Azure para o Load Balancer básico
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Logs de Azure Monitor para Load Balancer básica pública
 
 >[!IMPORTANT] 
 >O Azure Load Balancer é compatível com dois tipos diferentes: Básico e Standard. Este artigo discute o Load Balancer Basic. Para obter mais informações sobre o Load Balancer Standard, consulte [visão geral do balanceador de carga padrão](load-balancer-standard-overview.md) que expõe a telemetria por meio de métricas multidimensionais no Azure Monitor.
@@ -32,9 +32,9 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 * **Logs de investigação de integridade:** Você pode usar esse log para exibir problemas detectados pela investigação de integridade, como o número de instâncias no pool de back-end que não estão recebendo solicitações do balanceador de carga devido a falhas de investigação de integridade. Esse log é gravado quando há uma alteração no status de investigação de integridade.
 
 > [!IMPORTANT]
-> O Azure Monitor registra em log atualmente funciona somente para balanceadores de carga básico público. Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/resource-manager-deployment-model.md).
+> Os logs de Azure Monitor atualmente só funcionam para balanceadores de carga básicos públicos. Os logs estão disponíveis apenas para os recursos implantados no modelo de implantação do Gerenciador de Recursos. Você não pode usar logs para recursos do modelo de implantação clássico. Para saber mais sobre esses modelos de implantação, consulte [Understanding Resource Manager deployment and classic deployment (Noções básicas sobre a implantação do Resource Manager e a implantação clássica)](../azure-resource-manager/resource-manager-deployment-model.md).
 
-## <a name="enable-logging"></a>Habilitar o registro em log
+## <a name="enable-logging"></a>Habilite o registro em logs
 
 O log de auditoria é habilitado automaticamente para todos os recursos do Gerenciador de Recursos. Você precisa habilitar o registro em log da investigação de integridade e de eventos para começar a coletar os dados disponíveis por meio desses logs. Use as etapas a seguir para habilitar o registro em log.
 

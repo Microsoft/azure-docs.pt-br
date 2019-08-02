@@ -1,5 +1,5 @@
 ---
-title: Como selecionar permissões para uma API | Microsoft Docs
+title: Configurar pontos de extremidade | Microsoft Docs
 description: Como localizar os pontos de extremidade de autenticação para um aplicativo personalizado que você está desenvolvendo ou registrando com o Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -7,20 +7,21 @@ author: rwike77
 manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcfeec7e90f1c582a11889619811330bcf488bbf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c6547266b92cbeee2754871d4cdca7a2de261fc8
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545909"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325361"
 ---
 # <a name="how-to-configure-endpoints"></a>Como configurar pontos de extremidade
 

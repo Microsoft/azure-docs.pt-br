@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 0913e1877c63ed1a8e960676be02a12b45a34a7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a41830dcb7f681713db7a7802ab430581dc844f
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66240088"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371162"
 ---
 # <a name="deploy-azure-file-sync"></a>Implantar a Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -21,11 +21,11 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
 É altamente recomendável que você leia [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) e [Planejando uma implantação de Sincronização de arquivos do Azure](storage-sync-files-planning.md) antes de completar as etapas descritas neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Um compartilhamento de arquivos Azure na mesma região que você deseja implantar a sincronização de arquivos do Azure. Para obter mais informações, consulte:
+* Um compartilhamento de arquivos do Azure na mesma região que você deseja implantar Sincronização de Arquivos do Azure. Para obter mais informações, consulte:
     - [Disponibilidade de região](storage-sync-files-planning.md#region-availability) para Sincronização de arquivos do Azure.
     - Para orientações passo a passo sobre como criar uma conta de compartilhamento, consulte [Criar uma conta de compartilhamento](storage-how-to-create-file-share.md).
 * Pelo menos uma instância do Windows Server ou cluster do Windows Server para sincronizar com a Sincronização de arquivos do Azure. Consulte [Interoperabilidade com o Windows Server](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability) para obter mais informações sobre versões com suporte do Windows Server.
-* O módulo do PowerShell Az pode ser usado com o PowerShell 5.1 ou o PowerShell 6 +. Você pode usar o módulo do PowerShell Az para sincronização de arquivos do Azure em qualquer sistema com suporte, incluindo sistemas não Windows, no entanto, o cmdlet de registro do servidor sempre deve ser executado diretamente na instância do Windows Server que está sendo registrado. No Windows Server 2012 R2, você pode verificar que você está executando pelo menos PowerShell 5.1. \* examinando o valor da **PSVersion** propriedade o **$PSVersionTable** objeto:
+* O módulo AZ PowerShell pode ser usado com o PowerShell 5,1 ou o PowerShell 6 +. Você pode usar o módulo AZ PowerShell para Sincronização de Arquivos do Azure em qualquer sistema com suporte, incluindo sistemas não Windows, no entanto, o cmdlet de registro do servidor sempre deve ser executado na instância do Windows Server que você está registrando (isso pode ser feito diretamente ou por meio do PowerShell comunicação remota). No Windows Server 2012 R2, você pode verificar se está executando pelo menos o PowerShell 5,1. examinando o valor da propriedade **psversion** do objeto $psversiontable:  \*
 
     ```powershell
     $PSVersionTable.PSVersion
@@ -33,23 +33,31 @@ Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos
 
     Se o valor de PSVersion for menor que 5.1. \*, como será o caso com a maioria das novas instalações do Windows Server 2012 R2, será possível facilmente fazer upgrade, baixando e instalando o [Windows Management Framework (WMF) 5.1](https://www.microsoft.com/download/details.aspx?id=54616). O pacote apropriado para baixar e instalar o Windows Server 2012 R2 é **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**. 
 
-    PowerShell 6 + pode ser usado com qualquer sistema com suporte e podem ser baixado por meio de seu [página do GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
+    O PowerShell 6 + pode ser usado com qualquer sistema com suporte e pode ser baixado por meio de sua [página do GitHub](https://github.com/PowerShell/PowerShell#get-powershell). 
 
     > [!Important]  
-    > Se você planeja usar a interface do usuário do servidor de registro, em vez de registrar diretamente do PowerShell, você deve usar o PowerShell 5.1.
+    > Se você planeja usar a interface do usuário de registro do servidor, em vez de registrá-la diretamente do PowerShell, você deve usar o PowerShell 5,1.
 
-* Se você optou por usar o PowerShell 5.1, certifique-se de que pelo menos .NET 4.7.2 está instalado. Saiba mais sobre [versões do .NET Framework e as dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
-* O módulo do PowerShell de Az, que pode ser instalado, seguindo as instruções aqui: [Instale e configure o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
-* O módulo Az.StorageSync, que é instalado no momento, independentemente do módulo de Az:
+* Se você tiver optado por usar o PowerShell 5,1, verifique se pelo menos o .NET 4.7.2 está instalado. Saiba mais sobre [as versões do .NET Framework e as dependências](https://docs.microsoft.com/dotnet/framework/migration-guide/versions-and-dependencies) em seu sistema.
 
-    ```PowerShell
-    Install-Module Az.StorageSync -AllowClobber
-    ```
+    > [!Important]  
+    > Se você estiver instalando o .NET 4.7.2 + no Windows Server Core, será necessário instalar `quiet` o `norestart` com os sinalizadores e ou a instalação falhará. Por exemplo, se estiver instalando o .NET 4,8, o comando seria semelhante ao seguinte:
+    > ```PowerShell
+    > Start-Process -FilePath "ndp48-x86-x64-allos-enu.exe" -ArgumentList "/q /norestart" -Wait
+    > ```
+
+* O módulo AZ PowerShell, que pode ser instalado seguindo as instruções aqui: [Instale e configure o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+     
+    > [!Note]  
+    > O módulo AZ. StorageSync agora é instalado automaticamente quando você instala o módulo AZ PowerShell.
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Preparar Servidores Windows para uso com Sincronização de arquivos do Azure
 Para cada servidor que você pretende usar com a Sincronização de Arquivos do Azure, incluindo cada nó de servidor em um Cluster de Failover, desabilite a **Configuração de Segurança Reforçada do Internet Explorer**. Isso é necessário apenas para o registro inicial do servidor. Você pode habilitá-la novamente depois que o servidor foi registrado.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+> [!Note]  
+> Você pode ignorar esta etapa se estiver implantando Sincronização de Arquivos do Azure no Windows Server Core.
+
 1. Abra o Gerenciador de Servidor.
 2. Clique em **Servidor Local**:  
     !["Servidor Local" no lado esquerdo da interface do usuário do Gerenciador do Servidor](media/storage-sync-files-deployment-guide/prepare-server-disable-IEESC-1.PNG)
@@ -62,18 +70,23 @@ Para cada servidor que você pretende usar com a Sincronização de Arquivos do 
 Para desabilitar a Configuração de Segurança Reforçada do Internet Explorer, execute o seguinte em uma sessão do PowerShell elevada:
 
 ```powershell
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Administrators
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+$installType = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\").InstallationType
 
-# Disable Internet Explorer Enhanced Security Configuration 
-# for Users
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
-
-# Force Internet Explorer closed, if open. This is required to fully apply the setting.
-# Save any work you have open in the IE browser. This will not affect other browsers,
-# including Microsoft Edge.
-Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+# This step is not required for Server Core
+if ($installType -ne "Server Core") {
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Administrators
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Disable Internet Explorer Enhanced Security Configuration 
+    # for Users
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0 -Force
+    
+    # Force Internet Explorer closed, if open. This is required to fully apply the setting.
+    # Save any work you have open in the IE browser. This will not affect other browsers,
+    # including Microsoft Edge.
+    Stop-Process -Name iexplore -ErrorAction SilentlyContinue
+}
 ``` 
 
 ---
@@ -85,7 +98,7 @@ A implantação da Sincronização de Arquivos do Azure começa com a colocaçã
 > O Serviço de Sincronização de Armazenamento herdou as permissões de acesso da assinatura e do grupo de recursos em que foi implantado. É recomendável verificar cuidadosamente quem tem acesso a ele. Entidades com acesso de gravação podem começar a sincronizar novos conjuntos de arquivos de servidores registrados nesse serviço de sincronização de armazenamento e fazer com que os dados fluam para o armazenamento do Azure que está acessível para elas.
 
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Para implantar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e, em seguida, pesquise a sincronização de arquivos do Azure. Nos resultados da pesquisa, selecione **Sincronização de Arquivos do Azure** e então **Criar** para abrir a guia **Implantar Sincronização de Armazenamento**.
+Para implantar um serviço de sincronização de armazenamento, vá para o [portal do Azure](https://portal.azure.com/), clique em *criar um recurso* e procure por sincronização de arquivos do Azure. Nos resultados da pesquisa, selecione **Sincronização de Arquivos do Azure** e então **Criar** para abrir a guia **Implantar Sincronização de Armazenamento**.
 
 No novo painel que será aberta, insira as seguintes informações:
 
@@ -97,10 +110,17 @@ No novo painel que será aberta, insira as seguintes informações:
 Quando terminar, selecione **Criar** para implantar o Serviço De Sincronização De Armazenamento.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Substitua **< Az_Region >** , **< RG_Name >** , e **< my_storage_sync_service >** com seus próprios valores, em seguida, usar os comandos a seguir para criar e implantar um Serviço de sincronização de armazenamento:
+Substitua **< Az_Region >** , **< RG_Name >** e **< my_storage_sync_service >** pelos seus próprios valores e, em seguida, use o CMDS a seguir para criar e implantar um serviço de sincronização de armazenamento:
 
 ```powershell
-Connect-AzAccount
+$hostType = (Get-Host).Name
+
+if ($installType -eq "Server Core" -or $hostType -eq "ServerRemoteHost") {
+    Connect-AzAccount -UseDeviceAuthentication
+}
+else {
+    Connect-AzAccount
+}
 
 # this variable holds the Azure region you want to deploy 
 # Azure File Sync into
@@ -337,6 +357,20 @@ if ($cloudTieringDesired) {
 
 ---
 
+## <a name="configure-firewall-and-virtual-network-settings"></a>Definir configurações de rede virtual e de firewall
+
+### <a name="portal"></a>Portal
+Se você quiser configurar a sincronização de arquivos do Azure para trabalhar com as configurações de firewall e rede virtual, faça o seguinte:
+
+1. No portal do Azure, navegue até a conta de armazenamento que você deseja proteger.
+1. Selecione o botão **firewalls e redes virtuais** no menu à esquerda.
+1. Selecione **redes selecionadas** em **permitir acesso de**.
+1. Verifique se os servidores IP ou rede virtual estão listados na seção apropriada.
+1. Certifique-se **de que permitir que serviços da Microsoft confiáveis acessem esta conta de armazenamento** esteja marcado.
+1. Selecione **salvar** para salvar suas configurações.
+
+![Definindo configurações de rede virtual e de firewall para trabalhar com a sincronização de arquivos do Azure](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
+
 ## <a name="onboarding-with-azure-file-sync"></a>Integração com a Sincronização de arquivos do Azure
 As etapas recomendadas para se integrar à Sincronização de arquivos do Azure pela primeira vez com zero tempo de inatividade e ainda preservar a fidelidade do arquivo completo e a lista de controle de acesso (ACL) são as seguintes:
  
@@ -355,13 +389,13 @@ As etapas recomendadas para se integrar à Sincronização de arquivos do Azure 
  
 Caso não tenha armazenamento extra para a integração inicial e gostaria de anexar aos compartilhamentos existentes, você pode pré-propagar os dados nos compartilhamentos de arquivos do Azure. Essa abordagem é sugerida se e somente se você puder aceitar o tempo de inatividade e não garante absolutamente nenhuma alteração de dados em compartilhamentos do servidor durante o processo de migração inicial. 
  
-1. Verifique se os dados presentes nos servidores não podem ser alterados durante o processo de integração.
-2. Faça a pré-propagação de compartilhamentos de arquivos do Azure com os dados de servidor usando qualquer ferramenta de transferência de dados via SMB, por exemplo, Robocopy, cópia direta do SMB. Como o AzCopy não baixa dados pelo SMB, ele não pode ser usado para pré-propagação.
+1. Verifique se os dados em qualquer um dos servidores não podem ser alterados durante o processo de integração.
+2. Pré-propagar compartilhamentos de arquivos do Azure com os dados do servidor usando qualquer ferramenta de transferência de dados no SMB, por exemplo, Robocopy, Direct SMB Copy. Como o AzCopy não baixa dados pelo SMB, ele não pode ser usado para pré-propagação.
 3. Crie a topologia da Sincronização de arquivos do Azure com os pontos de extremidade desejados do servidor apontando para os compartilhamentos existentes.
 4. Deixe a sincronização concluir o processo de reconciliação em todos os pontos de extremidade. 
 5. Assim que a reconciliação for concluída, você pode abrir compartilhamentos para alterações.
  
-Esteja ciente de que, no momento, a abordagem de pré-propagação tem algumas limitações: 
+Atualmente, a abordagem de pré-propagação tem algumas limitações – 
 - A fidelidade total nos arquivos não é preservada. Por exemplo, arquivos perdem ACLs e carimbo de data/hora.
 - Alterações de dados no servidor antes de a topologia de sincronização estar totalmente ativa e em execução podem causar conflitos nos pontos de extremidade do servidor.  
 - Depois que o ponto de extremidade da nuvem for criado, a Sincronização de arquivos do Azure executa um processo para detectar os arquivos na nuvem antes de iniciar a sincronização inicial. O tempo necessário para concluir esse processo varia dependendo de vários fatores, como velocidade da rede, largura de banda disponível e quantidade de arquivos e pastas. Para obter uma estimativa aproximada na versão prévia, o processo de detecção é executado a aproximadamente 10 arquivos por segundo. Portanto, mesmo se a pré-propagação for executada rapidamente, o tempo geral para obter um sistema totalmente em execução pode ser significativamente maior quando os dados forem pré-propagados na nuvem.

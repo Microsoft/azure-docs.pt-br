@@ -63,18 +63,18 @@
       href: template-best-practices.md
     - name: Modelos de consistência de nuvem
       href: templates-cloud-consistency.md
-    - name: Provedores e tipos de recursos
-      href: resource-manager-supported-services.md
-    - name: Gerenciador de Implantação
-      displayName: adm
-      href: deployment-manager-overview.md
-    - name: Verificação de integridade do Gerenciador de Implantação
-      displayName: adm
-      href: deployment-manager-health-check.md
     - name: Modos de implantação
       href: deployment-modes.md
     - name: Exclusão de recursos
       href: resource-group-delete.md
+    - name: Gerenciador de Implantação
+      items:
+        - name: Visão geral
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-overview.md
+        - name: Verificação de integridade
+          displayName: 'adm, deployment manager'
+          href: deployment-manager-health-check.md
     - name: Gerenciador de Recursos e implantação clássica
       href: resource-manager-deployment-model.md
     - name: Atributos de segurança comuns do Azure
@@ -124,11 +124,40 @@
               href: resource-manager-powershell-sas-token.md
         - name: Implantar vários grupos de recursos ou assinaturas
           href: resource-manager-cross-resource-group-deployment.md
-        - name: Integração contínua com o Azure DevOps Services
-          href: ../vs-azure-tools-resource-groups-ci-in-vsts.md
-          maintainContext: true
+    - name: CI/CD
+      items:
+        - name: Projeto do VS com pipelines
+          href: vs-resource-groups-project-devops-pipelines.md
     - name: Exportar modelo
       href: export-template-portal.md
+    - name: Mover
+      items:
+        - name: Mover recursos
+          href: resource-group-move-resources.md
+        - name: Suporte de recurso
+          href: move-support-resources.md
+        - name: Solucionar problemas de movimentação
+          href: troubleshoot-move.md
+        - name: Mover as diretrizes para serviços
+          items:
+            - name: Serviço de Aplicativo
+              href: ./move-limitations/app-service-move-limitations.md
+            - name: Azure DevOps
+              href: /azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json
+            - name: Implantação Clássica
+              href: ./move-limitations/classic-model-move-limitations.md
+            - name: Serviços de Recuperação
+              href: ../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Máquinas Virtuais
+              href: ./move-limitations/virtual-machines-move-limitations.md
+            - name: Redes Virtuais
+              href: ./move-limitations/virtual-network-move-limitations.md
+    - name: Marcas
+      items:
+        - name: Recursos de marca
+          href: resource-group-using-tags.md
+        - name: Suporte a marcas
+          href: tag-support.md
     - name: Gerenciar
       items:
         - name: Gerenciar grupos de recursos
@@ -153,11 +182,6 @@
             - name: Usar PowerShell do Azure
               displayName: 'open,delete,deploy,move,lock,tag'
               href: manage-resources-powershell.md
-        - name: Mover recursos
-          href: resource-group-move-resources.md
-        - name: Organizar recursos
-          displayName: tags
-          href: resource-group-using-tags.md
         - name: Bloquear recursos
           href: resource-group-lock-resources.md
         - name: API de autenticação para acessar assinaturas
@@ -204,6 +228,8 @@
           href: resource-manager-sku-not-available-errors.md
         - name: Problemas de implantação do Windows
           href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+    - name: Provedores e tipos de recursos
+      href: resource-manager-supported-services.md
     - name: Solicitações de limitação
       href: resource-manager-request-limits.md
     - name: Rastrear operações assíncronas
@@ -211,7 +237,7 @@
 - name: Referência
   items:
     - name: Referência de modelo
-      href: subtoc/toc.yml
+      href: /azure/templates/
     - name: Funções de modelo
       items:
         - name: Todas as funções
@@ -230,14 +256,10 @@
           href: resource-group-template-functions-resource.md
         - name: Funções de cadeia de caracteres
           href: resource-group-template-functions-string.md
-    - name: Funcionalidades do recurso
-      items:
-        - name: Exclusão completa de modo
-          href: complete-mode-deletion.md
-        - name: Suporte de movimentação
-          href: move-support-resources.md
-        - name: Suporte a marcas
-          href: tag-support.md
+    - name: Exclusão completa de modo
+      href: complete-mode-deletion.md
+    - name: Limite de instância de recurso
+      href: resources-without-rg-limit.md
     - name: Provedores de recursos por serviço
       href: azure-services-resource-providers.md
     - name: REST - Gerenciador de Recursos

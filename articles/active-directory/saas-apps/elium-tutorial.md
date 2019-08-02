@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac14168f9f56a727517232e201e581f913d67c90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b714983f1401ba60357a8642e0a56422d01be74e
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65862891"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103418"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Tutorial: Integração do Azure Active Directory ao Elium
 
@@ -55,7 +55,7 @@ Para configurar a integração do Elium com o Microsoft Azure Active Directory, 
 
 **Para adicionar o Elium a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Microsoft Azure AD com o Elium, execute as seg
 
     ![Informações de logon único de Domínio e URLs do Elium](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<platform-domain>.elium.com/login/saml2/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<platform-domain>.elium.com/login/saml2/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<platform-domain>.elium.com/login/saml2/acs`
 
@@ -137,7 +137,7 @@ Para configurar o logon único do Microsoft Azure AD com o Elium, execute as seg
     > [!NOTE]
     > Essas são as declarações padrão. **Somente a declaração de email é necessária**. Para provisionamento de JIT, apenas a declaração de email será obrigatória também. Outras declarações personalizadas podem variar de uma plataforma de cliente para outra.
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -185,7 +185,7 @@ Para configurar o logon único do Microsoft Azure AD com o Elium, execute as seg
 
     ![Configurar o logon único](./media/elium-tutorial/user3.png)
 
-     a. Copie o valor de **Verificar se a autenticação SAML2 funciona para sua conta** e cole-o na caixa de texto **URL de logon** na seção **Configuração SAML Básica** no portal do Azure.
+    a. Copie o valor de **Verificar se a autenticação SAML2 funciona para sua conta** e cole-o na caixa de texto **URL de logon** na seção **Configuração SAML Básica** no portal do Azure.
 
     > [!NOTE]
     > Depois de configurar o SSO, você poderá sempre acessar a página de logon remoto padrão na seguinte URL: `https://<platform_domain>/login/regular/login` 
@@ -224,7 +224,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com

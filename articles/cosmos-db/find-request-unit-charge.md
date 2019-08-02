@@ -4,14 +4,14 @@ description: Saiba como encontrar o preço de RU (Unidade de Solicitação) para
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 06/14/2019
 ms.author: thweiss
-ms.openlocfilehash: 0671556a1ad049782090ffede509072adbac4c6a
-ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.openlocfilehash: 96c36067456a49a5760d6fde488dcb4ad8311a90
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66416044"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356452"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontrar o preço de Unidade de Solicitação no Azure Cosmos DB
 
@@ -39,7 +39,8 @@ Atualmente, você pode encontrar o preço de solicitação no portal do Azure so
 
 ![Captura de tela do preço de solicitação de uma consulta SQL no portal do Azure](./media/find-request-unit-charge/portal-sql-query.png)
 
-### <a name="use-the-net-sdk-v2"></a>Usar o SDK do .NET V2
+### <a name="use-the-net-sdk"></a>Usar o SDK .NET
+### <a name="net-v2-sdk"></a>SDK do .NET V2
 
 Os objetos retornados do [SDK do .NET v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) expõem uma propriedade `RequestCharge`:
 
@@ -73,6 +74,12 @@ while (query.HasMoreResults)
     requestCharge = queryResponse.RequestCharge;
 }
 ```
+
+### <a name="net-v3-sdk"></a>SDK do .NET V3
+
+Os objetos retornados do [SDK do .NET v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) expõem uma propriedade `RequestCharge`:
+
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/CustomDocsSampleCode.cs?name=GetRequestCharge)]
 
 Para saber mais, confira [Início Rápido: Criar um aplicativo Web do .NET usando uma conta da API do SQL no Azure Cosmos DB](create-sql-api-dotnet.md).
 
@@ -146,10 +153,12 @@ Para saber mais, confira [Início Rápido: Criar um aplicativo do Node.js usando
 O objeto `CosmosClient` do [SDK do Python](https://pypi.org/project/azure-cosmos/) expõe um dicionário `last_response_headers` que mapeia todos os cabeçalhos retornados pela API HTTP subjacente para a última operação executada. O preço de solicitação está disponível na chave `x-ms-request-charge`:
 
 ```python
-response = client.ReadItem('dbs/database/colls/container/docs/itemId', { 'partitionKey': 'partitionKey' })
+response = client.ReadItem(
+    'dbs/database/colls/container/docs/itemId', {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 
-response = client.ExecuteStoredProcedure('dbs/database/colls/container/sprocs/storedProcedureId', None, { 'partitionKey': 'partitionKey' })
+response = client.ExecuteStoredProcedure(
+    'dbs/database/colls/container/sprocs/storedProcedureId', None, {'partitionKey': 'partitionKey'})
 request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
@@ -302,3 +311,4 @@ Para saber mais sobre como otimizar o consumo de RU, confira estes artigos:
 * [Taxa de transferência provisionada para dimensionamento global](scaling-throughput.md)
 * [Provisionar a taxa de transferência para contêineres e bancos de dados](set-throughput.md)
 * [Provisionar a taxa de transferência para um contêiner](how-to-provision-container-throughput.md)
+* [Monitorar e depurar com métricas no Azure Cosmos DB](use-metrics.md)

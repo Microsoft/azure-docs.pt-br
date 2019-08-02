@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c1b35e6a28948cf952c61ec700cbd2ba764674ab
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 757d0b09c652e97e9dddc924c4c700819e333409
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895999"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086453"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integração do Azure Active Directory ao YardiOne
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o YardiOne, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do YardiOne](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<y1-subdomain>.yardione.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<y1-subdomain>.yardione.com`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `http://<y1-subdomain>.yardione.com/yAuth2/trust`
 
@@ -191,5 +191,5 @@ Ao clicar no bloco do YardiOne no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,6 +8,8 @@
       href: sql-database-paas-vs-sql-server-iaas.md
     - name: Notas de versão
       href: sql-database-release-notes.md
+    - name: Atualizações de migração de IP do gateway
+      href: sql-database-gateway-migration.md
 - name: Guia de início rápido
   expanded: true
   items:
@@ -17,7 +19,7 @@
       href: sql-database-managed-instance-quickstart-guide.md
     - name: Criar
       items:
-        - name: Banco de dados individual – portal
+        - name: Banco de dados individual
           href: sql-database-single-database-get-started.md
         - name: Banco de dados individual – modelo
           displayName: 'Azure Resource Manager template, ARM'
@@ -28,6 +30,8 @@
       items:
         - name: Regras de firewall de IP no nível de servidor
           href: sql-database-server-level-firewall-rule.md
+        - name: Configurar um ponto de extremidade público na Instância Gerenciada
+          href: sql-database-managed-instance-public-endpoint-configure.md
         - name: Conexão da VM do cliente com uma instância gerenciada
           href: sql-database-managed-instance-configure-vm.md
         - name: Conexão ponto a site com uma instância gerenciada
@@ -83,14 +87,22 @@
           href: sql-database-design-first-database.md
         - name: Criar Banco de Dados usando .NET
           href: sql-database-design-first-database-csharp.md
-    - name: Banco de dados singleton
+    - name: Banco de Dados Individual
       items:
         - name: Migrar para um banco de dados individual/em pool usando DMS
           href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+        - name: Adicionar a um grupo de failover
+          href: sql-database-single-database-failover-group-tutorial.md
         - name: Implementar um banco de dados distribuído geograficamente
           href: sql-database-implement-geo-distributed-database.md
+        - name: Configurar a replicação geográfica ativa
+          href: sql-database-active-geo-replication-portal.md
         - name: Configurar a Sincronização de Dados SQL do Azure
           href: sql-database-get-started-sql-data-sync.md
+    - name: Pool elástico
+      items:
+        - name: Adicionar a um grupo de failover
+          href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Instância Gerenciada
       items:
         - name: Migrar online usando DMS
@@ -163,7 +175,7 @@
           href: sql-database-service-tier-hyperscale-faq.md
     - name: Bancos de dados únicos
       items:
-        - name: Visão geral de banco de dados individual
+        - name: Documentação do banco de dados individual
           href: sql-database-single-index.yml
         - name: Funcionalidades de banco de dados individual
           href: sql-database-single-database.md
@@ -203,10 +215,12 @@
           href: sql-database-elastic-pool-manage.md
     - name: Instâncias gerenciadas
       items:
-        - name: Visão geral de instâncias gerenciadas
+        - name: Documentação da instância gerenciada
           href: sql-database-managed-instance-index.yml
         - name: Recursos de instâncias gerenciadas
           href: sql-database-managed-instance.md
+        - name: Perguntas frequentes de instância gerenciada
+          href: sql-database-managed-instance-faq.md
         - name: Referência da API de Gerenciamento
           href: sql-database-managed-instance-create-manage.md
         - name: Limites de recursos
@@ -221,7 +235,7 @@
           href: sql-database-managed-instance-public-endpoint-securely.md
     - name: Plataforma como serviço
       items:
-        - name: Visão geral de PaaS (plataforma como serviço)
+        - name: Documentação da plataforma como serviço
           href: sql-database-paas.yml
         - name: Continuidade dos negócios
           href: sql-database-business-continuity.md
@@ -239,8 +253,6 @@
               href: sql-database-active-geo-replication.md
             - name: Grupos de failover automático
               href: sql-database-auto-failover-group.md
-            - name: Configurar Replicação Geográfica Ativa - Portal
-              href: sql-database-active-geo-replication-portal.md
             - name: Configurar segurança para réplicas
               href: sql-database-geo-replication-security-config.md
         - name: Opções de recuperação do banco de dados
@@ -312,7 +324,7 @@
           href: sql-database-feature-restrictions.md
     - name: Escalabilidade
       items:
-        - name: Visão geral de escalabilidade
+        - name: Documentação de escalabilidade
           href: sql-database-scalability-index.yml
         - name: Aumentar/Reduzir
           href: sql-database-scale-resources.md
@@ -342,7 +354,7 @@
           href: sql-database-elastic-transactions-overview.md
     - name: Monitoramento e ajuste
       items:
-        - name: Visão geral de monitoramento e Ajuste
+        - name: Documentação de monitoramento e ajuste
           href: sql-database-monitoring-tuning-index.yml
         - name: Monitoramento e ajuste de desempenho
           href: sql-database-monitor-tune-overview.md
@@ -366,7 +378,7 @@
               href: sql-database-advisor.md
     - name: Recursos de bancos de dados
       items:
-        - name: Visão geral
+        - name: Documentação do recurso do Banco de Dados SQL
           href: sql-database-features-index.yml
         - name: Comparação de recursos do SQL
           href: sql-database-features.md
@@ -508,10 +520,10 @@
           href: sql-database-managed-instance-threat-detection.md
         - name: Conectar aplicativos
           href: sql-database-managed-instance-connect-app.md
-        - name: Configurar ponto de extremidade público
-          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: Carregar e mover dados
       items:
+        - name: Mover um recurso para uma nova região
+          href: sql-database-move-resources-across-regions.md
         - name: Copiar um banco de dados dentro do Azure
           href: sql-database-copy.md
         - name: Importar um banco de dados de um arquivo BACPAC

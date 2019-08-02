@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 10bcbb4c1957735b0ddad6c97325c32be19ddcdb
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: 7b530b3d415761956cbdb45fdc92bfed55a1bae5
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66383394"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67868253"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: criar um aplicativo de página única usando a API de Pesquisa de Imagem do Bing
 
@@ -369,7 +369,7 @@ Os parâmetros `index` e `count` são usados para numerar os resultados, gerar H
     }, // relatedSearches renderer omitted
 ```
 
-As imagens em miniatura `height` e `width` são usadas na tag `<img>` e nos campos `h` e `w` na URL da miniatura. Isso permite que o Bing retorne [uma miniatura](resize-and-crop-thumbnails.md) exatamente desse tamanho.
+As imagens em miniatura `height` e `width` são usadas na tag `<img>` e nos campos `h` e `w` na URL da miniatura. Isso permite que o Bing retorne [uma miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
 
 ## <a name="persisting-client-id"></a>Persistir ID do cliente
 
@@ -386,7 +386,7 @@ As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `
 > [!NOTE]
 > Em um aplicativo Web de produção, você deve executar a solicitação do lado do servidor de qualquer maneira. Caso contrário, a chave da API de Pesquisa do Bing deverá ser incluída na página da Web, onde estará disponível para qualquer pessoa que exibir a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
-Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e disponibiliza-os para o JavaScript.
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7925e6fe66579c8bf702acbe165c50d2aed536e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: a8e1f4f0f2bd3521a312523fa9e36dcf14492862
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898360"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101385"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-halogen-software"></a>Tutorial: Integração do Azure Active Directory com o Halogen Software
 
@@ -53,7 +53,7 @@ Para configurar a integração do Halogen Software com o Azure AD, você precisa
 
 **Para adicionar o Halogen Software por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Halogen Software, execute as se
 
     ![Informações de logon único de Domínio e URLs do Halogen Software](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/<companyname>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://global.hgncloud.com/<companyname>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o Halogen Software, execute as se
 
     ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_14.png)
 
-     a. Como **Identificador exclusivo**, selecione **NameID**.
+    a. Como **Identificador exclusivo**, selecione **NameID**.
 
     b. Em **Identificador exclusivo mapeia para**, selecione **Nome de usuário**.
   
@@ -230,7 +230,7 @@ O objetivo desta seção é criar um usuário chamado Britta Simon no Halogen So
 
     ![O que é o Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_301.png)
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como **Fernandes**.
 
@@ -252,4 +252,4 @@ Ao clicar no bloco do Halogen Software no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

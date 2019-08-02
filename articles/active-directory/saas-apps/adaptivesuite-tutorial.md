@@ -9,40 +9,40 @@ ms.reviewer: barbkess
 ms.assetid: 13af9d00-116a-41b8-8ca0-4870b31e224c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
+ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/17/2019
+ms.date: 07/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b2c7ca8699274b96f7f382dfe1958bf5babbbe99
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 599b0c8f45f91f9ecff210264a813e302f18059e
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720151"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68488898"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Tutorial: Integração do Azure Active Directory com o Adaptive Insights
+# <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integrar o Adaptive Insights ao Azure Active Directory
 
-Neste tutorial, você aprenderá a integrar o Adaptive Insights ao Azure AD (Azure Active Directory).
-A integração do Adaptive Insights ao Azure AD oferece os seguintes benefícios:
+Neste tutorial, você aprenderá a integrar o Adaptive Insights ao Azure AD (Azure Active Directory). Ao integrar o Adaptive Insights ao Azure AD, você poderá:
 
-* No Azure AD, é possível controlar quem tem acesso ao Adaptive Insights.
-* É possível habilitar seus usuários para fazer logon automaticamente no Adaptive Insights (logon único) com suas contas do Azure AD.
-* Você pode gerenciar suas contas em um único local central – o portal do Azure.
+* Controlar no Azure AD quem tem acesso ao Adaptive Insights.
+* Permitir que os usuários sejam conectados automaticamente ao Adaptive Insights com suas contas do Azure AD.
+* Gerenciar suas contas em um local central: o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS ao Azure AD, confira [O que é o acesso de aplicativos e o logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD ao Adaptive Insights, são necessários os seguintes itens:
+Para começar, você precisará dos seguintes itens:
 
-* Uma assinatura do Azure AD. Se não tiver um ambiente do Azure AD, você pode obter uma versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Assinatura habilitada para logon único do Adaptive Insights
+* Uma assinatura do Azure AD. Caso você não tenha uma assinatura, obtenha uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Adaptive Insights.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, você configurará e testará o logon único do Azure AD em um ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O Adaptive Insights é compatível com SSO iniciado por **IDP**
 
@@ -50,90 +50,63 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do Adaptive Insights com o Azure AD, você precisa adicionar o Adaptive Insights por meio da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o Adaptive Insights da galeria, siga estas etapas:**
+1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
+1. Para adicionar um novo aplicativo, escolha **Novo aplicativo**.
+1. Na seção **Adicionar por meio da galeria**, digite **Adaptive Insights** na caixa de pesquisa.
+1. Selecione **Adaptive Insights** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
-
-    ![O botão Azure Active Directory](common/select-azuread.png)
-
-2. Navegue até **Aplicativos Empresariais** e, em seguida, selecione a opção **Todos os Aplicativos**.
-
-    ![A folha Aplicativos empresariais](common/enterprise-applications.png)
-
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
-
-    ![O botão Novo aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, digite **Adaptive Insights**, selecione **Adaptive Insights** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
-
-     ![Adaptive Insights na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-Nesta seção, você configurará e testará o logon único do Azure AD com o Adaptive Insights com base em um usuário de teste chamado **Brenda Fernandes**.
-Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Adaptive Insights.
+Configure e teste o SSO do Azure AD com o Adaptive Insights usando um usuário de teste chamado **B.Fernandes**. Para que o SSO funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Adaptive Insights.
 
-Para configurar e testar o logon único do Azure AD com o Adaptive Insights, é necessário concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Adaptive Insights, conclua os seguintes blocos de construção:
 
-1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Configurar o logon único do Adaptive Insights](#configure-adaptive-insights-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
-3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
-4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Adaptive Insights](#create-adaptive-insights-test-user)** – para ter um equivalente de Brenda Fernandes no Adaptive Insights que esteja vinculado à representação de usuário do Azure AD.
-6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+2. **[Configurar o SSO do Adaptive Insights](#configure-adaptive-insights-sso)** – para definir as configurações de logon único no lado do aplicativo.
+3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** para testar o logon único do Azure AD com B.Fernandes.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que B.Fernandes use o logon único do Azure AD.
+5. **[Criar um usuário de teste do Adaptive Insights](#create-adaptive-insights-test-user)** – para ter um equivalente de B.Fernandes no Adaptive Insights que esteja vinculado à representação de usuário do Azure AD.
+6. **[Testar o SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-Para configurar o logon único do Azure AD com o Adaptive Insights, execute as seguintes etapas:
+1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Adaptive Insights**, localize a seção **Gerenciar** e selecione **Logon único**.
+1. Na página **Escolher um método de logon único**, escolha **SAML**.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
-1. No [Portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Adaptive Insights**, selecione **Logon único**.
+   ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
-    ![Link Configurar logon único](common/select-sso.png)
+1. Na seção **Configuração Básica do SAML**, execute as seguintes etapas:
 
-2. Na caixa de diálogo **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
-
-    ![Modo de seleção de logon único](common/select-saml-option.png)
-
-3. Na página **Definir logon único com SAML**, clique no ícone **Editar** para abrir a caixa de diálogo **Configuração básica do SAML**.
-
-    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
-
-4. Na página **Configurar Logon Único com SAML**, execute as seguintes etapas:
-
-    ![Informações de logon único de Domínio e URLs do Adaptive Insights](common/idp-intiated.png)
-
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     > [!NOTE]
     > É possível obter valores de URL de resposta e Identificador (ID da entidade) na página **Configurações de SSO do SAML** do Adaptive Insights.
 
-5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
+4. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, localize **Certificado (Base64)** e escolha **Baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download do Certificado](common/certificatebase64.png)
 
-6. Na seção **Configurar Adaptive Insights**, copie as URLs apropriadas de acordo com suas necessidades.
+6. Na seção **Configurar o Adaptive Insights**, copie as URLs apropriadas de acordo com suas necessidades.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de logon
-
-    b. Identificador do Azure AD
-
-    c. URL de logoff
-
-### <a name="configure-adaptive-insights-single-sign-on"></a>Configurar o logon único do Adaptive Insights
+### <a name="configure-adaptive-insights-sso"></a>Configurar o SSO do Adaptive Insights
 
 1. Em outra janela do navegador da Web, faça logon como administrador no site de sua empresa no Adaptive Insights.
 
-2. Vá para **Administrador**.
+2. Vá para **Administração**.
 
     ![Admin](./media/adaptivesuite-tutorial/ic805644.png "Admin")
 
-3. Na seção **Usuários e Funções**, clique em **Gerenciar Configurações de SSO do SAML**.
+3. Na seção **Usuários e Funções**, clique em **Configurações de SSO do SAML**.
 
     ![Gerenciar Configurações de SSO do SAML](./media/adaptivesuite-tutorial/ic805645.png "Gerenciar Configurações de SSO do SAML")
 
@@ -141,9 +114,9 @@ Para configurar o logon único do Azure AD com o Adaptive Insights, execute as s
 
     ![Configurações de SSO do SAML](./media/adaptivesuite-tutorial/ic805646.png "Configurações de SSO do SAML")
 
-     a. Na caixa de texto **Nome do provedor de identidade** , digite um nome para a sua configuração.
+    a. Na caixa de texto **Nome do provedor de identidade** , digite um nome para a sua configuração.
 
-    b. Cole o **Identificador do Azure AD** copiado do Portal do Azure na caixa de texto **ID da Entidade do Provedor de Identidade**.
+    b. Cole o valor do **Identificador do Azure AD** copiado do portal do Azure na caixa de texto **ID da Entidade do Provedor de identidade**.
 
     c. Cole o valor da **URL de Logon** copiado do Portal do Azure na caixa de texto **URL de SSO do Provedor de identidade**.
 
@@ -161,59 +134,39 @@ Para configurar o logon único do Azure AD com o Adaptive Insights, execute as s
 
      * **Habilitar SAML**, selecione **Permitir SSO do SAML e direcionar logon do Adaptive Insights**.
 
-    g. Copie **URL de SSO do Adaptive Insights** e cole-a nas caixas de texto **Identificador(ID da entidade)** e **URL de resposta** na seção **URLs e Domínio do Adaptive Insights** no portal do Azure.
+    g. Copie a **URL de SSO do Adaptive Insights** e cole-a nas caixas de texto **Identificador (ID da Entidade)** e **URL de Resposta** na seção **Configuração Básica do SAML** no portal do Azure.
 
     h. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
-1. No Portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **Usuários** e, em seguida, **Todos os usuários**.
-
-    ![Os links “Usuários e grupos” e “Todos os usuários”](common/users.png)
-
-2. Selecione **Novo usuário** na parte superior da tela.
-
-    ![Botão Novo usuário](common/new-user.png)
-
-3. Nas Propriedades do usuário, execute as etapas a seguir.
-
-    ![A caixa de diálogo Usuário](common/user-properties.png)
-
-    a. No campo **Nome**, insira **BrendaFernandes**.
-  
-    b. No campo **Nome de usuário**, digite `brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com.
-
-    c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
-
-    d. Clique em **Criar**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. Selecione **Novo usuário** na parte superior da tela.
+1. Nas propriedades do **Usuário**, siga estas etapas:
+   1. No campo **Nome**, insira `B.Simon`.  
+   1. No campo **Nome de usuário**, insira username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao Adaptive Insights.
+Nesta seção, você permitirá que B.Fernandes use o logon único do Azure permitindo a ela acesso ao Adaptive Insights.
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, selecione **Adaptive Insights**.
+1. No portal do Azure, selecione **Aplicativos empresariais** e, em seguida, selecione **Todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Adaptive Insights**.
+1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 
-    ![Folha de aplicativos empresariais](common/enterprise-applications.png)
+   ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-2. Na lista de aplicativos, selecione **Adaptive Insights**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
-    ![O link do Adaptive Insights na lista de Aplicativos](common/all-applications.png)
+    ![O link Adicionar Usuário](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **Usuários e grupos**.
-
-    ![O link “Usuários e grupos”](common/users-groups-blade.png)
-
-4. Escolha o botão **Adicionar usuário** e, em seguida, escolha **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
-
-    ![O painel Adicionar Atribuição](common/add-assign-user.png)
-
-5. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-
-6. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar função**, escolha a função de usuário apropriada na lista e clique no botão **Selecionar** na parte inferior da tela.
-
-7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
+1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-adaptive-insights-test-user"></a>Criar usuário de teste do Adaptive Insights
 
@@ -223,11 +176,11 @@ Para permitir que os usuários do Azure AD entrem no Adaptive Insights, eles dev
 
 1. Entre como administrador no site de sua empresa no **Adaptive Insights**.
 
-2. Vá para **Administrador**.
+2. Vá para **Administração**.
 
    ![Admin](./media/adaptivesuite-tutorial/IC805644.png "Admin")
 
-3. Na seção **Usuários e Funções**, clique em **Adicionar Usuário**.
+3. Na seção **Usuários e Funções**, clique em **Usuário**.
 
    ![Adicionar Usuário](./media/adaptivesuite-tutorial/IC805648.png "Adicionar Usuário")
 
@@ -235,7 +188,7 @@ Para permitir que os usuários do Azure AD entrem no Adaptive Insights, eles dev
 
    ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
 
-    a. Digite o **Nome**, **Logon**, **Email** e **Senha** de um usuário válido do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+   a. Digite o **Nome**, o **Nome de Usuário**, o **Email** e a **Senha** de um usuário válido do Azure Active Directory que deseja provisionar nas caixas de texto relacionadas.
 
    b. Selecione uma **Função**.
 
@@ -244,7 +197,7 @@ Para permitir que os usuários do Azure AD entrem no Adaptive Insights, eles dev
 > [!NOTE]
 > É possível usar qualquer outra ferramenta de criação de conta de usuário do Adaptive Insights ou as APIs fornecidas pelo Adaptive Insights para provisionar as contas de usuário do AAD.
 
-### <a name="test-single-sign-on"></a>Testar logon único
+### <a name="test-sso"></a>Testar o SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
@@ -252,8 +205,9 @@ Ao clicar no bloco do Adaptive Insights no Painel de Acesso, você deverá ser c
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

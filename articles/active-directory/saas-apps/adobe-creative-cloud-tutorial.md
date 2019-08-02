@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9650389d8ec641af1db0652dd09fbd7f06223956
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899092"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Azure Active Directory ao Adobe Creative Cloud
 
@@ -53,7 +53,7 @@ Para configurar a integração da Adobe Creative Cloud com o Azure AD, será nec
 
 **Para adicionar a Adobe Creative Cloud da galeria, siga as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Adobe Creative Cloud, siga as e
 
     ![Informações de logon único em Domínio e URLs da Adobe Creative Cloud](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite o valor como: `https://adobe.com`.
+    a. Na caixa de texto **URL de Logon**, digite o valor como: `https://adobe.com`.
 
     b. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.okta.com/saml2/service-provider/<token>`
 
@@ -124,7 +124,7 @@ Para configurar o logon único do Azure AD com o Adobe Creative Cloud, siga as e
     | Sobrenome | user.surname |
     | Email | user.mail
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -167,7 +167,7 @@ Para configurar o logon único do Azure AD com o Adobe Creative Cloud, siga as e
 
     ![Configurações](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Configurações")
 
-     a. Clique em **Procurar** para carregar o certificado baixado do Azure AD para o **Certificado do IdP**.
+    a. Clique em **Procurar** para carregar o certificado baixado do Azure AD para o **Certificado do IdP**.
 
     b. Na caixa de texto **Emissor IdP**, coloque o valor da **ID da entidade SAML** que você copiou da seção **Configurar logon** no portal do Azure.
 
@@ -179,11 +179,11 @@ Para configurar o logon único do Azure AD com o Adobe Creative Cloud, siga as e
 
     f. Clique no botão **Salvar** .
 
-3. Agra o painel apresentará o arquivo XML **"Baixar metadados"**. Ele contém a URL EntityDescriptor e a URL AssertionConsumerService da Adobe. Abra o arquivo e configure-os no aplicativo Azure AD.
+3. Agra o painel apresentará o arquivo XML **"Baixar metadados"** . Ele contém a URL EntityDescriptor e a URL AssertionConsumerService da Adobe. Abra o arquivo e configure-os no aplicativo Azure AD.
 
     ![Configurar o logon único no lado do aplicativo](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
-     a. Use o valor EntityDescriptor que a Adobe forneceu a você para **Identificador** na caixa de diálogo **Definir configurações de aplicativo**.
+    a. Use o valor EntityDescriptor que a Adobe forneceu a você para **Identificador** na caixa de diálogo **Definir configurações de aplicativo**.
 
     b. Use o valor AssertionConsumerService que a Adobe forneceu a você para **URL de resposta** na caixa de diálogo **Definir configurações de aplicativo**.
 

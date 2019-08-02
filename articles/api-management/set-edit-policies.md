@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: apimpm
 ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62097164"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205291"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Como definir ou editar políticas de Gerenciamento de API do Azure
 

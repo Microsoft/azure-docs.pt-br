@@ -1,6 +1,6 @@
 ---
-title: Entidades de número telefônico predefinidas
-titleSuffix: Azure
+title: Entidades predefinidas de número de telefone – LUIS
+titleSuffix: Azure Cognitive Services
 description: Este artigo contém informações sobre a entidade predefinida de número de telefone de LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 43d0b855c25ed10b074d99b247ee56dc2ba7769b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a640412fb98fb1d4215bd34c205d4fba253cd7e0
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146198"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68560158"
 ---
-# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade número predefinida de telefone para um aplicativo LUIS
+# <a name="phone-number-prebuilt-entity-for-a-luis-app"></a>Entidade de número de telefone predefinida para um aplicativo LUIS
 A entidade `phonenumber` extrai uma variedade de números de telefone, incluindo o código do país. Uma vez que essa entidade já está treinada, não é necessário adicionar enunciados de exemplo ao aplicativo. A entidade `phonenumber` é compatível somente com a cultura `en-us`. 
 
 ## <a name="types-of-a-phone-number"></a>Tipos de um número de telefone
-`Phonenumber` é gerenciado a partir de [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) repositório do GitHub
+`Phonenumber`é gerenciado do repositório GitHub de [texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/Base-PhoneNumbers.yaml) de reconhecedores
 
 ## <a name="resolution-for-this-prebuilt-entity"></a>Resolução para esta entidade predefinida
 
@@ -58,9 +58,9 @@ O exemplo a seguir mostra a resolução da entidade **builtin.phonenumber**.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Versão de API de visualização 3. x
+### <a name="preview-api-version-3x"></a>Versão prévia da API 3. x
 
-O JSON a seguir é com o `verbose` parâmetro definido como `false`:
+O JSON a seguir é com `verbose` o parâmetro definido `false`como:
 
 ```json
 {
@@ -82,7 +82,7 @@ O JSON a seguir é com o `verbose` parâmetro definido como `false`:
 }
 ```
 
-O JSON a seguir é com o `verbose` parâmetro definido como `true`:
+O JSON a seguir é com `verbose` o parâmetro definido `true`como:
 
 ```json
 {

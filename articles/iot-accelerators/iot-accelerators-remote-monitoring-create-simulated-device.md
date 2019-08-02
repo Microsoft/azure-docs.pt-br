@@ -66,7 +66,7 @@ A tabela a seguir mostra o status inicial do dispositivo:
 | ------------------------ | -------|
 | Cor inicial            | Branco  |
 | Brilho inicial       | 75     |
-| Vida útil restante inicial   | 10\.000 |
+| Vida útil restante inicial   | 10.000 |
 | Status de telemetria inicial | "on"   |
 | Temperatura da telemetria inicial | 200   |
 

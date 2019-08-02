@@ -9,10 +9,10 @@ ms.date: 12/6/2016
 ms.author: ancav
 ms.subservice: autoscale
 ms.openlocfilehash: 9da8e5fb88ff34e561b579b760973ecd23c884a3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "66129739"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns de dimensionamento automático do Azure Monitor
@@ -51,35 +51,35 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Você pode criar um alerta para as métricas a seguir:
 
-| Nome da métrica | Unidade |
+| Nome da Métrica | Unidade |
 | --- | --- |
-| \Processador(_Total)\% Tempo do processador |Porcentagem |
-| \Processador(_Total)\% Tempo Privilegiado |Porcentagem |
-| \Processador(_Total)\% Tempo de Usuário |Porcentagem |
-| \Informações do Processador (_Total)\Frequência do Processador |Count |
-| \Sistema\Processos |Count |
-| \Processo(_Total)\Contagem de Thread |Count |
+| \Processador(_Total)\% Tempo do processador |Percent |
+| \Processador(_Total)\% Tempo Privilegiado |Percent |
+| \Processador(_Total)\% Tempo de Usuário |Percent |
+| \Informações do Processador (_Total)\Frequência do Processador |Contagem |
+| \Sistema\Processos |Contagem |
+| \Processo(_Total)\Contagem de Thread |Contagem |
 | \Processo(_Total)\Contagem de Manipulador |Count |
-| \Memória\% Bytes Confirmados em Uso |Porcentagem |
+| \Memória\% Bytes Confirmados em Uso |Percent |
 | \Memória\Bytes Disponíveis |Bytes |
 | \Memória\Bytes Confirmados |Bytes |
 | \Memória\Limite de Confirmação |Bytes |
 | \Memória\Bytes de Pool Pagináveis |Bytes |
 | \Memória\Bytes de Pool Não Pagináveis |Bytes |
-| \PhysicalDisk(_Total)\% Tempo de Disco |Porcentagem |
-| \PhysicalDisk(_Total)\% Tempo de Leitura de Disco |Porcentagem |
-| \PhysicalDisk(_Total)\% Tempo de Gravação de Disco |Porcentagem |
+| \PhysicalDisk(_Total)\% Tempo de Disco |Percent |
+| \PhysicalDisk(_Total)\% Tempo de Leitura de Disco |Percent |
+| \PhysicalDisk(_Total)\% Tempo de Gravação de Disco |Percent |
 | \Disco físico(_Total)\Transferências do disco/seg |CountPerSecond |
 | \PhysicalDisk(_Total)\Leituras de Disco/s |CountPerSecond |
 | \PhysicalDisk(_Total)\Gravações de Disco/s |CountPerSecond |
 | \PhysicalDisk(_Total)\Bytes de Disco/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Bytes de Leitura de Disco/s |BytesPerSecond |
 | \PhysicalDisk(_Total)\Bytes de Gravação de Disco/s |BytesPerSecond |
-| \PhysicalDisk(_Total)\Média Tamanho da fila do disco |Contagem |
+| \PhysicalDisk(_Total)\Média Comprimento da Fila do Disco |Contagem |
 | \PhysicalDisk(_Total)\Média Tamanho de Fila de Leitura de Disco |Contagem |
 | \PhysicalDisk(_Total)\Média Tamanho de Fila de Gravação de Disco |Contagem |
-| \LogicalDisk(_Total)\% Espaço Livre |Porcentagem |
-| \LogicalDisk(_Total)\Megabytes Livres |Count |
+| \LogicalDisk(_Total)\% Espaço Livre |Percent |
+| \LogicalDisk(_Total)\Megabytes Livres |Contagem |
 
 ### <a name="guest-os-metrics-linux-vms"></a>Métricas de SO convidado de VMs Linux
 Quando você cria uma VM no Azure, o diagnóstico é habilitado por padrão usando a extensão de Diagnóstico.
@@ -92,28 +92,28 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
  Você pode criar um alerta para as métricas a seguir:
 
-| Nome da métrica | Unidade |
+| Nome da Métrica | Unidade |
 | --- | --- |
 | \Memory\AvailableMemory |Bytes |
-| \Memory\PercentAvailableMemory |Porcentagem |
+| \Memory\PercentAvailableMemory |Percent |
 | \Memory\UsedMemory |Bytes |
-| \Memory\PercentUsedMemory |Porcentagem |
-| \Memory\PercentUsedByCache |Porcentagem |
+| \Memory\PercentUsedMemory |Percent |
+| \Memory\PercentUsedByCache |Percent |
 | \Memory\PagesPerSec |CountPerSecond |
 | \Memory\PagesReadPerSec |CountPerSecond |
 | \Memory\PagesWrittenPerSec |CountPerSecond |
 | \Memory\AvailableSwap |Bytes |
-| \Memory\PercentAvailableSwap |Porcentagem |
+| \Memory\PercentAvailableSwap |Percent |
 | \Memory\UsedSwap |Bytes |
-| \Memory\PercentUsedSwap |Porcentagem |
-| \Processor\PercentIdleTime |Porcentagem |
-| \Processor\PercentUserTime |Porcentagem |
-| \Processor\PercentNiceTime |Porcentagem |
-| \Processor\PercentPrivilegedTime |Porcentagem |
-| \Processor\PercentInterruptTime |Porcentagem |
-| \Processor\PercentDPCTime |Porcentagem |
-| \Processor\PercentProcessorTime |Porcentagem |
-| \Processor\PercentIOWaitTime |Porcentagem |
+| \Memory\PercentUsedSwap |Percent |
+| \Processor\PercentIdleTime |Percent |
+| \Processor\PercentUserTime |Percent |
+| \Processor\PercentNiceTime |Percent |
+| \Processor\PercentPrivilegedTime |Percent |
+| \Processor\PercentInterruptTime |Percent |
+| \Processor\PercentDPCTime |Percent |
+| \Processor\PercentProcessorTime |Percent |
+| \Processor\PercentIOWaitTime |Percent |
 | \PhysicalDisk\BytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\ReadBytesPerSecond |BytesPerSecond |
 | \PhysicalDisk\WriteBytesPerSecond |BytesPerSecond |
@@ -126,11 +126,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \PhysicalDisk\AverageDiskQueueLength |Contagem |
 | \NetworkInterface\BytesTransmitted |Bytes |
 | \NetworkInterface\BytesReceived |Bytes |
-| \NetworkInterface\PacketsTransmitted |Contagem |
-| \NetworkInterface\PacketsReceived |Contagem |
+| \NetworkInterface\PacketsTransmitted |Count |
+| \NetworkInterface\PacketsReceived |Count |
 | \NetworkInterface\BytesTotal |Bytes |
 | \NetworkInterface\TotalRxErrors |Contagem |
-| \NetworkInterface\TotalTxErrors |Contagem |
+| \NetworkInterface\TotalTxErrors |Count |
 | \NetworkInterface\TotalCollisions |Count |
 
 ## <a name="commonly-used-web-server-farm-metrics"></a>Métricas da Web (Farm de servidores) usadas normalmente
@@ -145,11 +145,11 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 
 Você pode alertar ou dimensionar com base nessas métricas.
 
-| Nome da métrica | Unidade |
+| Nome da Métrica | Unidade |
 | --- | --- |
-| CpuPercentage |Porcentagem |
-| MemoryPercentage |Porcentagem |
-| DiskQueueLength |Count |
+| CpuPercentage |Percent |
+| MemoryPercentage |Percent |
+| DiskQueueLength |Contagem |
 | HttpQueueLength |Contagem |
 | BytesReceived |Bytes |
 | BytesSent |Bytes |

@@ -3,19 +3,18 @@ title: Como os espaços de desenvolvimento do Azure funciona e é configurado
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 03/04/2019
 ms.topic: conceptual
 description: Descreve os processos que espaços de desenvolvimento do Azure power e como eles são configurados no arquivo de configuração azds.yaml
 keywords: azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: e437a53d640bbdad3cdeeba8fd73e1f9ffef4023
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 83034dd3c99cc030ed770995bf00a6ad9fb57bdc
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399825"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67670813"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Como os espaços de desenvolvimento do Azure funciona e é configurado
 
@@ -210,7 +209,7 @@ O `up` comando carrega os arquivos de código-fonte do aplicativo e outros artef
 1. Cria o contêiner para seu aplicativo.
 1. Implanta seu aplicativo para o espaço de desenvolvimento.
 1. Cria um nome DNS publicamente acessível para seu ponto de extremidade do aplicativo, se configurado.
-1. Usa *encaminhamento de porta* para fornecer acesso ao seu ponto de extremidade de aplicativo usando http://locahost.
+1. Usa *encaminhamento de porta* para fornecer acesso ao seu ponto de extremidade de aplicativo usando http://localhost.
 1. Encaminha stdout e stderr para as ferramentas do lado do cliente.
 
 

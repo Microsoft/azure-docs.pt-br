@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 177b393b475250e5e019a5829ea17279e1b0f44c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e54d0b1ef3173fd1ec709927c7c9842b428bd3a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922096"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-supermood"></a>Tutorial: Integração do Azure Active Directory ao Supermood
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Supermo
 
     ![URLs e supermood domínio único informações de logon](common/idp-preintegrated-relay.png)
 
-     a. Clique em **Definir URLs adicionais**.
+    a. Clique em **Definir URLs adicionais**.
 
     b. Se você deseja configurar o aplicativo no **modo iniciado pelo IDP**, na caixa de texto **Estado do retransmissão**, digite um URL: `https://supermood.co/auth/sso/saml20`
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Supermo
     | firstName | user.givenname |
     | lastName | user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -166,7 +166,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Supermo
 
     ![O certificado saml](./media/supermood-tutorial/tutorial_supermood_saml.png)
 
-     a. Na caixa de texto **domínio de email para este provedor de identidade**, digite seu domínio.
+    a. Na caixa de texto **domínio de email para este provedor de identidade**, digite seu domínio.
 
     b. Na caixa de texto **Usar um URL de metadados**, cole o **URL de metadados da federação de aplicativos** que você copiou do portal do Azure.
 
@@ -238,4 +238,4 @@ Ao clicar no bloco Supermood no Painel de Acesso, você deve ser conectado autom
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

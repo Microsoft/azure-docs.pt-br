@@ -6,15 +6,15 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/16/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 1bede8ff7c33988a4e11a84d3a51ca098a608f33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f152f7f94c12beecf015d9389ed85cb310573bd
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055286"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297734"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
@@ -61,7 +61,7 @@ Os Serviços de Mídia recomendam usar um dos seguintes codificadores dinâmicos
 - Mídia Hero ao vivo e Hero 4K (UHD/HEVC) do Excel
 
 > [!TIP]
->  Se você estiver transmitindo eventos ao vivo em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio espanhol), você pode fazer isso com o codificador ao vivo de mídia Excel configurado para enviar a transmissão ao vivo para um evento de passagem e ao vivo.
+>  Se você estiver transmitindo eventos ao vivo em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio em espanhol), poderá fazer isso com o Media Excel Live Encoder configurado para enviar o feed ao vivo para um evento ao vivo de passagem.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Definir as configurações do codificador dinâmico local
 
@@ -97,7 +97,7 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
 11. Execute o codificador dinâmico por aproximadamente 10 minutos.
 12. Interrompa o Evento ao Vivo. 
-13. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao ativo arquivado para verificar se a reprodução não tem falhas visíveis em nenhum nível de qualidade. Ou assista e valide por meio da URL de visualização durante a sessão ao vivo.
+13. Use um player como o [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para assistir ao ativo arquivado para verificar se a reprodução não tem falhas visíveis em nenhum nível de qualidade. Ou assista e valide por meio da URL de visualização durante a sessão ao vivo.
 14. Registre a ID do ativo, a URL de streaming publicada para os arquivos ao vivo e as configurações e a versão usadas no codificador dinâmico.
 15. Reinicie o estado do evento ao vivo após criar cada exemplo.
 16. Repita as etapas de 5 a 15 para todas as configurações compatíveis com o codificador (com e sem sinalização de anúncios, legendas ou diferentes velocidades de codificação).
@@ -116,18 +116,18 @@ Como um parceiro de codificador local dos Serviços de Mídia do Azure, os Servi
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.
 11. Execute o codificador dinâmico por aproximadamente 10 minutos.
 12. Interrompa o Evento ao Vivo.
-13. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao ativo arquivado para verificar se a reprodução não tem galhas visíveis em nenhum nível. Ou assista e valide por meio da URL de visualização durante a sessão ao vivo.
+13. Use um player como o [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para assistir ao ativo arquivado para verificar se a reprodução não tem galhas visíveis em nenhum nível. Ou assista e valide por meio da URL de visualização durante a sessão ao vivo.
 14. Registre a ID do ativo, a URL de streaming publicada para os arquivos ao vivo e as configurações e a versão usadas no codificador dinâmico.
 15. Reinicie o estado do evento ao vivo após criar cada exemplo.
 16. Repita as etapas de 5 a 15 para todas as configurações compatíveis com o codificador (com e sem sinalização de anúncios, legendas ou diferentes velocidades de codificação).
 
 ### <a name="longevity-verification"></a>Verificação de longevidade
 
-Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#pass-through-live-event-verification), exceto pela etapa 11. <br/>Em vez de dez minutos, execute o codificador dinâmico por uma semana ou mais. Use um player como o [Player de Mídia do Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir à transmissão ao vivo periodicamente (ou um ativo arquivado) para verificar se a reprodução não tem falhas visíveis.
+Siga as mesmas etapas que as da [verificação de evento ao vivo de passagem](#pass-through-live-event-verification), exceto pela etapa 11. <br/>Em vez de dez minutos, execute o codificador dinâmico por uma semana ou mais. Use um player como o [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para assistir à transmissão ao vivo periodicamente (ou um ativo arquivado) para verificar se a reprodução não tem falhas visíveis.
 
 ### <a name="email-your-recorded-settings"></a>Envie suas configurações registradas por email
 
-Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amslived@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
+Por fim, envie por email as configurações registradas e os parâmetros dos arquivos ao vivo aos Serviços de Mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de autoverificação foram aprovadas. Além disso, inclua suas informações de contato para quaisquer acompanhamentos. Contate a equipe dos Serviços de Mídia do Azure para tratar quaisquer questões sobre esse processo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

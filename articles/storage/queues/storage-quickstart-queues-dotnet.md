@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: 41cb37eb9d96752d4732731d2a36d9bc892cbaa5
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: c3743c62dcbdccc2a119cfec570df96c622390c7
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66159808"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540326"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Início Rápido: Usar o .NET para criar uma fila no Armazenamento do Azure
 
@@ -26,7 +26,7 @@ Neste início rápido, você aprenderá como usar a biblioteca de clientes do Ar
 
 Em seguida, baixe e instale o .NET Core 2.0 para seu sistema operacional. Caso esteja executando o Windows, você pode instalar o Visual Studio e usar o .NET Framework se preferir. Você também pode optar por instalar um editor para usar com o sistema operacional.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 - Instalar o [.NET Core para Windows](https://www.microsoft.com/net/download/windows) ou o [.NET Framework](https://www.microsoft.com/net/download/windows) (incluído no Visual Studio para Windows)
 - Instalar o [Visual Studio para Windows](https://www.visualstudio.com/). Caso esteja usando o .NET Core, a instalação do Visual Studio é opcional.  
@@ -63,7 +63,7 @@ Para executar o aplicativo, você deve fornecer a cadeia de conexão para sua co
 
 Depois de copiar a cadeia de conexão, grave-a em uma nova variável de ambiente no computador local que executa o aplicativo. Para definir a variável de ambiente, abra uma janela de console e siga as instruções do seu sistema operacional. Substitua `<yourconnectionstring>` pela sua cadeia de conexão atual:
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
@@ -93,7 +93,7 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 O aplicativo de exemplo cria uma fila e adiciona uma mensagem a ela. Primeiro, o aplicativo espia a mensagem sem removê-la da fila; depois, ele a recupera e a exclui da fila.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 
 Se estiver usando o Visual Studio como seu editor, você pode pressionar **F5** para executar. 
 
@@ -187,9 +187,9 @@ Console.WriteLine();
 
 Em seguida, o exemplo adiciona uma mensagem à parte de trás da fila. 
 
-Uma mensagem deve estar em um formato que possa ser incluído em uma solicitação XML com codificação UTF-8 e pode ter tamanho de até 64 KB. Se uma mensagem contém dados binários, a Microsoft recomenda que você codifique a mensagem como Base64.
+Uma mensagem deve estar em um formato que possa ser incluído em uma solicitação XML com codificação UTF-8 e pode ter tamanho de até 64 KB. Se uma mensagem contém dados binários, recomendamos codificá-la como Base64.
 
-Por padrão, a vida útil máxima de uma mensagem é definida como 7 dias. É possível especificar qualquer número positivo para a vida útil da mensagem e usar -1 para indicar que a mensagem não expira.
+Por padrão, a vida útil máxima de uma mensagem é definida como 7 dias. Você pode especificar qualquer número positivo para a vida útil da mensagem.
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -199,6 +199,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+Para adicionar uma mensagem que não expira, use `Timespan.FromSeconds(-1)` na chamada para [AddMessageAsync](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync).
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>Espiar uma mensagem da fila

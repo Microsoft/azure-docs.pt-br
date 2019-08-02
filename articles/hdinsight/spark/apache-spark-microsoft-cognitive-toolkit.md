@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64695079"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448693"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizado profundo treinado das Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark
 
@@ -25,13 +25,13 @@ Neste artigo, você executa as seguintes etapas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure**. Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free).
+* **Uma assinatura do Azure**. Antes de começar este artigo, você deve ter uma assinatura do Azure. Consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free).
 
 * **Cluster do Azure HDInsight Spark**. Para este artigo, crie um cluster Spark 2.0. Para obter instruções, consulte [Criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 ## <a name="how-does-this-solution-flow"></a>Como é o fluxo dessa solução?
 
-Essa solução é dividida entre este artigo e um Notebook Jupyter que é carregado como parte deste tutorial. Neste artigo, você realiza as seguintes etapas:
+Essa solução é dividida entre este artigo e um bloco de anotações do Jupyter que é carregado como parte deste artigo. Neste artigo, você realiza as seguintes etapas:
 
 * Executar uma ação de script em um cluster HDInsight Spark para instalar pacotes do Python e do Kit de Ferramentas Cognitivas da Microsoft.
 * Carregar o Notebook Jupyter que executa a solução no cluster HDInsight Spark.
@@ -83,7 +83,7 @@ Para usar o Kit de Ferramentas Cognitivas da Microsoft com o cluster do Azure HD
 
 4. Clique em **Carregar** novamente.
 
-5. Após o bloco de anotações ser carregado, clique em seu nome e, em seguida, siga as instruções contidas nele sobre como carregar o conjunto de dados e executar o tutorial.
+5. Depois que o bloco de anotações é carregado, clique no nome do bloco de anotações e, em seguida, siga as instruções contidas nele sobre como carregar o conjunto de dados e executar o artigo.
 
 ## <a name="see-also"></a>Consulte também
 * [Visão geral: Apache Spark no Azure HDInsight](apache-spark-overview.md)

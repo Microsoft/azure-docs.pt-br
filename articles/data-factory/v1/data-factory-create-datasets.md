@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f88d83a851ad878ac9ee9b0195816d2ca35e4c13
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60487242"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839368"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -85,7 +85,7 @@ A tabela a seguir descreve as propriedades no JSON acima:
 | type |Tipo de conjunto de dados. Especifique um dos tipos compatíveis com o Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipo de conjunto de dados](#Type). |Sim |ND |
 | structure |Esquema do conjunto de dados.<br/><br/>Para obter detalhes, consulte [Estrutura de conjunto de dados](#Structure). |Não |ND |
 | typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#Type). |Sim |ND |
-| externo | Sinalizador booliano para especificar se um conjunto de dados é explicitamente produzido por um pipeline de data factory ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina esse sinalizador como true. Defina esse sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |falso |
+| external | Sinalizador booliano para especificar se um conjunto de dados é explicitamente produzido por um pipeline de data factory ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina esse sinalizador como true. Defina esse sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
 | availability | Define a janela de processamento (por exemplo, por hora ou diária) ou o modelo de divisão para a produção de conjunto de dados. Cada unidade de dados consumida e produzida por uma execução de atividade é chamada de uma fatia de dados. Se a disponibilidade de um conjunto de dados de saída é definida como diária (frequência - Dia, intervalo - 1), uma fatia é produzida diariamente. <br/><br/>Para obter detalhes, confira Disponibilidade do conjunto de dados. <br/><br/>Para obter detalhes sobre o modelo de divisão do conjunto de dados, consulte o artigo [Agendamento e execução](data-factory-scheduling-and-execution.md). |Sim |ND |
 | policy |Define os critérios ou a condição que as fatias de conjunto de dados devem atender. <br/><br/>Para obter detalhes, consulte a seção [Política do conjunto de dados](#Policy). |Não |ND |
 
@@ -196,7 +196,7 @@ Cada coluna da seção Estrutura contém as seguintes propriedades:
 | name |Nome da coluna. |Sim |
 | type |Tipo de dados da coluna.  |Não |
 | culture |Cultura baseada em .NET a ser usada quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. O padrão é `en-us`. |Não |
-| formato |O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
+| format |O formato de cadeia de caracteres a ser usado quando o tipo é um tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
 
 As diretrizes a seguir ajudam você a determinar quando incluir informações de estrutura e o que incluir na seção **estrutura**.
 
@@ -235,11 +235,11 @@ A tabela a seguir descreve as propriedades que você pode usar na seção de dis
 
 | Propriedade | DESCRIÇÃO | Obrigatório | Padrão |
 | --- | --- | --- | --- |
-| frequência |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência compatível</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
-| intervalo |Especifica um multiplicador para a frequência.<br/><br/>“Frequência x intervalo” determina a frequência com que a fatia é gerada. Por exemplo, se você precisa que o conjunto de dados seja dividido por hora, defina <b>frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, caso você especifique a **frequência** como **Minuto**, deverá definir o intervalo como não inferior a 15. |Sim |ND |
-| estilo |Especifica se a fatia deve ser gerada no início ou término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se a **frequência** for definida como **Mês** e o **estilo** como **EndOfInterval**, a fatia será gerada no último dia do mês. Se o **estilo** for definido como **StartOfInterval**, a fatia será gerada no primeiro dia do mês.<br/><br/>Se a **frequência** for definida como **Dia** e o **estilo** como **EndOfInterval**, a fatia será gerada na última hora do dia.<br/><br/>Se a **frequência** for definida como **Hora** e o **estilo** como **EndOfInterval**, a fatia será gerada ao final da hora. Por exemplo, para uma fatia do período 13h às 14h, a fatia é gerada às 14h. |Não |EndOfInterval |
+| frequency |Especifica a unidade de tempo para a produção da fatia de conjunto de dados.<br/><br/><b>Frequência compatível</b>: Minuto, Hora, Dia, Semana, Mês |Sim |ND |
+| interval |Especifica um multiplicador para a frequência.<br/><br/>“Frequência x intervalo” determina a frequência com que a fatia é gerada. Por exemplo, se você precisa que o conjunto de dados seja dividido por hora, defina <b>frequência</b> como <b>Hora</b> e <b>intervalo</b> como <b>1</b>.<br/><br/>Observe que, caso você especifique a **frequência** como **Minuto**, deverá definir o intervalo como não inferior a 15. |Sim |ND |
+| style |Especifica se a fatia deve ser gerada no início ou término do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se a **frequência** for definida como **Mês** e o **estilo** como **EndOfInterval**, a fatia será gerada no último dia do mês. Se o **estilo** for definido como **StartOfInterval**, a fatia será gerada no primeiro dia do mês.<br/><br/>Se a **frequência** for definida como **Dia** e o **estilo** como **EndOfInterval**, a fatia será gerada na última hora do dia.<br/><br/>Se a **frequência** for definida como **Hora** e o **estilo** como **EndOfInterval**, a fatia será gerada ao final da hora. Por exemplo, para uma fatia do período 13h às 14h, a fatia é gerada às 14h. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo usada pelo agendador para computar limites de fatia do conjunto de dados. <br/><br/>Observe que, se essa propriedade tiver partes de datas que são mais granulares do que a frequência especificada, as partes mais granulares são ignoradas. Por exemplo, se o **intervalo** for **por hora** (frequência: hora e intervalo: 1) e o **AnchorDateTime** contiver **minutos e segundos**, as partes de minutos e segundos de **anchorDateTime** serão ignoradas. |Não |01/01/0001 |
-| deslocamento |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/>Observe que, se **anchorDateTime** e **offset** forem especificados, o resultado será um deslocamento combinado. |Não |ND |
+| offset |O período de tempo no qual o início e o término de todas as fatias de conjunto de dados são deslocados. <br/><br/>Observe que, se **anchorDateTime** e **offset** forem especificados, o resultado será um deslocamento combinado. |Não |ND |
 
 ### <a name="offset-example"></a>exemplo de deslocamento
 Por padrão, as fatias diárias (`"frequency": "Day", "interval": 1`) começam às 00h (meia-noite) em UTC (Tempo Universal Coordenado). Se desejar que a hora de início para hora UTC de 6 horas em vez disso, define o deslocamento, conforme mostrado no snippet a seguir:
@@ -328,7 +328,6 @@ A menos que um conjunto de dados seja gerado pelo Data Factory, ele deverá ser 
 Você pode criar conjuntos de dados usando uma destas ferramentas ou SDKs:
 
 - Assistente de Cópia
-- Portal do Azure
 - Visual Studio
 - PowerShell
 - Modelo do Azure Resource Manager

@@ -1,32 +1,32 @@
 ---
-title: Criar entidades de serviço e atribuições de função da Versão Prévia da Área de Trabalho Virtual do Windows com o PowerShell – Azure
-description: Como criar entidades de serviço e atribuir funções com o PowerShell na Versão Prévia da Área de Trabalho Virtual do Windows.
+title: Criar entidades de serviço e atribuições de função da Versão Prévia da Área de Trabalho Virtual do Windows ao usar o PowerShell - Azure
+description: Como criar entidades de serviço e atribuir funções ao usar o PowerShell na Versão Prévia da Área de Trabalho Virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 44c823653ecbad1c4dd1fd35b676c8a6d8bd1620
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523308"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67206655"
 ---
-# <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função com o PowerShell
+# <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Tutorial: Criar entidades de serviço e atribuições de função usando o PowerShell
 
 As entidades de serviço são identidades que você pode criar no Azure Active Directory para atribuir funções e permissões para uma finalidade específica. Na Versão Prévia da Área de Trabalho Virtual do Windows, você pode criar uma entidade de serviço para:
 
-- Automatizar tarefas específicas de gerenciamento da Área de Trabalho Virtual do Windows
-- Usá-la como credenciais no lugar de usuários com MFA necessário durante a execução de qualquer modelo do Azure Resource Manager da Área de Trabalho Virtual do Windows
+- Automatize tarefas específicas de gerenciamento da Área de Trabalho Virtual do Windows.
+- Usá-la como credenciais no lugar de usuários com MFA necessário durante a execução de qualquer modelo do Azure Resource Manager para Windows Virtual Desktop.
 
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> * Criar uma entidade de serviço no Azure Active Directory
-> * Criar uma atribuição de função na Área de Trabalho Virtual do Windows
-> * Entrar na Área de Trabalho Virtual do Windows com a entidade de serviço
+> * Criar uma entidade de serviço no Azure Active Directory.
+> * Criar uma atribuição de função na Área de Trabalho Virtual do Windows.
+> * Entrar na Área de Trabalho Virtual do Windows usando a entidade de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,7 +72,7 @@ New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincip
 
 ## <a name="sign-in-with-the-service-principal"></a>Entrar com a entidade de serviço
 
-Depois de criar uma atribuição de função para a entidade de serviço, agora você deverá verificar se a entidade de serviço pode entrar na Área de Trabalho Virtual do Windows executando o seguinte cmdlet:
+Depois de criar uma atribuição de função para a entidade de serviço, verifique se a entidade de serviço pode entrar na Área de Trabalho Virtual do Windows executando o seguinte cmdlet:
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
@@ -83,7 +83,7 @@ Depois de conectado, verifique se tudo está funcionando testando alguns cmdlets
 
 ## <a name="view-your-credentials-in-powershell"></a>Exibir suas credenciais no PowerShell
 
-Antes de encerrar sua sessão do PowerShell, você deverá exibir suas credenciais e anotá-las para referência futura. A senha é especialmente importante porque você não poderá recuperá-la depois de fechar essa sessão do PowerShell.
+Antes de encerrar sua sessão do PowerShell, veja suas credenciais e anote-as para referência futura. A senha é especialmente importante porque você não poderá recuperá-la depois de fechar essa sessão do PowerShell.
 
 Estas são as três credenciais que você deverá anotar e os cmdlets que você precisará executar para obtê-las:
 

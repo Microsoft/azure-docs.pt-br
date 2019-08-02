@@ -4,18 +4,18 @@ description: Referência de associações do SendGrid no Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b7666b043379f3ff143e2a5eaae6b40ea80ab90
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511937"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480245"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Associações do SendGrid no Azure Functions
 
@@ -259,10 +259,10 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 |**direction**|| Obrigatório – deve ser definido como `out`.|
 |**name**|| Obrigatório – o nome da variável usado no código da função da solicitação ou do corpo da solicitação. Esse valor é ```$return``` quando há apenas um valor retornado. |
 |**apiKey**|**ApiKey**| O nome de uma configuração de aplicativo que contém sua chave de API. Se não configurado, o nome da configuração do aplicativo padrão é "AzureWebJobsSendGridApiKey".|
-|**to**|**Para**| o endereço de email do destinatário. |
-|**from**|**De**| o endereço de email do remetente. |
-|**subject**|**Assunto**| o assunto do email. |
-|**text**|**Texto**| o conteúdo do email. |
+|**to**|**To**| o endereço de email do destinatário. |
+|**from**|**From**| o endereço de email do remetente. |
+|**subject**|**Subject**| o assunto do email. |
+|**text**|**Text**| o conteúdo do email. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

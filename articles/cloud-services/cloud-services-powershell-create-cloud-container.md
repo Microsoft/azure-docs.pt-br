@@ -4,9 +4,6 @@ description: Este artigo explica como criar um contêiner do serviço de nuvem c
 services: cloud-services
 documentationcenter: .net
 author: cawaMS
-manager: timlt
-editor: ''
-ms.assetid: c8f32469-610e-4f37-a3aa-4fac5c714e13
 ms.service: cloud-services
 ms.devlang: dotnet
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 771f93edfee8f7b48fb7d0d2c98419f9427f6338
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef9d3c7c479df9c71a855f0a243b5b9d0da947d7
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60527324"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359493"
 ---
 # <a name="use-an-azure-powershell-command-to-create-an-empty-cloud-service-container"></a>Usar um comando do Azure PowerShell para criar um contêiner de serviço de nuvem vazio
 

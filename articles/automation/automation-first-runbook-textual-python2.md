@@ -4,17 +4,17 @@ description: Este tutorial guia o usuário pela criação, pelos testes e pela p
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e79f4b58582ab6643a7a13ffee25503060a2208c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a030005d73df61c31c5aa1c2e1b56e52b03a56e3
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60929247"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67478502"
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook Python
 
@@ -153,13 +153,14 @@ Use o Cliente de computação para iniciar a VM. Adicione o seguinte código ao 
 ```python
 # Initialize the compute management client with the RunAs credential and specify the subscription to work against.
 compute_client = ComputeManagementClient(
-azure_credential,
-  str(runas_connection["SubscriptionId"])
+    azure_credential,
+    str(runas_connection["SubscriptionId"])
 )
 
 
 print('\nStart VM')
-async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestVM")
+async_vm_start = compute_client.virtual_machines.start(
+    "MyResourceGroup", "TestVM")
 async_vm_start.wait()
 ```
 
@@ -188,7 +189,8 @@ Observe que o elemento da lista de argumentos, `sys.argv[0]`, é o nome do scrip
 Agora, é possível modificar as duas últimas linhas do runbook para usar os valores de parâmetro de entrada em vez de usar valores embutidos em código:
 
 ```python
-async_vm_start = compute_client.virtual_machines.start(resource_group_name, vm_name)
+async_vm_start = compute_client.virtual_machines.start(
+    resource_group_name, vm_name)
 async_vm_start.wait()
 ```
 
@@ -209,6 +211,6 @@ Clique em **OK** para iniciar o runbook. Ele é executado e inicia a VM especifi
 - Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
 - Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 - Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
-- Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
+- Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
 - Para aprender sobre o desenvolvimento do Azure com o Python, consulte [Azure para desenvolvedores do Python ](https://docs.microsoft.com/python/azure/?view=azure-python)
 - Para exibir runbooks de amostra do Python 2, consulte o [GitHub de Automação do Azure](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).

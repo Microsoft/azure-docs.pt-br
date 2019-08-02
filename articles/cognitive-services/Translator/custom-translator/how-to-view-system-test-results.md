@@ -2,19 +2,19 @@
 title: Visualizar resultados de testes do sistema e implantação - Tradutor Personalizado
 titleSuffix: Azure Cognitive Services
 description: Quando seu treinamento for bem-sucedido, revise os testes do sistema para analisar seus resultados de treinamento. Se você estiver satisfeito com os resultados do treinamento, faça uma solicitação de implantação para o modelo treinado.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 675ae10e304bd22c441740a87e8033136ff63ebd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5e1a21f24fdd2458d4803d6ed1675455fa5037d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66389310"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595606"
 ---
 # <a name="view-system-test-results"></a>Exibir resultados de teste do sistema
 
@@ -26,7 +26,7 @@ Selecione um projeto, selecione a guia de modelos desse projeto, localize o mode
 
 A guia teste mostra:
 
-1.  **Resultados de teste do sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação do BLEU.
+1.  **Resultados de Teste do sistema:** O resultado do processo de teste nos treinamentos. O processo de teste produz a pontuação do BLEU.
 
     **Contagem de sentença:** Sentenças paralelas quantas foram usadas no conjunto de teste.
 
@@ -80,7 +80,7 @@ Para solicitar uma implantação:
 5.  Você pode ver o status do seu modelo na coluna "Status".
 
 >[!Note]
->Conversor personalizado dá suporte a 10 modelos implantados dentro de um espaço de trabalho em qualquer ponto no tempo.
+>O tradutor personalizado dá suporte a 10 modelos implantados em um espaço de trabalho a qualquer momento.
 
 ## <a name="update-deployment-settings"></a>Atualizar configurações de implantação
 

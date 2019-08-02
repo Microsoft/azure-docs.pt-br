@@ -5,19 +5,19 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/17/2018
+ms.date: 07/26/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: de81700496089ffc6cfdba8e02eaa4e14200d16d
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153730"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68601295"
 ---
-1. Entre no [Portal do Azure](http://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-1. No painel esquerdo, selecione **Criar um recurso**. Pesquise **gêmeos digitais**e selecione **Gêmeos Digitais (versão prévia)**. Selecione **Criar** para iniciar o processo de implantação.
+1. No painel esquerdo, selecione **Criar um recurso**. Pesquise **gêmeos digitais** e selecione **Gêmeos Digitais**. Selecione **Criar** para iniciar o processo de implantação.
 
    ![Seleções para criar uma nova instância dos Gêmeos Digitais](./media/create-digital-twins-portal/create-digital-twins.png)
 

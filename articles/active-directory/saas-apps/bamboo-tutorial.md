@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c13469c9c70aec31314048b8971c66bae5cd49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 044a2f9a9ecd0ccceb99ce7999af7e2c8578950d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65858810"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106527"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bamboo-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Bamboo da Resolution GmbH
 
@@ -55,7 +55,7 @@ Para configurar a integração do SSO do SAML para Bamboo da Resolution GmbH no 
 
 **Para adicionar SSO do SAML para Bamboo da Resolution GmbH da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para Bamboo da Reso
 
     ![Informações de logon único de domínio e URLs do SSO do SAML para Bamboo da Resolution GmbH](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/samlsso`
 
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o SSO de SAML para Bamboo da Reso
 
     ![O provedor de identidade](./media/bamboo-tutorial/tutorial_bamboo_identityprovider.png)
 
-     a. Selecione **Tipo de Idp** como **AD do AZURE**.
+    a. Selecione **Tipo de Idp** como **AD do AZURE**.
 
     b. Na caixa de texto **Nome**, digite um nome.
 
@@ -242,4 +242,4 @@ Ao clicar no bloco do SSO do SAML para Bamboo da Resolution GmbH no Painel de Ac
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

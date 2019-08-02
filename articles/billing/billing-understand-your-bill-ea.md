@@ -1,25 +1,22 @@
 ---
-title: Entenda sua fatura do Azure enterprise | Microsoft Docs
-description: Saiba como ler e entender o uso e a fatura para o Azure Enterprise Agreements
-services: ''
-documentationcenter: ''
+title: Entenda sua fatura do Azure enterprise
+description: Saiba como ler e entender o uso e a fatura para o Azure Enterprise Agreements.
 author: adpick
 manager: dougeby
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64571197"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490278"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Entenda sua fatura do contrato Enterprise do Azure
 
@@ -58,9 +55,9 @@ Sua fatura mostra todo o uso do Azure, seguido por quaisquer encargos do Marketp
 
 Compare seu volume total combinado mostrado no portal da empresa no **relatórios** > **resumo de uso** com sua fatura do Azure. Os valores na **resumo de uso** não incluem impostos.
 
-1. Entre no [Portal empresarial](https://ea.azure.com).
+1. Entrar para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **Relatórios**.
-1. No canto superior direito da guia, alterne a exibição de **M** a **C** e corresponda o período da fatura.  
+1. No canto superior direito da guia, alterne a exibição de **M** à **C** e corresponder o período da nota fiscal.  
     ![Captura de tela que mostra M + opção C no resumo de uso.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. O volume combinado de **uso Total** e **do Azure Marketplace** deve corresponder a **quantidade Total estendido** na sua fatura.
 1. Para obter mais detalhes sobre seus encargos, vá para **baixar uso**.  
@@ -100,9 +97,9 @@ Para examinar e verificar os encargos na sua fatura, você deve ser um Administr
 
 Comparar o valor do seu uso total no portal de empresa do **relatórios** > **resumo de uso** com sua fatura excedente de serviço. A fatura excedente de serviço inclui o uso que excede o crédito de sua organização e/ou serviços que não são cobertos pelo crédito. Os valores do **Resumo de Uso** não incluem impostos.
 
-1. Entre no [Portal empresarial](https://ea.azure.com).
+1. Entrar para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **Relatórios**.
-1. No canto superior direito da guia, alterne a exibição de **M** a **C** e corresponda o período da fatura.  
+1. No canto superior direito da guia, alterne a exibição de **M** à **C** e corresponder o período da nota fiscal.  
     ![Captura de tela que mostra M + opção C no resumo de uso.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 1. A quantidade de **Uso Total** deve corresponder com a **Quantidade Total Estendida** na sua fatura excedente de serviço.  
 1. Para obter mais informações sobre seus encargos, vá para **Baixar Uso** > **Download de Relatório Avançado**. O relatório não inclui os impostos ou encargos do marketplace ou encargos para reservas.  
@@ -124,9 +121,9 @@ Esta seção se aplica somente se você estiver na Austrália, Japão ou Cingapu
 
 Compare seu total no Azure Marketplace em **Relatórios** > **Resumo de uso** no Portal empresarial com sua fatura do marketplace. A fatura do marketplace é destinada apenas para uso e compras do Azure Marketplace. Os valores do **Resumo de Uso** não incluem impostos.
 
-1. Entre no [Portal empresarial](https://ea.azure.com).
+1. Entrar para o [Enterprise portal](https://ea.azure.com).
 1. Selecione **Relatórios**.
-1. No canto superior direito da guia, alterne a exibição de **M** a **C** e corresponda o período da fatura.  
+1. No canto superior direito da guia, alterne a exibição de **M** à **C** e corresponder o período da nota fiscal.  
      ![Captura de tela que mostra M + opção C no resumo de uso.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)  
 1. O total **Azure Marketplace** deve corresponder à **Venda Total** na sua fatura do marketplace.
 1. Para obter mais informações sobre seus encargos, vá para **Baixar Uso**. Em **Encargos do Marketplace**, selecione **Download**. Este relatório não inclui os impostos ou mostra as compras de uso único.  

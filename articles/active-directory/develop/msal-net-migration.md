@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3ea45056b0112769105ddd997ce1abc79f59679f
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785213"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663337"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrando aplicativos para a MSAL.NET
 
@@ -55,7 +55,7 @@ Na MSAL.NET, também é possível acessar recursos da versão 1.0. Confira os de
 
 - A ADAL.NET usa [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) como representação de sua conexão para o Serviço de Token de Segurança (STS) ou servidor de autorização, por meio de uma Autoridade. Por outro lado, a MSAL.NET é desenvolvida em torno dos [aplicativos cliente](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). Ele fornece duas classes separadas: `PublicClientApplication` e `ConfidentialClientApplication`
 
-- Adquirir Tokens: ADAL.NET e MSAL.NET têm as mesmas chamadas de autenticação (`AcquireTokenAsync` e `AcquireTokenSilentAsync` para ADAL.NET, e `AqquireTokenInteractive` e `AcquireTokenSilent` na MSAL.NET), mas com diferentes parâmetros necessários. Uma diferença é o fato de que, na MSAL.NET, você não precisa passar no `ClientID` do seu aplicativo em todas as chamadas AcquireTokenXX. Na verdade, o `ClientID` é definido apenas uma vez ao criar (`IPublicClientApplication` ou `IConfidentialClientApplication`).
+- Adquirir Tokens: ADAL.NET e MSAL.NET têm as mesmas chamadas de autenticação (`AcquireTokenAsync` e `AcquireTokenSilentAsync` para ADAL.NET, e `AcquireTokenInteractive` e `AcquireTokenSilent` na MSAL.NET), mas com diferentes parâmetros necessários. Uma diferença é o fato de que, na MSAL.NET, você não precisa passar no `ClientID` do seu aplicativo em todas as chamadas AcquireTokenXX. Na verdade, o `ClientID` é definido apenas uma vez ao criar (`IPublicClientApplication` ou `IConfidentialClientApplication`).
 
 ### <a name="iaccount-not-iuser"></a>IAccount não IUser
 
@@ -139,7 +139,7 @@ A MSAL.NET torna o cache de token uma classe selada, removendo a capacidade de e
 
 ## <a name="signification-of-the-common-authority"></a>Significado da autoridade comum
 
-No v1.0, ao usar a autoridade https://login.microsoftonline.com/common, você permitirá que os usuários entrem com qualquer conta do Microsoft Azure Active Directory (para qualquer organização). Consulte [Validação de Autoridade na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
+No v1.0, ao usar a autoridade https://login.microsoftonline.com/common , você permitirá que os usuários entrem com qualquer conta do Microsoft Azure Active Directory (para qualquer organização). Consulte [Validação de Autoridade na ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
 Ao usar a https://login.microsoftonline.com/common autoridade no v2.0, você permitirá que os usuários entrem com uma organização do Microsoft Azure Active Directory ou com uma conta pessoal da Microsoft. Na MSAL.NET, se você quiser restringir o logon a qualquer conta do Microsoft Azure Active Directory (mesmo comportamento que com ADAL.NET), será necessário usar https://login.microsoftonline.com/organizations. Para obter detalhes, consulte o `authority` parâmetro no [aplicativo cliente público](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
@@ -161,7 +161,7 @@ As permissões OAuth2 são escopos de permissão que um aplicativo API Web v1.0 
 
 ### <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>Os escopos solicitam acesso a permissões específicas de OAuth2 de um aplicativo v1.0
 
-Se você deseja adquirir tokens para escopos específicos de um aplicativo de v1.0 (por exemplo, o grafo do Azure Active Directory que é https://graph.windows.net), você precisaria criar `scopes` concatenando um identificador de recurso desejado com uma permissão OAuth2 desejado para esse recurso.
+Se você deseja adquirir tokens para escopos específicos de um aplicativo de v1.0 (por exemplo, o grafo do Azure Active Directory que é https://graph.windows.net) , você precisaria criar `scopes` concatenando um identificador de recurso desejado com uma permissão OAuth2 desejado para esse recurso.
 
 Por exemplo, para acessar no nome de usuário uma API Web v1.0 cujo URI de ID do aplicativo é `ResourceId`, você iria querer usar:
 
@@ -169,7 +169,7 @@ Por exemplo, para acessar no nome de usuário uma API Web v1.0 cujo URI de ID do
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
-Se você quiser ler e escrever com o Azure Active Directory da MSAL.NET usando a API do grafo do Azure Active Directory (https://graph.windows.net/), você criaria uma lista de escopos, como no trecho a seguir:
+Se você quiser ler e escrever com o Azure Active Directory da MSAL.NET usando a API do grafo do Azure Active Directory (https://graph.windows.net/) , você criaria uma lista de escopos, como no trecho a seguir:
 
 ```csharp
 ResourceId = "https://graph.windows.net/";
@@ -178,7 +178,7 @@ var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directo
 
 #### <a name="warning-should-you-have-one-or-two-slashes-in-the-scope-corresponding-to-a-v10-web-api"></a>Aviso: Você deve ter uma ou duas barras no escopo correspondente a uma API Web v1.0
 
-Se você quiser escrever o escopo correspondente à API do Azure Resource Manager (https://management.core.windows.net/), você precisará solicitar o escopo a seguir (observe as duas barras) 
+Se você quiser escrever o escopo correspondente à API do Azure Resource Manager (https://management.core.windows.net/) , você precisará solicitar o escopo a seguir (observe as duas barras) 
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -192,7 +192,7 @@ Isso ocorre porque a API do Gerenciador de Recursos espera uma barra em sua decl
 A lógica usada pelo Azure AD é a seguinte:
 - Ponto de extremidade da ADAL (v1.0) com um token de acesso v 1.0 (o único possível), aud = recurso
 - Para a MSAL (ponto de extremidade v2.0) solicitando um token de acesso para um recurso que aceita tokens v2.0, aud=resource.AppId
-- Para a MSAL (ponto de extremidade v2.0) solicitando um token de acesso para um recurso que aceita um token de acesso v 1.0 (que é o caso acima), o Azure Active Directory analisa o público-alvo desejado do escopo solicitado considerando tudo antes da última barra e usa como o identificador de recurso. Portanto, se https:\//database.windows.net espera um público de "https://database.windows.net/", você precisará solicitar um escopo de https:\//database.windows.net//.default. Consulte também problema número[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Uma barra à direita do recurso da url foi omitida, o que causou a falha de autenticação do sql número 747
+- Para MSAL (ponto de extremidade v2.0) solicitando um token de acesso para um recurso que aceita um token de acesso v1.0 (que é o caso acima), o Azure AD analisa a audiência desejada do escopo solicitado, assumindo tudo antes da última barra e usando como identificador de recursos. Portanto, se https:\//database.windows.net espera um público de "https://database.windows.net/ ", você precisará solicitar um escopo de https:\/ /database.windows.net//.default. Consulte também o problema #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Uma barra à direita do recurso da url foi omitida, o que causou a falha de autenticação do sql número 747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Os escopos solicitam acesso a permissões específicas de v1.0

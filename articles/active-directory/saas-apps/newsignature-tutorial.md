@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81351fc13ddf36d8aeb4fa5cecab10daf152406f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdb6e034005902d478b94a12e2cbe44a00228735
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870918"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67551816"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Tutorial: Integração do Azure Active Directory com o Cloud Management Portal for Microsoft Azure
 
@@ -53,7 +53,7 @@ Para configurar a integração do Cloud Management Portal for Microsoft Azure ao
 
 **Para adicionar o Cloud Management Portal for Microsoft Azure a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Portal de Gerenciamento de Nuve
 
     ![Informações de logon único de domínio e URLs do Portal de Gerenciamento de Nuvem para Microsoft Azure](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de logon**, digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -125,7 +125,7 @@ Para configurar o logon único do Azure AD com o Portal de Gerenciamento de Nuve
     |--|
     | `https://<subdomain>.igcm.com/<instancename>` |
     | `https://<subdomain>.newsignature.com` |
-    | `https://<subdomain>.newsignature.com/<instancename>` |<instancename>`
+    | `https://<subdomain>.newsignature.com/<instancename>` |
 
     > [!NOTE]
     > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Entre em contato com [a equipe de suporte do cliente do Cloud Management Portal for Microsoft Azure](mailto:jczernuszka@newsignature.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -215,5 +215,5 @@ Quando você clica no bloco do Portal de Gerenciamento de Nuvem para Microsoft A
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

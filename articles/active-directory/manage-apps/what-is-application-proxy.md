@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66403a18be8337939d457c061b07de948c3e34e8
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 5f23b20d460952ae582c292c8015851b9dc2ea98
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730995"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67108171"
 ---
 # <a name="using-azure-ad-application-proxy-to-publish-on-premises-apps-for-remote-users"></a>Usar o Proxy de Aplicativo do Azure AD para publicar aplicativos locais para usuários remotos
 
@@ -65,7 +65,7 @@ No espaço de trabalho digital atual, os usuários trabalham em qualquer lugar c
 * O serviço de avaliação de políticas para determinar se um usuário e um dispositivo estão em conformidade com a política definida pelos administradores de segurança.
 * A capacidade de conceder ou negar acesso aos recursos organizacionais.
 
-Com o Proxy de Aplicativo, o Azure AD controla os usuários que precisam acessar aplicativos Web publicados no local e na nuvem. Ele oferece um ponto de gerenciamento central para esses aplicativos. Embora não seja necessário, também é recomendável habilitar o acesso condicional do Azure AD. Definindo as condições de como os usuários se autenticam e obtêm acesso, você garantirá que as pessoas certas terão acesso aos aplicativos.
+Com o Proxy de Aplicativo, o Azure AD controla os usuários que precisam acessar aplicativos Web publicados no local e na nuvem. Ele oferece um ponto de gerenciamento central para esses aplicativos. Embora não seja necessário, também é recomendável habilitar o acesso condicional do Azure Active Directory. Definindo as condições de como os usuários se autenticam e obtêm acesso, você garantirá que as pessoas certas terão acesso aos aplicativos.
 
 **Observação:** É importante entender que o Proxy de Aplicativo do Azure AD destina-se a ser um substituto da VPN ou proxy reverso para usuários de roaming (ou remotos) que precisam de acesso a recursos internos. Não é destinado a usuários internos na rede corporativa. Os usuários internos que usam desnecessariamente o Proxy de Aplicativo podem apresentar problemas de desempenho inesperados e indesejados.
 

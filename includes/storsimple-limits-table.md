@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 93f4f74d435cc14130668da102d1246c5fad5872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238809"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172320"
 ---
 | Identificador de limite | Limite | Comentários |
 | --- | --- | --- |
@@ -27,7 +27,7 @@ ms.locfileid: "66238809"
 | Número máximo de backups retidos por política de backup |64 | |
 | Número máximo de agendas por política de backup |10 | |
 | Número máximo de instantâneos de qualquer tipo que podem ser retidos por volume |256 |O valor inclui instantâneos locais e na nuvem. |
-| Número máximo de instantâneos que podem estar presentes em qualquer dispositivo |10\.000 | |
+| Número máximo de instantâneos que podem estar presentes em qualquer dispositivo |10.000 | |
 | Número máximo de volumes que podem ser processados paralelamente para backup, restauração e clonagem |16 |<ul><li>Se houver mais de 16 volumes, eles são processados sequencialmente conforme os slots de processamento ficarem disponíveis.</li><li>Novos backups de clonado ou um volume em camadas restaurado não pode ocorrer até que a operação seja concluída. Para um volume local, os backups são permitidos depois que o volume estiver online.</li></ul> |
 | Tempo de recuperação de clonagem e restauração para volumes em camadas |< 2 minutos |<ul><li>O volume é disponibilizado em 2 minutos após uma operação de restauração ou clonagem, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. Pode aumentar o desempenho como fluxos de dados da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda de Internet para a nuvem.</li><li>A operação de restauração ou clonagem será concluída quando todos os metadados estiverem no dispositivo.</li><li>Operações de backup não podem ser executadas até que a restauração ou operação de clonagem seja totalmente concluída. |
 | Tempo de recuperação de restauração para volumes localmente fixados |< 2 minutos |<ul><li>O volume é disponibilizado em até 2 minutos durante a operação de restauração, independentemente do tamanho do volume.</li><li>Inicialmente, o desempenho do volume pode ser mais lento do que o normal, pois a maioria dos dados e metadados ainda reside na nuvem. Pode aumentar o desempenho como fluxos de dados da nuvem para o dispositivo StorSimple.</li><li>O tempo total para baixar metadados depende do tamanho do volume alocado. Os metadados são automaticamente colocados no dispositivo em segundo plano a uma taxa de 5 minutos por TB de dados de volume alocados. Essa taxa pode ser afetada pela largura de banda de Internet para a nuvem.</li><li>Ao contrário de volumes em camadas, se houver volumes localmente afixados, os dados do volume também serão baixados localmente no dispositivo. A operação de restauração é concluída quando todos os dados de volume são colocados no dispositivo.</li><li>As operações de restauração podem ser longos e o tempo total para concluir a restauração dependerá do tamanho do volume local provisionado, largura de banda de Internet e os dados existentes no dispositivo. Operações de backup em volume localmente afixado são permitidas enquanto a operação de restauração está em andamento. |

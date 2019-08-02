@@ -1,6 +1,6 @@
 ---
-title: Treinar o aplicativo
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Treinar aplicativo-LUIS
+titleSuffix: Azure Cognitive Services
 description: O treinamento é o processo de ensinar sua versão do aplicativo LUIS (Reconhecimento vocal) para melhorar o reconhecimento vocal natural. Treine seu aplicativo de LUIS após atualizações ao modelo, como adicionar, editar, rotular ou excluir entidades, intenções ou enunciados.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: ba0db22437961a33b0b415ec7cb60ad3df12821c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d85aee498f178fa708d3997c65509e2f7241157
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195843"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637907"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Treinar sua versão ativa do aplicativo LUIS 
 
@@ -46,7 +46,7 @@ Para iniciar o processo iterativo no [portal LUIS](https://www.luis.ai), primeir
 
 ## <a name="training-date-and-time"></a>Data e hora de treinamento
 
-Data e hora de treinamento é GMT + 2. 
+A data e a hora de treinamento são GMT + 2. 
 
 ## <a name="train-with-all-data"></a>Treinar com todos os dados
 

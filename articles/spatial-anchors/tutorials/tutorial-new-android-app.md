@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9838add4f83434848d61f3ae86db71765efdc59a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995720"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68562397"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>Tutorial: Instruções passo a passo para criar um novo aplicativo Android usando Âncoras Espaciais do Azure
 
@@ -23,7 +23,7 @@ Este tutorial mostra como criar um novo aplicativo Android que se integra à fun
 
 Para concluir este tutorial, verifique se você tem:
 
-- Um computador Windows ou macOS com <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.3+</a>.
+- Um computador Windows ou macOS com <a href="https://developer.android.com/studio/" target="_blank">Android Studio 3.4+</a>.
 - Um dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para desenvolvedor</a> e <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">compatível com ARCore</a>.
 
 ## <a name="getting-started"></a>Introdução
@@ -34,7 +34,7 @@ Na janela **Criar Novo Projeto**, na seção **Telefone e Tablet**, escolha **At
 
 ## <a name="trying-it-out"></a>Experimentá-lo
 
-Para testar seu novo aplicativo, conecte o dispositivo de desenvolvedor habilitado para seu computador de desenvolvimento com um cabo USB. Clique em **Executar**->**Executar 'aplicativo'**. Na janela **Selecione o Destino de Implantação**, selecione seu dispositivo e clique em **OK**. Android Studio instala o aplicativo no dispositivo conectado e o inicia. Agora você deve ver "Olá, Mundo!" exibido no aplicativo em execução no seu dispositivo. Clique em **Executar**->**Interromper 'aplicativo'**.
+Para testar seu novo aplicativo, conecte o dispositivo de desenvolvedor habilitado para seu computador de desenvolvimento com um cabo USB. Clique em **Executar**->**Executar 'aplicativo'** . Na janela **Selecione o Destino de Implantação**, selecione seu dispositivo e clique em **OK**. Android Studio instala o aplicativo no dispositivo conectado e o inicia. Agora você deve ver "Olá, Mundo!" exibido no aplicativo em execução no seu dispositivo. Clique em **Executar**->**Interromper 'aplicativo'** .
 
 ## <a name="integrating-arcore"></a>Integração do _ARCore_
 
@@ -57,12 +57,12 @@ Modifique `app\manifests\AndroidManifest.xml` para incluir as entradas a seguir 
 </application>
 ```
 
-Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a seguir. Esse código vai assegurar que seu aplicativo tenha a versão ARCore 1.7 como destino. Após essa alteração, você poderá receber uma notificação do Gradle solicitando que você sincronize: clique em **Sincronizar agora**.
+Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a seguir. Esse código assegurará que o aplicativo tenha o ARCore versão 1.8 como destino. Após essa alteração, você poderá receber uma notificação do Gradle solicitando que você sincronize: clique em **Sincronizar agora**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.7.0'
+    implementation 'com.google.ar:core:1.8.0'
     ...
 }
 ```
@@ -71,7 +71,7 @@ dependencies {
 
 O <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> simplifica a renderização de cenas 3D realistas em aplicativos de realidade aumentada, sem precisar aprender OpenGL.
 
-Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir as entradas a seguir. Este código permitirá que seu aplicativo use constructos de linguagem do Java 8, exigidos pelo `Sceneform`. Ele também garantirá que seu aplicativo se destine ao `Sceneform` versão 1.7, já que ele deve corresponder à versão do ARCore que seu aplicativo está usando. Após essa alteração, você poderá receber uma notificação do Gradle solicitando que você sincronize: clique em **Sincronizar agora**.
+Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir as entradas a seguir. Este código permitirá que seu aplicativo use constructos de linguagem do Java 8, exigidos pelo `Sceneform`. Também garantirá que aplicativo se destine ao `Sceneform` versão 1.8, já que ele deve corresponder à versão do ARCore que o aplicativo está usando. Após essa alteração, você poderá receber uma notificação do Gradle solicitando que você sincronize: clique em **Sincronizar agora**.
 
 ```
 android {
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
     ...
 }
 ```
@@ -123,13 +123,13 @@ Por fim, adicione o método `handleTap()` a seguir, que juntará tudo. Ele criar
 
 ## <a name="attach-a-local-azure-spatial-anchor"></a>Anexar uma âncora espacial do Azure local
 
-Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a seguir. Esse código assegurará que o aplicativo se destine às Âncoras Espaciais do Azure versão 1.0.2. Dito isso, fazer referência a qualquer versão recente das Âncoras Espaciais do Azure deve funcionar.
+Modifique `Gradle Scripts\build.gradle (Module: app)` para incluir a entrada a seguir. Esse código assegurará que o aplicativo se destine às Âncoras Espaciais do Azure versão 1.3.0. Dito isso, fazer referência a qualquer versão recente das Âncoras Espaciais do Azure deve funcionar.
 
 ```
 dependencies {
     ...
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.0.2]"
-    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.0.2]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_jni:[1.3.0]"
+    implementation "com.microsoft.azure.spatialanchors:spatialanchors_java:[1.3.0]"
     ...
 }
 ```

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ff939fa514e067c26daf609270ef49de8c16db2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: a55ec7afc94440ea8b6a48ed1507476d362df6c0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66143172"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vidyard"></a>Tutorial: Integração do Azure Active Directory ao Vidyard
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Voyance](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://secure.vidyard.com/sso/saml/<unique id>/consume`
 
@@ -150,7 +150,7 @@ Para configurar o logon único do Azure AD com o Vidyard, realize as seguintes e
 
     ![Configuração do Vidyard](./media/vidyard-tutorial/configure3.png)
 
-     a. Insira o nome do perfil geral na caixa de texto **Nome do Perfil**.
+    a. Insira o nome do perfil geral na caixa de texto **Nome do Perfil**.
 
     b. Copie o valor da **Página de Logon do Usuário de SSO** e cole-o na caixa de texto **URL de Entrada** na seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -251,5 +251,5 @@ Ao clicar no bloco do Vidyard no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

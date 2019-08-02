@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: dc07b4eea553e6cb3d9b522826e860ddbfbc1513
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3ab53466cae5bd39d85f8d846c8e59ad94f1f2d
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577039"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165754"
 ---
 # <a name="cloudsimple-private-cloud-overview"></a>Visão geral de nuvem privada CloudSimple
 
@@ -63,7 +63,7 @@ Os usuários consomem a pilha por meio de ferramentas nativas do VMware, incluin
 
 Você pode implantar nós dedicados em locais do Azure. Em seguida, você pode gerenciá-los com o Azure e CloudSimple. Uma nuvem privada consiste em um ou mais clusters do vSphere, e cada cluster contém nós de 3 a 16.
 
-Você pode criar uma nuvem privada usando adquirido nós:
+Você pode criar uma nuvem privada usando nós provisionados:
 
 * Nós de pré-pago
 * Nós dedicado, reservados

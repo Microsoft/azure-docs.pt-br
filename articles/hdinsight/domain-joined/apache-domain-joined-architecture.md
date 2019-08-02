@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/11/2019
-ms.openlocfilehash: 46eb90d2ec9902a9b5b7830063d0a6164ae948dd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/24/2019
+ms.openlocfilehash: 8b8c200979b70e145fca64746547b37dee558848
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061134"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67720439"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Usar o pacote de segurança Enterprise no HDInsight
 
@@ -37,7 +37,7 @@ As seguintes coisas são criadas automaticamente:
 
 Para resumir, você precisa configurar um ambiente com:
 
-- Um domínio do Active Directory (gerenciado pelo Azure AD DS).
+- Um domínio do Active Directory (gerenciado pelo Azure AD DS). **O nome de domínio deve ser 39 caracteres ou menos para trabalhar com o Azure HDInsight.**
 - LDAP Seguro (LDAPS) habilitado no Azure AD DS.
 - Conectividade de rede adequada da rede virtual do HDInsight para a rede virtual do Azure AD DS, se você escolher redes virtuais separadas para elas. Uma VM dentro da rede virtual do HDInsight deve ter uma linha de visão para o Azure AD DS por meio de emparelhamento de rede virtual. Se o HDInsight e o Azure AD DS forem implantados na mesma rede virtual, a conectividade será fornecida automaticamente e nenhuma outra ação será necessária.
 
@@ -66,10 +66,14 @@ Se a federação estiver sendo usada e hashes de senha forem sincronizados corre
 1. Instalar a versão prévia [módulo do PowerShell do Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
-   Install-Module AzureADPreview
+   Install-Module AzureAD
    ```
 
-2. Insira `Connect-AzureAD` usando credenciais de um administrador global (administrador de locatários).
+2. Conecte-se usando as credenciais de administrador global (administrador de locatários).
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Verifique se a entidade de serviço do Microsoft Azure PowerShell já foi criada.
 

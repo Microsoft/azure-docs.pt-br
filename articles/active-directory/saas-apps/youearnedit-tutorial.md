@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb0610ac9578b1aa85ae422275d69e651b0b4cfd
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1f3a3339481538cd38a1d26f97869ff55d3f6021
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65895770"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086330"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Azure Active Directory ao YouEarnedIt
 
@@ -53,7 +53,7 @@ Para configurar a integração do YouEarnedIt ao Azure AD, você precisará adic
 
 **Para adicionar o YouEarnedIt por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o YouEarnedIt, execute as seguint
 
     ![Informações de logon único de URLs e Domínio do YouEarnedIt](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
 
     | Ambiente  | Padrão  |
     |:--- |:--- |

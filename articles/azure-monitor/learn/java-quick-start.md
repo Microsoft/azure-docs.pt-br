@@ -1,22 +1,22 @@
 ---
-title: Início rápido com o Azure Application Insights | Microsoft Docs
+title: 'Início Rápido: monitoramento de aplicativo Web Java'
 description: Fornece instruções para configurar rapidamente um aplicativo Web Java para monitoramento com o Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.reviewer: lagayhar
-ms.date: 04/18/2019
+ms.date: 07/15/2019
 ms.service: application-insights
-ms.custom: mvc
+ms.custom: mvc, seo-java-july2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: dd1644ad9b7fcee951b31997ab549f117530f635
-ms.sourcegitcommit: f9448a4d87226362a02b14d88290ad6b1aea9d82
+ms.openlocfilehash: 160c0bd90e2e733cd2d57798c0e80f2df569cf0a
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66808386"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489747"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>Começar a monitorar o aplicativo Web Java
 
@@ -50,14 +50,11 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
    ![Adicionando um Recurso do Application Insights](./media/java-quick-start/1createresourseappinsights.png)
 
-   ![Adicionando um Recurso do Application Insights](./media/java-quick-start/2createjavaapp.png)
-
    Uma caixa de configuração é exibida. Use a tabela a seguir para preencher os campos de entrada.
 
     | Configurações        | Valor           | DESCRIÇÃO  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
-   | **Tipo de Aplicativo** | Aplicativo Web Java | O tipo do aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
    | **Localidade** | Leste dos EUA | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
 

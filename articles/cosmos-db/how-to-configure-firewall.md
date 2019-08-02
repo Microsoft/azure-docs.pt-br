@@ -4,14 +4,14 @@ description: Saiba como configurar políticas de controle de acesso de IP para s
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 0b8ad6c5addbff293e9f7e9b8af6ed34d4dd274b
+ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66241957"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68494890"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall de IP no Azure Cosmos DB
 
@@ -94,21 +94,24 @@ Quando você acessa sua conta do Azure Cosmos DB a partir de um computador na In
 
 ## <a id="configure-ip-firewall-arm"></a>Configurar um firewall IP usando um modelo do Resource Manager
 
-Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique-se de que o modelo do Gerenciador de Recursos especifique o atributo **ipRangeFilter** com uma lista de intervalos de IP permitidos. Por exemplo, adicione o seguinte código JSON ao seu modelo:
+Para configurar o controle de acesso à sua conta do Azure Cosmos DB, certifique-se de que o modelo do Gerenciador de Recursos especifique o atributo **ipRangeFilter** com uma lista de intervalos de IP permitidos. Se estiver configurando o Firewall de IP para uma conta do Cosmos já implantada, verifique se a matriz `locations` corresponde ao que está implantado atualmente. Não é possível modificar simultaneamente a matriz `locations` e outras propriedades. Para obter mais informações e exemplos de modelos do ARM para o Azure Cosmos DB, consulte [Modelos do Azure Resource Manager para Azure Cosmos DB](resource-manager-samples.md)
 
 ```json
-   {
-     "apiVersion": "2015-04-08",
-     "type": "Microsoft.DocumentDB/databaseAccounts",
-     "kind": "GlobalDocumentDB",
-     "name": "[parameters('databaseAccountName')]",
-     "location": "[resourceGroup().location]",
-     "properties": {
-       "databaseAccountOfferType": "Standard",
-       "name": "[parameters('databaseAccountName')]",
-       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-     }
-   }
+{
+  "type": "Microsoft.DocumentDB/databaseAccounts",
+  "name": "[variables('accountName')]",
+  "apiVersion": "2016-03-31",
+  "location": "[parameters('location')]",
+  "kind": "GlobalDocumentDB",
+  "properties": {
+    "consistencyPolicy": "[variables('consistencyPolicy')[parameters('defaultConsistencyLevel')]]",
+    "locations": "[variables('locations')]",
+    "databaseAccountOfferType": "Standard",
+    "enableAutomaticFailover": "[parameters('automaticFailover')]",
+    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
+    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+  }
+}
 ```
 
 ## <a id="configure-ip-firewall-cli"></a>Configurar uma política de controle de acesso IP usando a CLI do Azure

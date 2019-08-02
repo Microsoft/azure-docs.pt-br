@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
-ms.author: erikre
-ms.openlocfilehash: d3db4166810da981ff0117536d8550a6b2203924
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 47e19fae26d6e3bc465799980c587d7bb7ed5e92
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370978"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443055"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>Revisar o uso de recursos de serviço do Azure usando a API REST
 
@@ -43,10 +43,10 @@ O parâmetro `{subscriptionGuid}` é obrigatório e deve conter uma ID da assina
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*| Obrigatório. Defina como `application/json`. |  
-|*Authorization:*| Obrigatório. Defina como um token `Bearer` válido. |
+|*Content-Type:*| Obrigatória. Defina como `application/json`. |  
+|*Authorization:*| Obrigatória. Defina como um token `Bearer` válido. |
 
 Configure os parâmetros do relatório no corpo da solicitação HTTP. No exemplo a seguir, o relatório é definido para ser gerado todos os dias quando ativo, é um arquivo CSV gravado em um contêiner de blob de Armazenamento do Microsoft Azure e contém informações de custo por hora para todos os recursos no grupo de recursos `westus`.
 

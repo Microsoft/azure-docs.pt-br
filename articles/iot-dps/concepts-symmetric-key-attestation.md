@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1a849732539dbc9e066bee7cc20141f56ffe10c
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746038"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68348361"
 ---
 # <a name="symmetric-key-attestation"></a>Atestado de chave simétrica
 
@@ -46,9 +46,9 @@ Os tokens SAS têm o seguinte formato:
 
 Estes são os componentes de cada token:
 
-| Value | DESCRIÇÃO |
+| Valor | Descrição |
 | --- | --- |
-| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para realizar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem no formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: A chave deve ser decodificada da base64 antes de serem usados para executar o cálculo de HMAC-SHA256. Além disso, o resultado da assinatura precisa ser codificada como URL. |
+| {signature} |Uma cadeia de caracteres de assinatura HMAC-SHA256. Para registros individuais, essa assinatura é produzida usando a chave simétrica (primária ou secundária) para realizar o hash. Para grupos de registro, uma chave derivada da chave do grupo de registro é usada para executar o hash. O hash é executado em uma mensagem no formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: A chave deve ser decodificada de Base64 antes de ser usada para executar a computação HMAC-SHA256. Além disso, o resultado da assinatura precisa ser codificada como URL. |
 | {resourceURI} |O URI do ponto de extremidade de registro que pode ser acessado com esse token, começando com a ID do escopo da instância do serviço de provisionamento de dispositivos. Por exemplo, `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |As cadeias de caracteres UTF8 para o número de segundos desde a época 00:00:00 UTC em 1º de janeiro de 1970. |
 | {URL-encoded-resourceURI} |Codificação de URL em letras minúsculas do URI de recurso em letras minúsculas |
@@ -75,7 +75,7 @@ Esse exemplo exato é usado no artigo [Como provisionar dispositivos herdados us
 
 Depois que uma ID de registro tiver sido definida para o dispositivo, a chave simétrica do grupo de registro é usada para calcular um hash [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) da ID do registro para produzir uma chave de dispositivo derivada. O hash da ID do registro pode ser executado com o código C# a seguir:
 
-```C#
+```csharp
 using System; 
 using System.Security.Cryptography; 
 using System.Text;  
@@ -92,7 +92,7 @@ public static class Utils
 } 
 ```
 
-```C#
+```csharp
 String deviceKey = Utils.ComputeDerivedSymmetricKey(Convert.FromBase64String(masterKey), registrationId);
 ```
 

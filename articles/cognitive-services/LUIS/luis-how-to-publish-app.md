@@ -1,5 +1,5 @@
 ---
-title: Publicar aplicativo
+title: Publicar aplicativo-LUIS
 titleSuffix: Azure Cognitive Services
 description: Quando terminar de compilar e testar seu aplicativo LUIS ativo, disponibilize-o ao seu aplicativo cliente publicando-o no ponto de extremidade.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/08/2019
+ms.topic: article
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 22bed877d853c7023f8efe6bfb3dd21b4aa4c8df
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 67f3634141e58cebc22ea643852c09c5d8d9328b
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194390"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638074"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
 
@@ -24,7 +24,7 @@ Quando terminar de compilar e testar seu aplicativo LUIS ativo, disponibilize-o 
 
 <a name="publish-your-trained-app-to-an-http-endpoint"></a>
 
-## <a name="publishing"></a>Publicação
+## <a name="publishing"></a>Publicando
 
 Para publicar no ponto de extremidade, selecione **Publicar** no painel superior direito. 
 

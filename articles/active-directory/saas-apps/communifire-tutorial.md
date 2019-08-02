@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb82c3112634163328e08b330083f5b4942798ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa8c451790331e81a96485c7965110c968fe249
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65863165"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67104982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integração do Azure Active Directory para o Communifire
 
@@ -55,7 +55,7 @@ Para configurar a integração do Communifire com o Azure AD, você precisa adic
 
 **Para adicionar o Communifire da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Communifire, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Communifire](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.communifire.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.communifire.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<subdomain>.communifire.com/SAML/AssertionConsumerService.aspx`
 
@@ -128,7 +128,7 @@ Para configurar o logon único do Azure AD com o Communifire, execute as seguint
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-     a. Selecione **Assinar resposta SAML e declaração** da **Opção de Assinatura**.
+    a. Selecione **Assinar resposta SAML e declaração** da **Opção de Assinatura**.
     
     b. Clique em **Salvar**
 
@@ -218,5 +218,5 @@ Ao clicar no bloco do Communifire no Painel de Acesso, você deve ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

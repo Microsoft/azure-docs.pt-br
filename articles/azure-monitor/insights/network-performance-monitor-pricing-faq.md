@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
-ms.author: ajaycode
-ms.openlocfilehash: 77cacd7f94d8ddd92fcd7383d2d0a7929734eaeb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: agummadi
+ms.openlocfilehash: 68e84d8ac82d5cdd52bf92df858730315514c17c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60401401"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67612849"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para o Monitor de Desempenho de Rede do Azure
 
@@ -38,7 +38,7 @@ As seções a seguir explicam as alterações de preços para os componentes do 
 
 A cobrança do NPM era baseada no uso e consumo de dois componentes:
 * **Nós**: Todas as transações sintéticas se originam e terminam nos nós. Os nós também são conhecidos como agentes ou Microsoft Monitoring Agents.
-* **Dados**: Os resultados de vários testes de rede são armazenados no espaço de trabalho do Log Analytics.
+* **Data**: Os resultados de vários testes de rede são armazenados no espaço de trabalho do Log Analytics.
 
 No modelo antigo, a cobrança era calculada com base no número de nós e no volume de dados gerados. 
 
@@ -55,7 +55,7 @@ O Monitor de Desempenho monitora a conectividade entre dois ou mais locais na re
 
 **Tenho duas sub-redes (A e B) e vários agentes em cada sub-rede. O Monitor de Desempenho monitora a conectividade de todos os agentes na sub-rede A para todos os agentes na sub-rede B. Serei cobrado com base no número de conexões entre as sub-redes?**
 
-Não. Para fins de cobrança, todas as conexões da sub-rede A para a sub-rede B são agrupadas em um link de sub-rede. Você será cobrado por uma única conexão. O Monitor de Desempenho continua monitorando a conectividade entre vários agentes em cada sub-rede.
+Nº Para fins de cobrança, todas as conexões da sub-rede A para a sub-rede B são agrupadas em um link de sub-rede. Você será cobrado por uma única conexão. O Monitor de Desempenho continua monitorando a conectividade entre vários agentes em cada sub-rede.
 
 **Quais são os custos de monitoramento de um link de sub-rede?**
 

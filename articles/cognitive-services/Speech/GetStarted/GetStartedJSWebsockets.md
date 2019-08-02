@@ -42,7 +42,7 @@ Nesta seção, mostraremos as etapas necessárias para carregar uma página HTML
 
 ### <a name="open-the-sample-directly"></a>Abra o exemplo diretamente
 
-Adquira uma chave de assinatura, conforme descrito acima. Em seguida, abra o [link para o exemplo](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Isso carregará a página no navegador padrão (Renderizado usando [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Adquira uma chave de assinatura, conforme descrito acima. Em seguida, abra o [link para o exemplo](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Isso carregará a página no navegador padrão (Renderizado usando [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Abra o exemplo de uma cópia local
 

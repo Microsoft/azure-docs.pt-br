@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3dab784d706228793c6acc0f930f39ba1962caeb
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c41da4417d230b49927ff203efce2b9f4ec0b6b6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897409"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-m-files"></a>Tutorial: Integração do Azure Active Directory com o M-Files
 
@@ -52,7 +52,7 @@ Para configurar a integração do M-Files ao Azure AD, você precisará adiciona
 
 **Para adicionar o M-Files da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o M-Files, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do M-Files](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com/authentication/MFiles.AuthenticationProviders.Core/sso`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<tenantname>.cloudvault.m-files.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente M-Files](mailto:support@m-files.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o M-Files, execute as seguintes e
 
     No tipo de seção Servidor, os valores são os seguintes:  
 
-     a. Para **Nome**, digite `<tenant-name>.cloudvault.m-files.com`. 
+    a. Para **Nome**, digite `<tenant-name>.cloudvault.m-files.com`. 
  
     b. Para **Número de Porta**, digite **4466**. 
 
@@ -223,5 +223,5 @@ Ao clicar no bloco do M-Files no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

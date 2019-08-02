@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 00d0e3a749c4af8faacfed5f725ce16e0492c399
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8e97a979c37af8ade51b4ff6ca4b2c5b4eec126e
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409072"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232733"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conectar-se o Adafruit Feather HUZZAH ESP8266 ao Hub IoT do Azure na nuvem
 
@@ -49,6 +49,9 @@ Você também precisa destes itens para seu ambiente de desenvolvimento:
 
 * Uma assinatura ativa do Azure. Se não tiver uma conta do Azure, [crie uma conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos.
 * Um Mac ou PC que esteja executando Windows ou Ubuntu.
+* [GIT](https://git-scm.com/download)
+* [Arduino](https://www.arduino.cc/en/main/software#download)
+* [Driver Adafruit huzzah ESP8266 para USB](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
 * Uma rede sem fio para Feather HUZZAH ESP8266 para se conectar.
 * Uma conexão com a Internet para baixar a ferramenta de configuração.
 * [Extensão do Visual Studio Code para Arduino](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino).
@@ -65,10 +68,6 @@ Os itens a seguir são opcionais, caso você não tenha um sensor. Você também
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
 
@@ -144,7 +143,7 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 
 2. Ir para uma pasta onde você deseja que o aplicativo de exemplo a ser armazenado.
 
-3. Execute o comando a seguir:
+3. Execute o seguinte comando:
 
    ```bash
    git clone https://github.com/Azure-Samples/iot-hub-feather-huzzah-client-app.git
@@ -160,7 +159,7 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 
 6. No Visual Studio Code, digite `F1`.
 
-7. Tipo de **Arduino** e selecione **Arduino: Board Manager**.
+7. Digite **Arduino** e selecione **Arduino: Board Manager**.
 
 8. Na guia **Gerenciador de Placas do Arduino**, clique em **URLs adicionais**.
 
@@ -184,7 +183,7 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 
     ![O pacote do esp8266 é instalado](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
-13. Insira `F1`, em seguida, digite **Arduino** e selecione **Arduino: Configuração de placa**.
+13. Insira `F1`, em seguida  , digite Arduino **e selecione Arduino: Configuração**do quadro.
 
 14. Clique na caixa para **Placa Selecionada:** e digite **esp8266**, em seguida, selecione **Adafruit HUZZAH ESP8266 (esp8266)** .
 
@@ -192,7 +191,7 @@ O aplicativo de exemplo está hospedado no GitHub. Clone o repositório de exemp
 
 ### <a name="install-necessary-libraries"></a>Instalar as bibliotecas necessárias
 
-1. No Visual Studio Code, digite `F1`, em seguida, digite **Arduino** e selecione **Arduino: Gerenciador de biblioteca**.
+1. Na Visual Studio Code, digite `F1`e, em seguida, digite **Arduino** e selecione **Arduino: Gerenciador**de biblioteca.
 
 2. Procure a seguinte biblioteca nomes individualmente. Para cada biblioteca que você encontrar, clique em **Instalar**.
    * `AzureIoTHub`
@@ -220,9 +219,9 @@ O aplicativo de exemplo pode simular a temperatura e umidade dados caso você n�
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Implantar o aplicativo de exemplo para Feather HUZZAH ESP8266
 
-1. No Visual Studio Code, clique em  **\<selecione Serial Port >** o status da barra e, em seguida, clique na porta serial para Feather HUZZAH ESP8266.
+1. Na Visual Studio Code, clique em  **\<selecionar porta serial >** na barra de status e, em seguida, clique na porta serial para difusão HUZZAH ESP8266.
 
-2. Insira `F1`, em seguida, digite **Arduino** e selecione **Arduino: Carregar** para compilar e implantar o aplicativo de exemplo para Feather HUZZAH ESP8266.
+2. Insira `F1`, em seguida  , digite Arduino **e selecione Arduino: Carregue** para compilar e implantar o aplicativo de exemplo para difundir HUZZAH ESP8266.
 
 ### <a name="enter-your-credentials"></a>Inserir suas credenciais
 
@@ -253,9 +252,9 @@ Se você vir a seguinte saída da janela serial monitor e o LED piscando no Feat
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Ler as mensagens recebidas pelo seu hub
 
-Uma maneira para monitorar mensagens recebidas pelo hub IoT do dispositivo é usar as ferramentas do IoT do Azure para Visual Studio Code. Para obter mais informações, consulte [usar as ferramentas de IoT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+Uma maneira de monitorar as mensagens recebidas pelo Hub IoT do seu dispositivo é usar as ferramentas de IoT do Azure para Visual Studio Code. Para saber mais, confira [usar as ferramentas de IOT do Azure para Visual Studio Code para enviar e receber mensagens entre o dispositivo e o Hub IOT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
-Para obter mais formas processar os dados enviados pelo seu dispositivo, continue na próxima seção.
+Para obter mais maneiras de processar dados enviados pelo seu dispositivo, continue na próxima seção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

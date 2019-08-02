@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46135366c76abf8da5387ff0698b4dc7634d79c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 936de76d1117c56f5a9dec48b51f33b9afa15351
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698535"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107512"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
 
@@ -54,7 +54,7 @@ Para configurar a integração do Absorb LMS ao Azure AD, você precisa adiciona
 
 **Para adicionar o Absorb LMS da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -108,13 +108,13 @@ Para configurar o logon único do Azure AD com o Absorb LMS, execute as seguinte
 
     Se você estiver usando **Absorb 5 – interface do usuário**, use a seguinte configuração:
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://company.myabsorb.com/account/saml`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://company.myabsorb.com/account/saml`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://company.myabsorb.com/account/saml`
 
     Se você estiver usando **Absorb 5 – Nova Experiência de Aprendiz**, use a seguinte configuração:
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
@@ -159,11 +159,11 @@ Para configurar o logon único do Azure AD com o Absorb LMS, execute as seguinte
 
     ![Página de configuração de logon único](./media/absorblms-tutorial/settings.png)
 
-     a. Na caixa de texto **Nome**, insira o nome como o SSO do Azure AD Marketplace.
+    a. Na caixa de texto **Nome**, insira o nome como o SSO do Azure AD Marketplace.
 
     b. Selecione **SAML** como um **Método**.
 
-    c. No Bloco de Notas, abra o certificado que você baixou pelo Portal do Azure. Remoa as marcas **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---**. Em seguida, na caixa **Chave**, cole o conteúdo restante.
+    c. No Bloco de Notas, abra o certificado que você baixou pelo Portal do Azure. Remoa as marcas **---BEGIN CERTIFICATE---** e **---END CERTIFICATE---** . Em seguida, na caixa **Chave**, cole o conteúdo restante.
 
     d. Na caixa **Modo**, selecione **Provedor de Identidade Iniciado**.
 
@@ -252,7 +252,7 @@ Para que os usuários do Azure AD entrem no Absorb LMS, os usuários deverão se
 
     ![Página Adicionar Usuário](./media/absorblms-tutorial/user.png)
 
-     a. Na caixa **Nome**, digite o primeiro nome, como **Brenda**.
+    a. Na caixa **Nome**, digite o primeiro nome, como **Brenda**.
 
     b. Na caixa **Sobrenome**, digite o último nome, como **Fernandes**.
 

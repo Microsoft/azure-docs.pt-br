@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 02c09744130bec55eed4181b0d4ba958aec59e69
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d9745bdb1cb6de86a96946564865958433d49732
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65905365"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Azure Active Directory ao Ziflow
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Microsoft Azure AD com o Ziflow, execute as se
 
     ![Informações de logon único de Domínio e URLs do Ziflow](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `urn:auth0:ziflow-production:<UniqueID>`
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Microsoft Azure AD com o Ziflow, execute as se
 
     ![Logon único nas configuração do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
-     a. Selecione **Tipo** como **SAML 2.0**.
+    a. Selecione **Tipo** como **SAML 2.0**.
 
     b. Na caixa de texto **URL de Entrada**, cole o valor de **URL de Logon**, copiado do portal do Azure.
 
@@ -222,7 +222,7 @@ Para provisionar uma conta de usuário, execute as seguintes etapas:
 
     ![Configuração adicionar usuários do Ziflow](./media/ziflow-tutorial/tutorial_ziflow_adduser.png)
 
-     a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
+    a. Na caixa de texto **Email**, insira o email do usuário como brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome**, insira o nome do usuário como Brenda.
 
@@ -247,5 +247,5 @@ Ao clicar no bloco do Ziflow no Painel de Acesso, você deverá ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

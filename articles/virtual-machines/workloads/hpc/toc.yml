@@ -1,12 +1,14 @@
 - name: Documentação da Computação de Alto Desempenho
   items:
     - name: Visão geral
-      href: 'https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/'
+      items:
+        - name: HPC para VMs da Série H
+          href: overview.md
     - name: Configuração
       items:
         - name: Otimização para Linux
           href: configure.md
-        - name: Habilitar Infiniband
+        - name: Habilitar InfiniBand
           href: enable-infiniband.md
     - name: Configurar MPI
       href: setup-mpi.md

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: f4b41098a3b374506e655bf90f972b57195e0958
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904006"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093370"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Azure Active Directory ao QuickHelp
 
@@ -55,7 +55,7 @@ Para configurar a integração do QuickHelp ao AD do Azure, você precisa adicio
 
 **Para adicionar o QuickHelp a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o QuickHelp, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do QuickHelp](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://quickhelp.com/<ROUTEURL>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://quickhelp.com/<ROUTEURL>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL: `https://auth.quickhelp.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL: `https://auth.quickhelp.com`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate o administrador da ajuda rápida da organização ou o gerente de sucesso de cliente BrainStorm para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o QuickHelp, execute as seguintes
    
     ![Configurar o logon único][23]
    
-     a. Como **Tipo de SSO**, selecione **WSFederation**.
+    a. Como **Tipo de SSO**, selecione **WSFederation**.
    
     b. Para carregar o arquivo de metadados do Azure baixado, clique em **Procurar**, navegue até o arquivo e clique em **Carregar Metadados**.
    

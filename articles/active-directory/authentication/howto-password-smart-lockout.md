@@ -1,22 +1,22 @@
 ---
-title: Impedindo ataques de força bruta usando o Azure AD inteligente bloqueio - Azure Active Directory
+title: Impedindo ataques de força bruta usando o bloqueio inteligente do Azure AD-Azure Active Directory
 description: Bloqueio inteligente de Active Directory do Azure ajuda a proteger sua organização contra ataques de força bruta tentando descobrir senhas
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 07/25/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bd03e2b98b1fd1a2a45b5feecc963bcfc7bfe83c
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358101"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499888"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory Sync smart lockout
 
@@ -28,6 +28,8 @@ O bloqueio inteligente rastreia os últimos três hashes de senha incorreta para
 
  > [!NOTE]
  > A funcionalidade de acompanhamento de hash não está disponível para clientes com a autenticação de passagem habilitada, pois a autenticação ocorre localmente, não na nuvem.
+
+Implantações federadas usando AD FS 2016 e AF FS 2019 podem permitir benefícios semelhantes usando [AD FS bloqueio de extranet e bloqueio inteligente de extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
 O bloqueio inteligente está sempre ativado para todos os clientes do Azure AD com as configurações padrão que oferecem a combinação certa de segurança e usabilidade. Personalização das configurações de bloqueio inteligente, com valores específicos de sua organização, requer o Azure AD Basic ou superior licenças para seus usuários.
 
@@ -41,7 +43,9 @@ Bloqueio inteligente pode ser integrado com implantações híbridas, usando a s
 Ao usar [autenticação de passagem](../hybrid/how-to-connect-pta.md), você precisará certificar-se de que:
 
 * O limite de bloqueio do Azure AD seja **menor** que o limite de bloqueio da conta do Active Directory. Defina os valores de forma que o limite de bloqueio da conta do Active Directory seja pelo menos duas ou três vezes maior do que o limite de bloqueio do Azure AD. 
-* A duração de bloqueio do Azure AD **em segundos** é **maior** que a duração de redefinir contador de bloqueios de conta após do Active Directory em **minutos**.
+* A duração do bloqueio do Azure AD deve ser definida por mais tempo do que o Active Directory reiniciar o contador de bloqueios de conta após a duração. Lembre-se de que a duração do Azure AD é definida em segundos, enquanto a duração do anúncio é definida em minutos. 
+
+Por exemplo, se você quiser que seu contador do Azure AD seja maior que o AD, o Azure AD será de 120 segundos (2 minutos) enquanto seu AD local for definido como 1 minuto (60 segundos).
 
 > [!IMPORTANT]
 > No momento um administrador não pode desbloquear contas de nuvem dos usuários se eles foram bloqueados fora da funcionalidade do Bloqueio Inteligente. O administrador deve aguardar a duração do bloqueio expirar.
@@ -55,7 +59,7 @@ Use as instruções a seguir para verificar suas políticas de bloqueio de conta
 3. Navegue até **Configuração do Computador** > **Políticas** > **Configurações do Windows** > **Configurações de Segurança** > **Políticas de Conta** > **Política de Bloqueio de Conta**.
 4. Verifique os valores de **Limite de bloqueio de conta** e **Redefinir contador de bloqueios de conta após**.
 
-![Modificar a política de bloqueio de conta do local do Active Directory](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificar a política de bloqueio de conta Active Directory local](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gerenciar valores de bloqueio inteligente do Azure AD
 
@@ -74,7 +78,7 @@ Para verificar ou modificar os valores de bloqueio inteligente para a sua organi
 
 ## <a name="how-to-determine-if-the-smart-lockout-feature-is-working-or-not"></a>Como determinar se o recurso de bloqueio inteligente está funcionando ou não
 
-Quando o limite de bloqueio inteligente é disparado, você receberá a seguinte mensagem enquanto a conta seja bloqueada:
+Quando o limite de bloqueio inteligente for disparado, você receberá a seguinte mensagem enquanto a conta estiver bloqueada:
 
 **Sua conta está temporariamente bloqueada para impedir o uso não autorizado. Tente novamente depois e, se ainda tiver problemas, entre em contato com seu administrador.**
 

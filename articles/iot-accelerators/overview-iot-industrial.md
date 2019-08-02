@@ -5,15 +5,15 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bda40470e3ccf3a5d7b23dca38b21090e864b16a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3c3a54d469d3dcbe04c11aa049906b551d68022f
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59491741"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606198"
 ---
 # <a name="what-is-industrial-iot-iiot"></a>O que é o IIoT (IoT industrial)
 

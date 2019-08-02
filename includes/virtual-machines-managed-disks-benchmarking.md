@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5148ff9e92a2e550a3117356a4e77cbac8fc6f4
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66147902"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673219"
 ---
 *Aquecendo o cache*  
 O disco com o cache de host ReadOnly pode oferecer IOPS mais alta do que o limite do disco. Para atingir esse desempenho máximo de leitura do cache de host, primeiramente você deve aquecer o cache desse disco. Isso faz com que as E/S de leitura que a ferramenta de parâmetros de comparação impulsionará no volume CacheReads realmente alcancem o cache, não o disco diretamente. Os acertos no cache resultam em IOPS adicional do único disco habilitado para cache.
@@ -25,7 +25,7 @@ O disco com o cache de host ReadOnly pode oferecer IOPS mais alta do que o limit
 
 ### <a name="iometer"></a>Iometer
 
-[Baixe a ferramenta Iometer](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
+[Baixe a ferramenta Iometer](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) na VM.
 
 #### <a name="test-file"></a>Arquivo de teste
 
@@ -62,28 +62,28 @@ Execute as etapas abaixo para aquecer o cache
 
 1. Crie duas especificações de acesso com os valores mostrados abaixo:
 
-   | NOME | Tamanho da solicitação | Aleatório % | Leitura % |
+   | Nome | Tamanho da solicitação | Aleatório % | Leitura % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1 MB |100 |0 |
    | RandomReads\_1MB |1 MB |100 |100 |
 1. Execute o teste Iometer para inicializar o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | NOME | Duration |
+   | Cenário | Volume de destino | Nome | Duração |
    | --- | --- | --- | --- |
    | Inicializar disco do cache |CacheReads |RandomWrites\_1MB |2 horas |
 1. Execute o teste Iometer para aquecer o disco do cache com os parâmetros a seguir. Use três threads de trabalho para o volume de destino e uma profundidade de fila de 128. Defina a duração do teste "Tempo de execução" como 2 horas na guia "Configuração do teste".
 
-   | Cenário | Volume de destino | NOME | Duração |
+   | Cenário | Volume de destino | Nome | Duração |
    | --- | --- | --- | --- |
    | Aquecer o disco do cache |CacheReads |RandomReads\_1MB |2 horas |
 
 Depois de aquecer o disco do cache, prossiga com os cenários de teste listados abaixo. Para executar o teste Iometer, use pelo menos três threads de trabalho para **cada** volume de destino. Para cada thread de trabalho, selecione o volume de destino, defina a profundidade da fila e selecione uma das especificações de teste salvas, conforme mostrado na tabela a seguir, para executar o cenário de teste correspondente. A tabela também mostra os resultados esperados para IOPS e Taxa de Transferência ao executar esses testes. Todos os cenários usam um tamanho pequeno de E/S, de 8 KB, e uma profundidade de fila alta de 128.
 
-| Cenário de teste | Volume de destino | NOME | Result |
+| Cenário de teste | Volume de destino | Nome | Resultado |
 | --- | --- | --- | --- |
-| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50\.000 IOPS |
-| Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64\.000 IOPS |
-| Máx. IOPS combinada |CacheReads |RandomWrites\_8K |100\.000 IOPS |
+| Máx. IOPS de leitura |CacheReads |RandomWrites\_8K |50.000 IOPS |
+| Máx. IOPS de gravação |NoCacheWrites |RandomReads\_8K |64.000 IOPS |
+| Máx. IOPS combinada |CacheReads |RandomWrites\_8K |100.000 IOPS |
 | NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Máx. MB/s de leitura |CacheReads |RandomWrites\_64K |524 MB/s |
 | Máx. MB/s de gravação |NoCacheWrites |RandomReads\_64K |524 MB/s |

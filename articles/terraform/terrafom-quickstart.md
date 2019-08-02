@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 3905296fca4285ce5b75cfb210d125f667428bfe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 57ab3fbc584932cb7d08bda76530bbe95ce61a6f
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724394"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699081"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Criar uma configuração do Terraform no Azure
 
@@ -117,7 +117,7 @@ resource "azurerm_container_group" "vote-aci" {
       protocol = "TCP"
     }
 
-    secure_environment_variables {
+    secure_environment_variables = {
       "COSMOS_DB_ENDPOINT"  = "${azurerm_cosmosdb_account.vote-cosmos-db.endpoint}"
       "COSMOS_DB_MASTERKEY" = "${azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key}"
       "TITLE"               = "Azure Voting App"

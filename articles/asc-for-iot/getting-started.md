@@ -2,24 +2,25 @@
 title: Começar a usar a Central de segurança do Azure (ASC) para a versão prévia do IoT | Microsoft Docs
 description: Começar a entender o fluxo de trabalho básico da Central de segurança do Azure para recursos de IoT e o serviço.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 55c8d3b6-3126-4246-8d07-ef88fe5ea84f
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: bdc5e858286d7db03281408cf3ed00e0760e0c3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39f448f258923d23bdcba75a0a1987777ce0492e
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65200636"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616856"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Introdução à Central de segurança do Azure para IoT 
 

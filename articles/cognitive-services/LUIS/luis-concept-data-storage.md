@@ -1,6 +1,6 @@
 ---
-title: Armazenamento de dados
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Armazenamento de dados-LUIS
+titleSuffix: Azure Cognitive Services
 description: O LUIS armazena dados criptografados em um armazenamento de dados do Azure correspondente à região especificada pela chave.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: a1093c2a6303b453a17a52058303913de5ecfa8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3028a9f046edb4013d8a2d6ec88d8c3cb2ca489
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812946"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639229"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>Armazenamento e remoção de dados nos Serviços Cognitivos do LUIS (Reconhecimento vocal)
 O LUIS armazena dados criptografados em um armazenamento de dados do Azure correspondente à região especificada pela chave. Esses dados são armazenados por 30 dias. 
@@ -26,26 +26,27 @@ Os usuários têm controle completo sobre a [exportação](luis-how-to-start-new
 
 ## <a name="utterances"></a>Declarações
 
-Declarações podem ser armazenadas em dois locais diferentes. 
+Declarações pode ser armazenado em dois locais diferentes. 
 
-* Durante **o processo de criação**, declarações são criadas e armazenadas na intenção. Declarações em intenções são necessárias para um aplicativo LUIS com êxito. Depois que o aplicativo é publicado e recebe consultas no ponto de extremidade, querystring da solicitação de ponto de extremidade, `log=false`, determina se a expressão de ponto de extremidade será armazenado. Se o ponto de extremidade é armazenado, ele se torna parte das declarações de aprendizado ativo encontrado na **Build** seção do portal, no **examine as declarações de ponto de extremidade** seção. 
-* Quando você **examine as declarações de ponto de extremidade**e adicionar uma expressão a uma intenção, a expressão não é armazenado como parte de declarações de ponto de extremidade a ser revisado. Ele é adicionado para propósitos do aplicativo. 
+* Durante **o processo de criação**, os declarações são criados e armazenados na intenção. Declarações em tentativas são necessárias para um aplicativo LUIS bem-sucedido. Depois que o aplicativo é publicado e recebe consultas no ponto de extremidade, o QueryString da solicitação `log=false`do ponto de extremidade, determina se o ponto de extremidade expressão está armazenado. Se o ponto de extremidade estiver armazenado, ele se tornará parte do declarações de aprendizado ativo encontrado na seção **Build** do portal, na seção **Review Endpoint declarações** . 
+* Quando você **examina o ponto de extremidade declarações**e adiciona um expressão a uma intenção, o expressão não é mais armazenado como parte do ponto de extremidade declarações a ser revisado. Ele é adicionado às intenções do aplicativo. 
 
 <a name="utterances-in-an-intent"></a>
 
-### <a name="delete-example-utterances-from-an-intent"></a>Excluir as declarações de exemplo de uma intenção
+### <a name="delete-example-utterances-from-an-intent"></a>Excluir declarações de exemplo de uma intenção
+
 Exclua enunciados de exemplo usados para treinar o [LUIS](luis-reference-regions.md). Se você excluir um enunciado de exemplo do seu aplicativo de LUIS, ele será removido do serviço Web de LUIS e não estará disponível para exportação.
 
 <a name="utterances-in-review"></a>
 
-### <a name="delete-utterances-in-review-from-active-learning"></a>Excluir declarações de revisão de aprendizado ativo
+### <a name="delete-utterances-in-review-from-active-learning"></a>Excluir declarações em análise do aprendizado ativo
 
 É possível excluir declarações da lista de declarações do usuário sugeridas pelo LUIS na **[página Examinar declarações de ponto de extremidade](luis-how-to-review-endpoint-utterances.md)** . Excluir enunciados dessa lista impede que eles sejam sugeridos, mas não os exclui dos logs.
 
-Se você não quiser que as declarações de aprendizado ativo, você poderá [desabilitar aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Desabilitar o aprendizado ativo também desabilita o registro em log.
+Se não quiser o declarações de aprendizado ativo, você poderá [desabilitar o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning). Desabilitar o aprendizado ativo também desabilita o registro em log.
 
-### <a name="disable-logging-utterances"></a>Desabilitar o registro em log declarações
-[Desabilitando o aprendizado ativo](luis-how-to-review-endpoint-utterances.md#disable-active-learning) é desabilita o registro em log.
+### <a name="disable-logging-utterances"></a>Desabilitar declarações de registro em log
+[Desabilitar o aprendizado ativo desabilita](luis-how-to-review-endpoint-utterances.md#disable-active-learning) o registro em log.
 
 
 <a name="accounts"></a>

@@ -8,14 +8,14 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
-ms.date: 06/04/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 40132f67b135b0dc081180c34361047e59776b81
-ms.sourcegitcommit: 6932af4f4222786476fdf62e1e0bf09295d723a1
+ms.openlocfilehash: 0e2e161c22ee87d11156c4818bd689c316799e87
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66688571"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305608"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicativos gerenciados do Azure no Marketplace
 
@@ -27,7 +27,7 @@ Este artigo explica como você pode publicar um aplicativo no marketplace e torn
 
 Para concluir este artigo, você já deve ter o arquivo .zip para a sua definição de aplicativo gerenciado. Para saber mais, veja [Criar aplicativo de catálogo de serviços](publish-service-catalog-app.md).
 
-Além disso, existem vários pré-requisitos de negócios. Eles são:
+Existem vários pré-requisitos de negócios. Eles são:
 
 * Sua empresa, ou subsidiária, deve estar localizada em um país/região no qual as vendas têm suporte no marketplace.
 * O produto deve ser licenciado de forma que seja compatível com modelos de cobrança com suporte no marketplace.
@@ -37,14 +37,7 @@ Além disso, existem vários pré-requisitos de negócios. Eles são:
 * Concorde com os termos das Políticas de Participação do Azure Marketplace e com o Contrato do Editor.
 * Concorde em cumprir os Termos de uso, a Política de privacidade da Microsoft e o Contrato do programa de certificação do Microsoft Azure.
 
-## <a name="become-a-publisher"></a>Torna-se um editor
-
-Para tornar-se um editor no Microsoft Azure Marketplace, você deverá:
-
-1. Criar uma ID da Microsoft - Crie sua conta Microsoft usando um endereço de email pertencente ao domínio da sua empresa, mas não a um único indivíduo. Esse endereço de email será usado tanto para a Central de Desenvolvedores da Microsoft como para o Portal do Cloud Partner. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
-1. Envie o [Formulário de Nominação do Microsoft Azure Marketplace](https://aka.ms/ampnomination) – Para **Solução que você pretende publicar?** , selecione **Aplicativo Gerenciado**. Quando o formulário for enviado, a equipe de Integração do Marketplace revisará o aplicativo e validará a solicitação. O processo de aprovação poderá demorar de um a três dias. Quando a nomeação for aprovada, você receberá um código promocional para renunciar à taxa de registro para a central de desenvolvedores. Se você **não** concluir o Formulário de Nominação do Marketplace, será solicitado a você pagar uma taxa de registro de $ 99.
-1. Registre-se no [Centro de Desenvolvedores](https://dev.windows.com/registration?accountprogram=azure): a Microsoft verificará que sua organização é uma entidade legal válida com uma ID DO IMPOSTO válida para o país/a região em que está registrada. O processo de aprovação poderá demorar de 5 a 10 dias. Para evitar a taxa de registro, utilize o código promocional recebido no email do processo de nominação. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
-1. Entre no [Portal do Cloud Partner](https://cloudpartner.azure.com) - No perfil do editor, associe sua conta da Central de Desenvolvedores ao Perfil do Editor do Marketplace. Para obter mais informações, consulte [Guia do Editor do Microsoft Azure Marketplace](https://aka.ms/sellerguide).
+Você também deve ter uma conta do Marketplace. Para criar uma conta, confira [Como criar uma conta do Marketplace Comercial no Partner Center](..//marketplace/partner-center-portal/create-account.md).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicativo do Azure
 
@@ -105,6 +98,10 @@ Um SKU aparece sob a oferta pai no marketplace. Ele aparece como sua própria en
    * **Arquivo de pacote (.zip)** : Esse pacote contém dois arquivos necessários compactados em um arquivo .zip. Um arquivo é um modelo do Resource Manager que define os recursos para implantar o aplicativo gerenciado. O outro arquivo define a [interface do usuário](create-uidefinition-overview.md) para os consumidores implantarem o aplicativo gerenciado por meio do portal. Na interface do usuário, você especifica os elementos que permitem aos consumidores fornecer valores de parâmetro.
    * **ID do locatário**: a ID do locatário da conta para obter acesso.
    * **Habilitar acesso JIT**: selecione **Sim** para habilitar [controle de acesso Just-In-Time](request-just-in-time-access.md) para a conta. Quando habilitado, você solicita acesso à conta do consumidor durante um período especificado. Para exigir que consumidores do seu aplicativo gerenciado permitam à sua conta acesso permanente, selecione **Não**.
+   * **Personalizar ações de clientes permitidas?** : Selecione **Sim** para especificar quais ações os consumidores podem executar nos recursos gerenciados.
+   * **Ações do cliente permitidas**: se você selecionar **sim** para a configuração anterior, poderá especificar quais ações são permitidas aos consumidores usando [negar atribuições para recursos do Azure](../role-based-access-control/deny-assignments.md).
+
+     Para as ações disponíveis, confira [Operações do provedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Por exemplo, para permitir que os consumidores reiniciem as máquinas virtuais, adicione `Microsoft.Compute/virtualMachines/restart/action` às ações permitidas. A ação `*/read` é permitida automaticamente para que você não precise incluir essa configuração.
    * **PrincipalId**: Essa propriedade é o identificador do Azure AD (Azure Active Directory) de um usuário, um grupo de usuários ou um aplicativo que recebeu o acesso aos recursos na assinatura do cliente. A Definição de Função descreve as permissões.
    * **Definição de Função**: Essa propriedade é uma lista de todas as funções internas do RBAC (controle de acesso baseado em função) fornecidas pelo Azure AD. Você pode selecionar a função mais apropriada para gerenciar os recursos em nome do cliente.
    * **Configurações de Política**: Aplique um [Azure Policy](../governance/policy/overview.md) ao aplicativo gerenciado para especificar os requisitos de conformidade para as soluções implantadas. Entre as opções disponíveis, selecione as políticas a serem aplicadas. Para **Parâmetros de Política**, forneça uma cadeia de caracteres JSON com os valores de parâmetro. Para definições de política e o formato dos valores de parâmetro, veja [Exemplos de Azure Policy](../governance/policy/samples/index.md).

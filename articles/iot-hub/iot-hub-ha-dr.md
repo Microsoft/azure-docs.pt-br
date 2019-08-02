@@ -6,13 +6,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.author: rkmanda
-ms.openlocfilehash: 7479d9a230bd28c2ed2e4c8c79ba9301028af36c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: philmea
+ms.openlocfilehash: 32caebf8ea216050427f4400102cf56ffc657b55
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60779365"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875257"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidade e recuperação de desastres do Hub IoT
 
@@ -32,7 +32,7 @@ Dependendo das metas de tempo de atividade definidas para suas soluções de IoT
 
 ## <a name="intra-region-ha"></a>HA entre regiões
 
-O serviço Hub IoT fornece HA intra-região implementando redundâncias em quase todas as camadas do serviço. O [SLA publicado pelo serviço IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) é obtido com o uso dessas redundâncias. Nenhum trabalho adicional é exigido pelos desenvolvedores de uma solução de IoT para aproveitar esses recursos de alta disponibilidade. Embora o IoT Hub ofereça uma garantia razoavelmente alta de tempo de atividade, falhas transitórias ainda podem ser esperadas como em qualquer plataforma de computação distribuída. Se você estiver apenas começando com a migração de suas soluções para a nuvem de uma solução local, o foco precisa mudar de otimizar "tempo médio entre falhas" para "tempo médio de recuperação". Em outras palavras, falhas transitórias devem ser consideradas normais durante a operação com a nuvem no mix. As políticas de repetição [adequadas](iot-hub-reliability-features-in-sdks.md) devem ser incorporadas aos componentes que interagem com um aplicativo em nuvem para lidar com falhas transitórias.
+O serviço Hub IoT fornece HA intra-região implementando redundâncias em quase todas as camadas do serviço. O [SLA publicado pelo serviço IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) é obtido com o uso dessas redundâncias. Nenhum trabalho adicional é exigido pelos desenvolvedores de uma solução de IoT para aproveitar esses recursos de alta disponibilidade. Embora o IoT Hub ofereça uma garantia razoavelmente alta de tempo de atividade, falhas transitórias ainda podem ser esperadas como em qualquer plataforma de computação distribuída. Se você estiver apenas começando a migrar suas soluções para a nuvem de uma solução local, seu foco precisará mudar da otimização "tempo médio entre falhas" para "tempo médio de recuperação". Em outras palavras, falhas transitórias devem ser consideradas normais durante a operação com a nuvem no mix. As políticas de repetição [adequadas](iot-hub-reliability-features-in-sdks.md) devem ser incorporadas aos componentes que interagem com um aplicativo em nuvem para lidar com falhas transitórias.
 
 > [!NOTE]
 > Alguns serviços do Azure também fornecem camadas adicionais de disponibilidade em uma região, integrando com [Zonas de disponibilidade (AZs)](../availability-zones/az-overview.md). No momento, os AZs não são suportados pelo serviço IoT Hub.
@@ -64,7 +64,7 @@ Depois que a operação de failover do hub IoT for concluída, espera-se que tod
 >
 > - Após o failover, os eventos emitidos via Event Grid podem ser consumidos por meio da (s) mesma (s) assinatura (s) configurada (s) anteriormente, contanto que essas assinaturas de Event Grid continuem disponíveis.
 >
-> - Ao rotear o armazenamento de blob, é recomendável inscrever os blobs e, em seguida, iterar sobre eles, para garantir que todos os contêineres são lidos sem fazer suposições de partição. O intervalo de partição potencialmente pode ser alteradas durante um failover iniciado pelo Microsoft ou um failover manual. Para saber como enumerar a lista de blobs, consulte [roteamento para o armazenamento de BLOBs](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Ao rotear o armazenamento de blob, é recomendável inscrever os blobs e, em seguida, iterar sobre eles, para garantir que todos os contêineres são lidos sem fazer suposições de partição. O intervalo de partição pode ser alterado durante um failover iniciado pela Microsoft ou um failover manual. Para saber como enumerar a lista de BLOBs, consulte [Roteamento para o armazenamento](iot-hub-devguide-messages-d2c.md#azure-blob-storage)de BLOBs.
 
 ### <a name="microsoft-initiated-failover"></a>Failover iniciado pelo Microsoft
 
@@ -110,14 +110,14 @@ Em um modelo de failover regional, o back-end da solução é executado primaria
 
 Em um nível alto, para implementar um modelo de failover regional com o Hub IoT, você precisa seguir os seguintes passos:
 
-* **Um hub IoT secundário e lógica de roteamento de dispositivo**: Se o serviço em sua região primária sofrer uma interrupção, dispositivos devem iniciar a conexão para a região secundária. Com base na natureza consciente do estado da maioria dos serviços envolvidos, é comum os administradores de solução acionarem o processo de failover entre regiões. A melhor maneira de comunicar o novo ponto de extremidade para os dispositivos, enquanto mantém o controle do processo, é fazer com que eles verifiquem regularmente um serviço de *concierge* para o ponto de extremidade ativo atual. O serviço de concierge pode ser um aplicativo Web que é replicado e acessível usando técnicas de redirecionamento de DNS (por exemplo, usando o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)).
+* **Uma lógica de roteamento de dispositivo e Hub IOT secundário**: Se o serviço em sua região primária for interrompido, os dispositivos deverão começar a se conectar à sua região secundária. Com base na natureza consciente do estado da maioria dos serviços envolvidos, é comum os administradores de solução acionarem o processo de failover entre regiões. A melhor maneira de comunicar o novo ponto de extremidade para os dispositivos, enquanto mantém o controle do processo, é fazer com que eles verifiquem regularmente um serviço de *concierge* para o ponto de extremidade ativo atual. O serviço de concierge pode ser um aplicativo Web que é replicado e acessível usando técnicas de redirecionamento de DNS (por exemplo, usando o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md)).
 
    > [!NOTE]
    > O serviço de hub da IoT não é um tipo de terminal suportado no Gerenciador de Tráfego do Azure. A recomendação é integrar o serviço de concierge proposto ao gerenciador de tráfego do Azure, implementando a API de análise de integridade do ponto de extremidade.
 
-* **Replicação do registro de identidade**: Para ser usado, o hub IoT secundário deve conter todas as identidades de dispositivo que podem se conectar à solução. A solução deve manter backups replicados geograficamente das identidades do dispositivo e carregá-los no Hub IoT secundário antes de mudar o ponto de extremidade ativo para os dispositivos. A funcionalidade de exportação de identidade do dispositivo do Hub IoT é útil neste contexto. Para obter mais informações, consulte [Guia do desenvolvedor do Hub IoT - Registro de identidade](iot-hub-devguide-identity-registry.md).
+* **Replicação de registro de identidade**: Para ser utilizável, o Hub IoT secundário deve conter todas as identidades de dispositivo que podem se conectar à solução. A solução deve manter backups replicados geograficamente das identidades do dispositivo e carregá-los no Hub IoT secundário antes de mudar o ponto de extremidade ativo para os dispositivos. A funcionalidade de exportação de identidade do dispositivo do Hub IoT é útil neste contexto. Para obter mais informações, consulte [Guia do desenvolvedor do Hub IoT - Registro de identidade](iot-hub-devguide-identity-registry.md).
 
-* **Mesclando a lógica**: Quando a região primária fica disponível novamente, todos os dados que foram criados no site secundário e estado devem ser migrados para a região primária. Esse estado e os dados estão relacionados principalmente às identidades de dispositivo e aos metadados do aplicativo, que deverão ser mesclados ao Hub IoT primário e com todos os outros armazenamentos específicos do aplicativo na região primária. 
+* **Lógica**de mesclagem: Quando a região primária ficar disponível novamente, todos os Estados e dados que foram criados no site secundário devem ser migrados de volta para a região primária. Esse estado e os dados estão relacionados principalmente às identidades de dispositivo e aos metadados do aplicativo, que deverão ser mesclados ao Hub IoT primário e com todos os outros armazenamentos específicos do aplicativo na região primária. 
 
 Para simplificar essa etapa, você deve usar operações idempotentes. Operações idempotentes minimizam os efeitos colaterais da distribuição eventual e consistente de eventos e também de duplicatas ou a entrega de eventos fora de ordem. Além disso, a lógica do aplicativo deve ser projetada para tolerar possíveis inconsistências ou um estado ligeiramente desatualizado. Essa situação pode ocorrer devido ao tempo adicional necessário para o sistema recuperar com base nos objetivos de ponto de recuperação (RPO).
 

@@ -12,12 +12,12 @@ ms.date: 03/15/2018
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: 8036a8694bb8c8d0db236eba831f13dc2bf47d0a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2bc8b84d4b98036acc93788dee88444786df139e
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311657"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335846"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do Databricks
 
@@ -57,7 +57,7 @@ A seguir está a definição JSON de exemplo de uma Atividade de Notebook do Dat
 
 A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
-|Propriedade|DESCRIÇÃO|Obrigatório|
+|Propriedade|Descrição|Obrigatório|
 |---|---|---|
 |name|Nome da atividade no pipeline.|Sim|
 |description|Texto que descreve o que a atividade faz.|Não|
@@ -70,7 +70,7 @@ A tabela a seguir descreve as propriedades JSON usadas na definição de JSON:
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas com suporte para atividades do Databricks
 
-Na definição da atividade acima do Databricks você especifica esses tipos de biblioteca: *jar*, *egg*, *maven*, *pypi*,  *cran*.
+Na definição da atividade do databricks acima, você especifica esses tipos de biblioteca: *jar*, *ovo*, *WHL*, *Maven*, *PyPI*, *Cran*.
 
 ```json
 {
@@ -80,6 +80,12 @@ Na definição da atividade acima do Databricks você especifica esses tipos de 
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+    {
+            "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {

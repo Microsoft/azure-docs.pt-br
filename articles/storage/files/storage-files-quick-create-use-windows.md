@@ -1,21 +1,20 @@
 ---
 title: Início Rápido do Azure – criar e usar um compartilhamento do serviço Arquivos do Azure em VMs do Windows | Microsoft Docs
 description: Neste início rápido, você configura um compartilhamento do serviço Arquivos do Azure no portal do Azure e o conecta a uma máquina virtual do Windows. Você se conecta ao compartilhamento do serviço Arquivos e carrega um arquivo nele. Em seguida, tira um instantâneo do compartilhamento do Arquivos, modifica o arquivo no compartilhamento do Arquivos e restaura um instantâneo anterior do compartilhamento do Arquivos.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 5109f4e801c1e34b2026cff8f8dd83558618e153
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 626a6a5e0449d267b67653c2f63303226dd0c99d
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165787"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68699747"
 ---
-# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início rápido: Criar e gerenciar compartilhamento do Armazenamento de Arquivos do Azure com máquinas de virtuais do Windows
+# <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>Início Rápido: Criar e gerenciar compartilhamento do Armazenamento de Arquivos do Azure com máquinas de virtuais do Windows
 
 O artigo demonstra as etapas básicas para criar e usar um compartilhamento do Arquivos do Azure. Neste início rápido, a ênfase é como configurar rapidamente um compartilhamento do Arquivos do Azure para que você possa experimentar o funcionamento do serviço. Se precisar de instruções mais detalhadas para criar e usar compartilhamentos de arquivo do Azure em seu próprio ambiente, consulte [Usar um compartilhamento de arquivos do Azure com o Windows](storage-how-to-use-files-windows.md).
 

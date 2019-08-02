@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 4edd445fe526b9be5c421b21b25f9b095c734f43
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901629"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: Integração do Azure Active Directory com o SumoLogic
 
@@ -53,7 +53,7 @@ Para configurar a integração do SumoLogic ao Azure AD, você precisará adicio
 
 **Para adicionar o SumoLogic pela galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o SumoLogic, execute as seguintes
 
     ![Informações de domínio e de URLs do SumoLogic para logon único](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.SumoLogic.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<tenantname>.SumoLogic.com`
 
-   b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+   b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o SumoLogic, execute as seguintes
 
     ![Configurar o SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configurar o SAML 2.0")
 
-     a. Na caixa de texto **Nome da Configuração**, digite **Azure AD**.
+    a. Na caixa de texto **Nome da Configuração**, digite **Azure AD**.
 
     b. Selecione **Modo de Depuração**.
 
@@ -241,7 +241,7 @@ Para que os usuários do Azure AD possam entrar no SumoLogic, eles precisam ser 
 
     ![Novo Usuário](./media/sumologic-tutorial/ic778563.png "Novo Usuário") 
 
-     a. Digite as informações relacionadas da conta do Azure AD que você deseja provisionar nas caixas de texto **Nome**, **Sobrenome** e **Email**.
+    a. Digite as informações relacionadas da conta do Azure AD que você deseja provisionar nas caixas de texto **Nome**, **Sobrenome** e **Email**.
   
     b. Selecione uma função.
   
@@ -264,5 +264,5 @@ Ao clicar no bloco do SumoLogic no Painel de Acesso, você será conectado autom
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

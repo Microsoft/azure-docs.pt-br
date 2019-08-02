@@ -253,7 +253,7 @@ A lista a seguir explica o esquema de eventos de ciclo de vida:
 * **`id`** : Identificador exclusivo para o evento de grade de eventos.
 * **`subject`** : Caminho para o assunto do evento. `durable/orchestrator/{orchestrationRuntimeStatus}`. `{orchestrationRuntimeStatus}` será `Running`, `Completed`, `Failed` e `Terminated`.  
 * **`data`** : Parâmetros Específicos de Durable Functions.
-  * **`hubName`** : Nome de TaskHub](durable-functions-task-hubs.md).
+  * **`hubName`** : Nome de [TaskHub](durable-functions-task-hubs.md).
   * **`functionName`** : Nome de função do Orchestrator.
   * **`instanceId`** : instanceId de Durable Functions.
   * **`reason`** : dados adicionais associados ao evento de acompanhamento. Para obter mais informações, consulte [Diagnóstico nas Funções Duráveis (Azure Functions)](durable-functions-diagnostics.md)

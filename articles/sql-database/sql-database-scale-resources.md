@@ -11,17 +11,17 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: c918abdc635e7a4a831e367e159354bb752e95e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/25/2019
+ms.openlocfilehash: d8949f63dfa9b409cc14fe9c3bbed70f23a73c86
+ms.sourcegitcommit: a7ea412ca4411fc28431cbe7d2cc399900267585
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66743116"
+ms.lasthandoff: 06/25/2019
+ms.locfileid: "67357146"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dimensionar dinamicamente os recursos de banco de dados com o tempo de inatividade mínimo
 
-O Banco de Dados SQL do Azure permite que você adicione dinamicamente mais recursos ao banco de dados com tempo de inatividade mínimo.
+Banco de dados SQL do Azure permite que você adicionar dinamicamente mais recursos ao seu banco de dados com pouca [tempo de inatividade](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); no entanto, há uma opção de período onde conectividade for perdida ao banco de dados por um curto período de tempo, o que pode ser atenuada com o uso de lógica de repetição.
 
 ## <a name="overview"></a>Visão geral
 
@@ -41,7 +41,7 @@ O Banco de Dados SQL do Azure oferece o [modelo de compra baseado em DTU](sql-da
 Você pode criar seu primeiro aplicativo em um banco de dados individual pequeno com um baixo custo mensal na camada de serviço de Básica, Geral ou de Uso Geral e, depois, alterar a camada de serviço manualmente ou de forma programática a qualquer momento para a camada de serviço Premium ou Comercialmente Crítico para atender às necessidades da solução. Você pode ajustar o desempenho sem tempo de inatividade para seu aplicativo ou para seus clientes. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente às mudanças rápidas de requisitos de recursos e que você pague apenas pelos recursos de que precisa, quando precisar deles.
 
 > [!NOTE]
-> A escalabilidade dinâmica é diferente do dimensionamento automático. O dimensionamento automático é quando um serviço pode ser dimensionado automaticamente com base em critérios, enquanto a escalabilidade dinâmico permite o redimensionamento manual sem tempo de inatividade.
+> A escalabilidade dinâmica é diferente do dimensionamento automático. Dimensionamento automático é quando um serviço é escalado automaticamente com base em critérios, enquanto a escalabilidade dinâmica permite o dimensionamento manual com um tempo de inatividade mínimo.
 
 O Banco de Dados SQL do Azure Individual oferece suporte à escalabilidade dinâmica manual, mas não ao dimensionamento automático. Para uma experiência mais *automática*, considere o uso de pools elásticos, que permitem que os bancos de dados compartilhem recursos em um pool com base nas necessidades individuais do banco de dados.
 No entanto, há scripts que podem ajudar a automatizar a escalabilidade de um Banco de Dados SQL do Azure individual. Para ver um exemplo, consulte [Usar o PowerShell para monitorar e dimensionar um Banco de Dados SQL individual](scripts/sql-database-monitor-and-scale-database-powershell.md).

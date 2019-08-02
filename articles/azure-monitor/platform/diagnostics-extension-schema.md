@@ -10,10 +10,10 @@ ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 1230a9bcea01ef394a6299c50b8d5537850cfee5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60527308"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Versões de esquema de configuração da extensão do Diagnóstico do Azure
@@ -29,7 +29,7 @@ Esta página indexa versões de esquema de extensão do Diagnóstico do Azure fo
 >
 > Esta página só é relevante se você estiver usando um desses serviços.
 
-A extensão de diagnóstico do Azure é usada com outros produtos de diagnóstico da Microsoft, como o Azure Monitor, que inclui o Application Insights e Log Analytics. Para saber mais, veja [Visão geral das ferramentas de monitoramento da Microsoft](../../azure-monitor/overview.md).
+A extensão de Diagnóstico do Azure é usada com outros produtos de diagnóstico da Microsoft, como Azure Monitor, que inclui Application Insights e Log Analytics. Para saber mais, veja [Visão geral das ferramentas de monitoramento da Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envio de versões do SDK e Diagnóstico do Azure  
 
@@ -187,7 +187,7 @@ Há algumas diferenças perceptíveis entre como a cadeia de conexão funcionava
 
 * No SDK do Azure 2.4 e anteriores, a cadeia de conexão era usada como um tempo de execução pelo plug-in de diagnóstico para obter as informações de conta de armazenamento para transferir os logs de diagnóstico.
 * No SDK do Azure 2.6 e posteriores, o Visual Studio usa a cadeia de conexão de diagnóstico para configurar a extensão de diagnóstico com as informações da conta de armazenamento apropriadas durante a publicação. A cadeia de conexão permite definir contas de armazenamento diferentes para diferentes configurações de serviço que o Visual Studio usará ao publicar. No entanto, como o plug-in de diagnóstico não está mais disponível (após o SDK do Azure 2.5), o arquivo .cscfg sozinho por si só não é capaz de habilitar a extensão de diagnóstico. Você precisa habilitar a extensão separadamente por meio de ferramentas como o Visual Studio ou o PowerShell.
-* Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração pública são criados na pasta extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Todas as implantações baseadas em PowerShell podem usar esse padrão para mapear cada configuração para uma função.
+* Para simplificar o processo de configuração da extensão de diagnóstico com o PowerShell, a saída do pacote do Visual Studio também contém o XML de configuração pública para a extensão de diagnóstico para cada função. O Visual Studio usa a cadeia de conexão de diagnóstico para preencher as informações da conta de armazenamento presentes na configuração pública. Os arquivos de configuração públicos são criados na pasta extensões e seguem o padrão `PaaSDiagnostics.<RoleName>.PubConfig.xml`. Todas as implantações baseadas em PowerShell podem usar esse padrão para mapear cada configuração para uma função.
 * A cadeia de conexão no arquivo .cscfg também é usada pelo portal do Azure para acessar os dados de diagnóstico para que possam aparecer na guia **monitoramento** . A cadeia de conexão é necessária para configurar o serviço para mostrar dados do monitoramento detalhado no portal.
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>Migrando projetos para o SDK do Azure 2.6 e posteriores

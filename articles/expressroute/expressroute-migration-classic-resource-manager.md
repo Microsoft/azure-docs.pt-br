@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9f15431015e847d882e51b8d88c5b8a8c121d0ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f73ab7b68e56f5303e84d86a2711b53ffc894276
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67115419"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67718178"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>Migrar redes virtuais associadas ao ExpressRoute do clássico para o Resource Manager
 
@@ -41,7 +41,7 @@ Este artigo explica como migrar redes virtuais associadas ao ExpressRoute do mod
 * Redes virtuais, gateways e implantações associadas dentro da rede virtual que estão anexadas a um circuito de ExpressRoute na mesma assinatura podem ser migradas para o ambiente do Resource Manager sem nenhum tempo de inatividade. Você pode seguir as etapas descritas posteriormente para migrar recursos como redes virtuais, gateways e máquinas virtuais implantadas na rede virtual. Certifique-se de que as redes virtuais estão configuradas corretamente antes de elas serem migradas. 
 * Redes virtuais, gateways e implantações associadas dentro da rede virtual que não estão na mesma assinatura que o circuito de ExpressRoute requerem algum tempo de inatividade para que a migração seja concluída. A última seção do documento descreve as etapas a serem seguidas para migrar os recursos.
 * Uma rede virtual com o Gateway de ExpressRoute e Gateway VPN não pode ser migrada.
-* Não há suporte para a migração entre assinaturas do circuito do ExpressRoute. Para obter mais informações, confira [Serviços que não podem ser movidos](../azure-resource-manager/resource-group-move-resources.md#services-that-cannot-be-moved).
+* Não há suporte para a migração entre assinaturas do circuito do ExpressRoute. Para obter mais informações, consulte [Network mover suporte](../azure-resource-manager/move-support-resources.md#microsoftnetwork).
 
 ## <a name="move-an-expressroute-circuit-from-classic-to-resource-manager"></a>Mover um circuito de ExpressRoute de clássico para Resource Manager
 Você deve mover um circuito de ExpressRoute do ambiente clássico para o do Resource Manager antes de tentar migrar os recursos que estão anexados ao circuito de ExpressRoute. Para realizar essa tarefa, consulte os artigos a seguir:

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 91f1d7151debb1f1f3a562337d6c37e4f63a7ee7
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: d54769c1f3265e2cee619520044313fca46855a5
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565284"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100363"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integração do Azure Active Directory ao Infinite Campus
 
@@ -54,7 +54,7 @@ Para configurar a integração do Infinite Campus no Microsoft Azure Active Dire
 
 **Para adicionar o infinito Campus da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Infinite Campus, execute as seg
 
 4. Na seção Configuração Básica do SAML, execute as seguintes etapas (observe que o domínio variará de acordo com o Modelo de Hospedagem, mas o valor **FULLY-QUALIFIED-DOMAIN** precisa corresponder à instalação do Infinite Campus):
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Infinite Campus, execute as seg
 
     b. Edite o **Nome do Atributo Opcional** para que ele contenha o **nome**
 
-    c. Na seção **Selecionar uma opção para recuperar os dados do servidor do IdP (Provedor de Identidade)**, selecione **URL de Metadados**, cole na caixa o valor da **URL de Metadados da Federação do Aplicativo** copiado do portal do Azure e, em seguida, clique em **Sincronizar**.
+    c. Na seção **Selecionar uma opção para recuperar os dados do servidor do IdP (Provedor de Identidade)** , selecione **URL de Metadados**, cole na caixa o valor da **URL de Metadados da Federação do Aplicativo** copiado do portal do Azure e, em seguida, clique em **Sincronizar**.
 
     d. Depois de clicar em **Sincronizar**, os valores são preenchidos automaticamente na página **Configuração do Provedor de Serviços de SSO**. Esses valores podem ser verificados para que correspondam aos valores vistos na etapa 4 acima.
 
@@ -211,4 +211,4 @@ Ao clicar no bloco do Infinite Campus no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

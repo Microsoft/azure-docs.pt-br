@@ -1,20 +1,21 @@
 ---
 title: Melhores práticas ao usar a API do Detector de Anomalias
+titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre as práticas recomendadas ao detectar anomalias com a API do Detector de anomalias.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9407f2fc9375765efb6eb9688b3ebfeef24ba90a
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64692208"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721628"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Práticas recomendadas para usar a API do Detector de anomalias
 
@@ -51,7 +52,7 @@ Abaixo está o mesmo conjunto de dados usando a detecção de anomalias de lote.
 
 ## <a name="data-preparation"></a>Preparação dos dados
 
-A API do Detector de anomalias aceita a série temporal dados formatados em um objeto de solicitação JSON. Uma série de tempo pode ser qualquer dados numéricos registrados ao longo do tempo, em ordem sequencial. Você pode enviar o windows de seus dados de série temporal para o ponto de extremidade de API do Detector de anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados, que você pode enviar é 12, e o máximo é 8640 pontos. 
+A API do Detector de anomalias aceita a série temporal dados formatados em um objeto de solicitação JSON. Uma série de tempo pode ser qualquer dados numéricos registrados ao longo do tempo, em ordem sequencial. Você pode enviar o windows de seus dados de série temporal para o ponto de extremidade de API do Detector de anomalias para melhorar o desempenho da API. O número mínimo de pontos de dados, que você pode enviar é 12, e o máximo é 8640 pontos. [Granularidade](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) é definida como a taxa de amostragem em seus dados. 
 
 Pontos de dados enviados para a API do Detector de anomalias devem ter um carimbo de hora válidos Tempo Universal Coordenado (UTC) e valor numérico. 
 
@@ -68,6 +69,15 @@ Pontos de dados enviados para a API do Detector de anomalias devem ter um carimb
         "value": 29615278
       },
     ]
+}
+```
+
+Se seus dados são amostrados a um intervalo de tempo não padrão, você pode especificá-lo adicionando o `customInterval` atributo em sua solicitação. Por exemplo, se a série é amostrada a cada 5 minutos, você pode adicionar o seguinte à sua solicitação JSON:
+
+```json
+{
+    "granularity" : "minutely", 
+    "customInterval" : 5
 }
 ```
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d5cc15b0b6ef673396be0cf5bce7ca79cc676b35
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 3c2c77d4d6c816b23b86a7daea7cf5f20e98262d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005113"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: Integração do Azure Active Directory com o eDigitalResearch
 
@@ -53,7 +53,7 @@ Para configurar a integração do eDigitalResearch ao Azure AD, você precisará
 
 **Para adicionar o eDigitalResearch da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o eDigitalResearch, execute as se
 
     ![Informações de logon único de Domínio e URLs do eDigitalResearch](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<company-name>.edigitalresearch.com/login/consume`
 
@@ -199,4 +199,4 @@ Ao clicar no bloco do eDigitalResearch no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

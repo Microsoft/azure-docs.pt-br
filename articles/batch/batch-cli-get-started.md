@@ -4,7 +4,7 @@ description: Obtenha uma introdução rápida dos comandos do Lote na CLI do Azu
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 07/24/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2bd67ebb977a37c75631f16fbbf4c7dbd6bf250
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e541ef82b7fe63042adf84733dd86fdd3eabdf1
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782541"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323728"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -130,7 +130,7 @@ az batch pool create my_batch_pool.json
 
 Embora seja possível criar a maioria dos recursos do Lote usando apenas as opções de linha de comando, alguns recursos exigem a especificação de um arquivo formatado em JSON contendo os detalhes do recurso. Por exemplo, você deve usar um arquivo JSON se quiser especificar arquivos de recurso para uma tarefa de inicialização.
 
-Para ver a sintaxe JSON necessária para criar um recurso, consulte a documentação de [referência da API REST do Lote][rest_api]. Cada tópico "Adicionar *tipo de recurso*" na referência da API REST contém exemplos de scripts JSON para criar esse recurso. Você pode usar esses exemplos de scripts JSON como modelos para que os arquivos JSON usem com a CLI do Azure. Por exemplo, para ver a sintaxe JSON para criação do pool, consulte [Adicionar um pool a uma conta][rest_add_pool].
+Para ver a sintaxe JSON necessária para criar um recurso, consulte a documentação de [referência da API REST do lote][rest_api] . Cada tópico "Adicionar *tipo de recurso*" na referência da API REST contém exemplos de scripts JSON para criar esse recurso. Você pode usar esses exemplos de scripts JSON como modelos para que os arquivos JSON usem com a CLI do Azure. Por exemplo, para ver a sintaxe JSON para a criação do pool, consulte [Adicionar um pool a uma conta][rest_add_pool].
 
 Para um exemplo de script que especifica um arquivo JSON, consulte [Executar um trabalho e tarefas com o Lote](./scripts/batch-cli-sample-run-job.md).
 

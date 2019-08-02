@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c01cb1e7d937c691354270880c1e6be5cd44723
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: eb35982f8004407b51a325bb485f902f51380ba2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898031"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Tutorial: Integração do Azure Active Directory ao IriusRisk
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o IriusRisk, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do IriusRisk](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.iriusrisk.com/ui#!login`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.iriusrisk.com/ui#!login`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor: `iriusrisk-sp`
 
@@ -197,4 +197,4 @@ Ao clicar no bloco do IriusRisk no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0945b06f78ac34500f0b16a4a419cff12d1a4734
+ms.sourcegitcommit: af31deded9b5836057e29b688b994b6c2890aa79
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65952890"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812919"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -43,6 +43,12 @@ Para um comportamento determinístico, defina a hora do evento ao vivo e tentati
 
 Por padrão, a Grade de Eventos expira todos os eventos que não são entregues em 24 horas. Você pode [personalizar a política de repetição](manage-event-delivery.md) ao criar uma assinatura de evento. Forneça o número máximo de tentativas de entrega (o padrão é 30) e a vida útil do evento (o padrão é 1440 minutos).
 
+## <a name="delayed-delivery"></a>Entrega atrasada
+
+Como um ponto de extremidade experiências falhas de entrega, a grade de eventos será iniciado atrasar a entrega e repetição de eventos para esse ponto de extremidade. Por exemplo, se os dez primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos assumirá que o ponto de extremidade está com problemas e atrasará a todas as tentativas subsequentes *novos e* entregas por algum tempo – em alguns casos até algumas horas .
+
+A finalidade funcional de entrega atrasada é proteger os pontos de extremidade não íntegro, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegro, política de repetição da grade de eventos e recursos de volume podem facilmente sobrecarregar um sistema.
+
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
 
 Quando a Grade de Eventos não pode fornecer um evento, ela pode enviar o evento não entregue para uma conta de armazenamento. Este processo é conhecido como armazenamento de mensagens mortas. Por padrão, a Grade de Eventos não ativa o armazenamento de mensagens mortas. Para habilitá-lo, você deve especificar uma conta de armazenamento para reter eventos que não foram entregues ao criar a assinatura do evento. Você aciona eventos dessa conta de armazenamento para resolver as entregas.
@@ -63,25 +69,29 @@ A Grade de Eventos usa códigos de resposta HTTP para confirmar o recebimento de
 
 ### <a name="success-codes"></a>Códigos de êxito
 
-Os códigos de resposta HTTP a seguir indicam que um evento foi entregue com êxito ao webhook. A Grade de Eventos considera entrega concluída.
+Grade de eventos considera **apenas** os seguintes códigos de resposta HTTP como entregas bem-sucedidas. Todos os outros status códigos são considerados entregas com falha e serão repetidos ou morto conforme apropriado. Ao receber um código de status de êxito, a grade de eventos considera entrega concluída.
 
 - 200 OK
+- 201 Criado
 - 202 Aceito
+- 203 informações não autorizadas
+- 204 Sem Conteúdo
 
 ### <a name="failure-codes"></a>Códigos de falha
 
-Os códigos de resposta HTTP a seguir indicam que houve falha na tentativa de entrega do evento.
+Todos os outros códigos não presentes no conjunto acima (200 204) são considerados falhas e serão repetidos. Alguns têm políticas de repetição específica vinculadas a eles descritas abaixo, todos os outros seguem o padrão exponencial retirada modelo. É importante ter em mente que, devido à natureza da arquitetura da grade de eventos altamente em paralelo, o comportamento de repetição é não determinística. 
 
-- 400 Solicitação Inválida
-- 401 Não Autorizado
-- 404 Não Encontrado
-- 408 Tempo limite da solicitação
-- Solicitação 413 entidade muito grande
-- 414 URI muito longo
-- 429 Número excessivo de solicitações
-- 500 Erro Interno do Servidor
-- 503 Serviço Indisponível
-- 504 Tempo Limite do Gateway
+| Código de status | Tentar comportamento novamente |
+| ------------|----------------|
+| 400 Solicitação Inválida | Tente novamente após cinco minutos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
+| 401 Não Autorizado | Tente novamente após cinco minutos ou mais |
+| 403 Proibido | Tente novamente após cinco minutos ou mais |
+| 404 Não Encontrado | Tente novamente após cinco minutos ou mais |
+| 408 Tempo Limite da Solicitação | Tente novamente após 2 minutos ou mais |
+| Solicitação 413 entidade muito grande | Tente novamente após 10 segundos ou mais (mensagens mortas imediatamente se a instalação de mensagens mortas) |
+| 503 Serviço Indisponível | Tente novamente após 30 segundos ou mais |
+| Todos os outros | Tente novamente após 10 segundos ou mais |
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9a20ed50db0e7bc71da559163181619ba35f881
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 561c4458f942dc524f7de8df5b4385a1eaa1f6a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565369"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-betterworks"></a>Tutorial: Integração do Azure Active Directory ao BetterWorks
 
@@ -54,7 +54,7 @@ Para configurar a integração do BetterWorks ao Azure AD, você precisará adic
 
 **Para adicionar o BetterWorks da galeria, execute as seguintes etapas:**
 
-1. No **[portal do Microsoft Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No **[portal do Microsoft Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o BetterWorks, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do BetterWorks](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.betterworks.com/saml2/metadata/`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.betterworks.com/saml2/metadata/`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.betterworks.com/saml2/acs/`
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o BetterWorks, execute as seguint
     | ----- |  ------------ |
     | saml_token | bd189cf6-1701-11e6-8f90-d26992eca2a5 |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -231,4 +231,4 @@ Ao clicar no bloco do BetterWorks no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -4,36 +4,38 @@ description: Saiba como configurar a política de registro de autenticação mul
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2019
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 434d07163713a139b42a5dbe1664f81dafc2a1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 27ff7512bb3f9422ed4c8edd7ab50fce23f0ed07
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108933"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499556"
 ---
-# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registro de autenticação multifator do Azure
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registro da autenticação multifator do Azure
 
-O Azure AD Identity Protection ajuda a gerenciar a disponibilização de registro da autenticação multifator (MFA), configurando uma política de acesso condicional para exigir o registro MFA independente do aplicativo que você está tentando entrar. Este artigo explica o que a política pode ser usada para e como configurá-lo.
+Azure AD Identity Protection ajuda a gerenciar a distribuição do registro de autenticação multifator (MFA) configurando uma política de acesso condicional para exigir o registro de MFA, independentemente do aplicativo de autenticação moderno no qual você está entrando. Este artigo explica o que a política pode ser usada e como configurá-la.
 
-## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>Qual é a política de registro de autenticação multifator do Azure?
 
-Autenticação multifator do Azure fornece um meio para verificar quem você está usando mais do que apenas um nome de usuário e senha. Ele fornece uma segunda camada de segurança para logons de usuário. Em ordem para que os usuários possam responder a prompts do MFA, eles devem primeiro registrar para autenticação multifator do Azure.
 
-É recomendável que você exija autenticação multifator do Azure para entradas do usuário porque ele:
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>O que é a política de registro da autenticação multifator do Azure?
+
+A autenticação multifator do Azure fornece um meio de verificar quem você está usando mais do que apenas um nome de usuário e senha. Ele fornece uma segunda camada de segurança para entradas de usuário. Para que os usuários possam responder aos prompts do MFA, eles devem primeiro se registrar para a autenticação multifator do Azure.
+
+Recomendamos que você exija a autenticação multifator do Azure para entradas de usuário porque:
 
 - fornece autenticação forte com uma variedade de opções de verificação fácil
-- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar eventos de risco do Identity Protection
+- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar-se de eventos de risco no Identity Protection
 
-Para obter mais detalhes sobre a MFA, consulte [o que é autenticação multifator do Azure?](../authentication/howto-mfa-getstarted.md)
+Para obter mais detalhes sobre o MFA, consulte [o que é a autenticação multifator do Azure?](../authentication/howto-mfa-getstarted.md)
 
-## <a name="how-do-i-access-the-registration-policy"></a>Como fazer para acessar a política de registro?
+## <a name="how-do-i-access-the-registration-policy"></a>Como fazer acessar a política de registro?
 
 A política de risco de MFA encontra-se na seção **Configurar** na página do [Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
 
@@ -41,23 +43,25 @@ A política de risco de MFA encontra-se na seção **Configurar** na página do 
 
 ## <a name="policy-settings"></a>Configurações de política
 
-Quando você configura a política de registro MFA, você precisa fazer as seguintes alterações de configuração:
+Ao configurar a política de registro de MFA, você precisa fazer as seguintes alterações de configuração:
 
-- Os usuários e grupos que a política se aplica. Lembre-se de excluir da sua organização [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md).
+- Os usuários e grupos aos quais a política se aplica. Lembre-se de excluir as [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md)da sua organização.
 
     ![Usuários e grupos](./media/howto-mfa-policy/11.png)
 
-- O controle que você deseja impor - **registro exigir MFA do Azure**
+- O controle que você deseja impor – **exigir registro do Azure MFA**
 
-    ![Access](./media/howto-mfa-policy/12.png)
+    ![Acessar](./media/howto-mfa-policy/12.png)
 
-- Impor a política deve ser definida como **em**.
+- Impor política deve ser definido como **ativado**.
 
     ![Impor a política](./media/howto-mfa-policy/14.png)
 
 - **Salvar** sua política
 
-## <a name="user-experience"></a>Experiência do usuário
+## <a name="user-experience"></a>Experiência de usuário
+
+Azure Active Directory Identity Protection solicitará que os usuários se registrem na próxima vez que entrarem de forma interativa.
 
 Para obter uma visão geral da experiência do usuário relacionada, confira:
 

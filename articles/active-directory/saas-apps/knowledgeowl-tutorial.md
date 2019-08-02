@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: b57beb18b8bf7d82694f89e131d79d15c6fcd6bc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ab80b6efef71c71feea1359112d09bae90a7ab84
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728285"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledgeowl"></a>Tutorial: Integração do Azure Active Directory ao KnowledgeOwl
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Knowled
 
     ![Informações de logon único no Domínio e nas URLs do KnowledgeOwl](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
 
     ||
     |-|
@@ -152,7 +152,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Knowled
     | ------------ | -------------------- | -----|
     | ssoid | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -196,7 +196,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o Knowled
 
     ![Configuração do KnowledgeOwl](./media/knowledgeowl-tutorial/configure2.png)
 
-     a. Selecione **Habilitar SSO do SAML**.
+    a. Selecione **Habilitar SSO do SAML**.
 
     b. Copie o valor da **ID da Entidade SP** e cole-o na caixa de texto **Identificador (ID da Entidade)** na seção **Configuração Básica de SAML** no portal do Azure.
 
@@ -294,4 +294,4 @@ Ao clicar no bloco KnowledgeOwl no Painel de Acesso, você deve ser conectado au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

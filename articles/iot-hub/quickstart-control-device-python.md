@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/26/2019
-ms.openlocfilehash: 74146242ef4084e5990027117689bb1371c3f272
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.date: 06/21/2019
+ms.openlocfilehash: fe0c16962eef38ac26490eb7928d1705ef63a217
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65832175"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68355032"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Início Rápido: Controlar um dispositivo conectado a um hub IoT (Python)
 
@@ -44,11 +44,11 @@ Você pode baixar o Python para outras plataformas do [Python.org](https://www.p
 Você pode verificar a versão atual do Python no computador de desenvolvimento usando um dos seguintes comandos:
 
 ```python
-python --version
+python - -version
 ```
 
 ```python
-python3 --version
+python3 - -version
 ```
 
 Execute o comando a seguir para adicionar a Extensão do Microsoft Azure IoT para a CLI do Azure à instância do Cloud Shell. A Extensão de IoT adiciona comandos específicos do Hub IoT, do IoT Edge e do DPS (Serviço de Provisionamento de Dispositivos) no IoT à CLI do Azure.
@@ -102,12 +102,13 @@ Um dispositivo deve ser registrado no hub IoT antes de poder se conectar. Neste 
     ```azurecli-interactive
     az iot hub show-connection-string \
       --name YourIoTHubName \
+      --policy-name service \
       --output table
     ```
 
     Tome nota da cadeia de conexão de serviço, que se parece com:
 
-   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     Você usará esse valor posteriormente no início rápido. A cadeia de conexão do serviço é diferente da cadeia de conexão do dispositivo.
 

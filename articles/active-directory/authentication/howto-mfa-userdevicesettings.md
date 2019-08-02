@@ -1,6 +1,6 @@
 ---
-title: Os administradores a gerenciar usuários e dispositivos - Azure MFA - Azure Active Directory
-description: Como os administradores podem alterar configurações do usuário, como forçar os usuários a fazer o processo de verificação novamente.
+title: Administradores gerenciam usuários e dispositivos – Azure MFA-Azure Active Directory
+description: Como os administradores podem alterar as configurações do usuário, como forçar os usuários a fazer o processo de verificação novamente.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3152dead04510078dd475b611afbfc30264e58f7
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66298835"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297644"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a Autenticação Multifator do Azure na nuvem
 
@@ -25,6 +25,12 @@ Como administrador, você pode gerenciar as seguintes configurações de usuári
 * Exigir que os usuários forneçam métodos de contato novamente
 * Excluir senhas de aplicativo
 * Exigir a MFA em todos os dispositivos confiáveis
+
+## <a name="manage-authentication-methods"></a>Gerenciar métodos de autenticação
+
+Como um administrador atribuiu a função de administrador de autenticação, você pode exigir que os usuários redefinam sua senha, registrem-se novamente para MFA ou revogar sessões de MFA existentes de seu objeto de usuário.
+
+![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
 ## <a name="require-users-to-provide-contact-methods-again"></a>Exigir que os usuários forneçam métodos de contato novamente
 
@@ -35,14 +41,14 @@ Essa configuração força o usuário a concluir o processo de registro novament
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
 3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator.
-4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida aparece à direita.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **Gerenciar configurações de usuário**.
 6. Marque a caixa **Exigir que os usuários selecionados forneçam métodos de contato novamente**.
    ![Exigir que os usuários forneçam métodos de contato novamente](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Clique em **Salvar**.
 8. Clique em **Fechar**.
 
-As organizações podem concluir essas etapas com o PowerShell usando o seguinte como um guia para limpar o `StrongAuthenticationMethods` atributo:
+As organizações podem concluir essas etapas com o PowerShell usando o seguinte como um guia para `StrongAuthenticationMethods` limpar o atributo:
 
 ```PowerShell
 $Upn = "theuser@domain.com"
@@ -59,10 +65,10 @@ Essa configuração exclui todas as senhas de aplicativo que um usuário criou. 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
 3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator.
-4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida aparece à direita.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **Gerenciar configurações de usuário**.
 6. Marque a caixa **Excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
-   ![Excluir todas as senhas de aplicativo existente](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   ![Excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Clique em **Salvar**.
 8. Clique em **Fechar**.
 
@@ -72,17 +78,17 @@ Um dos recursos configuráveis da Autenticação Multifator do Azure está dando
 
 Os usuários podem ignorar a verificação em duas etapas durante um período configurável em seus dispositivos regulares. Se uma conta for comprometida ou um dispositivo confiável for perdido, você precisa conseguir remover o status de confiável e exigir novamente a verificação em duas etapas.
 
-Quando marcada, **restaurar a autenticação multifator em todos os dispositivos lembrados** os usuários são necessários para executar a verificação em duas etapas na próxima vez que entrar, mesmo se eles marcados seus dispositivos como confiáveis.
+Quando marcada, **restaure a autenticação multifator em todos os dispositivos lembrados** os usuários devem executar a verificação em duas etapas na próxima vez que entrarem, mesmo que tenham marcado seu dispositivo como confiável.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como Restaurar a MFA em todos os dispositivos suspensos para um usuário
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. À esquerda, selecione **Azure Active Directory** > **Usuários** > **Todos os usuário**.
 3. À direita, selecione **Autenticação Multifator** na barra de ferramentas. Abre a página de autenticação multifator.
-4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida aparece à direita.
+4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **Gerenciar configurações de usuário**.
-6. Marque a caixa **restaurar a autenticação multifator em todos os dispositivos lembrados**
-   ![restaurar a autenticação multifator em todos os dispositivos lembrados](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+6. Marque a caixa para **restaurar a autenticação multifator em todos os dispositivos**
+   ![lembrados restaurar a autenticação multifator em todos os dispositivos lembrados](./media/howto-mfa-userdevicesettings/rememberdevices.png)
 7. Clique em **Salvar**.
 8. Clique em **Fechar**.
 

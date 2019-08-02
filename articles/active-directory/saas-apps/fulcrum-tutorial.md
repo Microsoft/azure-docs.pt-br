@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 040413f2e0daccc04921f32199a3c75e8d38310e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 57c95ddba28904ad24822b5ac0b01a77b4076db2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267354"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101991"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fulcrum"></a>Tutorial: Integração do Azure Active Directory com Fulcrum
 
@@ -54,7 +54,7 @@ Para configurar a integração do Fulcrum no Azure AD, será necessário adicion
 
 **Para adicionar o Fulcrum da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Fulcrum, execute as seguintes e
     | last_name | user.surname |
     | email | user.mail |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -232,5 +232,5 @@ Ao clicar no bloco do Fulcrum no Painel de Acesso, você deverá entrar automati
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -8,33 +8,33 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: b3c8fca1dd93f379860cc3b084fbb14d4a0c6380
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb82e31d58d9955efc3b147eccf2b82b8768aeee
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64577354"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165797"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral de nós CloudSimple
 
 Um nó é:
 
 * Um dedicado bare-metal de computação host em que o hipervisor VMware ESXi está instalado  
-* Uma unidade de computação que você pode comprar ou reserva para criar nuvens privadas  
-* Disponível para compra ou reservar em uma região em que o serviço de CloudSimple está disponível
+* Uma unidade de computação que você pode provisionar ou reserva para criar nuvens privadas  
+* Disponível para provisionar ou reservar em uma região em que o serviço de CloudSimple está disponível
 
-Nós são blocos de construção de uma nuvem privada.  Para criar uma nuvem privada, é necessário um mínimo de três nós da mesma SKU.  Para expandir uma nuvem privada, adicione nós adicionais.  Você pode adicionar nós a um cluster existente. Ou, você pode criar um novo cluster de compra de nós no portal do Azure e associando-os com o serviço CloudSimple.  Todos os nós comprados são visíveis no serviço CloudSimple.  Criar uma nuvem privada de nós no Portal de CloudSimple adquiridos.
+Nós são blocos de construção de uma nuvem privada.  Para criar uma nuvem privada, é necessário um mínimo de três nós da mesma SKU.  Para expandir uma nuvem privada, adicione nós adicionais.  Você pode adicionar nós a um cluster existente. Ou, você pode criar um novo cluster de provisionamento de nós no portal do Azure e associando-os com o serviço CloudSimple.  Todos os nós provisionado são visíveis no serviço CloudSimple.  Criar uma nuvem privada de nós provisionados no Portal de CloudSimple.
 
-## <a name="purchased-nodes"></a>Nós adquiridas
+## <a name="provisioned-nodes"></a>Nós provisionado
 
-Nós adquiridas fornecem a capacidade de pago conforme o uso. Compra nós ajuda você a dimensionar rapidamente seu cluster do VMware sob demanda. Você pode adicionar nós conforme necessário, ou excluir um nó adquirido para escalar verticalmente o cluster do VMware. Nós comprados são cobradas mensalmente e cobradas na assinatura em que são compradas:
+Nós provisionados fornecem a capacidade de pago conforme o uso. Provisionamento de nós ajuda você a dimensionar rapidamente seu cluster do VMware sob demanda. Você pode adicionar nós conforme necessário, ou excluir um nó provisionado para escalar verticalmente o cluster do VMware. nós provisionados são cobrados mensalmente e cobradas na assinatura em que eles são provisionados:
 
 * Se você pagar sua assinatura do Azure com cartão de crédito, cartão será cobrado imediatamente.
 * Se você é cobrado por fatura, as cobranças aparecem na sua próxima fatura.
 
 ## <a name="vmware-solution-by-cloudsimple-nodes-sku"></a>Solução VMware por nós CloudSimple SKU
 
-Os nós de tipos a seguir estão disponíveis para compra ou reserva.
+Os nós de tipos a seguir estão disponíveis para provisionamento ou reserva.
 
 | SKU | CS28 - nó | CS36 - nó |
 |-----|-------------|-------------|
@@ -57,5 +57,5 @@ Os limites de nó a seguir se aplicam a nuvens privadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba como [nós de compra](create-nodes.md)
+* Saiba como [provisionar nós](create-nodes.md)
 * Saiba mais sobre [nuvem privada](cloudsimple-private-cloud.md)

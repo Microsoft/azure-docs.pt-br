@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ)
+title: Perguntas frequentes – LUIS
 titleSuffix: Azure Cognitive Services
 description: Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal).
 author: diberry
@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f922f9c64f182377365192543305b48659c518da
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5122a5a88f5a0d67799930999236f2993bc43f8f
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417985"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68609751"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o LUIS (Serviço Inteligente de Reconhecimento Vocal)
 
@@ -24,7 +24,7 @@ Este artigo contém as respostas para perguntas frequentes sobre o LUIS (Serviç
 
 ## <a name="whats-new"></a>Novidades
 
-[Saiba mais](whats-new.md) sobre o que há de novo no reconhecimento vocal.
+[Saiba mais](whats-new.md) sobre as novidades do reconhecimento vocal.
 
 <a name="luis-authoring"></a>
 
@@ -68,11 +68,11 @@ Os aplicativos pré-compilados da Cortana foram preteridos em 2017. Não há mai
 ### <a name="how-do-i-transfer-ownership-of-a-luis-app"></a>Como fazer para transferir a propriedade de um aplicativo de LUIS?
 Para transferir um aplicativo de LUIS para uma assinatura do Azure diferente, exporte o aplicativo de LUIS e importe-lo usando uma nova conta. Atualize a ID do aplicativo de LUIS no aplicativo cliente que o chama. O novo aplicativo pode retornar pontuações de LUIS ligeiramente diferentes que as do aplicativo original.
 
-### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em uma expressão de exemplo, em vez de minha entidade personalizada. Como corrigir isso? 
+### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>Uma entidade predefinida é marcada em um exemplo de expressão em vez de minha entidade personalizada. Como corrigir isso? 
 
-Ver [as entidades predefinidas de solução de problemas](luis-concept-entity-types.md#troubleshooting-prebuilt-entities).
+Consulte [Solucionando problemas de entidades](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)predefinidas.
 
-### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Eu tentei importar um arquivo de aplicativo ou versão, mas recebi um erro, o que aconteceu? 
+### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>Tentei importar um arquivo de aplicativo ou de versão, mas recebi um erro, o que aconteceu? 
 
 Leia mais sobre [erros de importação de versão](luis-how-to-manage-versions.md#import-errors) e [erros de importação de aplicativo](luis-how-to-start-new-app.md#import-errors).
 
@@ -123,7 +123,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>Meu aplicativo de LUIS estava funcionando ontem, mas hoje estou recebendo erros 403. Eu não alterei o aplicativo. Como corrigi-la?
-Seguindo as [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) nas próximas perguntas frequentes para criar uma chave de ponto de extremidade de LUIS e atribuindo-a ao aplicativo. Em seguida, você deve alterar a solicitação HTTP para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query).
+Siga estas [instruções](#how-do-i-create-and-assign-a-luis-endpoint-key) para criar uma chave de ponto de extremidade Luis e atribuí-la ao aplicativo. Em seguida, você deve alterar a solicitação HTTP do aplicativo cliente para o ponto de extremidade para [usar a nova chave de ponto de extremidade](luis-concept-keys.md#use-endpoint-key-in-query). Se você criou um novo recurso em uma região diferente, altere também a região da solicitação de cliente HTTP.
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>Como fazer para protejar o ponto de extremidade de LUIS?
 Veja [Protegendo o ponto de extremidade](luis-concept-security.md#securing-the-endpoint).
@@ -189,11 +189,11 @@ Confira [Chaves de ponto de extremidade de previsão de criação e consulta no 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>Recebi um erro informando a ausência de cota. Como corrigi-la? 
 
-Confira [Como consertar erros de limite de cota quando a chave ultrapassa o uso do tipo de preço](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) para saber mais.
+Consulte [corrigir o código de status HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) para saber mais.
 
 ### <a name="i-need-to-handle-more-endpoint-queries-how-do-i-do-that"></a>Eu preciso lidar com mais consultas de ponto de extremidade. Como faço isso? 
 
-Confira [Como consertar erros de limite de cota quando a chave ultrapassa o uso do tipo de preço](luis-how-to-azure-subscription.md##how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage) para saber mais.
+Consulte [corrigir o código de status HTTP 403 e 429](luis-how-to-azure-subscription.md#fix-http-status-code-403-and-429) para saber mais.
 
 
 
@@ -288,23 +288,23 @@ Sim, você poderá usar o [contêiner](luis-container-howto.md) do LUIS para ess
 
 ## <a name="migrating-to-the-next-version"></a>Migrando para a próxima versão
 
-### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como migrar para visualizar V3 API? 
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>Como fazer migrar para a API da visualização v3? 
 
-Consulte [API v2 para v3 migração guia para aplicativos do LUIS](luis-migration-api-v3.md)
+Consulte o [Guia de migração da API v2 para V3 para aplicativos Luis](luis-migration-api-v3.md)
 
-## <a name="build-2019-conference-announcements"></a>Anúncios de conferência do Build de 2019
+## <a name="build-2019-conference-announcements"></a>Crie anúncios de conferência 2019
 
 Os seguintes recursos foram lançados na conferência Build 2019:
 
-* [Visualização do guia de migração de API V3](luis-migration-api-v3.md)
-* [Dashboard de análises aprimoradas](luis-how-to-use-dashboard.md)
+* [Visualização do guia de migração da API v3](luis-migration-api-v3.md)
+* [Painel analítico aprimorado](luis-how-to-use-dashboard.md)
 * [Domínios predefinidos aprimorados](luis-reference-prebuilt-domains.md) 
 * [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
 Vídeos:
 
-* [Como usar inteligência Artificial de conversação do Azure para dimensionar seus negócios para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
+* [Como usar o AI de conversa do Azure para dimensionar sua empresa para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Próximas etapas
 

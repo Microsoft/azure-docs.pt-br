@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35f9a8949f5b51f88b9297890fc5562e7b8dd591
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3625a6bbf22a2d51546a91e8a5f7c58b7fbb264f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273372"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101182"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-help-scout"></a>Tutorial: Integração do Azure Active Directory ao Help Scout
 
@@ -54,7 +54,7 @@ Para configurar a integração do Help Scout com o Azure AD, você precisará ad
 
 **Para adicionar o Help Scout por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Help Scout, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do Help Scout](common/idp-intiated.png)
 
-     a. **Identificador** é o **URI do Público-alvo (ID da Entidade do Provedor de Serviços)** do Help Scout e começa com `urn:`
+    a. **Identificador** é o **URI do Público-alvo (ID da Entidade do Provedor de Serviços)** do Help Scout e começa com `urn:`
 
     b. **URL de Resposta** é a **URL de Postback (URL do Serviço do Consumidor de Declaração)** do Help Scout e começa com `https://` 
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o Help Scout, execute as seguinte
 
     ![Configurar o logon único](./media/helpscout-tutorial/settings3.png)
 
-     a. Copie o valor da **URL de Postback (URL do Serviço do Consumidor de Declaração)** e cole o valor na caixa de texto **URL de Resposta** na seção **Configuração Básica do SAML** no portal do Azure.
+    a. Copie o valor da **URL de Postback (URL do Serviço do Consumidor de Declaração)** e cole o valor na caixa de texto **URL de Resposta** na seção **Configuração Básica do SAML** no portal do Azure.
 
     b. Copie o valor do **URI do Público-alvo (ID da Entidade do Provedor de Serviços)** e cole-o na caixa de texto **Identificador** na seção **Configuração Básica do SAML** no portal do Azure.
 
@@ -157,7 +157,7 @@ Para configurar o logon único do Azure AD com o Help Scout, execute as seguinte
 
     ![Configurar o logon único](./media/helpscout-tutorial/settings4.png)
 
-     a. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **URL de Logon Único**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Clique em **Carregar Certificado** para carregar o **Certificado(Base64)** baixado no portal do Azure.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 60ec322758a3c3b83e7b24cfba37daaec02fc4c0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: df1d70f895e2e0a81344cf2a4e8e2d9963c951fa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270822"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67100592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-igloo-software"></a>Tutorial: Integração do Azure Active Directory com o Igloo Software
 
@@ -54,7 +54,7 @@ Para configurar a integração do Igloo Software ao Azure AD, você precisa adic
 
 **Para adicionar o Igloo Software da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
     ![Informações de logon único de domínio e de URLs do Igloo Software](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<company name>.igloocommmunities.com/saml.digest`
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
     ![Configuração geral](./media/igloo-software-tutorial/ic783970.png "Configuração geral")
 
-     a. Na caixa de texto **Nome da Conexão** , digite um nome personalizado para a sua configuração.
+    a. Na caixa de texto **Nome da Conexão** , digite um nome personalizado para a sua configuração.
 
     b. Na caixa de texto **URL de Logon de IdP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -163,7 +163,7 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
     ![Configuração de autenticação e resposta](./media/igloo-software-tutorial/IC783971.png "Configuração de autenticação e resposta")
   
-     a. Para **Provedor de Identidade**, selecione **Microsoft ADFS**.
+    a. Para **Provedor de Identidade**, selecione **Microsoft ADFS**.
 
     b. Para **Tipo de Identificador**, selecione **Endereço de Email**. 
 
@@ -177,9 +177,9 @@ Para configurar o logon único do Azure AD com o Igloo Software, execute as segu
 
     ![Criação de usuário na entrada](./media/igloo-software-tutorial/IC783972.png "Criação de usuário na entrada") 
 
-     a. Para **Criação de usuário na Entrada**, selecione **Criar um novo usuário em seu site ao entrar**.
+    a. Para **Criação de usuário na Entrada**, selecione **Criar um novo usuário em seu site ao entrar**.
 
-    b. Para **Configurações de Entrada**, selecione **Usar botão do SAML na tela “Entrar”**.
+    b. Para **Configurações de Entrada**, selecione **Usar botão do SAML na tela “Entrar”** .
 
     c. Clique em **Save** (Salvar).
 

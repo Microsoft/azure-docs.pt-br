@@ -3,23 +3,17 @@ title: Tratar eventos de ciclo de vida do Serviço de Nuvem | Microsoft Docs
 description: Saiba como os métodos de ciclo de vida de uma função de Serviço de Nuvem podem ser usados no .NET
 services: cloud-services
 documentationcenter: .net
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 39b30acd-57b9-48b7-a7c4-40ea3430e451
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: fa4eebfa64a296e6830db3730de31ca9b0565678
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60406405"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68358977"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizar o ciclo de vida de uma função Web ou de trabalho no .NET
 Quando você cria uma função de trabalho, estende a classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) que oferece métodos a serem substituídos, permitindo que você responda a eventos de ciclo de vida. Para funções Web, essa classe é opcional e, portanto, deve ser usada para responder a eventos de ciclo de vida.

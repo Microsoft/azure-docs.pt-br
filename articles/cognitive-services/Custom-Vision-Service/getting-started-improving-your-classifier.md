@@ -1,6 +1,6 @@
 ---
 title: Melhorar o classificador - Serviço de Visão Personalizada
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Saiba como melhorar a qualidade do classificador.
 services: cognitive-services
 author: PatrickFarley
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60606940"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68561049"
 ---
 # <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
 
@@ -29,7 +29,7 @@ Este é um padrão geral para ajudá-lo a criar um classificador mais preciso:
 1. Usar novas imagens para testar a previsão
 1. Modificar os dados de treinamento existente de acordo com os resultados da previsão
 
-## <a name="prevent-overfitting"></a>Evitar o superajuste
+## <a name="prevent-overfitting"></a>Impedir superajuste
 
 Às vezes, um classificador aprenderá fazer previsões com base nas características arbitrárias que suas imagens têm em comum. Por exemplo, se estiver criando um classificador para maçãs em comparação com frutas cítricas e tiver usado imagens de maçãs em mãos e de frutas cítricas em pratos brancos, o classificador poderá dar uma importância indevida a mãos em comparação com pratos, em vez de maçãs em comparação com cítricos.
 
@@ -39,7 +39,7 @@ Para corrigir esse problema, use as diretrizes a seguir sobre treinamento com im
 
 ## <a name="data-quantity"></a>Quantidade de dados
 
-O número de imagens de treinamento é o fator mais importante. É recomendável usar pelo menos 50 imagens por rótulo como ponto de partida. Com menos imagens, há maior risco de sobreajuste e, enquanto os números de desempenho possam sugerir boa qualidade, seu modelo pode apresentar dificuldades com os dados do mundo real. 
+O número de imagens de treinamento é o fator mais importante. É recomendável usar pelo menos 50 imagens por rótulo como um ponto de partida. Com menos imagens, há maior risco de sobreajuste e, enquanto os números de desempenho possam sugerir boa qualidade, seu modelo pode apresentar dificuldades com os dados do mundo real. 
 
 ## <a name="data-balance"></a>Balanceamento de dados
 

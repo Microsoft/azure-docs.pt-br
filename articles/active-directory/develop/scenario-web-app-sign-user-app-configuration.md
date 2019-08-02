@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web que conecta os usuários (configuração do código) – plataforma de identidade da Microsoft
-description: Saiba como criar um aplicativo web que conecta os usuários (configuração de código)
+title: Aplicativo Web que conecta usuários (configuração de código)-plataforma de identidade da Microsoft
+description: Saiba como criar um aplicativo Web que faz logon de usuários (configuração de código)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,16 +15,16 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e6cbcd01c87ddffb7eac8d0ea0faef85f41a13
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c962e95b3d213c4089b51f58139cab17a3332cbd
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254002"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67853062"
 ---
-# <a name="web-app-that-signs-in-users---code-configuration"></a>Que se conecta os usuários - configuração de código do aplicativo Web
+# <a name="web-app-that-signs-in-users---code-configuration"></a>Aplicativo Web que faz logon de usuários – configuração de código
 
-Saiba como configurar o código do aplicativo Web que os usuários entrar.
+Saiba como configurar o código para seu aplicativo Web que faz logon de usuários.
 
 ## <a name="libraries-used-to-protect-web-apps"></a>Bibliotecas usadas para proteger aplicativos Web
 
@@ -33,17 +33,19 @@ As bibliotecas usadas para proteger um aplicativo Web (e uma API da Web) são:
 
 | Plataforma | Biblioteca | DESCRIÇÃO |
 |----------|---------|-------------|
-| ![.NET](media/sample-v2-code/logo_net.png) | [Extensões de modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Microsoft Identity Extensions para .NET usado diretamente pelo ASP.NET e ASP.NET Core, propõe a um conjunto de DLLs em execução no .NET Framework e .NET Core. De um aplicativo Web do Core ASP.NET/ASP.NET, você pode controlar a validação de token usando o **TokenValidationParameters** classe (em especial em alguns cenários de ISV) |
+| ![.NET](media/sample-v2-code/logo_net.png) | [Extensões do modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Usado diretamente por ASP.NET e ASP.NET Core, o Microsoft Identity Extensions for .NET propõe um conjunto de DLLs em execução no .NET Framework e no .NET Core. De um aplicativo Web ASP.NET/ASP.NET Core, você pode controlar a validação de token usando a classe **TokenValidationParameters** (em particular em alguns cenários de ISV) |
 
-## <a name="aspnet-core-configuration"></a>Configuração do ASP.NET Core
+## <a name="aspnet-core-configuration"></a>Configuração de ASP.NET Core
 
-### <a name="application-configuration-files"></a>Arquivos de configuração de aplicativo
+Os trechos de código neste artigo e os seguintes são extraídos do [tutorial de ASP.NET Core incremental do aplicativo Web, capítulo 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg). Talvez você queira consultar esse tutorial para obter detalhes completos de implementação.
 
-No ASP.NET Core, uma Web entrar em usuários do aplicativo com a plataforma de identidade da Microsoft é configurado por meio de `appsettings.json` arquivo. As configurações que você precisa preencher são:
+### <a name="application-configuration-files"></a>Arquivos de configuração do aplicativo
+
+No ASP.NET Core, um aplicativo Web que faz logon em usuários com a plataforma Microsoft Identity é configurado por `appsettings.json` meio do arquivo. As configurações que você precisa preencher são:
 
 - a nuvem `Instance` se você quiser que seu aplicativo seja executado em nuvens nacionais
-- o público-alvo no `tenantId`
-- o `clientId` para seu aplicativo, como foi copiado do portal do Azure.
+- o público em`tenantId`
+- o `clientId` para seu aplicativo, conforme copiado do portal do Azure.
 
 ```JSon
 {
@@ -56,7 +58,7 @@ No ASP.NET Core, uma Web entrar em usuários do aplicativo com a plataforma de i
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only
@@ -70,7 +72,7 @@ No ASP.NET Core, uma Web entrar em usuários do aplicativo com a plataforma de i
 }
 ```
 
-No ASP.NET Core, há outro arquivo que contém a URL (`applicationUrl`) e a porta SSL (`sslPort`) para seu aplicativo, bem como vários perfis.
+Em ASP.NET Core, há outro arquivo que contém a URL (`applicationUrl`) e a porta SSL (`sslPort`) para seu aplicativo, bem como vários perfis.
 
 ```JSon
 {
@@ -102,16 +104,16 @@ No ASP.NET Core, há outro arquivo que contém a URL (`applicationUrl`) e a port
 }
 ```
 
-No portal do Azure, a resposta de URIs que você precisa registrar na **autenticação** página do seu aplicativo precisa corresponder a essas URLs; ou seja, para os dois arquivos de configuração acima, eles seria `https://localhost:44321/signin-oidc` como o applicationUrl está `http://localhost:3110` , mas o `sslPort` é especificado (44321) e o `CallbackPath` é `/signin-oidc` conforme definido no `appsettings.json`.
+No portal do Azure, os URIs de resposta que você precisa registrar na página de **autenticação** do seu aplicativo precisam corresponder a essas URLs; ou seja, para os dois arquivos de configuração acima, eles seriam `https://localhost:44321/signin-oidc` como o applicationUrl é `http://localhost:3110` , mas `sslPort` o é especificado (44321) e o `CallbackPath` é `/signin-oidc` definido no `appsettings.json`.
   
-Da mesma forma, o URI de saída seria definida como `https://localhost:44321/signout-callback-oidc`.
+Da mesma forma, o URI de saída seria definido como `https://localhost:44321/signout-callback-oidc`.
 
 ### <a name="initialization-code"></a>Código de inicialização
 
-Em aplicativos Web do ASP.NET Core (e APIs da Web), o código que fazer a inicialização do aplicativo está localizado no `Startup.cs` arquivo, e, para adicionar a autenticação com o Microsoft Identity platform (anteriormente conhecido como Azure AD) v2.0, você precisará adicionar o código a seguir. Os comentários no código devem ser autoexplicativos.
+Em ASP.NET Core aplicativos Web (e APIs Web), o código que faz a inicialização do aplicativo está localizado `Startup.cs` no arquivo e, para adicionar autenticação com a plataforma de identidade da Microsoft (anteriormente Azure AD) v 2.0, você precisará adicionar o código a seguir. Os comentários no código devem ser auto-explicativos.
 
   > [!NOTE]
-  > Se você iniciar seu projeto com o projeto de web padrão ASP.NET core no Visual studio ou usando `dotnet new mvc` o método `AddAzureAD` está disponível por padrão, porque os pacotes relacionados são carregados automaticamente. No entanto se você criar um projeto do zero e tentar usar o código abaixo, sugerimos que você para adicionar o pacote do NuGet **"Microsoft.AspNetCore.Authentication.AzureAD.UI"** ao seu projeto para fazer o `AddAzureAD` método disponível.
+  > Se você iniciar o projeto com `dotnet new mvc` o projeto Web padrão ASP.NET Core no Visual Studio ou se o método `AddAzureAD` estiver disponível por padrão, pois os pacotes relacionados serão carregados automaticamente. No entanto, se você criar um projeto do zero e estiver tentando usar o código abaixo, sugerimos que você adicione o pacote NuGet **"Microsoft. AspNetCore. Authentication. AzureAD. UI"** ao seu projeto `AddAzureAD` para tornar o método disponível.
   
 ```CSharp
  services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
@@ -140,7 +142,7 @@ Em aplicativos Web do ASP.NET Core (e APIs da Web), o código que fazer a inicia
 
 ## <a name="aspnet-configuration"></a>Configuração do ASP.NET
 
-No ASP.NET, o aplicativo é configurado por meio de `Web.Config` arquivo
+No ASP.net, o aplicativo é configurado por meio `Web.Config` do arquivo
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -162,7 +164,7 @@ No ASP.NET, o aplicativo é configurado por meio de `Web.Config` arquivo
   </appSettings>
 ```
 
-O código relacionado à autenticação no aplicativo Web ASP.NET / APIs Web está localizada no `App_Start/Startup.Auth.cs` arquivo.
+O código relacionado à autenticação no aplicativo Web/APIs Web do ASP.net está localizado no `App_Start/Startup.Auth.cs` arquivo.
 
 ```CSharp
  public void ConfigureAuth(IAppBuilder app)

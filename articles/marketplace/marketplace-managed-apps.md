@@ -2,18 +2,18 @@
 title: Guia de publicação da oferta de aplicativo gerenciado de Aplicativos do Azure
 description: Este artigo descreve os requisitos para publicar um aplicativo gerenciado no Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: ellacroi
-manager: nunoc
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/19/2018
-ms.author: ellacroi
-ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2018
+ms.author: v-qiwe
+ms.openlocfilehash: 29546b0969751a43959a55860fc22e9f3c3e225b
+ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937793"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67154942"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicativos Azure: Guia de publicação da oferta de aplicativo gerenciado
 
@@ -32,9 +32,8 @@ Use o aplicativo do Azure: tipo de oferta de aplicativo gerenciado quando as seg
 
 |Requisitos |Detalhes  |
 |---------|---------|
-|Implantado na assinatura do Azure de um cliente | Os aplicativos gerenciados devem ser implantados na assinatura do cliente e podem ser gerenciados por terceiros | 
-|Cobrança e medição    |  Os recursos serão provisionados na assinatura do Azure do cliente. Máquinas virtuais pagas conforme o uso (PAYGO) serão negociadas com o cliente via Microsoft e cobradas por meio da assinatura do Azure do cliente (PAYGO) 
-No caso do modelo traga sua própria licença, enquanto a Microsoft cobrará os custos de infraestrutura incorridos na assinatura do cliente, você negociará os valores referentes ao licenciamento de software diretamente com o cliente        |
+|Implantados na assinatura do Azure de um cliente | Aplicativos gerenciados devem ser implantados na assinatura do cliente e podem ser gerenciados por terceiros. | 
+|Cobrança e medição    |  Os recursos serão provisionados na assinatura do Azure do cliente. Máquinas virtuais pagas conforme o uso (PAYGO) serão negociadas com o cliente via Microsoft e cobradas por meio da assinatura do Azure do cliente (PAYGO). <br> No caso de traga-your-própria licença, enquanto a Microsoft cobrará os custos de infraestrutura inerentes a assinatura do cliente negociará seu diretamente de taxas para o cliente de licenciamento de software.        |
 |VHD (disco rígido virtual) compatível com Azure    |   As VMs devem ser criadas em Windows ou Linux.<ul> <ul> <li>Para obter mais informações sobre como criar um VHD Linux, consulte [Distribuições do Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Para obter mais informações sobre como criar um VHD Windows, consulte [Criar um VHD compatível com o Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |
 
 >[!NOTE]
@@ -50,4 +49,4 @@ Caso ainda não tenha feito isso,
 
 Se você estiver registrado e estiver criando uma nova oferta ou trabalhando em uma existente,
 
-- [Entre no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir a oferta.
+- [Entrar no Portal do Cloud Partner](https://cloudpartner.azure.com) para criar ou concluir sua oferta.

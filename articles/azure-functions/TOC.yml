@@ -45,12 +45,18 @@
           href: functions-add-output-binding-storage-queue-python.md
         - name: Armazenamento – portal
           href: functions-integrate-storage-queue-output-binding.md
+        - name: Armazenamento – Visual Studio Code
+          href: functions-add-output-binding-storage-queue-vs-code.md
+        - name: Armazenamento – Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutoriais
   items:
     - name: Functions com Aplicativos Lógicos
       href: functions-twitter-email.md
     - name: Criar uma API sem servidor
       href: functions-create-serverless-api.md
+    - name: Desenvolver funções Python com o VS Code
+      href: tutorial-vs-code-serverless-python.md
     - name: Criar uma definição da OpenAPI
       href: functions-openapi-definition.md
     - name: Conectar-se a uma rede virtual
@@ -115,7 +121,7 @@
         - name: Python
           href: functions-reference-python.md
     - name: Diagnósticos
-      href: ../app-service/overview-diagnostics.md
+      href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Considerações sobre o desempenho
       href: functions-best-practices.md
     - name: Proxies de Funções
@@ -136,6 +142,8 @@
           href: functions-test-a-function.md
         - name: Desenvolver e depurar localmente
           href: functions-develop-local.md
+        - name: Desenvolvimento do Visual Studio Code
+          href: functions-develop-vs-code.md
         - name: Desenvolvimento do Visual Studio
           href: functions-develop-vs.md
         - name: Desenvolvimento das Principais Ferramentas
@@ -282,13 +290,10 @@
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md
-    - name: Referência de host.JSON
+    - name: Referência do host.json 2.x
       href: functions-host-json.md
-      items:
-        - name: Funções 2.x
-          href: functions-host-json.md
-        - name: Funções 1.x
-          href: functions-host-json-v1.md
+    - name: Referência do host.json 1.x
+      href: functions-host-json-v1.md
     - name: Perguntas frequentes sobre a rede
       href: functions-networking-faq.md
     - name: Referência do OpenAPI

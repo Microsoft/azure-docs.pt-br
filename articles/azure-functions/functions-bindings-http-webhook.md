@@ -4,19 +4,19 @@ description: Entenda como usar gatilhos e associações HTTP no Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, funções, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor, HTTP, API, REST
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: fb219316afa798dfda777c4d0d406d5b8cabf7f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53626c1d8fe0b9301883280a9f0925eb38ad1d99
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472370"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480445"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Gatilhos e associações HTTP do Azure Functions
 
@@ -307,6 +307,7 @@ Aqui está o código Python:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
@@ -756,7 +757,7 @@ Para proteger totalmente os pontos de extremidade de função na produção, con
 
 Ao usar um dos seguintes métodos de segurança no nível do aplicativo de funções, você deve definir o nível de autenticação da função disparada por HTTP como `anonymous`.
 
-### <a name="webhooks"></a>Webhooks
+### <a name="webhooks"></a>webhooks
 
 > [!NOTE]
 > O modo de webhook só está disponível para a versão 1.x do tempo de execução do Functions. Essa alteração foi feita para melhorar o desempenho de gatilhos HTTP na versão 2.x.
@@ -792,7 +793,7 @@ O arquivo [host.json](functions-host-json.md) contém configurações que contro
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Output
 
 Use a associação de saída HTTP para responder ao remetente da solicitação HTTP. Essa associação requer um gatilho HTTP e permite que você personalize a resposta associada à solicitação do gatilho. Se uma saída HTTP vinculada não é fornecida, um gatilho HTTP retorna HTTP 200 OK com um corpo vazio em funções de 1. x ou HTTP 204 sem conteúdo com um corpo vazio em funções 2. x.
 

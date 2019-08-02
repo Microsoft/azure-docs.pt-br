@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: d78c640f4269c799d3d371e6dd9db477faf96694
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66162072"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807407"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Visão geral do serviço Azure Resource Graph
 
@@ -28,6 +28,8 @@ Nesta documentação, você estudará cada recurso em detalhes.
 > [!NOTE]
 > O Azure Resource Graph alimenta a barra de pesquisa do portal do Azure, a nova experiência de navegação de "Todos os recursos" e a comparação visual do [Histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _ do Azure Policy_. É projetado para ajudar os clientes a gerenciar ambientes de grande escala.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Como o Azure Resource Graph complementa o Azure Resource Manager
 
@@ -71,7 +73,7 @@ O Resource Graph limita as consultas a nível do locatário. A resposta do servi
 - `x-ms-user-quota-remaining` (int): A cota de recursos que resta para o usuário. Esse valor é mapeado para a contagem de consultas.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo da cota do usuário seja redefinido
 
-Para saber mais, confira [Limitar solicitação do Resource Manager](../../azure-resource-manager/resource-manager-request-limits.md).
+Para saber mais, consulte [Orientação para solicitações limitadas](./concepts/guidance-for-throttled-requests.md).
 
 ## <a name="running-your-first-query"></a>Realizando sua primeira consulta
 

@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9903bb82a82291febf571829fb9874ba66d2eab2
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602250"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476371"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso de funções de recurso do Azure no PIM
 Os administradores de função com privilégios podem examinar o acesso privilegiado após uma [revisão de acesso ter sido iniciada](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) PIM Privileged Identity Management () envia automaticamente um email que solicita aos usuários revisem seu acesso. Se um usuário não receber um email, você poderá enviar para ele as instruções de [como executar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
@@ -33,13 +33,14 @@ Depois do fim do período da revisão de acesso, ou após todos os usuários ter
 2. Selecione seu recurso.
 
 3. Clique na seção **Revisões de acesso** do painel.
-![Revisões de acesso](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
+
+    ![Revisões de acesso de recursos do Azure - função de exibição de lista, proprietário, data de início, data de término e status](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Selecione a análise de acesso que você deseja gerenciar.
 
 Na folha de detalhes da revisão de acesso, há uma série de opções para o gerenciamento da análise. As opções são as descritas a seguir:
 
-![Opções para gerenciar uma revisão](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
+![Opções de gerenciamento de uma revisão - Stop, redefinir, aplicar, exclusão](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Stop
 Todas as revisões de acesso têm uma data de término, mas você pode usar o botão **Parar** para concluí-las mais cedo. Todos os usuários que não concluíram a sua revisão até esse momento não conseguirão concluir o processo depois que você parar a revisão. Não é possível reiniciar uma revisão após ela ter sido interrompida.
@@ -54,12 +55,14 @@ Depois que uma revisão de acesso for concluída, use o botão **Aplicar** para 
 Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir** remove a análise do aplicativo PIM.
 
 ## <a name="results"></a>Resultados
-Na guia **Resultados**, exiba e faça o download de uma lista dos resultados da revisão. 
-![Guia Resultados](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
+Sobre o **resultados** página, exibir e baixar uma lista de resultados da revisão. 
+
+![Página de resultados da listagem de usuários, o resultado, o motivo, revisadas por, aplicada por e aplicar resultado](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Revisores
 Exiba e adicione revisores à sua revisão de acesso existente. Lembre os revisores de concluir suas revisões.
-![Adicionar revisores](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
+
+![Página de revisores listando nome e o nome principal do usuário](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

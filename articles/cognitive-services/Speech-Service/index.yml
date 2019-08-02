@@ -7,7 +7,7 @@ metadata:
   description: 'O Serviço de Fala fornece aos desenvolvedores um jeito fácil de adicionar recursos incríveis habilitados para fala aos seus aplicativos. Exemplos incluem controle de comando de voz e caixa de diálogo, conversa com fala natural, transcrição e ditado de fala e tradução de fala.'
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: speech-service
@@ -45,7 +45,7 @@ sections:
     items:
       - type: paragraph
         text: |
-          Você pode usar o SDK de Fala para adicionar os seguintes recursos (e mais) aos seus aplicativos&colon; 
+          Você pode usar o SDK de Fala (<a href="releasenotes.md">notas sobre a versão</a>) para adicionar as seguintes funcionalidades (e mais) aos seus aplicativos&colon; 
           <div class="row"><div class="column"><ul>
           <li><b><a href="speech-to-text.md">conversão de fala em texto</a> </b> (reconhecimento de fala/SR)</li>
           <li><b><a href="speech-devices-sdk-create-kws.md">palavra de ativação personalizada</a> </b> (spotter de palavra-chave/KWS)</li>
@@ -81,6 +81,8 @@ sections:
           - image:
               src: media/index/logo_objc.jpg
           - image:
+              src: media/index/logo_swift.jpg
+          - image:
               src: media/index/logo_nodejs.svg
           - image:
               src: media/index/logo_js.svg
@@ -97,6 +99,7 @@ sections:
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: null
+              - href: null
               - href: quickstart-js-node
               - href: null
           - title: Windows 10 (x86)
@@ -108,6 +111,7 @@ sections:
               - href: quickstart-csharp-unity
               - href: null
               - href: quickstart-python
+              - href: null
               - href: null
               - href: quickstart-js-node
               - href: null
@@ -123,6 +127,7 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
           - title: Linux (x64)
             values:
               - href: null
@@ -133,6 +138,7 @@ sections:
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: null
+              - href: null
               - href: quickstart-js-node
               - href: null
           - title: Linux (x86)
@@ -140,6 +146,7 @@ sections:
               - href: null
               - href: null
               - href: quickstart-cpp-linux
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -159,6 +166,7 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
           - title: Android (x86/x64)
             values:
               - href: null
@@ -167,6 +175,7 @@ sections:
               - href: null
               - href: quickstart-csharp-unity
               - href: quickstart-java-android
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -181,6 +190,7 @@ sections:
               - href: null
               - href: null
               - href: quickstart-objectivec-ios
+              - href: quickstart-swift-ios
               - href: null
               - href: null
           - title: macOS (x64)
@@ -193,6 +203,7 @@ sections:
               - href: quickstart-java-jre
               - href: quickstart-python
               - href: quickstart-objective-c-macos
+              - href: quickstart-swift-macos
               - href: quickstart-js-node
               - href: null
           - title: SDK de dispositivos (ARM32)
@@ -203,6 +214,7 @@ sections:
               - href: null
               - href: null
               - href: speech-devices-sdk
+              - href: null
               - href: null
               - href: null
               - href: null
@@ -218,9 +230,11 @@ sections:
               - href: null
               - href: null
               - href: null
+              - href: null
               - href: quickstart-js-browser
           - title: REST
             values:
+              - href: null
               - href: null
               - href: null
               - href: null

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 5c7d6116ed2925e57f094a67f27a11f9e2d61831
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65899435"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68499252"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: integração do Active Directory do Azure com o DocuSign
 
@@ -47,7 +47,7 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 * O DocuSign dá suporte ao SSO iniciado por **SP**
 
-* O DocuSign dá suporte ao provisionamento de usuário **just-in-time**
+* O DocuSign dá suporte a [provisionamento automático de usuários](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Adicionando o DocuSign por meio da galeria
 
@@ -55,7 +55,7 @@ Para configurar a integração do DocuSign ao Azure AD, é necessário adicionar
 
 **Para adicionar o DocuSign por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o DocuSign, execute as seguintes 
 
     ![Informações sobre logon único de domínio e URLs do DocuSign](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Logon e o Identificador reais, que são explicados em seguida na seção **Exibir pontos de extremidade do SAML 2.0** do tutorial.
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure AD com o DocuSign, execute as seguintes 
 
     ![Configurando o logon único][56]
 
-     a. Na caixa de texto **Nome** , digite um nome exclusivo para sua configuração. Não use espaços.
+    a. Na caixa de texto **Nome** , digite um nome exclusivo para sua configuração. Não use espaços.
 
     b. Na caixa de texto **Emissor de provedor de identidade**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
 
@@ -178,7 +178,7 @@ Para configurar o logon único do Azure AD com o DocuSign, execute as seguintes 
 
     ![Configurando o logon único][62]
 
-    i. Escolha o campo a mapear com a declaração do Azure AD. Neste exemplo, a declaração **emailaddress** é mapeada com o valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. Esse é o nome de declaração padrão do Azure AD para a declaração de email; depois clique em **SALVAR**.
+    i. Escolha o campo a mapear com a declaração do Azure AD. Neste exemplo, a declaração **emailaddress** é mapeada com o valor de **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress** . Esse é o nome de declaração padrão do Azure AD para a declaração de email; depois clique em **SALVAR**.
 
     ![Configurando o logon único][57]
 

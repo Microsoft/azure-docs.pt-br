@@ -7,12 +7,12 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: da045a561fba81bf9a5e412a6f2bf0a6160acfa7
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979152"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67807442"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Visão geral do serviço do Azure Policy
 
@@ -25,6 +25,8 @@ O Azure Policy é um serviço no Azure que você pode usar para criar, atribuir 
 
 > [!IMPORTANT]
 > A avaliação de conformidade da política do Microsoft Azure agora é fornecida para todas as atribuições, independentemente do tipo de preço. Se suas atribuições não mostrarem os dados de conformidade, certifique-se de que a assinatura está registrada com o provedor de recursos Microsoft.PolicyInsights.
+
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>Qual é a diferença dela em relação ao RBAC?
 
@@ -45,7 +47,7 @@ Se nenhuma das funções internas possui as permissões necessárias, crie uma [
 
 A jornada de criação e implementação de uma política no Azure Policy começa com a criação de uma definição de política. Cada definição de política tem condições sob as quais ela é imposta. E ela tem um efeito definido que ocorre se as condições são atendidas.
 
-No Azure Policy, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo: 
+No Azure Policy, oferecemos algumas políticas internas que estão disponíveis para você por padrão. Por exemplo:
 
 - **Exigir o SQL Server 12.0**: Valida que todos os servidores SQL usem a versão 12.0. O efeito é negar todos os servidores que não atendam a esses critérios.
 - **SKUs de conta de armazenamento permitidos**: Determina se uma conta de armazenamento que está sendo implantada está dentro de um conjunto de tamanhos de SKU. Seu efeito é negar todas as contas de armazenamento que não estão de acordo com o conjunto de tamanhos de SKU definido.

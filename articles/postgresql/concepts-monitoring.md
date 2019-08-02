@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
-ms.openlocfilehash: b7d69e0fe16f96b0e3886c3736f8b91d4c06b446
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/19/2019
+ms.openlocfilehash: c69ffb30a37de8e6dc3e15aa1f7dcd6a9311d614
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063745"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67274295"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorar e ajustar o Banco de Dados do Azure para PostgreSQL – Servidor único
 Monitorar os dados dos seus servidores ajuda a solucionar problemas e otimizar sua carga de trabalho. O Banco de Dados do Azure para PostgreSQL oferece várias opções de monitoramento para fornecer insights sobre o comportamento do servidor.
@@ -34,10 +34,12 @@ Essas métricas estão disponíveis para o Banco de Dados do Azure para PostgreS
 |serverlog_storage_usage|Armazenamento do Log do Servidor usado|Bytes|A quantidade de armazenamento de log do servidor em uso.|
 |serverlog_storage_limit|Limite de armazenamento do Log do Servidor|Bytes|O armazenamento de log do servidor de máximo para esse servidor.|
 |active_connections|Conexões ativas|Count|O número de conexões ativas com o servidor.|
-|connections_failed|Conexões com falha|Count|O número de conexões com falha com o servidor.|
+|connections_failed|Conexões com falha|Contagem|O número de conexões com falha com o servidor.|
 |network_bytes_egress|Saída da rede|Bytes|Rede-Out em conexões ativas.|
 |network_bytes_ingress|Entrada na rede|Bytes|Entrada de rede em conexões ativas.|
 |backup_storage_used|Backup do Microsoft Azure|Bytes|A quantidade de armazenamento de backup usado.|
+|pg_replica_log_delay_in_bytes|Retardo Máximo entre Réplicas|Bytes|A latência em bytes entre o mestre e a réplica de retardo máximo. Essa métrica está disponível apenas no servidor mestre.|
+|pg_replica_log_delay_in_seconds|Retardo da Réplica|Segundos|O tempo desde a última transação de reproduzidos. Essa métrica está disponível para somente os servidores de réplica.|
 
 ## <a name="server-logs"></a>Logs do servidor
 Você pode habilitar o registro no servidor. Esses logs também estão disponíveis por meio de Logs de diagnóstico do Azure no [registra em log do Azure Monitor](../azure-monitor/log-query/log-query-overview.md), Hubs de eventos e a conta de armazenamento. Para saber mais sobre o registro em log, visite a página [logs de servidor](concepts-server-logs.md).

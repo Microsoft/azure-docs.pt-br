@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 21c7e996cfe2f07d9a5b056d8cbc22f238bb48fd
-ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
+ms.openlocfilehash: a75f3f606129d370457816507537f2cb4491adf8
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66357610"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478822"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Pesquisar pontos de interesse próximos usando os Mapas do Azure
 
@@ -85,7 +85,7 @@ A API de Controle de Mapeamento é uma biblioteca cliente conveniente que permit
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
         function GetMap(){
@@ -239,9 +239,9 @@ O mapa que fizemos até agora apenas analisa os dados de longitude/latitude para
     map.events.add('mouseover', resultLayer, showPopup);
     ```
 
-    A API `sup` fornece uma janela de informações ancorada na posição requerida no mapa. 
+    A API `*atlas.Popup` fornece uma janela de informações ancorada na posição requerida no mapa. 
 
-2. Na marca *script*, após a função `GetMap`, adicione o código a seguir para mostrar as informações do resultado no pop-up depois de passar o mouse.
+2. Adicione o código a seguir dentro da função `GetMap` para mostrar as informações do resultado no pop-up depois de passar o mouse.
 
     ```JavaScript
     function showPopup(e) {

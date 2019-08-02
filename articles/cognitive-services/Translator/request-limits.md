@@ -3,19 +3,19 @@ title: Solicitar limites – API de Tradução de Texto
 titleSuffix: Azure Cognitive Services
 description: Este artigo lista os limites de solicitação para a API de Tradução de Texto. Cobranças são incorridas com base na contagem de caracteres, não a frequência de solicitação com um limite de 5.000 caracteres por solicitação. Limites de caractere são assinatura com base com F0 limitado a 2 milhões de caracteres por hora.
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: erhopf
-ms.openlocfilehash: c19e39918aa64730a35a27fcdadd70800f47f4fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514650"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68226244"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de solicitação para a Tradução de Texto
 
@@ -31,14 +31,18 @@ As seguinte tabela listas matriz elemento e o caractere de limites para cada ope
 |:----|:----|:----|:----|
 | Translate | 5\.000 | 100   | 5\.000 |
 | Transliterate | 5\.000 | 10    | 5\.000 |
-| Detect | 10\.000 | 100 |   50\.000 |
-| BreakSentence | 10\.000    | 100 | 5,0000 |
+| Detect | 10.000 | 100 |   50.000 |
+| BreakSentence | 10.000    | 100 | 5,0000 |
 | Pesquisa no dicionário| 100 |  10  | 1\.000 |
 | Exemplos de dicionário | 100 para texto e 100 para tradução (total de 200)| 10|   2\.000 |
 
 ## <a name="character-limits-per-hour"></a>Limites de caractere por hora
 
-Seu limite de caractere por hora baseia-se em sua camada de assinatura de Tradução de Texto. A cota por hora deve ser consumida uniformemente ao longo da hora. Se você atinge ou ultrapassar esses limites ou envia muito grande de uma parte da cota em um curto período de tempo, você provavelmente receberá uma falta de resposta de cota.
+Seu limite de caractere por hora baseia-se em sua camada de assinatura de Tradução de Texto. 
+
+A cota por hora deve ser consumida uniformemente ao longo da hora. Por exemplo, no limite da camada F0 2 milhões de caracteres por hora, caracteres devem ser consumidos não mais rápido do que aproximadamente 33,300 caracteres por minuto (2 milhões de caracteres divididos por 60 minutos) de janela deslizante.
+
+Se você atinge ou ultrapassar esses limites ou envia muito grande de uma parte da cota em um curto período de tempo, você provavelmente receberá uma falta de resposta de cota. Não há nenhum limite nas solicitações simultâneas.
 
 | Camada | Limite de caracteres |
 |------|-----------------|
@@ -50,7 +54,7 @@ Seu limite de caractere por hora baseia-se em sua camada de assinatura de Tradu�
 
 Limites para [multi-Service assinaturas](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) são o mesmo que a camada S1.
 
-Esses limites são restritos aos modelos de tradução padrão da Microsoft. Modelos de conversão personalizada que usam o conversor personalizado são limitados a caracteres 1.800 por segundo.
+Esses limites são restritos aos modelos de tradução padrão da Microsoft. Modelos de conversão personalizada que usam o conversor personalizado são limitados a 1.800 caracteres por segundo.
 
 ## <a name="latency"></a>Latency
 
@@ -60,7 +64,7 @@ A API de tradução de texto tem uma latência máxima de 15 segundos usando os 
 
 Ao usar a função [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence), o comprimento da sentença é limitado a 275 caracteres. Existem exceções para esses idiomas:
 
-| Linguagem | Código | Limite de caracteres |
+| Idioma | Código | Limite de caracteres |
 |----------|------|-----------------|
 | Chinês | zh | 132 |
 | Alemão | de | 290 |

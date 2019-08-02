@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 63de2045498b312580640859c1911046f9785d8e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 83a888a28c1d1e51a1fe59649dfb956cd0f72203
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794356"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67071416"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo no armazenamento do Azure
 
@@ -31,7 +31,7 @@ Na segunda parte da série, você aprenderá como:
 
 O armazenamento de blobs do Azure fornece um serviço escalonável para armazenar seus dados. Para garantir que seu aplicativo tenha a melhor performance possível, é recomendável que se tenha uma compreensão de como funciona o armazenamento de blob. É importante conhecer os limites de blobs do Azure. Para saber mais sobre esses limites, visite: [metas de escalabilidade do armazenamento de blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-A [partição de nomenclatura](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) é outro fator importante durante a criação de um aplicativo de alto desempenho usando blobs. O armazenamento do Azure usa um esquema de particionamento com base em intervalo de escala e balanceamento de carga. Essa configuração significa que arquivos com convenções de nomenclatura semelhantes ou prefixos vão para a mesma partição. Essa lógica inclui o nome do contêiner em que os arquivos estão sendo carregados. Neste tutorial, você deve usar arquivos que tenham GUIDs como nomes bem como conteúdo gerado aleatoriamente. Eles são então carregados em cinco contêineres diferentes com nomes aleatórios.
+A [Nomenclatura da partição](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) é outro fator potencialmente importante durante a criação de um aplicativo de alto desempenho usando blobs. Em tamanhos de bloco maiores ou iguais a quatro MiB, [blobs de bloco de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) são usados e a nomenclatura da partição não afetará o desempenho. Em tamanhos de bloco menores que quatro MiB, o armazenamento do Azure usa um esquema de particionamento com base em intervalo de escala e balanceamento de carga. Essa configuração significa que arquivos com convenções de nomenclatura semelhantes ou prefixos vão para a mesma partição. Essa lógica inclui o nome do contêiner em que os arquivos estão sendo carregados. Neste tutorial, você deve usar arquivos que tenham GUIDs como nomes bem como conteúdo gerado aleatoriamente. Eles são então carregados em cinco contêineres diferentes com nomes aleatórios.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,7 +71,7 @@ Além de definir as configurações de limite de thread e conexão, o [BlobReque
 
 |Propriedade|Valor|DESCRIÇÃO|
 |---|---|---|
-|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A configuração divide o blob em blocos ao carregar. Para o melhor desempenho, esse valor deve ser 8 vezes o número de núcleos. |
+|[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A configuração divide o blob em blocos ao carregar. Para o melhor desempenho, esse valor deve ser oito vezes o número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| verdadeiro| Essa propriedade desabilita a verificação de hash MD5 do conteúdo carregado. Desabilitar a validação de MD5 produz uma transferência mais rápida. Mas não confirma a validade ou a integridade dos arquivos que estão sendo transferidos.   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.storeblobcontentmd5)| falso| Essa propriedade determina se um hash MD5 é calculado e armazenado com o arquivo.   |
 | [RetryPolicy](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.retrypolicy)| Retirada de 2 segundos com máximo de 10 repetições |Determina a política de repetição de solicitações. As falhas de conexão são repetidas, neste exemplo uma política de [ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) é configurada com uma retirada de 2 segundos, e uma contagem máxima de 10 repetições. Essa configuração é importante quando seu aplicativo chegar próximo de atingir as [metas de escalabilidade de armazenamento de blob](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).  |

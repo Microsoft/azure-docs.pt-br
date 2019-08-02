@@ -7,23 +7,23 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Criar um cluster do Apache Kafka - Portal
+    - name: Criar o cluster do Apache Kafka – Portal
       href: apache-kafka-get-started.md
-    - name: Criar um cluster do Apache Kafka - PowerShell
+    - name: Criar o cluster do Apache Kafka – PowerShell
       href: apache-kafka-quickstart-powershell.md
-    - name: Criar um cluster do Apache Kafka – modelo do Resource Manager
+    - name: Criar o cluster do Apache Kafka – Modelo
       displayName: 'resource manager template, arm template, resource manager group'
       href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutoriais
   items:
-    - name: Usar o fluxo estruturado do Apache Spark
-      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
-    - name: Ler/gravar do Apache Kafka com o Apache Storm
-      href: ../hdinsight-apache-storm-with-kafka.md
     - name: Usar a API de Produtor e Consumidor do Apache Kafka
       href: apache-kafka-producer-consumer-api.md
     - name: Desenvolver um aplicativo com a API de Streams do Apache Kafka
       href: apache-kafka-streams-api.md
+    - name: Usar o fluxo estruturado do Apache Spark
+      href: ../hdinsight-apache-kafka-spark-structured-streaming.md
+    - name: Ler/gravar do Apache Kafka com o Apache Storm
+      href: ../hdinsight-apache-storm-with-kafka.md
 - name: Conceitos
   items:
     - name: planejamento de capacidade
@@ -220,8 +220,6 @@
           href: ../hdinsight-virtual-network-architecture.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight na VNet do Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
     - name: Monitorando com os logs do Azure Monitor

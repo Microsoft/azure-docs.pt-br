@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: b922e048b2787eedfc0bfc40e553e79f433277dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 16b87018b86d9734a066d2cb5361602c9be0f00c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65869268"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-plangrid"></a>Tutorial: Integração do Microsoft Azure Active Directory com o PlanGrid
 
@@ -53,7 +53,7 @@ Para configurar a integração do PlanGrid ao  Microsoft Azure Active Directory,
 
 **Para adicionar o PlanGrid da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -198,5 +198,5 @@ Ao clicar no bloco do PlanGrid no Painel de Acesso, você será conectado automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

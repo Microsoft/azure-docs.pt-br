@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e09c4530fc6dce00e6d807908c7de598422a440b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 132dd91ba121fc5939a0f30194fe4abdd3755414
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511862"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67847044"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. O esquema de declarações é o lugar em que você declara suas declarações. Uma declaração pode ser um primeiro nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém uma lista de elementos **ClaimType**. O elemento **ClaimType** contém o atributo **Id**, que é o nome da declaração. 
+O elemento **ClaimsSchema** define os tipos de declaração que podem ser referenciados como parte da política. O esquema de declarações é o lugar em que você declara suas declarações. Uma declaração pode ser um primeiro nome, sobrenome, nome de exibição, número de telefone e muito mais. O elemento ClaimsSchema contém uma lista de elementos **ClaimType**. O elemento **ClaimType** contém o atributo **Id**, que é o nome da declaração.
 
 ```XML
 <BuildingBlocks>
@@ -44,7 +44,7 @@ O elemento **ClaimType** contém o seguinte atributo:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
+| Id | Sim | Um identificador que é usado para o tipo de declaração. Outros elementos podem usar esse identificador na política. |
 
 O elemento **ClaimType** contém os seguintes elementos:
 
@@ -89,7 +89,7 @@ No exemplo a seguir, quando o Identity Experience Framework interage com um prov
 ```
 
 Como resultado, o token JWT emitido pelo B2C do Azure AD emite `family_name` ao invés do nome de ClaimType **surname**.
- 
+
 ```JSON
 {
   "sub": "6fbbd70d-262b-4b50-804c-257ae1706ef2",
@@ -107,7 +107,7 @@ O elemento **Mask** contém os seguintes atributos:
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo da máscara de declaração. Valores possíveis: `Simple` ou `Regex`. O valor `Simple` indica que uma máscara de texto simples é aplicada à parte à esquerda de uma declaração de cadeia de caracteres. O valor `Regex` indica que uma expressão regular é aplicada à declaração de cadeia de caracteres como um todo.  Se o valor `Regex` for especificado, um atributo opcional também deverá ser definido com a expressão regular a ser usada. |
-| `Regex` | Não | Se **`Type`** é definido como `Regex`, especifique a expressão regular a usar.
+| `Regex` | Não | Se **`Type`** for definido como `Regex`, especifique a expressão regular a ser usada.
 
 O exemplo a seguir configura uma declaração **PhoneNumber** com a máscara `Simple`:
 
@@ -115,14 +115,14 @@ O exemplo a seguir configura uma declaração **PhoneNumber** com a máscara `Si
 <ClaimType Id="PhoneNumber">
   <DisplayName>Phone Number</DisplayName>
   <DataType>string</DataType>
-  <Mask Type="Simple">XXX-XXX-</Mask>  
+  <Mask Type="Simple">XXX-XXX-</Mask>
   <UserHelpText>Your telephone number.</UserHelpText>
 </ClaimType>
 ```
 
 O Identity Experience Framework renderiza o número de telefone enquanto oculta os primeiros seis dígitos:
 
-![Usando o tipo de declaração com a máscara](./media/claimsschema/mask.png)
+![Declaração de número de telefone mostrada no navegador com os seis primeiros dígitos mascarados por XS](./media/claimsschema/mask.png)
 
 O exemplo a seguir configura uma declaração **AlternateEmail** com a máscara `Regex`:
 
@@ -137,7 +137,7 @@ O exemplo a seguir configura uma declaração **AlternateEmail** com a máscara 
 
 O Identity Experience Framework renderiza apenas a primeira letra de endereço de email e o nome de domínio de email:
 
-![Usando o tipo de declaração com a máscara](./media/claimsschema/mask-regex.png)
+![Declaração de email mostrada no navegador com caracteres mascarados por asteriscos](./media/claimsschema/mask-regex.png)
 
 
 ### <a name="restriction"></a>Restrição
@@ -161,8 +161,8 @@ O elemento **Enumeration** contém os seguintes atributos:
 
 | Atributo | Obrigatório | DESCRIÇÃO |
 | --------- | -------- | ----------- |
-| Text | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
-|Value | Sim | O valor da declaração associada à seleção dessa opção. |
+| Texto | Sim | A cadeia de caracteres de exibição que é mostrada ao usuário na interface do usuário para essa opção. |
+|Valor | Sim | O valor da declaração associada à seleção dessa opção. |
 | SelectByDefault | Não | Indica se esta opção deve ser selecionada ou não por padrão na interface do usuário. Valores possíveis: Verdadeiro ou falso. |
 
 O exemplo a seguir configura uma declaração de lista suspensa **city** com um valor padrão definido como `New York`:
@@ -179,10 +179,10 @@ O exemplo a seguir configura uma declaração de lista suspensa **city** com um 
   </Restriction>
 </ClaimType>
 ```
+
 Lista suspensa de cidades com um valor padrão definido como Nova York:
 
-![Lista suspensa de cidades](./media/claimsschema/dropdownsingleselect.png)
-
+![Controle suspenso renderizado no navegador e mostrando o valor padrão](./media/claimsschema/dropdownsingleselect.png)
 
 ### <a name="pattern"></a>Padrão
 
@@ -212,7 +212,7 @@ O exemplo a seguir configura uma declaração **email** com o texto de ajuda e a
 
 O Identity Experience Framework renderiza a declaração de endereço de email com a validação de entrada de formato de email:
 
-![Usando o tipo de declaração com pattern](./media/claimsschema/pattern.png)
+![Caixa de texto mostrando a mensagem de erro disparada pela restrição Regex](./media/claimsschema/pattern.png)
 
 ## <a name="userinputtype"></a>UserInputType
 
@@ -222,7 +222,7 @@ O Azure AD B2C dá suporte a uma variedade de tipos de entrada do usuário, como
 
 O tipo de entrada do usuário **TextBox** é usado para fornecer uma caixa de texto de linha única.
 
-![Usando o tipo de declaração com textbox](./media/claimsschema/textbox.png)
+![Caixa de texto mostrando as propriedades especificadas no tipo de declaração](./media/claimsschema/textbox.png)
 
 ```XML
 <ClaimType Id="displayName">
@@ -237,7 +237,7 @@ O tipo de entrada do usuário **TextBox** é usado para fornecer uma caixa de te
 
 O tipo de entrada do usuário **EmailBox** é usado para fornecer um campo de entrada de email básico.
 
-![Usando o tipo de declaração com emailbox](./media/claimsschema/emailbox.png)
+![EmailBox mostrando as propriedades especificadas no tipo de declaração](./media/claimsschema/emailbox.png)
 
 ```XML
 <ClaimType Id="email">
@@ -297,7 +297,7 @@ O tipo de entrada do usuário **RadioSingleSelect** é usado para fornecer uma c
     <Enumeration Text="Green " Value="Green" SelectByDefault="false" />
     <Enumeration Text="Orange" Value="Orange" SelectByDefault="true" />
   </Restriction>
-</ClaimType>    
+</ClaimType>
 ```
 
 ### <a name="dropdownsingleselect"></a>DropdownSingleSelect
@@ -375,4 +375,4 @@ O tipo de entrada do usuário **Paragraph** é usado para fornecer um campo que 
 </ClaimType>
 ```
 
-Para exibir um dos valores de **Enumeration** em uma declaração **responseMsg**, use a transformação de declarações `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Para obter mais informações, confira [Transformações de declarações](string-transformations.md) 
+Para exibir um dos valores de **Enumeration** em uma declaração **responseMsg**, use a transformação de declarações `GetMappedValueFromLocalizedCollection` ou `CreateStringClaim`. Para obter mais informações, confira [Transformações de declarações](string-transformations.md)

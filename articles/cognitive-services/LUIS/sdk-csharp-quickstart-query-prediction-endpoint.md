@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Ponto de extremidade de previsão da consulta do SDK do C#'
+title: 'Início Rápido: Ponto de extremidade de previsão da consulta do SDK do C#'
 titleSuffix: Azure Cognitive Services
 description: Use o SDK do C# para enviar um enunciado de usuário ao LUIS e receber uma previsão.
 author: diberry
@@ -8,16 +8,16 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: af20d555a83e8d229ed5d83d3b1d3f242de1e4a8
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404086"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275801"
 ---
-# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início rápido: Consultar o ponto de extremidade de previsão com o SDK do C# do .NET
+# <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Início Rápido: Consultar o ponto de extremidade de previsão com o SDK do C# do .NET
 
 Use o SDK do .NET, encontrado no [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), para enviar um enunciado de usuário ao LUIS (Reconhecimento vocal) e receber uma previsão da intenção do usuário. 
 
@@ -58,13 +58,13 @@ az cognitiveservices account create \
 Crie um projeto de console do .NET Core no Visual Studio Community 2017.
 
 1. Abra o Visual Studio Community 2017.
-1. Crie um projeto por meio da seção **Visual C#** escolhendo **Aplicativo de Console (.NET Core)**.
+1. Crie um projeto por meio da seção **Visual C#** escolhendo **Aplicativo de Console (.NET Core)** .
 1. Insira o nome do projeto `QueryPrediction`, deixe os valores padrão restantes e selecione **OK**.
     Isso criará um projeto simples com o arquivo de código primário chamado **Program.cs**.
 
 ## <a name="add-sdk-with-nuget"></a>Adicionar o SDK com o NuGet
 
-1. No **Gerenciador de Soluções**, selecione o Projeto no modo de exibição de árvore chamado **QueryPrediction** e, em seguida, clique com o botão direito do mouse nele. No menu, selecione **Gerenciar Pacotes NuGet...**.
+1. No **Gerenciador de Soluções**, selecione o Projeto no modo de exibição de árvore chamado **QueryPrediction** e, em seguida, clique com o botão direito do mouse nele. No menu, selecione **Gerenciar Pacotes NuGet...** .
 1. Selecione **Procurar** e, em seguida, insira `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`. Quando as informações do pacote forem exibidas, selecione **Instalar** para instalar o pacote no projeto. 
 1. Adicione as instruções _using_ a seguir à parte superior de **Program.cs**. Não remova a instrução _using_ existente de `System`. 
 

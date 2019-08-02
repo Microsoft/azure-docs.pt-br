@@ -1,5 +1,5 @@
 ---
-title: Configurar a entrada para uma organização do Active Directory do Azure – Azure Active Directory B2C | Microsoft Docs
+title: Configurar entrada-para uma organização do Active Directory do Azure - Azure Active Directory B2C
 description: Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 28dbf0382ac151857e72d4bb59e207f07c8ad3f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b867a7f9ffeab3d243c8c094830aa0984cffd04a
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508433"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654209"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C
 
@@ -32,19 +32,19 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 2. Verifique se que você estiver usando o diretório que contém o seu locatário do AD do Azure. Selecione o **filtro de diretório e assinatura** no menu superior e escolha o diretório que contém o seu locatário do AD do Azure. Isso não é o mesmo locatário que seu locatário do Azure AD B2C.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Novo registro**.
-5. Insira um nome para seu aplicativo. Por exemplo: `Azure AD B2C App`.
+5. Insira um nome para seu aplicativo. Por exemplo, `Azure AD B2C App`.
 6. Aceite a seleção de **contas neste diretório organizacional apenas** para este aplicativo.
 7. Para o **URI de redirecionamento**, aceite o valor de **Web**e digite a seguinte URL em letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do seu locatário do Azure AD B2C. Por exemplo `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Agora todas as URLs devem estar usando [b2clogin.com](b2clogin.md).
 
 8. Clique em **Registrar**. Cópia de **ID do aplicativo (cliente)** a ser usado posteriormente.
 9. Selecione **certificados e segredos** no menu de aplicativo e, em seguida, selecione **novo segredo do cliente**.
-10. Insira um nome para o segredo do cliente. Por exemplo: `Azure AD B2C App Secret`.
+10. Insira um nome para o segredo do cliente. Por exemplo, `Azure AD B2C App Secret`.
 11. Selecione o período de validade. Para este aplicativo, aceite a seleção de **em 1 ano**.
 12. Selecione **adicionar** e copie o valor do novo segredo do cliente que é exibido para ser usado mais tarde.
 
@@ -63,10 +63,10 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
     ```
 
 8. Para **ID do cliente**, insira a ID do aplicativo que você registrou anteriormente e para **segredo do cliente**, insira o segredo do cliente que você registrou anteriormente.
-9. Opcionalmente, digite um valor para **Domain_hint**. Por exemplo: `ContosoAD`. Esse é o valor a ser usado ao fazer referência a esse provedor de identidade usando *domain_hint* na solicitação. 
+9. Opcionalmente, digite um valor para **Domain_hint**. Por exemplo, `ContosoAD`. Esse é o valor a ser usado ao fazer referência a esse provedor de identidade usando *domain_hint* na solicitação.
 10. Clique em **OK**.
 11. Selecione **Mapear declarações do provedor de identidade** e defina as seguintes declarações:
-    
+
     - Para **ID de usuário**, digite `oid`.
     - Para **Nome de exibição**, digite `name`.
     - Para **Nome**, digite `given_name`.

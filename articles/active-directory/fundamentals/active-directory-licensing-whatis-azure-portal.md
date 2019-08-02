@@ -14,12 +14,12 @@ ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be7094db14f53af939ded2313823bf2749e59a46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d41c8edf3985e77e0f67a54013d1b59abbaf72f1
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60248292"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297556"
 ---
 # <a name="what-is-group-based-licensing-in-azure-active-directory"></a>O que é o licenciamento baseado em grupo no Azure Active Directory?
 
@@ -32,9 +32,9 @@ Para enfrentar esses desafios, o Azure AD agora inclui licenciamento baseado em 
 ## <a name="licensing-requirements"></a>Requisitos de licenciamento
 É necessário ter uma das seguintes licenças para usar o licenciamento baseado em grupo:
 
-- Assinatura de avaliação ou paga do Azure AD Basic
+- Assinatura paga ou de avaliação para Azure AD Basic e acima
 
-- Edição de avaliação ou paga do Office 365 Enterprise E3 ou do Office 365 A3 e acima
+- Edição paga ou de avaliação do Office 365 Enterprise E3 ou Office 365 a3 ou Office 365 GCC G3 e superior
 
 ### <a name="required-number-of-licenses"></a>Número necessário de licenças
 Para os grupos com uma licença atribuída, também é necessário ter uma licença para cada membro exclusivo. Embora você não precise atribuir uma licença a cada membro do grupo, você deve ter, pelo menos, licenças suficientes para incluir todos os membros. Por exemplo, se você tiver 1.000 membros exclusivos que façam parte de grupos licenciados em seu locatário, deverá ter, pelo menos, 1.000 licenças para cumprir o contrato de licenciamento.
@@ -49,7 +49,7 @@ Aqui estão os principais recursos do licenciamento baseado em grupo:
 
 - Todos os serviços de nuvem da Microsoft que exigem licenciamento no nível do usuário têm suporte. Esse suporte inclui todos os produtos do Office 365, Enterprise Mobility + Security e Dynamics 365.
 
-- Licenciamento baseado em grupo está disponível atualmente apenas por meio de [portal do Azure](https://portal.azure.com). Se você usa principalmente outros portais de gerenciamento para o gerenciamento de usuário e grupo, como o [Centro de administração do Microsoft 365](https://admin.microsoft.com), você pode continuar a fazê-lo. Mas você deve usar o portal do Azure para gerenciar licenças no nível do grupo.
+- Atualmente, o licenciamento baseado em grupo está disponível apenas por meio do [portal do Azure](https://portal.azure.com). Se você usa principalmente outros portais de gerenciamento para gerenciamento de usuários e grupos, como o [centro de administração Microsoft 365](https://admin.microsoft.com), você pode continuar a fazer isso. Mas você deve usar o portal do Azure para gerenciar licenças no nível do grupo.
 
 - O Azure AD gerencia automaticamente as modificações de licença que resultam das alterações de associação de grupo. Normalmente, as modificações de licença entram em vigor dentro de minutos após uma alteração de associação.
 

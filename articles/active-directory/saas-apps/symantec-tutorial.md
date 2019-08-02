@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b9fdc6bf46cff1f3a38d40a4e7abad5bfe56c47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 95ce68547ca13d2395fcd447990c42c48c04eb5f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866392"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089383"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>Tutorial: Integração do Azure Active Directory com Symantec WSS (Web Security Service)
 
@@ -56,7 +56,7 @@ Para configurar a integração do Symantec WSS (Web Security Service) ao Azure A
 
 **Para adicionar o Symantec WSS (Web Security Service) por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -68,7 +68,7 @@ Para configurar a integração do Symantec WSS (Web Security Service) ao Azure A
 
     ![O botão Novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, digite **Symantec Web Security Service (WSS)**, selecione **Symantec Web Security Service (WSS)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+4. Na caixa de pesquisa, digite **Symantec Web Security Service (WSS)** , selecione **Symantec Web Security Service (WSS)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Symantec Web Security Service (WSS) na lista de resultados](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure.
 
 Para configurar o logon único do Azure AD com o Symantec WSS (Web Security Service), realize as seguintes etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Symantec WSS (Web Security Service)**, selecione **Logon único**.
+1. No [portal do Azure](https://portal.azure.com/), na página de integração do aplicativo **Symantec WSS (Web Security Service)** , selecione **Logon único**.
 
     ![Link Configurar logon único](common/select-sso.png)
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Symantec WSS (Web Security Serv
 
     ![Informações de logon único de Domínio e URLs do Symantec Web Security Service (WSS)](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://saml.threatpulse.net:8443/saml/saml_realm`
 
     b. Na caixa de texto **URL de Resposta**, insira uma URL: `https://saml.threatpulse.net:8443/saml/saml_realm/bcsamlpost`
 
@@ -152,11 +152,11 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
 Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Symantec WSS (Web Security Service).
 
-1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Symantec WSS (Web Security Service)**.
+1. No portal do Azure, selecione **Aplicativos Empresariais**, **Todos os aplicativos** e, em seguida, **Symantec WSS (Web Security Service)** .
 
     ![Folha de aplicativos empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicativos, digite e selecione **Symantec WSS (Web Security Service)**.
+2. Na lista de aplicativos, digite e selecione **Symantec WSS (Web Security Service)** .
 
     ![O link do Symantec WSS (Web Security Service) na lista de aplicativos](common/all-applications.png)
 
@@ -193,5 +193,5 @@ Depois de configurar seu navegador da Web para o tráfego de proxy para WSS, qua
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

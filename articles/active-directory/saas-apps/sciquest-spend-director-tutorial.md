@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 371ea6609181b84ff8554b9e2f1a5047d2d48c48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 199f531485a6a6c9ea234b35a7dbb88b66b3067c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867772"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciquest-spend-director"></a>Tutorial: integração do Active Directory do Azure ao SciQuest Spend Director
 
@@ -54,7 +54,7 @@ Para configurar a integração do SciQuest Spend Director com o Azure AD, você 
 
 **Para adicionar o SciQuest Spend Director por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o SciQuest Spend Director, execut
 
     ![Informações de logon único em Domínio e URLs do SciQuest Spend Director](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com/apps/Router/SAMLAuth/<instancename>`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.sciquest.com`
 
@@ -207,4 +207,4 @@ Ao clicar no bloco do SciQuest Spend Director no Painel de Acesso, você deverá
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

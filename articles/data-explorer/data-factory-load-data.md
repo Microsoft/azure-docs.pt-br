@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 64856d53168a7676cf279da2d8675ce81e1985f7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2142fbf03daa6667b20db43f9212a2b5e6d7dd44
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60447634"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67657528"
 ---
 # <a name="copy-data-to-azure-data-explorer-using-azure-data-factory"></a>Copiar dados para o Data Explorer do Azure usando o Azure Data Factory 
 
@@ -34,7 +34,7 @@ Este artigo mostra como usar a ferramenta Copiar dados do Data Factory para carr
 * [Um cluster do Gerenciador de dados do Azure e o banco de dados](create-cluster-database-portal.md)
 * Fonte de dados.
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. Selecione o **criar um recurso** botão (+) no canto superior esquerdo do portal > **Analytics** > **Data Factory**.
 
@@ -141,7 +141,7 @@ Azure Data Explorer novo serviço vinculado é criado para copiar os dados na ta
     * Selecione **concluir** para concluir a criação do serviço vinculado.
 
     > [!NOTE]
-    > A entidade de serviço é usado pelo Azure Data Factory para acessar o serviço de Gerenciador de dados do Azure. Para a entidade de serviço [criar um Azure Active Directory (Azure AD) de entidade de serviço](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Não use o **Azure Key Vault** método.
+    > A entidade de serviço é usado pelo Azure Data Factory para acessar o serviço de Gerenciador de dados do Azure. Para a entidade de serviço [criar um Azure Active Directory (Azure AD) de entidade de serviço](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Não use o **Azure Key Vault** método.
 
 1. O **armazenamento de dados de destino** é aberta. A conexão de dados do Data Explorer do Azure criado está disponível para uso. Selecione **próxima** para configurar a conexão.
 

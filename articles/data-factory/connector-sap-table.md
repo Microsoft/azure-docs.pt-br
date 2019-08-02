@@ -1,6 +1,6 @@
 ---
-title: Copiar dados da tabela de SAP usando o Azure Data Factory | Microsoft Docs
-description: Saiba como copiar dados da tabela de SAP para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
+title: Copiar dados de uma tabela do SAP usando o Azure Data Factory | Microsoft Docs
+description: Saiba como copiar dados de uma tabela do SAP para armazenamentos de dados de coletor com suporte usando uma atividade de cópia em um pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,82 +10,82 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/10/2018
+ms.date: 07/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 49f07b4aaadfd45e9743bde58dc715230e5bc983
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9216f5c00cbdac273b562736abdd1c812d172237
+ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67074060"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67827762"
 ---
-# <a name="copy-data-from-sap-table-using-azure-data-factory"></a>Copiar dados da tabela de SAP usando o Azure Data Factory
+# <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiar dados de uma tabela do SAP usando o Azure Data Factory
 
-Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de uma tabela de SAP. Ele amplia o artigo [Visão geral da atividade de cópia](copy-activity-overview.md) que apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como usar a atividade de cópia no Azure Data Factory para copiar dados de uma tabela SAP. Para obter mais informações, consulte [visão geral da atividade de cópia](copy-activity-overview.md).
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
-Você pode copiar dados da tabela de SAP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+Você pode copiar dados de uma tabela do SAP para qualquer armazenamento de dados de coletor com suporte. Para obter uma lista dos armazenamentos de dados que têm suporte como fontes ou coletores da atividade de cópia, consulte o [armazenamentos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
 
 Especificamente, este conector de tabela SAP dá suporte a:
 
-- Copiar dados de tabela do SAP em:
+- Copiar dados de uma tabela SAP em:
 
-    - **SAP ECC** com versão 7.01 ou superior (em uma recente SAP suporte pacote pilha liberadas após o ano de 2015)
-    - **SAP BW** com versão 7.01 ou superior
-    - **SAP S/4HANA**
-    - **Outros produtos do SAP Business Suite** com versão 7.01 ou superior 
+  - Componente Central SAP ERP SAP ECC () versão 7.01 ou posterior (em uma recente SAP suporte pacote pilha liberada após 2015).
+  - SAP BW (Business Warehouse SAP) versão 7.01 ou posterior.
+  - SAP S/4HANA.
+  - Outros produtos do SAP Business Suite versão 7.01 ou posterior.
 
-- Copiando dados de ambos **tabela transparentes SAP** e **exibição**.
-- Cópia de dados usando **autenticação básica** ou **SNC** (proteger comunicações de rede) se SNC está configurado.
-- Conectar-se ao **servidor de aplicativos** ou **do servidor de mensagens**.
+- Copiar dados de uma tabela de transparentes SAP, uma tabela em pool, uma tabela clusterizada e um modo de exibição.
+- Copiar dados usando a autenticação básica ou proteger as comunicações SNC (rede), se SNC está configurado.
+- Conectando a um servidor de aplicativos SAP ou servidor de mensagens SAP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar este conector de tabela de SAP, você precisa:
+Para usar este conector de tabela do SAP, você precisa:
 
-- Configure um Integration Runtime auto-hospedado com a versão 3.17 ou acima. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes.
+- Configure um integration runtime auto-hospedado (versão 3,17 ou posterior). Para obter mais informações, consulte [criar e configurar um integration runtime auto-hospedado](create-self-hosted-integration-runtime.md).
 
-- Baixar a versão de **64 bits do [SAP .NET Connector 3.0](https://support.sap.com/en/product/connectors/msnet.html)** do site da SAP e instalá-la no computador de IR auto-hospedado. Quando a instalação, na janela de etapas de instalação opcional, verifique se você selecionou o **instalar Assemblies ao GAC** opção. 
+- Download de 64 bits [conector do SAP para o Microsoft .NET 3.0](https://support.sap.com/en/product/connectors/msnet.html) no site da SAP e instalá-lo no computador do tempo de execução de integração auto-hospedado. Durante a instalação, verifique se você selecionou o **instalar Assemblies ao GAC** opção a **etapas de configuração opcionais** janela.
 
-    ![Instalar o SAP .NET Connector](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
+  ![Instalar o conector do SAP para .NET](./media/connector-sap-business-warehouse-open-hub/install-sap-dotnet-connector.png)
 
-- Usuário do SAP que está sendo usado no conector do SAP tabela da fábrica de dados precisa ter as seguintes permissões: 
+- O usuário do SAP que está sendo usado no conector do SAP de fábrica de dados de tabela deve ter as seguintes permissões:
 
-    - Autorização para RFC. 
-    - Permissões para a atividade do objeto de autorização "S_SDSAUTH" de "Execução".
+  - Autorização para usar destinos de chamada de função remota (RFC).
+  - Permissões para a atividade de execução do objeto S_SDSAUTH autorização.
 
-## <a name="getting-started"></a>Introdução
+## <a name="get-started"></a>Introdução
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector de tabela SAP.
+As seções a seguir fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector de tabela do SAP.
 
 ## <a name="linked-service-properties"></a>Propriedades do serviço vinculado
 
-As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (Business Warehouse):
+As propriedades a seguir têm suporte para o serviço do SAP BW Open Hub vinculado:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapTable** | Sim |
-| server | Nome do servidor no qual reside a instância do SAP.<br/>Aplicável se você quiser se conectar ao **servidor de aplicativos SAP**. | Não |
-| systemNumber | Número do sistema do sistema SAP.<br/>Aplicável se você quiser se conectar ao **servidor de aplicativos SAP**.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Não |
-| messageServer | Nome do host do servidor de mensagens SAP.<br/>Aplicável se você quiser se conectar ao **servidor de mensagens SAP**. | Não |
-| messageServerService | O nome do serviço ou a porta número do servidor de mensagens.<br/>Aplicável se você quiser se conectar ao **servidor de mensagens SAP**. | Não |
-| systemId | ID do sistema do sistema SAP em que a tabela está localizada.<br/>Aplicável se você quiser se conectar ao **servidor de mensagens SAP**. | Não |
-| logonGroup | O grupo de Logon para o sistema SAP.<br/>Aplicável se você quiser se conectar ao **servidor de mensagens SAP**. | Não |
-| clientId | ID do cliente do cliente no sistema SAP.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
-| language | Idioma que o sistema SAP usa. | Não (o valor padrão é **EN**)|
-| userName | Nome do usuário que tem acesso ao servidor SAP. | Sim |
-| Senha | Senha do usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| sncMode | Indicador de ativação SNC para acessar o servidor SAP em que a tabela está localizada.<br/>Aplicável se você quiser usar SNC para se conectar ao servidor SAP.<br/>Valores permitidos são: **0** (desativado, padrão) ou **1** (ativado). | Não |
-| sncMyName | Nome SNC do iniciador para acessar o servidor SAP em que a tabela está localizada.<br/>Aplicável quando `sncMode` está em. | Não |
-| sncPartnerName | Comunicação SNC nome do parceiro para acessar o servidor SAP em que a tabela está localizada.<br/>Aplicável quando `sncMode` está em. | Não |
-| sncLibraryPath | Biblioteca do produto de segurança externas para acessar o servidor SAP onde está localizada a tabela.<br/>Aplicável quando `sncMode` está em. | Não |
-| sncQop | O SNC qualidade de proteção.<br/>Aplicável quando `sncMode` está em. <br/>Valores permitidos são: **1** (autenticação), **2** (integridade), **3** (privacidade) **8** (padrão), **9** (máximo). | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
+| `type` | O `type` propriedade deve ser definida como `SapTable`. | Sim |
+| `server` | O nome do servidor no qual a instância do SAP está localizada.<br/>Use para se conectar a um servidor de aplicativos SAP. | Não |
+| `systemNumber` | O número de sistema do sistema SAP.<br/>Use para se conectar a um servidor de aplicativos SAP.<br/>Valor permitido: Um número decimal de dois dígitos representado como uma cadeia de caracteres. | Não |
+| `messageServer` | O nome de host do servidor de mensagens SAP.<br/>Use para se conectar a um servidor de mensagens SAP. | Não |
+| `messageServerService` | O nome do serviço ou a porta número do servidor de mensagens.<br/>Use para se conectar a um servidor de mensagens SAP. | Não |
+| `systemId` | A ID do sistema SAP em que a tabela está localizada.<br/>Use para se conectar a um servidor de mensagens SAP. | Não |
+| `logonGroup` | O grupo de logon para o sistema SAP.<br/>Use para se conectar a um servidor de mensagens SAP. | Não |
+| `clientId` | A ID do cliente no sistema SAP.<br/>Valor permitido: Um número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
+| `language` | O idioma que usa o sistema SAP.<br/>O valor padrão é `EN`.| Não |
+| `userName` | O nome do usuário que tem acesso ao servidor SAP. | Sim |
+| `password` | A senha do usuário. Marcar este campo com o `SecureString` tipo de armazená-lo com segurança no Data Factory, ou [fazer referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| `sncMode` | O indicador de ativação SNC para acessar o servidor SAP em que a tabela está localizada.<br/>Use se você quiser usar SNC para se conectar ao servidor SAP.<br/>Valores permitidos são `0` (desativado, o padrão) ou `1` (ativado). | Não |
+| `sncMyName` | O nome do iniciador SNC para acessar o servidor SAP em que a tabela está localizada.<br/>Aplica-se quando `sncMode` está em. | Não |
+| `sncPartnerName` | O communication nome do parceiro SNC para acessar o servidor SAP em que a tabela está localizada.<br/>Aplica-se quando `sncMode` está em. | Não |
+| `sncLibraryPath` | Biblioteca do produto de segurança externas para acessar o servidor SAP onde está localizada a tabela.<br/>Aplica-se quando `sncMode` está em. | Não |
+| `sncQop` | O nível de SNC qualidade de proteção a ser aplicado.<br/>Aplica-se quando `sncMode` está em. <br/>Valores permitidos são `1` (autenticação), `2` (integridade), `3` (privacidade), `8` (padrão), `9` (máximo). | Não |
+| `connectVia` | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Um tempo de execução de integração auto-hospedado é necessário, conforme mencionado anteriormente na [pré-requisitos](#prerequisites). |Sim |
 
-**Exemplo 1: conectar-se ao servidor de aplicativos SAP**
+**Exemplo 1: Conectar-se a um servidor de aplicativos SAP**
 
 ```json
 {
@@ -95,7 +95,7 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
         "typeProperties": {
             "server": "<server name>",
             "systemNumber": "<system number>",
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "userName": "<SAP user>",
             "password": {
                 "type": "SecureString",
@@ -110,7 +110,7 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
 }
 ```
 
-**Exemplo 2: conectar-se ao servidor de mensagens SAP**
+### <a name="example-2-connect-to-an-sap-message-server"></a>Exemplo 2: Conectar a um servidor de mensagens SAP
 
 ```json
 {
@@ -120,9 +120,9 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
         "typeProperties": {
             "messageServer": "<message server name>",
             "messageServerService": "<service name or port>",
-            "systemId": "<system id>",
+            "systemId": "<system ID>",
             "logonGroup": "<logon group>",
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "userName": "<SAP user>",
             "password": {
                 "type": "SecureString",
@@ -130,14 +130,14 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
             }
         },
         "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
+            "referenceName": "<name of integration runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
 }
 ```
 
-**Exemplo 3: conectar-se usando SNC**
+### <a name="example-3-connect-by-using-snc"></a>Exemplo 3: Conectar-se usando SNC
 
 ```json
 {
@@ -147,20 +147,20 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
         "typeProperties": {
             "server": "<server name>",
             "systemNumber": "<system number>",
-            "clientId": "<client id>",
+            "clientId": "<client ID>",
             "userName": "<SAP user>",
             "password": {
                 "type": "SecureString",
                 "value": "<Password for SAP user>"
             },
             "sncMode": 1,
-            "sncMyName": "snc myname",
-            "sncPartnerName": "snc partner name",
-            "sncLibraryPath": "snc library path",
+            "sncMyName": "<SNC myname>",
+            "sncPartnerName": "<SNC partner name>",
+            "sncLibraryPath": "<SNC library path>",
             "sncQop": "8"
         },
         "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
+            "referenceName": "<name of integration runtime>",
             "type": "IntegrationRuntimeReference"
         }
     }
@@ -169,16 +169,16 @@ As propriedades a seguir têm suporte no serviço vinculado do SAP BW Open Hub (
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [Conjuntos de Dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados de tabela SAP.
+Para obter uma lista completa das seções e propriedades para definir conjuntos de dados, consulte [conjuntos de dados](concepts-datasets-linked-services.md). A seção a seguir fornece uma lista das propriedades com suporte pelo conjunto de dados de tabela SAP.
 
-Para copiar dados de e para o Hub aberto do SAP BW, há suporte para as propriedades a seguir.
+Para copiar dados de e para o serviço do SAP BW Open Hub vinculado, há suporte para as seguintes propriedades:
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como **SapTableResource**. | Sim |
-| tableName | O nome da tabela para copiar dados do SAP. | Sim |
+| `type` | O `type` propriedade deve ser definida como `SapTableResource`. | Sim |
+| `tableName` | O nome da tabela para copiar dados do SAP. | Sim |
 
-**Exemplo:**
+### <a name="example"></a>Exemplo
 
 ```json
 {
@@ -186,7 +186,7 @@ Para copiar dados de e para o Hub aberto do SAP BW, há suporte para as propried
     "properties": {
         "type": "SapTableResource",
         "linkedServiceName": {
-            "referenceName": "<SAP Table linked service name>",
+            "referenceName": "<SAP table linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -198,43 +198,45 @@ Para copiar dados de e para o Hub aberto do SAP BW, há suporte para as propried
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
 
-Para obter uma lista completa das seções e propriedades disponíveis para definir atividades, confia o artigo [Pipelines](concepts-pipelines-activities.md). Esta seção fornece uma lista das propriedades com suporte pela fonte de tabela SAP.
+Para obter uma lista completa das seções e propriedades para definir atividades, consulte [Pipelines](concepts-pipelines-activities.md). A seção a seguir fornece uma lista das propriedades com suporte pela fonte de tabela de SAP.
 
-### <a name="sap-table-as-source"></a>Tabela SAP como origem
+### <a name="sap-table-as-a-source"></a>Tabela SAP como uma fonte
 
-Para copiar dados da tabela de SAP, há suporte para as propriedades a seguir.
+Para copiar dados de uma tabela do SAP, há suporte para as seguintes propriedades:
 
 | Propriedade                         | DESCRIÇÃO                                                  | Obrigatório |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| type                             | A propriedade type deve ser definida como **SapTableSource**.       | Sim      |
-| rowCount                         | Número de linhas a serem recuperadas.                              | Não       |
-| rfcTableFields                   | Campos a serem copiados da tabela de SAP. Por exemplo: `column0, column1`. | Não       |
-| rfcTableOptions                  | Opções para filtrar as linhas na tabela de SAP. Por exemplo: `COLUMN0 EQ 'SOMEVALUE'`. Consulte a descrição mais abaixo desta tabela. | Não       |
-| customRfcReadTableFunctionModule | Módulo personalizado de função RFC que pode ser usado para ler dados da tabela de SAP. | Não       |
-| partitionOption                  | O mecanismo de partição para ler da tabela SAP. As opções com suporte incluem: <br/>- **None**<br/>- **PartitionOnInt** (inteiro normal ou valores inteiros com preenchimento de zero à esquerda, como 0000012345)<br/>- **PartitionOnCalendarYear** (4 dígitos no formato "Aaaa")<br/>- **PartitionOnCalendarMonth** (6 dígitos no formato "YYYYMM")<br/>- **PartitionOnCalendarDate** (8 dígitos no formato "AAAAMMDD") | Não       |
-| partitionColumnName              | O nome da coluna para particionar os dados. | Não       |
-| partitionUpperBound              | O valor máximo da coluna especificada em `partitionColumnName` que será usado para o particionamento de continuar. | Não       |
-| partitionLowerBound              | O valor mínimo da coluna especificada em `partitionColumnName` que será usado para o particionamento de continuar. | Não       |
-| maxPartitionsNumber              | O número máximo de partições para dividir os dados. | Não       |
+| `type`                             | O `type` propriedade deve ser definida como `SapTableSource`.         | Sim      |
+| `rowCount`                         | O número de linhas a serem recuperadas.                              | Não       |
+| `rfcTableFields`                   | Os campos (colunas) para copiar da tabela de SAP. Por exemplo, `column0, column1`. | Não       |
+| `rfcTableOptions`                  | As opções para filtrar as linhas em uma tabela SAP. Por exemplo, `COLUMN0 EQ 'SOMEVALUE'`. Consulte também a tabela de operador de consulta SAP neste artigo. | Não       |
+| `customRfcReadTableFunctionModule` | Um módulo personalizado de função do RFC, pode ser usado para ler dados de uma tabela SAP.<br>Você pode usar um módulo personalizado de função RFC para definir como os dados são recuperados do seu sistema SAP e retornados ao Data Factory. O módulo de função personalizada deve ter uma interface implementada (importar, exportar, tabelas) que é semelhante ao `/SAPDS/RFC_READ_TABLE2`, que é a interface padrão usada pelo Data Factory. | Não       |
+| `partitionOption`                  | O mecanismo de partição para ler de uma tabela SAP. As opções com suporte incluem: <ul><li>`None`</li><li>`PartitionOnInt` (inteiro normal ou valores inteiros com zero preenchimento à esquerda, tal como `0000012345`)</li><li>`PartitionOnCalendarYear` (4 dígitos no formato "Aaaa")</li><li>`PartitionOnCalendarMonth` (6 dígitos no formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 dígitos no formato "AAAAMMDD")</li></ul> | Não       |
+| `partitionColumnName`              | O nome da coluna usada para particionar os dados.                | Não       |
+| `partitionUpperBound`              | O valor máximo da coluna especificada em `partitionColumnName` que será usado para continuar com o particionamento. | Não       |
+| `partitionLowerBound`              | O valor mínimo da coluna especificada em `partitionColumnName` que será usado para continuar com o particionamento. | Não       |
+| `maxPartitionsNumber`              | O número máximo de partições para dividir os dados.     | Não       |
 
 >[!TIP]
->- Se sua tabela SAP tem um grande volume de dados, como vários bilhões de linhas, use `partitionOption` e `partitionSetting` para dividir os dados em partições pequenas, caso em que os dados são lidos por partições e cada partição de dados é recuperado do servidor SAP por meio de um único Chamada RFC.<br/>
->- Levando `partitionOption` como `partitionOnInt` por exemplo, o número de linhas em cada partição é calculado por (total de linhas incluído entre *partitionUpperBound* e *partitionLowerBound*) /*maxPartitionsNumber*.<br/>
->- Se você quiser executar ainda mais as partições em paralelo para acelerar a cópia, é altamente recomendável fazer `maxPartitionsNumber` como um múltiplo do valor da `parallelCopies` (Saiba mais sobre [cópia paralela](copy-activity-performance.md#parallel-copy)).
+>Se sua tabela SAP tem um grande volume de dados, como várias bilhões linhas, use `partitionOption` e `partitionSetting` para dividir os dados em partições menores. Nesse caso, os dados são lidos por partição, e cada partição de dados é recuperada do servidor SAP por meio de uma única chamada RFC.<br/>
+<br/>
+>Levando `partitionOption` como `partitionOnInt` por exemplo, o número de linhas em cada partição é calculado com esta fórmula: (total de linhas incluído entre `partitionUpperBound` e `partitionLowerBound`) /`maxPartitionsNumber`.<br/>
+<br/>
+>Para executar as partições em paralelo para acelerar a cópia, é altamente recomendável fazer `maxPartitionsNumber` um múltiplo do valor da `parallelCopies` propriedade. Para obter mais informações, consulte [cópia paralela](copy-activity-performance.md#parallel-copy).
 
-No `rfcTableOptions`, você pode usar, por exemplo, os seguintes comuns SAP operadores de consulta para filtrar as linhas: 
+No `rfcTableOptions`, você pode usar os seguintes operadores de consulta comuns do SAP para filtrar as linhas:
 
 | Operador | DESCRIÇÃO |
 | :------- | :------- |
-| EQ | Igual a |
-| NE | Não igual a |
-| LT | Menor que |
-| LE | Menor ou igual a |
-| GT | Maior que |
-| GE | Maior ou igual a |
-| COMO | Como em LIKE 'Emma %' |
+| `EQ` | Igual a |
+| `NE` | Não igual a |
+| `LT` | Menor que |
+| `LE` | Menor ou igual a |
+| `GT` | Maior que |
+| `GE` | Maior ou igual a |
+| `LIKE` | Como em `LIKE 'Emma%'` |
 
-**Exemplo:**
+### <a name="example"></a>Exemplo
 
 ```json
 "activities":[
@@ -243,7 +245,7 @@ No `rfcTableOptions`, você pode usar, por exemplo, os seguintes comuns SAP oper
         "type": "Copy",
         "inputs": [
             {
-                "referenceName": "<SAP Table input dataset name>",
+                "referenceName": "<SAP table input dataset name>",
                 "type": "DatasetReference"
             }
         ],
@@ -272,20 +274,21 @@ No `rfcTableOptions`, você pode usar, por exemplo, os seguintes comuns SAP oper
 ]
 ```
 
-## <a name="data-type-mapping-for-sap-table"></a>Mapeamento de tipo de dados para a tabela SAP
+## <a name="data-type-mappings-for-an-sap-table"></a>Mapeamentos de tipo de dados para uma tabela SAP
 
-Ao copiar dados da tabela de SAP, os seguintes mapeamentos são usados de tipos de dados de tabela SAP para tipos de dados provisórios do Azure Data Factory. Consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md) para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor.
+Quando você estiver copiando dados de uma tabela SAP, os seguintes mapeamentos são usados de tipos de dados de tabela do SAP para os tipos de dados provisórios do Azure Data Factory. Para saber mais sobre como a atividade de cópia mapeia o tipo de dados e esquema de origem para o coletor, consulte [Mapeamentos de tipo de dados e esquema](copy-activity-schema-and-type-mapping.md).
 
 | Tipo SAP ABAP | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
-| C (Cadeia de caracteres) | Cadeia de caracteres |
-| Eu (Integer) | Int32 |
-| F (Flutuante) | Double |
-| D (Data) | Cadeia de caracteres |
-| T (Hora) | Cadeia de caracteres |
-| P (BCD Empacotado, Moeda, Decimal, Qtd) | Decimal |
-| N (numérico) | Cadeia de caracteres |
-| X (Binário e Bruto) | Cadeia de caracteres |
+| `C` (String) | `String` |
+| `I` (Inteiro) | `Int32` |
+| `F` (Float) | `Double` |
+| `D` (Date) | `String` |
+| `T` (Hora) | `String` |
+| `P` (Compactado e BCD, moeda, Decimal, Qty) | `Decimal` |
+| `N` (Numérico) | `String` |
+| `X` (Binário e brutos) | `String` |
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
+
+Para obter uma lista dos armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [armazenamentos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).

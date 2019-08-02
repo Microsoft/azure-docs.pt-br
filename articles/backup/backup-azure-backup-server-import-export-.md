@@ -1,19 +1,18 @@
 ---
 title: Backup do Azure - backup offline para DPM e Servidor de Backup do Azure
 description: Saiba como o Backup do Azure permite que você envie dados fora da rede usando o serviço de Importação/Exportação do Azure. Este artigo explica a propagação offline de dados de backup iniciais usando o serviço de Importação/Exportação do Azure.
-services: backup
 author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 18f84062bcaf2766ee0abd5248f876c3d8acef3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8a8571230b24d76482c505ec22d6faaa0caec5e6
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304031"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466716"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho do backup offline do DPM e do Servidor de Backup do Azure
 O Backup do Azure tem vários mecanismos internos eficientes que reduzem os custos de armazenamento e de rede durante os primeiros backups 'completos' de dados no Azure. Os primeiros backups "completos" transferem grandes quantidades de dados e, portanto, exigem mais largura de banda em comparação com os backups subsequentes, que transferem apenas os deltas/incrementais. O Backup do Azure compacta os backups inicias. O processo de propagação offline, o Backup do Azure pode usar discos para carregar os dados de backup iniciais compactados de forma offline no Azure.
@@ -98,7 +97,7 @@ As informações desta seção ajudam você a concluir o fluxo de trabalho de ba
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
 O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SATA que são enviadas para o Datacenter do Azure mais próximo. Este utilitário está disponível no diretório de instalação do agente de Serviços de Recuperação no caminho a seguir:
 
-*\\Agente de serviços de recuperação do Microsoft Azure\\Utils\\*
+*\\Utilitários de\\agente de serviços de recuperação do Microsoft Azure\\*
 
 1. Vá até o diretório e copie o diretório **AzureOfflineBackupDiskPrep** para um computador de cópia no qual as unidades SATA a serem preparadas estejam conectadas. Verifique os itens a seguir em relação ao computador de cópia:
 
@@ -116,7 +115,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SA
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | Parâmetro | DESCRIÇÃO |
+    | Parâmetro | Descrição |
     | --- | --- |
     | s:&lt;*Caminho do Local de Preparo*&gt; |A entrada obrigatória usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho de **Iniciar o backup offline** . |
     | p:&lt;*Caminho para PublishSettingsFile*&gt; |A entrada opcional usada para fornecer o caminho para o arquivo **Configurações de Publicação do Azure** inserido no fluxo de trabalho de **Iniciar o backup offline**. |
@@ -157,7 +156,7 @@ O utilitário *AzureOfflineBackupDiskPrep* é usado para preparar as unidades SA
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | Parâmetro | DESCRIÇÃO |
+    | Parâmetro | Descrição |
     | --- | --- |
     | u: | Entrada obrigatória usada para atualizar os detalhes de envio para um trabalho de Importação do Azure |
     | s:&lt;*Caminho do Local de Preparo*&gt; | Entrada obrigatória quando o comando não é executado no computador de origem. Usada para fornecer o caminho para o local de preparo inserido no fluxo de trabalho **Iniciar o backup offline**. |

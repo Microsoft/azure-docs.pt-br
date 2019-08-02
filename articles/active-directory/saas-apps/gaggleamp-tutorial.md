@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 57d80394c89072a0d0a2c87a378942c32ade6844
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 678f4e52fd8d3adf802bd89a1cc07ff585e696ef
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860679"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101817"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gaggleamp"></a>Tutorial: Integração do Azure Active Directory com o GaggleAMP
 
@@ -54,7 +54,7 @@ Para configurar a integração do GaggleAMP com o Azure AD, você precisa adicio
 
 **Para adicionar o GaggleAMP a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -112,7 +112,7 @@ Para configurar o logon único do Azure AD com o GaggleAMP, execute as seguintes
 
     ![image](common/both-preintegrated-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://gaggleamp.com/i/<customerid>`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://gaggleamp.com/i/<customerid>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de Logon real. Entre em contato com a [equipe de suporte ao Cliente do GaggleAMP](mailto:sales@gaggleamp.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -133,13 +133,13 @@ Para configurar o logon único do Azure AD com o GaggleAMP, execute as seguintes
 
 ### <a name="configure-gaggleamp-single-sign-on"></a>Configurar o logon único do GaggleAMP
 
-1. Em outra instância do navegador, navegue até a página de SSO de SAML criada para você pela equipe de suporte do Gaggle (por exemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit*).
+1. Em outra instância do navegador, navegue até a página de SSO de SAML criada para você pela equipe de suporte do Gaggle (por exemplo: *https://accounts.gaggleamp.com/saml_configurations/oXH8sQcP79dOzgFPqrMTyw/edit* ).
 
 2. Na página **SSO de SAML** , execute as seguintes etapas:  
    
     ![Logon único do GaggleAMP](./media/gaggleamp-tutorial/tutorial_gaggleamp_06.png)
 
-     a. Selecione **Outro** formulário no menu suspenso do **Provedor de identidade**.
+    a. Selecione **Outro** formulário no menu suspenso do **Provedor de identidade**.
     
     b. Na caixa de texto **Emissor de provedor de identidade**, cole o valor de **Identificador do Azure AD**, copiado do portal do Azure.
     
@@ -147,7 +147,7 @@ Para configurar o logon único do Azure AD com o GaggleAMP, execute as seguintes
     
     d. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado X.509**.
     
-    e. Clique em **Salvar**.
+    e. Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -167,7 +167,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -216,5 +216,5 @@ Ao clicar no bloco do GaggleAMP no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

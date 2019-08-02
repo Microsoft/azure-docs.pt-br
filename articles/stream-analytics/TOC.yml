@@ -7,6 +7,7 @@
     - name: Padrões da solução de ponta a ponta
       href: stream-analytics-solution-patterns.md
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Criar um trabalho – Portal do Azure
       href: stream-analytics-quick-create-portal.md
@@ -36,6 +37,8 @@
   items:
     - name: Escolher uma tecnologia de análise de streaming
       href: streaming-technologies.md
+    - name: Escolher uma ferramenta de desenvolvimento do trabalho
+      href: feature-comparison.md
     - name: Tipos de entrada para um trabalho
       items:
         - name: Visão geral das entradas
@@ -88,14 +91,16 @@
           href: stream-analytics-test-query.md
         - name: Exibir resultados em um painel
           href: stream-analytics-power-bi-dashboard.md
-        - name: Limpar um trabalho
+        - name: Interromper ou excluir um trabalho
           href: stream-analytics-clean-up-your-job.md
         - name: Emparelhar trabalhos para confiabilidade
           href: stream-analytics-job-reliability.md
-        - name: Autenticar com identidade gerenciada
+        - name: Autenticar com identidade gerenciada – saída do ADLS Gen 1
           href: stream-analytics-managed-identities-adls.md
         - name: Usar dados de referência do SQL
           href: sql-reference-data.md
+        - name: Autenticar com identidade gerenciada – saída de Blob
+          href: blob-output-managed-identity.md
     - name: Compilar soluções
       items:
         - name: Análise de sentimento no Twitter
@@ -116,6 +121,9 @@
           href: stream-analytics-threshold-based-rules.md
         - name: Processar eventos do Kafka
           href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+          maintainContext: true
+        - name: Processar dados dos Hubs de Eventos
+          href: ../event-hubs/process-data-azure-stream-analytics.md
           maintainContext: true
         - name: Cenários geoespaciais
           href: geospatial-scenarios.md
@@ -141,6 +149,8 @@
               href: stream-analytics-scale-jobs.md
         - name: Expandir com funções de ML
           href: stream-analytics-scale-with-machine-learning-functions.md
+        - name: Dimensionar com o reparticionamento
+          href: repartition.md
     - name: Automatizar
       items:
         - name: Usando o SDK .NET
@@ -494,6 +504,9 @@
           maintainContext: true
         - name: JOIN
           href: /stream-analytics-query/join-azure-stream-analytics
+          maintainContext: true
+        - name: MATCH_RECOGNIZE
+          href: /stream-analytics-query/match-recognize-stream-analytics.md
           maintainContext: true
         - name: Dados de Referência JOIN
           href: /stream-analytics-query/reference-data-join-azure-stream-analytics

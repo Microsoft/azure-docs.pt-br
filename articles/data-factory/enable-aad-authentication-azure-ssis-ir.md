@@ -12,12 +12,12 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f3d0aaee624bdba169f13313bb57a3ebe8075592
+ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65593807"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67490066"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Habilitar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime
 
@@ -146,17 +146,7 @@ A Instância Gerenciada do Banco de Dados SQL do Azure dá suporte à criação 
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>Configurar a autenticação do Azure AD para a Instância Gerenciada do Banco de Dados SQL do Azure
 
-1.   No portal do Azure, selecione **Todos os serviços** -> **Servidores SQL** na barra de navegação esquerda.
-
-2.   Selecione a Instância Gerenciada a ser configurada com autenticação do Azure AD.
-
-3.   Na seção **Configurações** da folha, selecione **Administrador do Active Directory**.
-
-4.   Na barra de comandos, selecione **Definir administrador**.
-
-5.   Selecione uma conta de usuário do Azure AD para ser administrador do servidor e, em seguida, escolha **Selecionar**.
-
-6.   Na barra de comandos, selecione **Salvar**.
+Siga as etapas em [provisionar um administrador do Active Directory do Azure para sua instância gerenciada](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>Adicionar a identidade gerenciada para o ADF como um usuário na Instância Gerenciada do Banco de Dados SQL do Azure
 
@@ -164,7 +154,7 @@ Para esta próxima etapa, você precisará [Microsoft SQL Server Management Stu
 
 1.  Inicie o SSMS.
 
-2.  Conecte à sua Instância Gerenciada usando a conta de administrador do SQL/Active Directory.
+2.  Conectar-se à sua instância gerenciada usando uma conta do SQL Server que é um **sysadmin**. Essa é uma limitação temporária que será removida quando entidades do servidor (logons) do Azure AD para o banco de dados de instância gerenciada do SQL se torna a GA. Você verá o seguinte erro se tentar usar uma conta do administrador do Azure AD para criar o logon: Msg 15247, nível 16, estado 1, linha 1 usuário tem permissão para executar esta ação.
 
 3.  No **Pesquisador de Objetos**, expanda a pasta **Bancos de dados** -> **Bancos de Dados do Sistema**.
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c6958fef66e492ae1875538503e4094d8eeccb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6797d9824a2dff23f30f6d2c49fb7e62d76b1e0d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859494"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107455"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-acadia"></a>Tutorial: Integração do Azure Active Directory ao Acadia
 
@@ -54,7 +54,7 @@ Para configurar a integração do Acadia ao Azure AD, você precisará adicionar
 
 **Para adicionar o Acadia por meio da galeria, execute as etapas a seguir:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o Acadia, execute as seguintes et
 
     ![Informações de logon único de Domínio e URLs do Acadia](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<CUSTOMER>.acadia.sysalli.com/shibboleth`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<CUSTOMER>.acadia.sysalli.com/Shibboleth.sso/SAML2/POST`
 

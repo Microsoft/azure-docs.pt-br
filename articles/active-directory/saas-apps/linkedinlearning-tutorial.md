@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3717ed095c162255b0c0cdf09cac13fe2033979a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9ff3748213d8449704f7b1001469eb8f7a224498
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904994"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098064"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Tutorial: Integração do Azure Active Directory ao LinkedIn Learning
 
@@ -54,7 +54,7 @@ Para configurar a integração do LinkedIn Learning com o Azure AD, é necessár
 
 **Para adicionar o LinkedIn Learning da galeria, siga as etapas abaixo:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o LinkedIn Learning, siga as etap
 
     ![Informações de logon único em Domínio e URLs do LinkedIn Learning](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn. 
+    a. Na caixa de texto **Identificador**, insira a **ID da Entidade** copiada do Portal do LinkedIn. 
 
     b. Na caixa de texto **URL de resposta**, insira o **URL do serviço de consumidor de afirmações (ACS)** copiado do portal do LinkedIn.
 
@@ -132,7 +132,7 @@ Para configurar o logon único do Azure AD com o LinkedIn Learning, siga as etap
     | nome  | user.givenname  |
     | sobrenome  | user.surname  |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o LinkedIn Learning, siga as etap
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 7. Na página **Configurar Logon Único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Baixar** para baixar o **XML de Metadados de Federação** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -192,7 +192,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -243,5 +243,5 @@ Ao clicar no bloco do LinkedIn Learning no Painel de Acesso, você deverá ser c
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

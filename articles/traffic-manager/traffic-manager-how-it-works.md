@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: allensu
-ms.openlocfilehash: a74af002dfdad5df9640be4b5fdd7f657b183bd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071179"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68312142"
 ---
 # <a name="how-traffic-manager-works"></a>Como funciona o Gerenciador de tráfego
 
@@ -69,6 +69,29 @@ Continuando do exemplo anterior, quando um cliente solicita a página https://pa
 
 O serviço DNS recursivo armazena em cache as respostas DNS recebidas. O resolvedor DNS no dispositivo do cliente também armazena em cache o resultado. O cache permite que as próximas consultas DNS sejam respondidas mais rapidamente usando dados do cache em vez de consultar outros servidores de nomes. A duração do cache é determinada pela propriedade TTL (“vida útil”) de cada registro DNS. Valores menores resultam na expiração de cache mais rápida e, portanto, mais viagens de ida e volta para os servidores de nomes do Gerenciador de Tráfego. Valores maiores significam que pode levar mais tempo para direcionar o tráfego para fora de um ponto de extremidade com falha. O Gerenciador de Tráfego permite configurar o TTL usado em respostas de DNS do Gerenciador de Tráfego para serem de apenas 0 segundo e de até 2.147.483.647 segundos (o intervalo máximo em conformidade com [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt)), habilitando-o a escolher o valor que melhor equilibre as necessidades do seu aplicativo.
 
+## <a name="faqs"></a>Perguntas frequentes
+
+* [Qual endereço IP o Gerenciador de tráfego usa?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-ip-address-does-traffic-manager-use)
+
+* [Quais tipos de tráfego podem ser roteados usando o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-types-of-traffic-can-be-routed-using-traffic-manager)
+
+* [O Gerenciador de tráfego dá suporte a sessões "adesivas"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-sticky-sessions)
+
+* [Por que estou vendo um erro HTTP ao usar o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#why-am-i-seeing-an-http-error-when-using-traffic-manager)
+
+* [Qual é o impacto no desempenho do uso do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-the-performance-impact-of-using-traffic-manager)
+
+* [Quais protocolos de aplicativo posso usar com o Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-application-protocols-can-i-use-with-traffic-manager)
+
+* [Posso usar o Gerenciador de tráfego com um nome de domínio "Naked"?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-a-naked-domain-name)
+
+* [O Gerenciador de tráfego considera o endereço de sub-rede do cliente ao manipular consultas DNS?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries)
+
+* [O que é o TTL do DNS e como ele afeta meus usuários?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#what-is-dns-ttl-and-how-does-it-impact-my-users)
+
+* [O quão alto ou baixo posso definir o TTL das respostas do Gerenciador de tráfego?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-high-or-low-can-i-set-the-ttl-for-traffic-manager-responses)
+
+* [Como posso entender o volume de consultas que estão chegando ao meu perfil?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-can-i-understand-the-volume-of-queries-coming-to-my-profile)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -13,13 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 10/30/2014
-ms.author: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
-ms.openlocfilehash: 0cb75c1acb731432ed524560698e3355699b2500
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: erikre
+ms.reviewer: elmer.thomas@sendgrid.com; erika.berkland@sendgrid.com; vibhork
+ms.openlocfilehash: 8ae948e9c79cff4cd0c896b250743fd9dc521752
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60931204"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876520"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-java"></a>Como enviar emails usando o SendGrid com Java
 Este guia demonstra como executar tarefas comuns de programação com o serviço de email SendGrid no Windows Azure. As amostras são gravadas em Java. Os cenários abordados incluem a **construção de emails**, o **envio de emails**, a **adição de anexos**, o **uso de filtros** e a **atualização de propriedades**. Para obter mais informações sobre o SendGrid e o envio de emails, consulte a seção [Próximas etapas](#next-steps) .
@@ -80,8 +81,8 @@ Obtenha as bibliotecas javax.mail, por exemplo, a partir de <https://www.oracle.
 
        Authenticator auth = new SMTPAuthenticator();
        Session mailSession = Session.getDefaultInstance(properties, auth);
-3. Criar sua mensagem e atribuir valores de conteúdo, **Para**, **De** e **Assunto**. Isso é mostrado no [How To: Criar um Email](#how-to-create-an-email) seção.
-4. Enviar a mensagem por meio de um objeto *javax.mail.Transport* . Isso é mostrado no [How To: Seção do envio um Email] [# como-enviar-um-email].
+3. Criar sua mensagem e atribuir valores de conteúdo, **Para**, **De** e **Assunto**. Isso é mostrado na [seguinte forma: Criar uma seção](#how-to-create-an-email) de email.
+4. Enviar a mensagem por meio de um objeto *javax.mail.Transport* . Isso é mostrado na seção [como: Enviar uma seção de email] [#how para enviar-um-email].
 
 ## <a name="how-to-create-an-email"></a>Como: Criar um email
 O código a seguir mostra como especificar valores para um email.
@@ -130,7 +131,7 @@ O código a seguir mostra como adicionar um anexo.
     attachmentPart.setFileName(attachmentName);
     multipart.addBodyPart(attachmentPart);
 
-## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: Usar filtros para habilitar rodapés, acompanhamento e análise
+## <a name="how-to-use-filters-to-enable-footers-tracking-and-analytics"></a>Como: Usar filtros para habilitar rodapés, rastreamento e análise
 O SendGrid fornece a funcionalidade adicional de email por meio do uso de *filtros*. Essas são as configurações que podem ser adicionadas a uma mensagem de email para habilitar uma funcionalidade específica, como habilitar rastreamento de cliques, Google analytics, rastreamento de assinatura e assim por diante. Para obter uma lista completa de filtros, consulte [Configurações de filtro][Filter Settings].
 
 * O código a seguir mostra como inserir um filtro de rodapés que faça com que o texto HTML exibido na parte inferior do email seja enviado.
@@ -173,13 +174,13 @@ Para adicionar um destinatário a **Cc** , use o seguinte:
     message.addRecipient(Message.RecipientType.CC, new
     InternetAddress("john@contoso.com"));
 
-## <a name="how-to-use-additional-sendgrid-services"></a>Como: Usar serviços adicionais do SendGrid
+## <a name="how-to-use-additional-sendgrid-services"></a>Como: Usar serviços SendGrids adicionais
 O SendGrid oferece APIs baseadas na Web que podem ser usadas para aproveitar a funcionalidade adicional do SendGrid do aplicativo do Azure. Para obter detalhes completos, consulte a [Documentação da API do SendGrid][SendGrid API documentation].
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já conhece as noções básicas do serviço de email SendGrid, siga estes links para saber mais.
 
-* Exemplo que demonstra o uso do SendGrid em uma implantação do Azure: [Como enviar email usando o SendGrid do Java em uma implantação do Azure](store-sendgrid-java-how-to-send-email-example.md)
+* Exemplo que demonstra como usar SendGrid em uma implantação do Azure: [Como enviar emails usando o SendGrid do Java em uma implantação do Azure](store-sendgrid-java-how-to-send-email-example.md)
 * SDK de Java do SendGrid: <https://sendgrid.com/docs/Code_Examples/java.html>
 * Documentação da API do SendGrid: <https://sendgrid.com/docs/API_Reference/index.html>
 * Oferta especial do SendGrid para clientes do Azure: <https://sendgrid.com/windowsazure.html>

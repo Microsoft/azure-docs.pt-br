@@ -1,6 +1,6 @@
 ---
-title: Colaborar com outras pessoas
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Colaborar com outras pessoas – LUIS
+titleSuffix: Azure Cognitive Services
 description: Um proprietário de aplicativo pode adicionar colaboradores ao aplicativo. Esses colaboradores podem modificar o modelo, treinar e publicar o aplicativo.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f23212a854fb37dda89fd2bf6b223cf0dc69526b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dbc27176e7a300c0799e326acb10b99ac663fa89
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198679"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638128"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>Como gerenciar autores e colaboradores 
 

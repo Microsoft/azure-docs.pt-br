@@ -3,22 +3,17 @@ title: Esquema de função dos Serviços de Nuvem do Azure | Microsoft Docs
 ms.custom: ''
 ms.date: 12/07/2016
 services: cloud-services
-ms.reviewer: ''
 ms.service: cloud-services
-ms.suite: ''
-ms.tgt_pltfrm: ''
 ms.topic: reference
-ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: jpconnock
-ms.author: jeconnoc
-manager: timlt
-ms.openlocfilehash: aa6f8a821edea6261d64bb411154e82fdf212a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: georgewallace
+ms.author: gwallace
+ms.openlocfilehash: 481301333ada39297bf2813bbea5f096c2abd3ad
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130238"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360662"
 ---
 # <a name="azure-cloud-services-config-role-schema"></a>Esquema de função de configuração dos Serviços de Nuvem do Azure
 
@@ -45,18 +40,18 @@ O exemplo a seguir mostra o elemento `Role` e seus elementos filho.
 
 A tabela a seguir descreve os atributos do elemento `Role`.
 
-| Atributo | DESCRIÇÃO |
+| Atributo | Descrição |
 | --------- | ----------- |
-| name   | Obrigatório. Especifica o nome da função. O nome deve corresponder ao nome fornecido para a função no arquivo de definição de serviço.|
+| name   | Obrigatória. Especifica o nome da função. O nome deve corresponder ao nome fornecido para a função no arquivo de definição de serviço.|
 | vmName | Opcional. Especifica um nome DNS para uma máquina virtual. O nome deve ter dez caracteres ou menos.|
 
 A tabela a seguir descreve os elementos filho do elemento `Role`.
 
-| Elemento | DESCRIÇÃO |
+| Elemento | Descrição |
 | ------- | ----------- |
-| Instâncias | Obrigatório. Especifica o número de instâncias a serem implantadas para a função. O número de instâncias é definido por um inteiro para o atributo `count`.|
+| Instâncias | Obrigatória. Especifica o número de instâncias a serem implantadas para a função. O número de instâncias é definido por um inteiro para o atributo `count`.|
 | Configuração   | Opcional. Especifica um nome e valor da configuração em uma coleção de configurações para uma função. O nome da configuração é definido por uma cadeia de caracteres para o atributo `name` e o valor da configuração é definido por uma cadeia de caracteres para o atributo `value`.|
 | Certificado | Opcional. Especifica o nome, a impressão digital e o algoritmo de um certificado de serviço a ser associado à função. O nome do certificado é definido por uma cadeia de caracteres para o atributo `name`. A impressão digital do certificado é definida por uma cadeia de caracteres de números hexadecimais sem espaços para o atributo `thumbprint`. Os números hexadecimais devem ser representados usando dígitos e caracteres alfa maiúsculos. O algoritmo do certificado é definido por uma cadeia de caracteres para o atributo `thumbprintAlgorithm`.|
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 [Esquema de configuração do Serviço de Nuvem (clássico)](schema-cscfg-file.md)

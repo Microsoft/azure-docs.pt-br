@@ -2,24 +2,25 @@
 title: Central de segurança do Azure para IoT pré-requisitos de versão prévia | Microsoft Docs
 description: Detalhes de todos os componentes necessários para começar a usar a Central de segurança do Azure para pré-requisitos de serviço de IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: 790cbcb7-1340-4cc1-9509-7b262e7c3181
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 973b0044844fbdf38eefde2072631586a8ace593
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 198459887ff19b16e897b2a8dde55bca1217c8ac
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192601"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616443"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Central de segurança do Azure para pré-requisitos de IoT
 

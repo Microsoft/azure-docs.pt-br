@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
+ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64926524"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68311817"
 ---
 # <a name="azure-media-player-overview"></a>Visão geral do Player de Mídia do Azure
 
@@ -24,13 +24,16 @@ O Player de Mídia do Azure é um player de vídeo da Web criado para reproduzir
 
 Os Serviços de Mídia do Microsoft Azure permitem que o conteúdo seja fornecido com os formatos de streaming DASH, Smooth Streaming e HLS para reprodução de conteúdo. O Player de Mídia do Azure leva em conta esses vários formatos e executa automaticamente o melhor link com base nos recursos da plataforma/navegador. Os Serviços de Mídia também permitem a criptografia dinâmica de ativos com criptografia PlayReady ou criptografia de envelope de 128 bits AES. O Player de Mídia do Azure permite a descriptografia do conteúdo criptografado com PlayReady e AES de 128 bits, quando configurado adequadamente. 
 
+> [!NOTE]
+> A reprodução de HTTPS é necessária para conteúdo criptografado Widevine.
+
 [Inicie sua avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Use a página de demonstração do Player de Mídia do Azure
 
 ### <a name="start-using"></a>Comece a usar
 
-Você pode usar a [página de demonstração do Player de Mídia do Azure](https://aka.ms/amp) para reproduzir amostras dos Serviços de Mídia do Azure ou seu próprio stream.  
+Você pode usar a [página de demonstração do Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para reproduzir amostras dos Serviços de Mídia do Azure ou seu próprio stream.  
 
 Para reproduzir um novo vídeo, cole uma URL diferente e pressione **Atualizar**.
 
@@ -40,7 +43,7 @@ Para configurar várias opções de reprodução (por exemplo, tecnologia, lingu
 
 ### <a name="monitor-diagnostics-of-a-video-stream"></a>Monitorar o diagnóstico de um stream de vídeo
 
-Você pode usar a página de demonstração do [Player de Mídia do Azure](https://aka.ms/amp) para monitorar o diagnóstico de um stream de vídeo. 
+Você pode usar a página de demonstração do [Player de Mídia do Azure](https://aka.ms/azuremediaplayer) para monitorar o diagnóstico de um stream de vídeo. 
 
 ![Diagnóstico do Player de Mídia do Azure](./media/azure-media-player/diagnostics.png)
 

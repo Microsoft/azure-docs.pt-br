@@ -4,7 +4,7 @@ description: Implante o cliente do Chef em uma máquina virtual usando a extens�
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: roiyz
-ms.openlocfilehash: 6bd3ea4e664523fe8014be40c51d573ed5158ecf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72536cc6f9ec3b94016d16de8502e70bc7107aa
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60800274"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706095"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extensão para VM do Chef para Linux e Windows
 
@@ -68,16 +68,16 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 ### <a name="core-property-values"></a>Valores de propriedades principais
 
-| NOME | Valor/Exemplo | Tipo de Dados
-| ---- | ---- | ---- 
+| Nome | Valor/Exemplo | Tipo de dados
+| ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
-| publicador | `Chef.Bootstrap.WindowsAzure` | string |
-| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
+| publisher | `Chef.Bootstrap.WindowsAzure` | cadeia de caracteres |
+| type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | cadeia de caracteres |
 | typeHandlerVersion | `1210.12` | string (double) |
 
 ### <a name="settings"></a>Configurações
 
-| NOME | Valor/Exemplo | Tipo de Dados | Obrigatório?
+| Nome | Valor/Exemplo | Tipo de dados | Obrigatório?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | S |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | cadeia de caracteres | S |
@@ -85,7 +85,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 ### <a name="protected-settings"></a>Configurações protegidas
 
-| NOME | Exemplo | Tipo de Dados | Obrigatório?
+| Nome | Exemplo | Tipo de dados | Obrigatório?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | cadeia de caracteres | S |
 
@@ -105,7 +105,7 @@ O JSON a seguir mostra o esquema para a extensão para VM do Chef. A extensão e
 
 Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Manager. Modelos podem ser usados para implantar uma ou mais máquinas virtuais, instalar o cliente do Chef, conectar-se ao servidor do Chef e executar a configuração inicial no servidor, conforme definido pela [lista de execução](https://docs.chef.io/run_lists.html)
 
-Um modelo do Resource Manager de amostra que inclui a extensão para VM do Chef pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
+Um modelo do Resource Manager que inclui a extensão de VM do Chef pode ser encontrado na [Galeria de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/chef-json-parameters-linux-vm).
 
 A configuração do JSON para uma extensão da máquina virtual pode ser aninhado dentro do recurso de máquina virtual ou localizado no nível de raiz ou superior de um modelo JSON do Resource Manager. O posicionamento da configuração do JSON afeta o valor do tipo e nome do recurso. Para obter mais informações, consulte [Definir o nome e o tipo de recursos filho](../../azure-resource-manager/resource-manager-template-child-resource.md).
 
@@ -147,7 +147,7 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 
 ### <a name="error-codes-and-their-meanings"></a>Códigos de erro e seus significados
 
-| Código de Erro | Significado | Ação possível |
+| Código do Erro | Significado | Ação possível |
 | :---: | --- | --- |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
 

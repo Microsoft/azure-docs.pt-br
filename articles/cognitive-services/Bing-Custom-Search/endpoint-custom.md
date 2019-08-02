@@ -1,6 +1,6 @@
 ---
 title: Ponto de extremidade da Pesquisa Personalizada do Bing
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Resumo do ponto de extremidade da API de Pesquisa Personalizada do Bing.
 services: cognitive-services
 author: aahill
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: bc33d65972e12591130389e0c3cb8697898d1da9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3b544d8d655b653383cc999de233e2163433d85
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390354"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405064"
 ---
 # <a name="custom-search"></a>Pesquisa Personalizada
 A Pesquisa Personalizada do Bing permite que você crie experiências de pesquisa personalizada para os tópicos importantes para você. Os usuários veem os resultados da pesquisa ajustados ao conteúdo importante para eles em vez de obter a página por meio dos resultados da com conteúdo irrelevante.

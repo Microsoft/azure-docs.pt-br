@@ -168,7 +168,7 @@ Na produção, o aplicativo de navegador teria uma URL pública em vez da URL de
 
 ### <a name="enable-cors"></a>Habilitar CORS 
 
-No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_.
+No Cloud Shell, habilite o CORS para URL do cliente usando o comando [ `az resource update` ](/cli/azure/resource#az-resource-update). Substitua o espaço reservado _&lt;appname>_ .
 
 ```azurecli-interactive
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.cors.allowedOrigins="['http://localhost:5000']" --api-version 2015-06-01

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 5524c59537f1657fddd626bd4c019f4f65b8390d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 39f62b82ed2716099a63e363c87fbac65d02ffb0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920339"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086816"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integração do Azure Active Directory com o Workpath
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Workpath, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Workpath](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.workpath.com/v1/saml/metadata/<instancename>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
@@ -131,7 +131,7 @@ Para configurar o logon único do Azure AD com o Workpath, execute as seguintes 
     | first_name | user.givenname |
     | last_name | user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -233,5 +233,5 @@ Ao clicar no bloco do Workpath no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

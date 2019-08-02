@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fd68edcc727ab08ed9d3ba765bbe795e88de5fc9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391257"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67069266"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Tutorial: Proteger os artefatos em implantações de modelo do Azure Resource Manager
 
@@ -75,9 +75,9 @@ Baixe o [arquivo BACPAC](https://armtutorials.blob.core.windows.net/sqlextension
 
     * **Assinatura**: Selecione sua assinatura do Azure.
     * **Grupo de recursos**: Selecione **Criar novo** e dê um nome. Um grupo de recursos é um contêiner para recursos do Azure para fins de gerenciamento. Neste tutorial, você pode usar o mesmo grupo de recursos para a conta de armazenamento e Banco de Dados SQL do Azure. Anote esse nome do grupo de recursos, você precisará dele quando criar o Banco de Dados SQL do Azure posteriormente nos tutoriais.
-    * **Localização**: Selecione uma região. Por exemplo, **Centro dos EUA**. 
+    * **Localização**: Selecione uma região. Por exemplo, **Centro dos EUA**.
     * **Tipo de Conta de Armazenamento**: use o valor padrão, que é **Standard_LRS**.
-    * **Localização**: Use o valor padrão, que é **[resourceGroup().location]**. Isso significa que você usa a localização do grupo de recursos para a conta de armazenamento.
+    * **Localização**: Use o valor padrão, que é **[resourceGroup().location]** . Isso significa que você usa a localização do grupo de recursos para a conta de armazenamento.
     * **Eu concordo com os termos e condições declarados acima**: (selecionados)
 3. Selecione **Comprar**.
 4. Selecione o ícone de notificação (o ícone de sino) no canto superior direito do portal para ver o status da implantação.
@@ -87,7 +87,7 @@ Baixe o [arquivo BACPAC](https://armtutorials.blob.core.windows.net/sqlextension
 
 ### <a name="create-a-blob-container"></a>Criar um contêiner de Blob
 
-Um contêiner de Blob é necessário antes de carregar todos os arquivos. 
+Um contêiner de Blob é necessário antes de carregar todos os arquivos.
 
 1. Selecione a conta de armazenamento para abrir. Você deverá ver apenas uma conta de armazenamento listada no grupo de recursos. O nome da sua conta de armazenamento é diferente daquele mostrado na seguinte captura de tela.
 
@@ -99,8 +99,8 @@ Um contêiner de Blob é necessário antes de carregar todos os arquivos.
 3. Selecione **+ Contêiner** na parte superior para criar um novo contêiner.
 4. Insira os valores a seguir:
 
-    * **Nome**: insira **sqlbacpac**. 
-    * **Nível de acesso público**: use o valor padrão, **Privado (sem acesso anônimo)**.
+    * **Nome**: insira **sqlbacpac**.
+    * **Nível de acesso público**: use o valor padrão, **Privado (sem acesso anônimo)** .
 5. Selecione **OK**.
 6. Selecione **sqlbacpac** para abrir o contêiner recém-criado.
 
@@ -237,7 +237,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos impla
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você implantou um SQL Server e um Banco de Dados SQL e importou um arquivo BACPAC usando o token SAS. Para saber como implantar recursos do Azure em várias regiões e como usar práticas de implantação seguras, consulte
+Neste tutorial, você implantou um SQL Server e um Banco de Dados SQL e importou um arquivo BACPAC usando o token SAS. Para saber como criar um Pipeline do Azure para desenvolver e implantar modelos do Gerenciador de Recursos
 
 > [!div class="nextstepaction"]
-> [Usar o Gerenciador de Implantação do Azure](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Integração contínua com o Azure Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)

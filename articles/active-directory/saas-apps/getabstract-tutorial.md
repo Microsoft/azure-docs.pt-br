@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 77ccc3e3ce734bd8dae249d369571e22c6f56943
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86ca99da4031fe29922456b26788633def8c8da2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838945"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102010"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integração do Azure Active Directory com o Getabstract
 
@@ -55,7 +55,7 @@ Para configurar a integração do Getabstract ao Azure AD, é necessário adicio
 
 **Para adicionar o Getabstract da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -82,7 +82,7 @@ Para configurar e testar o logon único do Azure AD com o Getabstract, você pre
 2. **[Configurar o logon único do Getabstract](#configure-getabstract-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Getabstract](#create-getabstract-test-user)**: para ter um equivalente de Brenda Fernandes no Getabstract que esteja vinculado à representação de usuário no Azure AD.
+5. **[Criar usuário de teste do Getabstract](#create-getabstract-test-user)** : para ter um equivalente de Brenda Fernandes no Getabstract que esteja vinculado à representação de usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Getabstract, execute as seguint
 
     ![Informações de logon único de Domínio e URLs do Getabstract](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL:
+    a. Na caixa de texto **Identificador**, digite uma URL:
 
     Para preparação/pre_production: `https://int.getabstract.com`
 
@@ -166,7 +166,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -220,5 +220,5 @@ Ao clicar no bloco do Getabstract no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

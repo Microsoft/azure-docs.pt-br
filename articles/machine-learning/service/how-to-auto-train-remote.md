@@ -1,7 +1,7 @@
 ---
 title: Destinos de computação remotos do ML automatizado
 titleSuffix: Azure Machine Learning service
-description: Saiba como criar modelos usando o aprendizado de máquina automatizados em um destino de computação remota do Azure Machine Learning com o serviço de Azure Machine Learning
+description: Saiba como criar modelos usando o Machine Learning automatizado em um Azure Machine Learning destino de computação remota com o serviço Azure Machine Learning
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -10,28 +10,27 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.custom: seodec18
-ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 7/12/2019
+ms.openlocfilehash: 852190f7b66c0d2c527d1784c72f963e11620064
+ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65551347"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371098"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Treinar modelos com o aprendizado de máquina automatizado na nuvem
 
-No Azure Machine Learning, você treina seu modelo em diferentes tipos de recursos de computação que gerencia. O destino de computação pode ser um computador local ou um computador na nuvem.
+No Azure Machine Learning, você treina seu modelo em diferentes tipos de recursos de computação que gerencia. O destino de computação pode ser um computador local ou um recurso na nuvem.
 
-Você pode facilmente escalar verticalmente ou escalar horizontalmente sua experiência de aprendizado de máquina adicionando destinos de computação adicionais, como a computação do Azure Machine Learning (AmlCompute). AmlCompute é uma infraestrutura de computação gerenciada que permite que você crie facilmente uma computação única ou vários nó.
+Você pode facilmente escalar ou escalar horizontalmente seu experimento de aprendizado de máquina adicionando destinos de computação adicionais, como computação de Azure Machine Learning (AmlCompute). O AmlCompute é uma infraestrutura de computação gerenciada que permite que você crie facilmente uma computação de vários nós ou um único nó.
 
-Neste artigo, você aprenderá como criar um modelo usando ML automatizado com AmlCompute.
+Neste artigo, você aprenderá a criar um modelo usando o ML automatizado com AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>Como remoto difere do local?
 
-O tutorial "[Treinar um modelo de classificação com aprendizado de máquina automatizado](tutorial-auto-train-models.md)" ensina a usar um computador local para treinar o modelo com ML automatizado.  O fluxo de trabalho durante o treinamento local também se aplica aos destinos remotos. No entanto, com a computação remota, as iterações de experimento de ML automatizado são executadas de maneira Assíncrona. Essa funcionalidade permite que você cancele uma iteração específica, observe o status da execução ou continue trabalhando em outras células no Jupyter Notebook. Para treinar remotamente, você primeiro crie um destino de computação remota, como AmlCompute. Em seguida, configura o recurso remoto e envia seu código para ele.
+O tutorial "[treinar um modelo de classificação com o Machine Learning automatizado](tutorial-auto-train-models.md)" ensina a usar um computador local para treinar um modelo com ml automatizado. O fluxo de trabalho durante o treinamento local também se aplica aos destinos remotos. No entanto, com a computação remota, as iterações de experimento de ML automatizado são executadas de maneira Assíncrona. Essa funcionalidade permite que você cancele uma iteração específica, observe o status da execução ou continue trabalhando em outras células no Jupyter Notebook. Para treinar remotamente, você primeiro cria um destino de computação remota, como AmlCompute. Em seguida, configura o recurso remoto e envia seu código para ele.
 
-Este artigo mostra as etapas adicionais necessárias para executar um experimento AM automatizado em um destino AmlCompute remoto. O objeto de workspace, `ws`, do tutorial, é usado em todo o código aqui.
+Este artigo mostra as etapas adicionais necessárias para executar um experimento de ML automatizado em um destino de AmlCompute remoto. O objeto de workspace, `ws`, do tutorial, é usado em todo o código aqui.
 
 ```python
 ws = Workspace.from_config()
@@ -39,7 +38,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Criar recurso
 
-Criar o destino AmlCompute no seu espaço de trabalho (`ws`) se ele ainda não existir.  
+Crie o destino AmlCompute em seu espaço de`ws`trabalho () se ele ainda não existir.
 
 **Tempo estimado**: A criação do destino AmlCompute leva aproximadamente 5 minutos.
 
@@ -47,38 +46,36 @@ Criar o destino AmlCompute no seu espaço de trabalho (`ws`) se ele ainda não e
 from azureml.core.compute import AmlCompute
 from azureml.core.compute import ComputeTarget
 
-amlcompute_cluster_name = "automlcl" #Name your cluster
-provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+amlcompute_cluster_name = "automlcl"  # Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size="STANDARD_D2_V2",
                                                             # for GPU, use "STANDARD_NC6"
-                                                            #vm_priority = 'lowpriority', # optional
-                                                            max_nodes = 6)
+                                                            # vm_priority = 'lowpriority', # optional
+                                                            max_nodes=6)
 
-compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
-    
+compute_target = ComputeTarget.create(
+    ws, amlcompute_cluster_name, provisioning_config)
+
 # Can poll for a minimum number of nodes and for a specific timeout.
 # If no min_node_count is provided, it will use the scale settings for the cluster.
-compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
+compute_target.wait_for_completion(
+    show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 Agora você pode usar o objeto `compute_target` como o destino de computação remota.
 
-Restrições de nome de cluster incluem:
-+ Deve ser menor do que 64 caracteres.  
+As restrições de nome de cluster incluem:
++ Deve ser menor do que 64 caracteres.
 + Não pode incluir nenhum dos seguintes caracteres: `\` ~! @ # $ % ^ & * ( ) = + _ [ ] { } \\\\ | ; : \' \\" , < > / ?.`
 
-## <a name="access-data-using-getdata-file"></a>Acessar dados usando o arquivo get_data
+## <a name="access-data-using-getdata-function"></a>Acessar dados usando a função get_data ()
 
-Forneça ao recurso remoto acesso aos seus dados de treinamento. Para experimentos de aprendizado de máquina automatizados em execução em computação remota, os dados precisam ser buscados usando uma função `get_data()`.  
+Forneça ao recurso remoto acesso aos seus dados de treinamento. Para experimentos de aprendizado de máquina automatizados em execução em computação remota, os dados precisam ser buscados usando uma função `get_data()`.
 
 Para fornecer acesso, você deve:
-+ Criar um arquivo get_data.py contendo uma função `get_data()` 
-+ Coloque esse arquivo em um diretório acessível como um caminho absoluto 
++ Criar um arquivo get_data.py contendo uma função `get_data()`
++ Coloque esse arquivo em um diretório acessível como um caminho absoluto
 
 Você pode encapsular o código para ler dados de um armazenamento de blobs ou de um disco local no arquivo get_data.py. No exemplo de código a seguir, os dados vêm do pacote sklearn.
-
->[!Warning]
->Se você está usando computação remota, deve usar `get_data()` no local em que suas transformações de dados são realizadas. Se você precisa instalar bibliotecas adicionais para transformações de dados como parte do get_data(), há etapas adicionais a serem seguidas. Consulte o [notebook de exemplo auto-ml-dataprep](https://aka.ms/aml-auto-ml-data-prep ) para encontrar detalhes.
-
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -93,7 +90,7 @@ from scipy import sparse
 import numpy as np
 
 def get_data():
-    
+
     digits = datasets.load_digits()
     X_digits = digits.data[10:,:]
     y_digits = digits.target[10:]
@@ -101,11 +98,29 @@ def get_data():
     return { "X" : X_digits, "y" : y_digits }
 ```
 
+## <a name="create-run-configuration"></a>Criar configuração de execução
+
+Para tornar as dependências disponíveis para o script get_data. py, `RunConfiguration` defina um objeto `CondaDependencies`com definido. Use esse objeto para o `run_configuration` parâmetro no `AutoMLConfig`.
+
+```python
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+
+run_config = RunConfiguration(framework="python")
+run_config.target = compute_target
+run_config.environment.docker.enabled = True
+run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+
+dependencies = CondaDependencies.create(
+    pip_packages=["scikit-learn", "scipy", "numpy"])
+run_config.environment.python.conda_dependencies = dependencies
+```
+
+Consulte este exemplo de [bloco de anotações](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) para obter um exemplo adicional desse padrão de design.
+
 ## <a name="configure-experiment"></a>Configurar o experimento
 
 Especifique as configurações para `AutoMLConfig`.  (Veja uma [lista completa de parâmetros](how-to-configure-auto-train.md#configure-experiment) e seus valores possíveis.)
-
-Nas configurações, `run_configuration` é definido como o objeto `run_config`, que contém as definições e a configuração para a DSVM.  
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -126,10 +141,11 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
+                             run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
-                            )
+                             )
 ```
 
 ### <a name="enable-model-explanations"></a>Habilitar explicações do modelo
@@ -140,12 +156,13 @@ Configure o parâmetro `model_explainability` opcional no construtor `AutoMLConf
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = compute_target,
+                             compute_target=compute_target,
+                             run_configuration=run_config,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
-                             X_valid = X_test
-                            )
+                             X_valid=X_test
+                             )
 ```
 
 ## <a name="submit-training-experiment"></a>Enviar o teste de treinamento
@@ -154,7 +171,7 @@ Agora, envie a configuração para selecionar automaticamente o algoritmo, os hi
 
 ```python
 from azureml.core.experiment import Experiment
-experiment=Experiment(ws, 'automl_remote')
+experiment = Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
@@ -168,7 +185,7 @@ Você verá uma saída semelhante ao exemplo a seguir:
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     ***********************************************************************************************
-    
+
      ITERATION     PIPELINE                               DURATION                METRIC      BEST
              2      Standardize SGD classifier            0:02:36                  0.954     0.954
              7      Normalizer DT                         0:02:22                  0.161     0.954
@@ -194,31 +211,40 @@ Você verá uma saída semelhante ao exemplo a seguir:
 
 ## <a name="explore-results"></a>Explorar os resultados
 
-Você pode usar o mesmo widget do Jupyter que o mostrado no [tutorial de treinamento](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e uma tabela de resultados.
+Você pode usar o mesmo [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) , conforme mostrado no [tutorial de treinamento](tutorial-auto-train-models.md#explore-the-results) para ver um gráfico e uma tabela de resultados.
 
 ```python
 from azureml.widgets import RunDetails
 RunDetails(remote_run).show()
 ```
+
 Aqui está uma imagem estática do widget.  No notebook, você pode clicar em qualquer linha na tabela para ver as propriedades de execução e os logs de saída para a execução.   Você também pode usar a lista suspensa acima do gráfico para exibir um gráfico de cada métrica disponível para cada iteração.
 
 ![tabela de widget](./media/how-to-auto-train-remote/table.png)
 ![gráfico de widget](./media/how-to-auto-train-remote/plot.png)
 
-O widget exibirá uma URL que você pode usar para ver e explorar os detalhes individuais da execução.
- 
+O widget exibirá uma URL que você pode usar para ver e explorar os detalhes individuais da execução.  
+
+Se você não estiver em um notebook Jupyter, poderá exibir a URL da própria execução:
+
+```
+remote_run.get_portal_url()
+```
+
+As mesmas informações estão disponíveis no seu espaço de trabalho.  Para saber mais sobre esses resultados, confira [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md).
+
 ### <a name="view-logs"></a>Exibir logs
 
 Localize os logs na DSVM em `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
-## <a name="best-model-explanation"></a>Melhor explicação do modelo
+## <a name="explain"></a>Melhor explicação do modelo
 
 A recuperação dos dados de explicação do modelo permite que você visualize informações detalhadas sobre os modelos para aumentar a transparência sobre o que está sendo executado no back-end. Neste exemplo, você executa explicações de modelo apenas para o modelo de melhor ajuste. Se você executar todos os modelos no pipeline, isso resultará em um tempo de execução significativo. As informações da explicação do modelo incluem:
 
-* shap_values: As informações de explicação geradas pelo lib da forma.
+* shap_values: As informações de explicação geradas pela shap lib.
 * expected_values: O valor esperado do modelo aplicado ao conjunto de dados X_train.
-* overall_summary: Os valores de importância do recurso no nível do modelo classificados em ordem decrescente.
-* overall_imp: Os nomes de recurso classificados na mesma ordem como overall_summary.
+* overall_summary: Os valores de importância do recurso de nível de modelo são classificados em ordem decrescente.
+* overall_imp: Os nomes de recurso classificados na mesma ordem que no overall_summary.
 * per_class_summary: Os valores de importância do recurso de nível de classe são classificados em ordem decrescente. Disponível somente para o caso de classificação.
 * per_class_imp: Os nomes dos recursos são classificados na mesma ordem em per_class_summary. Disponível somente para o caso de classificação.
 
@@ -256,7 +282,7 @@ Também é possível visualizar a importância do recurso por meio da interface 
 
 ## <a name="example"></a>Exemplo
 
-O [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) notebook demonstra conceitos neste artigo. 
+O notebook [How-to-use-azureml/Automated-Machine-Learning/Remote-amlcompute/auto-ml-Remote-amlcompute. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) demonstra os conceitos neste artigo.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

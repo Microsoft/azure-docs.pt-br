@@ -1,6 +1,6 @@
 ---
-title: Planejar seu aplicativo
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Planejar seu aplicativo-LUIS
+titleSuffix: Azure Cognitive Services
 description: Descreva intenções e entidades de aplicativo relevantes e crie seus planos de aplicativo no LUIS (Serviço Inteligente de Reconhecimento Vocal).
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 9d54cff81f39f41b60800e9b33f3b4da1a735d85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60196228"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638301"
 ---
 # <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>Planeje seu aplicativo LUIS com o domínio do assunto, intenções e entidades
 
-É importante planejar seu aplicativo. Identificar seu domínio, inclusive possíveis intenções e entidades que são relevantes para seu aplicativo.  
+Para planejar seu aplicativo, identifique seu domínio de área de assunto. Isso inclui possíveis tentativas e entidades que são relevantes para seu aplicativo.  
 
 ## <a name="identify-your-domain"></a>Identificar seu domínio
 
@@ -39,11 +39,13 @@ Pense nas [intenções](luis-concept-intent.md) importantes para a tarefa do seu
 
 ## <a name="create-example-utterances-for-each-intent"></a>Crie exemplos de declarações para cada intenção
 
-Depois de determinar as intenções, crie 10 ou 15 declarações de exemplo para cada intenção. Para começar, não tenha menos que este número ou crie muitos enunciados para cada intenção. Cada enunciado deve ser diferente do enunciado anterior. Uma boa variedade nos enunciados inclui contagem global de palavras, escolha de palavras, tempo verbal e pontuação. 
+Depois de determinar as tentativas, crie um exemplo de 15 a 30 declarações para cada tentativa. Para começar, não tem menos que esse número ou crie muitas declarações para cada tentativa. Cada enunciado deve ser diferente do enunciado anterior. Uma boa variedade nos enunciados inclui contagem global de palavras, escolha de palavras, tempo verbal e pontuação. 
+
+Examine [declarações](luis-concept-utterance.md) para obter mais informações.
 
 ## <a name="identify-your-entities"></a>Identificar suas entidades
 
-Nos exemplos de declarações, identifique as entidades que você deseja extrair. Para reservar um voo, são necessárias algumas informações, como o destino, data, companhia aérea, categoria do tíquete e classe da viagem. Você cria entidades para esses tipos de dados e, em seguida, marca as [entidades](luis-concept-entity-types.md) nas declarações de exemplo porque elas são importantes para realizar uma intenção. 
+Nos exemplos de declarações, identifique as entidades que você deseja extrair. Para reservar um vôo, você precisa de informações como o destino, a data, a companhia aérea, a categoria de tíquete e a classe de viagem. Crie entidades para esses tipos de dados e marque as [entidades](luis-concept-entity-types.md) no exemplo declarações porque elas são importantes para realizar uma intenção. 
 
 Quando você determina quais entidades usar em seu aplicativo, tenha em mente que há diferentes tipos de entidades para capturar relacionamentos entre tipos de objetos. [Entidades no LUIS](luis-concept-entity-types.md) oferece mais detalhes sobre os tipos diferentes.
 

@@ -2,17 +2,17 @@
 title: Usar políticas de segurança de pod no serviço de Kubernetes do Azure (AKS)
 description: Aprenda a controlar admissões pod usando PodSecurityPolicy no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: iainfou
-ms.openlocfilehash: 881a16501574dc7309eede6b58e270a97bed977a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: c398567dd3383f4b0b4fd2eaa4b474d1e95b7575
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235739"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613883"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Preview - proteger o cluster usando as políticas de segurança pod no serviço de Kubernetes do Azure (AKS)
 
@@ -22,40 +22,44 @@ Para melhorar a segurança do cluster do AKS, você pode limitar os pods podem s
 > Recursos de visualização do AKS são Self-service, inscreva-se no. Eles são fornecidos para reunir opiniões e bugs de nossa comunidade. Na visualização, esses recursos não são destinados ao uso em produção. Recursos em visualização pública se encaixam em suporte "melhor esforço". Assistência de AKS equipes de suporte técnico está disponível durante o horário comercial do Pacífico (PST) apenas timezone. Para obter mais informações, consulte as seguintes artigos de suporte:
 >
 > * [Políticas de suporte do AKS][aks-support-policies]
-> * [Perguntas frequentes sobre o suporte do Azure][aks-faq]
+> * [Perguntas frequentes sobre o suporte do Azure.][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo considera que já existe um cluster do AKS. Se você precisar de um cluster do AKS, confira o guia de início rápido do AKS [Usando a CLI do Azure][aks-quickstart-cli] ou [Usando o portal do Azure][aks-quickstart-portal].
+Este artigo considera que já existe um cluster do AKS. Se você precisar um cluster do AKS, consulte o guia de início rápido do AKS [usando a CLI do Azure][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-Você precisa da CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, confira  [Instalar a CLI do Azure][install-azure-cli].
+Você precisa da CLI do Azure versão 2.0.61 ou posterior instalado e configurado. Execute  `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, consulte [instalar a CLI do Azure][install-azure-cli].
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
 
-Clusters AKS são atualizadas para habilitar políticas de segurança pod usando o *versão prévia do aks* extensão da CLI. Instalar o *versão prévia do aks* extensão de CLI do Azure usando o [Adicionar extensão az] [ az-extension-add] de comando, conforme mostrado no exemplo a seguir:
+Para usar políticas de segurança pod, é necessário o *versão prévia do aks* CLI versão da extensão 0.4.1 ou superior. Instalar o *versão prévia do aks* extensão de CLI do Azure usando o [Adicionar extensão az][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] comando::
 
 ```azurecli-interactive
+# Install the aks-preview extension
 az extension add --name aks-preview
-```
 
-> [!NOTE]
-> Se você já tiver instalado o *versão prévia do aks* atualizações de instalação disponível com qualquer extensão, usando o `az extension update --name aks-preview` comando.
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
 
 ### <a name="register-pod-security-policy-feature-provider"></a>Registrar o provedor de recursos de política de segurança de pod
 
-Para criar ou atualizar um cluster do AKS para usar as políticas de segurança pod, primeiro habilite um sinalizador de recursos em sua assinatura. Para registrar o *PodSecurityPolicyPreview* sinalizador de recursos, use o [registro de recurso az] [ az-feature-register] comando conforme mostrado no exemplo a seguir:
+Para criar ou atualizar um cluster do AKS para usar as políticas de segurança pod, primeiro habilite um sinalizador de recursos em sua assinatura. Para registrar o *PodSecurityPolicyPreview* sinalizador de recursos, use o [registro de recurso az][az-feature-register] comando conforme mostrado no exemplo a seguir:
+
+> [!CAUTION]
+> Quando você registra um recurso em uma assinatura, você não pode atualmente cancelar o registro desse recurso. Depois de habilitar alguns recursos de visualização, os padrões podem ser usados para todos os clusters AKS, em seguida, é criados na assinatura. Não habilite os recursos de visualização em assinaturas de produção. Use uma assinatura separada para testar recursos de visualização e Reúna comentários.
 
 ```azurecli-interactive
 az feature register --name PodSecurityPolicyPreview --namespace Microsoft.ContainerService
 ```
 
-Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o comando [az feature list][az-feature-list]:
+Demora alguns minutos para o status exibir *Registrado*. Você pode verificar o status de registro usando o [lista de recursos az][az-feature-list] comando:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSecurityPolicyPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, atualize o registro do provedor de recursos *Microsoft.ContainerService* usando o comando [az provider register][az-provider-register]:
+Quando estiver pronto, atualize o registro do *containerservice* provedor de recursos usando o [registro de provedor az][az-provider-register] comando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -77,7 +81,7 @@ Para mostrar como as políticas padrão limitam as implantações de pod, neste 
 
 ## <a name="enable-pod-security-policy-on-an-aks-cluster"></a>Habilitar política de segurança de pod em um cluster do AKS
 
-Você pode habilitar ou desabilitar a política de segurança pod usando o [atualizar az aks] [ az-aks-update] comando. A seguinte exemplo habilita pod política de segurança no nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*.
+Você pode habilitar ou desabilitar a política de segurança pod usando o [az aks atualizar][az-aks-update] comando. A seguinte exemplo habilita pod política de segurança no nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*.
 
 > [!NOTE]
 > Para o uso do mundo real, não habilite a política de segurança de pod até que você definiu suas próprias políticas personalizadas. Neste artigo, você deve habilitar política de segurança do pod como a primeira etapa para ver como as políticas padrão limitam o pod de implantações.
@@ -93,7 +97,7 @@ az aks update \
 
 Quando você habilita a política de segurança pod, AKS cria duas políticas padrão denominadas *privilegiadas* e *restrito*. Não edite ou remova essas políticas padrão. Em vez disso, crie suas próprias políticas que definem as configurações que você deseja para o controle. Vamos primeiro examinar quais essas políticas padrão são como elas afetam as implantações de pod.
 
-Para exibir as políticas disponíveis, use o [kubectl get psp] [ kubectl-get] de comando, conforme mostrado no exemplo a seguir. Como parte do padrão *restrito* diretiva, o usuário é negado *PRIV* usa para escalonamento privilegiado pod e o usuário *MustRunAsNonRoot*.
+Para exibir as políticas disponíveis, use o [kubectl get psp][kubectl-get] de comando, conforme mostrado no exemplo a seguir. Como parte do padrão *restrito* diretiva, o usuário é negado *PRIV* usa para escalonamento privilegiado pod e o usuário *MustRunAsNonRoot*.
 
 ```console
 $ kubectl get psp
@@ -103,7 +107,7 @@ privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny  
 restricted   false          RunAsAny   MustRunAsNonRoot   MustRunAs   MustRunAs   false            configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-O *restrito* política de segurança pod é aplicada a qualquer usuário autenticado no cluster AKS. Essa atribuição é controlada pelo ClusterRoles e ClusterRoleBindings. Use o [kubectl get clusterrolebindings] [ kubectl-get] de comando e procure o *padrão: restritos:* associação:
+O *restrito* política de segurança pod é aplicada a qualquer usuário autenticado no cluster AKS. Essa atribuição é controlada pelo ClusterRoles e ClusterRoleBindings. Use o [kubectl get clusterrolebindings][kubectl-get] de comando e procure o *padrão: restritos:* associação:
 
 ```console
 kubectl get clusterrolebindings default:restricted -o yaml
@@ -132,16 +136,16 @@ subjects:
 
 ## <a name="create-a-test-user-in-an-aks-cluster"></a>Criar um usuário de teste em um cluster AKS
 
-Por padrão, quando você usa o [az aks get-credentials] [ az-aks-get-credentials] comando, o *admin* as credenciais para o cluster do AKS e adicionado ao seu `kubectl` config. O usuário administrador ignora a imposição de políticas de segurança pod. Se você usar a integração do Active Directory do Azure para seus clusters AKS, você pode entrar com as credenciais de um usuário não administrador para ver a imposição de políticas em ação. Neste artigo, vamos criar uma conta de usuário de teste no cluster AKS que você pode usar.
+Por padrão, quando você usa o [az aks get-credentials][az-aks-get-credentials] comando, o *admin* as credenciais para o cluster do AKS e adicionado ao seu `kubectl` config. O usuário administrador ignora a imposição de políticas de segurança pod. Se você usar a integração do Active Directory do Azure para seus clusters AKS, você pode entrar com as credenciais de um usuário não administrador para ver a imposição de políticas em ação. Neste artigo, vamos criar uma conta de usuário de teste no cluster AKS que você pode usar.
 
-Criar um namespace de exemplo denominado *aks psp* para recursos de teste usando o [kubectl criar namespace] [ kubectl-create] comando. Em seguida, crie uma conta de serviço nomeada *usuário nonadmin* usando o [kubectl criar serviceaccount] [ kubectl-create] comando:
+Criar um namespace de exemplo denominado *aks psp* para recursos de teste usando o [kubectl criar namespace][kubectl-create] comando. Em seguida, crie uma conta de serviço nomeada *usuário nonadmin* usando o [kubectl criar serviceaccount][kubectl-create] comando:
 
 ```console
 kubectl create namespace psp-aks
 kubectl create serviceaccount --namespace psp-aks nonadmin-user
 ```
 
-Em seguida, crie um RoleBinding para o *usuário nonadmin* para executar ações básicas no namespace usando o [kubectl criar rolebinding] [ kubectl-create] comando:
+Em seguida, crie um RoleBinding para o *usuário nonadmin* para executar ações básicas no namespace usando o [kubectl criar rolebinding][kubectl-create] comando:
 
 ```console
 kubectl create rolebinding \
@@ -184,7 +188,7 @@ spec:
         privileged: true
 ```
 
-Crie o pod usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Crie o pod usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-privileged.yaml
@@ -217,7 +221,7 @@ spec:
       image: nginx:1.14.2
 ```
 
-Crie o pod usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Crie o pod usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
@@ -232,7 +236,7 @@ NAME                 READY   STATUS                       RESTARTS   AGE
 nginx-unprivileged   0/1     CreateContainerConfigError   0          26s
 ```
 
-Use o [kubectl descrevem pod] [ kubectl-describe] comando para examinar os eventos para o pod. Exemplo condensado a seguir mostra a imagem e o contêiner exigem permissões de raiz, mesmo que nós não solicitou-los:
+Use o [kubectl descrevem pod][kubectl-describe] comando para examinar os eventos para o pod. Exemplo condensado a seguir mostra a imagem e o contêiner exigem permissões de raiz, mesmo que nós não solicitou-los:
 
 ```console
 $ kubectl-nonadminuser describe pod nginx-unprivileged
@@ -256,7 +260,7 @@ Mesmo que nós não solicitou nenhum acesso privilegiado, a imagem de contêiner
 
 Este exemplo mostra que as políticas de segurança de pod padrão criadas pelo AKS estão em vigor e restringem as ações que um usuário pode executar. É importante entender o comportamento dessas políticas padrão, como você não pode esperar um pod NGINX básico a ser negado.
 
-Antes de prosseguir para a próxima etapa, exclua esse teste pod usando o [kubectl excluir pod] [ kubectl-delete] comando:
+Antes de prosseguir para a próxima etapa, exclua esse teste pod usando o [kubectl excluir pod][kubectl-delete] comando:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -281,7 +285,7 @@ spec:
         runAsUser: 2000
 ```
 
-Crie o pod usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Crie o pod usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
@@ -296,7 +300,7 @@ NAME                         READY   STATUS              RESTARTS   AGE
 nginx-unprivileged-nonroot   0/1     CrashLoopBackOff    1          3s
 ```
 
-Use o [kubectl descrevem pod] [ kubectl-describe] comando para examinar os eventos para o pod. O exemplo condensado a seguir mostra os eventos de pod:
+Use o [kubectl descrevem pod][kubectl-describe] comando para examinar os eventos para o pod. O exemplo condensado a seguir mostra os eventos de pod:
 
 ```console
 $ kubectl-nonadminuser describe pods nginx-unprivileged
@@ -318,7 +322,7 @@ Events:
   Warning  BackOff    105s (x5 over 2m11s)  kubelet, aks-agentpool-34777077-0  Back-off restarting failed container
 ```
 
-Os eventos indicam que o contêiner foi criado e iniciado. Não há nada imediatamente óbvias sobre por que o pod está em estado de falha. Vamos examinar os logs de pod usando o [kubectl logs] [ kubectl-logs] comando:
+Os eventos indicam que o contêiner foi criado e iniciado. Não há nada imediatamente óbvias sobre por que o pod está em estado de falha. Vamos examinar os logs de pod usando o [kubectl logs][kubectl-logs] comando:
 
 ```console
 kubectl-nonadminuser logs nginx-unprivileged-nonroot --previous
@@ -337,7 +341,7 @@ nginx: [emerg] mkdir() "/var/cache/nginx/client_temp" failed (13: Permission den
 
 Novamente, é importante entender o comportamento das diretivas de segurança padrão pod. Esse erro foi um pouco mais difícil de rastrear e, novamente, você não pode esperar um pod NGINX básico a ser negado.
 
-Antes de prosseguir para a próxima etapa, exclua esse teste pod usando o [kubectl excluir pod] [ kubectl-delete] comando:
+Antes de prosseguir para a próxima etapa, exclua esse teste pod usando o [kubectl excluir pod][kubectl-delete] comando:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
@@ -370,13 +374,13 @@ spec:
   - '*'
 ```
 
-Criar a política usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Criar a política usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged.yaml
 ```
 
-Para exibir as políticas disponíveis, use o [kubectl get psp] [ kubectl-get] de comando, conforme mostrado no exemplo a seguir. Comparar as *privilégios negar psp* política com o padrão *restrito* política que foi imposta nos exemplos anteriores para criar um pod. Somente o uso de *PRIV* negado pela sua diretiva de escalonamento de bloqueios. Não há nenhuma restrição sobre o usuário ou grupo para o *privilégios negar psp* política.
+Para exibir as políticas disponíveis, use o [kubectl get psp][kubectl-get] de comando, conforme mostrado no exemplo a seguir. Comparar as *privilégios negar psp* política com o padrão *restrito* política que foi imposta nos exemplos anteriores para criar um pod. Somente o uso de *PRIV* negado pela sua diretiva de escalonamento de bloqueios. Não há nenhuma restrição sobre o usuário ou grupo para o *privilégios negar psp* política.
 
 ```console
 $ kubectl get psp
@@ -409,7 +413,7 @@ rules:
   - use
 ```
 
-Crie o ClusterRole usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Crie o ClusterRole usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
@@ -432,7 +436,7 @@ subjects:
   name: system:serviceaccounts
 ```
 
-Criar um ClusterRoleBinding usando o [aplicar kubectl] [ kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
+Criar um ClusterRoleBinding usando o [kubectl aplicar][kubectl-apply] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
@@ -443,13 +447,13 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>Testar a criação de um pod sem privilégios novamente
 
-Com sua política de segurança pod personalizada aplicada e uma associação para a conta de usuário para usar a política, vamos tentar criar um pod sem privilégios novamente. Use o mesmo `nginx-privileged.yaml` manifesto para criar o pod usando o [aplicar kubectl] [ kubectl-apply] comando:
+Com sua política de segurança pod personalizada aplicada e uma associação para a conta de usuário para usar a política, vamos tentar criar um pod sem privilégios novamente. Use o mesmo `nginx-privileged.yaml` manifesto para criar o pod usando o [kubectl aplicar][kubectl-apply] comando:
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-O pod está agendado com êxito. Quando você verificar o status do pod usando o [kubectl get pods] [ kubectl-get] de comando, é o pod *executando*:
+O pod está agendado com êxito. Quando você verificar o status do pod usando o [kubectl get pods][kubectl-get] de comando, é o pod *executando*:
 
 ```
 $ kubectl-nonadminuser get pods
@@ -460,7 +464,7 @@ nginx-unprivileged   1/1     Running   0          7m14s
 
 Este exemplo mostra como você pode criar políticas de segurança pod personalizado para definir o acesso para o cluster do AKS para diferentes usuários ou grupos. O padrão de diretivas AKS fornecem controles rígidos em quais pods podem executar, portanto, criar suas próprias políticas personalizadas, em seguida, definir corretamente as restrições que você precisa.
 
-Excluir o pod NGINX sem privilégios usando o [excluir kubectl] [ kubectl-delete] de comando e especifique o nome do seu manifesto YAML:
+Excluir o pod NGINX sem privilégios usando o [kubectl excluir][kubectl-delete] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl-nonadminuser delete -f nginx-unprivileged.yaml
@@ -468,7 +472,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Para desabilitar a política de segurança pod, use o [atualizar az aks] [ az-aks-update] comando novamente. A seguinte exemplo desabilita o pod política de segurança no nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
+Para desabilitar a política de segurança pod, use o [az aks atualizar][az-aks-update] comando novamente. A seguinte exemplo desabilita o pod política de segurança no nome do cluster *myAKSCluster* no grupo de recursos denominado *myResourceGroup*:
 
 ```azurecli-interactive
 az aks update \
@@ -484,7 +488,7 @@ kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-Excluir a política de rede usando [excluir kubectl] [ kubectl-delete] de comando e especifique o nome do seu manifesto YAML:
+Excluir a política de rede usando [kubectl excluir][kubectl-delete] de comando e especifique o nome do seu manifesto YAML:
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml
@@ -525,3 +529,5 @@ Para obter mais informações sobre como limitar o tráfego de rede de pod, cons
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

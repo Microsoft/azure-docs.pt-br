@@ -13,14 +13,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d1ee54fac5a4c325ea5db3b97522fd2772b8dbd4
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473814"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382418"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Baixar e instalar o aplicativo Microsoft Authenticator
+
 >[!Important]
 >Este conteúdo destina-se aos usuários. Se você for um administrador, é possível encontrar mais informações sobre como configurar e gerenciar seu ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
@@ -36,13 +37,14 @@ Você pode usar o aplicativo Microsoft Authenticator de várias maneiras, entre 
 
 > [!Important]
 > O aplicativo Microsoft Authenticator funciona com qualquer conta que use a verificação de dois fatores e dê suporte a padrões de Senhas Avulsas por Tempo Limitado (TOTP).
-> 
+>
 > Sua organização pode exigir que você use um aplicativo autenticador para entrar e acessar seus dados e documentos organizacionais. Embora seu nome de usuário possa ser exibido no aplicativo, a conta, na verdade, não está configurada para funcionar como um método de verificação até você concluir o processo de registro. Para obter mais informações, confira [Adicionar sua conta corporativa ou de estudante](user-help-auth-app-add-work-school-account.md).
 > 
 > [!NOTE]
 > Caso esteja tendo problemas ao entrar em sua conta, confira [Quando você não consegue entrar em sua conta Microsoft](https://support.microsoft.com/help/12429) para obter ajuda.  Obtenha mais informações sobre o que fazer quando receber a mensagem [“Essa conta Microsoft não existe”](https://support.microsoft.com/help/13811) ao tentar entrar em sua conta Microsoft.
 
 ## <a name="download-and-install-the-app"></a>Baixar e instalar o aplicativo
+
 Instale a última versão do aplicativo Microsoft Authenticator, com base no sistema operacional:
 
 - **Google Android.** Em seu dispositivo Android, acesse o Google Play para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).
@@ -50,7 +52,7 @@ Instale a última versão do aplicativo Microsoft Authenticator, com base no sis
 - **Apple iOS.** Em seu dispositivo iOS da Apple, acesse a App Store para [baixar e instalar o aplicativo Microsoft Authenticator](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458).
 
 >[!Important]
->Se você não estiver atualmente em seu dispositivo móvel, você ainda pode obter o aplicativo Microsoft Authenticator enviando para você mesmo um link de download a partir de [página do Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
+>Se você não estiver no seu dispositivo móvel no momento, ainda poderá obter o aplicativo Microsoft Authenticator enviando a você mesmo um link de download da [página Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator).
 
 ## <a name="next-steps"></a>Próximas etapas
 

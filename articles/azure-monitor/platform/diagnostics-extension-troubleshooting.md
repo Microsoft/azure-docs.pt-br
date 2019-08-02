@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: robb
 ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "65471777"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solução de problemas do Diagnóstico do Azure
@@ -28,8 +28,8 @@ Este artigo descreve informações de solução de problemas relevantes para o u
 ## <a name="logartifact-paths"></a>Caminhos do log/artefato
 A seguir, são apresentados os caminhos para alguns logs e artefatos importantes. Estas informações serão referidas ao longo de todo o documento.
 
-### <a name="azure-cloud-services"></a>Serviços de nuvem do Azure
-| Artefato | Caminho |
+### <a name="azure-cloud-services"></a>Serviços de Nuvem do Azure
+| Artefato | Path |
 | --- | --- |
 | **Arquivo de configuração de Diagnóstico do Microsoft Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Arquivos de log** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ A seguir, são apresentados os caminhos para alguns logs e artefatos importantes
 | **Arquivo de log MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-| Artefato | Caminho |
+| Artefato | Path |
 | --- | --- |
 | **Arquivo de configuração de Diagnóstico do Microsoft Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Arquivos de log** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -81,7 +81,7 @@ Se não houver dados para a métrica específica, verifique **Configuração de 
 Se a configuração estiver configurada corretamente, mas você ainda não pode ver os dados de métrica, utilize as seguintes diretrizes para ajudá-lo a solucionar problemas.
 
 
-## <a name="azure-diagnostics-is-not-starting"></a>O diagnóstico do Azure não está iniciando
+## <a name="azure-diagnostics-is-not-starting"></a>Diagnóstico do Azure não está iniciando
 Para obter informações sobre o motivo do Diagnóstico do Azure falhar ao iniciar, consulte os arquivos **DiagnosticsPluginLauncher.log** e **DiagnosticsPlugin.log** no local dos arquivos de log fornecidos anteriormente.
 
 Se esses logs indicam `Monitoring Agent not reporting success after launch`, isso significa que houve uma falha ao iniciar MonAgentHost.exe. Examine os logs no local indicado para `MonAgentHost log file` na seção anterior.
@@ -104,15 +104,15 @@ O motivo mais comum para os dados de evento não serem sempre exibidos é porque
 
 Solução: corrija sua configuração do Diagnóstico e reinstale-o.
 
-Se a conta de armazenamento está configurado corretamente, acesso remoto no computador e verifique *DiagnosticsPlugin.exe* e *MonAgentCore.exe* estão em execução. Se não estiverem executando, siga as etapas em [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting).
+Se a conta de armazenamento estiver configurada corretamente, acesse o acesso remoto na máquina e verifique se *DiagnosticsPlugin. exe* e *MonAgentCore. exe* estão em execução. Se não estiverem executando, siga as etapas em [Diagnóstico do Azure não está iniciando](#azure-diagnostics-is-not-starting).
 
 Se os processos estiverem executando, acesse [Os dados estão sendo capturados localmente?](#is-data-getting-captured-locally) e siga as instruções.
 
 Se isso não resolver o problema, tente:
 
 1. Desinstalar o agente
-2. Remover diretório C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
-3. Instale o agente novamente
+2. Remover C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics de diretório
+3. Instalar o agente novamente
 
 
 ### <a name="part-of-the-data-is-missing"></a>Parte dos dados está ausente
@@ -207,7 +207,7 @@ Veja um exemplo:
 ```
 Esse código gera quatro tabelas:
 
-| Evento | Nome da tabela |
+| evento | Nome da tabela |
 | --- | --- |
 | provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5("prov1")+"1" |
 | provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
@@ -230,9 +230,9 @@ Para a função de serviço de nuvem, se você escolher a configuração a parti
 ### <a name="azure-diagnostics-plugin-exit-codes"></a>Códigos de saída do plug-in do Diagnóstico do Microsoft Azure
 O plug-in retorna os seguintes códigos de saída:
 
-| Código de saída | DESCRIÇÃO |
+| Código de saída | Descrição |
 | --- | --- |
-| 0 |Sucesso. |
+| 0 |Êxito. |
 | -1 |Erro genérico. |
 | -2 |Não foi possível carregar o arquivo rcf.<p>Este erro interno somente deverá ocorrer se o iniciador do plug-in do agente convidado for invocado manualmente e incorretamente na VM. |
 | -3 |Não é possível carregar o arquivo de configuração do Diagnóstico.<p><p>Solução: Causado por um arquivo de configuração que não passa pela validação de esquema. A solução é fornecer um arquivo de configuração que cumpre com o esquema. |

@@ -43,12 +43,18 @@
       href: deploy-cli.md
     - name: Implantar usando um modelo
       href: deploy-template.md
+    - name: Implantar com vários IPs públicos
+      href: deploy-multi-public-ip-powershell.md
+    - name: Implantar com Zonas de Disponibilidade
+      href: deploy-availability-zone-powershell.md
     - name: Integrar ao balanceador de carga
       href: integrate-lb.md
+    - name: Regras de aplicativo com os FQDNs de SQL
+      href: sql-fqdn-filtering.md
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/network
+      href: /cli/azure/ext/azure-firewall/network/firewall
     - name: Azure PowerShell
       href: /powershell/module/az.network/new-azfirewall
     - name: .NET

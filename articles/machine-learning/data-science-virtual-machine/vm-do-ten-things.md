@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e1e59b9a34d075002e8129fe1588c95e207f8273
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365717"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359019"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados do Windows
 
@@ -106,7 +106,7 @@ Quando você operacionaliza seu modelo no Azure Machine Learning, um serviço We
 Veja um snippet de código desenvolvido em um Notebook Jupyter Python que compila um modelo simples usando a biblioteca SciKit-learn.
 
 ```python
-#IRIS classification
+# IRIS classification
 from sklearn import datasets
 from sklearn import svm
 clf = svm.SVC()
@@ -120,10 +120,12 @@ O método usado para implantar seus modelos em python no Machine Learning do Azu
 ```python
 from azureml import services
 @services.publish(workspaceid, auth_token)
-@services.types(sep_l = float, sep_w = float, pet_l=float, pet_w=float)
-@services.returns(int) #0, or 1, or 2
+@services.types(sep_l=float, sep_w=float, pet_l=float, pet_w=float)
+@services.returns(int)  # 0, or 1, or 2
 def predictIris(sep_l, sep_w, pet_l, pet_w):
     inputArray = [sep_l, sep_w, pet_l, pet_w]
+
+
 return clf.predict(inputArray)
 ```
 
@@ -265,7 +267,7 @@ Para baixar o código de um repositório GitHub, você usa o comando ```git clon
 
     git clone https://github.com/Azure/DataScienceVM.git
 
-No Visual Studio, você pode fazer a mesma operação de clonagem. Captura de tela a seguir mostra como acessar as ferramentas Git e GitHub no Visual Studio.
+No Visual Studio, você pode fazer a mesma operação de clonagem. A captura de tela a seguir mostra como acessar as ferramentas git e GitHub no Visual Studio.
 
 ![Captura de tela do Visual Studio com a conexão do GitHub exibida](./media/vm-do-ten-things/VSGit.PNG)
 
@@ -495,7 +497,7 @@ O Azure HDInsight é um serviço gerenciado do Apache Hadoop, Spark, HBase e Sto
 * Carregue os dados usando o IPython Notebook. Primeiro, importe os pacotes necessários, insira as credenciais, crie um banco de dados em sua conta de armazenamento e carregue os dados nos clusters HDI.
 
 ```python
-#Import required Packages
+# Import required Packages
 import pyodbc
 import time as time
 import json
@@ -510,12 +512,12 @@ from azure.storage.blob import BlobService
 warnings.filterwarnings("ignore", category=UserWarning, module='urllib2')
 
 
-#Create the connection to Hive using ODBC
-SERVER_NAME='xxx.azurehdinsight.net'
-DATABASE_NAME='nyctaxidb'
-USERID='xxx'
-PASSWORD='xxxx'
-DB_DRIVER='Microsoft Hive ODBC Driver'
+# Create the connection to Hive using ODBC
+SERVER_NAME = 'xxx.azurehdinsight.net'
+DATABASE_NAME = 'nyctaxidb'
+USERID = 'xxx'
+PASSWORD = 'xxxx'
+DB_DRIVER = 'Microsoft Hive ODBC Driver'
 driver = 'DRIVER={' + DB_DRIVER + '}'
 server = 'Host=' + SERVER_NAME + ';Port=443'
 database = 'Schema=' + DATABASE_NAME
@@ -523,12 +525,13 @@ hiveserv = 'HiveServerType=2'
 auth = 'AuthMech=6'
 uid = 'UID=' + USERID
 pwd = 'PWD=' + PASSWORD
-CONNECTION_STRING = ';'.join([driver,server,database,hiveserv,auth,uid,pwd])
+CONNECTION_STRING = ';'.join(
+    [driver, server, database, hiveserv, auth, uid, pwd])
 connection = pyodbc.connect(CONNECTION_STRING, autocommit=True)
-cursor=connection.cursor()
+cursor = connection.cursor()
 
 
-#Create Hive database and tables
+# Create Hive database and tables
 queryString = "create database if not exists nyctaxidb;"
 cursor.execute(queryString)
 
@@ -576,11 +579,13 @@ queryString = """
 cursor.execute(queryString)
 
 
-#Upload data from blob storage to HDI cluster
-for i in range(1,13):
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);"%(i,i)
+# Upload data from blob storage to HDI cluster
+for i in range(1, 13):
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxitripraw2/trip_data_%d.csv' INTO TABLE nyctaxidb2.trip PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
-    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);"%(i,i)  
+    queryString = "LOAD DATA INPATH 'wasb:///nyctaxifareraw2/trip_fare_%d.csv' INTO TABLE nyctaxidb2.fare PARTITION (month=%d);" % (
+        i, i)
     cursor.execute(queryString)
 ```
 
@@ -600,7 +605,7 @@ Uma vez que os dados estão no cluster Hadoop, você pode usar o pacote pyodbc p
 queryString = """
     show tables in nyctaxidb2;
     """
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Exibir tabelas existentes](./media/vm-do-ten-things/Python_View_Existing_Tables_Hive_v3.PNG)
@@ -633,7 +638,7 @@ queryString = """
     )tc
     GROUP BY tipped;
     """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 
 results.columns = ['tipped', 'trip_count']
 df = results.copy()
@@ -661,7 +666,7 @@ queryString = """
                         and dropoff_longitude between -90 and -30
                         and dropoff_latitude between 30 and 90;
             """
-results = pd.read_sql(queryString,connection)
+results = pd.read_sql(queryString, connection)
 results.head(5)
 ```
 
@@ -669,9 +674,9 @@ results.head(5)
 
 ```python
 results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
-                    'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
-df = results.loc[results['trip_distance']<=100] #remove outliers
-df = df.loc[df['direct_distance']<=100] #remove outliers
+                   'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
+df = results.loc[results['trip_distance'] <= 100]  # remove outliers
+df = df.loc[df['direct_distance'] <= 100]  # remove outliers
 plt.scatter(df['direct_distance'], df['trip_distance'])
 ```
 
@@ -812,7 +817,7 @@ queryString = """
     select * from nyctaxi_downsampled_dataset limit 10;
     """
 cursor.execute(queryString)
-pd.read_sql(queryString,connection)
+pd.read_sql(queryString, connection)
 ```
 
 ![Linhas superiores de dados da tabela](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e5ddc8a1190161d9492cd083a50120ca9d5fc5f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901280"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integração do Azure Active Directory ao Central Desktop
 
@@ -53,7 +53,7 @@ Para configurar a integração da Área de Trabalho Central ao Azure AD, você p
 
 **Para adicionar o Central Desktop por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 
     ![Informações de logon único de Domínio e URLs do Central Desktop](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.centraldesktop.com`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão:
     
@@ -146,7 +146,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 
     ![Configurações de logon único](./media/central-desktop-tutorial/ic769564.png "Configurações de Logon Único")
 
-     a. Selecione **Habilitar Logon Único do SAML v2**.
+    a. Selecione **Habilitar Logon Único do SAML v2**.
 
     b. Na caixa **URL do SSO**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o Central Desktop, execute as seg
 
     ![Método de verificação da assinatura da mensagem](./media/central-desktop-tutorial/ic769565.png "Message Signature Verification Method")
     
-     a. Selecione **Certificado**.
+    a. Selecione **Certificado**.
 
     b. Na lista **Certificado de SSO**, selecione **RSH SHA256**.
 
@@ -186,7 +186,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -238,7 +238,7 @@ Para que usuários do Azure AD consigam entrar, eles devem ser provisionados no 
 
     ![Endereços de Email de Novos Membros](./media/central-desktop-tutorial/ic781052.png "Endereços de Email de Novos Membros")
 
-4. Selecione **Adicionar Membro(s) Interno(s)**.
+4. Selecione **Adicionar Membro(s) Interno(s)** .
 
     ![Adicionar membro interno](./media/central-desktop-tutorial/ic781053.png "Adicionar membro interno")
   
@@ -257,4 +257,4 @@ Ao clicar no bloco do Central Desktop no Painel de Acesso, você deverá ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 94a385b7e41dd4a7664dc40418456b304ebef509
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51e0379607c49019590a99c9fb7304f28be2afe5
+ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65150010"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68305730"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Iniciar um failover de conta de armazenamento (versão prévia)
 
@@ -67,7 +67,7 @@ Para usar o PowerShell para iniciar um failover de conta, você deve primeiro in
 1. Desinstale as instalações anteriores do Azure PowerShell:
 
     - Remova as instalações anteriores do Azure PowerShell do Windows usando a configuração **Aplicativos e recursos** em **Configurações**.
-    - Remova todos os módulos do **Azure*** de `%Program Files%\WindowsPowerShell\Modules`.
+    - Remova todos  os módulos do `%Program Files%\WindowsPowerShell\Modules`Azure de.
     
 1. Verifique se tem a versão mais recente do PowerShellGet instalado. Abra uma janela do Windows PowerShell e execute o seguinte comando para instalar a versão mais recente:
  

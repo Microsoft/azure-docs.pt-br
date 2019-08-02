@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 225ac86efba8a32b085a5fb7fc41bed48c499eab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a23828d98b14c094aa751d3fb2e53575c5e6479
+ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65022174"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68347821"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentação para cargas de trabalho de pesquisa cognitivas
 
-Pesquisa cognitiva, agora disponível, é uma nova camada de enriquecimento na indexação de Azure Search que localiza informações latentes em fontes não sejam de texto e texto não diferenciado, transformando-os em conteúdo pesquisável de texto completo no Azure Search.
+A pesquisa cognitiva, agora disponível para o público geral, é uma nova camada de enriquecimento na indexação de Azure Search que localiza informações latentes em fontes sem texto e texto não diferenciado, transformando-o em conteúdo pesquisável de texto completo no Azure Search.
 
 Os artigos a seguir são a documentação completa de pesquisa cognitiva.
 
@@ -27,7 +27,7 @@ Os artigos a seguir são a documentação completa de pesquisa cognitiva.
 + [O que é pesquisa cognitiva?](cognitive-search-concept-intro.md)
 + [Início Rápido: Experimentar a pesquisa cognitiva no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Conheça as APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
-+ [Exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: Como criar uma habilidade personalizada para a pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Diretrizes
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
@@ -41,15 +41,23 @@ Os artigos a seguir são a documentação completa de pesquisa cognitiva.
 ## <a name="reference"></a>Referência
 
 + [Habilidades predefinidas](cognitive-search-predefined-skills.md)
-  + [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md)
+  + [Microsoft. Skills. Text. KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
-  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
+  + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
+  + [Microsoft. Skills. Text. TranslationSkill (versão prévia)](cognitive-search-skill-text-translation.md)
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
+  + [Microsoft. Skills. util. ConditionalSkill](cognitive-search-skill-conditional.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
+
++ Habilidades personalizadas
+  + [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md)
+
++ [Habilidades preteridas](cognitive-search-skill-deprecated.md)
+  + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
 + [API REST](https://docs.microsoft.com/rest/api/searchservice/)
   + [Criar Conjunto de Qualificações (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

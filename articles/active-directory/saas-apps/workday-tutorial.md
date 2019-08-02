@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.openlocfilehash: aba2d3bab7d709b4bb9ac18e4a9c6ed052a5fb83
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66388880"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086974"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Tutorial: Integrar o Workday ao Azure Active Directory
 

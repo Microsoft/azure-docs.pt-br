@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 00b94174debf915fac3ae5fb37f382c0dc46abfb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 157a421ce2cb4442597bfb0f75ae042a10a8ee03
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754995"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67443741"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -68,7 +68,7 @@ Em comparação com o uso geral v2 e contas de armazenamento de blob, contas de 
 
 Contas de armazenamento de blobs de bloco não damos suporte a disposição em camadas para frequente, esporádico ou arquivo as camadas de acesso.
 
-### <a name="filestorage-preview-storage-accounts"></a>Contas de armazenamento FileStorage (visualização)
+### <a name="filestorage-storage-accounts"></a>Contas de armazenamento FileStorage
 
 Uma conta de armazenamento FileStorage é uma conta de armazenamento especializada usada para armazenar e criar compartilhamentos de arquivos de premium. Contas de armazenamento FileStorage oferecem características de desempenho exclusiva dedicado, como IOPS extrapolação. Para obter mais informações sobre essas características, consulte o [níveis de desempenho do compartilhamento de arquivo](../files/storage-files-planning.md#file-share-performance-tiers) seção dos arquivos do guia de planejamento.
 
@@ -88,7 +88,7 @@ As contas de armazenamento para uso geral podem ser configuradas para qualquer u
 
 Contas de armazenamento de blobs de bloco oferecem um nível de desempenho premium para armazenar blobs de blocos e blobs de acréscimo.
 
-Contas de armazenamento FileStorage (versão prévia) fornecem um nível de desempenho premium para compartilhamentos de arquivos do Azure.
+Contas de armazenamento FileStorage fornecem um nível de desempenho premium para compartilhamentos de arquivos do Azure.
 
 ## <a name="access-tiers-for-block-blob-data"></a>Camadas de acesso para dados de blob de blocos
 

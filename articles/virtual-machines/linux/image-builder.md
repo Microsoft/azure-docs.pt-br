@@ -6,13 +6,13 @@ ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-manager: jeconnoc
-ms.openlocfilehash: 854645af95d780053d94668921e41ac189bbbfb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+manager: gwallace
+ms.openlocfilehash: 2966a1803d0664312d71ba992a5ba65f73b27370
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65159504"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67667520"
 ---
 # <a name="preview-create-a-linux-vm-with-azure-image-builder"></a>Visualização: Criar uma VM do Linux com o construtor de imagens do Azure
 
@@ -21,6 +21,7 @@ Este artigo mostra como você pode criar uma imagem personalizada do Linux usand
 - Shell (ScriptUri) - downloads e executa um [script de shell](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh).
 - Shell (embutido) - comandos específicos de execuções. Neste exemplo, os comandos de embutidos incluem a criação de um diretório e atualizar o sistema operacional.
 - Arquivo - cópias de um [arquivo do GitHub](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html) em um diretório na VM.
+
 
 Usaremos um exemplo de modelo. JSON para configurar a imagem. O arquivo. JSON que estamos usando aqui é: [helloImageTemplateLinux.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json). 
 
@@ -57,7 +58,7 @@ az provider register -n Microsoft.VirtualMachineImages
 az provider register -n Microsoft.Storage
 ```
 
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+## <a name="setup-example-variables"></a>Configurar variáveis de exemplo
 
 Usaremos algumas partes de informações repetidamente, portanto, vamos criar algumas variáveis para armazenar essas informações.
 
@@ -79,14 +80,17 @@ Criar uma variável para sua ID de assinatura. Você pode obter isso usando `az 
 subscriptionID=<Your subscription ID>
 ```
 
-Crie o grupo de recursos.
+## <a name="create-the-resource-group"></a>Crie o grupo de recursos.
+Isso é usado para armazenar o artefato de modelo de configuração de imagem e a imagem.
 
 ```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
+## <a name="set-permissions-on-the-resource-group"></a>Definir permissões em um grupo de recursos
+Conceda permissão de 'Colaborador' Image Builder para criar a imagem no grupo de recursos. Sem as permissões adequadas, haverá falha na compilação de imagem. 
 
-Conceda permissão do Image Builder para criar recursos nesse grupo de recursos. O `--assignee` valor é a ID de registro de aplicativo para o serviço do Image Builder. 
+O `--assignee` valor é a ID de registro de aplicativo para o serviço do Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -95,9 +99,9 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
 ```
 
-## <a name="download-the-json-example"></a>Baixe o exemplo a. JSON
+## <a name="download-the-template-example"></a>Baixe o exemplo de modelo
 
-Baixe o arquivo. JSON de exemplo e configurá-lo com as variáveis que você criou.
+Um modelo de configuração de imagem com parâmetros de exemplo foi criado para uso. Baixe o arquivo. JSON de exemplo e configurá-lo com as variáveis que você definiu anteriormente.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/0_Creating_a_Custom_Linux_Managed_Image/helloImageTemplateLinux.json -o helloImageTemplateLinux.json
@@ -109,7 +113,19 @@ sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateLinux.json
 ```
 
-## <a name="create-the-image"></a>Criar a imagem
+Você pode modificar este. JSON de exemplo conforme necessário. Por exemplo, você pode aumentar o valor de `buildTimeoutInMinutes` para permitir a execução de compilações mais tempo. Você pode editar o arquivo no Cloud Shell usando `vi`.
+
+```azurecli-interactive
+vi helloImageTemplateLinux.json
+```
+
+> [!NOTE]
+> Para a imagem de origem, você deve sempre [especificar uma versão](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-version-failure), não é possível usar `latest`.
+>
+> Se você adicionar ou alterar o grupo de recursos onde a imagem está sendo distribuída, você precisa garantir que o [as permissões são definidas para o grupo de recursos](#set-permissions-on-the-resource-group).
+
+
+## <a name="submit-the-image-configuration"></a>Enviar a configuração de imagem
 Enviar a configuração de imagem para o serviço de construtor de imagens de VM
 
 ```azurecli-interactive
@@ -121,7 +137,26 @@ az resource create \
     -n helloImageTemplateLinux01
 ```
 
+Se ela for concluída com êxito, ele retornará uma mensagem de êxito e, criar um artefato de modelo de configuração de construtor de imagem no $imageResourceGroup. Se você ativar 'Mostrar tipos ocultos', você pode ver o grupo de recursos no portal.
+
+Além disso, em segundo plano, o Image Builder cria um grupo de recursos de preparo em sua assinatura. Construtor de imagens usa o grupo de recursos de preparo para a compilação de imagem. O nome do grupo de recursos será no seguinte formato: `IT_<DestinationResourceGroup>_<TemplateName>`.
+
+> [!IMPORTANT]
+> Não exclua o grupo de recursos de preparo diretamente. Se você excluir o artefato de modelo de imagem, ele excluirá automaticamente o grupo de recursos de preparo. Para obter mais informações, consulte o [limpar](#clean-up) seção no final deste artigo.
+
+Se o serviço relata uma falha durante o envio de modelo de configuração de imagem, consulte o [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#template-submission-errors--troubleshooting) etapas. Você também precisará excluir o modelo antes de tentar novamente enviar a compilação. Para excluir o modelo:
+
+```azurecli-interactive
+az resource delete \
+    --resource-group $imageResourceGroup \
+    --resource-type Microsoft.VirtualMachineImages/imageTemplates \
+    -n helloImageTemplateLinux01
+```
+
+## <a name="start-the-image-build"></a>Iniciar o build de imagem
+
 Inicie o build de imagem.
+
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -131,7 +166,9 @@ az resource invoke-action \
      --action Run 
 ```
 
-Aguarde até que a compilação estiver concluída. Isso pode levar cerca de 15 minutos.
+Aguarde até que a compilação estiver concluída, para este exemplo, pode levar 10 a 15 minutos.
+
+Se você encontrar algum erro, examine essas [solução de problemas](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#image-build-errors--troubleshooting) etapas.
 
 
 ## <a name="create-the-vm"></a>Criar a VM
@@ -179,14 +216,20 @@ Para obter mais informações sobre esse arquivo. JSON, consulte [referência de
 
 ## <a name="clean-up"></a>Limpar
 
-Quando você terminar, exclua os recursos.
+Quando você terminar, você pode excluir os recursos.
+
+Exclua o modelo do construtor de imagem.
 
 ```azurecli-interactive
 az resource delete \
     --resource-group $imageResourceGroup \
     --resource-type Microsoft.VirtualMachineImages/imageTemplates \
     -n helloImageTemplateLinux01
+```
 
+Exclua o grupo de recursos de imagem.
+
+```bash
 az group delete -n $imageResourceGroup
 ```
 

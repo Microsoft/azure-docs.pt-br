@@ -1,6 +1,6 @@
 ---
-title: Transmitir ao vivo com Serviços de Mídia do Microsoft Azure v3 usando .NET | Microsoft Docs
-description: Este tutorial orienta-o pelas etapas de transmissão ao vivo com o Serviços de Mídia v3 usando o .NET Core.
+title: Transmitir ao vivo com Serviços de Mídia do Azure v3 | Microsoft Docs
+description: Este tutorial orienta você pelas etapas de transmissão ao vivo com o Serviços de Mídia v3.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/21/2019
+ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: e4f32e14e8c1035055bd8a37bb453764984fbe4d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5028fd4179f19634b41bb46a5f6df40f36cc8e29
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149128"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275578"
 ---
-# <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Transmitir ao vivo com Serviços de Mídia v3 usando .NET
-
-Nos Serviços de Mídia do Azure, [Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um Evento ao Vivo fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico. O Evento ao Vivo recebe fluxos de entrada ao vivo do codificador dinâmico e o disponibiliza para streaming por meio de um ou mais [Pontos de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos ao Vivo também fornecem um ponto de extremidade de visualização (URL de visualização) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. Este tutorial mostra como usar o .NET Core para criar um tipo de **passagem** de um evento ao vivo. 
+# <a name="tutorial-stream-live-with-media-services"></a>Tutorial: Transmissão ao vivo com os Serviços de Mídia
 
 > [!NOTE]
-> Certifique-se de revisar [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md) antes de continuar. 
+> Embora o tutorial use os exemplos do [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), as etapas gerais são as mesmas para [API REST](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) ou outros [SDKs](media-services-apis-overview.md#sdks) suportados.
+
+Nos Serviços de Mídia do Azure, [Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pelo processamento do conteúdo de transmissão ao vivo. Um Evento ao Vivo fornece um ponto de extremidade de entrada (URL de entrada) que você fornece a um codificador dinâmico. O Evento ao Vivo recebe fluxos de entrada ao vivo do codificador dinâmico e o disponibiliza para streaming por meio de um ou mais [Pontos de Extremidade de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Eventos ao Vivo também fornecem um ponto de extremidade de visualização (URL de visualização) usado para visualizar e validar o fluxo antes de processamento e entrega adicionais. Este tutorial mostra como usar o .NET Core para criar um tipo de **passagem** de um evento ao vivo. 
 
 Este tutorial mostra como:    
 
@@ -47,6 +47,9 @@ Os itens a seguir são necessários para concluir o tutorial.
 - Siga as etapas em [Acessar API de Serviços de Mídia com a CLI do Azure](access-api-cli-how-to.md) e salve as credenciais. Você precisará usá-las para acessar a API.
 - Uma câmera ou um dispositivo (como laptop) usado para transmitir um evento.
 - Um codificador ao vivo local que converte sinais da câmera em fluxos enviados para o serviço de transmissão ao vivo dos Serviços de Mídia. O fluxo deve estar no formato **RTMP** ou **Smooth Streaming**.
+
+> [!TIP]
+> Certifique-se de revisar [Transmissão ao vivo com Serviços de Mídia v3](live-streaming-overview.md) antes de continuar. 
 
 ## <a name="download-and-configure-the-sample"></a>Baixar e configurar o exemplo
 
@@ -88,7 +91,8 @@ Algumas coisas que talvez você queira especificar ao criar o evento ao vivo sã
 * Local dos Serviços de Mídia 
 * O protocolo de streaming para Evento ao Vivo (atualmente, há suporte para os protocolos RTMP e Smooth Streaming).<br/>Não é possível alterar a opção de protocolo enquanto o Evento ao vivo ou suas Saídas ao vivo associadas estiverem em execução. Se você precisar de protocolos diferentes, crie um Evento ao vivo separado para cada protocolo de streaming.  
 * Restrições de IP sobre a ingestão e versão prévia. É possível definir os endereços IP que têm permissão para ingerir um vídeo neste Evento ao vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo, '10.0.0.1'), um intervalo IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22) ou um intervalo IP usando um endereço IP e uma máscara de sub-rede com notação decimal com ponto (por exemplo, '10.0.0.1(255.255.252.0)').<br/>Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos formatos a seguir: endereço IPv4 com 4 números e intervalo de endereços CIDR.
-* Ao criar o evento, é possível especificar para iniciá-lo automaticamente. <br/>Quando a inicialização automática é definida como verdadeira, o evento em tempo real será iniciado após a criação. Isso significa que a cobrança é iniciada assim que o Evento ao Vivo começa a ser executado. É necessário chamar explicitamente Parar no recurso Evento ao Vivo para interromper a cobrança adicional. Para obter mais informações, confira [Estados e cobrança do Evento ao Vivo](live-event-states-billing.md).
+* Ao criar o evento, é possível especificar para iniciá-lo automaticamente. <br/>Quando a inicialização automática é definida como verdadeira, o evento em tempo real será iniciado após a criação. Isso significa que a cobrança começa assim que o Evento ao vivo começa a ser transmitido. É necessário chamar explicitamente Parar no recurso Evento ao Vivo para interromper a cobrança adicional. Para saber mais, confira [Estados e cobrança do Evento ao vivo](live-event-states-billing.md).
+* Para que uma URL de ingestão seja preditiva, defina o modo de "personalização". Para obter informações detalhadas, consulte [URLs de ingestão de eventos ao vivo](live-events-outputs-concept.md#live-event-ingest-urls).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

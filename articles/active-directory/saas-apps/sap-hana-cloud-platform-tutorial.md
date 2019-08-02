@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868037"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Active Directory ao SAP Cloud Platform
 
@@ -59,7 +59,7 @@ Para configurar a integração da SAP Cloud Platform ao Azure AD, você precisa 
 
 **Para adicionar a SAP Cloud Platform por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -111,7 +111,7 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
 
     ![Informações de logon único de Domínio e URLs da SAP Cloud Platform](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo **SAP Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo SAP Cloud Platform. A URL é baseada no seguinte padrão: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
+    a. Na caixa de texto **URL de Logon**, digite a URL usada pelos usuários para entrar no aplicativo **SAP Cloud Platform**. Esta é a URL específica da conta de um recurso protegido em seu aplicativo SAP Cloud Platform. A URL é baseada no seguinte padrão: `https://<applicationName><accountName>.<landscape host>.ondemand.com/<path_to_protected_resource>`
       
      >[!NOTE]
      >Esta é a URL em seu aplicativo SAP Cloud Platform que exige que o usuário seja autenticado.
@@ -162,7 +162,7 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
 
     ![Gerenciamento de Confiança](./media/sap-hana-cloud-platform-tutorial/ic793931.png "Gerenciamento de Confiança")
    
-     a. Clique em **Editar**.
+    a. Clique em **Editar**.
 
     b. Para **Tipo de Configuração**, selecione **Personalizado**.
 
@@ -180,7 +180,7 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
    
     ![Obter Metadados](./media/sap-hana-cloud-platform-tutorial/ic793930.png "Obter Metadados")
 
-     a. Baixe o arquivo de metadados da SAP Cloud Platform, clicando em **Obter metadados**.
+    a. Baixe o arquivo de metadados da SAP Cloud Platform, clicando em **Obter metadados**.
 
     b. Abra o arquivo XML de metadados da SAP Cloud Platform baixado e localize a marca **ns3:AssertionConsumerService** .
  
@@ -209,7 +209,7 @@ Para configurar o logon único do Azure AD com a SAP Cloud Platform, realize as 
     
     ![Atributos](./media/sap-hana-cloud-platform-tutorial/ic790804.png "Atributos") 
 
-     a. Clique em **Adicionar Atributo Baseado em Declaração** e adicione os seguintes atributos baseados em declaração:
+    a. Clique em **Adicionar Atributo Baseado em Declaração** e adicione os seguintes atributos baseados em declaração:
        
     | Atributo de Asserção | Atributo de Entidade |
     | --- | --- |
@@ -298,7 +298,7 @@ Para permitir que os usuários do Azure AD façam logon na SAP Cloud Platform, a
    
     ![Autorizações](./media/sap-hana-cloud-platform-tutorial/ic790805.png "Autorizações")
    
-     a. Clique em **Autorização**.
+    a. Clique em **Autorização**.
 
     b. Clique na guia **Usuários** .
 
@@ -320,5 +320,5 @@ Ao clicar no bloco do SAP Cloud Platform no Painel de Acesso, você deve ser con
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

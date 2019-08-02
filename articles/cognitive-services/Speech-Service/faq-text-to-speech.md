@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: fd8362748c39389139e8384d0bad7e84d20128a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a5ca7d8a6b09dc277664fdc7db2433466e665d56
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66751617"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606669"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Perguntas Frequentes sobre a Conversão de Texto em Fala
 
@@ -59,7 +59,7 @@ Nós fornecemos serviços adicionais para ajudá-lo a preparar scripts para grav
 
 **P: Minhas solicitações são limitadas?**
 
-**R**: A API REST limita as solicitações a 25 a cada 5 segundos. Detalhes podem ser encontrados em nossas páginas para [Conversão de Texto em Fala](text-to-speech.md). 
+**R**: A API REST limita as solicitações a 25 a cada 5 segundos. Detalhes podem ser encontrados em nossas páginas para [Conversão de Texto em Fala](text-to-speech.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

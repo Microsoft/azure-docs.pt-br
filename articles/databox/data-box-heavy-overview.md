@@ -5,28 +5,27 @@ services: databox
 documentationcenter: NA
 author: alkohli
 ms.service: databox
-ms.subservice: pod
+ms.subservice: heavy
 ms.topic: overview
-ms.date: 05/20/2019
+ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 0f71d9b4400041db50cb3e24940e922acde55edc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 0f4657cdd71a104ca111f62a6e9757b5a33b46e8
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991682"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67592312"
 ---
-# <a name="what-is-azure-data-box-heavy-preview"></a>O que é o Azure Data Box Heavy? (versão prévia)
+# <a name="what-is-azure-data-box-heavy"></a>O que é o Azure Data Box Heavy?
 
 O Azure Data Box Heavy permite enviar centenas de terabytes de dados para o Microsoft Azure de forma rápida, econômica e confiável. Os dados são transferidos para o Microsoft Azure enviando um dispositivo Data Box Heavy com capacidade de armazenamento de 1 PB, com o qual você preenche seus dados e envia à Microsoft. O dispositivo tem uma caixa reforçada para proteger os dados durante o transporte.
 
-O Data Box Heavy está em versão prévia. Inscreva-se no portal do Azure para solicitar um dispositivo. Quando receber o dispositivo em seu datacenter, use a IU da Web local para configurá-lo. Copie os dados de seus servidores para o dispositivo e envie o dispositivo novamente para o Azure. No datacenter do Azure, os dados são carregados em suas contas de Armazenamento do Microsoft Azure. É possível controlar o processo de ponta a ponta no portal do Azure.
+Quando receber o dispositivo em seu datacenter, use a IU da Web local para configurá-lo. Copie os dados de seus servidores para o dispositivo e envie o dispositivo novamente para o Azure. No datacenter do Azure, os dados são carregados em suas contas de Armazenamento do Microsoft Azure. É possível controlar o processo de ponta a ponta no portal do Azure.
 
 
 > [!IMPORTANT]
-> - O Data Box Heavy está em versão prévia. Examine os [termos de serviço do Azure para a versão prévia](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) antes de implantar essa solução.
-> - Para solicitar um dispositivo, inscreva-se na [Versão Prévia do portal](https://aka.ms/azuredatabox).
-> - Durante a versão prévia, o Data Box Heavy pode ser entregue aos clientes nos EUA e na União Europeia. Para saber mais, acesse [Disponibilidade por região](#region-availability).
+> - Para solicitar um dispositivo, inscreva-se no [Portal do Azure](https://portal.azure.com).
+
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -62,14 +61,14 @@ O dispositivo Data Box Heavy tem os seguintes recursos nesta versão.
 
 | Especificações                                          | DESCRIÇÃO              |
 |---------------------------------------------------------|--------------------------|
-| Peso                                                  | Aproximadamente 500 lbs.                |
+| Peso                                                  | Aproximadamente 500 lbs. <br>Dispositivo nas rodas para transporte|
 | Dimensões                                              | Largura: 66,04 cm de altura: 71,12 cm de comprimento: 121,92 cm |
-| Espaço em rack                                              | Não montável em rack|
+| Espaço em rack                                              | Não pode ser montado em rack|
 | Cabos necessários                                         | Inclui 4 cabos de alimentação 120 V/10 A de aterramento (NEMA 5-15) <br> O dispositivo tem suporte para até 240 V de potência e conectores C-13 <br> Usar cabos de rede compatíveis com [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html)  |
-|Potência                                                    | 4 unidades de fonte de energia internas compartilhadas nos dois nós do dispositivo|
+| Potência                                                    | 4 unidades de fonte de energia internas compartilhadas nos dois nós do dispositivo <br> Consumo de energia típico de 1.200 watts|
 | Capacidade de armazenamento                                        | Aproximadamente 70 discos de 1 PB brutos com 14 TB cada <br> 770 TB de capacidade utilizável|
-|Número de nós                                          | 2 nós independentes por dispositivo (500 TB cada) |
-| Adaptadores de rede por nó                             | 4 adaptadores de rede por nó <br> MGMT, DATA3 <ul><li> 2 interfaces 1 GbE </li><li> MGMT serve para gerenciamento, não é configurável pelo usuário, e é usada na configuração inicial </li><li> DATA3 é uma interface de dados configurável pelo usuário, com protocolo DHCP por padrão</li><li>Os adaptadores de rede 1 GbE também podem ser configurados como as interfaces 10 GbE</li></ul>Interfaces de dados DATA1, DATA2 <ul><li>2 interfaces 40 GbE </li><li> Protocolo DHCP por padrão ou interfaces de dados estáticos configuráveis pelo usuário</li>|
+| Número de nós                                          | 2 nós independentes por dispositivo (500 TB cada) |
+| Adaptadores de rede por nó                             | 4 adaptadores de rede por nó <br><br> MGMT, DATA3 <ul><li> 2 interfaces 1 GbE </li><li> MGMT serve para gerenciamento e configuração inicial, não é configurável pelo usuário </li><li> DATA3 é um protocolo DHCP configurável pelo usuário por padrão</li><li>Os adaptadores de rede 1 GbE também podem ser configurados como as interfaces 10 GbE</li></ul>Interfaces de dados DATA1, DATA2 <ul><li>2 interfaces 40 GbE </li><li> Usuário configurável para DHCP (padrão) ou estático</li></ul>|
 
 
 ## <a name="components"></a>Componentes
@@ -115,25 +114,14 @@ Para obter informações mais atualizadas sobre a disponibilidade de região do 
 
 ## <a name="sign-up"></a>Inscrição
 
-O Data Box Heavy está em versão prévia e uma inscrição é necessária. Para se inscrever no Data Box Heavy, faça o seguinte:
+Para se inscrever no Data Box Heavy, faça o seguinte:
 
-1. Entre no portal do Azure em: https://aka.ms/azuredatabox.
+1. Entre no portal do Azure em: https://portal.azure.com.
 2. Clique em **+ Criar um recurso** para criar um novo recurso. Pesquise **Azure Data Box**. Selecione o serviço **Azure Data Box**.
-
-    <!--![The Data Box Heavy sign up 1]()-->
-
 3. Clique em **Criar**.
-
-    <!--![The Data Box Heavy sign up 2]()-->
-
-4. Escolha a assinatura que você deseja usar para a versão prévia do Data Box Heavy. Selecione a região na qual você deseja implantar o recurso Data Box Heavy. Na opção **Data Box Heavy**, clique em **Inscrever-se**.
-
-   <!--![The Data Box Heavy sign up 3]()-->
-
+4. Escolha a assinatura que deseja usar para o Data Box Heavy. Selecione a região na qual você deseja implantar o recurso Data Box Heavy. Na opção **Data Box Heavy**, clique em **Inscrever-se**.
 5. Responda às perguntas sobre país/região de residência dos dados, período, serviço de destino do Microsoft Azure para transferência de dados, largura de banda de rede e frequência da transferência de dados. Examine a Privacidade e os termos e marque a caixa de seleção A Microsoft pode usar seu endereço de email para contatá-lo.
 
-    <!--![The Data Box Heavy sign up 4]()-->
-
-Depois de se inscrever e se habilitar para a versão prévia, você poderá solicitar um Data Box Heavy.
+Após se inscrever, você poderá solicitar um Data Box Heavy.
 
     

@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/12/2019
-ms.openlocfilehash: ad3e2157e7b8748174cc8b81d1debd5de0ba77b9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 06/27/2019
+ms.openlocfilehash: a2f9b7597022822272692d20976e1da654b9d524
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67079477"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67462048"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mariadb"></a>Recomendações de desempenho no banco de dados do Azure para MariaDB
 
-**Aplica-se a:** Banco de dados do Azure para MariaDB 10.2s
+**Aplica-se a:** Banco de dados do Azure para MariaDB 10.2
 
 > [!NOTE]
-> Recomendações de desempenho está em visualização. Suporte para as recomendações de desempenho no portal do Azure está sendo distribuído e não ainda estejam disponível em sua região.
+> Recomendações de desempenho está em visualização.
 
 O recurso de recomendações de desempenho analisa seus bancos de dados para criar sugestões personalizados para melhorar o desempenho. Para produzir as recomendações, a análise examina várias características do banco de dados, incluindo o esquema. Habilitar [Store consulta](concepts-query-store.md) no seu servidor para utilizar totalmente o recurso de recomendações de desempenho. Se o esquema de desempenho for OFF, ativar a consulta Store permite performance_schema e um subconjunto de instrumentos de esquema de desempenho necessária para o recurso. Depois de implementar qualquer recomendação de desempenho, você deve testar o desempenho para avaliar o impacto dessas alterações.
 

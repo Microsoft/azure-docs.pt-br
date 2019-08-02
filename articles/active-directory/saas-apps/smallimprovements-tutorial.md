@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 19d9624c5bb60f47ef4bfa1b0629327780c2a9c7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2d0bbc7a6e1c680434041d1b9d55e39a96b6f44
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901908"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090369"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Tutorial: Integração do Active Directory do Azure Active Directory com o Small Improvements
 
@@ -53,7 +53,7 @@ Para configurar a integração do Small Improvements ao Azure AD, você precisar
 
 **Para adicionar o Small Improvements da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Small Improvements, execute as 
 
     ![Informações de logon único de Domínio e URLs do Small Improvements](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Small Improvements](mailto:support@small-improvements.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Small Improvements, execute as 
 
     ![Configurar o logon único](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-     a. Na caixa de texto **Ponto de extremidade HTTP**, cole o valor da **URL de Logon** copiado do portal do Azure.
+    a. Na caixa de texto **Ponto de extremidade HTTP**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
     b. Abra seu certificado baixado no Bloco de Notas, copie o conteúdo e cole-o na caixa de texto **Certificado x509** . 
 
@@ -225,11 +225,11 @@ Para permitir que os usuários do Azure AD façam logon no Small Improvements, e
 
     ![Criação de um usuário de teste do AD do Azure](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
 
-     a. Insira o **nome** do usuário, como **Brenda**.
+    a. Insira o **nome** do usuário, como **Brenda**.
 
     b. Insira o **Sobrenome** do usuário, como **Fernandes**.
 
-    c. Insira o **Email** do usuário, como **brittasimon@contoso.com**.
+    c. Insira o **Email** do usuário, como **brittasimon@contoso.com** .
 
     d. Você também pode optar por inserir a mensagem pessoal na caixa **Enviar email de notificação** . Caso não deseje enviar a notificação, desmarque essa caixa de seleção.
 
@@ -247,4 +247,4 @@ Ao clicar no bloco do Small Improvements no Painel de Acesso, você deverá entr
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

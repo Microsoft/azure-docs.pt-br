@@ -10,6 +10,8 @@
       href: quickstart-create-traffic-manager-profile.md
     - name: Criar um perfil do Gerenciador de Tráfego – PowerShell
       href: quickstart-create-traffic-manager-profile-powershell.md
+    - name: Criar um perfil do Gerenciador de Tráfego – CLI do Azure
+      href: quickstart-create-traffic-manager-profile-cli.md
 - name: Tutoriais
   items:
     - name: Rotear tráfego de baixa latência

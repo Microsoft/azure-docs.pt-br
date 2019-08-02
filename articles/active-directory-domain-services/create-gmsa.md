@@ -1,9 +1,9 @@
 ---
 title: 'Azure Active Directory Domain Services: Criar uma conta de serviço gerenciado de grupo | Microsoft Docs'
-description: Administrar domínios gerenciados dos Serviços de Domínio do Azure Active Directory
+description: Saiba como criar uma conta de serviço gerenciado de grupo (gMSA) para uso com Azure Active Directory Domain Services domínios gerenciados
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: e6faeddd-ef9e-4e23-84d6-c9b3f7d16567
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: 0f4e57359797e9c28ea62397e5c92c5fca05c69e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 404160c895a8d0a72921fe202adba82c3d069aaf
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246338"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234123"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-on-an-azure-ad-domain-services-managed-domain"></a>Criar uma gMSA (conta de serviço gerenciado de grupo) em um domínio gerenciado do Azure AD Domain Services
 Este artigo descreve como criar contas de serviço gerenciadas em um domínio gerenciado do Azure AD Domain Services.

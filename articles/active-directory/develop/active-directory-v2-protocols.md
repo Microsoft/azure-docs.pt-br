@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cfc9c027806cb1a3f65e67eda771894a7250ee67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ffef5c3a7c8dd21654b6364013b1718bea1292
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66417655"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482995"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade do Microsoft
 
@@ -36,7 +36,7 @@ O Microsoft identity platform ponto de extremidade para identidade-como um servi
 
 Em quase todos os fluxos do OAuth 2.0 e do OpenID Connect, há quatro partes envolvidas na troca:
 
-![Funções do OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
+![Diagrama que mostra as funções do OAuth 2.0](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * O **servidor de autorização** é o ponto de extremidade de plataforma de identidade do Microsoft e é responsável por garantir que a identidade do usuário, conceder e revogar o acesso aos recursos e emissão de tokens. O servidor de autorização também é conhecido como provedor de identidade; ele trata com segurança tudo que estiver relacionado às informações do usuário, seu acesso e as relações de confiança entre as partes de um fluxo.
 * O **Proprietário do Recurso** normalmente é o usuário final. Ele é a parte que possui os dados e tem o poder de permitir que terceiros acessem esses dados ou recurso.

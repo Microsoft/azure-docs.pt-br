@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ec2b974e008ea4c7e266f5ae0d46cd67d2133e54
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59547297"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854010"
 ---
 # <a name="run-a-custom-linux-container-in-azure-app-service"></a>Executar um contêiner personalizado do Linux no Serviço de Aplicativo do Azure
 
@@ -35,7 +35,7 @@ ms.locfileid: "59547297"
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
-Crie um [aplicativo Web](../overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir `<app name>` por um nome globalmente exclusivo do aplicativo.
+Crie um [aplicativo Web](../overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir `<app name>` por um nome de aplicativo global exclusivo (os caracteres válidos são `a-z`, `0-9` e `-`).
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart

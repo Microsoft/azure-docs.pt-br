@@ -1,4 +1,4 @@
-- name: ASC (Centro de Segurança do Azure) para documentação da versão prévia da IoT
+- name: Documentação da Central de Segurança do Azure para IoT
   href: index.yml
 - name: Visão geral
   href: overview.md
@@ -11,16 +11,21 @@
       href: security-edge-architecture.md
     - name: Pré-requisitos do serviço
       href: service-prerequisites.md
-    - name: Introdução ao ASC para IoT
+    - name: Introdução à Central de Segurança do Azure para IoT
       href: getting-started.md
+      items:
+        - name: Hub IoT
+          href: iot-hub-integration.md
+        - name: Agentes de segurança
+          href: security-agents.md
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Habilitar ASC para IoT no Hub IoT
+    - name: Habilitar a Central de Segurança do Azure para IoT no Hub IoT
       href: quickstart-onboard-iot-hub.md
     - name: Configurar sua solução
       href: quickstart-configure-your-solution.md
-    - name: Criar um módulo gêmeo do ASC para IoT
+    - name: Criar um módulo gêmeo da Central de Segurança do Azure para IoT
       href: quickstart-create-security-twin.md
     - name: Crie alertas de segurança personalizados
       href: quickstart-create-custom-alerts.md
@@ -34,6 +39,8 @@
       href: concept-security-alerts.md
     - name: Recomendações de segurança
       href: concept-recommendations.md
+    - name: Agregação de eventos
+      href: event-aggregation.md
     - name: Preços e custos associados
       href: concept-pricing.md
 - name: Guias de instruções
@@ -48,6 +55,14 @@
           href: how-to-deploy-linux-cs.md
         - name: Implantar um agente de segurança baseado em C em um dispositivo Linux
           href: how-to-deploy-linux-c.md
+    - name: Solucionar problemas de um agente de segurança
+      items:
+        - name: Solucionar problemas do agente de segurança do Linux da Central de Segurança do Azure para IoT
+          href: troubleshoot-agent.md
+        - name: Configuração local para C
+          href: azure-iot-security-local-configuration-c.md
+        - name: 'Configuração local para C#'
+          href: azure-iot-security-local-configuration-csharp.md
     - name: Implantar módulo de segurança do Edge
       href: how-to-deploy-edge.md
     - name: Configurar agentes de segurança

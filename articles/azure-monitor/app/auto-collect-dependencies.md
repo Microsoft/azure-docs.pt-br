@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
 ms.author: nimolnar
-ms.openlocfilehash: 832f927f81b57fd16c202b855d8f1dbe0617ad56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 839ab291a99de646053b638520ce43f459d5c41f
+ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65149892"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297009"
 ---
 # <a name="dependency-auto-collection"></a>Coleta automática de dependência
 
-Veja abaixo a lista atualmente com suporte de chamadas de dependência que são detectadas automaticamente como dependências sem a necessidade de qualquer modificação adicional no código do aplicativo. Isso consiste em chamadas de saída para bibliotecas de comunicação, clientes de armazenamento, log e bibliotecas de métricas, bem como chamadas de entrada para estruturas do aplicativo e servidores. Essas dependências são visualizadas nas exibições [Mapa do aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [Diagnóstico de transação](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) do Application Insights. Se a dependência não estiver na lista abaixo, você ainda poderá acompanhá-la manualmente com um comando [acompanhar chamada de dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Veja abaixo a lista atualmente com suporte de chamadas de dependência que são detectadas automaticamente como dependências sem a necessidade de qualquer modificação adicional no código do aplicativo. Essas dependências são visualizadas nas exibições [Mapa do aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) e [Diagnóstico de transação](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics) do Application Insights. Se a dependência não estiver na lista abaixo, você ainda poderá acompanhá-la manualmente com um comando [acompanhar chamada de dependência](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +38,6 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 | [SDK do Cliente do Barramento de Serviço](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>Clientes de armazenamento</b>|  |
 | ADO.NET | 4.5+ |
-| <b>Bibliotecas de log</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | 2.0.8 e superior no NetStandard 1.3, 2.0.6 e superior no .NET 4.5 e superior |
 
 ## <a name="java"></a>Java
 | Servidores de aplicativo | Versões |
@@ -58,7 +53,7 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 | [Cliente Apache HTTP](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) | 4.3+<sup>†</sup> |
 | <b>Clientes de armazenamento</b> | |
 | [SQL Server]( https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc) | 1+<sup>†</sup> |
-| [PostgreSQL (suporte à versão Beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
+| [PostgreSQL (suporte beta)](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/CHANGELOG.md#version-240-beta) | |
 | [Oracle]( https://www.oracle.com/technetwork/database/application-development/jdbc/downloads/index.html) | 1+<sup>†</sup> |
 | [MySql]( https://mvnrepository.com/artifact/mysql/mysql-connector-java) | 1+<sup>†</sup> |
 | <b>Bibliotecas de log</b> | |
@@ -78,14 +73,14 @@ Veja abaixo a lista atualmente com suporte de chamadas de dependência que são 
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Clientes de armazenamento</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2. x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
-| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0 - 2.16.x |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2. x-3. x |
+| [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2,16. x |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6. x-7. x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1. x-2. x |
 | <b>Bibliotecas de log</b> | |
 | [console](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [Winston](https://www.npmjs.com/package/winston) | 2.x - 3.x |
+| [Winston](https://www.npmjs.com/package/winston) | 2. x-3. x |
 
 ## <a name="javascript"></a>JavaScript
 

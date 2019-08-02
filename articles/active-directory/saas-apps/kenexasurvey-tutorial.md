@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: jeedes
-ms.openlocfilehash: 385092cb9c760e6f9fa848449bd61663541573b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c649b966b3e210f6b026b06a9654761e0f97aea1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256747"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099051"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Tutorial: Integração do Azure Active Directory com o IBM Kenexa Survey Enterprise
 
@@ -53,7 +53,7 @@ Para configurar a integração do IBM Kenexa Survey Enterprise com o Azure AD, v
 
 **Para adicionar o IBM Kenexa Survey Enterprise por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -80,7 +80,7 @@ Para configurar e testar o logon único do Azure AD com o IBM Kenexa Survey Ente
 2. **[Configurar logon único do IBM Kenexa Survey Enterprise](#configure-ibm-kenexa-survey-enterprise-single-sign-on)** – para configurar as definições de Logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do IBM Kenexa Survey Enterprise](#create-ibm-kenexa-survey-enterprise-test-user)**: para ter um equivalente de Brenda Fernandes no IBM Kenexa Survey Enterprise que esteja vinculado à representação dela no Azure AD.
+5. **[Criar usuário de teste do IBM Kenexa Survey Enterprise](#create-ibm-kenexa-survey-enterprise-test-user)** : para ter um equivalente de Brenda Fernandes no IBM Kenexa Survey Enterprise que esteja vinculado à representação dela no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o IBM Kenexa Survey Enterprise, s
 
     ![Informações de logon único em Domínio e URLs do IBM Kenexa Survey Enterprise](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://surveys.kenexa.com/<companycode>/tools/sso.asp`
 
@@ -205,5 +205,5 @@ Ao clicar no bloco do IBM Kenexa Survey Enterprise no Painel de Acesso, você de
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

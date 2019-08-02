@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 571ab38dd52d83f1391b555bc4dfc8c091f1fd1b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 97e38c62da74444f1f229f12e42d98e75a6e5073
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65896920"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097196"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>Tutorial: Integração do Azure Active Directory com o Mindflash
 
@@ -52,7 +52,7 @@ Para configurar a integração do Mindflash ao Azure AD, você precisará adicio
 
 **Para adicionar o Mindflash por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -79,7 +79,7 @@ Para configurar e testar o logon único do Azure AD com o Mindflash, você preci
 2. **[Configurar o Logon Único do Mindflash](#configure-mindflash-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar um usuário de teste do Mindflash](#create-mindflash-test-user)**: para ter um equivalente de Brenda Fernandes no Mindflash que esteja vinculado à representação do usuário no Azure AD.
+5. **[Criar um usuário de teste do Mindflash](#create-mindflash-test-user)** : para ter um equivalente de Brenda Fernandes no Mindflash que esteja vinculado à representação do usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -104,9 +104,9 @@ Para configurar o logon único do Azure AD com o Mindflash, execute as seguintes
 
     ![Informações de logon único de URLs e Domínio do Mindflash](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.mindflash.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.mindflash.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.mindflash.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.mindflash.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Mindflash](https://www.mindflash.com/contact/) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -198,7 +198,7 @@ Para permitir que os usuários do AD do Azure façam logon no Mindflash, eles de
    
     ![Adicionar Novos Usuários](./media/mindflash-tutorial/ic787141.png "Adicionar Novos Usuários")
    
-     a. Na caixa de texto **Nome**, digite o **Nome** do usuário como **Brenda**.
+    a. Na caixa de texto **Nome**, digite o **Nome** do usuário como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, digite o **Sobrenome** do usuário como **Fernandes**.
     

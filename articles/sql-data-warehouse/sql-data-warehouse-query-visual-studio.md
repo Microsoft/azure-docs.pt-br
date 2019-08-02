@@ -2,7 +2,7 @@
 title: Conectar-se ao SQL Data Warehouse do Azure - VSTS | Microsoft Docs
 description: Consultar o SQL Data Warehouse com o Visual Studio.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6aa707d3c63b7ead6db94f84ebd9214302cc7367
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5c0867252023378347e55d673260f28a7bf2ccc4
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873722"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479454"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Conectar-se ao SQL Data Warehouse com o Visual Studio e o SSDT
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Use o Visual Studio para consultar o SQL Data Warehouse do Azure em apenas algun
 Para usar este tutorial, você precisará de:
 
 * Um SQL Data Warehouse existente. Para criar um, confira [Criar um SQL Data Warehouse][Create a SQL Data Warehouse].
-* SSDT para Visual Studio. Se você tiver o Visual Studio, provavelmente já terá isso. Para obter instruções e opções de instalação, confira [Instalar o Visual Studio e o SSDT][Installing Visual Studio and SSDT].
+* SSDT para Visual Studio. Se você tiver o Visual Studio, provavelmente já terá isso. Para obter instruções e opções de instalação, consulte [Instalar o Visual Studio e o SSDT][Installing Visual Studio and SSDT].
 * O nome de servidor SQL totalmente qualificado. Para encontrar isso, confira [Conectar-se ao SQL Data Warehouse][Connect to SQL Data Warehouse].
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Conectar-se ao SQL Data Warehouse

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 617c75024b45dab7ff2466b99bfb71c18cdd778a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 32af532fcb3b3c5a294590bb7a1fa610d1068e25
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904579"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67094449"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Azure Active Directory com o Picturepark
 
@@ -53,7 +53,7 @@ Para configurar a integração do Picturepark ao Azure AD, é necessário adicio
 
 **Para adicionar o Picturepark por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
 
     ![Informações de logon único em Domínio e URLs do Picturepark](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.picturepark.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.picturepark.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
     |  |
     |--|
@@ -134,7 +134,7 @@ Para configurar o logon único do Azure AD com o Picturepark, realize as seguint
 
     ![Copiar URLs de configuração](./media/picturepark-tutorial/configurls.png)
 
-     a. Identificador do Azure AD
+    a. Identificador do Azure AD
 
     b. URL de logoff
 
@@ -240,7 +240,7 @@ Para permitir que os usuários do Azure AD entrem no Picturepark, eles devem ser
    
     ![Criar usuário](./media/picturepark-tutorial/ic795069.png "Criar usuário")
    
-     a. Na caixa de texto **Endereço de Email**, digite o **endereço de email** do usuário `BrittaSimon@contoso.com`.  
+    a. Na caixa de texto **Endereço de Email**, digite o **endereço de email** do usuário `BrittaSimon@contoso.com`.  
    
     b. Nas caixas de texto **Senha** e **Confirmar Senha**, digite a **senha** de BrendaFernandes. 
    

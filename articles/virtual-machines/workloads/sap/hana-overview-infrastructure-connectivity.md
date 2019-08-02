@@ -4,22 +4,22 @@ description: Configure a infraestrutura de conectividade necessária para usar S
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
-ms.author: rclaus
+ms.date: 07/12/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d8bbe2fc218004116177c4c9d95777d9ec57503
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4a1df7406ab4f4d7137d12dd7131a4c26b617cb2
+ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477290"
+ms.lasthandoff: 07/13/2019
+ms.locfileid: "67869217"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>Implantação do SAP HANA (instâncias grandes) 
 
@@ -37,6 +37,7 @@ A Microsoft requer as seguintes informações para implantar unidades de instân
 - Para cada região de implantação do Azure:
     - Um intervalo de endereços IP /29 para conexões de ER-P2P que conectar redes virtuais do Azure para instâncias grandes HANA.
     - Um bloco CIDR /24 usado para o pool de IPs de servidores de instâncias grandes HANA.
+    - Opcional ao usar o [ExpressRoute alcance global](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para habilitar o roteamento direto do local para as unidades de instância grande do Hana ou o roteamento entre unidades de instância grande do Hana em diferentes regiões do Azure, você precisa reservar outro/29 intervalo de endereços IP. Esse intervalo específico não pode se sobrepor a nenhum dos outros intervalos de endereços IP definidos anteriormente.
 - Os valores de intervalo de endereços IP usados no atributo de espaço de endereço de rede virtual de cada rede virtual do Azure que se conecta às instâncias grandes do HANA.
 - Dados para cada sistema de instâncias grandes HANA:
   - Nome de host desejado - o ideal é usar o nome de domínio totalmente qualificado.

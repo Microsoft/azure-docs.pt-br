@@ -4,7 +4,7 @@ description: Saiba como configurar o MPI para HPC no Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 1717c0d95c00e13ae0d87ab920bc88cd4f0df978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66809836"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67797507"
 ---
 # <a name="set-up-message-passing-interface-for-hpc"></a>Configurar o Message Passing Interface para HPC
 
@@ -70,7 +70,7 @@ Instale UCX conforme descrito anteriormente.
 MPICH de compilação.
 
 ```bash
-wget http://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
+wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
 tar -xvf mpich-3.3.tar.gz
 cd mpich-3.3
 ./configure --with-ucx=<ucx-install-path> --prefix=<mpich-install-path> --with-device=ch4:ucx
@@ -126,7 +126,7 @@ Processo de fixação funciona corretamente para 15, 30 e 60 PPN por padrão.
 
 ## <a name="osu-mpi-benchmarks"></a>Parâmetros de comparação de MPI OSU
 
-[Baixar Benchmarks OSU MPI] [ http://mvapich.cse.ohio-state.edu/benchmarks/ ](http://mvapich.cse.ohio-state.edu/benchmarks/) e descompactar.
+[Baixe os parâmetros de comparação de MPI OSU](http://mvapich.cse.ohio-state.edu/benchmarks/) e descompactar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -146,7 +146,7 @@ Parâmetros de comparação de MPI estão sob `mpi/` pasta.
 
 ## <a name="discover-partition-keys"></a>Descubra as chaves de partição
 
-Descubra as chaves de partição (p-chaves) para se comunicar com outras VMs.
+Descubra as chaves de partição (p-chaves) para se comunicar com outras VMs no mesmo locatário (conjunto de disponibilidade ou conjunto de dimensionamento de VM).
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -164,13 +164,15 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 
 Use a partição que não seja de chave de partição padrão (0x7fff). UCX requer o MSB do p-chave a ser apagado. Por exemplo, defina UCX_IB_PKEY como 0x000b para 0x800b.
 
+Observe também que, desde o locatário (AVSet ou VMSS) existe, os PKEYs permanecem os mesmos. Isso é verdadeiro mesmo quando os nós são adicionados ou excluídos. Novos locatários obtém PKEYs diferentes.
+
 
 ## <a name="set-up-user-limits-for-mpi"></a>Configurar limites de usuário para o MPI
 
 Configure limites de usuário para o MPI.
 
 ```bash
-cat << EOF >> /etc/security/limits.conf
+cat << EOF | sudo tee -a /etc/security/limits.conf
 *               hard    memlock         unlimited
 *               soft    memlock         unlimited
 *               hard    nofile          65535

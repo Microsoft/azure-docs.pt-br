@@ -1,21 +1,21 @@
 ---
-title: Entidades de correspondência exata de texto
+title: Entidades de correspondência de texto extact-LUIS
+titleSuffix: Azure Cognitive Services
 description: Saiba como adicionar uma entidade de lista para ajudar LUIS a rotular variações de uma palavra ou frase.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 929dc7a86d141446a2070b046c6febfda4a07f0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: da6e8e794520a737a96ba45f94459fb8c1a5ff18
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117441"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68637839"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>Usar uma entidade de lista para aumentar a detecção de entidade 
 Este tutorial demonstra o uso de uma [lista entidade](luis-concept-entity-types.md) para aumentar a detecção de entidade. Entidades de lista não precisam ser rotuladas já que elas são uma correspondência exata de termos.  

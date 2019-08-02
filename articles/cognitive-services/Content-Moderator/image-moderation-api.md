@@ -1,6 +1,6 @@
 ---
 title: Imagem de moderação – Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use a moderação de imagem assistida por computador do Content Moderator e a ferramenta de revisão de humanos no circuito para moderar imagens para conteúdo adulto.
 services: cognitive-services
 author: sanjeev3
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 9f1df23d1f0f24787bb9267064ffd647eda2cb74
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8b3449edb539ab56fcf206a367f9b81e43290733
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60699266"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564913"
 ---
 # <a name="learn-image-moderation-concepts"></a>Aprender os conceitos de moderação de imagem
 
@@ -66,7 +66,7 @@ Extração de exemplo:
 
 ## <a name="detecting-faces"></a>Detendo faces
 
-Detectando rostos ajuda a detectar dados pessoais, como faces, nas imagens. Você detecta faces em potencial e o número de faces em potencial em cada imagem.
+A detecção de faces ajuda a detectar dados pessoais, como faces nas imagens. Você detecta faces em potencial e o número de faces em potencial em cada imagem.
 
 Uma resposta inclui estas informações:
 

@@ -1,18 +1,18 @@
 ---
 title: Filtros IP de conexão do Hub IoT do Azure | Microsoft Docs
 description: Como usar a filtragem de IP para bloquear conexões de endereços IP específicos para seu Hub IoT do Azure. Você pode bloquear conexões de endereços IP individuais ou de intervalos de endereços IP.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rezas
-ms.openlocfilehash: 5e755a528d91d6321f431f256eafdcb01e67d601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/22/2017
+ms.author: robinsh
+ms.openlocfilehash: a6bd8a766f3205358a65ef2fd0816643e4261cab
+ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398958"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68414330"
 ---
 # <a name="use-ip-filters"></a>Usar filtros IP
 
@@ -40,23 +40,27 @@ Por padrão, a grade **Filtro IP** no portal de Hub IoT fica vazia. Essa configu
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>Adicionar ou editar uma regra de filtro IP
 
-Quando você adiciona uma regra de filtro IP, os seguintes valores são solicitados:
-
-* Um **nome de regra de filtro IP** que deve ser uma cadeia de caracteres alfanumérica exclusiva com até 128 caracteres que diferencia maiúsculas de minúsculas. Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
-
-* Selecione **rejeitar** ou **aceitar** como a **ação** para a regra de filtro IP.
-
-* Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.
+Para adicionar uma regra de filtro IP, selecione **+ Adicionar regra de filtro IP**.
 
 ![Adicionar uma regra de filtro IP a um Hub IoT](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
-Depois de salvar a regra, você verá um alerta informando que a atualização está em andamento.
+Depois de selecionar **Adicionar regra de filtro IP**, preencha os campos.
+
+![Depois de selecionar Adicionar uma regra de filtro IP](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+
+* Forneça um **nome** para a regra de filtro IP. Deve ser uma cadeia de caracteres alfanumérica, não diferencia maiúsculas de minúsculas, de até 128 caracteres de comprimento. Somente são aceitos caracteres alfanuméricos ASCII de 7 bits mais `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`.
+
+* Forneça um endereço IPv4 único ou um bloco de endereços IP na notação CIDR. Por exemplo, uma notação CIDR 192.168.100.0/22 representa os 1024 endereços IPv4 de 192.168.100.0 a 192.168.103.255.
+
+* Selecione **permitir** ou **Bloquear** como a **ação** para a regra de filtro IP.
+
+Depois de preencher os campos, selecione **salvar** para salvar a regra. Você verá um alerta notificando que a atualização está em andamento.
 
 ![Notificação sobre como salvar uma regra de filtro IP](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
 
 A opção **Adicionar** é desabilitada quando você atinge o máximo de dez regras de filtro IP.
 
-Você pode editar uma regra existente clicando duas vezes na linha que contém a regra.
+Para editar uma regra existente, selecione os dados que você deseja alterar, faça a alteração e, em seguida, selecione **salvar** para salvar a edição.
 
 > [!NOTE]
 > Rejeitar endereços IP pode impedir que outros serviços do Azure (como Stream Analytics do Azure, Máquinas Virtuais do Azure ou o Explorer de dispositivos no portal) interajam com o hub IoT.
@@ -66,13 +70,13 @@ Você pode editar uma regra existente clicando duas vezes na linha que contém a
 
 ## <a name="delete-an-ip-filter-rule"></a>Excluir uma regra de filtro IP
 
-Para excluir uma regra de filtro IP, selecione uma ou mais regras na grade e clique em **Excluir**.
+Para excluir uma regra de filtro IP, selecione o ícone de lixeira na linha e, em seguida, selecione **salvar**. A regra é removida e a alteração é salva.
 
 ![Excluir uma regra de filtro IP de Hub IoT](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
 ## <a name="retrieve-and-update-ip-filters-using-azure-cli"></a>Recuperar e atualizar os filtros IP usando a CLI do Azure
 
-Os filtros de IP do seu Hub IoT Podem ser recuperados e atualizados por meio da [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). 
+Os filtros de IP do seu Hub IoT Podem ser recuperados e atualizados por meio da [CLI do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 Para recuperar os filtros IP atuais do Hub IoT, execute:
 
@@ -118,12 +122,11 @@ az resource update -n <iothubName> -g <resourceGroupName> --resource-type Micros
 
 Observe que `<ipFilterIndexToRemove>` deve corresponder à ordenação de filtros IP no `properties.ipFilterRules` do seu Hub IoT.
 
-
 ## <a name="retrieve-and-update-ip-filters-using-azure-powershell"></a>Recuperar e atualizar os filtros IP usando o Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Filtros IP do seu IoT Hub podem ser recuperados e definidos por meio [Azure PowerShell](/powershell/azure/overview). 
+Os filtros IP do Hub IoT podem ser recuperados e definidos por meio de [Azure PowerShell](/powershell/azure/overview).
 
 ```powershell
 # Get your IoT Hub resource using its name and its resource group name
@@ -148,7 +151,6 @@ $iothubResource | Set-AzResource -Force
 ## <a name="update-ip-filter-rules-using-rest"></a>Atualizar as regras do filtro de IP usando REST
 
 Você também pode recuperar e modificar um filtro de IP do seu Hub IoT usando o ponto de extremidade REST do provedor de recursos do Azure. Veja `properties.ipFilterRules` no [método createorupdate](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
-
 
 ## <a name="ip-filter-rule-evaluation"></a>Avaliação da regra de filtro IP
 

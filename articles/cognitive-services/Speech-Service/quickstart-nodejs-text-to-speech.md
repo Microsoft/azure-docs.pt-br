@@ -8,21 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/11/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
-ms.openlocfilehash: f5f777238b4682cfd5873ceeb34452218d4c46f3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: 5a218db0527a5e1d5642cb485b75df894a275764
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068266"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67605014"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Início Rápido: Converter texto em fala usando Node.js
 
 Neste início rápido, você aprenderá como converter texto em fala usando Node.js e API REST de conversão de texto em Fala. O corpo da solicitação neste guia é estruturado como [Linguagem de marcação de síntese de Fala (SSML)](speech-synthesis-markup.md), que permite escolher a voz e o idioma da resposta.
 
-Este início rápido requer uma [conta de serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso de serviços de fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
+Este início rápido exige uma [Conta de Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com um recurso dos Serviços de Fala. Se não tiver uma conta, você poderá usar a [avaliação gratuita](get-started.md) para obter uma chave de assinatura.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,9 +52,9 @@ const xmlbuilder = require('xmlbuilder');
 
 ## <a name="get-an-access-token"></a>Obter um token de acesso
 
-A API REST de conversão de texto em fala requer um token de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Essa função substitui a sua chave de assinatura de serviços de fala para obter um token de acesso usando o `issueToken` ponto de extremidade.
+A API REST de conversão de texto em fala requer um token de acesso para autenticação. Para obter um token de acesso, é necessária uma troca. Esta função troca sua chave de assinatura dos Serviços de Fala por um token de acesso usando o ponto de extremidade `issueToken`.
 
-Este exemplo pressupõe que sua assinatura dos serviços de fala é na região Oeste dos EUA. Se você estiver usando uma região diferente, atualize o valor para `uri`. Para uma lista completa, consulte [Regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
+Esta amostra pressupõe que a sua assinatura dos Serviços de Fala esteja na região Oeste dos EUA. Se você estiver usando uma região diferente, atualize o valor para `uri`. Para uma lista completa, consulte [Regiões](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#rest-apis).
 
 Copie este código em seu projeto:
 
@@ -80,7 +79,7 @@ Na próxima seção, criaremos a função para chamar a API de conversão de tex
 
 ## <a name="make-a-request-and-save-the-response"></a>Faça uma solicitação e salve a resposta
 
-Aqui, você criará a solicitação à API de conversão de texto em fala e salvará a resposta de fala. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `uri`. Para obter mais informações, consulte [regiões de serviços de fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
+Aqui, você criará a solicitação à API de conversão de texto em fala e salvará a resposta de fala. Este exemplo supõe que você esteja usando o endpoint do West US. Se o seu recurso estiver registrado em uma região diferente, atualize o `uri`. Para obter mais informações, veja [regiões dos Serviços de Fala](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
 Em seguida, você precisa adicionar cabeçalhos obrigatórios para a solicitação. Certifique-se de atualizar `User-Agent` com o nome do seu recurso (localizado no portal do Azure) e defina `X-Microsoft-OutputFormat` como sua saída de áudio preferida. Para obter uma lista completa dos formatos de saída, consulte [Saídas de áudio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -136,9 +135,9 @@ function textToSpeech(accessToken, text) {
 
 ## <a name="put-it-all-together"></a>Colocar tudo isso junto
 
-Você está quase lá. A última etapa é criar uma função assíncrona. Essa função lerá a sua chave de assinatura de uma variável de ambiente, o prompt para texto, obter um token, aguarde até que a solicitação para concluir, em seguida, converter o texto em fala e salvar o áudio como um. wav.
+Você está quase lá. A última etapa é criar uma função assíncrona. Essa função lerá sua chave de assinatura de uma variável de ambiente, solicitará o texto, obterá um token, aguardará a conclusão da solicitação e, em seguida, converterá o texto em fala e salvará o áudio como um .wav.
 
-Se você não estiver familiarizado com as variáveis de ambiente ou prefere testar com seu codificado de chave de assinatura como uma cadeia de caracteres, substitua `process.env.SPEECH_SERVICE_KEY` com sua chave de assinatura como uma cadeia de caracteres.
+Caso não esteja familiarizado com as variáveis de ambiente ou prefira testar sua chave de assinatura embutida em código como uma cadeia de caracteres, substitua `process.env.SPEECH_SERVICE_KEY` pela chave de assinatura como uma cadeia de caracteres.
 
 ```javascript
 // Use async and await to get the token before attempting

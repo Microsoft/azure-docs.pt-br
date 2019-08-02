@@ -1,5 +1,5 @@
 ---
-title: Configurar os contêineres de fala
+title: Configurar contêineres de fala
 titleSuffix: Azure Cognitive Services
 description: O contêiner de fala
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: dapine
-ms.openlocfilehash: 2dd1769d2d0a940176fb51954f44859cb42f30d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8a8b0e18c1db7a2e2fc08819aa2f2d64d650ded6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072432"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68321364"
 ---
-# <a name="configure-speech-service-containers"></a>Configurar os contêineres do serviço de fala
+# <a name="configure-speech-service-containers"></a>Configurar contêineres de serviço de fala
 
-Contêineres de fala permitem que os clientes criar uma arquitetura de aplicativos de fala que é otimizada para tirar proveito dos recursos de nuvem robusto e localidade de borda. Os contêineres de dois fala damos suporte agora estão **fala em texto** e **texto em fala**. 
+Os contêineres de fala permitem que os clientes criem uma arquitetura de aplicativo de fala otimizada para aproveitar os recursos robustos de nuvem e a localidade de borda. Os dois contêineres de fala para os quais damos suporte agora são **fala-para-texto** e **conversão de texto em fala**. 
 
-O **fala** ambiente de tempo de execução do contêiner é configurado usando o `docker run` argumentos do comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
+O  ambiente de tempo de execução do contêiner de `docker run` fala é configurado usando os argumentos do comando. Esse contêiner tem várias configurações obrigatórias e outras configurações opcionais. Há vários [exemplos](#example-docker-run-commands) do comando disponíveis. As configurações específicas do contêiner são as configurações de cobrança. 
 
 # <a name="configuration-settings"></a>Definições de configuração
 
@@ -32,11 +32,11 @@ O **fala** ambiente de tempo de execução do contêiner é configurado usando o
 
 ## <a name="apikey-configuration-setting"></a>Configuração de configuração do ApiKey
 
-A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o _fala_ recurso especificado para o [ `Billing` ](#billing-configuration-setting) definição de configuração.
+A configuração `ApiKey` especifica a chave de recurso do Azure usada para rastrear informações de cobrança do contêiner. Você deve especificar um valor para o ApiKey e o valor deve ser uma chave válida para o recurso de _fala_ especificado para [`Billing`](#billing-configuration-setting) a definição de configuração.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: **Da conversão de fala** gerenciamento de recursos, em **chaves**
+* Portal do Azure: **Da fala** Gerenciamento de recursos, em **chaves**
 
 ## <a name="applicationinsights-setting"></a>Configuração applicationInsights
 
@@ -44,11 +44,11 @@ Essa configuração pode ser localizada no seguinte local:
 
 ## <a name="billing-configuration-setting"></a>Definição de configuração de cobrança
 
-O `Billing` configuração especifica o URI do ponto de extremidade do _fala_ recursos no Azure é usado para monitorar informações de cobrança para o contêiner. Você deve especificar um valor para este parâmetro de configuração e o valor deve ser um URI de ponto de extremidade válido para um _fala_ recursos no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
+A `Billing` configuração especifica o URI do ponto de extremidade do recurso de _fala_ no Azure usado para medir as informações de cobrança do contêiner. Você deve especificar um valor para essa definição de configuração e o valor deve ser um URI de ponto de extremidade válido para um recurso de _fala_ no Azure. O contêiner relata o uso a cada 10 a 15 minutos.
 
 Essa configuração pode ser localizada no seguinte local:
 
-* Portal do Azure: **Do conversão de fala** visão geral, rotulado `Endpoint`
+* Portal do Azure: **Da fala** Visão geral, rotulada`Endpoint`
 
 |Obrigatório| NOME | Tipo de dados | DESCRIÇÃO |
 |--|------|-----------|-------------|
@@ -74,13 +74,13 @@ Essa configuração pode ser localizada no seguinte local:
 
 Use montagens de associação para ler e gravar dados do contêiner e para ele. Você pode especificar uma montagem de entrada ou saída especificando a opção `--mount` no comando [docker run](https://docs.docker.com/engine/reference/commandline/run/).
 
-Os contêineres de fala não usam a entrada ou saída monta para armazenar dados de serviço ou treinamento. 
+Os contêineres de fala não usam montagens de entrada ou de saída para armazenar dados de treinamento ou de serviço. 
 
 A sintaxe exata do local da montagem do host varia de acordo com o sistema operacional do host. Além disso, o local de montagem do [computador host](speech-container-howto.md#the-host-computer) pode não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e as permissões do local de montagem do host. 
 
-|Opcional| NOME | Tipo de dados | DESCRIÇÃO |
+|Opcional| Nome | Tipo de dados | DESCRIÇÃO |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia de caracteres | Contêineres de fala não usam isso.|
+|Não permitido| `Input` | Cadeia de caracteres | Os contêineres de fala não usam isso.|
 |Opcional| `Output` | Cadeia de caracteres | O destino de montagem de saída. O valor padrão é `/output`. Esse é o local dos logs. Isso inclui logs de contêiner. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos docker run de exemplo 
@@ -92,59 +92,59 @@ Os exemplos a seguir usam as definições de configuração para ilustrar como e
 
 Substitua {_argument_name_} pelos seus próprios valores:
 
-| Placeholder | Value | Formato ou exemplo |
+| Placeholder | Valor | Formato ou exemplo |
 |-------------|-------|---|
-|{BILLING_KEY} | A chave do ponto de extremidade do recurso de fala. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | O valor de ponto de extremidade cobrança, incluindo a região.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|{API_KEY} | A chave de API do recurso de fala. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_URI} | O valor do ponto de extremidade incluindo a região.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
 
 > [!IMPORTANT]
 > As opções `Eula`, `Billing` e `ApiKey` devem ser especificadas para executar o contêiner; caso contrário, o contêiner não será iniciado.  Para mais informações, consulte [Faturamento](#billing-configuration-setting).
-> O valor de ApiKey é o **chave** da página de chaves do recurso de fala do Azure. 
+> O valor de ApiKey é a **chave** da página de chaves de recurso de fala do Azure. 
 
-## <a name="speech-container-docker-examples"></a>Exemplos de Docker de contêiner de fala
+## <a name="speech-container-docker-examples"></a>Exemplos do Docker do contêiner de fala
 
-Os exemplos de Docker a seguir são para o contêiner de fala. 
+Os exemplos do Docker a seguir são para o contêiner de fala. 
 
-### <a name="basic-example-for-speech-to-text"></a>Exemplo básico de fala em texto
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
-```
-
-### <a name="basic-example-for-text-to-speech"></a>Exemplo básico de texto em fala
-
-```Docker
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
-containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
-Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
-```
-
-### <a name="logging-example-for-speech-to-text"></a>Exemplo de registro em log de conversão de fala para texto
+### <a name="basic-example-for-speech-to-text"></a>Exemplo básico de fala para texto
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}   
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
 ```
 
-### <a name="logging-example-for-text-to-speech"></a>Exemplo de registro em log de texto em fala
+### <a name="basic-example-for-text-to-speech"></a>Exemplo básico de conversão de texto em fala
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY}  
-  Logging:Console:LogLevel:Default=Information
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-speech-to-text"></a>Exemplo de log de fala para texto
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+### <a name="logging-example-for-text-to-speech"></a>Exemplo de log para texto em fala
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
+containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

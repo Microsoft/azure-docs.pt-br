@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff60e378e900d618cfc07f53959aa2d64518353c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904704"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67103362"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Tutorial: Integração do Azure Active Directory ao Envi MMIS
 
@@ -53,7 +53,7 @@ Para configurar a integração do Envi MMIS ao Microsft Azure Active Directory, 
 
 **Para adicionar o Envi MMIS por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Envi MMIS, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Envi MMIS](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account/Acs`
 
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o Envi MMIS, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Envi MMIS](common/metadata-upload-additional-signon.png)
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.<CUSTOMER DOMAIN>.com/Account`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Entre em contato com [equipe de suporte ao Cliente do Envi MMIS](mailto:support@ioscorp.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -156,7 +156,7 @@ Para configurar o logon único do Azure AD com o Envi MMIS, execute as seguintes
 
     ![Botão Salvar em Configurar Logon Único](./media/envimmis-tutorial/configure5.png)
 
-     a. Selecione a opção **Arquivo** na lista suspensa **Carregar Formulário**.
+    a. Selecione a opção **Arquivo** na lista suspensa **Carregar Formulário**.
 
     b. Carregue o arquivo de metadados baixado do portal do Azure selecionando escolher **ícone do arquivo**.
 
@@ -182,7 +182,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com
@@ -237,7 +237,7 @@ Para permitir que os usuários do Azure AD entrem no Envi MMIS, eles precisarão
 
     ![Adicionar Funcionário](./media/envimmis-tutorial/user3.png)
 
-     a. Na caixa de texto **Nome de Usuário**, digite o nome de usuário da conta de Brenda Fernandes como **brendafernandes\@contoso.com**.
+    a. Na caixa de texto **Nome de Usuário**, digite o nome de usuário da conta de Brenda Fernandes como **brendafernandes\@contoso.com**.
     
     b. Na caixa de texto **Nome**, digite o primeiro nome de Brenda Fernandes como **Britta**.
 
@@ -249,7 +249,7 @@ Para permitir que os usuários do Azure AD entrem no Envi MMIS, eles precisarão
 
     f. Na caixa de texto **Nome de Usuário de SSO**, digite o nome de usuário da conta de Brenda Fernandes como **brendafernandes\@contoso.com**.
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 
@@ -263,5 +263,5 @@ Ao clicar no bloco do Envi MMIS no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

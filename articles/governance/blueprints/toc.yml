@@ -49,6 +49,39 @@
         - name: Etapas de implantação
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
+    - name: NIST SP 800-53 Rev4
+      items:
+        - name: Visão geral
+          displayName: 'standards, nist, 800-53, rev 4'
+          href: ./samples/nist-sp-800-53-rev4/index.md
+        - name: Mapeamento de controle
+          displayName: 'standards, nist, 800-53, rev 4'
+          href: ./samples/nist-sp-800-53-rev4/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, nist, 800-53, rev 4'
+          href: ./samples/nist-sp-800-53-rev4/deploy.md
+    - name: PCI-DSS v3.2.1
+      items:
+        - name: Visão geral
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/index.md
+        - name: Mapeamento de controle
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, Payment Card Industry Data Security Standard'
+          href: ./samples/pci-dss-3.2.1/deploy.md
+    - name: NHS do Reino Unido e OFICIAL do Reino Unido
+      items:
+        - name: Visão geral
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/index.md
+        - name: Mapeamento de controle
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/control-mapping.md
+        - name: Etapas de implantação
+          displayName: 'standards, uk official, uk nhs'
+          href: ./samples/ukofficial/deploy.md
 - name: Conceitos
   items:
     - name: Ciclo de vida de um blueprint

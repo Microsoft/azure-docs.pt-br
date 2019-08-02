@@ -2,29 +2,24 @@
 title: Experiências de entrada com o Azure AD Identity Protection | Microsoft Docs
 description: Fornece uma visão geral da experiência do usuário quando o Identity Protection tiver atenuado ou corrigido um usuário ou quando a autenticação multifator for exigida por uma política.
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 449f808e98c4e0db2972071e160f5335153a88f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e513027eed44ec7649f41f8786882aed8511bc6
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295164"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335502"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Experiências de entrada com a proteção de identidade do Azure AD
+
 Com o Azure Active Directory Identity Protection, é possível:
 
 * exigir o registro de usuários na autenticação multifator
@@ -104,11 +99,11 @@ Para desbloquear um usuário que foi bloqueado por uma política de segurança d
 
 ![Correção](./media/flows/104.png "Correção")
 
-## <a name="reset-password"></a>Redefinir senha
+## <a name="reset-password"></a>Redefinir Senha
 Caso os usuários comprometidos sejam impedidos de entrar, um administrador poderá gerar uma senha temporária para eles. Os usuários terão de alterar suas senhas durante a próxima entrada.
 
 ![Correção](./media/flows/160.png "Correção")
 
 ## <a name="see-also"></a>Consulte também
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
 
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 

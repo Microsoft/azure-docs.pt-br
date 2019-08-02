@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Unir uma VM do Ubuntu a um domí
 description: Adicionar uma máquina virtual Ubuntu Linux aos Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 804438c4-51a1-497d-8ccc-5be775980203
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
-ms.openlocfilehash: 9b1ad1b70258f623219ca171797aac4cdd33b310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: 29a6cb69a818ed11e5f20dddd7299c01fbefbf47
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245933"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234012"
 ---
 # <a name="join-an-ubuntu-virtual-machine-in-azure-to-a-managed-domain"></a>Adicionar uma máquina virtual Ubuntu no Azure a um domínio gerenciado
 Este artigo mostra como adicionar uma máquina virtual Ubuntu Linux a um domínio gerenciado do Azure AD Domain Services.
@@ -57,15 +57,16 @@ Siga as instruções no artigo [Como fazer logon em uma máquina virtual que exe
 ## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Configurar o arquivo de hosts na máquina virtual Linux
 Em seu terminal SSH, edite o arquivo /etc/hosts e atualize o endereço IP e o nome do host do computador.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 No arquivo de hosts, digite o seguinte valor:
 
-```
+```console
 127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
 ```
+
 Aqui, “contoso100.com” é o nome de domínio DNS do seu domínio gerenciado. 'contoso-ubuntu' é o nome do host da máquina virtual Ubuntu que você está adicionado ao domínio gerenciado.
 
 
@@ -74,12 +75,13 @@ Em seguida, instale os pacotes necessários para o ingresso no domínio na máqu
 
 1.  Em seu terminal SSH, digite o seguinte comando para baixar as listas de pacote dos repositórios. Esse comando atualiza as listas de pacote para obter informações sobre as versões mais recentes de pacotes e suas dependências.
 
-    ```
+    ```console
     sudo apt-get update
     ```
 
 2. Digite o seguinte comando para instalar os pacotes necessários.
-    ```
+
+    ```console
       sudo apt-get install krb5-user samba sssd sssd-tools libnss-sss libpam-sss ntp ntpdate realmd adcli
     ```
 
@@ -87,27 +89,26 @@ Em seguida, instale os pacotes necessários para o ingresso no domínio na máqu
 
     > [!TIP]
     > Se o nome do seu domínio gerenciado for contoso100.com, digite CONTOSO100.COM como o realm. Lembre-se de que o nome de realm deve ser especificado em LETRAS MAIÚSCULAS.
-    >
-    >
 
 
 ## <a name="configure-the-ntp-network-time-protocol-settings-on-the-linux-virtual-machine"></a>Definir as configurações do protocolo NTP na máquina virtual Linux
 A data e hora em que a VM Ubuntu deve sincronizar-se com o domínio gerenciado. Adicione nome de host NTP do domínio gerenciado no arquivo /etc/ntp.conf.
 
-```
+```console
 sudo vi /etc/ntp.conf
 ```
 
 No arquivo ntp.conf, digite o seguinte valor e salve o arquivo:
 
-```
+```console
 server contoso100.com
 ```
+
 Aqui, “contoso100.com” é o nome de domínio DNS do seu domínio gerenciado.
 
 Sincronizar agora a data e hora da VM Ubuntu com o servidor NTP e, em seguida, inicie o serviço NTP:
 
-```
+```console
 sudo systemctl stop ntp
 sudo ntpdate contoso100.com
 sudo systemctl start ntp
@@ -119,7 +120,7 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
 
 1. Descubra o domínio gerenciado dos Serviços de Domínio do AAD. No terminal SSH, digite o seguinte comando:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -136,7 +137,7 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
     > * Especifique o nome de domínio em letras maiúsculas, caso contrário, o kinit falhará.
     >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -144,9 +145,8 @@ Agora que os pacotes necessários são instalados na máquina virtual do Linux, 
 
     > [!TIP]
     > Use a mesma conta de usuário especificada na etapa anterior ('kinit').
-    >
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
     ```
 
@@ -155,29 +155,34 @@ Você deverá receber uma mensagem ("Computador registrado com êxito no realm")
 
 ## <a name="update-the-sssd-configuration-and-restart-the-service"></a>Atualizar a configuração SSSD e reinicie o serviço
 1. No terminal SSH, digite o seguinte comando. Abra o arquivo sssd.conf e faça a seguinte alteração
-    ```
+    
+    ```console
     sudo vi /etc/sssd/sssd.conf
     ```
 
 2. Comente a linha **use_fully_qualified_names = True** e salve o arquivo.
-    ```
+    
+    ```console
     # use_fully_qualified_names = True
     ```
 
 3. Reinicie o serviço SSSD.
-    ```
+    
+    ```console
     sudo service sssd restart
     ```
 
 
 ## <a name="configure-automatic-home-directory-creation"></a>Configurar a criação automática do diretório base
 Para habilitar a criação automática da pasta base depois de fazer logon de usuários, digite os seguintes comandos em seu terminal PuTTY:
-```
+
+```console
 sudo vi /etc/pam.d/common-session
 ```
 
 Adicione a seguinte linha ao arquivo abaixo da linha 'session optional pam_sss.so' e salve-o:
-```
+
+```console
 session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ```
 
@@ -186,17 +191,20 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 Verifique se o computador ingressou com êxito no domínio gerenciado. Conecte-se á VM Ubuntu ingressada no domínio usando uma conexão SSH diferente. Use uma conta de usuário de domínio e, em seguida, verifique se a conta de usuário é resolvida corretamente.
 
 1. No seu terminal SSH, digite o seguinte comando para se conectar à máquina virtual Ubuntu ingressada no domínio usando SSH. Use uma conta de domínio que pertença ao domínio gerenciado (por exemplo, 'bob@CONTOSO100.COM' neste caso).
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
     ```
 
 2. No terminal do SSH, digite o seguinte comando para ver se o diretório base foi inicializado corretamente.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. No seu terminal SSH, digite o seguinte comando para ver se as associações de grupo estão sendo resolvidas corretamente.
-    ```
+    
+    ```console
     id
     ```
 
@@ -205,12 +213,14 @@ Verifique se o computador ingressou com êxito no domínio gerenciado. Conecte-s
 Você pode conceder aos membros do grupo 'Administradores de controlador de domínio do AAD' privilégios administrativos na VM Ubuntu. O arquivo sudo está localizado em /etc/sudoers. Os membros dos grupos do AD adicionados em sudoers podem executar sudo.
 
 1. Em seu terminal SSH, verifique se que você está conectado com privilégios de superusuário. Você pode usar a conta de administrador local especificada ao criar a VM. Execute o seguinte comando:
-    ```
+    
+    ```console
     sudo vi /etc/sudoers
     ```
 
 2. Adicione a seguinte entrada ao arquivo /etc/sudoers e salve-o:
-    ```
+    
+    ```console
     # Add 'AAD DC Administrators' group members as admins.
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```

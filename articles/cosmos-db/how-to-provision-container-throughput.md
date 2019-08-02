@@ -4,14 +4,14 @@ description: Saiba como provisionar a taxa de transferência no nível do contê
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: rimman
-ms.openlocfilehash: dec6d0a65e556e0572bd030617e5b2c30078fce8
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: f195eaa0f5d22160de8c1e9e2f429073de001828
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66243840"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67986017"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Provisionar a taxa de transferência em um contêiner do Azure Cosmos
 
@@ -36,14 +36,40 @@ Este artigo explica como provisionar a taxa de transferência em um contêiner (
 ## <a name="provision-throughput-using-azure-cli"></a>Provisionar a taxa de transferência usando a CLI do Azure
 
 ```azurecli-interactive
-# Create a container with a partition key and provision throughput of 1000 RU/s
+# Create a container with a partition key and provision throughput of 400 RU/s
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
     --collection-name $containerName \
     --name $accountName \
     --db-name $databaseName \
     --partition-key-path /myPartitionKey \
-    --throughput 1000
+    --throughput 400
+```
+
+## <a name="provision-throughput-using-powershell"></a>Provisionar a taxa de transferência usando o PowerShell
+
+```azurepowershell-interactive
+# Create a container with a partition key and provision throughput of 400 RU/s
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$ContainerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash"
+        }
+    };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
 Se você estiver provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Azure Cosmos DB para MongoDB, use `/myShardKey` para o caminho da chave de partição. Se você estiver provisionando a taxa de transferência em um contêiner em uma conta do Azure Cosmos configurada com a API do Cassandra, use `/myPrimaryKey` para o caminho da chave de partição.
@@ -54,9 +80,10 @@ Se você estiver provisionando a taxa de transferência em um contêiner em uma 
 > Use a API dos SDKs do Cosmos para SQL para provisionar a taxa de transferência de todas as APIs do Cosmos DB, exceto da API do Cassandra.
 
 ### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin e APIs de Tabela
+### <a name="net-v2-sdk"></a>SDK do .NET V2
 
 ```csharp
-// Create a container with a partition key and provision throughput of 1000 RU/s
+// Create a container with a partition key and provision throughput of 400 RU/s
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "myContainerName";
 myCollection.PartitionKey.Paths.Add("/myPartitionKey");
@@ -64,17 +91,20 @@ myCollection.PartitionKey.Paths.Add("/myPartitionKey");
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     myCollection,
-    new RequestOptions { OfferThroughput = 1000 });
+    new RequestOptions { OfferThroughput = 400 });
 ```
+
+### <a name="net-v3-sdk"></a>SDK do .NET V3
+[!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API do Cassandra
 
 ```csharp
-// Create a Cassandra table with a partition (primary) key and provision throughput of 1000 RU/s
+// Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
 session.Execute(CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=1000);
+    lastName text) WITH cosmosdb_provisioned_throughput=400);
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

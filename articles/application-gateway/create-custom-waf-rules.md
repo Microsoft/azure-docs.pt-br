@@ -1,24 +1,24 @@
 ---
-title: Criar e usar regras de Firewall de aplicativo do Azure Web (WAF) personalizado
-description: Este artigo fornece informações sobre como criar regras personalizadas de Firewall de aplicativo da Web (WAF) no Gateway de aplicativo do Azure.
+title: Criar e usar regras personalizadas do WAF (firewall do aplicativo Web) V2
+description: Este artigo fornece informações sobre como criar regras personalizadas do WAF (firewall do aplicativo Web) V2 no gateway Aplicativo Azure.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bb8c50664261814c7d994c9b879972b1e8b846e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcfdec0a746406296616456f6e6b8c0eabddf4b5
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66689025"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478594"
 ---
-# <a name="create-and-use-web-application-firewall-custom-rules"></a>Criar e usar regras de Firewall do aplicativo Web personalizadas
+# <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Criar e usar regras personalizadas do firewall do aplicativo Web v2
 
-O WAF (firewall de aplicativo Web) do Gateway de Aplicativo do Azure fornece proteção para aplicativos Web. Essa proteção é fornecida pelo Open Web Application Security OWASP (projeto) Core regra CRS (conjunto). Em alguns casos, talvez você precise criar suas próprias regras personalizadas para atender às suas necessidades específicas. Para obter mais informações sobre regras de WAF personalizadas, consulte [visão geral de regras firewall de aplicativo web personalizado](custom-waf-rules-overview.md).
+O Firewall do aplicativo Web do Aplicativo Azure gateway (WAF) v2 fornece proteção para aplicativos Web. Essa proteção é fornecida pelo CRS (conjunto de regras principais) do OWASP (projeto de segurança de aplicativo Web aberto). Em alguns casos, talvez seja necessário criar suas próprias regras personalizadas para atender às suas necessidades específicas. Para obter mais informações sobre regras personalizadas do WAF, consulte [visão geral das regras de firewall do aplicativo Web personalizado](custom-waf-rules-overview.md).
 
-Este artigo mostra a você algumas regras personalizadas de exemplo que você pode criar e usar com o WAF. Para saber como implantar um WAF com uma regra personalizada usando o Azure PowerShell, consulte [regras personalizadas de configurar o Firewall do aplicativo Web usando o Azure PowerShell](configure-waf-custom-rules.md).
+Este artigo mostra alguns exemplos de regras personalizadas que você pode criar e usar com o WAF v2. Para saber como implantar um WAF com uma regra personalizada usando Azure PowerShell, consulte [configurar regras personalizadas do firewall do aplicativo Web usando Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > Se o gateway de aplicativo não estiver usando a camada WAF, será exibida no painel direito a opção de atualizar o gateway de aplicativo para a camada WAF.
@@ -27,7 +27,7 @@ Este artigo mostra a você algumas regras personalizadas de exemplo que você po
 
 ## <a name="example-1"></a>Exemplo 1
 
-Você sabe que há um bot chamado *evilbot* que você deseja bloquear de rastreamento de seu site. Nesse caso, você vai bloquear no agente de usuário *evilbot* nos cabeçalhos de solicitação.
+Você sabe que há um bot chamado *evilbot* que você deseja bloquear para rastrear seu site. Nesse caso, você bloqueará o *evilbot* do agente do usuário nos cabeçalhos de solicitação.
 
 Lógica: p
 
@@ -75,11 +75,11 @@ E aqui está o JSON correspondente:
   }
 ```
 
-Para ver um WAF implantado usando essa regra personalizada, consulte [configurar uma regra personalizada do Firewall do aplicativo Web usando o Azure PowerShell](configure-waf-custom-rules.md).
+Para ver um WAF implantado usando essa regra personalizada, consulte [Configurar uma regra personalizada de firewall do aplicativo Web usando Azure PowerShell](configure-waf-custom-rules.md).
 
 ### <a name="example-1a"></a>Exemplo 1a
 
-Você pode fazer a mesma coisa usando uma expressão regular:
+Você pode realizar a mesma coisa usando uma expressão regular:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -127,9 +127,9 @@ E o JSON correspondente:
 
 ## <a name="example-2"></a>Exemplo 2
 
-Você deseja bloquear todas as solicitações de endereços IP no 198.168.5.4/24 intervalo.
+Você deseja bloquear todas as solicitações de endereços IP no intervalo 198.168.5.4/24.
 
-Neste exemplo, você vai bloquear todo o tráfego proveniente de um intervalo de endereços IP. É o nome da regra *MinhaRegra1* e a prioridade é definida como 100.
+Neste exemplo, você bloqueará todo o tráfego proveniente de um intervalo de endereços IP. O nome da regra é *myrule1* e a prioridade é definida como 100.
 
 Lógica: p
 
@@ -175,11 +175,11 @@ Aqui está o JSON correspondente:
   }
 ```
 
-Regra correspondente do CRS: `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+Regra de CRS correspondente:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
 
-## <a name="example-3"></a>Exemplo 3
+## <a name="example-3"></a>Exemplo 3:
 
-Neste exemplo, você deseja bloquear o agente do usuário *evilbot*e o tráfego em 192.168.5.4/24 o intervalo. Para fazer isso, você pode criar duas condições de correspondência separada e coloque-na mesma regra. Isso garante que ambos *evilbot* no cabeçalho do agente do usuário **e** endereços IP a partir do intervalo 192.168.5.4/24 estão bloqueados.
+Para este exemplo, você deseja bloquear o *evilbot*do agente do usuário e o tráfego no intervalo 192.168.5.4/24. Para fazer isso, você pode criar duas condições de correspondência separadas e colocá-las na mesma regra. Isso garante que ambos os *evilbot* no cabeçalho do agente do usuário **e** os endereços IP do intervalo 192.168.5.4/24 sejam bloqueados.
 
 Lógica: p **e** q
 
@@ -251,9 +251,9 @@ Aqui está o JSON correspondente:
 
 ## <a name="example-4"></a>Exemplo 4
 
-Neste exemplo, você deseja bloquear, se a solicitação está fora do intervalo de endereços IP *192.168.5.4/24*, ou a cadeia de caracteres de agente do usuário não está *chrome* (que significa que o usuário não estiver usando o navegador Chrome). Uma vez que usa essa lógica **ou**, as duas condições estão em regras separadas, como visto no exemplo a seguir. *MinhaRegra1* e *MinhaRegra2* ambos precisam ser correspondentes para bloquear o tráfego.
+Para este exemplo, você deseja bloquear se a solicitação estiver fora do intervalo de endereços IP *192.168.5.4/24*ou se a cadeia de caracteres do agente do usuário não for *Chrome* (o que significa que o usuário não está usando o navegador Chrome). Como essa lógica usa **ou**, as duas condições estão em regras separadas, como visto no exemplo a seguir. *myrule1* e *myrule2* precisam corresponder para bloquear o tráfego.
 
-Lógica: **não** (p **e** p) = **não** p **ou não** q.
+Lógica: **not** (p **e** q) = **não** p **ou not** q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -338,7 +338,7 @@ E o JSON correspondente:
 
 ## <a name="example-5"></a>Exemplo 5
 
-Você deseja bloquear SQLI personalizado. Desde a lógica usada aqui é **ou**, e todos os valores estão na *RequestUri*, todos os dos *MatchValues* pode estar em uma lista separada por vírgulas.
+Você deseja bloquear SQLI personalizados. Como a lógica usada aqui é **ou**, e todos os valores estão no *RequestUri*, todos os *MatchValues* podem estar em uma lista separada por vírgulas.
 
 Lógica: p **ou** q **ou** r
 
@@ -385,7 +385,7 @@ JSON correspondente:
   }
 ```
 
-O Azure PowerShell alternativo:
+Azure PowerShell alternativo:
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -493,16 +493,8 @@ JSON correspondente:
   }
 ```
 
-Regra do ModSecurity correspondente:
-
-`SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains --" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains drop tables" "id:7001,deny"`
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar suas regras personalizadas, você pode aprender como exibir os logs de WAF. Para obter mais informações, consulte [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md#diagnostic-logging).
+Depois de criar suas regras personalizadas, você pode aprender a exibir seus logs do WAF. Para obter mais informações, consulte [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ./media/application-gateway-customize-waf-rules-portal/1.png

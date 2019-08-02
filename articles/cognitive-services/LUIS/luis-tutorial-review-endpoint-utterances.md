@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 07/16/2019
 ms.author: diberry
-ms.openlocfilehash: 118ac858103776e880e7304199279a7d50ad71b1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2994f7b19d5a104b129dc4d7aff29dabbc89f0f4
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112272"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68276006"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutorial: Corrigir previsões incertas examinando os enunciados de ponto de extremidade
 Neste tutorial, melhore as previsões de aplicativo verificando ou corrigindo os enunciados recebidos pelo ponto de extremidade HTTP do LUIS sobre os quais o LUIS não tem certeza. Alguns enunciados podem precisar ser verificados quanto à intenção e outros quanto à entidade. Você deve analisar os enunciados de ponto de extremidade como uma parte regular da sua manutenção agendada do LUIS. 
@@ -74,31 +74,22 @@ Use as seguintes etapas:
     
     [![Captura de tela de Examinar enunciados de ponto de extremidade com a alternância da exibição Entidades realçada](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png)](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-token-view.png#lightbox)
 
+
+    Este enunciado, `I'm looking for a job with Natural Language Processing`, não está na intenção correta. 
+
+    O motivo pelo qual o enunciado foi incorretamente previsto é que a intenção **ApplyForJob** tem 21 enunciados, em comparação a sete enunciados em **GetJobInformation**. A intenção com mais enunciados terá uma previsão mais alta. É importante que a quantidade e a qualidade dos enunciados entre as intenções sejam equilibradas.
+
+1.  Para alinhar esse enunciado, selecione a intenção correta e marque a entidade de trabalho dentro dela. Adicione o enunciado alterado ao aplicativo marcando a caixa de seleção verde. 
+
     |Enunciado|Intenção correta|Entidades ausentes|
     |:--|:--|:--|
-    |Estou procurando por um trabalho de processamento de linguagem natural|GetJobInfo|Trabalho - “Processamento de linguagem natural”|
+    |`I'm looking for a job with Natural Language Processing`|GetJobInfo|Trabalho - “Processamento de linguagem natural”|
 
-    Esse enunciado não está na intenção correta e tem uma pontuação inferior a 50%. A intenção **ApplyForJob** tem 21 declarações em comparação com os sete enunciados em **GetJobInformation**. Além de alinhar corretamente o enunciado de ponto de extremidade, mais enunciados devem ser adicionados à intenção **GetJobInformation**. Isso será deixado como um exercício para você concluir por conta própria. Cada intenção, exceto a intenção **None**, deve ter aproximadamente o mesmo número de enunciados de exemplo. A intenção **None** deve conter 10% do total de enunciados no aplicativo. 
+    Adicionar o enunciado move-o de **Examinar os enunciados de ponto de extremidade** para a intenção **GetJobInformation**. O enunciado de ponto de extremidade agora é um enunciado de exemplo para essa intenção. 
 
-1. Para a intenção `I'm looking for a job with Natual Language Processing`, selecione a intenção correta **GetJobInformation** na coluna **Alinhar intenção**. 
-
-    [![Captura de tela de Examinar enunciados de ponto de extremidade alinhando o enunciado com a intenção](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png)](./media/luis-tutorial-review-endpoint-utterances/align-intent-1.png#lightbox)
-
-1. No mesmo enunciado, a entidade para `Natural Language Processing` é a keyPhrase. Essa deve ser uma entidade **Trabalho**. Selecione `Natural Language Processing`, em seguida, selecione a entidade **Trabalho** na lista.
-
-    [![Captura de tela de Examinar enunciados de ponto de extremidade rotulando a entidade no enunciado](./media/luis-tutorial-review-endpoint-utterances/label-entity.png)](./media/luis-tutorial-review-endpoint-utterances/label-entity.png#lightbox)
-
-1. Na mesma linha, selecione a marca de seleção dentro de um círculo na coluna **Adicionar à intenção alinhada**. 
-
-    [![Captura de tela de Finalizando o alinhamento do enunciado na intenção](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png)](./media/luis-tutorial-review-endpoint-utterances/align-utterance.png#lightbox)
-
-    Essa ação move o enunciado de **Examinar os enunciados de ponto de extremidade** para a intenção **GetJobInformation**. O enunciado de ponto de extremidade agora é um enunciado de exemplo para essa intenção. 
+    Além de alinhar corretamente esse enunciado, mais enunciados devem ser adicionados à intenção **GetJobInformation**. Isso será deixado como um exercício para você concluir por conta própria. Cada intenção, exceto a intenção **None**, deve ter aproximadamente o mesmo número de enunciados de exemplo. A intenção **None** deve conter 10% do total de enunciados no aplicativo. 
 
 1. Examine o restante dos enunciados nessa intenção, rotulando os enunciados e corrigindo a **Intenção alinhada**, se estas estiverem incorretas.
-
-1. Quando todos os enunciados estiverem corretos, marque a caixa de seleção em cada linha, em seguida **Adicionar selecionada** para alinhar os enunciados corretamente. 
-
-    [![Captura de tela de Finalizando os enunciados restantes na intenção alinhada](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png)](./media/luis-tutorial-review-endpoint-utterances/finalize-utterance-alignment.png#lightbox)
 
 1. A lista não deve ter mais esses enunciados. Se aparecerem mais enunciados, continue a trabalhar na lista, corrigindo as intenções e rotulando quaisquer entidades ausentes, até que ela fique vazia. 
 

@@ -2,24 +2,25 @@
 title: Configurar a Central de segurança do Azure para IoT agente versão prévia | Microsoft Docs
 description: Saiba como configurar agentes para uso com a Central de segurança do Azure para IoT.
 services: asc-for-iot
-ms.service: ascforiot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: rkarlin
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
+ms.subservice: asc-for-iot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 311a867c863cbd72292d8e34b4f7abdb949b12c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39539bb14877208e5f6af957e735a136b077f16a
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65198453"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618274"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configurar agentes de segurança
 
@@ -109,31 +110,31 @@ Valores padrão estão disponíveis no esquema adequado no [Github](https://aka.
 
 | NOME| Status | Valores válidos| Valores padrão| DESCRIÇÃO |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|highPriorityMessageFrequency|Obrigatório: false |Valores válidos:  Duração em formato ISO 8601 |Valor padrão: PT7M |Tempo máximo antes das mensagens de alta prioridade são enviados.|
-|lowPriorityMessageFrequency |Obrigatório: false|Valores válidos:  Duração em formato ISO 8601 |Valor padrão: PT5H |Tempo máximo antes das mensagens de baixa prioridade são enviados.| 
+|highPriorityMessageFrequency|Obrigatório: false |Valores válidos: Duração em formato ISO 8601 |Valor padrão: PT7M |Tempo máximo antes das mensagens de alta prioridade são enviados.|
+|lowPriorityMessageFrequency |Obrigatório: false|Valores válidos: Duração em formato ISO 8601 |Valor padrão: PT5H |Tempo máximo antes das mensagens de baixa prioridade são enviados.| 
 |snapshotFrequency |Exigir: false|Valores: duração válido no formato ISO 8601 |Valor padrão PT13H |Intervalo de tempo para a criação de instantâneos de status do dispositivo.| 
 |maxLocalCacheSizeInBytes |Obrigatório: false |Valores válidos: |Valor padrão: 2560000, maior que 8192 | Armazenamento máximo (em bytes) permitido para o cache de mensagens de um agente. Quantidade máxima de espaço permitido para armazenar mensagens do dispositivo antes que as mensagens são enviadas.| 
-|maxMessageSizeInBytes |Obrigatório: false |Valores válidos:  Um número positivo maior que 8192, menos 262144 |Valor padrão: 204800 |Máximo tamanho permitido de um agente de mensagem de nuvem. Essa configuração controla a quantidade máxima de dados enviada em cada mensagem. |
-|eventPriority${EventName} |Obrigatório: false |Valores válidos:  Alta, baixa, desativado |Valores padrão: |Prioridade de cada agente gerou o evento | 
+|maxMessageSizeInBytes |Obrigatório: false |Valores válidos: Um número positivo maior que 8192, menos 262144 |Valor padrão: 204800 |Máximo tamanho permitido de um agente de mensagem de nuvem. Essa configuração controla a quantidade máxima de dados enviada em cada mensagem. |
+|eventPriority${EventName} |Obrigatório: false |Valores válidos: Alta, baixa, desativado |Valores padrão: |Prioridade de cada agente gerou o evento | 
 
 ### <a name="supported-security-events"></a>Eventos de segurança com suporte
 
-|Nome do evento| PropertyName | Valor Padrão| Evento de instantâneo| Detalhes de Status  |
+|Nome do evento| PropertyName | Default Value| Evento de instantâneo| Detalhes de Status  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento de diagnóstico|eventPriorityDiagnostic| Desativar| Falso| Eventos de diagnóstico relacionadas ao agente. Use esse evento para o log detalhado.| 
-|Erro de configuração |eventPriorityConfigurationError |Baixo |Falso |Falha ao analisar a configuração do agente. Verifique a configuração em relação ao esquema.| 
-|Eventos ignorados estatísticas |eventPriorityDroppedEventsStatistics |Baixo |True|Estatísticas de eventos relacionados ao agente. |
-|Estatísticas de mensagem|eventPriorityMessageStatistics |Baixo |True |Estatísticas de mensagens relacionadas ao agente. |
-|Hardware conectado|eventPriorityConnectedHardware |Baixo |True |Instantâneo de todos os hardwares conectados ao dispositivo.|
-|Portas de escuta|eventPriorityListeningPorts |Alto |True |Instantâneo de todas as portas de escuta no dispositivo.|
-|Criar processo |eventPriorityProcessCreate |Baixo |Falso |Auditorias de processam de criação do dispositivo.|
-|Encerrar processo|eventPriorityProcessTerminate |Baixo |Falso |Auditorias de processam o encerramento no dispositivo.| 
-|Informações do sistema |eventPrioritySystemInformation |Baixo |True |Um instantâneo de informações do sistema (por exemplo: Sistema operacional ou CPU).| 
-|Usuários locais| eventPriorityLocalUsers |Alto |True|Um instantâneo dos usuários registrados locais dentro do sistema. |
-|Logon|  eventPriorityLogin |Alto|Falso|Auditoria de eventos de logon para o dispositivo (logons locais e remotos).|
-|Criar Conexão |eventPriorityConnectionCreate|Baixo|Falso|Audita as conexões TCP criadas para e do dispositivo. |
-|Configuração do firewall| eventPriorityFirewallConfiguration|Baixo|True|Instantâneo da configuração de firewall de dispositivo (regras de firewall). |
-|Linha de base do sistema operacional| eventPriorityOSBaseline| Baixo|True|Verifique se o instantâneo de linha de base do dispositivo do sistema operacional.|
+|Evento de diagnóstico|eventPriorityDiagnostic| Desativar| False| Eventos de diagnóstico relacionadas ao agente. Use esse evento para o log detalhado.| 
+|Erro de configuração |eventPriorityConfigurationError |Baixo |False |Falha ao analisar a configuração do agente. Verifique a configuração em relação ao esquema.| 
+|Eventos ignorados estatísticas |eventPriorityDroppedEventsStatistics |Baixo |verdadeiro|Estatísticas de eventos relacionados ao agente. |
+|Estatísticas de mensagem|eventPriorityMessageStatistics |Baixo |verdadeiro |Estatísticas de mensagens relacionadas ao agente. |
+|Hardware conectado|eventPriorityConnectedHardware |Baixo |verdadeiro |Instantâneo de todos os hardwares conectados ao dispositivo.|
+|Portas de escuta|eventPriorityListeningPorts |Alto |verdadeiro |Instantâneo de todas as portas de escuta no dispositivo.|
+|Criar processo |eventPriorityProcessCreate |Baixo |False |Auditorias de processam de criação do dispositivo.|
+|Encerrar processo|eventPriorityProcessTerminate |Baixo |False |Auditorias de processam o encerramento no dispositivo.| 
+|Informações do sistema |eventPrioritySystemInformation |Baixo |verdadeiro |Um instantâneo de informações do sistema (por exemplo: Sistema operacional ou CPU).| 
+|Usuários locais| eventPriorityLocalUsers |Alto |verdadeiro|Um instantâneo dos usuários registrados locais dentro do sistema. |
+|Logon|  eventPriorityLogin |Alto|False|Auditoria de eventos de logon para o dispositivo (logons locais e remotos).|
+|Criar Conexão |eventPriorityConnectionCreate|Baixo|False|Audita as conexões TCP criadas para e do dispositivo. |
+|Configuração do firewall| eventPriorityFirewallConfiguration|Baixo|verdadeiro|Instantâneo da configuração de firewall de dispositivo (regras de firewall). |
+|Linha de base do sistema operacional| eventPriorityOSBaseline| Baixo|verdadeiro|Verifique se o instantâneo de linha de base do dispositivo do sistema operacional.|
  
 
 ## <a name="next-steps"></a>Próximas etapas

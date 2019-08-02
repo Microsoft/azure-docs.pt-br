@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5f477cf20b817d7a6c8be856636bf1e3755b5424
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bc6d9e7214d2b7cd009e7562357bed420e49f185
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471981"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325104"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Configurar a recuperação de desastre para um aplicativo do SharePoint de várias camadas para recuperação de desastres usando o Azure Site Recovery
 
@@ -29,7 +29,7 @@ Uma boa solução de recuperação de desastre deve permitir a modelagem de plan
 
 Este artigo descreve detalhadamente como proteger um aplicativo do SharePoint usando o [Azure Site Recovery](site-recovery-overview.md). Este artigo abordará as práticas recomendadas para a replicação de um aplicativo do SharePoint no Azure, como você pode fazer uma análise de recuperação de desastre e como é possível realizar o failover do aplicativo no Azure.
 
-Você pode assistir o vídeo abaixo sobre como recuperar um aplicativo de várias camado no Azure.
+Você pode assistir ao vídeo abaixo sobre como recuperar um aplicativo de várias camadas para o Azure.
 
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
@@ -109,7 +109,7 @@ Siga [estas diretrizes](site-recovery-vmware-to-azure.md) para começar a replic
 Para sites voltados para a Internet, [crie um perfil do Gerenciador de Tráfego do tipo 'Prioridade'](../traffic-manager/traffic-manager-create-profile.md) na assinatura do Azure. Em seguida, configure seu perfil do Gerenciador de Tráfego e de DNS da maneira descrita a seguir.
 
 
-| **Onde** | **Fonte** | **Destino**|
+| **Onde** | **Source** | **Destino**|
 | --- | --- | --- |
 | DNS público | DNS público para sites do SharePoint <br/><br/> Por exemplo: sharepoint.contoso.com | Gerenciador de Tráfego <br/><br/> contososharepoint.trafficmanager.net |
 | DNS local | sharepointonprem.contoso.com | IP público no farm local |
@@ -196,7 +196,7 @@ Siga [este guia](site-recovery-test-failover-to-azure.md) fazer um failover de t
 
 Para obter diretrizes sobre como fazer failover de teste do AD e DNS, consulte o documento [Considerações sobre failover de teste para o AD e DNS](site-recovery-active-directory.md#test-failover-considerations).
 
-Para obter diretrizes sobre como fazer failover de teste para grupos de disponibilidade do SQL Always ON, consulte o documento [Fazer failover de teste para SQL Server Always On](site-recovery-sql.md#steps-to-do-a-test-failover).
+Para obter orientação sobre como fazer failover de teste para grupos de disponibilidade AlwaysOn do SQL, consulte [executando o aplicativo de recuperação de desastre com Azure site Recovery e fazendo failover de teste](site-recovery-sql.md#disaster-recovery-of-an-application) .
 
 ## <a name="doing-a-failover"></a>Executar um failover
 Siga [estas diretrizes](site-recovery-failover.md) para fazer um failover.

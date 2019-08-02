@@ -55,10 +55,10 @@ As propriedades a seguir têm suporte para o serviço vinculado do Amazon Redshi
 |:--- |:--- |:--- |
 | type | A propriedade type deve ser definida como: **AmazonRedshift** | Sim |
 | server |Endereço IP ou nome do host do servidor Amazon Redshift. |Sim |
-| porta |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não, o padrão é 5439 |
-| Banco de Dados |Nome do banco de dados do Amazon Redshift. |Sim |
-| Nome de Usuário |Nome de usuário que tem acesso ao banco de dados. |Sim |
-| Senha |Senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
+| port |O número da porta TCP usada pelo servidor Amazon Redshift para ouvir conexões de cliente. |Não, o padrão é 5439 |
+| database |Nome do banco de dados do Amazon Redshift. |Sim |
+| username |Nome de usuário que tem acesso ao banco de dados. |Sim |
+| password |Senha para a conta de usuário. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 **Exemplo:**
@@ -210,9 +210,9 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são usados de tipo
 | Tipo de dados do Amazon Redshift | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | BIGINT |Int64 |
-| BOOLEAN |Cadeia de caracteres |
-| CHAR |Cadeia de caracteres |
-| DATE |Datetime |
+| BOOLEAN |String |
+| CHAR |String |
+| DATE |DateTime |
 | DECIMAL |Decimal |
 | DOUBLE PRECISION |Double |
 | INTEGER |Int32 |
@@ -220,7 +220,7 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são usados de tipo
 | SMALLINT |Int16 |
 | TEXT |String |
 | TIMESTAMP |DateTime |
-| VARCHAR |Cadeia de caracteres |
+| VARCHAR |String |
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).

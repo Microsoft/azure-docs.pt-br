@@ -4,22 +4,22 @@ description: Como exportar dados de seu aplicativo do Azure IoT Central para o A
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 03/20/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0fcce6bd6ee9461790ca7618f65be9a20a821afc
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65464636"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360331"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar dados para o Armazenamento de Blobs do Azure
 
 *Este tópico aplica-se aos administradores.*
 
-Este artigo descreve como usar o recurso de exportação contínua de dados no Azure IoT Central para periodicamente exportar dados para seu **conta de armazenamento de BLOBs do Azure**. Você pode exportar **medidas**, **dispositivos** e **modelos de dispositivo** para arquivos no formato Apache Avro. Use os dados exportados para a análise de caminho frio, assim como modelos de treinamento no Microsoft Azure Machine Learning ou análise de tendências de longo prazo no Power BI.
+Este artigo descreve como usar o recurso de exportação de dados contínuos no Azure IoT Central para exportar dados periodicamente para sua **conta de armazenamento de BLOBs do Azure**. Você pode exportar **medidas**, **dispositivos** e **modelos de dispositivo** para arquivos no formato Apache Avro. Use os dados exportados para a análise de caminho frio, assim como modelos de treinamento no Microsoft Azure Machine Learning ou análise de tendências de longo prazo no Power BI.
 
 > [!Note]
 > Mais uma vez, ao ativar a exportação contínua de dados, você obtém apenas os dados desse momento em diante. Atualmente, não é possível recuperar dados por um tempo quando a exportação contínua de dados for desativada. Para reter dados mais históricos, ative a exportação contínua de dados no início.
@@ -48,28 +48,28 @@ Se você não tiver um armazenamento existente para exportar para o, siga estas 
 
 ## <a name="set-up-continuous-data-export"></a>Configuração da exportação contínua de dados
 
-Agora que você tem para exportar dados para um destino de armazenamento, siga estas etapas para configurar a exportação contínua de dados. 
+Agora que você tem um destino de armazenamento para o qual exportar dados, siga estas etapas para configurar a exportação de dados contínuas. 
 
 1. Entre no aplicativo IoT Central.
 
-2. No menu à esquerda, selecione **exportação contínua de dados**.
+2. No menu à esquerda, selecione **exportação de dados contínuas**.
 
     > [!Note]
     > Se a Exportação Contínua de Dados não for exibida no menu à esquerda, isso indicará que você não é um administrador no aplicativo. Contate o administrador para configurar a exportação de dados.
 
     ![Criar novo Hub de Eventos cde](media/howto-export-data/export_menu1.png)
 
-3. Selecione o **+ novo** botão no canto superior direito. Escolher **armazenamento de BLOBs do Azure** como o destino de exportação. 
+3. Selecione o botão **+ novo** no canto superior direito. Escolha o **armazenamento de BLOBs do Azure** como o destino de sua exportação. 
 
     > [!NOTE] 
     > O número máximo de exportações por aplicativo é cinco. 
 
     ![Criar exportação contínua de dados](media/howto-export-data/export_new1.png)
 
-4. Na caixa de listagem suspensa, selecione suas **conta de armazenamento namespace**. Você também pode escolher a última opção da lista, **Inserir uma cadeia de conexão**. 
+4. Na caixa de listagem suspensa, selecione o namespace da **conta de armazenamento**. Você também pode escolher a última opção da lista, **Inserir uma cadeia de conexão**. 
 
     > [!NOTE] 
-    > Você só verá os namespaces de contas de armazenamento na **mesma assinatura que seu aplicativo IoT Central**. Caso deseje exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e veja a etapa 5.
+    > Você só verá namespaces de contas de armazenamento na **mesma assinatura que seu aplicativo IOT central**. Caso deseje exportar para um destino fora dessa assinatura, escolha **Inserir uma cadeia de conexão** e veja a etapa 5.
 
     > [!NOTE] 
     > Para aplicativos de avaliação de 7 dias, a única maneira de configurar a exportação contínua de dados é por meio de uma cadeia de conexão. Isso ocorre porque os aplicativos de avaliação de 7 dias não têm uma assinatura do Azure associada.
@@ -78,7 +78,7 @@ Agora que você tem para exportar dados para um destino de armazenamento, siga e
 
 5. (Opcional) Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para:
     - Conta de armazenamento, vá para a conta de armazenamento no portal do Azure.
-        - Sob **as configurações**, selecione **chaves de acesso**
+        - Em **configurações**, selecione **chaves de acesso**
         - Copie a Cadeia de conexão de key1 ou a Cadeia de conexão de key2
  
 6. Escolha um contêiner na caixa de listagem suspensa.
@@ -286,6 +286,7 @@ import json
 import pandavro as pdx
 import pandas as pd
 
+
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
@@ -297,16 +298,17 @@ def parse(filePath):
 
     # The SystemProperties column contains a dictionary
     # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
+    transformed["device_id"] = measurements["SystemProperties"].apply(
+        lambda x: x["connectionDeviceId"])
 
     # The Body column is a series of UTF-8 bytes that is stringified
     # and parsed as JSON. This example pulls the humidity property
     # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
+    transformed["humidity"] = measurements["Body"].apply(
+        lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
     # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
-
 ```
 
 #### <a name="parse-a-devices-avro-file"></a>Analisar um arquivo Avro de dispositivos
@@ -315,6 +317,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -330,17 +333,19 @@ def parse(filePath):
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
-    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
-    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
+    transformed["template_id"] = devices["deviceTemplate"].apply(
+        lambda x: x["id"])
+    transformed["template_version"] = devices["deviceTemplate"].apply(
+        lambda x: x["version"])
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = devices["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.
     print(transformed)
-
 ```
 
 #### <a name="parse-a-device-templates-avro-file"></a>Analisar o arquivo Avro de modelos de dispositivo
@@ -349,6 +354,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -365,7 +371,8 @@ def parse(filePath):
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = templates["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.

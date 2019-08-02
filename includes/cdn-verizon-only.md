@@ -3,17 +3,17 @@ title: Arquivo de inclusão
 description: Arquivo de inclusão
 services: cdn
 author: SyntaxC4
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: include
 ms.date: 04/13/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: bb1a1d76b8dad6f37fc624ff493e4aa1d817daac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 17789da87ee171f301b00198e25c039821be6f32
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66125414"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593302"
 ---
 > [!IMPORTANT]
 > Este recurso está disponível somente com os produtos **CDN Standard do Azure da Verizon** e **CDN Premium do Azure da Verizon**. Ele não é suportado na **CDN do Azure do Akamai**. Para obter uma comparação dos recursos de CDN, confira [Recursos do produto da CDN do Azure](../articles/cdn/cdn-features.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: e828a8fc4211a0f0c4b53a9e18fa1c2fb6f6916b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ca3fe83d7072ba774c8124c5108652ab7223041d
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593231"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67449808"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>O Windows mostra "SERVIÇO CRÍTICO COM FALHA" na tela azul durante a inicialização de uma VM do Azure
 Este artigo descreve o erro "SERVIÇO CRÍTICO COM FALHA" que pode ocorrer quando você inicializa uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas de solução de problemas que ajudam a resolvê-los. 
@@ -30,7 +30,7 @@ Este artigo descreve o erro "SERVIÇO CRÍTICO COM FALHA" que pode ocorrer quand
 
 Uma VM do Windows não inicia. Quando você verificar as capturas de tela de inicialização em [Diagnósticos de inicialização](./boot-diagnostics.md), você verá uma das seguintes mensagens de erro em uma tela azul:
 
-- "Seu computador teve um problema e precisa ser reiniciado. Você pode reiniciar. Para obter mais informações sobre esse problema e as possíveis correções, visite http://windows.com/stopcode. Se você chamar um profissional de suporte, forneça estas informações: Código de interrupção: SERVIÇO CRÍTICO COM FALHA” 
+- "Seu computador teve um problema e precisa ser reiniciado. Você pode reiniciar. Para obter mais informações sobre esse problema e as possíveis correções, visite https://windows.com/stopcode. Se você chamar um profissional de suporte, forneça estas informações: Código de interrupção: SERVIÇO CRÍTICO COM FALHA” 
 - "Seu computador teve um problema e precisa ser reiniciado. Apenas coletamos algumas informações de erro e, em seguida, reiniciaremos para você. Se você quiser saber mais, poderá pesquisar online mais tarde sobre este erro: CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>Causa

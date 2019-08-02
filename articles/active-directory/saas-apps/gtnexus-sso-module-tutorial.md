@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd5f32fd43d75ee91460a5d94ec4bcd57edb0769
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 4e707351e6eaa25774b43557b2e6a817485ef527
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898336"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101433"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Tutorial: Integração do Azure Active Directory ao GTNexus SSO System
 
@@ -53,7 +53,7 @@ Para configurar a integração do GTNexus SSO System ao Azure AD, você precisar
 
 **Para adicionar o GTNexus SSO System por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -103,7 +103,7 @@ Para configurar o logon único do Azure AD com o GTNexus SSO System, execute as 
 
 4. Na seção **Configuração básica do SAML**, se você tiver um **arquivo de metadados do provedor de serviços**, execute as seguintes etapas:
 
-     a. Clique em **Carregar arquivo de metadados**.
+    a. Clique em **Carregar arquivo de metadados**.
 
     ![image](common/upload-metadata.png)
 

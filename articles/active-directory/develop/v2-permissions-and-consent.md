@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 032cc0edaa140d82124a7369232cb82bf6c00c10
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544875"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67702701"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de extremidade de plataforma de identidade Microsoft
 
@@ -53,7 +53,7 @@ Isso se aplica a todos os recursos de terceiros que se integraram à plataforma 
 
 Ao definir esses tipos de permissões, o recurso tem controle refinado sobre seus dados e como a funcionalidade de API é exposta. Um aplicativo de terceiros pode solicitar essas permissões de usuários e administradores que devem aprovar a solicitação antes que o aplicativo possa acessar dados ou agir em nome do usuário. Ao dividir a funcionalidade do recurso em conjuntos menores de permissão, os aplicativos de terceiros podem ser criados para solicitar apenas as permissões específicas que eles precisam para realizar suas funções. Os usuários e administradores podem saber exatamente quais dados o aplicativo tem acesso ao e podem ser mais confiantes de que ele não está se comportando com más intenções. Os desenvolvedores devem sempre obedecer o conceito de privilégios mínimos, solicitando apenas as permissões necessárias para que seus aplicativos funcionem.
 
-No OAuth 2.0, esses tipos de permissão são chamados de *escopos*. Eles também conhecido como *permissões*. Uma permissão é representada na plataforma de identidade da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph,o valor da cadeia de caracteres para cada permissão é:
+No OAuth 2.0, esses tipos de permissão são chamados de *escopos*. Eles são também conhecidos como *permissões*. Uma permissão é representada na plataforma de identidade da Microsoft como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph,o valor da cadeia de caracteres para cada permissão é:
 
 * Ler o calendário de um usuário usando o `Calendars.Read`
 * Escrever no calendário de um usuário usando o `Calendars.ReadWrite`
@@ -89,7 +89,7 @@ Se um aplicativo fizer conexão usando o [OpenID Connect](active-directory-v2-pr
 
 O escopo do `email` pode ser usado com o escopo do `openid` e com muitos outros. Ele concede ao aplicativo acesso ao endereço de email principal do usuário na forma da declaração `email` . O `email` declaração está incluída em um token somente se um endereço de email está associado com a conta de usuário, o que nem sempre é o caso. Se estiver usando o escopo de `email`, seu aplicativo deverá estar preparado para lidar com casos em que a declaração `email` não existe no token.
 
-### <a name="profile"></a>Perfil
+### <a name="profile"></a>profile
 
 O escopo do `profile` pode ser usado com o escopo do `openid` e com muitos outros. Ele fornece o acesso de aplicativo a uma quantidade substancial de informações sobre o usuário. As informações que ele possa acessar inclui, mas não está limitadas ao nome fornecido do usuário, sobrenome, nome de usuário preferido e ID de objeto. Para obter uma lista completa de declarações de perfil disponíveis no parâmetro id_tokens para um usuário específico, confira a [`id_tokens`referência](id-tokens.md).
 
@@ -124,7 +124,7 @@ Depois do usuário insere suas credenciais, o ponto de extremidade de plataforma
 > [!NOTE]
 > Nesse momento, as permissões `offline_access` ("Manter o acesso aos dados para os quais recebeu acesso") e `user.read` ("Entrar e ler o seu perfil") são incluídas automaticamente no consentimento inicial para um aplicativo.  Essas permissões geralmente são necessárias para a funcionalidade adequada do aplicativo: `offline_access` dá ao aplicativo acesso aos tokens de atualização, essenciais para aplicativos Web e nativos, enquanto `user.read` dá acesso à declaração `sub`, permitindo que o cliente ou aplicativo identifique corretamente o usuário ao longo do tempo e acesse informações básicas do usuário.  
 
-![Consentimento de conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
+![Captura de tela de exemplo que mostra que o consentimento de conta de trabalho](./media/v2-permissions-and-consent/work_account_consent.png)
 
 Quando o usuário aprovar a solicitação de permissão, o consentimento será registrado para que o usuário não tenha que consentir novamente a cada entrada no aplicativo.
 
@@ -167,7 +167,8 @@ O consentimento do administrador não aceita um parâmetro de escopo e, portanto
 #### <a name="to-configure-the-list-of-statically-requested-permissions-for-an-application"></a>Para configurar a lista de permissões solicitadas estaticamente para um aplicativo
 
 1. Vá para seu aplicativo na [portal do Azure – registros do aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) experiência, ou [criar um aplicativo](quickstart-register-app.md) se você ainda não fez isso.
-2. Localize a seção **Permissões do Microsoft Graph** e adicione as permissões que seu aplicativo requer.
+2. Localize o **permissões de API** seção e, dentro das permissões de API, clique em Adicionar uma permissão.
+3. Selecione **Microsoft Graph** na lista de APIs disponíveis e, em seguida, adicione as permissões que seu aplicativo requer.
 3. **Salve** o registro do aplicativo.
 
 ### <a name="recommended-sign-the-user-into-your-app"></a>Recomendável: Conectar o usuário ao seu aplicativo

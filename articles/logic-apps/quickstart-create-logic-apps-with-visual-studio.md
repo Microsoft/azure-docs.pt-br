@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/25/2019
-ms.openlocfilehash: afa539bc3369e4f9d9ecf27340436e0be70a03ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 51d1af24a22f7ed86b01b1c7c79b204cd552a7ea
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190670"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385431"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início Rápido: Criar tarefas automatizadas, processos e fluxos de trabalho com Aplicativos Lógicos do Azure – Visual Studio
 
@@ -65,6 +65,8 @@ Neste início rápido, você cria o mesmo aplicativo lógico com o Visual Studio
 
 * Uma conta de email que seja compatível com os Aplicativos Lógicos, como o Outlook do Office 365, o Outlook.com ou o Gmail. Para outros provedores, [revise a lista de conectores aqui](https://docs.microsoft.com/connectors/). Este exemplo usa o Outlook do Office 365. Se você usar um provedor diferente, as etapas gerais são as mesmos, mas a interface do usuário pode ser ligeiramente diferente.
 
+<a name="create-resource-group-project"></a>
+
 ## <a name="create-azure-resource-group-project"></a>Criar um projeto do grupo de recursos do Azure
 
 Para começar, crie um [projeto do Grupo de Recursos do Azure](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Saiba mais sobre [Recursos e grupos de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
@@ -105,6 +107,9 @@ Quando tiver seu projeto do Grupo de Recursos do Azure, crie seu aplicativo lóg
 
    ![Abrir o aplicativo lógico .json com o Designer de Aplicativo Lógico](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
+   > [!TIP]
+   > Caso não tenha esse comando no Visual Studio 2019, verifique se você tem as atualizações mais recentes do Visual Studio.
+
    O Visual Studio solicitará sua assinatura do Azure e um grupo de recursos do Azure para criar e implantar recursos para seu aplicativo lógico e conexões.
 
 1. Para **Assinatura**, selecione sua assinatura do Azure. Para **Grupo de recursos**, selecione **Criar novo** para criar um novo grupo de recursos do Azure.
@@ -138,6 +143,8 @@ Na caixa de pesquisa, digite "rss". Na lista de gatilhos, selecione este gatilho
 
 1. Salve sua solução do Visual Studio. (teclado: Ctrl + S)
 
+<a name="deploy-to-Azure"></a>
+
 ## <a name="deploy-logic-app-to-azure"></a>Implante o aplicativo lógico para o Azure
 
 Antes de executar e testar seu aplicativo lógico, implante o aplicativo no Azure pelo Visual Studio.
@@ -170,6 +177,22 @@ Antes de executar e testar seu aplicativo lógico, implante o aplicativo no Azur
    ![O Outlook envia um email para cada novo item RSS](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
 Parabéns, você criou e implantou seu aplicativo lógico com o Visual Studio com sucesso. Para gerenciar seu aplicativo lógico e examinar seu histórico de execução, confira [Gerenciar aplicativos lógicos com o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
+
+## <a name="add-new-logic-app"></a>Adicionar novo aplicativo lógico
+
+Quando há um projeto existente do Grupo de Recursos do Azure, você pode adicionar um novo aplicativo lógico em branco a esse projeto usando a janela Estrutura de tópicos JSON.
+
+1. No Gerenciador de Soluções, abra o arquivo `<logic-app-name>.json`.
+
+1. No menu **Exibir**, selecione **Outras janelas** > **Estrutura de tópicos JSON**.
+
+1. Para adicionar um recurso ao arquivo de modelo, escolha **Adicionar Recurso**, na parte superior da janela Estrutura de tópicos JSON. Ou, na janela Estrutura de tópicos JSON, clique com o botão direito do mouse em **recursos**e selecione **Adicionar Novo Recurso**.
+
+   ![Janela Estrutura de tópicos JSON](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. Na caixa de diálogo **Adicionar Recurso**, localize e selecione **Aplicativo Lógico**. Nomeie seu aplicativo lógico e escolha **Adicionar**.
+
+   ![Adicionar recurso](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

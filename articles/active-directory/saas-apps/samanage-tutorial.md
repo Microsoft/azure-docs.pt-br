@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00e27a0620212fbc09f8b7d91d8f5b9d0971c8f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 714e67bc7cf9e9c928eb4fd0764619041c9c1424
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902991"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67092590"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integração do Azure Active Directory com o Samanage
 
@@ -53,7 +53,7 @@ Para configurar a integração do Samanage ao Azure AD, você precisa adicionar 
 
 **Para adicionar o Samanage da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Samanage, execute as seguintes 
 
     ![Informações de Domínio e de URLs do Samanage para logon único](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com/saml_login/<Company Name>`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<Company Name>.samanage.com`
 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Logon e o Identificador reais, que são explicados adiante no tutorial. Para obter mais detalhes, contate a [equipe de suporte ao Cliente do Samanage](https://www.samanage.com/support). Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o Samanage, execute as seguintes 
    
     ![Logon usando SAML](./media/samanage-tutorial/tutorial_samanage_003.png "Logon usando SAML")
  
-     a. Clique em **Habilitar o Logon Único com SAML**.  
+    a. Clique em **Habilitar o Logon Único com SAML**.  
  
     b. Na caixa de texto **URL do Provedor de Identidade**, cole o valor do **Identificador do Azure AD** copiado do portal do Azure.    
  
@@ -249,5 +249,5 @@ Ao clicar no bloco do Samanage no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

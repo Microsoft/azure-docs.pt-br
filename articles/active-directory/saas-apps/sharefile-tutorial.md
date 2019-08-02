@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5839329f78fc349210f9439c5b1580a21f5172a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867479"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091019"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Active Directory ao Citrix ShareFile
 
@@ -53,7 +53,7 @@ Para configurar a integração do Citrix ShareFile com o Azure AD, você precisa
 
 **Para adicionar o Citrix ShareFile da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Citrix ShareFile, execute as se
 
     ![Informações de logon único de Domínio e URLs do Citrix ShareFile](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<tenant-name>.sharefile.com/saml/login`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<tenant-name>.sharefile.com/saml/login`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
 
     | |
     |---|
@@ -157,7 +157,7 @@ Para configurar o logon único do Azure AD com o Citrix ShareFile, execute as se
    
     ![Logon Único](./media/sharefile-tutorial/ic773628.png "Logon Único")
    
-     a. Clique em **Habilitar SAML**.
+    a. Clique em **Habilitar SAML**.
     
     b. Na caixa de texto **Emissor IDP/ID da Entidade**, cole o valor de **Identificador do Azure AD** copiado no portal do Azure.
 
@@ -236,7 +236,7 @@ Para permitir que os usuários do Azure AD façam logon no Citrix ShareFile, ele
    
     ![Informações Básicas](./media/sharefile-tutorial/IC799951.png "Informações Básicas")
    
-     a. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda Fernandes como **brendafernandes\@contoso.com**.
+    a. Na caixa de texto **Endereço de Email**, digite o endereço de email de Brenda Fernandes como **brendafernandes\@contoso.com**.
    
     b. Na caixa de texto **Nome**, digite o **nome** do usuário como **Brenda**.
    
@@ -259,5 +259,5 @@ Ao clicar no bloco do Citrix ShareFile no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

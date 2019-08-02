@@ -66,11 +66,11 @@ A atividade If Condition fornece a mesma funcionalidade que uma instrução if f
 
 Propriedade | DESCRIÇÃO | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | O nome da atividade de condição if. | Cadeia de caracteres | Sim
-type | Deve ser definido para **IfCondition** | Cadeia de caracteres | Sim
-expressão | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
-ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Matriz | Sim
-ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Matriz | Sim
+name | O nome da atividade de condição if. | String | Sim
+type | Deve ser definido para **IfCondition** | String | Sim
+expression | Expressão que deve ser avaliada como verdadeira ou falsa | Expressão com tipo de resultado booliano | Sim
+ifTrueActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `true`. | Array | Sim
+ifFalseActivities | Conjunto de atividades que são executadas quando a expressão é avaliada como `false`. | Array | Sim
 
 ## <a name="example"></a>Exemplo
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do pipeline: routeSelection. Se o valor de routeSelection for true, os dados serão copiados para outputPath1. Se o valor de routeSelection for false, os dados serão copiados para outputPath2. 

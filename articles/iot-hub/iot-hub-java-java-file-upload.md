@@ -9,27 +9,27 @@ services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 3658b57d003ddc5429c6857f88044376fe1aaa93
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3893e496b41b0f3df8dc5a580daf298888578d6e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399060"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68404170"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-Este tutorial baseia-se no código do tutorial [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) para mostrar como usar os [recursos de upload de arquivo do Hub IoT](iot-hub-devguide-file-upload.md) para carregar um arquivo para o [armazenamento de blobs do Azure](../storage/index.yml). Este tutorial mostra como:
+Este tutorial se baseia no código do tutorial [enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-java-java-c2d.md) para mostrar como usar os [recursos de carregamento de arquivo do Hub IOT](iot-hub-devguide-file-upload.md) para carregar um arquivo no [armazenamento de BLOBs do Azure](../storage/index.yml). Este tutorial mostra como:
 
 * Fornecer com segurança um URI de blob do Azure a um dispositivo para carregamento de um arquivo.
 
 * Usar as notificações de carregamento de arquivo do Hub IoT para disparar o processamento do arquivo no back-end do aplicativo.
 
-A [Enviar telemetria para o Hub IoT (Java)](quickstart-send-telemetry-java.md) e [Enviar mensagens de nuvem para dispositivo com os tutoriais do Hub IoT (Java)](iot-hub-java-java-c2d.md) mostra o dispositivo básico para a nuvem e nuvem para dispositivo funcionalidade de mensagens do Hub IoT. O [configurar o roteamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar mensagens do dispositivo para nuvem de forma confiável no armazenamento de BLOBs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo:
+O tutorial [Enviar telemetria de um dispositivo para um início rápido do Hub IOT](quickstart-send-telemetry-java.md) e [enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-java-java-c2d.md) mostrar a funcionalidade básica de mensagens do dispositivo para a nuvem e da nuvem para o dispositivo do Hub IOT. O [configurar o roteamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar mensagens do dispositivo para nuvem de forma confiável no armazenamento de BLOBs do Azure. No entanto, em alguns cenários você não pode mapear facilmente os dados que seus dispositivos enviam em mensagens relativamente menores do dispositivo para a nuvem que o Hub IoT aceita. Por exemplo:
 
 * Arquivos grandes que contêm imagens
-* vídeos
+* Vídeos
 * Dados de vibração amostrados a alta frequência
 * Alguma forma de dados pré-processados.
 
@@ -37,7 +37,7 @@ Esses arquivos normalmente são processados em lote na nuvem usando ferramentas 
 
 No final deste tutorial, você executará dois aplicativos do console Java:
 
-* **simulated-device**, uma versão modificada do aplicativo criado no tutorial [Enviar mensagens da nuvem para o dispositivo com o Hub IoT]. Esse aplicativo carrega um arquivo no armazenamento usando um URI SAS fornecido pelo seu Hub IoT.
+* **Simulated-Device**, uma versão modificada do aplicativo criado no tutorial [enviar mensagens da nuvem para o dispositivo com o Hub IOT]. Esse aplicativo carrega um arquivo no armazenamento usando um URI SAS fornecido pelo seu Hub IoT.
 
 * **read-file-upload-notification**, que recebe notificações de upload de arquivo do seu Hub IoT.
 
@@ -56,7 +56,7 @@ Para concluir este tutorial, você precisará do seguinte:
 
 ## <a name="upload-a-file-from-a-device-app"></a>Carregar um arquivo de um aplicativo de dispositivo
 
-Nesta seção, você modifica o aplicativo de dispositivo criado em [Enviar mensagens da nuvem para o dispositivo com o Hub IoT](iot-hub-java-java-c2d.md) para carregar um arquivo para o hub IoT.
+Nesta seção, você modificará o aplicativo do dispositivo criado em [enviar mensagens da nuvem para o dispositivo com o Hub IOT](iot-hub-java-java-c2d.md) para carregar um arquivo no Hub IOT.
 
 1. Copie um arquivo de imagem para a pasta `simulated-device` e renomeie-o como `myimage.png`.
 
@@ -120,11 +120,15 @@ Nesta seção, você modifica o aplicativo de dispositivo criado em [Enviar mens
     mvn clean package -DskipTests
     ```
 
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+
+Neste artigo, você cria um serviço de back-end para receber mensagens de notificação de upload de arquivo do Hub IoT criado em [Enviar telemetria de um dispositivo para um hub IOT](quickstart-send-telemetry-java.md). Para receber mensagens de notificação de upload de arquivo, seu serviço precisa da permissão de **conexão de serviço** . Por padrão, todo Hub IoT é criado com uma política de acesso compartilhado chamada **serviço** que concede essa permissão.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>Receber uma notificação de upload de arquivo
 
 Nesta seção, você criará um aplicativo de console Java que receba mensagens de notificação de upload de arquivo do Hub IoT.
-
-É necessário ter a cadeia de conexão **iothubowner** para o Hub IoT concluir esta seção. Você pode encontrar a cadeia de conexão no [portal do Azure](https://portal.azure.com/) na folha **Política de acesso compartilhado**.
 
 1. Crie um projeto Maven chamado **read-file-upload-notification** usando o seguinte comando no prompt de comando. Observe que esse é um comando único e longo:
 
@@ -161,7 +165,7 @@ Nesta seção, você criará um aplicativo de console Java que receba mensagens 
     import java.util.concurrent.Executors;
     ```
 
-7. Adicione as seguintes variáveis no nível da classe à classe **App** :
+7. Adicione as seguintes variáveis no nível da classe à classe **App** . Substitua o `{Your IoT Hub connection string}` valor do espaço reservado pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -265,7 +269,9 @@ Você pode usar o portal para exibir o arquivo carregado no contêiner de armaze
 Neste tutorial, você aprendeu a usar os recursos de carregamento de arquivo do Hub IoT para simplificar os carregamentos de arquivos de dispositivos. Você pode continuar explorando os recursos e cenários do Hub IoT com os seguintes artigos:
 
 * [Criar um Hub IoT de modo programático](iot-hub-rm-template-powershell.md)
+
 * [Introdução ao SDK C](iot-hub-device-sdk-c-intro.md)
+
 * [SDKs do Azure IoT](iot-hub-devguide-sdks.md)
 
 Para explorar melhor as funcionalidades do Hub IoT, consulte:

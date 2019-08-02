@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/16/2019
 ms.author: kgremban
-ms.openlocfilehash: c15db0766da3b4c18c306106ffdd5fc75a9143aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4a7cbb5c4f8f4a019cbf5d63a6f2ffe8092546e
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64569307"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405881"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>Agendar e difundir trabalhos (Python)
 
@@ -30,9 +30,9 @@ Conceitualmente, um trabalho encapsula uma dessas ações e rastreia o progresso
 
 Saiba mais sobre cada um desses recursos nestes artigos:
 
-* Dispositivo gêmeo e propriedades: [Introdução aos Gêmeos de dispositivo](iot-hub-python-twin-getstarted.md) e [Tutorial: Como usar propriedades gêmeo de dispositivo](tutorial-device-twins.md)
+* Dispositivo gêmeo e propriedades: [Introdução ao dispositivo gêmeos](iot-hub-python-twin-getstarted.md) e [tutorial: Como usar as propriedades de dispositivo.](tutorial-device-twins.md)
 
-* Métodos diretos: [Guia do desenvolvedor do IoT Hub – métodos diretos](iot-hub-devguide-direct-methods.md) e [Tutorial: métodos diretos](quickstart-control-device-python.md)
+* Métodos diretos: [Guia do desenvolvedor do Hub IOT – métodos diretos](iot-hub-devguide-direct-methods.md) e [tutorial: métodos diretos](quickstart-control-device-python.md)
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -50,7 +50,7 @@ No fim deste tutorial, você tem dois aplicativos de Python:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* [Python 2.x ou 3.x](https://www.python.org/downloads/). Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python à variável de ambiente específica da plataforma. Se você estiver usando o Python 2.x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python](https://pip.pypa.io/en/stable/installing/).
+* [Python 2. x ou 3. x](https://www.python.org/downloads/). Certifique-se de usar a instalação de 32 bits ou 64 bits conforme exigido pelo seu programa de instalação. Quando solicitado durante a instalação, certifique-se de adicionar Python à variável de ambiente específica da plataforma. Se você estiver usando o Python 2.x, talvez seja necessário [instalar ou atualizar o *pip*, o sistema de gerenciamento de pacotes do Python](https://pip.pypa.io/en/stable/installing/).
 
 * Se você está usando o sistema operacional Windows, o [Pacote redistribuível do Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) permite o uso de DLLs nativas do Python.
 
@@ -63,10 +63,6 @@ Para concluir este tutorial, você precisará do seguinte:
 ## <a name="create-an-iot-hub"></a>Crie um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>Registrar um novo dispositivo no hub IoT
 
@@ -162,6 +158,12 @@ Nesta seção, você cria um aplicativo de console do Python que responde a um m
 > [!NOTE]
 > Para simplificar, este tutorial não implementa nenhuma política de repetição. No código de produção, implemente políticas de repetição (como uma retirada exponencial), conforme sugerido no artigo [Tratamento de falhas transitórias](/azure/architecture/best-practices/transient-faults).
 >
+
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>Agendar trabalhos para chamar um método direto e atualizar as propriedades do dispositivo gêmeo
 
@@ -319,12 +321,12 @@ Agora você está pronto para executar os aplicativos.
 
 3. Veja as respostas de dispositivo para o método direto e dispositivos gêmeos na atualização no console.
 
-    ![Exemplo de trabalho do Hub IoT 1 – saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
+    ![Exemplo 1 de trabalho do Hub IoT – saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![Saída do dispositivo de exemplo 2-- trabalho do Hub IoT](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
+    ![Exemplo de trabalho do Hub IoT 2--saída do dispositivo](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você usou um trabalho para agendar um método direto para um dispositivo e a atualização das propriedades do twin do dispositivo.
 
-Para continuar a introdução ao IoT Hub e padrões de gerenciamento de dispositivo como remoto sobre a atualização de firmware de ar, consulte [como fazer uma atualização de firmware](tutorial-firmware-update.md).
+Para continuar a introdução aos padrões do Hub IoT e do gerenciamento de dispositivos, como remoto pela atualização do firmware do ar, consulte [como fazer uma atualização de firmware](tutorial-firmware-update.md).

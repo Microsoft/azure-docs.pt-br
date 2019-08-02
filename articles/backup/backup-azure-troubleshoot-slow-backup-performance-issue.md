@@ -1,19 +1,18 @@
 ---
 title: Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 description: Fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa dos problemas de desempenho de Backup do Azure
-services: backup
-author: genlin
-manager: cshepard
+author: saurabhsensharma
+manager: saurabhsensharma
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 10/31/2018
-ms.author: genli
-ms.openlocfilehash: f24a60ab9bdcf1231085de4edeeb89ce1edf4e80
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/05/2019
+ms.author: saurse
+ms.openlocfilehash: 3a39d39412c8b64d1851ea0fc9511d116f3b232a
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60337622"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68465333"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Solução de problemas de lentidão de backup de arquivos e pastas no Backup do Azure
 Este artigo fornece orientação para solução de problemas para ajudá-lo a diagnosticar a causa do baixo desempenho de backup de arquivos e pastas quando você usa o Backup do Azure. Quando você usa o agente do Backup do Azure para fazer backup de arquivos, o processo de backup pode demorar mais do que o esperado. Esse atraso pode ser causado por um ou mais dos seguintes itens:
@@ -31,7 +30,7 @@ Também recomendamos que você revise as [Perguntas frequentes do serviço Backu
 
 <a id="cause1"></a>
 
-## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: Gargalos de desempenho no computador
+## <a name="cause-performance-bottlenecks-on-the-computer"></a>Causa: Afunilamentos de desempenho no computador
 Gargalos no computador do qual está sendo feito backup podem causar atrasos. Por exemplo, a capacidade do computador de ler ou gravar em disco ou a largura de banda disponível para enviar dados pela rede podem causar gargalos.
 
 O Windows fornece uma ferramenta interna chamada [Monitor de Desempenho](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) para detectar esses gargalos.
@@ -55,7 +54,7 @@ Veja alguns contadores de desempenho e intervalos que podem ser úteis para diag
 
 <a id="cause2"></a>
 
-## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Causa: Outro processo ou software antivírus está interferindo com o Backup do Azure
+## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>Causa: Outro processo ou software antivírus está interferindo com o backup do Azure
 Vimos várias instâncias nas quais outros processos no sistema do Windows afetou negativamente o desempenho do processo do agente de Backup do Azure. Por exemplo, se você usar o agente de Backup do Azure e outro programa para fazer backup de dados, ou se um software antivírus estiver em execução e bloquear os arquivos dos quais o backup deverá ser feito, os vários bloqueios nos arquivos poderão causar contenção. Nessa situação, o backup pode falhar ou o trabalho pode levar mais tempo do que o esperado.
 
 A melhor recomendação nesse cenário é desativar o outro programa backup para ver se o tempo de backup do agente de Backup do Azure muda. Geralmente, certificar-se de que não haja vários trabalhos de backup em execução simultaneamente é suficiente para impedir que eles afetem um ao outro.
@@ -73,7 +72,7 @@ Se você estiver executando o agente de Backup em uma máquina virtual, o desemp
 
 <a id="cause4"></a>
 
-## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Causa: Fazendo backup de um número grande (milhões) de arquivos
+## <a name="cause-backing-up-a-large-number-millions-of-files"></a>Causa: Fazendo backup de um grande número (milhões) de arquivos
 Mover um grande volume de dados levará mais tempo do que mover um menor volume de dados. Em alguns casos, o tempo de backup está relacionado não apenas ao tamanho dos dados, mas também ao número de arquivos ou pastas. Isso é particularmente verdadeiro quando está sendo feito backup de milhões de arquivos pequenos (alguns bytes ou poucos kilobytes).
 
 Esse comportamento ocorre porque, enquanto você faz backup dos dados e os move para o Azure, o Azure simultaneamente cataloga seus arquivos. Em algumas situações raras, a operação de catálogo pode demorar mais do que o esperado.

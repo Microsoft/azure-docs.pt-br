@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b86f62bf25801b5259af1c54b55836fca9cf1aed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0918333d70efcd8c93f77f99b2a36b099fb211e1
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871615"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096948"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobile-xpense"></a>Tutorial: Integração do Azure Active Directory com o Mobile Xpense
 
@@ -52,7 +52,7 @@ Para configurar a integração do Mobile Xpense no Azure AD, você precisa adici
 
 **Para adicionar o Mobile Xpense através da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Mobile Xpense, execute as segui
 
     ![Informações de logon único de Domínio e URLs do Mobile Xpense](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://mobilexpense.com/ServiceProvider`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://mobilexpense.com/ServiceProvider`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<sub-domain>.mobilexpense.com/NET/SSO/SAML20/SAML/AssertionConsumerService.aspx`
 
@@ -202,5 +202,5 @@ Ao clicar no bloco do Mobile Xpense no Painel de Acesso, você deverá ser conec
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,12 +9,12 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: c44be9779cf2b856ac2f5e9e017fd9d1040a018b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 21dda323cf465f56fb3f43160dd04c27a81d5590
+ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294035"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68698084"
 ---
 # <a name="quickstart-project-answer-search-with-node"></a>Início Rápido: Pesquisa de Resposta do Projeto com Node
 
@@ -22,7 +22,7 @@ O exemplo de Node a seguir cria uma consulta para obter informações sobre o Pa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://aka.ms/answersearchsubscription)
+Obtenha uma chave de acesso para a avaliação gratuita de [Laboratórios dos Serviços Cognitivos](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 Este exemplo usa o Node v8.9.4
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: eded8eb446d36a321acf46231eee3e764ba41504
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407913"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088443"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Azure Active Directory ao TOPdesk – Secure
 
@@ -53,7 +53,7 @@ Para configurar a integração do TOPdesk – Secure ao Azure AD, é necessário
 
 **Para adicionar o TOPdesk – Secure da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
     ![Informações de logon único de Domínio e URLs do TOPdesk – Secure](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.topdesk.net/tas/secure/login/verify`
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
     ![Configurações técnicas](./media/topdesk-secure-tutorial/ic790855.png "Configurações técnicas")
 
-     a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
+    a. Clique em **Baixar** para baixar o arquivo de metadados públicos e salve-o localmente no computador.
 
     b. Abra o arquivo de metadados e localize o nó **AssertionConsumerService** .
 
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
     ![Certificado](./media/topdesk-secure-tutorial/ic790606.png "Certificado")
 
-     a. Abra o arquivo de metadados baixado do Portal do Azure.
+    a. Abra o arquivo de metadados baixado do Portal do Azure.
 
     b. Expanda o nó **RoleDescriptor** que contém um **xsi:type** de **fed:ApplicationServiceType**.
 
@@ -176,15 +176,15 @@ Para configurar o logon único do Azure AD com o TOPdesk – Secure, execute as 
 
     ![Assistente de configuração SAML](./media/topdesk-secure-tutorial/ic790608.png "Assistente de configuração SAML")
 
-     a. Para carregar o arquivo de metadados baixado do Portal do Azure, em **Metadados de Federação**, clique em **Procurar**.
+    a. Para carregar o arquivo de metadados baixado do Portal do Azure, em **Metadados de Federação**, clique em **Procurar**.
 
-    b. Para carregar o arquivo de certificado, em **Certificado (RSA)**, clique em **Procurar**.
+    b. Para carregar o arquivo de certificado, em **Certificado (RSA)** , clique em **Procurar**.
 
-    c. Para **chave privada (RSA, PKCS8, DER)**, você pode carregar sua própria chave privada ou contatar [TOPdesk - equipe de suporte do Secure Client](https://www.topdesk.com/us/support) para obter a chave privada.
+    c. Para **chave privada (RSA, PKCS8, DER)** , você pode carregar sua própria chave privada ou contatar [TOPdesk - equipe de suporte do Secure Client](https://www.topdesk.com/us/support) para obter a chave privada.
 
     d. Para carregar o arquivo de logotipo que você recebeu da equipe de suporte do TOPdesk, em **Ícone do logotipo**, clique em **Procurar**.
 
-    e. Na caixa de texto **Atributo de nome de usuário**, digite `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Na caixa de texto **Atributo de nome de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. Na caixa de texto **Nome de exibição** , digite um nome para a sua configuração.
 
@@ -258,7 +258,7 @@ No caso do TOPdesk - Secure, o provisionamento é uma tarefa manual.
 
     ![Novo operador](./media/topdesk-secure-tutorial/ic790611.png "Novo operador")
 
-     a. Clique na guia **Geral**.
+    a. Clique na guia **Geral**.
 
     b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário, como **Simon**.
 
@@ -283,5 +283,5 @@ Ao clicar no bloco do TOPdesk – Secure no Painel de Acesso, você deverá ser 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

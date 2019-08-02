@@ -9,12 +9,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f0dfed10190685c1d51822b8bec2b3c80cea7bb2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5fecced844b3580c83fd18d0c14c3a2083f7a4fc
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153935"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165732"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análise de armazenamento do Azure (clássico)
 
@@ -90,18 +90,27 @@ Os cmdlets que controlam as métricas de armazenamento usam os seguintes parâme
 * **Serviço**: Coleta métricas como ingresso/egresso, disponibilidade, latência e porcentagens de êxitos, que são agregadas para o blob, fila, tabela e serviços de arquivo.
 * **ServiceAndApi**: Além das métricas do serviço, coleta o mesmo conjunto de métricas para cada operação de armazenamento na API de serviço de armazenamento do Azure.
 
-Por exemplo, o comando a seguir ativa a métrica de minutos para o serviço blob na conta de armazenamento padrão com o período de retenção definido para cinco dias:  
+Por exemplo, o comando a seguir ativa a métrica de minutos para o serviço blob na sua conta de armazenamento com a período de retenção definido para cinco dias: 
+
+> [!NOTE]
+> Esse comando presume que você tiver entrado em sua assinatura do Azure usando o `Connect-AzAccount` comando.
 
 ```  
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute   
--ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5  
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
+
+Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
+
+* Substitua o `<resource-group-name>` valor de espaço reservado com o nome do seu grupo de recursos.
+
+* Substitua o valor de espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
+
+
 
 O comando a seguir recupera o nível de métricas por hora atual e dias de retenção para o serviço blob na conta de armazenamento padrão:  
 
 ```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour   
--ServiceType Blob  
+Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
 Para saber mais sobre como configurar os cmdlets do Azure PowerShell para funcionar com sua assinatura do Azure e como escolher a conta de armazenamento padrão para usar, confira: [Como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  

@@ -12,15 +12,15 @@ ms.subservice: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/23/2018
+ms.date: 06/19/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 8c4f670f3bb14610e7f29a9201b357e73dacf09b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60290742"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67293228"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são identidades gerenciadas para recursos do Azure?
 
@@ -129,6 +129,7 @@ Saiba como usar uma identidade gerenciada com uma VM do Linux:
 * [Acessar o Armazenamento do Azure usando uma chave de acesso](tutorial-linux-vm-access-storage.md)
 * [Acessar o Armazenamento do Azure usando assinaturas de acesso compartilhado](tutorial-linux-vm-access-storage-sas.md)
 * [Acessar um recurso que não seja do Azure AD com o Azure Key Vault](tutorial-linux-vm-access-nonaad.md)
+* [Acessar o Registro de Contêiner do Azure](../../container-registry/container-registry-authentication-managed-identity.md)
 
 Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 
@@ -139,6 +140,7 @@ Saiba como usar uma identidade gerenciada com outros serviços do Azure:
 * [Hubs de eventos do Azure](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gerenciamento de API do Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Instâncias de Contêiner do Azure](../../container-instances/container-instances-managed-identity.md)
+* [Tarefas do Registro de Contêiner do Azure](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
 
 ## O recurso tem suporte de quais serviços do Azure?<a name="which-azure-services-support-managed-identity"></a>
 

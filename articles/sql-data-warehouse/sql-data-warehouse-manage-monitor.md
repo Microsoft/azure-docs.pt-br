@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/12/2019
+ms.date: 07/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ff1f613dfdfb5c43b727bcc9c7f7a1f0afca0975
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f2dab34ea0ef64f4062819e9b2d475e6a226856b
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60748758"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405429"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitore sua carga de trabalho usando DMVs
 Este artigo descreve como usar DMVs (Exibições de Gerenciamento Dinâmico) para monitorar a carga de trabalho. Isso inclui a investigação de execução da consulta no SQL Data Warehouse do Azure.
@@ -59,18 +59,13 @@ SELECT TOP 10 *
 FROM sys.dm_pdw_exec_requests 
 ORDER BY total_elapsed_time DESC;
 
--- Find a query with the Label 'My Query'
--- Use brackets when querying the label column, as it it a key word
-SELECT  *
-FROM    sys.dm_pdw_exec_requests
-WHERE   [label] = 'My Query';
 ```
 
 Nos resultados da consulta anterior, **observe a ID da Solicitação** da consulta que você deseja investigar.
 
-As consultas na **Suspended** estado pode ser enfileirado devido a um grande número de consultas em execução ativas. Essas consultas também aparecem na [DM pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) esperas de consulta com um tipo de UserConcurrencyResourceType. Para obter informações sobre os limites de simultaneidade, consulte [Níveis de desempenho](performance-tiers.md) ou [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][Investigating queries waiting for resources] mais adiante neste artigo.
+As consultas no estado **suspenso** podem ser enfileiradas devido a um grande número de consultas ativas em execução. Essas consultas também aparecem na consulta de esperas [Sys. dm _pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) com um tipo de UserConcurrencyResourceType. Para obter informações sobre os limites de simultaneidade, consulte [Níveis de desempenho](performance-tiers.md) ou [Classes de recursos para gerenciamento de carga de trabalho](resource-classes-for-workload-management.md). As consultas também podem esperar por motivos, como bloqueios.  Se sua consulta estiver aguardando um recurso, confira [Investigar consultas aguardando recursos][Investigating queries waiting for resources] mais adiante neste artigo.
 
-Para simplificar a pesquisa de uma consulta na [DM pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) da tabela, use [rótulo] [ LABEL] para atribuir um comentário à consulta que pode ser pesquisada no sys.dm_pdw_exec_ modo de exibição de solicitações.
+Para simplificar a pesquisa de uma consulta na tabela [Sys. dm _pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) , use o [rótulo][LABEL] para atribuir um comentário à consulta que pode ser pesquisada na exibição sys. dm _pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -78,6 +73,12 @@ SELECT *
 FROM sys.tables
 OPTION (LABEL = 'My Query')
 ;
+
+-- Find a query with the Label 'My Query'
+-- Use brackets when querying the label column, as it it a key word
+SELECT  *
+FROM    sys.dm_pdw_exec_requests
+WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>ETAPA 2: Investigar o plano de consulta
@@ -170,10 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 Se a consulta estiver ativamente aguardando recursos de outra consulta, o estado será **AcquireResources**.  Se a consulta tiver todos os recursos necessários, o estado será **Concedido**.
 
 ## <a name="monitor-tempdb"></a>Monitorar o tempdb
-Tempdb é usado para armazenar resultados intermediários durante a execução da consulta. Alta utilização do banco de dados tempdb pode levar à redução de desempenho da consulta. Cada nó no Azure SQL Data Warehouse tem cerca de 1 TB de espaço bruto para tempdb. Abaixo estão as dicas para monitorar o uso de tempdb e para diminuir o uso de tempdb em suas consultas. 
+O tempdb é usado para manter resultados intermediários durante a execução da consulta. A alta utilização do banco de dados tempdb pode levar a um desempenho de consulta lento. Cada nó no Azure SQL Data Warehouse tem aproximadamente 1 TB de espaço bruto para tempdb. Abaixo estão as dicas para monitorar o uso do tempdb e para diminuir o uso do tempdb em suas consultas. 
 
-### <a name="monitoring-tempdb-with-views"></a>Monitoramento de tempdb com modos de exibição
-Para monitorar o uso de tempdb, primeiro instale o [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) exibir da [Microsoft Toolkit para SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Em seguida, você pode executar a consulta a seguir para ver o uso de tempdb por nó para todas as consultas executadas:
+### <a name="monitoring-tempdb-with-views"></a>Monitorando tempdb com exibições
+Para monitorar o uso do tempdb, primeiro instale a exibição [Microsoft. vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) do [microsoft Toolkit para SQL data warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). Em seguida, você pode executar a consulta a seguir para ver o uso de tempdb por nó para todas as consultas executadas:
 
 ```sql
 -- Monitor tempdb
@@ -205,9 +206,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-Se você tiver uma consulta que está consumindo uma grande quantidade de memória ou ter recebido uma mensagem de erro relacionada à alocação de tempdb, ele costuma ocorrer devido a um grande [CTAS CREATE TABLE AS SELECT ()](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) instrução em execução que está falhando na operação de movimentação de dados final. Isso geralmente pode ser identificado como uma operação de ShuffleMove no plano de consulta distribuída logo antes do final INSERT SELECT.
+Se você tiver uma consulta que esteja consumindo uma grande quantidade de memória ou tenha recebido uma mensagem de erro relacionada à alocação de tempdb, isso geralmente é devido a uma CREATE TABLE muito grande, uma [vez que Select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) ou a instrução [Insert Select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) em execução que está falhando no operação de movimentação de dados final. Normalmente, isso pode ser identificado como uma operação ShuffleMove no plano de consulta distribuída logo antes da seleção de inserção final.
 
-A mitigação mais comum é dividir a instrução CTAS ou INSERT SELECT em várias instruções de carga para que o volume de dados não excederá 1TB por limite de tempdb do nó. Você também pode dimensionar o cluster para um tamanho maior que difundirá o tamanho de tempdb em mais nós, reduzindo o tempdb em cada nó individual. 
+A mitigação mais comum é quebrar sua CTAS ou inserir instrução SELECT em várias instruções Load para que o volume de dados não exceda o limite de 1 TB por nó de tempdb. Você também pode dimensionar o cluster para um tamanho maior que espalhará o tamanho do tempdb em mais nós, reduzindo o tempdb em cada nó individual. 
 
 ## <a name="monitor-memory"></a>Monitorar a memória
 
@@ -262,7 +263,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter mais informações sobre DMVs, consulte [Exibições do sistema][System views].
+Para obter mais informações sobre DMVs, consulte exibições do [sistema][System views].
 
 
 <!--Image references-->

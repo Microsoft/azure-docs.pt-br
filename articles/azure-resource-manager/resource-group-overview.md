@@ -1,19 +1,17 @@
 ---
 title: Visão geral do Azure Resource Manager | Microsoft Docs
 description: Descreve como usar o Gerenciador de Recursos do Azure para implantação, gerenciamento e controle de acesso dos recursos do Azure.
-services: azure-resource-manager
 author: tfitzmac
-ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 05/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6ad87c776bbbab9959f7c90a8d006ae7f62bde79
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 1b0135bfff7233367eaf47a2f6dd1ee3ccfbcaf6
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66514335"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205519"
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 

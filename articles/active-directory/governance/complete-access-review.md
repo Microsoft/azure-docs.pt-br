@@ -1,10 +1,10 @@
 ---
-title: Concluir uma revisão de acesso de aplicativos - Azure Active Directory ou grupos | Microsoft Docs
-description: Saiba como concluir uma revisão de acesso de membros do grupo ou o acesso de aplicativo em revisões de acesso do Active Directory do Azure.
+title: Concluir uma revisão de acesso de grupos ou aplicativos-Azure Active Directory | Microsoft Docs
+description: Saiba como concluir uma revisão de acesso de membros do grupo ou acesso ao aplicativo em Azure Active Directory revisões de acesso.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,75 +12,75 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/22/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec3909ffbb624284f999360140b7454098643062
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97c405032368ffd06f5808bc4518302d2f6d66b9
+ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473359"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68489154"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou revisões de acesso de aplicativos no Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Concluir uma revisão de acesso de grupos ou aplicativos nas revisões de acesso do Azure AD
 
-Como administrador, você [criar uma revisão de acesso de grupos ou aplicativos](create-access-review.md) e revisores [realizar a análise de acesso](perform-access-review.md). Este artigo descreve como ver os resultados da revisão de acesso e aplicar os resultados.
+Como administrador, você [cria uma revisão de acesso de grupos ou aplicativos](create-access-review.md) e revisores [executam a revisão de acesso](perform-access-review.md). Este artigo descreve como Ver os resultados da revisão de acesso e aplicar os resultados.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Azure AD Premium P2
-- Administrador global, administrador de usuário, administrador de segurança ou leitor de segurança
+- Administrador global, administrador de usuários, administrador de segurança ou leitor de segurança
 
 Para obter mais informações, consulte [quais usuários devem ter licenças?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="view-an-access-review"></a>Exibir uma revisão de acesso
 
-Você pode acompanhar o andamento conforme os revisores concluem suas revisões.
+Você pode acompanhar o progresso à medida que os revisores concluírem suas revisões.
 
-1. Entrar no portal do Azure e abra o [página de controle de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Entre no portal do Azure e abra a [página governança de identidade](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. No menu à esquerda, clique em **revisões de acesso**.
 
 1. Na lista, clique em uma revisão de acesso.
 
-    Para exibir uma série de acesso de revisões, navegue até a revisão de acesso e você encontrará ocorrências futuras em revisões agendado.
+    Para exibir uma série de revisões de acesso, navegue até a revisão de acesso e você encontrará ocorrências futuras nas revisões agendadas.
 
-    Sobre o **visão geral** página, você pode ver o progresso. Sem direitos de acesso são alterados no diretório até que a revisão está concluída.
+    Na página **visão geral** , você pode ver o progresso. Nenhum direito de acesso é alterado no diretório até que a revisão seja concluída.
 
-    ![Progresso de revisões de acesso](./media/complete-access-review/overview-progress.png)
+    ![Progresso das revisões de acesso](./media/complete-access-review/overview-progress.png)
 
-1. Se você quiser interromper uma revisão de acesso antes que ele atingir a data de término agendada, clique no **parar** botão.
+1. Se você quiser interromper uma revisão de acesso antes de atingir a data de término agendada, clique no botão **parar** .
 
-    Interromper quando uma revisão, os revisores não estarão disponíveis para fornecer respostas. Não é possível reiniciar uma análise depois de ter sido interrompida.
+    Ao interromper uma revisão, os revisores não poderão mais fornecer respostas. Não é possível reiniciar uma análise depois de ter sido interrompida.
 
-1. Se você não esteja mais interessado na revisão de acesso, você pode excluí-lo clicando o **excluir** botão.
+1. Se você não estiver mais interessado na revisão de acesso, poderá excluí-la clicando no botão **excluir** .
 
 ## <a name="apply-the-changes"></a>Aplicar as alterações
 
-Se **resultados de aplicação automática ao recurso** estava habilitado e com base nas suas seleções na **após configurações de conclusão**, autoaplicar será ser executada após a data de término da análise de ou quando você interromper a revisão manualmente.
+Se a **aplicação automática de resultados ao recurso** tiver sido habilitada e baseada em suas seleções durante **as configurações de conclusão**, a aplicação automática será executada após a data de término da revisão ou quando você interromper manualmente a revisão.
 
-Se **resultados de aplicação automática ao recurso** não foi habilitado para a revisão, clique em **aplicar** para aplicar manualmente as alterações. Se o acesso do usuário foi negado na análise, quando você clica **aplicar**, o Azure AD removerá sua atribuição de associação ou aplicativo.
+Se a **aplicação automática de resultados no recurso** não foi habilitada para a revisão, clique em **aplicar** para aplicar manualmente as alterações. Se o acesso de um usuário foi negado na revisão, quando você clica em **aplicar**, o Azure ad remove sua associação ou atribuição de aplicativo.
 
 ![Aplicar alterações de revisão de acesso](./media/complete-access-review/apply-changes.png)
 
-O status da revisão será alterado de **concluído** estados intermediários, como **aplicando** e, finalmente, para o estado **resultados aplicados**. É necessário esperar que os usuários negados, se houver algum, sejam removidos da associação do grupo ou da atribuição do aplicativo em alguns minutos.
+O status da revisão será alterado de **concluído** por meio de Estados intermediários  , como aplicando e finalmente ao resultado de estado **aplicado**. É necessário esperar que os usuários negados, se houver algum, sejam removidos da associação do grupo ou da atribuição do aplicativo em alguns minutos.
 
 Uma revisão de aplicação automática configurada ou selecionar **Aplicar** não afeta um grupo originado em um diretório local ou em um grupo dinâmico. Se você quiser alterar um grupo que se origina localmente, baixe os resultados e aplique essas alterações para a representação do grupo neste diretório.
 
 ## <a name="retrieve-the-results"></a>Recuperar os resultados
 
-Para exibir os resultados para uma revisão de acesso único, clique o **resultados** página. Para exibir apenas o acesso do usuário, na caixa de pesquisa, digite o nome de exibição ou o nome UPN de um usuário cujo acesso foi revisado.
+Para exibir os resultados de uma revisão de acesso única, clique na página **resultados** . Para exibir apenas o acesso de um usuário, na caixa de pesquisa, digite o nome de exibição ou o nome principal de usuário de um usuário cujo acesso foi revisado.
 
-![Recuperar os resultados para uma revisão de acesso](./media/complete-access-review/retrieve-results.png)
+![Recuperar resultados para uma revisão de acesso](./media/complete-access-review/retrieve-results.png)
 
-Para exibir o progresso de uma revisão de acesso do Active Directory for recorrente, clique no **resultados** página.
+Para exibir o progresso de uma revisão de acesso ativa que é recorrente, clique na página **resultados** .
 
-Para exibir os resultados de uma instância concluída de uma revisão de acesso for recorrente, clique em **examinar histórico**, em seguida, selecione a instância específica da lista de instâncias de revisão de acesso completo, com base no início da instância e a data de término. Os resultados dessa instância podem ser obtidos de **resultados** página.
+Para exibir os resultados de uma instância concluída de uma revisão de acesso recorrente, clique em **examinar histórico**e selecione a instância específica na lista de instâncias de revisão de acesso concluídas, com base nas datas de início e de término da instância. Os resultados dessa instância podem ser obtidos na página **resultados** .
 
-Para recuperar todos os resultados de uma revisão de acesso, clique o **baixar** botão. O arquivo CSV resultante pode ser visualizado no Excel ou em outros programas que abrem arquivos CSV codificados em UTF-8.
+Para recuperar todos os resultados de uma revisão de acesso, clique no botão **baixar** . O arquivo CSV resultante pode ser visualizado no Excel ou em outros programas que abrem arquivos CSV codificados em UTF-8.
 
 ## <a name="remove-users-from-an-access-review"></a>Remover usuários de uma revisão de acesso
 

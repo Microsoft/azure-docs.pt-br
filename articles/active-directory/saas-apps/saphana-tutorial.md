@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 231b9b6d217a9ad1fe5f4a6478f5e8799257b92b
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867854"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091621"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integração do Azure Active Directory ao SAP HANA
 
@@ -64,7 +64,7 @@ Para configurar a integração do SAP HANA ao Azure AD, você precisará adicion
 
 **Para adicionar o SAP HANA da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -116,7 +116,7 @@ Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do SAP HANA](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite as seguintes informações: `HA100`
+    a. Na caixa de texto **Identificador**, digite as seguintes informações: `HA100`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<Customer-SAP-instance-url>/sap/hana/xs/saml/login.xscfunc`
 
@@ -129,13 +129,13 @@ Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes 
 
 6. Na seção **Atributos do usuário** da caixa de diálogo **Declarações e Atributos do Usuário**, realize as seguintes etapas:
  
-     a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
+    a. Clique no **ícone Editar** para abrir a caixa de diálogo **Gerenciar declarações do usuário**.
 
     ![image](./media/saphana-tutorial/tutorial_usermail.png)
 
     ![image](./media/saphana-tutorial/tutorial_usermailedit.png)
 
-    b. Na lista **Transformação**, selecione **ExtractMailPrefix()**.
+    b. Na lista **Transformação**, selecione **ExtractMailPrefix()** .
 
     c. Na lista **Parâmetro 1**, selecione **user.mail**.
 
@@ -156,11 +156,11 @@ Para configurar o logon único do Azure AD com o SAP HANA, execute as seguintes 
 
     ![Adicionar Provedor de Identidade](./media/saphana-tutorial/sap1.png)
 
-     a. No painel **Adicionar informações do provedor de identidade**, cole o conteúdo do XML de metadados (que você fez o download do Portal do Azure) na caixa de **Metadados**.
+    a. No painel **Adicionar informações do provedor de identidade**, cole o conteúdo do XML de metadados (que você fez o download do Portal do Azure) na caixa de **Metadados**.
 
     ![Configurações para Adicionar Provedor de Identidade](./media/saphana-tutorial/sap2.png)
 
-    b. Se o conteúdo do documento XML for válido, o processo de análise extrai as informações necessárias para os campos **Assunto, ID de entidade e emissor** na área da tela de **Dados gerais**. Ele também extrai as informações necessárias para os campos de URL na área da tela de **Destino**, por exemplo, os campos de  **URL de Base e URL de Logon único (*)**.
+    b. Se o conteúdo do documento XML for válido, o processo de análise extrai as informações necessárias para os campos **Assunto, ID de entidade e emissor** na área da tela de **Dados gerais**. Ele também extrai as informações necessárias para os campos de URL na área da tela de **Destino**, por exemplo, os campos de  **URL de Base e URL de Logon único (*)** .
 
     ![Configurações para Adicionar Provedor de Identidade](./media/saphana-tutorial/sap3.png)
 
@@ -272,5 +272,5 @@ Ao clicar no bloco do SAP HANA no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

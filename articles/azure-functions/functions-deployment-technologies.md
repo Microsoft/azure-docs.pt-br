@@ -1,6 +1,6 @@
 ---
 title: Tecnologias de implantação no Azure Functions | Microsoft Docs
-description: Saiba as vantagens e desvantagens das diferentes maneiras de que implantar o código para o Azure Functions.
+description: Conheça as diferentes maneiras como você pode implantar código para Azure Functions.
 services: functions
 documentationcenter: .net
 author: ColbyTresness
@@ -10,177 +10,186 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 689e54877a5b0a405fe7b3e3981d98ba6b42edb7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f931a72eab534bc2856e9e545b684d2b8ae7a60
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67062940"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68444035"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologias de implantação no Azure Functions
 
-Há algumas tecnologias diferentes, que você pode usar para implantar o código do projeto do Azure Functions no Azure. Este artigo fornece uma lista completa dessas tecnologias, informa quais tecnologias estão disponíveis para quais tipos de funções, explica o que realmente está acontecendo quando cada método é usado e fornece recomendações para o melhor método para usar em vários cenários. Várias ferramentas que oferecem suporte à implantação no Azure Functions são voltadas para a tecnologia certa com base em seu contexto.
+Você pode usar algumas tecnologias diferentes para implantar o código do projeto Azure Functions no Azure. Este artigo fornece uma lista completa dessas tecnologias, descreve quais tecnologias estão disponíveis para quais tipos de funções, explica o que acontece quando você usa cada método e fornece recomendações para o melhor método a ser usado em vários cenários . As várias ferramentas que dão suporte à implantação em Azure Functions são ajustadas para a tecnologia certa com base em seu contexto.
 
 ## <a name="deployment-technology-availability"></a>Disponibilidade de tecnologia de implantação
 
-> [!IMPORTANT]
-> Azure Functions dá suporte a cruzada local de desenvolvimento de plataforma e hospedagem em dois sistemas operacionais: Windows e Linux. Existem três planos de hospedagem disponíveis no momento, cada um com comportamentos diferentes - [consumo](functions-scale.md#consumption-plan), [Premium](functions-scale.md#premium-plan), e [dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan). Nem todas as tecnologias de implantação estão disponíveis para cada sabor de funções do Azure.
+O Azure Functions dá suporte ao desenvolvimento local de plataforma cruzada e à hospedagem no Windows e no Linux. Atualmente, três planos de hospedagem estão disponíveis:
 
-| Tecnologia de implantação | Consumo do Windows | Premium (visualização) do Windows | Windows dedicado  | Consumo do Linux (visualização) | Linux dedicado |
++ [Utilização](functions-scale.md#consumption-plan)
++ [Premium](functions-scale.md#premium-plan)
++ [Dedicado (serviço de aplicativo)](functions-scale.md#app-service-plan)
+
+Cada plano tem comportamentos diferentes. Nem todas as tecnologias de implantação estão disponíveis para cada tipo de Azure Functions. O gráfico a seguir mostra quais tecnologias de implantação têm suporte para cada combinação de sistema operacional e plano de hospedagem:
+
+| Tecnologia de implantação | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado  | Consumo do Linux (versão prévia) | Linux dedicado |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | URL do pacote externo<sup>1</sup> |✔|✔|✔|✔|✔|
-| Implantar ZIP |✔|✔|✔| |✔|
-| Contêiner do docker | | | | |✔|
+| Implantação de zip |✔|✔|✔| |✔|
+| Recipiente de docker | | | | |✔|
 | Implantação da Web |✔|✔|✔| | |
 | Controle do código-fonte |✔|✔|✔| |✔|
 | Git local<sup>1</sup> |✔|✔|✔| |✔|
 | Sincronização de nuvem<sup>1</sup> |✔|✔|✔| |✔|
 | FTP<sup>1</sup> |✔|✔|✔| |✔|
-| Edição de portal |✔|✔|✔| |✔<sup>2</sup>|
+| Edição do portal |✔|✔|✔| |✔<sup>2</sup>|
 
-<sup>1</sup> tecnologia de implantação que requer [sincronização do gatilho manual](#trigger-syncing).
-<sup>2</sup> portal edição está habilitado para apenas os gatilhos de HTTP e o Timer para funções no Linux usando o plano dedicado.
+<sup>1</sup> tecnologia de implantação que requer [sincronização de gatilho manual](#trigger-syncing).  
+<sup>2</sup> a edição do portal é habilitada apenas para gatilhos http e de temporizador para funções no Linux usando planos Premium e dedicados.
 
 ## <a name="key-concepts"></a>Principais conceitos
 
-Antes de continuar, é importante aprender alguns conceitos-chave que serão essenciais para entender como as implantações funcionam no Azure Functions.
+Alguns conceitos importantes são essenciais para entender como as implantações funcionam em Azure Functions.
 
-### <a name="trigger-syncing"></a>Sincronização do gatilho
+### <a name="trigger-syncing"></a>Disparar sincronização
 
-Quando você alterar qualquer um dos seus gatilhos, a infra-estrutura de funções precisa estar atento essas alterações. Esta sincronização ocorre automaticamente para muitas tecnologias de implantação. No entanto, em alguns casos você deverá sincronizar manualmente seus gatilhos. Quando você implanta as atualizações usando uma URL do pacote externo, local Git, sincronização de nuvem ou FTP, certifique-se de ter sincronizar manualmente seus gatilhos. Você pode sincronizar os gatilhos em uma das três maneiras:
+Quando você altera qualquer um de seus gatilhos, a infraestrutura do Functions deve estar ciente das alterações. A sincronização ocorre automaticamente para muitas tecnologias de implantação. No entanto, em alguns casos, você deve sincronizar manualmente seus gatilhos. Ao implantar suas atualizações referenciando uma URL de pacote externo, git local, sincronização de nuvem ou FTP, você deve sincronizar manualmente seus gatilhos. Você pode sincronizar gatilhos de uma destas três maneiras:
 
-* Reinicie o aplicativo de função no portal do Azure
-* Envie uma solicitação HTTP POST para `https://www.{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` usando o [chave mestra](functions-bindings-http-webhook.md#authorization-keys).
-* Envie uma solicitação HTTP POST para `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Substitua os espaços reservados com sua ID de assinatura, nome do grupo de recursos e o nome do seu aplicativo de funções.
+* Reinicie seu aplicativo de funções no portal do Azure
+* Envie uma solicitação HTTP post para `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` usando a [chave mestra](functions-bindings-http-webhook.md#authorization-keys).
+* Envie uma solicitação HTTP POST para `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Substitua os espaços reservados por sua ID de assinatura, nome do grupo de recursos e o nome do seu aplicativo de funções.
 
-## <a name="deployment-technology-details"></a>Detalhes da tecnologia de implantação  
+## <a name="deployment-technology-details"></a>Detalhes da tecnologia de implantação 
+
+Os métodos de implantação a seguir estão disponíveis no Azure Functions.
 
 ### <a name="external-package-url"></a>URL do pacote externo
 
-__O que ele faz:__ Permite que você faça referência a um arquivo de pacote remoto (. zip) que contém seu aplicativo de funções. O arquivo é baixado da URL fornecida e o aplicativo é executado [execução do pacote](run-functions-from-deployment-package.md) modo.
+Você pode usar uma URL de pacote externo para fazer referência a um arquivo de pacote remoto (. zip) que contém seu aplicativo de funções. O arquivo é baixado da URL fornecida e o aplicativo é executado em execução no modo [de pacote](run-functions-from-deployment-package.md) .
 
-__Como usá-lo:__ Adicionar `WEBSITE_RUN_FROM_PACKAGE` para as configurações do aplicativo. O valor dessa configuração deve ser uma URL - o local do arquivo de pacote específico que você deseja executar. Você pode adicionar configurações de qualquer um dos [no portal do](functions-how-to-use-azure-function-app-settings.md#settings) ou [usando a CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). Se usar o armazenamento de BLOBs do Azure, você deve usar um contêiner privado com um [assinatura de acesso compartilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) para conceder acesso de funções ao pacote. A qualquer momento o aplicativo ser reiniciado ele buscará uma cópia do conteúdo, o que significa que sua referência deve ser válida para o tempo de vida do aplicativo.
+>__Como usá-lo:__ Adicione `WEBSITE_RUN_FROM_PACKAGE` às configurações do aplicativo. O valor dessa configuração deve ser uma URL (o local do arquivo de pacote específico que você deseja executar). Você pode adicionar configurações [no portal](functions-how-to-use-azure-function-app-settings.md#settings) ou [usando o CLI do Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>
+>Se você usar o armazenamento de BLOBs do Azure, use um contêiner privado com uma [assinatura de acesso compartilhado (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para dar acesso às funções ao pacote. Sempre que o aplicativo for reiniciado, ele buscará uma cópia do conteúdo. Sua referência deve ser válida durante o tempo de vida do aplicativo.
 
-__Quando usá-lo:__ Esse é o método de implantação somente tem suportado para funções do Azure em execução no Linux no plano de consumo (visualização). Ao atualizar o arquivo de pacote que faz referência a um aplicativo de funções, você deve [sincronizar manualmente os disparadores](#trigger-syncing) para informar ao Azure que seu aplicativo foi alterado.
+>__Quando usá-lo:__ A URL do pacote externo é o único método de implantação com suporte para Azure Functions em execução no Linux no plano de consumo (versão prévia). Ao atualizar o arquivo de pacote que um aplicativo de funções referencia, você deve [sincronizar os gatilhos manualmente](#trigger-syncing) para informar ao Azure que seu aplicativo foi alterado.
 
-### <a name="zip-deploy"></a>Implantar ZIP
+### <a name="zip-deploy"></a>Implantação de zip
 
-__O que ele faz:__ Permite que você envie um arquivo zip que contém seu aplicativo de funções no Azure. Opcionalmente, você também pode especificar para que o aplicativo Iniciar em [execução do pacote](run-functions-from-deployment-package.md) modo.
+Use a implantação de zip para enviar por push um arquivo. zip que contém seu aplicativo de funções para o Azure. Opcionalmente, você pode definir seu aplicativo para iniciar em [executar a partir do modo de pacote](run-functions-from-deployment-package.md) .
 
-__Como usá-lo:__ Implantar usando seus favoritos a ferramenta de cliente - [Vscode](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), ou o [CLI do Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Para implantar manualmente um arquivo zip para seu aplicativo de funções, siga as instruções em [Implantando de um arquivo zip ou uma url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+>__Como usá-lo:__ Implante usando sua ferramenta de cliente favorita: [Vs Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)ou o [CLI do Azure](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). Para implantar manualmente um arquivo. zip em seu aplicativo de funções, siga as instruções em [implantar de um arquivo. zip ou de uma URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+>
+>Ao implantar usando a implantação de zip, você pode definir seu aplicativo para ser executado em execução no modo [de pacote](run-functions-from-deployment-package.md) . Para definir executar do modo de pacote, defina `WEBSITE_RUN_FROM_PACKAGE` o valor de configuração `1`de aplicativo como. Recomendamos a implantação de zip. Ele produz tempos de carregamento mais rápidos para seus aplicativos e é o padrão para VS Code, o Visual Studio e o CLI do Azure.
 
-Além disso, quando a implantação por meio do zip implantar, os usuários podem especificar para executar seu aplicativo no [execução do pacote](run-functions-from-deployment-package.md) modo definindo o `WEBSITE_RUN_FROM_PACKAGE` valor de configuração de aplicativo como `1`. Essa opção é sugerida e resulta em tempos de carregamento mais rápidos para seus aplicativos. Isso é feito por padrão para as ferramentas de cliente acima.
+>__Quando usá-lo:__ A implantação de zip é a tecnologia de implantação recomendada para funções em execução no Windows e no Linux no plano Premium ou dedicado.
 
-__Quando usá-lo:__ Essa é a tecnologia de implantação recomendada para o Azure Functions em execução no Windows e o Azure Functions em execução no Linux no plano dedicado.
+### <a name="docker-container"></a>Recipiente de docker
 
-### <a name="docker-container"></a>Contêiner do docker
+Você pode implantar uma imagem de contêiner do Linux que contém seu aplicativo de funções.
 
-__O que ele faz:__ Especifica uma imagem de contêiner que efetuar pull e executar funções do Azure.
+>__Como usá-lo:__ Crie um aplicativo de funções do Linux no plano Premium ou dedicado e especifique a imagem de contêiner a ser executada. É possível fazer isso de duas formas:
+>
+>* Crie um aplicativo de funções do Linux em um plano de serviço Azure App no portal do Azure. Para **publicar**, selecione **imagem**do Docker e configure o contêiner. Insira o local onde a imagem está hospedada.
+>* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo usando o CLI do Azure. Para saber como, consulte [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
+>
+>Para implantar em um aplicativo existente usando um contêiner personalizado, em [Azure Functions Core Tools](functions-run-local.md), use o [`func deploy`](functions-run-local.md#publish) comando.
 
-__Como usá-lo:__ Criar um aplicativo de funções do Linux no plano dedicado e especificar qual imagem de contêiner para executar do. É possível fazer isso de duas formas:
+>__Quando usá-lo:__ Use a opção de contêiner do Docker quando precisar de mais controle sobre o ambiente do Linux em que seu aplicativo de funções é executado. Esse mecanismo de implantação está disponível somente para funções em execução no Linux em um plano do serviço de aplicativo.
 
-* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo no portal do Azure. Selecione **imagem do Docker** para **publicar**e defina o contêiner, fornecendo o local onde a imagem está hospedada.
-* Crie um aplicativo de funções do Linux em um plano do serviço de aplicativo por meio da CLI do Azure. Saiba como revisando [criar uma função no Linux usando uma imagem personalizada](functions-create-function-linux-custom-image.md#create-and-deploy-the-custom-image).
+### <a name="web-deploy-msdeploy"></a>Implantação da Web (MSDeploy)
 
-Para implantar um aplicativo existente usando um contêiner personalizado, use o [ `func deploy` ](functions-run-local.md#publish) comando da [as ferramentas básicas do Azure Functions](functions-run-local.md).
+Implantação da Web pacotes e implanta seus aplicativos do Windows em qualquer servidor IIS, incluindo seus aplicativos de função em execução no Windows no Azure.
 
-__Quando usá-lo:__ Use esta opção quando você precisa de mais controle sobre o ambiente do Linux em que seu aplicativo de funções é executado. Esse mecanismo de implantação só está disponível para as funções em execução no Linux em um plano do serviço de aplicativo.
+>__Como usá-lo:__ Use as [Ferramentas do Visual Studio para Azure Functions](functions-create-your-first-function-visual-studio.md). Desmarque a caixa **de seleção Executar do arquivo de pacote (recomendado)** .
+>
+>Você também pode baixar [implantação da Web 3,6](https://www.iis.net/downloads/microsoft/web-deploy) e chamar `MSDeploy.exe` diretamente.
 
-### <a name="web-deploy-msdeploy"></a>(MSDeploy) de implantação da Web
-
-__O que ele faz:__ Empacota e implanta os aplicativos do Windows para qualquer servidor do IIS - incluindo seus aplicativos de funções do Azure em execução no Windows.
-
-__Como usá-lo:__ Use o [ferramentas do Visual Studio para o Azure Functions](functions-create-your-first-function-visual-studio.md), e não escala o `Run from package file (recommended)` caixa de seleção.
-
-Como alternativa, chame `MSDeploy.exe` diretamente após o download [Web implantar 3.6](https://www.iis.net/downloads/microsoft/web-deploy).
-
-__Quando usá-lo:__ Essa tecnologia de implantação tem suporte e não tem nenhum problema, mas o mecanismo preferido é agora [Zip implantar com a execução do pacote habilitado](#zip-deploy). Para saber mais, visite o [guia de desenvolvimento do Visual Studio](functions-develop-vs.md#publish-to-azure).
+>__Quando usá-lo:__ Implantação da Web tem suporte e não tem problemas, mas o mecanismo preferencial é a [implantação de zip com a execução do pacote habilitado](#zip-deploy). Para saber mais, consulte o [Guia de desenvolvimento do Visual Studio](functions-develop-vs.md#publish-to-azure).
 
 ### <a name="source-control"></a>Controle do código-fonte
 
-__O que ele faz:__ Permite que você para seu aplicativo de funções de gancho até um repositório git, de modo que todas as atualizações para o código naquele repositório dispara a implantação. Para obter mais informações, examine os [Kudu Wiki](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
+Use o controle do código-fonte para conectar seu aplicativo de funções a um repositório git. Uma atualização de código nesse repositório dispara a implantação. Para obter mais informações, consulte o [wiki do kudu](https://github.com/projectkudu/kudu/wiki/VSTS-vs-Kudu-deployments).
 
-__Como usá-lo:__ Use o Centro de implantação no portal do Azure Functions para configurar a publicação do controle de origem. Para saber mais, confira [Implantação contínua do Azure Functions](functions-continuous-deployment.md).
+>__Como usá-lo:__ Use a central de implantação na área funções do portal para configurar a publicação do controle do código-fonte. Para saber mais, confira [Implantação contínua do Azure Functions](functions-continuous-deployment.md).
 
-__Quando usá-lo:__ Usando o controle do código-fonte é a prática recomendada para equipes colaboram em seus aplicativos de funções, e isso é uma ótima opção que permite que os pipelines de implantação mais sofisticados.
+>__Quando usá-lo:__ Usar o controle do código-fonte é a melhor prática para as equipes que colaboram com seus aplicativos de funções. O controle do código-fonte é uma boa opção de implantação que permite pipelines de implantação mais sofisticados.
 
 ### <a name="local-git"></a>Git local
 
-__O que ele faz:__ Permite que você envie código em seu computador local para Azure Functions usando o Git.
+Você pode usar o Git local para enviar código por push do computador local para Azure Functions usando o git.
 
-__Como usá-lo:__ Siga as instruções em [implantação do Git Local no serviço de aplicativo do Azure](../app-service/deploy-local-git.md).
+>__Como usá-lo:__ Siga as instruções em [implantação do git local para Azure app serviço](../app-service/deploy-local-git.md).
 
-__Quando usá-lo:__ Em geral, os outros métodos de implantação são recomendados. Durante a publicação do git local, você deve [sincronizar manualmente os disparadores](#trigger-syncing).
+>__Quando usá-lo:__ Em geral, recomendamos que você use um método de implantação diferente. Ao publicar do git local, você deve [sincronizar os gatilhos manualmente](#trigger-syncing).
 
 ### <a name="cloud-sync"></a>Sincronização de nuvem
 
-__O que ele faz:__ Permite que você sincronize o conteúdo do Dropbox e OneDrive para o Azure Functions.
+Use a sincronização de nuvem para sincronizar seu conteúdo do Dropbox e do OneDrive para Azure Functions.
 
-__Como usá-lo:__ Siga as instruções em [sincronizar o conteúdo de uma pasta de nuvem](../app-service/deploy-content-sync.md).
+>__Como usá-lo:__ Siga as instruções em [sincronizar conteúdo de uma pasta de nuvem](../app-service/deploy-content-sync.md).
 
-__Quando usá-lo:__ Em geral, os outros métodos de implantação são recomendados. Ao publicar com a sincronização de nuvem, você deve [sincronizar manualmente os disparadores](#trigger-syncing).
+>__Quando usá-lo:__ Em geral, recomendamos outros métodos de implantação. Ao publicar usando a sincronização de nuvem, você deve [sincronizar os gatilhos manualmente](#trigger-syncing).
 
 ### <a name="ftp"></a>FTP
 
-__O que ele faz:__ Permite que você diretamente os arquivos de transferência para o Azure Functions.
+Você pode usar o FTP para transferir arquivos diretamente para o Azure Functions.
 
-__Como usá-lo:__ Siga as instruções em [implantar o conteúdo usando FTP/s](../app-service/deploy-ftp.md).
+>__Como usá-lo:__ Siga as instruções em [implantar conteúdo usando FTP/s](../app-service/deploy-ftp.md).
 
-__Quando usá-lo:__ Em geral, os outros métodos de implantação são recomendados. Ao publicar com o FTP, você deve [sincronizar manualmente os disparadores](#trigger-syncing).
+>__Quando usá-lo:__ Em geral, recomendamos outros métodos de implantação. Ao publicar usando FTP, você deve sincronizar os [gatilhos manualmente](#trigger-syncing).
 
-### <a name="portal-editing"></a>Edição de portal
+### <a name="portal-editing"></a>Edição do portal
 
-__O que ele faz:__ Usando o editor baseado no portal permite editar diretamente arquivos no seu aplicativo de funções (essencialmente implantando a qualquer momento que você clique em **salvar**).
+No editor baseado em portal, você pode editar diretamente os arquivos que estão em seu aplicativo de funções (essencialmente implantando sempre que você salvar suas alterações).
 
-__Como usá-lo:__ Para poder editar suas funções no portal do Azure, você deve ter [criado suas funções no portal do](functions-create-first-azure-function.md). Usando qualquer outro método de implantação torna sua função somente leitura e impede a edição portal contínuo, a preservar a uma única fonte de verdade. Para retornar a um estado em que você pode editar os arquivos usando o portal do Azure, você pode manualmente ativar o modo de edição para `Read/Write` e remover as configurações relacionadas à implantação de aplicativo (como `WEBSITE_RUN_FROM_PACKAGE`).
+>__Como usá-lo:__ Para poder editar suas funções no portal do Azure, você deve ter [criado suas funções no portal](functions-create-first-azure-function.md). Para preservar uma única fonte de verdade, usar qualquer outro método de implantação torna sua função somente leitura e impede a edição continuada do Portal. Para retornar a um estado no qual você pode editar os arquivos na portal do Azure, você pode ativar manualmente o modo de edição para `Read/Write` e remover quaisquer configurações de aplicativo relacionadas à implantação (como `WEBSITE_RUN_FROM_PACKAGE`). 
 
-#### <a name="portal-editing-availability"></a>Editando a disponibilidade do Portal
+>__Quando usá-lo:__ O portal é uma boa maneira de começar a usar o Azure Functions. Para um trabalho de desenvolvimento mais intenso, recomendamos que você use uma das seguintes ferramentas de cliente:
+>
+>* [Visual Studio Code](functions-create-first-function-vs-code.md)
+>* [Azure Functions Core Tools (linha de comando)](functions-run-local.md)
+>* [Visual Studio](functions-create-your-first-function-visual-studio.md)
 
-| | Consumo do Windows | Premium (visualização) do Windows | Windows dedicado | Consumo do Linux (visualização) | Linux dedicado |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
-| JavaScript (Node.js) |✔|✔|✔| |✔<sup>1</sup>|
-| TypeScript (Node.js) | | | | | |
+A tabela a seguir mostra os sistemas operacionais e idiomas que dão suporte à edição do portal:
+
+| | Consumo do Windows | Windows Premium (versão prévia) | Windows dedicado | Consumo do Linux (versão prévia) | Linux Premium (versão prévia)| Linux dedicado |
+|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
-| Script do C# |✔|✔|✔| |✔<sup>1</sup>|
-| F# | | | | | |
-| Java | | | | | |
-| Python (versão prévia) | | | | | |
-| PowerShell (visualização) |✔|✔|✔| | |
+| Script do C# |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
+| F# | | | | | | |
+| Java | | | | | | |
+| JavaScript (Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
+| Python (Versão Prévia) | | | | | | |
+| PowerShell (visualização) |✔|✔|✔| | | |
+| TypeScript (Node.js) | | | | | | |
 
-<sup>1</sup> portal edição está habilitado para apenas os gatilhos de HTTP e o Timer para funções no Linux usando o plano dedicado.
+<sup>*</sup>A edição do portal é habilitada apenas para gatilhos HTTP e de temporizador para funções no Linux usando planos Premium e dedicados.
 
-__Quando usá-lo:__ O portal é uma ótima maneira de começar a usar com o Azure Functions, mas para qualquer trabalho de desenvolvimento mais intenso usando o cliente de ferramentas é recomendável:
+## <a name="deployment-slots"></a>Slots de implantação
 
-* [Introdução ao uso do VS Code](functions-create-first-function-vs-code.md)
-* [Começar a usar as ferramentas básicas do Azure Functions](functions-run-local.md)
-* [Introdução ao uso do Visual Studio](functions-create-your-first-function-visual-studio.md)
+Ao implantar seu aplicativo de funções no Azure, você pode implantá-lo em um slot de implantação separado em vez de implantá-lo diretamente na produção. Para obter mais informações sobre slots de implantação, consulte [Azure app slots de serviço](../app-service/deploy-staging-slots.md).
 
-## <a name="other-relevant-information"></a>Outras informações relevantes
+### <a name="deployment-slots-levels-of-support"></a>Níveis de suporte dos slots de implantação
 
-### <a name="deployment-slots"></a>Slots de implantação
+Há dois níveis de suporte para slots de implantação:
 
-Quando você implanta seu aplicativo de funções no Azure, você pode implantar em um slot de implantação separado em vez de diretamente para a produção. Para obter mais informações sobre os slots de implantação, consulte [a documentação de Slots de serviço de aplicativo do Azure](../app-service/deploy-staging-slots.md).
+* **Disponibilidade geral (GA)** : Suporte completo e aprovado para uso em produção.
+* **Versão Prévia**: Ainda não tem suporte, mas é esperado alcançar o status de GA no futuro.
 
-#### <a name="deployment-slots-levels-of-support"></a>Níveis de slots de implantação de suporte
-
-Há dois níveis de suporte:
-
-* _Geralmente disponível (GA)_ – com suporte total e aprovado para uso em produção.
-* _Versão prévia_ – ainda não tem suporte, mas é esperado para alcançar o status de GA no futuro.
-
-| Plano do serviço de sistema operacional/de hospedagem | Nível de suporte |
+| Sistema operacional/plano de hospedagem | Nível de suporte |
 | --------------- | ------ |
-| Consumo do Windows | Visualização |
-| Premium (visualização) do Windows | Visualização |
-| Windows dedicado | Disponível para o público geral |
+| Consumo do Windows | Visualizar |
+| Windows Premium (versão prévia) | Visualizar |
+| Windows dedicado | Disponibilidade Geral |
 | Consumo do Linux | Sem suporte |
-| Linux dedicado | Disponível para o público geral |
+| Linux Premium (versão prévia) | Visualizar |
+| Linux dedicado | Disponibilidade Geral |
 
 ## <a name="next-steps"></a>Próximas etapas
 
-> [!div class="nextstepaction"]
-> [Implantação contínua para o Azure Functions](functions-continuous-deployment.md)
-> [entrega contínua com o Azure DevOps](functions-how-to-azure-devops.md)
-> [Zip implantações do Azure Functions](deployment-zip-push.md) 
->  [Executar o Azure Functions de um arquivo de pacote](run-functions-from-deployment-package.md)
-> [automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions](functions-infrastructure-as-code.md)
+Leia estes artigos para saber mais sobre como implantar seus aplicativos de funções: 
+
++ [Implantação contínua para Azure Functions](functions-continuous-deployment.md)
++ [Entrega contínua usando o Azure DevOps](functions-how-to-azure-devops.md)
++ [Implantações zip para Azure Functions](deployment-zip-push.md)
++ [Executar o Azure Functions de um arquivo de pacote](run-functions-from-deployment-package.md)
++ [Automatizar a implantação de recursos para seu aplicativo de funções no Azure Functions](functions-infrastructure-as-code.md)

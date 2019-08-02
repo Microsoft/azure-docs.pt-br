@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: alkohli
 ms.openlocfilehash: b657ee32e76dd90671f7e91337ced01b925889a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66161201"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172381"
 ---
 Se você enfrentar problemas no dispositivo, você pode criar um pacote de suporte dos logs do sistema. Microsoft Support usará esse pacote para solucionar os problemas. Siga estas etapas para criar um pacote de suporte:
 

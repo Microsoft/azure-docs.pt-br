@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/13/2019
+ms.date: 07/22/2019
 ms.author: srrengar
 ms.custom: mvc
-ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63069dcdebf19c64d7bcde298fa234622a6d9a2b
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158048"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385280"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Monitorar um cluster do Service Fabric no Azure
 
@@ -62,7 +62,7 @@ O Azure Monitor coleta e analisa a telemetria dos aplicativos e serviços hosped
 
 Para acessar a solução de análise do Service Fabric, vá para o [portal do Azure](https://portal.azure.com) e selecione o grupo de recursos em que você criou a solução de Análise do Service Fabric.
 
-Selecione o recurso **ServiceFabric(meuespaçodetrabalho)**.
+Selecione o recurso **ServiceFabric(meuespaçodetrabalho)** .
 
 Em **Visão geral** você verá o bloco na forma de um gráfico para cada uma das soluções habilitadas, incluindo uma para o Service Fabric. Clique no grafo **Service Fabric** para ir para a solução de Análise do Service Fabric.
 
@@ -236,7 +236,7 @@ Para configurar os eventos mais detalhados para atores confiáveis, você pode a
 ## <a name="view-performance-counters-with-azure-monitor-logs"></a>Exibir contadores de desempenho com logs do Azure Monitor
 Para visualizar contadores de desempenho, vá para o [portal do Azure](https://portal.azure.com) e para o grupo de recursos em que você criou a solução de Análise do Service Fabric. 
 
-Selecione o recurso **ServiceFabric(mysfomsworkspace)**, em seguida, **Espaço de trabalho do Log Analytics**e então **Configurações avançadas**.
+Selecione o recurso **ServiceFabric(mysfomsworkspace)** , em seguida, **Espaço de trabalho do Log Analytics**e então **Configurações avançadas**.
 
 Clique em **Dados**, depois clique em **Contadores de Desempenho Windows**. Há uma lista de contadores padrão que você pode habilitar, além de também poder definir o intervalo de coleta. Você pode também adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para coletar. O formato correto é referenciado neste [artigo](/windows/desktop/PerfCtrs/specifying-a-counter-path). Clique em **Salvar**, depois em **OK**.
 

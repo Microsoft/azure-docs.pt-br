@@ -2,19 +2,19 @@
 title: Perguntas frequentes - Tradutor personalizado
 titleSuffix: Azure Cognitive Services
 description: Fornece respostas a perguntas frequentes sobre o Custom Translator.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 79dc5baacb19143f2b31de7f3822af382c2e6cf4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66384052"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595825"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 06/28/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa820d6c140251fce6b09110e65b45005b53afcc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e7b3e02222580da67a4eeb4159e4fc5dc3b9a98f
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60289483"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67501680"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar minhas funções do Azure AD no PIM
 
@@ -41,25 +41,25 @@ Quando você precisar assumir uma função do Azure AD, você poderá solicitar 
 
 1. Clique em **minhas funções** para ver uma lista de seus qualificados para funções do Azure AD.
 
-    ![Funções do Azure AD - minhas funções](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Funções do Azure AD - minhas funções mostrando a lista de funções qualificadas ou Active Directory](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Localize uma função que você deseja ativar.
 
-    ![Funções do Azure AD - minha lista de funções](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Ativar funções do Azure AD - minha lista de funções qualificadas mostrando o link](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Clique em **Ativar** para abrir o painel Detalhes de ativação de função.
 
 1. Se sua função exigir a MFA (autenticação multifator), clique em **Verificar sua identidade antes de prosseguir**. Você só precisa se autenticar uma vez por sessão.
 
-    ![Verificar com o MFA antes da ativação de função](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
+    ![Verifique se o meu painel de identidade com MFA antes da ativação de função](./media/pim-how-to-activate-role/directory-roles-my-roles-mfa.png)
 
 1. Clique em **Verificar minha identidade** e siga as instruções para fornecer a verificação de segurança adicional.
 
-    ![Verificação de segurança adicional](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Página de verificação de segurança adicionais, perguntando como entrar em contato com você](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. Clique em **Ativar** para abrir o painel Ativação.
 
-    ![Painel Ativação](./media/pim-how-to-activate-role/directory-roles-activate.png)
+    ![Painel de ativação para especificar a hora de início, duração, tíquete e motivo](./media/pim-how-to-activate-role/directory-roles-activate.png)
 
 1. Se necessário, especifique uma hora de início de ativação personalizada.
 
@@ -67,19 +67,19 @@ Quando você precisar assumir uma função do Azure AD, você poderá solicitar 
 
 1. Na caixa **Motivo da ativação**, insira o motivo para a solicitação de ativação. Algumas funções exigem que você forneça um número de tíquete de problema.
 
-    ![Painel Ativação Concluída](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
+    ![Painel de ativação concluída com uma hora de início personalizados, duração, tíquete e motivo](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
 1. Clique em **Ativar**.
 
     Se a função não exigir aprovação, uma **status de ativação** painel será exibido que exibe o status de ativação.
 
-    ![Status de ativação](./media/pim-how-to-activate-role/activation-status.png)
+    ![Página de status de ativação que mostra três estágios de ativação](./media/pim-how-to-activate-role/activation-status.png)
 
     Depois que todas as etapas forem concluídas, clique no **sair** link para sair do portal do Azure. Quando você entrar no portal, agora você pode usar a função.
 
     Se a [função exigir aprovação](./azure-ad-pim-approval-workflow.md) para ser ativada, uma notificação será exibida no canto superior direito do seu navegador informando que a solicitação está com a aprovação pendente.
 
-    ![Notificação de solicitação pendente](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
+    ![Solicitação de ativação é a notificação de aprovação pendente](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
 ## <a name="view-the-status-of-your-requests"></a>Exibir o status de suas solicitações
 
@@ -91,7 +91,7 @@ Você pode exibir o status das suas solicitações pendentes a serem ativadas.
 
 1. Clique em **Minhas solicitações** para ver uma lista das suas solicitações.
 
-    ![Funções do Azure AD - Minhas solicitações](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Funções do Azure AD - minha lista de solicitações](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Desativar uma função
 
@@ -123,15 +123,19 @@ Caso não precise da ativação de uma função que requer aprovação, você po
 
     Quando você clicar em Cancelar, a solicitação será cancelada. Para ativar a função novamente, você precisará enviar uma nova solicitação de ativação.
 
-   ![Cancelar uma solicitação pendente](./media/pim-how-to-activate-role/directory-role-cancel.png)
+   ![Minha lista de solicitações com o botão Cancelar realçado](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Solução de problemas
+## <a name="troubleshoot"></a>Solucionar problemas
 
-### <a name="permissions-not-granted-after-activating-a-role"></a>Permissões não concedidas depois de ativar uma função
+### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não são concedidas após a ativação de uma função
 
-Quando você ativa uma função no PIM, leva pelo menos 10 minutos para acessar o portal administrativo desejado ou executar funções dentro de uma carga de trabalho administrativa específica. Quando a ativação for concluída, saia do portal do Azure e entre novamente para começar a usar a função recém-ativado.
+Quando você ativa uma função no PIM, a ativação não pode propagar instantaneamente para todos os portais que exigem a função com privilégios. Às vezes, mesmo se a alteração é propagada, cache da web em um portal pode resultar na alteração não entrarem em vigor imediatamente. Se a ativação está atrasada, aqui está o que você deve fazer.
 
-Para obter etapas adicionais de solução de problemas, consulte [Solucionando problemas de permissões elevadas](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
+1. Saia do portal do Azure e entre novamente.
+
+    Quando você ativa uma função do AD do Azure, você verá os estágios de sua ativação. Depois que todas as etapas forem concluídas, você verá uma **sair** link. Você pode usar este link para sair. Isso resolverá a maioria dos casos para o atraso de ativação.
+
+1. No PIM, verifique se que você está listado como o membro da função.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 067280cdad85f59106bce5ff214e2fa9eddf3b71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: HT
+ms.openlocfilehash: e6e1014ac20ef70f21344ec6ece5627eccb7ba66
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133863"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67148392"
 ---
 Aqui estão as restrições de uso e outros limites de serviço para o serviço Microsoft Azure Active Directory (Azure AD).
 
@@ -29,4 +29,4 @@ Aqui estão as restrições de uso e outros limites de serviço para o serviço 
 | Painel de acesso |<ul><li>Não há nenhum limite para o número de aplicativos que podem ser vistos no Painel de Acesso por usuário. Isso se aplica às licenças do Azure AD Premium ou do Enterprise Mobility + Security E3 atribuídas aos usuários.</li><li>No máximo 10 blocos de aplicativos podem ser vistos no Painel de Acesso para cada usuário. Esse limite aplica-se aos usuários com licenças atribuídas das edições Gratuita ou Azure AD Basic do Azure Active Directory. Exemplos de blocos de aplicativos incluem o Box, o Salesforce ou o Dropbox. Esse limite não se aplica às contas de administrador.</li></ul> |
 | Relatórios | Um máximo de 1.000 linhas podem ser exibidas ou baixadas em qualquer relatório. Todos os dados adicionais serão truncados. |
 | Unidades administrativas | Um objeto pode ser um membro de até 30 unidades administrativas. |
-| Funções e permissões do administrador | <ul><li>Um grupo não pode ser adicionado como um [proprietário](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Um grupo não pode ser atribuído a um [função](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>A capacidade dos usuários para ler as informações de diretório de outros usuários não pode ser restrita fora o comutador de locatários para desabilitar o acesso de todos os usuários não administradores a todas as informações de diretório (não recomendados). Obter mais informações sobre as permissões padrão [aqui](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pode levar até 15 minutos ou out/entrar antes de administrador de assinatura revogações e adições de associação de função tenham efeito.</li></ul> |
+| Funções e permissões do administrador | <ul><li>Um grupo não pode ser adicionado como um [proprietário](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#object-ownership).</li><li>Um grupo não pode ser atribuído a um [função](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).</li><li>A capacidade dos usuários para ler as informações de diretório de outros usuários não pode ser restrita fora o comutador de locatários para desabilitar o acesso de todos os usuários não administradores a todas as informações de diretório (não recomendados). Obter mais informações sobre as permissões padrão [aqui](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context#to-restrict-the-default-permissions-for-member-users).</li><li>Pode levar até 15 minutos ou out/entrar antes de administrador de assinatura revogações e adições de associação de função tenham efeito.</li></ul> |

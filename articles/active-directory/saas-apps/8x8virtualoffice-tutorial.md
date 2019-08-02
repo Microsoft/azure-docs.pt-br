@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9385ec6a86c24e619ffafdae67bc66f66e099f3b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 1fb9ee12c0373f2d7038417935709caae4a6eb43
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897014"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107480"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-8x8-virtual-office"></a>Tutorial: Integração do Azure Active Directory com o 8x8 Virtual Office
 
@@ -56,7 +56,7 @@ Para configurar a integração do 8x8 Virtual Office ao Azure AD, você precisar
 
 **Para adicionar o 8x8 Virtual Office por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o 8x8 Virtual Office, realize as 
 
     ![Domínio 8x8 Virtual Office e informações de logon único de URLs](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://sso.8x8.com/saml2`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://sso.8x8.com/saml2`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://sso.8x8.com/saml2`
 
@@ -154,7 +154,7 @@ Para configurar o logon único do Azure AD com o 8x8 Virtual Office, realize as 
 
    ![Configurar no lado do aplicativo](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
-    a. Na caixa de texto **URL de login**, cole o **valor do URL de login** que você copiou do portal do Azure.
+   a. Na caixa de texto **URL de login**, cole o **valor do URL de login** que você copiou do portal do Azure.
 
    b. No **URL de logoff** caixa de texto, cole **URL de logoff** valor que você copiou do portal do Azure.
 
@@ -234,5 +234,5 @@ Ao clicar no bloco do 8x8 Virtual Office no Painel de Acesso, você deverá ser 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

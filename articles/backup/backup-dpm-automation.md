@@ -1,19 +1,18 @@
 ---
 title: Backup do Azure - Use o PowerShell para fazer backup de cargas de trabalho do DPM
 description: Saiba como implantar e gerenciar o backup do Azure para o Data Protection Manager (DPM) usando o PowerShell
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: b16963265c971e604f03b51fd63f7fe411bab36e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a269db3d97f23c16e848026ce78fc04c7a1182e8
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66127771"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68465144"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Implantar e gerenciar o backup do Azure para servidores do Data Protection Manager (DPM) usando o PowerShell
 
@@ -42,7 +41,7 @@ Sample DPM scripts: Get-DPMSampleScript
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para começar, [baixar o Azure PowerShell mais recente](/powershell/azure/install-az-ps).
+Para começar, [Baixe o Azure PowerShell mais recente](/powershell/azure/install-az-ps).
 
 As seguintes tarefas de configuração e de registro podem ser automatizadas com o PowerShell:
 
@@ -68,7 +67,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
     New-AzResourceGroup –Name "test-rg" –Location "West US"
     ```
 
-3. Use o **New-AzRecoveryServicesVault** para criar um novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
+3. Use o cmdlet **New-AzRecoveryServicesVault** para criar um novo cofre. Lembre-se de especificar o mesmo local para o cofre usado para o grupo de recursos.
 
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "West US"
@@ -90,7 +89,7 @@ As etapas a seguir orientarão você durante a criação de um cofre dos Serviç
 
 Use **Get-AzRecoveryServicesVault** para exibir a lista de todos os cofres na assinatura atual. Você pode usar esse comando para verificar se um novo cofre foi criado ou para ver quais cofres estão disponíveis na assinatura.
 
-Execute o comando, Get-AzRecoveryServicesVault, e todos os cofres na assinatura serão listados.
+Execute o comando, Get-AzRecoveryServicesVault e todos os cofres na assinatura são listados.
 
 ```powershell
 Get-AzRecoveryServicesVault
@@ -274,7 +273,7 @@ A lista dos servidores nos quais o Agente do DPM está instalado e sendo gerenci
 $server = Get-ProductionServer -DPMServerName "TestingServer" | Where-Object {($_.servername) –contains “productionserver01”}
 ```
 
-Agora obtenha a lista de fontes de dados em ```$server``` usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Neste exemplo, estamos filtrando para o volume *unidade d:\\*  que desejamos configurar para o backup. Esta fonte de dados é adicionada ao Grupo de Proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Lembre-se de usar o objeto de grupo de proteção *modificável*```$MPG``` para fazer as adições.
+Agora obtenha a lista de fontes de dados em ```$server``` usando o cmdlet [Get-DPMDatasource](https://technet.microsoft.com/library/hh881605). Neste exemplo, estamos filtrando para o volume *D:\\*  que desejamos configurar para backup. Esta fonte de dados é adicionada ao Grupo de Proteção usando o cmdlet [Add-DPMChildDatasource](https://technet.microsoft.com/library/hh881732). Lembre-se de usar o objeto de grupo de proteção *modificável*```$MPG``` para fazer as adições.
 
 ```powershell
 $DS = Get-Datasource -ProductionServer $server -Inquire | Where-Object { $_.Name -contains “D:\” }

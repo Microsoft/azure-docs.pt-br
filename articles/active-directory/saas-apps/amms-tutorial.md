@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 798245dc293ecac01fb874fc57b98b14d258f686
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: b6b0d3248e63f4fc053748cda1633497d4eb4285
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900299"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107027"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amms"></a>Tutorial: Integração do Azure Active Directory com AMMS
 
@@ -54,7 +54,7 @@ Para configurar a integração do AMMS ao Azure AD, você precisa adicionar o AM
 
 **Para adicionar o AMMS por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,9 +106,9 @@ Para configurar o logon único do Azure AD com o AMMS, execute as seguintes etap
 
     ![Informações de logon único de Domínio e URLs do AMMS](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.microwestcloud.com/amms/pages/login.aspx`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `<SUBDOMAIN>.microwestcloud.com/amms`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `<SUBDOMAIN>.microwestcloud.com/amms`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do AMMS](mailto:techsupport@microwestsoftware.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

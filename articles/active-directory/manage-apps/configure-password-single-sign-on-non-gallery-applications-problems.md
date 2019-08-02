@@ -1,6 +1,6 @@
 ---
-title: Como configurar o logon único com senha para um aplicativo que não seja da galeria | Microsoft Docs
-description: Compreender os problemas comuns que as pessoas enfrentam ao configurar o Logon Único com Senha para aplicativos personalizados que não estão listados na Galeria do Aplicativo Azure AD
+title: Problemas ao configurar o SSO de senha para um aplicativo inexistente na Galeria | Microsoft Docs
+description: Problemas comuns que ocorrem quando você definir senha logon único (SSO) para aplicativos personalizados que não estão na Galeria de aplicativos do Azure AD.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -15,249 +15,241 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 24330dc874173ba1c6f15abb7b4caf9f23e2e00c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60442057"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67440347"
 ---
-# <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único com senha para um aplicativo que não seja da galeria
+# <a name="problems-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problemas ao configurar senha logon único para um aplicativo inexistente na Galeria
 
-Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo que não seja da Galeria.
+Este artigo descreve problemas comuns que podem ocorrer quando você configura *logon único senha* (SSO) para um aplicativo inexistente na Galeria.
 
-## <a name="how-to-capture-sign-in-fields-for-an-application"></a>Como capturar campos de entrada para um aplicativo
+## <a name="capture-sign-in-fields-for-an-app"></a>Capturar campos de entrada para um aplicativo
 
-Captura de campo de entrada só tem suporte para páginas de entrada habilitadas por HTML e **não tem suporte para páginas de entrada não padrão**, como aquelas que usam Flash ou outras tecnologias de HTML não habilitado.
+Captura de campo de entrada só tem suporte para páginas de entrada habilitados por HTML. Ele não tem suporte para não-padrão páginas de entrada, como aqueles que usam o Adobe Flash ou outras tecnologias de HTML não habilitado.
 
-Há duas maneiras que você pode capturar campos de entrada para aplicativos personalizados:
+Há duas maneiras para capturar campos de entrada para seus aplicativos personalizados:
 
--   Captura automática de campo de entrada
+- **Captura de campo de entrada automática** funciona bem com a maioria dos habilitados por HTML páginas de entrada, *se eles usarem IDs DIV conhecidos* para os campos de nome e a senha do usuário. O HTML da página é extraído para localizar IDs de DIV que correspondem a determinados critérios. Se os metadados é salvo para que ele possa ser reproduzido para o aplicativo mais tarde.
 
--   Captura manual de campo de entrada
+- **Captura de campo de entrada manual** será usado se o fornecedor do aplicativo *não rotular os campos de entrada entrar*. Captura manual também será usada se o fornecedor *renderiza vários campos que não podem ser detectados automaticamente*. Azure Active Directory (Azure AD) pode armazenar dados para quantos campos existem na página de entrada, se você o informe onde esses campos estão na página.
 
-**Captura automática de campo de entrada** funciona bem com a maioria das páginas de entrada habilitadas com HTML, se eles usarem **IDs DIV conhecidos para o campo de nome de usuário e a senha de entrada**. A maneira como isso funciona é pela captura do HTML na página para localizar IDs de DIV que correspondem a determinados critérios e salvando esses metadados para este aplicativo, para repetir senhas mais tarde.
+Em geral, se a captura de campo de entrada automática não funcionar, tente a opção manual.
 
-A **Captura manual de campo de entrada** pode ser usada no caso do **fornecedor do aplicativo não rotular** os campos de entrada usados para entrar. A Captura manual de campo de entrada também pode ser usado no caso de quando o **fornecedor renderiza vários campos** que não podem ser detectados automaticamente. O Azure Active Directory pode armazenar dados para quantos campos forem necessários na página de entrada, contanto que você nos informe onde esses campos estão na página.
+### <a name="automatically-capture-sign-in-fields-for-an-app"></a>Capturar automaticamente os campos de entrada para um aplicativo
 
-Em geral, **se captura manual do campo de entrada não funcionar, experimente a opção manual.**
+Para configurar o SSO baseado em senha por meio da captura de campo de entrada automática, siga estas etapas:
 
-### <a name="how-to-automatically-capture-sign-in-fields-for-an-application"></a>Como capturar automaticamente os campos de entrada para um aplicativo
+1. Abra o [Portal do Azure](https://portal.azure.com/). Entrar como um administrador global ou um coadministrador.
 
-Configurar **Logon único baseado em senha** para um aplicativo usando **captura automática do campo de entrada**, siga as etapas abaixo:
+2. No painel de navegação à esquerda, selecione **todos os serviços** para abrir a extensão do AD do Azure.
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+3. Tipo de **Azure Active Directory** na caixa de pesquisa do filtro e selecione **Azure Active Directory**.
 
-2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
 
-3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+5. Selecione **todos os aplicativos** para exibir uma lista dos seus aplicativos.
 
-4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+   > [!NOTE]
+   > Se você não vir o aplicativo que você deseja, use o **filtro** controle na parte superior das **todos os aplicativos** lista. Defina as **Mostrar** opção para "Todos os aplicativos".
 
-5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+6. Selecione o aplicativo que você deseja configurar para que o SSO.
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação à esquerda.
 
-6. Selecione o aplicativo para o qual você deseja configurar o logon único.
+8. Selecione **baseado em senha logon** modo.
 
-7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+9. Insira o **URL de logon**, que é a URL da página em que os usuários inserem o nome de usuário e a senha para entrar. *Certifique-se de que os campos de entrada estão visíveis na página para a URL que você fornecer*.
 
-8. Selecione o modo **Logon baseado em senha.**
+10. Clique em **Salvar**.
 
-9. Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
+    A página é extraída automaticamente para as caixas de chamadas entradas nome e senha de usuário. Agora você pode usar o AD do Azure para transmitir com segurança as senhas para que o aplicativo usando a extensão de navegador do painel de acesso.
 
-10. Clique no botão **Salvar**.
+### <a name="manually-capture-sign-in-fields-for-an-app"></a>Capturar manualmente os campos de entrada para um aplicativo
 
-11. Depois de fazer isso, essa URL é automaticamente recortada para uma caixa de entrada de nome de usuário e senha e permite que você use o Azure Active Directory para transmitir com segurança senhas a esse aplicativo, usando a extensão do navegador do painel de acesso.
+Para capturar manualmente campos de entrada, você deve ter a extensão de navegador do painel de acesso instalada. Além disso, seu navegador não pode estar em execução no *inPrivate*, *incognito*, ou *privada* modo.
 
-## <a name="how-to-manually-capture-sign-in-fields-for-an-application"></a>Como capturar manualmente campos de entrada para um aplicativo
+Para instalar a extensão, consulte o [instalar a extensão de navegador do painel de acesso](#install-the-access-panel-browser-extension) seção deste artigo.
 
-Para capturar manualmente os campos de entrada, você deve primeiramente ter a extensão do navegador do painel de acesso instalada e **não estar sendo executado no modo inPrivate, incógnito ou privado.** Para instalar a extensão do navegador, siga as etapas na seção [Como instalar a extensão de navegador do painel de acesso](#i-cannot-manually-detect-sign-in-fields-for-my-application).
+Para configurar o SSO baseado em senha para um aplicativo usando a captura de campo de entrada manual, siga estas etapas:
 
-Para configurar **Logon único baseado em senha** para um aplicativo usando **captura manual do campo de entrada**, siga as etapas abaixo:
+1. Abra o [Portal do Azure](https://portal.azure.com/). Entrar como um administrador global ou um coadministrador.
 
-1. Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
+2. No painel de navegação à esquerda, selecione **todos os serviços** para abrir a extensão do AD do Azure.
 
-2. Abra a **Extensão do Azure Active Directory** clicando em **Todos os serviços** na parte superior do menu de navegação esquerdo principal.
+3. Tipo de **Azure Active Directory** na caixa de pesquisa do filtro e selecione **Azure Active Directory**.
 
-3. Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+4. Selecione **aplicativos empresariais** no painel de navegação do Azure AD.
 
-4. clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+5. Selecione **todos os aplicativos** para exibir uma lista dos seus aplicativos.
 
-5. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+   > [!NOTE] 
+   > Se você não vir o aplicativo que você deseja, use o **filtro** controle na parte superior das **todos os aplicativos** lista. Defina as **Mostrar** opção para "Todos os aplicativos".
 
-   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
+6. Selecione o aplicativo que você deseja configurar para que o SSO.
 
-6. Selecione o aplicativo para o qual você deseja configurar o logon único.
+7. Depois que o aplicativo for carregado, selecione **logon único** no painel de navegação à esquerda.
 
-7. Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+8. Selecione **baseado em senha logon** modo.
 
-8. Selecione o modo **Logon baseado em senha.**
+9. Insira o **URL de logon**, que é a página em que os usuários inserem o nome de usuário e a senha para entrar. *Certifique-se de que os campos de entrada estão visíveis na página para a URL que você fornecer*.
 
-9. Insira a **URL de Entrada**, a URL onde os usuários inserem o nome de usuário e senha para entrar. **Verifique se os campos de entrada estão visíveis na URL que você fornece**.
+10. Selecione **configurar *&lt;appname&gt;* configurações de logon único com senha**.
 
-10. Clique no botão **Salvar**.
+11. Selecione **detectar manualmente campos de entrada**.
 
-11. Depois de fazer isso, essa URL é automaticamente recortada para uma caixa de entrada de nome de usuário e senha e permite que você use o Azure Active Directory para transmitir com segurança senhas a esse aplicativo, usando a extensão do navegador do painel de acesso. Em caso de falha, você poderá **alterar o modo de entrada para usar a captura de campo de entrada manual** continuando até a etapa 12.
-
-12. clique em **Configurar &lt;appname&gt; configurações de logon único com senha**.
-
-13. Selecione a opção de configuração **Detectar manualmente os campos de entrada**.
-
-14. Clique em **OK**.
+14. Selecione **Okey**.
 
 15. Clique em **Salvar**.
 
-16. Siga as instruções na tela para usar o painel de acesso.
+16. Siga as instruções para usar o painel de acesso.
 
-## <a name="i-see-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Vejo o erro "Não foi possível encontrar os campos de entrada nessa URL"
+## <a name="troubleshoot-problems"></a>Solucionar problemas
 
-Você vê este erro quando a detecção automática de campos de entrada falha. Para resolver o problema, tente detecção de campo de entrada manual, seguindo as etapas na seção [Como capturar manualmente os campos de entrada para um aplicativo](#how-to-manually-capture-sign-in-fields-for-an-application).
+### <a name="i-get-a-we-couldnt-find-any-sign-in-fields-at-that-url-error"></a>Recebo um erro "Não foi possível encontrar quaisquer campos de entrada nessa URL"
 
-## <a name="i-see-an-unable-to-save-single-sign-on-configuration-error"></a>Vejo um erro de "não é possível salvar a configuração de logon único"
+Você receber essa mensagem de erro quando ocorre falha na detecção automática de campos de entrada. Para resolver o problema, tente detecção de campo de entrada manual. Consulte a [capturar manualmente os campos de entrada para um aplicativo](#manually-capture-sign-in-fields-for-an-app) seção deste artigo.
 
-Em alguns casos raros, atualizar a configuração de logon único pode falhar. Para resolver, tente salvar a configuração de logon único novamente.
+### <a name="i-get-an-unable-to-save-single-sign-on-configuration-error"></a>Recebo um "não é possível salvar a configuração de logon única" Erro
 
-Se continuar falhando consistentemente, abra um caso de suporte e forneça as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer).
+Raramente, atualizando a configuração de SSO falhará. Para resolver esse problema, tente salvar a configuração novamente.
 
-## <a name="i-cannot-manually-detect-sign-in-fields-for-my-application"></a>Não posso manualmente detectar os campos de entrada para meu aplicativo
+Se você estiver recebendo o erro, abra um caso de suporte. Incluir as informações que são descritas o [exibir detalhes de notificação no portal](#view-portal-notification-details) e [enviar detalhes da notificação a um engenheiro de suporte para obter ajuda](#send-notification-details-to-a-support-engineer-to-get-help) seções deste artigo.
 
-Alguns dos comportamentos que você pode ver quando a detecção manual não está funcionando incluem:
+### <a name="i-cant-manually-detect-sign-in-fields-for-my-app"></a>Não posso manualmente detectar os campos de entrada para meu aplicativo
 
--   O processo de captura manual pareceu funcionar, mas os campos capturados não estavam corretos
+Quando a detecção manual não está funcionando, você pode observar os seguintes comportamentos:
 
--   Os campos à direita não são destacados ao executar o processo de captura
+- O processo de captura manual pareceu funcionar, mas os campos capturados não estiverem corretos.
 
--   O processo de captura me leva à página de logon do aplicativo conforme o esperado, mas nada acontece
+- Os campos corretos não são destacados quando o processo de captura é executado.
 
--   Captura manual parece funcionar, mas SSO não acontece quando meus usuários navegam para o aplicativo de painel de acesso.
+- O processo de captura guiará à página de entrada do aplicativo conforme o esperado, mas nada acontece.
 
-Verifique se você encontra algum desses problemas:
+- Captura manual parece funcionar, mas SSO não acontece quando os usuários navegam para o aplicativo do painel de acesso.
 
--   Verifique se você tem a versão mais recente da extensão de navegador do painel de acesso **instalada** e **habilitada**, seguindo as etapas na seção [Como instalar a extensão de navegador do painel de acesso](#how-to-install-the-access-panel-browser-extension).
+Se você tiver qualquer um desses problemas, faça o seguinte:
 
--   Certifique-se de que você não está tentando o processo de captura ao seu navegador em **modo incógnito, inPrivate ou privado**. Não há suporte para a extensão do painel de acesso nesses modos.
+- Certifique-se de que você tenha a versão mais recente da extensão de navegador do painel de acesso *instalado e habilitado*. Consulte a [instalar a extensão de navegador do painel de acesso](#install-the-access-panel-browser-extension) seção deste artigo.
 
--   Certifique-se de que os usuários não estão tentando entrar no aplicativo usando o painel de acesso no **modo incógnita, inPrivate ou privado**. Não há suporte para a extensão do painel de acesso nesses modos.
+- Certifique-se de que seu navegador não está na *incognito*, *inPrivate*, ou *privada* modo durante o processo de captura. Não há suporte para a extensão do painel de acesso em um desses modos.
 
--   Tente o processo de captura manual novamente, garantindo que os marcadores vermelhos estão sobre os campos corretos.
+- Certifique-se de que os usuários não estão tentando entrar no aplicativo de painel de acesso ao mesmo tempo em *incognito*, *inPrivate*, ou *modo particular*.
 
--   Se o processo de captura manual parece parar de responder, ou a página de entrada não faz nada (caso 3 acima), repita o processo de captura manual. Mas, desta vez depois de concluir o processo, pressione **F12** para abrir o console do desenvolvedor do navegador. Uma vez lá, abra o **console** e digite **window.location= "&lt;insira o símbolo na URL de conexão que você especificou ao configurar o aplicativo&gt;"** e pressione **Enter**. Isso força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
+- Repita o processo de captura manual. Certifique-se de que os marcadores vermelhos estão sobre os campos corretos.
 
-Se nenhuma dessas abordagens funcionar para você, o suporte pode ajudar. Abra um caso de suporte com os detalhes de que você tentou, bem como as informações coletadas das seções [Como ver os detalhes de uma notificação no portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) e [Como obter ajuda enviando detalhes de notificação a um engenheiro de suporte](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (se aplicável).
+- Se o processo de captura manual parece parar de responder ou página de entrada não responde, repita o processo de captura manual. Mas, desta vez, depois de concluir o processo, pressione a tecla F12 para abrir o console do desenvolvedor do navegador. Selecione o **console** guia. Tipo de **Window " *&lt;a URL de entrada que você especificou ao configurar o aplicativo&gt;* "** , e pressione Enter. Isso força um redirecionamento de página que termina o processo de captura e armazena os campos que foram capturados.
 
-## <a name="how-to-install-the-access-panel-browser-extension"></a>Como instalar a extensão do Navegador do Painel de Acesso
+### <a name="contact-support"></a>Contate o suporte
 
-Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seguir:
+Se você ainda tiver problemas, abra um caso com o Microsoft Support. Descreva o que você tentou. Incluir os detalhes que são descritos na [exibir detalhes de notificação no portal](#view-portal-notification-details) e [enviar detalhes da notificação a um engenheiro de suporte para obter ajuda](#send-notification-details-to-a-support-engineer-to-get-help) seções deste artigo (se aplicável).
 
-1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
+## <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão de navegador do painel de acesso
 
-2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
+Siga estas etapas:
 
-3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
+1. Abra [painel de acesso](https://myapps.microsoft.com) em um navegador com suporte. Entrar no Azure AD como um *usuário*.
 
-4.  Com base no seu navegador, você será direcionado para o link de download. **Adicione** a extensão ao seu navegador.
+2. Selecione **aplicativo de SSO de senha** no painel de acesso.
 
-5.  Se o navegador solicitar, selecione como **Habilitar** ou **Permitir** a extensão.
+3. Quando você for solicitado a instalar o software, selecione **instalar agora**.
 
-6.  Quando estiver instalado, **reinicie** a sessão do navegador.
+4. Você será direcionado para uma página de download para o seu navegador. Escolher **adicionar** a extensão.
 
-7.  Entrar no Painel de Acesso e ver se é possível **iniciar** os aplicativos de SSO de senha.
+5. Se você for solicitado, selecione **habilitar** ou **permitir**.
 
-Também é possível baixar a extensão para Chrome e Firefox diretamente pelos links abaixo:
+6. Após a instalação, reinicie o navegador.
 
--   [Extensão do Painel de Acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+7. Entrar no painel de acesso. Veja se você pode abrir os aplicativos habilitados por SSO de senha.
 
--   [Extensão do Painel de Acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
+Também diretamente, você pode baixar a extensão do navegador para Chrome e Firefox por meio destes links:
 
-## <a name="how-to-see-the-details-of-a-portal-notification"></a>Como ver os detalhes de uma notificação do portal
+-   [Extensão do painel de acesso do Chrome](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
 
-Veja os detalhes de qualquer notificação do portal executando as etapas abaixo:
+-   [Extensão do painel de acesso do Firefox](https://addons.mozilla.org/firefox/addon/access-panel-extension/)
 
-1. Clique no ícone **Notificações** (o sino) na parte superior direita do Portal do Azure
+## <a name="view-portal-notification-details"></a>Exibir detalhes de notificação no portal
 
-2. Selecione qualquer notificação com estado de **Erro** (aquelas com um (!) vermelho ao lado).
+Para ver os detalhes de qualquer notificação no portal, siga estas etapas:
 
-   >!NOTA] Não é possível clicar em notificações com estado de **Êxito** ou **Em Andamento**.
-   >
-   >
+1. Selecione o **notificações** ícone (o sino) no canto superior direito do portal do Azure.
 
-3. Isso abre o painel **Detalhes de Notificação**.
+2. Selecione qualquer notificação que mostra uma *erro* estado. (Elas têm um vermelho "!".)
 
-4. Use as informações para saber mais detalhes sobre o problema.
+   > [!NOTE]
+   > Não é possível selecionar as notificações que estão na *bem-sucedida* ou *em andamento* estado.
 
-5. Se ainda precisar de ajuda, você também poderá compartilhar as informações com um engenheiro de suporte ou com o grupo de produtos para obter ajuda com o problema.
+3. Isso abre o painel **Detalhes de Notificação**. Leia as informações para saber mais sobre o problema.
 
-6. Clique no **ícone** de **cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes da notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos.
+5. Se você ainda precisar de Ajuda, compartilhe informações com um engenheiro de suporte ou o grupo de produtos. Selecione o **cópia** ícone à direita do **copiar erro** caixa para copiar os detalhes de notificação para compartilhar.
 
-## <a name="how-to-get-help-by-sending-notification-details-to-a-support-engineer"></a>Como obter ajuda enviando detalhes da notificação a um engenheiro de suporte
+## <a name="send-notification-details-to-a-support-engineer-to-get-help"></a>Enviar detalhes da notificação a um engenheiro de suporte para obter ajuda
 
-É muito importante que você compartilhe **todos os detalhes abaixo** com um engenheiro de suporte caso precise de ajuda, para que ele possa ajudar rapidamente. Você pode **tirar uma captura de tela,** ou clicar no **ícone Copiar erro**, localizado à direita da caixa de texto **Copiar erro**.
+É importante que você compartilhe *todos os* os detalhes que estão listados nesta seção com suporte para que eles podem ajudá-lo rapidamente. Para registrar a ele, você pode tirar uma captura de tela ou selecionar **copiar erro**.
 
-## <a name="notification-details-explained"></a>Detalhes da notificação explicados
-
-Abaixo, explicamos mais sobre o significado de cada item de notificação e fornecemos exemplos de cada um deles.
+As informações a seguir explicam o que significa que cada item de notificação e fornece exemplos.
 
 ### <a name="essential-notification-items"></a>Itens de notificação essenciais
 
--   **Título** – o título descritivo da notificação
+- **Título**: o título descritivo da notificação.
 
-    -   Exemplo – **Configurações do proxy do aplicativo**
+   Exemplo: *Configurações de proxy de aplicativo*
 
--   **Descrição** – a descrição do que ocorreu como resultado da operação
+- **Descrição**: o que ocorreu como resultado da operação.
 
-    -   Exemplo – **A URL interna inserida já está sendo usada por outro aplicativo**
+   Exemplo: *URL interna inserida já está sendo usado por outro aplicativo.*
 
--   **ID da Notificação** – a ID exclusiva da notificação
+- **ID da notificação**: a ID exclusiva da notificação.
 
-    -   Exemplo – **clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068**
+    Exemplo: *clientNotification-2adbfc06-2073-4678-a69f-7eb78d96b068*
 
--   **ID de Solicitação do Cliente** – a ID de solicitação específica feita por seu navegador
+- **ID de solicitação do cliente**: a ID de solicitação específica feito do seu navegador.
 
-    -   Exemplo – **302fd775-3329-4670-a9f3-bea37004f0bc**
+    Exemplo: *302fd775-3329-4670-a9f3-bea37004f0bc*
 
--   **Carimbo de Data/Hora UTC** – o carimbo de data/hora durante o qual a notificação ocorreu, em UTC
+- **Hora UTC de carimbo de data /** : o carimbo de hora de quando a notificação ocorreu, em UTC.
 
-    -   Exemplo – **2017-03-23T19:50:43.7583681Z**
+    Exemplo: *2017-03-23T19:50:43.7583681Z*
 
--   **ID de Transação Interna** – a ID interna usada para procurar o erro em nossos sistemas
+- **ID de transação interna**: a ID interna que é usada para procurar o erro em nossos sistemas.
 
-    -   Exemplo – **71a2f329-ca29-402f-aa72-bc00a7aca603**
+    Exemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 
--   **UPN** – o usuário que realizou a operação
+- **UPN**: O usuário que executou a operação.
 
-    -   Exemplo – **tperkins\@f128.info**
+    Exemplo: *tperkins\@f128.info*
 
--   **ID do Locatário** – a ID exclusiva do locatário do qual o usuário que realizou a operação era membro
+- **ID do locatário**: a ID exclusiva do que o usuário que executou a operação é um membro do locatário.
 
-    -   Exemplo – **7918d4b5-0442-4a97-be2d-36f9f9962ece**
+    Exemplo: *7918d4b5-0442-4a97-be2d-36f9f9962ece*
 
--   **ID de objeto de usuário** – a ID exclusiva do usuário que realizou a operação
+- **ID de objeto de usuário**: A ID exclusiva do usuário que executou a operação.
 
-    -   Exemplo – **17f84be4-51f8-483a-b533-383791227a99**
+    Exemplo: *17f84be4-51f8-483a-b533-383791227a99*
 
 ### <a name="detailed-notification-items"></a>Itens de notificação detalhados
 
--   **Nome de Exibição** – **(pode estar vazio)** um nome de exibição mais detalhado do erro
+- **Nome de exibição**: (pode estar vazia) um nome de exibição mais detalhada do erro.
 
-    -   Exemplo – **Configurações do proxy do aplicativo**
+    Exemplo: *Configurações de proxy de aplicativo*
 
--   **Status** – o status específico da notificação
+- **Status**: o status específico da notificação.
 
-    -   Exemplo – **Falha**
+    Exemplo: *Com falha*
 
--   **ID do Objeto** – **(pode estar vazio)** a ID do objeto em que a operação foi executada
+- **ID de objeto**: (pode estar vazia) a ID de objeto em relação ao qual a operação foi executada.
 
-    -   Exemplo – **8e08161d-f2fd-40ad-a34a-a9632d6bb599**
+   Exemplo: *8e08161d-f2fd-40ad-a34a-a9632d6bb599*
 
--   **Detalhes** – a descrição detalhada do que ocorreu como resultado da operação
+- **Detalhes**: a descrição detalhada do que ocorreu como resultado da operação.
 
-    -   Exemplo – **URL interna '<https://bing.com/>' é inválida porque já está em uso**
+    Exemplo: *Url interna '<https://bing.com/>' é inválido, pois ele já está em uso.*
 
--   **Copiar erro** – clique no **ícone de cópia** à direita da caixa de texto **Copiar erro** para copiar todos os detalhes de notificação para compartilhar com um engenheiro de suporte ou de grupo de produtos
+- **Copiar erro**: Permite que você selecione os **ícone de cópia** à direita do **copiar erro** caixa de texto para copiar os detalhes de notificação para ajudar com suporte.
 
-    -   Exemplo – ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+    Exemplo:   ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 ## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](application-proxy-configure-single-sign-on-with-kcd.md)
-

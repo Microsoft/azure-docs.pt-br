@@ -3,16 +3,17 @@ title: Usar políticas de reinicialização com tarefas em contêineres nas Inst
 description: Saiba como usar as Instâncias de Contêiner do Azure para executar tarefas que são executadas até a conclusão, como na compilação, teste ou trabalhos de renderização de imagem.
 services: container-instances
 author: dlepow
+manager: gwallace
 ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 06872eefd0d500a22214109ad5055dd236b5a6ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60608123"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68325672"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Executar tarefas em contêineres com políticas de reinício
 
@@ -20,7 +21,7 @@ A facilidade e a velocidade de implantação de contêineres nas Instâncias de 
 
 Com uma política de reinicialização configurável, você pode especificar que os contêineres são interrompidos quando os seus processos são concluídos. Como as instâncias de contêiner são cobradas por segundo, você será cobrado somente pelos recursos de computação usados enquanto o contêiner que executa a tarefa estiver em execução.
 
-Os exemplos apresentados neste artigo usam a CLI do Azure. Você precisa ter a CLI do Azure versão 2.0.21 ou superior [instalada localmente][azure-cli-install] ou usar a CLI no [Azure Cloud Shell](../cloud-shell/overview.md).
+Os exemplos apresentados neste artigo usam a CLI do Azure. Você deve ter a CLI do Azure versão 2.0.21 ou superior [instalada localmente][azure-cli-install], ou usar a CLI no [Azure Cloud Shell](../cloud-shell/overview.md).
 
 ## <a name="container-restart-policy"></a>Política de reinicialização de contêiner
 
@@ -34,7 +35,7 @@ Quando cria um [grupo de contêineres](container-instances-container-groups.md) 
 
 ## <a name="specify-a-restart-policy"></a>Especificar uma política de reinicialização
 
-Como especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com a CLI do Azure, cmdlets do Azure PowerShell, ou no portal do Azure. Na CLI do Azure, especifique o parâmetro `--restart-policy` ao chamar [az container create][az-container-create].
+Como especificar uma política de reinicialização depende de como você cria suas instâncias de contêiner, como com a CLI do Azure, cmdlets do Azure PowerShell, ou no portal do Azure. Na CLI do Azure, especifique o `--restart-policy` parâmetro ao chamar [AZ container Create][az-container-create].
 
 ```azurecli-interactive
 az container create \
@@ -46,9 +47,9 @@ az container create \
 
 ## <a name="run-to-completion-example"></a>Executar o exemplo de conclusão
 
-Para ver a política de reinicialização em ação, crie uma instância de contêiner da Microsoft [aci-wordcount] [ aci-wordcount-image] da imagem e, em seguida, especifique o `OnFailure` política de reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
+Para ver a política de reinicialização em ação, crie uma instância de contêiner da imagem do Microsoft [ACI-WordCount][aci-wordcount-image] e especifique a política de `OnFailure` reinicialização. Este contêiner de exemplo executa um script de Python que, por padrão, analisa o texto de Shakespeare [Hamlet](http://shakespeare.mit.edu/hamlet/full.html), grava as 10 palavras mais comuns em STDOUT e, em seguida, sai.
 
-Execute o contêiner de exemplo com o seguinte comando [az container create][az-container-create]:
+Execute o contêiner de exemplo com o seguinte comando [AZ container Create][az-container-create] :
 
 ```azurecli-interactive
 az container create \
@@ -58,7 +59,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-As Instâncias de Contêiner do Azure iniciam o contêiner e, em seguida, o interrompem quando seu aplicativo (ou script, neste caso) é encerrado. Quando as Instâncias de Contêiner do Azure param um contêiner cuja política de reinicialização é `Never` ou `OnFailure`, o status do contêiner é definido como **Encerrado**. Você pode verificar o status de um contêiner usando o comando [az container show][az-container-show]:
+As Instâncias de Contêiner do Azure iniciam o contêiner e, em seguida, o interrompem quando seu aplicativo (ou script, neste caso) é encerrado. Quando as Instâncias de Contêiner do Azure param um contêiner cuja política de reinicialização é `Never` ou `OnFailure`, o status do contêiner é definido como **Encerrado**. Você pode verificar o status de um contêiner com o comando [AZ container show][az-container-show] :
 
 ```azurecli-interactive
 az container show --resource-group myResourceGroup --name mycontainer --query containers[0].instanceView.currentState.state
@@ -70,7 +71,7 @@ Saída de exemplo:
 "Terminated"
 ```
 
-Depois que o status do contêiner de exemplo mostrar *Encerrado*, você pode ver a saída da tarefa ao exibir os logs do contêiner. Execute o comando [az container logs][az-container-logs] comando para exibir a saída do script:
+Depois que o status do contêiner de exemplo mostrar *Encerrado*, você pode ver a saída da tarefa ao exibir os logs do contêiner. Execute o comando [AZ container logs][az-container-logs] para exibir a saída do script:
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name mycontainer
@@ -95,7 +96,7 @@ Este exemplo mostra a saída que o script envia para STDOUT. As tarefas em cont�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Cenários baseados em tarefas, como um conjunto de dados grande com vários contêineres, de processamento em lotes podem tirar proveito de custom [variáveis de ambiente](container-instances-environment-variables.md) ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
+Cenários baseados em tarefas, como processamento em lote de um grande conjunto de grandes com vários contêineres, podem tirar proveito de [variáveis de ambiente](container-instances-environment-variables.md) personalizadas ou [linhas de comando](container-instances-start-command.md) em tempo de execução.
 
 Para obter detalhes sobre como persistir a saída de seus contêineres que são executados até a conclusão, consulte [Montar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure](container-instances-mounting-azure-files-volume.md).
 

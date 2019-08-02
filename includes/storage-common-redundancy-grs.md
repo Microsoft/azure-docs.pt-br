@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/26/2018
 ms.author: jeking
 ms.custom: include file
-ms.openlocfilehash: efa593d0ff0043d81574b67192deed30933e1e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3aa5310589101fa66fd70cc8d5449fbef80f02fa
+ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66114877"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68286150"
 ---
 O armazenamento com redundância geográfica (GRS) foi desenvolvido para fornecer pelo menos 99.99999999999999% (16 9’s) durabilidade dos objetos em um determinado ano, replicando dados para uma região secundária situada a centenas de milhas de distância da região primária. Se sua conta de armazenamento tem GRS habilitado, seus dados serão duráveis mesmo no caso de uma interrupção regional completa ou um desastre no qual a região principal não possa ser recuperada.
 
@@ -24,7 +24,7 @@ Se você optar pelo GRS, você tem duas opções relacionadas para escolher:
 
 Para uma conta de armazenamento com GRS ou RA-GRS habilitada, todos os dados são primeiro replicados com armazenamento redundante localmente (LRS). Uma atualização primeiro é confirmada para o local primário e replicados usando o LRS. A atualização, em seguida, é replicada assincronamente para a região secundária usando GRS. Quando dados são gravados para o local secundário, ela também é replicada dentro desse local usando o LRS. 
 
-Ambas as regiões primárias e secundárias gerenciam réplicas entre domínios de falha separados e atualizar domínios dentro de uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica dentro do datacenter. A replicação com esse nível é fornecida por LRS; Para obter mais informações, consulte [armazenamento localmente redundante (LRS): Redundância de dados de baixo custo para o Armazenamento do Azure](../articles/storage/common/storage-redundancy-lrs.md).
+Ambas as regiões primárias e secundárias gerenciam réplicas entre domínios de falha separados e atualizar domínios dentro de uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica dentro do datacenter. A replicação nesse nível é fornecida por LRS; para obter mais informações, [consulte LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o Armazenamento do Azure](../articles/storage/common/storage-redundancy-lrs.md).
 
 Lembre-se esses pontos ao decidir qual opção de replicação para usar:
 

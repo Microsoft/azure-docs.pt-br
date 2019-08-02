@@ -12,14 +12,15 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 696b6b14b2a369e8b80ac615fc77fa7f48f51c57
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f2145811338200b38e84766459844b4c83e5a80
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474242"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382762"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Adicionar uma conta manualmente ao aplicativo
+
 Se a câmera não conseguir capturar o código QR, você poderá adicionar manualmente as informações da conta ao aplicativo Microsoft Authenticator para verificação de dois fatores. Isso funciona para contas corporativas ou de estudante e contas não Microsoft.
 
 Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúsculas e não exigem espaços quando adicionados ao aplicativo Microsoft Authenticator.
@@ -30,7 +31,7 @@ Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúscu
 ## <a name="add-your-work-or-school-account"></a>Adicionar a conta corporativa ou de estudante
 
 1. Em seu computador, observe as informações **Código** e **URL** na página **Configurar aplicativo móvel**. Mantenha essa página aberta para que você possa ver o código e a URL.
-    
+
     ![Tela que fornece o código QR](./media/user-help-auth-app-add-account-manual/auth-app-barcode.png)
 
 2. Abra o aplicativo Microsoft Authenticator, selecione **adicionar conta** da **personalizar e controle** ícone no canto superior direito e, em seguida, selecione **trabalho ou conta de escola**.
@@ -38,7 +39,7 @@ Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúscu
 3. Selecione **OU INSIRA O CÓDIGO MANUALMENTE**.
 
     ![Tela para verificar um código QR](./media/user-help-auth-app-add-account-manual/auth-app-manual-code.png)
-   
+
 4. Insira o **Código** e a **URL** da Etapa 1 e, em seguida, selecione **Concluir**.
 
     ![Tela para inserir código e a URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
@@ -78,6 +79,7 @@ Os códigos fornecidos para suas contas não diferenciam maiúsculas de minúscu
     >Para obter mais informações sobre a verificação de dois fatores e sua conta do Facebook, confira [O que é a autenticação de dois fatores e como ela funciona?](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-amazon-account"></a>Adicionar sua conta da Amazon
+
 Você pode adicionar sua conta da Amazon ativando a verificação de dois fatores e, em seguida, adicionando a conta ao aplicativo.
 
 1. Em seu computador, selecione **Não é possível digitalizar o código de barras** da página **Escolha como você vai receber códigos** com o código QR.
@@ -103,6 +105,6 @@ Você pode adicionar sua conta da Amazon ativando a verificação de dois fatore
 
 - Depois de adicionar as contas ao aplicativo, você poderá entrar usando o aplicativo Microsoft Authenticator em seu dispositivo. Para obter mais informações, confira [Entrar usando o aplicativo](user-help-auth-app-sign-in.md).
 
-- Se você estiver tendo problemas ao obter o código de verificação para sua conta pessoal da Microsoft, consulte o **solução de problemas de código de verificação** seção o [& verificação de informações de segurança de conta Microsoft códigos de](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) artigo.
+- Se você estiver tendo problemas para obter seu código de verificação para seu conta Microsoft pessoal, consulte a seção Solucionando problemas de **código de verificação** do artigo [conta Microsoft informações de segurança & códigos de verificação](https://support.microsoft.com/en-us/help/12428/microsoft-account-security-info-verification-codes) .
 
 - Para dispositivos que executam o iOS, você também pode fazer backup das credenciais da sua conta e das configurações de aplicativos relacionadas, tais como a ordem de suas contas, na nuvem. Para obter mais informações, confira [Fazer backup e recuperar informações com o aplicativo Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

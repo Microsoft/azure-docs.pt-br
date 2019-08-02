@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 1bc4bd9b95dc7e45b9b90fbe096ed71c5aa9bedf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 52cb11b015bb231b91184a2270e333e4c9aa8303
+ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447247"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68424285"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carregar incrementalmente os dados do banco de dados SQL do Azure para o Armazenamento de Blobs do Azure
 Neste tutorial, você cria um Azure Data Factory com um pipeline que carrega dados delta de uma tabela em um banco de dados SQL do Azure para um Armazenamento de Blobs do Azure. 
@@ -211,7 +211,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
     3. Insira o **nome do usuário** para acessar para o SQL Server do Azure. 
     4. Insira a **senha** para o usuário. 
     5. Para testar a conexão ao Banco de Dados SQL do Azure, clique em **Testar conectividade**.
-    6. Clique em **Salvar**.
+    6. Clique em **Save** (Salvar).
     7. Na guia **Conexão**, confirme se **AzureSqlDatabaseLinkedService** foi selecionado para o **Serviço vinculado**.
        
         ![Janela Novo serviço vinculado](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
@@ -238,7 +238,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
         ![Segunda atividade de pesquisa - novo conjunto de dados](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. Alterne para o editor de pipeline clicando na guia pipeline na parte superior ou clicando no nome do pipeline n modo de exibição de árvore à esquerda. Na janela Propriedades para a atividade de **Pesquisa**, confirme se **SourceDataset** está selecionado para o campo **Conjunto de dados de origem**. 
-18. Selecione **Consulta** para o campo **Usar consulta** campo e digite a seguinte consulta: você está selecionando apenas o valor máximo de **LastModifytime** do **data_ source_table**. Se você não tiver essa consulta, o conjunto de dados obtém todas as linhas da tabela já que você especificou o nome da tabela (data_source_table) na definição de conjunto de dados.
+18. Selecione **Consulta** para o campo **Usar consulta** campo e digite a seguinte consulta: você está selecionando apenas o valor máximo de **LastModifytime** do **data_ source_table**. Verifique se você também marcou **Somente a primeira linha**.
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table
@@ -281,7 +281,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
     1. Insira **AzureStorageLinkedService** como o **Nome**. 
     2. Selecione sua conta de Armazenamento do Azure como o **Nome da conta de armazenamento**.
-    3. Clique em **Salvar**. 
+    3. Clique em **Save** (Salvar). 
 
         ![Serviço vinculado do Armazenamento do Azure - configurações](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
 27. Na guia **Conexão**, siga estas etapas:
@@ -308,7 +308,7 @@ Neste tutorial, você cria um pipeline com duas atividades de Pesquisa, uma ativ
 
         | NOME | Tipo | Valor | 
         | ---- | ---- | ----- | 
-        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | Cadeia de caracteres | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
     ![Atividade de Procedimento armazenado - configurações de procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

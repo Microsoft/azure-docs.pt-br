@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 75228b8c939cb5b8dd04471662ba86b46cfc808c
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65860470"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478469"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>Tutorial: Conectar o serviço de Análise de Texto com os Serviços Conectados no Visual Studio
 
@@ -32,7 +32,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
 
 ## <a name="add-support-to-your-project-for-the-text-analytics-service"></a>Adicionar suporte ao projeto para o Serviço de Análise de Texto
 
-1. Crie um novo projeto Web do ASP.NET Core chamado TextAnalyticsDemo. Use o modelo de projeto do Aplicativo Web (Model-View-Controller) com todas as configurações padrão. É importante nomear o projeto MyWebApplication, para que o namespace corresponda ao copiar o código no projeto.  O exemplo neste artigo usa MVC, mas você pode usar o Serviço de Análise de Texto com qualquer tipo de projeto do ASP.NET.
+1. Crie um novo projeto Web do ASP.NET Core chamado TextAnalyticsDemo. Use o modelo de projeto do Aplicativo Web (Model-View-Controller) com todas as configurações padrão. É importante nomear o projeto MyWebApplication, para que o namespace corresponda ao copiar o código no projeto.  O exemplo deste artigo usa o MVC, mas você pode usar o serviço conectado de Análise de Texto com qualquer tipo de projeto ASP.NET.
 
 1. Em **Gerenciador de Soluções**, clique duas vezes no item **Serviço Conectado**.
    A página Serviço Conectado é exibida com os serviços que podem ser adicionados ao projeto.
@@ -54,7 +54,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
    Acompanhe o link para obter detalhes sobre os tipos de preços.
 
 1. Escolha **Adicionar** para adicionar suporte ao Serviço Conectado.
-   O Visual Studio modifica o projeto para adicionar os pacotes NuGet, entradas do arquivo de configuração e outras alterações para dar suporte a uma conexão com o Serviço de Análise de Texto. A **Janela de Saída** mostra o log do que está acontecendo com o projeto. Você verá algo semelhante ao que se segue:
+   O Visual Studio modifica o projeto para adicionar os pacotes NuGet, entradas do arquivo de configuração e outras alterações para dar suporte a uma conexão com o Serviço de Análise de Texto. A **Janela de Saída** mostra o log do que está acontecendo com o projeto. A saída deverá ser semelhante à mostrada abaixo:
 
    ```output
     [6/1/2018 3:04:02.347 PM] Adding Text Analytics to the project.
@@ -90,7 +90,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
       }
    ```
 
-1. Adicione um arquivo de classe na pasta Controladores chamada DemoTextAnalyzeController e substitua o conteúdo pelo código a seguir:
+1. Adicione um arquivo de classe na pasta *Controllers* chamada `DemoTextAnalyzeController` e substitua o conteúdo pelo seguinte código:
 
     ```csharp
     using System;
@@ -153,7 +153,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
     }
     ```
     
-    O código inclui GetTextAnalyzeClient para obter o objeto do cliente que você pode usar para chamar a API de Análise de Texto e um manipulador de solicitação que chama DetectLanguage em um determinado texto.
+    O código inclui `GetTextAnalyzeClient` para obter o objeto de cliente para fazer chamadas à API de Análise de Texto e um manipulador de solicitações que chama DetectLanguage em determinado texto.
 
 1. Adicione a classe auxiliar MyHandler que é usada pelo código anterior.
 
@@ -171,7 +171,7 @@ Este artigo e os artigos complementares fornecem detalhes sobre como usar o recu
         }
     ```
 
-1. Na pasta Modelos, adicione uma classe para o modelo.
+1. Na pasta *Models*, adicione uma classe ao modelo.
 
     ```csharp
     using System;

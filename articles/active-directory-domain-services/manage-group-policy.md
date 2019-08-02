@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Domain Services: Administrar a Política de Grupo em domínios gerenciados | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Administrar Política de Grupo | Microsoft Docs'
 description: Administrar a política de grupo nos domínios gerenciados do Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: mstephen
-ms.openlocfilehash: db5fd06bc4d9a923279095ab187d867a6624480a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: c7b32885fdb3cf4f3e584c916d6b234fff54bfc4
+ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66245843"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68234038"
 ---
 # <a name="administer-group-policy-on-an-azure-ad-domain-services-managed-domain"></a>Administrar a política de grupo em um domínio gerenciado do Azure AD Domain Services
 O Azure Active Directory Domain Services inclui GPOs (Objetos de Política de Grupo) internos para os contêineres "Usuários do AADDC" e "Computadores do AADDC". Você pode personalizar esses GPOs internos para configurar a Política de Grupo no domínio gerenciado. Além disso, os membros do grupo "Administradores do AAD DC" podem criar suas próprias UOs personalizadas no domínio gerenciado. Eles também podem criar GPOs personalizados e vinculá-los a essas UOs personalizadas. Os usuários que pertencem ao grupo "Administradores do AAD DC" recebem privilégios de administração da Política de Grupo no domínio gerenciado.
@@ -128,5 +128,5 @@ Mais informações sobre como usar o [Console de Gerenciamento de Política de G
 ## <a name="related-content"></a>Conteúdo relacionado
 * [Serviços de Domínio do Azure AD - Guia de Introdução](create-instance.md)
 * [Ingressar uma máquina virtual do Windows Server em um domínio gerenciado dos Serviços de Domínio do Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Gerenciar um domínio do Azure AD Domain Services](manage-domain.md)
+* [Gerenciar um domínio de Azure AD Domain Services](manage-domain.md)
 * [Console de Gerenciamento de Política de Grupo](https://technet.microsoft.com/library/cc753298.aspx)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 07/11/2019
 ms.author: alkohli
-ms.openlocfilehash: 3bce5dd1dd34c53276c5486cc255c4cd93bb6080
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e232ad131b1c0930afcf5e7e78b386aba2c9490b
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242152"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839765"
 ---
 # <a name="azure-data-box-system-requirements"></a>Requisitos de sistema do Azure Data Box
 
@@ -52,6 +52,13 @@ Os requisitos de software incluem as informações sobre os sistemas operacionai
 ## <a name="networking-requirements"></a>Requisitos de rede
 
 Seu datacenter deve ter uma rede de alta velocidade. É altamente recomendável que você tenha pelo menos uma conexão de 10 GbE. Se uma conexão de 10 GbE não estiver disponível, um link de dados de 1 GbE poderá ser usado para copiar dados, mas as velocidades de cópia serão afetadas.
+
+### <a name="port-requirements"></a>Requisitos de porta
+
+A tabela a seguir lista as portas que precisam ser abertas no firewall para permitir o tráfego SMB ou NFS. Nesta tabela, *entrada* ou *de entrada* refere-se à direção da qual as solicitações do cliente acessam o dispositivo. *-Out* ou *saída* refere-se à direção na qual o dispositivo Data Box envia dados externamente, além da implantação: por exemplo, saída à Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

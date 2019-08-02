@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Saiba como usar as investigações de integridade para monitorar instâncias atrás do Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2019
-ms.author: kumud
-ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 75009530940a0cce7adb8469ead5f55f509a1faa
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65415697"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68275345"
 ---
 # <a name="load-balancer-health-probes"></a>Investigações de integridade do Load Balancer
 
@@ -30,7 +30,7 @@ As investigações de integridade dão suporte a vários protocolos. A disponibi
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
 | [Tipos de investigações](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Comportamento de investigação inoperante](#probedown) | Todas as investigações inoperantes, todos os fluxos TCP continuam. | Todos os testes para baixo, todos os fluxos TCP expirarem. | 
+| [Comportamento de investigação inoperante](#probedown) | Todas as investigações inoperantes, todos os fluxos TCP continuam. | Todas as investigações, todos os fluxos de TCP expiram. | 
 
 > [!IMPORTANT]
 > As investigações de integridade do Load Balancer originam-se no endereço IP 168.63.129.16 e não devem ser bloqueadas para que as investigações marquem a instância como operante.  Revisar o [endereço IP de origem da investigação](#probesource) para obter detalhes.
@@ -178,7 +178,7 @@ O Load Balancer usa um serviço de investigação distribuído para seu modelo d
 
 A marca de serviço AzureLoadBalancer identifica esse endereço IP de origem nos [grupos de segurança de rede](../virtual-network/security-overview.md) e permite o tráfego da investigação de integridade por padrão.
 
-Além de investigações de integridade do balanceador de carga, o [operações a seguir usam esse endereço IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
+Além de Load Balancer investigações de integridade, as [seguintes operações usam esse endereço IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Permite que o Agente de VM se comunique com a plataforma para sinalizar que ele está em um estado "Pronto"
 - Permite a comunicação com o servidor virtual de DNS para fornecer resolução de nome filtrado aos clientes que não definem servidores DNS personalizados.  Essa filtragem garante que cada cliente só possa resolver os nomes de host de sua própria implantação.
@@ -212,9 +212,9 @@ Não habilite [carimbos de data/hora TCP](https://tools.ietf.org/html/rfc1323). 
 
 ## <a name="monitoring"></a>Monitoramento
 
-O [Standard Load Balancer](load-balancer-standard-overview.md) público e interno expõe o status da investigação de integridade por ponto de extremidade e por instância de back-end como métricas multidimensionais por meio do Azure Monitor. Essas métricas podem ser consumidas por outros serviços ou aplicativos de parceiros. 
+O [Standard Load Balancer](load-balancer-standard-overview.md) público e interno expõe o status da investigação de integridade por ponto de extremidade e por instância de back-end como métricas multidimensionais por meio do Azure Monitor. Essas métricas podem ser consumidas por outros serviços do Azure ou aplicativos de parceiro. 
 
-Balanceador de carga público básico expõe o status de investigação de integridade resumidos por pool de back-end por meio dos logs do Azure Monitor.  Os logs do Azure Monitor não estão disponíveis para balanceadores de carga básico internos.  Você pode usar [registra em log do Azure Monitor](load-balancer-monitor-log.md) para verificar o status de integridade de investigação de Balanceador de carga público e contagem de investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do balanceador de carga.
+O Load Balancer público básico expõe o status de investigação de integridade resumido por pool de back-end por meio de logs Azure Monitor.  Os logs de Azure Monitor não estão disponíveis para balanceadores de carga básicos internos.  Você pode usar [os logs de Azure monitor](load-balancer-monitor-log.md) para verificar o status de integridade da investigação do balanceador de carga público e a contagem de investigação. O registro em log pode ser usado com o Power BI ou com o Azure Operational Insights para fornecer estatísticas sobre o status da integridade do balanceador de carga.
 
 ## <a name="limitations"></a>Limitações
 

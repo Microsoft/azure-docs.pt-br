@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
 ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
+ms.lasthandoff: 07/31/2019
 ms.locfileid: "60591801"
 ---
 # <a name="sqlfilter-syntax"></a>Sintaxe SQLFilter
@@ -58,7 +58,7 @@ Um objeto *SqlFilter* é uma instância da [classe SqlFilter](/dotnet/api/micros
   
 ```  
   
-## <a name="arguments"></a>Argumentos  
+## <a name="arguments"></a>Arguments  
   
 -   `<scope>` é uma cadeia de caracteres opcional que indica o escopo do `<property_name>`. Os valores válidos são `sys` ou `user`. O valor `sys` indica o escopo do sistema, em que `<property_name>` é um nome de propriedade pública da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indica o escopo do usuário, em que `<property_name>` é uma chave de dicionário da [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). O escopo `user` será o escopo padrão se `<scope>` não for especificado.  
   
@@ -78,7 +78,7 @@ Uma tentativa de acessar uma propriedade inexistente do sistema é um erro, ao p
   
 ```  
   
-### <a name="arguments"></a>Argumentos  
+### <a name="arguments"></a>Arguments  
 
  `<regular_identifier>` é uma cadeia de caracteres representada pela seguinte expressão regular:  
   

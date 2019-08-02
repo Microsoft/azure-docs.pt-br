@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e5d1546c658631911f25c43e94275f00c7a5140
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f1c375b64d93662ec50923078549c4f2153fba0a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60474550"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382819"
 ---
 # <a name="set-up-security-info-preview-to-use-security-questions"></a>Configurar informações de segurança (versão prévia) para usar perguntas de segurança
+
 Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
 Depois de configurar o método de redefinição de senha, você também precisará configurar o método de verificação de dois fatores usando um [aplicativo autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md) ou uma [chamada telefônica](security-info-setup-phone-number.md).
@@ -27,16 +28,17 @@ Depois de configurar o método de redefinição de senha, você também precisar
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Configurar suas perguntas de segurança na página de Informações de segurança
+
 Dependendo das configurações da sua organização, você poderá escolher e responder a algumas perguntas de segurança como um de seus métodos de informações de segurança. Seu administrador configura o número de perguntas de segurança que você precisa escolher e responder.
 
 Se você usar perguntas de segurança, é recomendável usá-las em conjunto com outro método. As perguntas de segurança podem ser menos seguras do que outros métodos porque algumas pessoas podem conhecer as respostas para suas perguntas.
 
 > [!Note]
 > As questões de segurança são armazenadas de maneira privada e segura em um objeto de usuário no diretório e só podem ser respondidas por você durante o registro. Não há como seu administrador ler ou modificar suas perguntas ou respostas.
-> 
+>
 > Se você não vir a opção de perguntas de segurança, é possível que sua organização não permita que você use questões de segurança para verificação. Se esse for o caso, você precisará escolher outro método ou entrar em contato com o administrador para obter mais ajuda.
-> 
-> Contas de administrador não têm permissão para usar perguntas de segurança, como método de redefinição de senha. Se você estiver conectado como uma conta de nível de administrador que você não verá essas opções.
+>
+> As contas de administrador não têm permissão para usar perguntas de segurança como um método de redefinição de senha. Se você estiver conectado como uma conta de nível de administrador, essas opções não serão exibidas.
 
 ### <a name="to-set-up-your-security-questions"></a>Para configurar suas perguntas de segurança
 
@@ -59,6 +61,7 @@ Se você usar perguntas de segurança, é recomendável usá-las em conjunto com
     Suas informações de segurança são atualizadas e você pode usar suas perguntas de segurança para verificar sua identidade ao usar a redefinição de senha.
 
 ## <a name="delete-security-questions-from-your-security-info-methods"></a>Excluir perguntas de segurança de seus métodos de informações de segurança
+
 Se você não quiser mais usar suas perguntas de segurança como um método de informações de segurança, poderá removê-las da página **Informações de segurança**.
 
 >[!Important]
@@ -73,6 +76,7 @@ Se você não quiser mais usar suas perguntas de segurança como um método de i
 2. Selecione **Sim** da caixa de confirmação para excluir suas **perguntas de segurança**. Depois que suas perguntas de segurança terem sido excluídas, o método será removido das informações de segurança e desaparecerá da página **Informações de segurança**.
 
 ## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
+
 Você tem opções adicionais de como sua organização entra em contato com você para confirmar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
 - **Aplicativo autenticador.** Faça o download e use um aplicativo autenticador para receber uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [Configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
@@ -81,8 +85,10 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+
 - **Endereço de e-mail.** Digite seu endereço de e-mail do trabalho ou da escola para receber um e-mail para redefinir a senha. Essa opção não está disponível para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar seu e-mail, consulte [Configurar informações de segurança para usar o e-mail](security-info-setup-email.md).
-   
+
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 

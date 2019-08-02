@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 06/28/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 1c9855f982b888e8e1d68bfe5233983db8c826ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 325b69eb7b9b069db0ba49b4578541ee801c3444
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61247981"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67476174"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Conectar dispositivos Modbus TCP por meio de um gateway de dispositivo do IoT Edge
 
@@ -35,7 +35,7 @@ Este artigo pressupõe que você está usando o protocolo TCP Modbus. Para obter
 
 Se você quiser testar a funcionalidade de gateway Modbus, a Microsoft tem um exemplo de módulo que pode usar. Você pode acessar o módulo do Azure Marketplace [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview), ou com o URI, de imagem **mcr.microsoft.com/azureiotedge/modbus:1.0**.
 
-Se quiser criar seu próprio módulo e personalizá-lo para o seu ambiente, haverá um projeto de software livre do [Módulo Modbus do Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) no GitHub. Siga as orientações no projeto para criar sua própria imagem de contêiner. Se você criar sua própria imagem de contêiner, consulte [desenvolver C# módulos no Visual Studio](how-to-visual-studio-develop-csharp-module.md) ou [desenvolver módulos no Visual Studio Code](how-to-vs-code-develop-module.md). Esses artigos fornecem instruções sobre como criar novos módulos e publicar imagens de contêiner para um registro.
+Se quiser criar seu próprio módulo e personalizá-lo para o seu ambiente, haverá um projeto de software livre do [Módulo Modbus do Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) no GitHub. Siga as orientações no projeto para criar sua própria imagem de contêiner. Para criar uma imagem de contêiner, consulte [desenvolver C# módulos no Visual Studio](how-to-visual-studio-develop-csharp-module.md) ou [desenvolver módulos no Visual Studio Code](how-to-vs-code-develop-module.md). Esses artigos fornecem instruções sobre como criar novos módulos e publicar imagens de contêiner para um registro.
 
 ## <a name="try-the-solution"></a>Experimente a solução
 
@@ -70,7 +70,7 @@ Esta seção orienta pela implantação de módulo de Modbus de exemplo da Micro
                 "Op01":{
                   "PollingInterval": "1000",
                   "UnitId":"1",
-                  "StartAddress":"400001",
+                  "StartAddress":"40001",
                   "Count":"2",
                   "DisplayName":"Voltage"
                 }
@@ -85,12 +85,13 @@ Esta seção orienta pela implantação de módulo de Modbus de exemplo da Micro
 
 5. De volta à etapa **Adicionar módulos**, clique em **Avançar**.
 
-7. Na etapa **Especificar Rotas**, copie o JSON seguinte para a caixa de texto. Essa rota envia todas as mensagens coletadas pelo módulo Modbus ao Hub IoT. Nessa rota, ' modbusOutput ' é o ponto de extremidade usar o módulo Modbus para gerar dados de saída e ' upstream ' é um destino especial que manda o hub do IoT Edge para enviar mensagens ao IoT Hub.
+7. Na etapa **Especificar Rotas**, copie o JSON seguinte para a caixa de texto. Essa rota envia todas as mensagens coletadas pelo módulo Modbus ao Hub IoT. Nesta rota **modbusOutput** é o ponto de extremidade que usa o módulo para gerar dados de Modbus e **$upstream** é um destino especial que manda o hub do IoT Edge para enviar mensagens ao IoT Hub.
+
    ```JSON
    {
-    "routes": {
-      "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-    }
+     "routes": {
+       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
+     }
    }
    ```
 

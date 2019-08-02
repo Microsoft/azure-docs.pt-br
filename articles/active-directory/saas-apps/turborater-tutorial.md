@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 3777cf09ec669fe3df6bca13f6960f53c689767c
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956684"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Azure Active Directory com o TurboRater
 
@@ -91,7 +91,7 @@ Para configurar o logon único do Azure AD com o TurboRater, execute as seguinte
 
     ![Opção Configurar logon único](common/select-sso.png)
 
-1. No painel **Selecionar um método de logon único**, selecione o modo **SAML/WS-Fed** para habilitar o logon único.
+1. No painel **Escolher um método de logon único**, escolha o modo **SAML/WS-Fed** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 

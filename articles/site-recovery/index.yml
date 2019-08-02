@@ -5,13 +5,12 @@ metadata:
   title: 'Documentação do Azure Site Recovery - Tutoriais, Referência de API | Microsoft Docs'
   meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
   services: site-recovery
-  author: czeumault
-  manager: carolz
+  author: carmonmills
+  manager: carmonm
   ms.service: site-recovery
-  ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 11/27/2018
-  ms.author: carolz
+  ms.author: carmonm
 abstract:
   description: 'O Azure Site Recovery coordena e gerencia a recuperação de desastre para VMs do Azure, VMs locais e servidores físicos. Saiba como fazer replicação, failover e fail back com os nossos guias de início rápido e tutoriais.'
 sections:

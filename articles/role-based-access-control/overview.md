@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/12/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: db9424ff4ddd2663ae1342294181dc885c6ed937
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 4a5352e96e522a8bd32c428957b3bbfd62c5fa9b
+ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66479547"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67275928"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
 
@@ -74,7 +74,7 @@ O Azure inclui várias [funções internas](built-in-roles.md) que você pode us
 
 As demais funções internas permitem o gerenciamento de recursos específicos do Azure. Por exemplo, a função [Colaborador de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) permite que um usuário crie e gerencie máquinas virtuais. Se as funções internas não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias [funções personalizadas para recursos do Azure](custom-roles.md).
 
-O Azure introduziu as operações de dados (atualmente em versão prévia) que permitem que você conceda acesso a dados dentro de um objeto. Por exemplo, se um usuário tem acesso de leitura de dados para uma conta de armazenamento, eles podem ler blobs ou mensagens dentro dessa conta de armazenamento. Para obter mais informações, confira [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md).
+O Azure tem operações de dados que permitem a você conceder acesso a dados em um objeto. Por exemplo, se um usuário tem acesso de leitura de dados para uma conta de armazenamento, eles podem ler blobs ou mensagens dentro dessa conta de armazenamento. Para obter mais informações, confira [Noções básicas sobre definições de função para recursos do Azure](role-definitions.md).
 
 ### <a name="scope"></a>Escopo
 
@@ -108,10 +108,7 @@ O que acontece se você tem várias atribuições de função sobrepostas? O RBA
 
 ## <a name="deny-assignments"></a>Negar atribuições
 
-Anteriormente, o RBAC era um modelo somente de permissão, sem negação, mas agora ele dá suporte a atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações de negação a um usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico com o objetivo de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função. Para obter mais informações, confira [Noções básicas sobre atribuições de negação para recursos do Azure](deny-assignments.md) e [Exibir atribuições de negação para recursos do Azure usando o portal do Azure](deny-assignments-portal.md).
-
-> [!NOTE]
-> Neste momento, a única maneira de adicionar suas próprias atribuições de negação é usando o Azure Blueprints. Para obter mais informações, consulte [Proteger novos recursos com bloqueios de recurso do Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
+Anteriormente, o RBAC era um modelo somente de permissão, sem negação, mas agora ele dá suporte a atribuições de negações, com limitações. Semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações de negação a um usuário, grupo, entidade de serviço ou identidade gerenciada em um escopo específico com o objetivo de negar acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Em outras palavras, as atribuições de negação impedem que os usuários executem ações especificadas, mesmo quando uma atribuição de função lhes concede acesso. As atribuições de negação têm precedência sobre as atribuições de função. Para obter mais informações, confira [Compreender atribuições de negação de recursos do Azure](deny-assignments.md).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Como o RBAC determina se um usuário tem acesso a um recurso
 

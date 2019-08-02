@@ -1,21 +1,21 @@
 ---
-title: Avaliação offline
-titleSuffix: Personalizer - Azure Cognitive Services
+title: Avaliação offline – personalizador
+titleSuffix: Azure Cognitive Services
 description: Saiba como analisar o loop de aprendizado com uma avaliação offline
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: edjez
-ms.openlocfilehash: e99a8242e438ef5a8ab7fd917724450f8080bb41
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: HT
+ms.author: diberry
+ms.openlocfilehash: f14403422e2c783d75634bb929d8c2130bd505b6
+ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025410"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68663886"
 ---
 # <a name="how-to-analyze-your-learning-loop-with-an-offline-evaluation"></a>Como analisar o loop de aprendizado com uma avaliação offline
 

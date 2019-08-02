@@ -7,19 +7,19 @@ author: mdgattuso
 manager: danielgi
 editor: ''
 ms.assetid: ''
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 999bffe9650f3d2f2a04dba728a9aa41fa46a6b0
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60324061"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67593402"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Usando a CDN do Azure com SAS
 
@@ -135,7 +135,7 @@ Como parâmetros da SAS não são visíveis para a CDN do Azure, a CDN do Azure 
 
 | Nome do parâmetro da SAS | DESCRIÇÃO |
 | --- | --- |
-| Iniciar | A hora em que a CDN do Azure pode começar a acessar o arquivo de blob. Devido à distorção do relógio (quando um sinal de relógio chega em momentos diferentes para diferentes componentes), se quiser disponibilizar o ativo imediatamente, escolha um horário 15 minutos antes. |
+| Início | A hora em que a CDN do Azure pode começar a acessar o arquivo de blob. Devido à distorção do relógio (quando um sinal de relógio chega em momentos diferentes para diferentes componentes), se quiser disponibilizar o ativo imediatamente, escolha um horário 15 minutos antes. |
 | End | A hora após a qual a CDN do Azure não poderá mais acessar o arquivo de blob. Arquivos armazenados em cache anteriormente na CDN do Azure ainda são acessíveis. Para controlar a hora de expiração do arquivo, defina a hora de expiração apropriada no token de segurança da CDN do Azure ou limpe o ativo. |
 | Endereços IP permitidos | Opcional. Se estiver usando a **CDN do Azure da Verizon**, você poderá definir esse parâmetro para os intervalos definidos em [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api) (CDN do Azure de Intervalos de IP do Servidor de Borda Verizon). Se estiver usando a **CDN do Azure da Akamai**, você não poderá definir o parâmetro de intervalos de IP porque os endereços de IP não são estáticos.|
 | Protocolos permitidos | Os protocolos permitidos para uma solicitação feita com a conta de SAS. A configuração HTTPS é recomendada.|

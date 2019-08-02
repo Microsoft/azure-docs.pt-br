@@ -4,7 +4,7 @@ description: Como escalar ou reduzir verticalmente uma máquina virtual Linux, a
 services: virtual-machines-linux
 documentationcenter: na
 author: mikewasson
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 ms.assetid: e163f878-b919-45c5-9f5a-75a64f3b14a0
@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 02/10/2017
 ms.author: mwasson
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bd8136c61a277e730c07c8789afd1bf3214bd7c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46baa3d4dbcd466944d7a91e446e380c89f53f2b
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127065"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67671733"
 ---
 # <a name="resize-a-linux-virtual-machine-using-azure-cli"></a>Redimensionar uma máquina virtual do Linux usando a CLI do Azure 
 
-Depois de provisionar uma VM (máquina virtual), é possível escalar ou reduzir verticalmente a VM alterando o [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Você precisará desalocar a VM se o tamanho desejado não estiver disponível no cluster de hardware que está hospedando a VM. Este artigo detalha como redimensionar uma VM Linux com a CLI do Azure. 
+Depois de provisionar uma máquina virtual (VM), você pode escalar ou reduzir verticalmente a VM, alterando a [tamanho da VM][vm-sizes]. Em alguns casos, você deverá desalocar a VM primeiro. Você precisará desalocar a VM se o tamanho desejado não estiver disponível no cluster de hardware que está hospedando a VM. Este artigo detalha como redimensionar uma VM Linux com a CLI do Azure. 
 
 ## <a name="resize-a-vm"></a>Redimensionar uma VM
 Para redimensionar uma VM, é preciso ter a [CLI do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/reference-index).
@@ -56,7 +56,7 @@ Para redimensionar uma VM, é preciso ter a [CLI do Azure](/cli/azure/install-az
    > Desalocar a VM também libera os endereços IP dinâmicos atribuídos à VM. Os discos do sistema operacional e de dados não são afetados.
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter escalabilidade adicional, execute várias instâncias de VM e expanda. Para obter mais informações, consulte [Dimensionar automaticamente computadores Linux em um conjunto de dimensionamento de máquinas virtuais][scale-set]. 
+Para obter escalabilidade adicional, execute várias instâncias de VM e expanda. Para obter mais informações, consulte [dimensionar automaticamente computadores Linux em um conjunto de dimensionamento de máquinas virtuais][scale-set]. 
 
 <!-- links -->
 [boot-diagnostics]: https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/

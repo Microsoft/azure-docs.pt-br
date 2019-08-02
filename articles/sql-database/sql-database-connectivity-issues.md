@@ -12,13 +12,13 @@ author: dalechen
 ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/14/2019
+ms.openlocfilehash: adbe8dfd41725c11516f820656b0476ed1aa8881
+ms.sourcegitcommit: 22c97298aa0e8bd848ff949f2886c8ad538c1473
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66019815"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67144042"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do Banco de Dados SQL do Azure e erros transitórios
 
@@ -93,7 +93,7 @@ Uma forma de testar sua lógica de repetição é desconectar seu computador cli
 - **SqlException.Number** = 11001
 - Mensagem: "Nenhum host desse tipo é conhecido"
 
-Como parte da primeira tentativa de repetição, o programa pode corrigir a ortografia e tentar se conectar.
+Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
 
 Para tornar esse teste prático, desconecte o computador da rede antes de iniciar o programa. Em seguida, o programa reconhece um parâmetro de tempo de execução que faz com que o programa:
 

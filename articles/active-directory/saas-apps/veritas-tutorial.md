@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43094cabab3cfc93e0dffa59a15867d01b036d38
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865630"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087615"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Azure Active Directory com Veritas Enterprise Vault.cloud SSO
 
@@ -53,7 +53,7 @@ Para configurar a integração do Veritas Enterprise Vault.cloud SSO ao Azure AD
 
 **Para adicionar o Veritas Enterprise Vault.cloud SSO por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Veritas Enterprise Vault.cloud 
 
     ![Informações de logon único de Domínio e URLs do Veritas Enterprise Vault.cloud SSO](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 
     b. Na caixa **Identificador**, use a URL de acordo com o Datacenter:
 
@@ -210,5 +210,5 @@ Ao clicar no bloco do Veritas Enterprise Vault.cloud SSO no Painel de Acesso, vo
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

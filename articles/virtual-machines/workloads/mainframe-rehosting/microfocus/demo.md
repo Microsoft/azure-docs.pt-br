@@ -2,15 +2,16 @@
 title: Configurar o Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 em máquinas virtuais do Azure
 description: Execute o aplicativo de Micro foco BankDemo em máquinas virtuais do Azure (VMs) para aprender a usar o Micro Focus Enterprise Server e do Enterprise Developer.
 author: sread
+ms.author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4491fc137c2c85e2be605f5e58fde6fd422efbbe
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304932"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621330"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure
 
@@ -181,7 +182,7 @@ A consulta deve ser executado sem erros. Quando ela for concluída, você tem o 
 
      ![Defina a região - nome da região: BANKDEMO](media/08-demo-cics.png)
 
-7. Clique em **Concluir**.
+7. Clique em **Finalizar**.
 
 ## <a name="create-xa-resource-definitions"></a>Criar definições de recursos XA
 

@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: fddf853b90297cb75ffbd7c74cf81dd368370aa1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 6930ceec66f5641049e573fe7b115ba7822e472d
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011207"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67604241"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Início Rápido: Analisar uma imagem remota usando a API REST e o Python na Pesquisa Visual Computacional
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Início Rápido: Analisar uma imagem remota usando a API REST da Pesquisa Visual Computacional e o Python
 
 Neste início rápido, você analisará uma imagem armazenada remotamente para extrair recursos visuais usando a API REST de Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), é possível extrair recursos visuais com base no conteúdo de imagem.
 
@@ -53,7 +53,7 @@ Para criar e executar o exemplo, siga estas etapas:
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 import json
 from PIL import Image
@@ -67,7 +67,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the "westus" region.
+# Free trial subscription keys are generated in the "westcentralus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
@@ -78,10 +78,11 @@ analyze_url = vision_base_url + "analyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \
     "Broadway_and_Times_Square_by_night.jpg/450px-Broadway_and_Times_Square_by_night.jpg"
 
-headers = {'Ocp-Apim-Subscription-Key': subscription_key }
-params  = {'visualFeatures': 'Categories,Description,Color'}
-data    = {'url': image_url}
-response = requests.post(analyze_url, headers=headers, params=params, json=data)
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+params = {'visualFeatures': 'Categories,Description,Color'}
+data = {'url': image_url}
+response = requests.post(analyze_url, headers=headers,
+                         params=params, json=data)
 response.raise_for_status()
 
 # The 'analysis' object contains various fields that describe the image. The most

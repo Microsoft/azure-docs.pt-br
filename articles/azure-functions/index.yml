@@ -6,14 +6,12 @@ metadata:
   title: Documentação do Azure Functions - Tutoriais | Microsoft Docs
   meta.description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
   services: functions
-  author: czeumault
-  manager: carolz
-  ms.service: functions
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  author: georgewallace
+  manager: gwallace
+  ms.service: azure-functions
   ms.topic: landing-page
   ms.date: 08/09/2018
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: 'O Azure Functions é um serviço de computação <a href="https://azure.microsoft.com/solutions/serverless/">sem servidor</a> que permite executar o código sob demanda sem precisar provisionar explicitamente ou gerenciar a infraestrutura. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos. Saiba como usar o Azure Functions com nossos guias de início rápido, tutoriais e exemplos.'
   aside:

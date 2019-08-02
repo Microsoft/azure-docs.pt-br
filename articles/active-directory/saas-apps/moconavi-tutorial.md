@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 2a96364d486ed6c0db2762256798ac56afa69a78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 872a2daf30a2173c7cde93e534b8e7525c88a4d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65871545"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67096853"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moconavi"></a>Tutorial: Integração do Azure Active Directory com moconavi
 
@@ -52,7 +52,7 @@ Para configurar a integração do moconavi ao Azure AD, você precisará adicion
 
 **Para adicionar o moconavi da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o moconavi, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do moconavi](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2/saml/login`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://<yourserverurl>/moconavi-saml2`
 
@@ -204,7 +204,7 @@ Nesta seção, você criará uma usuária chamada Britta Simon no moconavi. Trab
 
     ![Teste do logon único](./media/moconavi-tutorial/testing3.png)
 
-     a. Digite **Chave de Autenticação de Entrada**:`azureAD` na caixa de texto **Chave de Autenticação de Entrada**.
+    a. Digite **Chave de Autenticação de Entrada**:`azureAD` na caixa de texto **Chave de Autenticação de Entrada**.
 
     b. Digite **ID de Usuário de Entrada**: `your ad account` na caixa de texto **ID de Usuário de Entrada**.
 
@@ -224,5 +224,5 @@ Nesta seção, você criará uma usuária chamada Britta Simon no moconavi. Trab
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

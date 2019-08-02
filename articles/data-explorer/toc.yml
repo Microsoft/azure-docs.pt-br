@@ -2,7 +2,7 @@
   href: index.yml
 - name: Visão geral
   items:
-    - name: O que é o Data Explorer?
+    - name: O que é o Gerenciador de dados do Azure?
       href: data-explorer-overview.md
 - name: Guia de início rápido
   expanded: true
@@ -11,12 +11,8 @@
       href: create-cluster-database-portal.md
     - name: Ingerir dados de exemplo
       href: ingest-sample-data.md
-    - name: Consultar dados
-      items:
-        - name: Interface do usuário da Web
-          href: web-query-data.md
-        - name: Python
-          href: python-query-data.md
+    - name: Consultar dados com a interface do usuário da Web
+      href: web-query-data.md
 - name: Tutoriais
   items:
     - name: Ingestão de dados sem usar código
@@ -68,12 +64,20 @@
       items:
         - name: Gravar consultas
           href: write-queries.md
-        - name: Análise de série temporal
-          href: time-series-analysis.md
-        - name: Detecção de anomalias e previsão
-          href: anomaly-detection.md
-        - name: Aprendizado de máquina
-          href: machine-learning-clustering.md
+        - name: Consultar dados no Azure Data Lake
+          href: data-lake-query-data.md
+        - name: Consultar dados no Azure Monitor
+          href: query-monitor-data.md
+        - name: Python
+          href: python-query-data.md
+        - name: Análise de série temporal e aprendizado de máquina
+          items:
+            - name: Análise de série temporal
+              href: time-series-analysis.md
+            - name: Detecção de anomalias e previsão
+              href: anomaly-detection.md
+            - name: Aprendizado de máquina
+              href: machine-learning-clustering.md
     - name: Visualizar dados
       items:
         - name: Power BI
@@ -84,24 +88,28 @@
               href: power-bi-imported-query.md
             - name: Consulta SQL
               href: power-bi-sql-query.md
-        - name: Conector do ODBC
-          href: connect-odbc.md
-        - name: Sisense
-          href: sisense.md
         - name: Grafana
           href: grafana.md
+        - name: Conector do ODBC
+          href: connect-odbc.md
         - name: Tableau
           href: tableau.md
+        - name: Sisense
+          href: sisense.md
     - name: Gerenciar
       items:
-        - name: Gerenciar permissões de banco de dados
-          href: manage-database-permissions.md
         - name: Verificar integridade do cluster
           href: check-cluster-health.md
+        - name: Selecionar SKU de VM do cluster
+          href: manage-cluster-choose-sku.md
         - name: Gerenciar escala horizontal do cluster
-          href: manage-cluster-scale-out.md
+          href: manage-cluster-horizontal-scaling.md
         - name: Gerenciar escala vertical do cluster
-          href: manage-cluster-scale-up.md
+          href: manage-cluster-vertical-scaling.md
+        - name: Gerenciar a segurança do cluster
+          href: manage-cluster-security.md
+        - name: Gerenciar permissões de banco de dados
+          href: manage-database-permissions.md
         - name: Excluir dados
           href: delete-data.md
         - name: Lidar com dados duplicados

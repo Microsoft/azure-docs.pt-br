@@ -11,16 +11,16 @@
       href: apache-hbase-phoenix-squirrel-linux.md
     - name: Consultar o Apache HBase – Shell do HBase
       href: ./query-hbase-with-hbase-shell.md
-- name: Introdução
+- name: Tutoriais
   items:
-    - name: Iniciar com o Apache HBase e NoSQL
+    - name: Usar Apache HBase no HDInsight
       href: apache-hbase-tutorial-get-started-linux.md
+- name: Conceitos
+  items:
     - name: Instalar aplicativos HDInsight
       href: ../hdinsight-apps-install-applications.md
     - name: Planejamento de capacidade de cluster
       href: ../hdinsight-capacity-planning.md
-- name: Conceitos
-  items:
     - name: Componentes do Apache Hadoop no HDInsight
       href: ../hdinsight-component-versioning.md
     - name: HDInsight 4.0
@@ -238,10 +238,14 @@
       items:
         - name: Arquitetura de rede virtual do HDInsight
           href: ../hdinsight-virtual-network-architecture.md
+        - name: Planejar VNETs para o HDInsight
+          href: ../hdinsight-plan-virtual-network-deployment.md
+        - name: Criar VNETs para o HDInsight
+          href: ../hdinsight-create-virtual-network.md
+        - name: Endereços IP necessários para NSGs e UDRs
+          href: ../hdinsight-management-ip-addresses.md
         - name: Usar o firewall para restringir o tráfego de saída
           href: ../hdinsight-restrict-outbound-traffic.md
-        - name: HDInsight na VNet do Azure
-          href: ../hdinsight-extend-hadoop-virtual-network.md
         - name: Conectar o HDInsight à rede local
           href: ../connect-on-premises-network.md
         - name: Criar cluster do Apache HBase na rede virtual do Azure

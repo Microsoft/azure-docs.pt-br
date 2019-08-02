@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62d359494050b188869d51d1e3975c823b9c0a76
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967595"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67204931"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -32,6 +32,10 @@ Chave de instrumentação do Application Insights se você estiver usando o Appl
 |Chave|Valor de exemplo|
 |---|------------|
 |APPINSIGHTS_INSTRUMENTATIONKEY|5dbdd5e9-af77-484b-9032-64f83bb83bb|
+
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+Na versão 2.x do tempo de execução de funções, configura o comportamento do aplicativo com base no ambiente de tempo de execução. Esse valor é [ler durante a inicialização](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43). Você pode definir `AZURE_FUNCTIONS_ENVIRONMENT` com qualquer valor, mas [três valores](/dotnet/api/microsoft.aspnetcore.hosting.environmentname) têm suporte: [Desenvolvimento](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development), [preparo](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging), e [produção](/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production). Quando `AZURE_FUNCTIONS_ENVIRONMENT` não estiver definido, o padrão é `Production`. Essa configuração deve ser usada em vez de `ASPNETCORE_ENVIRONMENT` para definir o ambiente de tempo de execução. 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -71,14 +75,6 @@ Uma lista delimitada por vírgulas de recursos beta a habilitar. Os recursos bet
 |Chave|Valor de exemplo|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
-
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-O caminho para o diretório raiz onde o arquivo *host.json* e as pastas de funções estão localizados. Em um aplicativo de funções, o padrão é `%HOME%\site\wwwroot`.
-
-|Chave|Valor de exemplo|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 

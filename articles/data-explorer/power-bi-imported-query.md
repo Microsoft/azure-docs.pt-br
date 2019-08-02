@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: ae632f7df34ca342a3dcc12bf5f011df0eb61973
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 07/10/2019
+ms.openlocfilehash: 6c2c8457cee004bf1288656ec9746b703d41aee1
+ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66399331"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67806416"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>Visualizar dados usando uma consulta importada ao Power BI
 
@@ -82,4 +82,4 @@ Se você não precisa mais o relatório que você criou para este artigo, exclua
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Visualizar dados usando uma consulta importada no Power BI](power-bi-sql-query.md)
+[Visualizar dados usando o conector do Gerenciador de dados do Azure para o Power BI](power-bi-connector.md)

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 73b8980b0ea2d1adbd814026f026358e25dcbb55
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313610"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67502944"
 ---
 # <a name="what-is-project-acoustics"></a>O que é Projeto Acústico?
 Projeto Acústico é um mecanismo de acústica de onda para experiências interativas 3D. Ele modela os efeitos de onda como difração, portaling e efeitos de reverberação em cenas complexas sem a necessidade de marcação de zona. Também inclui o mecanismo de jogo e a integração de áudio de middleware. A filosofia do Projeto Acústico é semelhante à iluminação estática: preparar a física detalhada offline para fornecer uma linha de base física e usar um tempo de execução leve com controles de design expressivos para atender às suas metas artísticas.
@@ -41,7 +41,7 @@ A [Integração do Unreal do Projeto Acústico](unreal-integration.md) inclui pl
 
 ## <a name="platforms"></a>Plataformas
 Os plug-ins do tempo de execução do Projeto Acústico podem atualmente ser implantados nas seguintes plataformas:
-*  Windows
+* Windows
 * Android
 * Xbox One
 
@@ -51,7 +51,7 @@ Os plug-ins do tempo de execução do Projeto Acústico podem atualmente ser imp
   * Para suporte e binários do Xbox, entre em contato conosco por meio do formulário de Inscrição abaixo
 
 ## <a name="contact-us"></a>Fale conosco
-* [Fóruns do Projeto Acústico](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
+* [Discussão do Projeto Acústico e emissão de relatórios](https://github.com/microsoft/ProjectAcoustics/issues)
 * [Inscreva-se para receber atualizações sobre o Projeto Acústico](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Próximas etapas

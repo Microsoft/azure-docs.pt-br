@@ -8,12 +8,12 @@ ms.author: jasonh
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 01/23/2017
-ms.openlocfilehash: c628e4a1caca76cbd52b99c07027d1df97d94ac1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76b37f6f1d82a801b1245ae6474e0d7fb4c2c4c9
+ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60811740"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67565961"
 ---
 # <a name="azure-data-lake-analytics-documentation"></a>Documentação do Azure Data Lake Analytics
 
@@ -124,7 +124,7 @@ Saiba como usar Azure Data Lake Analytics para executar trabalhos de análise de
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node.js</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.analytics.account">Python</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
+                        <p><a href="https://docs.microsoft.com/u-sql/">U-SQL</a></p>
                     </div>
                 </div>
             </div>

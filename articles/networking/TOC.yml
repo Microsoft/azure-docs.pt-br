@@ -126,6 +126,8 @@
   items:
     - name: Modelos de autor
       href: /azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Provedores
+      href: networking-partners-msp.md
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Modelos da comunidade

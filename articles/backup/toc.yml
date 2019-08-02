@@ -26,6 +26,8 @@
       href: tutorial-restore-files.md
     - name: Fazer backup do SQL Server na VM do Azure
       href: tutorial-sql-backup.md
+    - name: Backup de compartilhamentos de Arquivos do Azure
+      href: tutorial-backup-azure-files.md
     - name: Fazer backup do Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurar arquivos para o Windows Server
@@ -60,6 +62,10 @@
           href: backup-azure-files-faq.md
         - name: Perguntas frequentes – fazer backup de bancos de dados do SQL Server em VMs do Azure
           href: faq-backup-sql-server.md
+        - name: Perguntas frequentes – Servidor de Backup do Azure e DPM
+          href: backup-azure-dpm-azure-server-faq.md
+        - name: Perguntas frequentes – Alerta do monitor do Backup do Azure
+          href: backup-azure-monitor-alert-faq.md
     - name: Arquitetura de backup
       href: backup-architecture.md
     - name: Controle de Acesso Baseado em Função
@@ -94,6 +100,8 @@
               href: backup-mabs-unattended-install.md
         - name: Proteger as cargas de trabalho
           items:
+            - name: Backup de máquinas virtuais do Hyper-V
+              href: back-up-hyper-v-virtual-machines-mabs.md
             - name: Servidor do VMware
               href: backup-azure-backup-server-vmware.md
             - name: Exchange
@@ -142,8 +150,6 @@
           items:
             - name: Gerenciar backups de VM do Azure
               href: backup-azure-manage-vms.md
-            - name: Monitorar alertas de backups de VM do Azure
-              href: backup-azure-monitor-vms.md
         - name: Restaurar VMs do Azure
           items:
             - name: Restaurar VMs do Azure no portal
@@ -252,6 +258,8 @@
           href: troubleshoot-azure-files.md
         - name: SQL Server
           href: backup-sql-server-azure-troubleshoot.md
+        - name: Backup do SAP HANA em VMs do Azure
+          href: backup-azure-sap-hana-database-troubleshoot.md
         - name: Estado do Sistema
           href: backup-azure-system-state-troubleshoot.md
     - name: Monitorar cargas de trabalho de Backup do Azure

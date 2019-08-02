@@ -3,17 +3,17 @@ title: Provisionar um pool de Lote do Azure de uma imagem personalizada | Micros
 description: Crie um pool de Lote de computação de uma imagem personalizada para provisionar nós que contêm o software e os dados que você precisa para seu aplicativo. Imagens personalizadas são uma maneira eficiente para configurar nós de computação para executar suas cargas de trabalho do Lote.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54456ff48ca7104cc1ba10ddc47cec1bc364ddf6
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706317"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68323696"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada para criar um pool de máquinas virtuais 
 
@@ -49,7 +49,7 @@ No Azure, você pode preparar uma imagem gerenciada de instantâneos de discos d
 
 ### <a name="prepare-a-vm"></a>Preparar uma VM
 
-Se você estiver criando uma nova VM para a imagem, use uma primeira imagem do Azure Marketplace terceiros com suporte pelo lote, como a imagem base para sua imagem gerenciada. Somente imagens primárias podem ser usadas como uma imagem de base. Para obter uma lista completa das referências de imagem do Marketplace do Azure com suporte do lote do Azure, consulte a [SKUs do agente de nó lista](/rest/api/batchservice/account/listnodeagentskus) operação.
+Se você estiver criando uma nova VM para a imagem, use uma imagem de terceiros do Azure Marketplace com suporte pelo lote como a imagem base para a imagem gerenciada. Somente imagens de terceiros podem ser usadas como uma imagem de base. Para obter uma lista completa de referências de imagem do Azure Marketplace com suporte pelo lote do Azure, consulte a [lista de SKUs de agente de nó de listas](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
 > Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes par máquinas virtuais [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -59,7 +59,7 @@ Se você estiver criando uma nova VM para a imagem, use uma primeira imagem do A
 
 * Verifique se a VM é criada com um disco gerenciado. Essa é a configuração de armazenamento padrão quando você cria uma VM.
 * Não instale extensões do Azure, tais como a extensão de Script personalizado, na VM. Se a imagem contém uma extensão pré-instalada, o Azure pode ter problemas ao implantar a o pool do Lote.
-* Usando discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
+* Ao usar discos de dados anexados, você precisa montar e formatar os discos de dentro de uma VM para usá-los.
 * Verifique se a imagem do sistema operacional base que você forneceu usa unidade temporária padrão. O agente do nó de Lote no momento espera unidade temporária padrão.
 * Quando a VM estiver em execução, conecte-se a ela via RDP (para Windows) ou SSH (para Linux). Instale o software necessário ou copie os dados desejados.  
 
@@ -78,7 +78,7 @@ Após ter salvo sua imagem personalizada e saber o nome ou a ID do recurso, crie
 > [!NOTE]
 > Se você estiver criando o pool usando uma das APIs de Lote, verifique se a identidade que você usa para autenticação do AAD tem permissões para o recurso de imagem. Consulte [Autenticar soluções do serviço do Lote no Active Directory](batch-aad-auth.md).
 >
-> O recurso para a imagem gerenciada deve existir para o tempo de vida do pool. Se o recurso subjacente for excluído, o pool não pode ser dimensionado. 
+> O recurso para a imagem gerenciada deve existir durante o tempo de vida do pool. Se o recurso subjacente for excluído, o pool não poderá ser dimensionado. 
 
 1. Navegue até sua conta do Lote no portal do Azure. Esta conta deve estar na mesma assinatura e na mesma região que o grupo de recursos que contém a imagem personalizada. 
 2. Na janela **Configurações** à esquerda, selecione o item de menu **Pools**.
@@ -111,15 +111,15 @@ Além disso, observe o seguinte:
 
   Se você planejar um pool com mais de 300 nós de computação, você poderá precisar redimensionar o pool várias vezes para alcançar o tamanho de destino.
 
-## <a name="considerations-for-using-packer"></a>Considerações para usar o Packer
+## <a name="considerations-for-using-packer"></a>Considerações sobre o uso do Packr
 
-Criar um recurso de imagem gerenciada diretamente com o Packer só pode ser feito com contas do lote de modo de assinatura de usuário. Para contas de modo de serviço de lote, você precisa primeiro criar um VHD e, em seguida, importar o VHD para um recurso de imagem gerenciada. Dependendo do seu modo de alocação de pool (assinatura de usuário ou serviço de lote), as etapas para criar um recurso de imagem gerenciada variará.
+Criar um recurso de imagem gerenciada diretamente com o Packer só pode ser feito com contas do lote no modo de assinatura do usuário. Para contas do modo de serviço de lote, você precisa primeiro criar um VHD e, em seguida, importar o VHD para um recurso de imagem gerenciada. Dependendo do modo de alocação do pool (assinatura do usuário ou serviço de lote), suas etapas para criar um recurso de imagem gerenciada irão variar.
 
-Certifique-se de que o recurso usado para criar a imagem gerenciada existe para os tempos de vida de qualquer pool referenciando a imagem personalizada. Falha ao fazer isso pode resultar em falhas de alocação de pool e/ou redimensionar as falhas. 
+Verifique se o recurso usado para criar a imagem gerenciada existe para os tempos de vida de qualquer pool que referencie a imagem personalizada. A falha em fazer isso pode resultar em falhas de alocação de pool e/ou em redimensionamento de falhas. 
 
-Se a imagem ou o recurso subjacente for removido, você poderá receber um erro semelhante a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Se isso acontecer, certifique-se de que o recurso subjacente não foram removido.
+Se a imagem ou o recurso subjacente for removido, você poderá receber um erro semelhante a: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. Se isso acontecer, verifique se o recurso subjacente não foi removido.
 
-Para obter mais informações sobre como usar o Packer para criar uma VM, consulte [criar uma imagem do Linux com o Packer](../virtual-machines/linux/build-image-with-packer.md) ou [criar uma imagem do Windows com o Packer](../virtual-machines/windows/build-image-with-packer.md).
+Para obter mais informações sobre como usar o Packer para criar uma VM, consulte [criar uma imagem do Linux com](../virtual-machines/linux/build-image-with-packer.md) o packr ou [criar uma imagem do Windows com o packr](../virtual-machines/windows/build-image-with-packer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

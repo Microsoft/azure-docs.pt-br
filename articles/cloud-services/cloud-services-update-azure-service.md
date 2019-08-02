@@ -2,24 +2,17 @@
 title: Como atualizar um serviço de nuvem | Microsoft Docs
 description: Saiba como atualizar os serviços de nuvem no Azure. Saiba como uma atualização em um serviço de nuvem é realizada para garantir a disponibilidade.
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: c6a8b5e6-5c99-454c-9911-5c7ae8d1af63
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: jeconnoc
-ms.openlocfilehash: ff4dd571911719e4f2ec27952785432960a56d42
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 10d919b21e05195e8a7b6b351a742a4f9a57ee2b
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653853"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68360711"
 ---
 # <a name="how-to-update-a-cloud-service"></a>Como atualizar um serviço de nuvem
 
@@ -54,18 +47,18 @@ A tabela a seguir mostra as alterações permitidas em um serviço durante uma a
 
 | Alterações permitidas na hospedagem, serviços e funções | Atualização in-loco | Em estágios (permuta de VIP) | Excluir e reimplantar |
 | --- | --- | --- | --- |
-| Versão do sistema operacional |Sim |sim |Sim |
-| Nível de confiança do .NET |Sim |sim |Sim |
+| Versão do sistema operacional |Sim |Sim |Sim |
+| Nível de confiança do .NET |Sim |Sim |Sim |
 | Tamanho da máquina virtual<sup>1</sup> |Sim<sup>2</sup> |Sim |Sim |
 | Configurações de armazenamento local |Apenas aumento<sup>2</sup> |Sim |Sim |
-| Adicionar ou remover funções em um serviço |Sim |sim |Sim |
-| Número de instâncias de uma função específica |Sim |sim |Sim |
+| Adicionar ou remover funções em um serviço |Sim |Sim |Sim |
+| Número de instâncias de uma função específica |Sim |Sim |Sim |
 | Número ou tipo de pontos de extremidade de um serviço |Sim<sup>2</sup> |Não |Sim |
-| Nomes e valores dos parâmetros de configuração |Sim |sim |Sim |
-| Valores (mas não nomes) dos parâmetros de configuração |Sim |sim |Sim |
-| Adicionar novos certificados |Sim |sim |Sim |
-| Alterar certificados existentes |Sim |sim |Sim |
-| Implantar novo código |Sim |sim |Sim |
+| Nomes e valores dos parâmetros de configuração |Sim |Sim |Sim |
+| Valores (mas não nomes) dos parâmetros de configuração |Sim |Sim |Sim |
+| Adicionar novos certificados |Sim |Sim |Sim |
+| Alterar certificados existentes |Sim |Sim |Sim |
+| Implantar novo código |Sim |Sim |Sim |
 
 <sup>1</sup>Alteração de tamanho limitado ao subconjunto de tamanhos disponíveis para o serviço de nuvem.
 
@@ -141,7 +134,7 @@ Essa funcionalidade é fornecida pelos seguintes recursos:
   1. O elemento Locked permite a você detectar quando uma operação de mutação pode ser chamada em uma determinada implantação.
   2. O elemento RollbackAllowed permite detectar quando a operação [Reversão de atualização ou upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)) pode ser chamada em uma determinada implantação.
 
-  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. Basta confirmar se RollbackAllowed está definido como true. Esses elementos apenas serão retornados se esses métodos são chamados usando o cabeçalho de solicitação definido como "x-ms-version: 2011-10-01 "ou uma versão posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
+  Para executar uma reversão, você não precisa verificar os elementos Locked e RollbackAllowed. Basta confirmar se RollbackAllowed está definido como true. Esses elementos só serão retornados se esses métodos forem invocados usando o cabeçalho de solicitação definido como "x-MS-Version: 2011-10-01 "ou uma versão posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
 
 Há algumas situações nas quais não há suporte para uma reversão de uma atualização ou upgrade, entre elas:
 
@@ -162,11 +155,11 @@ Após o recebimento da solicitação inicial de atualização ou upgrade pelo co
 
 Iniciar uma segunda operação de atualização enquanto a primeira atualização está em andamento terá um desempenho semelhante à operação de reversão. Se a segunda atualização estiver em modo automático, o primeiro domínio de atualização será atualizado imediatamente, possivelmente fazendo com que vários domínios de atualização fiquem offline no mesmo período.
 
-As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação de atualização](/previous-versions/azure/reference/ee460793(v=azure.100)), [Atualizar Status de implantação](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100)), e [reversão Atualizar ou fazer Upgrade](/previous-versions/azure/reference/hh403977(v=azure.100)).
+As operações de mutação são as seguintes: [Alterar configuração de implantação](/previous-versions/azure/reference/ee460809(v=azure.100)), [implantação](/previous-versions/azure/reference/ee460793(v=azure.100))de atualização, status de [implantação de atualização](/previous-versions/azure/reference/ee460808(v=azure.100)), [excluir implantação](/previous-versions/azure/reference/ee460815(v=azure.100))e [reverter atualização ou atualização](/previous-versions/azure/reference/hh403977(v=azure.100)).
 
 Duas operações, [Obter a implantação](/previous-versions/azure/reference/ee460804(v=azure.100)) e [Obter propriedades do serviço de nuvem](/previous-versions/azure/reference/ee460806(v=azure.100)), retornam o sinalizador Locked, que pode ser examinado a fim de determinar se uma operação de mutação pode ser chamada em uma determinada implantação.
 
-Para chamar a versão desses métodos que retorna o sinalizador Locked, você deve definir o cabeçalho de solicitação como "x-ms-version: 2011-10-01 "ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
+Para chamar a versão desses métodos que retorna o sinalizador bloqueado, você deve definir o cabeçalho de solicitação como "x-MS-Version: 2011-10-01 "ou posterior. Para saber mais sobre os cabeçalhos de controle de versão, consulte [Controle de versão do serviço de gerenciamento](/previous-versions/azure/gg592580(v=azure.100)).
 
 <a name="distributiondfroles"></a>
 

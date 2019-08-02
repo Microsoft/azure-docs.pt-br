@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 04/14/2019
+ms.date: 07/03/2019
 ms.author: ramamill
-ms.openlocfilehash: 5f0578026e95378065fc68198434e347a87eb1fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 902c14211e91a1500c6b50cd790b347e337c4f70
+ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62123896"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67589054"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>Configurar o servidor de configuração para recuperação de desastre de servidores físicos no Azure
 
@@ -24,7 +24,7 @@ Este artigo descreve como configurar seu ambiente local para iniciar a replicaç
 O artigo supõe que você já tenha:
 - Um cofre de Serviços de Recuperação no [Portal do Azure](https://portal.azure.com "Portal do Azure").
 - Um computador físico no qual instalar o servidor de configuração.
-- Se você desabilitou o TLS 1.0 no computador no qual você instalando o servidor de configuração, verifique se o TLs 1.2 está habilitado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia forte desabilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
+- Se você desabilitou o TLS 1.0 no computador no qual você está instalando o servidor de configuração, certifique-se de que o TLs 1.2 está habilitado e que o .NET Framework versão 4.6 ou posterior está instalado no computador (com criptografia forte habilitada). [Saiba mais](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### <a name="configuration-server-minimum-requirements"></a>Requisitos mínimos do servidor de configuração
 A tabela a seguir lista os requisitos mínimos de hardware, software e rede para um servidor de configuração.

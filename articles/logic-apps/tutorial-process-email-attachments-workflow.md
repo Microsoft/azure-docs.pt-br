@@ -10,12 +10,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: 4287efedfc35da762825c5562cf88e64987192f1
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: ee232b54bc4d65d6380a6f2a1d1c88ee7dcf53c3
+ms.sourcegitcommit: 5cb0b6645bd5dff9c1a4324793df3fdd776225e4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414557"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67312657"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Tutorial: Automatizar o manuseio de emails e anexos com os Aplicativos Lógicos do Azure
 
@@ -145,7 +145,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
 
    | Configuração | Valor | DESCRIÇÃO |
    | ------- | ----- | ----------- |
-   | **Nome do aplicativo** | CleanTextFunctionApp | Um nome globalmente exclusivo e descritivo para o aplicativo de funções |
+   | **Nome do aplicativo** | <*function-app-name*> | O nome descritivo e globalmente exclusivo do aplicativo de funções, que é "CleanTextFunctionApp" neste exemplo, portanto, forneça um nome diferente, como "MyCleanTextFunctionApp" |
    | **Assinatura** | <*nome-da-sua-assinatura-do-Azure*> | A mesma assinatura do Azure que você usou anteriormente | 
    | **Grupo de recursos** | LA-Tutorial-RG | O mesmo grupo de recursos do Azure que você usou anteriormente |
    | **Plano de hospedagem** | Plano de consumo | Essa configuração determina como alocar e dimensionar recursos, como capacidade de computação, para executar seu aplicativo de funções. Confira [Comparação entre planos de hospedagem](../azure-functions/functions-scale.md). | 
@@ -168,7 +168,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
 
    Você também pode usar a [CLI do Azure](../azure-functions/functions-create-first-azure-function-azure-cli.md) ou os [modelos do PowerShell e do Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
-2. Em **Aplicativos de Funções**, expanda **CleanTextFunctionApp**e selecione **Funções**. Na barra de ferramentas de funções, selecione **Nova função**.
+2. Em **Aplicativos de funções**, expanda seu aplicativo de funções, que é "CleanTextFunctionApp" neste exemplo e selecione **Funções**. Na barra de ferramentas de funções, selecione **Nova função**.
 
    ![Criar nova função](./media/tutorial-process-email-attachments-workflow/function-app-new-function.png)
 
@@ -210,7 +210,7 @@ Agora, use o snippet de código fornecido por estas etapas para criar uma funç�
    }
    ```
 
-6. Quando terminar, escolha **Salvar**. Para testar sua função, escolha **Testar** no ícone de seta (**<**) na extremidade direita do editor.
+6. Quando terminar, escolha **Salvar**. Para testar sua função, escolha **Testar** no ícone de seta ( **<** ) na extremidade direita do editor.
 
    ![Abra o painel “Testar”](./media/tutorial-process-email-attachments-workflow/function-choose-test.png)
 
@@ -260,7 +260,7 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 1. No designer na caixa de pesquisa, digite "quando o novo email chega" como filtro. Selecione esse gatilho para seu provedor de email: **Quando um novo email é recebido – <*seu provedor-de-email*>**
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Selecione esse gatilho para o provedor de email: "Quando um novo email é recebido"](./media/tutorial-process-email-attachments-workflow/add-trigger-when-email-arrives.png)
 
@@ -316,7 +316,7 @@ Agora, adicione uma condição que seleciona somente emails com anexos.
    ![Selecionar "Condição"](./media/tutorial-process-email-attachments-workflow/select-condition.png)
 
    1. Renomeie a condição com uma descrição melhor. 
-   Na barra de título da condição, escolha o botão de **reticências** (**...**) > **Renomear**.
+   Na barra de título da condição, escolha o botão de **reticências** ( **...** ) > **Renomear**.
 
       ![Renomear condição](./media/tutorial-process-email-attachments-workflow/condition-rename.png)
 
@@ -399,7 +399,7 @@ Esta etapa adiciona a função do Azure criada anteriormente ao seu aplicativo l
 
    ![Selecionar ação para "Escolher uma função do Azure"](./media/tutorial-process-email-attachments-workflow/add-action-azure-function.png)
 
-3. Selecione o aplicativo de funções criado anteriormente: **CleanTextFunctionApp**
+3. Selecione o aplicativo de funções criado anteriormente, que é "CleanTextFunctionApp" neste exemplo:
 
    ![Selecione o aplicativo de funções do Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
@@ -626,7 +626,7 @@ Em seguida, adicione uma ação para que seu aplicativo lógico envie email para
    ||||
 
    > [!NOTE]
-   > Caso você selecione um campo que tenha uma matriz, como o campo **Content**, que é uma matriz que contém anexos, o designer adicionará automaticamente um loop “For each” em torno da ação que faz referência a esse campo. Dessa forma, seu aplicativo lógico pode executar essa ação em cada item da matriz. Para remover o loop, remova o campo da matriz, mova a ação de referência para fora do loop, escolha as reticências (**...** ) na barra de título do loop e escolha **Excluir**.
+   > Caso você selecione um campo que tenha uma matriz, como o campo **Content**, que é uma matriz que contém anexos, o designer adicionará automaticamente um loop “For each” em torno da ação que faz referência a esse campo. Dessa forma, seu aplicativo lógico pode executar essa ação em cada item da matriz. Para remover o loop, remova o campo da matriz, mova a ação de referência para fora do loop, escolha as reticências ( **...** ) na barra de título do loop e escolha **Excluir**.
 
 6. Salve seu aplicativo lógico.
 

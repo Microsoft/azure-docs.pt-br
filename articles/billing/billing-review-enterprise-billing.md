@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
-ms.openlocfilehash: 9a0b536426ab024d5af7b257e44a2d5e20f14def
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: banders
+ms.openlocfilehash: 25d9b48696dc2a83ea0ba77c1be2c7aad7627fff
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60371029"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68443144"
 ---
 # <a name="review-enterprise-enrollment-billing-using-rest-apis"></a>Revise o faturamento de inscrição empresarial usando APIs REST
 
@@ -41,15 +41,15 @@ O parâmetro `{billingAccountId}` é obrigatório e deve conter a ID de inscriç
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obrigatório. Defina como `application/json`.|  
-|*Authorization:*|Obrigatório. Defina como uma chave de API `Bearer` [ válida ](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Content-Type:*|Obrigatória. Defina como `application/json`.|  
+|*Authorization:*|Obrigatória. Defina como uma chave de API `Bearer` [ válida ](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
 Este exemplo mostra uma chamada síncrona que retorna detalhes para o ciclo de faturamento atual. Por motivos de desempenho, as chamadas síncronas retornam informações do último mês.  Você também pode chamar a [API de forma assíncrona](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para retornar dados por 36 meses.
 
 
-## <a name="response"></a>Response  
+## <a name="response"></a>Resposta  
 
 O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que contém uma lista de custos detalhados para a conta.
 
@@ -94,14 +94,14 @@ O parâmetro `{departmentId}` é obrigatório e deve conter a ID do departamento
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obrigatório. Defina como `application/json`.|  
-|*Authorization:*|Obrigatório. Defina como uma chave de API `Bearer` [ válida ](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Content-Type:*|Obrigatória. Defina como `application/json`.|  
+|*Authorization:*|Obrigatória. Defina como uma chave de API `Bearer` [ válida ](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
 Este exemplo mostra uma chamada síncrona que retorna detalhes para o ciclo de faturamento atual. Por motivos de desempenho, as chamadas síncronas retornam informações do último mês.  Você também pode chamar a [API de forma assíncrona](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para retornar dados por 36 meses.
 
-### <a name="response"></a>Response  
+### <a name="response"></a>Resposta  
 
 O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que contém uma lista de informações detalhadas de uso e custos para um determinado período de cobrança e ID de fatura para o departamento.
 
@@ -150,14 +150,14 @@ O parâmetro `{enrollmentAccountId}` é obrigatório e deve conter a ID da conta
 
 Os cabeçalhos a seguir são necessários: 
 
-|Cabeçalho da solicitação|DESCRIÇÃO|  
+|Cabeçalho da solicitação|Descrição|  
 |--------------------|-----------------|  
-|*Content-Type:*|Obrigatório. Defina como `application/json`.|  
-|*Authorization:*|Obrigatório. Defina como uma chave de API `Bearer` [ válida ](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Content-Type:*|Obrigatória. Defina como `application/json`.|  
+|*Authorization:*|Obrigatória. Defina como uma chave de API `Bearer` [ válida ](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
 Este exemplo mostra uma chamada síncrona que retorna detalhes para o ciclo de faturamento atual. Por motivos de desempenho, as chamadas síncronas retornam informações do último mês.  Você também pode chamar a [API de forma assíncrona](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) para retornar dados por 36 meses.
 
-### <a name="response"></a>Response  
+### <a name="response"></a>Resposta  
 
 O código de status 200 (OK) é retornado para uma resposta bem-sucedida, que contém uma lista de informações detalhadas de uso e custos para um determinado período de cobrança e ID de fatura para o departamento.
 

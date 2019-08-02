@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.openlocfilehash: 75a3c8a9912fe9ace70e411983996167da755128
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.date: 06/14/2019
+ms.openlocfilehash: c98247b0ba8b670a59dec9aa3ec87e949f1dda78
+ms.sourcegitcommit: 72f1d1210980d2f75e490f879521bc73d76a17e1
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66734645"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67147937"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas de leitura no banco de dados do Azure para PostgreSQL – servidor único
 
@@ -122,6 +122,9 @@ Uma réplica é criada usando a mesma configuração de servidor que o mestre. D
 PostgreSQL requer que o valor do parâmetro `max_connections` na réplica de leitura seja maior ou igual ao valor mestre; caso contrário, a réplica não será iniciada. No Banco de Dados do Azure para PostgreSQL, o valor do parâmetro `max_connections` se baseia na SKU. Para obter mais informações, confira [Limites no Banco de Dados do Azure para PostgreSQL](concepts-limits.md). 
 
 Se você tentar atualizar os valores do servidor, mas não cumprir os limites, receberá um erro.
+
+### <a name="maxpreparedtransactions"></a>max_prepared_transactions
+[PostgreSQL requer](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) o valor da `max_prepared_transactions` parâmetro na réplica de leitura para ser maior que ou igual ao valor mestre; caso contrário, a réplica não será iniciado. Se você quiser alterar `max_prepared_transactions` no mestre, primeiro alterá-la nas réplicas.
 
 ### <a name="stopped-replicas"></a>Réplicas paradas
 Se você interromper a replicação entre um servidor mestre e uma réplica de leitura, a réplica será reiniciada para aplicar a alteração. A réplica interrompida se tornará um servidor autônomo que aceita leituras e gravações. O servidor autônomo não pode se tornar uma réplica novamente.

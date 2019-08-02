@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5955b21ae405f15960974fcbc81b8383f3322509
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308685"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485712"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar partições e réplicas de consulta e indexação de cargas de trabalho no Azure Search
 Depois que você [escolhe um tipo de preço](search-sku-tier.md) e [provisiona um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, como opção, aumentar o número de réplicas ou partições usadas pelo serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra os requisitos para execução da consulta, indexação e armazenamento.
@@ -47,6 +47,7 @@ Para aumentar ou alterar a alocação de réplicas e partições, recomendamos o
 Em geral, os aplicativos de pesquisa precisam de mais réplicas do que partições, especialmente quando as operações de serviço são polarizadas para cargas de trabalho de consulta. A seção sobre [alta disponibilidade](#HA) , explica o motivo.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) e selecione o serviço de pesquisa.
+
 2. Na **as configurações**, abra o **escala** página para modificar partições e réplicas. 
 
    Captura de tela a seguir mostra um serviço padrão provisionado com uma réplica e partição. A fórmula na parte inferior indica quantas unidades de pesquisa estão sendo usadas (1). Se o preço unitário foi de US $100 (não um preço real), o custo mensal da execução deste serviço seria US $100 em média.
@@ -108,6 +109,7 @@ Uma vez que é relativamente fácil e rápido escalar verticalmente, recomendamo
 Recomendações gerais para alta disponibilidade são:
 
 * Duas réplicas para alta disponibilidade de cargas de trabalho somente leitura (consultas)
+
 * Três ou mais réplicas para alta disponibilidade de cargas de trabalho de leitura/gravação (consultas e indexação à medida que documentos individuais são adicionados, atualizados ou excluídos)
 
 Os SLAs (contratos de nível de serviço) do Azure Search são direcionados a operações de consulta e a atualizações de índice formadas pela adição, atualização ou exclusão de documentos.

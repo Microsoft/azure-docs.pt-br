@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7515c061467419412608bb8103136791845ae093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 742e0028b1f92beb8300cc97f09d8292259fbc0a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67133805"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67712444"
 ---
 # <a name="enable-and-deploy-azure-ultra-ssds-preview"></a>Habilitar e implantar o SSDs ultra do Azure (visualização)
 
@@ -33,7 +33,7 @@ A resposta será semelhante ao formulário abaixo, onde X é a zona a ser usado 
 
 Preservar os **zonas** valor, ele representa a zona de disponibilidade e você precisará dele para implantar um SSD ultra.
 
-|ResourceType  |NOME  |Local padrão  |Zonas  |Restrição  |Recurso  |Value  |
+|ResourceType  |Nome  |Location  |Zonas  |Restrição  |Recurso  |Valor  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -63,7 +63,7 @@ Para usar o ultra SSDs, você deve criar uma VM que é capaz de usar o ultra SSD
 Substituir ou definir as **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variáveis com seus próprios valores. Definir **$zone** para o valor de sua zona de disponibilidade que você obteve o [início deste artigo](#determine-your-availability-zone). Em seguida, execute o seguinte comando CLI para criar uma VM habilitada ultra:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### <a name="create-an-ultra-ssd-using-cli"></a>Criar um SSD ultra usando a CLI

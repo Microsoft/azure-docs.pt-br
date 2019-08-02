@@ -12,6 +12,6 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/19/2018
-  ms.author: 'rosh, v-gedod'
+  ms.author: rosh
 abstract:
   description: 'A API de Visualização de URL do Bing obtém informações resumidas sobre uma URL de destino, incluindo descrição, sinalizador isFamilyFriendly, imagem representativa e link para a página.'

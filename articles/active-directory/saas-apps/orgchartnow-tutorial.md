@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b96606b5558e0fbb81733b2f548a89bfb38d5f99
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870555"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integração do Azure Active Directory com OrgChart Now
 
@@ -53,7 +53,7 @@ Para configurar a integração do OrgChart Now ao AD do Azure, você precisará 
 
 **Para adicionar o OrgChart Now a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -191,7 +191,7 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 1. O OrgChart Now dá suporte ao provisionamento just-in-time, que está habilitado por padrão. Um novo usuário é criado durante uma tentativa de acessar o OrgChart Now, caso ele ainda não exista. O recurso de provisionamento de usuário JIT criará apenas um **usuário somente leitura** quando uma solicitação SSO vier de um IDP reconhecido e o email na asserção SAML não for encontrado na lista de usuários. Para esse recurso de provisionamento automático, é necessário criar um grupo de acesso chamado **Geral** no OrgChart Now. Execute as etapas abaixo para criar um grupo de acesso:
 
-     a. Vá para a opção **Gerenciar Grupos** depois de clicar na **engrenagem** no canto superior direito da interface do usuário.
+    a. Vá para a opção **Gerenciar Grupos** depois de clicar na **engrenagem** no canto superior direito da interface do usuário.
 
     ![Grupos OrgChart Now](./media/orgchartnow-tutorial/tutorial_orgchartnow_manage.png)    
 
@@ -209,7 +209,7 @@ Para permitir que os usuários do Azure AD façam logon no OrgChart Now, eles de
 
 2. Para criar usuários **Admin** e **usuários de leitura / gravação**, crie manualmente um usuário para obter acesso ao nível de privilégio por SSO. Para provisionar uma conta de usuário, execute as seguintes etapas:
 
-     a. Faça logon no OrgChart Now como Administrador de Segurança.
+    a. Faça logon no OrgChart Now como Administrador de Segurança.
 
     b.  Clique em **Configurações** no canto superior direito e navegue até **Gerenciar Usuários**.
 
@@ -237,5 +237,5 @@ Ao clicar no bloco do OrgChart Now no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

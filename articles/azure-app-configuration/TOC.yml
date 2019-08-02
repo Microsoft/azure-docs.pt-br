@@ -29,6 +29,8 @@
   items:
     - name: Habilitar a configuração dinâmica no ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Habilitar a configuração dinâmica em um aplicativo .NET Core
+      href: enable-dynamic-configuration-dotnet-core.md
     - name: Usar sinalizadores de recursos em um aplicativo .NET Core
       href: use-feature-flags-dotnet-core.md
     - name: Gerenciar sinalizadores de recursos
@@ -73,10 +75,12 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
         - name: Construtor do .NET Framework
           href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-        - name: Provedor Java Spring
-          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
         - name: SDK do Azure para .NET
           href: 'https://go.microsoft.com/fwlink/?linkid=2092056'
+        - name: Provedor Java Spring
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074659'
+        - name: SDK do Azure Java
+          href: 'https://go.microsoft.com/fwlink/?linkid=2098196'
         - name: REST
           href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
     - name: Gerenciamento de recursos

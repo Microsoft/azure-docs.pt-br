@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: c5d1a791de5c295b4644e5633983a5369200498e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 56399f99ede611c4a120603cce3a3eede2728c6d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888371"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088256"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integração do Azure Active Directory ao Trisotech Digital Enterprise Server
 
@@ -55,7 +55,7 @@ Para configurar a integração do Trisotech Digital Enterprise Server ao Microso
 
 **Para adicionar o Trisotech Digital Enterprise Server por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -82,7 +82,7 @@ Para configurar e testar o logon único do Microsoft Azure AD com o Trisotech Di
 2. **[Configurar o Logon Único do Trisotech Digital Enterprise Server](#configure-trisotech-digital-enterprise-server-single-sign-on)** – para definir as configurações de Logon Único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do Trisotech Digital Enterprise Server](#create-trisotech-digital-enterprise-server-test-user)**: para ter um equivalente de Brenda Fernandes no Trisotech Digital Enterprise Server que esteja vinculado à representação do usuário no Microsoft Azure AD.
+5. **[Criar usuário de teste do Trisotech Digital Enterprise Server](#create-trisotech-digital-enterprise-server-test-user)** : para ter um equivalente de Brenda Fernandes no Trisotech Digital Enterprise Server que esteja vinculado à representação do usuário no Microsoft Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -107,9 +107,9 @@ Para configurar o logon único do Microsoft Azure AD com o Trisotech Digital Ent
 
     ![Informações de logon único em Domínio e URLs do Trisotech Digital Enterprise Server](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.trisotech.com`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.trisotech.com`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<companyname>.trisotech.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.trisotech.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Trisotech Digital Enterprise Server](mailto:support@trisotech.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -134,7 +134,7 @@ Para configurar o logon único do Microsoft Azure AD com o Trisotech Digital Ent
 
     ![Configurar o logon único](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
-     a. Selecione **SAML 2 (Secured Assertion Markup Language 2)** da lista suspensa no **Método de Autenticação**.
+    a. Selecione **SAML 2 (Secured Assertion Markup Language 2)** da lista suspensa no **Método de Autenticação**.
 
     b. Na caixa de texto **URL de Metadados**, cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure.
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Microsoft Azure AD com o Trisotech Digital Ent
 
     d. Clique em **Salvar**
 
-    e. Inserir o nome de domínio na caixa de texto **Domínios Permitidos (vazio significa todos)**, ele atribui automaticamente licenças para usuários que correspondem aos domínios permitidos
+    e. Inserir o nome de domínio na caixa de texto **Domínios Permitidos (vazio significa todos)** , ele atribui automaticamente licenças para usuários que correspondem aos domínios permitidos
 
     f. Clique em **Salvar**
 
@@ -215,5 +215,5 @@ Ao clicar no bloco Trisotech Digital Enterprise Server no Painel de Acesso, voc�
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

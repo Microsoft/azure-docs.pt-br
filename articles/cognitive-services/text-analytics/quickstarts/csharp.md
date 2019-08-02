@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 05/28/2019
+ms.date: 07/18/2019
 ms.author: assafi
-ms.openlocfilehash: a8b41f6853e9c91e64de903960b880e44f22ed55
-ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
+ms.openlocfilehash: 09713528f51675f6e9d7f3073b6c81b095d23631
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66297811"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356969"
 ---
 # <a name="quickstart-use-the-net-sdk-and-c-to-call-the-text-analytics-service"></a>Início Rápido: Usar o SDK do .NET e C# para chamar o serviço de Análise de Texto
 <a name="HOLTop"></a>
@@ -31,6 +31,7 @@ Para obter detalhes técnicos, confira a [referência da Análise de Texto](http
 
 * Qualquer edição do [visual studio 2017 ou posterior]
 * O [SDK de Análise de Texto para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 Também há a necessidade do [ponto de extremidade e da chave de acesso](../How-tos/text-analytics-how-to-access-key.md) que foram gerados para você durante a inscrição.
@@ -51,7 +52,6 @@ Também há a necessidade do [ponto de extremidade e da chave de acesso](../How-
     using System.Net.Http;
     using System.Threading;
     using System.Threading.Tasks;
-
     using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
     using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
     using Microsoft.Rest;
@@ -60,46 +60,34 @@ Também há a necessidade do [ponto de extremidade e da chave de acesso](../How-
 2. Crie uma nova classe `ApiKeyServiceClientCredentials` para armazenar as credenciais e adicione-as a cada solicitação.
 
     ```csharp
-    /// <summary>
-    /// Allows authentication to the API by using a basic apiKey mechanism
-    /// </summary>
     class ApiKeyServiceClientCredentials : ServiceClientCredentials
     {
-        private readonly string subscriptionKey;
+        private readonly string apiKey;
 
-        /// <summary>
-        /// Creates a new instance of the ApiKeyServiceClientCredentails class
-        /// </summary>
-        /// <param name="subscriptionKey">The subscription key to authenticate and authorize as</param>
-        public ApiKeyServiceClientCredentials(string subscriptionKey)
+        public ApiKeyServiceClientCredentials(string apiKey)
         {
-            this.subscriptionKey = subscriptionKey;
+            this.apiKey = apiKey;
         }
 
-        /// <summary>
-        /// Add the Basic Authentication Header to each outgoing request
-        /// </summary>
-        /// <param name="request">The outgoing request</param>
-        /// <param name="cancellationToken">A token to cancel the operation</param>
         public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             if (request == null)
             {
                 throw new ArgumentNullException("request");
             }
-
-            request.Headers.Add("Ocp-Apim-Subscription-Key", this.subscriptionKey);
+            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
             return base.ProcessHttpRequestAsync(request, cancellationToken);
         }
     }
     ```
 
-3. Atualize a classe `Program`. Adicione um membro constante à chave de assinatura da Análise de Texto e outro ao ponto de extremidade do serviço. Lembre-se de usar a região do Azure correta para sua assinatura de Análise de Texto.
+3. Atualize a classe `Program`. Adicione um membro constante à sua chave de API de Análise de Texto e outro ao ponto de extremidade de serviço. Lembre-se de usar o local do Azure correto para o seu recurso de Análise de Texto.
 
     ```csharp
-    private const string SubscriptionKey = "enter-your-key-here";
-
-    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://westus.api.cognitive.microsoft.com";
+    //Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
+    private const string ApiKey = "enter-your-textanalytics-api-key-here";
+    //You can get the resource location from Azure Portal -> your TA resource -> Overview
+    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://<your-location>.api.cognitive.microsoft.com";
     ```
 > [!Tip]
 > Para melhorar a segurança de segredos em sistemas de produção, recomendamos usar o [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
@@ -107,12 +95,12 @@ Também há a necessidade do [ponto de extremidade e da chave de acesso](../How-
 
 ## <a name="create-a-text-analytics-client"></a>Criar um cliente de Análise de Texto
 
-Na função `Main` de seu projeto, chame o método de exemplo que você deseja invocar. Passe os parâmetros `Endpoint` e `SubscriptionKey` que você definiu.
+Na função `Main` de seu projeto, chame o método de exemplo que você deseja invocar. Passe os parâmetros `Endpoint` e `ApiKey` que você definiu.
 
 ```csharp
     public static void Main(string[] args)
     {
-        var credentials = new ApiKeyServiceClientCredentials(SubscriptionKey);
+        var credentials = new ApiKeyServiceClientCredentials(ApiKey);
         var client = new TextAnalyticsClient(credentials)
         {
             Endpoint = Endpoint
@@ -142,10 +130,7 @@ As seções a seguir descrevem como chamar cada recurso de serviço.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
             {
-                new MultiLanguageInput("en", "1", "I had the best day of my life."),
-                new MultiLanguageInput("en", "2", "This was a waste of my time. The speaker put me to sleep."),
-                new MultiLanguageInput("es", "3", "No tengo dinero ni nada que dar..."),
-                new MultiLanguageInput("it", "4", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
+                new MultiLanguageInput("en", "1", "I had the best day of my life.")
             });
         //...
     }
@@ -167,9 +152,6 @@ As seções a seguir descrevem como chamar cada recurso de serviço.
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
 ```
 
 ## <a name="perform-language-detection"></a>Executar a detecção de idioma
@@ -185,9 +167,7 @@ Document ID: 4 , Sentiment Score: 1.00
         var inputDocuments = new LanguageBatchInput(
                 new List<LanguageInput>
                     {
-                        new LanguageInput(id: "1", text: "This is a document written in English."),
-                        new LanguageInput(id: "2", text: "Este es un document escrito en Español."),
-                        new LanguageInput(id: "3", text: "这是一个用中文写的文件")
+                        new LanguageInput(id: "1", text: "This is a document written in English.")
                     });
         //...
     }
@@ -210,8 +190,6 @@ Document ID: 4 , Sentiment Score: 1.00
 ```console
 ===== LANGUAGE EXTRACTION ======
 Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
 ```
 
 ## <a name="perform-entity-recognition"></a>Executar reconhecimento de entidade
@@ -222,13 +200,11 @@ Document ID: 3 , Language: Chinese_Simplified
     ```csharp
     public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
     {
-
         // The documents to be submitted for entity recognition. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
             {
-                new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."),
-                new MultiLanguageInput("es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle.")
+                new MultiLanguageInput("en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.")
             });
         //...
     }
@@ -275,16 +251,6 @@ Document ID: 1
                         Offset: 89,     Length: 5,      Score: 0.800
                 Name: Altair 8800,      Type: Other,    Sub-Type: N/A
                         Offset: 116,    Length: 11,     Score: 0.800
-Document ID: 2
-         Entities:
-                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-                        Offset: 21,     Length: 9,      Score: 1.000
-                Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-                        Offset: 60,     Length: 7,      Score: 0.991
-                Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-                        Offset: 71,     Length: 13,     Score: 0.800
-                Name: Seattle,  Type: Location, Sub-Type: N/A
-                        Offset: 88,     Length: 7,      Score: 1.000
 ```
 
 ## <a name="perform-key-phrase-extraction"></a>Executar uma extração de frases-chave
@@ -298,10 +264,7 @@ Document ID: 2
         var inputDocuments = new MultiLanguageBatchInput(
                     new List<MultiLanguageInput>
                     {
-                        new MultiLanguageInput("ja", "1", "猫は幸せ"),
-                        new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
-                        new MultiLanguageInput("en", "3", "My cat might need to see a veterinarian."),
-                        new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
+                        new MultiLanguageInput("en", "1", "My cat might need to see a veterinarian.")
                     });
         //...
     }
@@ -331,20 +294,8 @@ Document ID: 2
 ```console
 Document ID: 1
          Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
                 cat
                 veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

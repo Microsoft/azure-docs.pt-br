@@ -127,6 +127,28 @@
           href: sql-data-warehouse-overview-develop.md
         - name: Práticas recomendadas
           href: sql-data-warehouse-best-practices-development.md
+        - name: JSON
+          items:
+            - name: JSON
+              href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+            - name: ISJSON
+              href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+            - name: JSON_VALUE
+              href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+            - name: JSON_QUERY
+              href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+            - name: JSON_MODIFY
+              href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+            - name: OPENJSON
+              href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+        - name: Exibição materializada
+          items:
+            - name: Criar
+              href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+            - name: Alterar
+              href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+        - name: Cache de conjunto de resultados
+          href: /sql/t-sql/statements/set-result-set-caching-transact-sql
         - name: Tabelas
           items:
             - name: Visão geral
@@ -273,6 +295,16 @@
           href: sql-data-warehouse-manage-monitor.md
         - name: Monitorar cache do Gen2
           href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Backup e restauração
+      items:
+        - name: Criar pontos de restauração
+          href: sql-data-warehouse-restore-points.md
+        - name: Restaurar um data warehouse existente
+          href: sql-data-warehouse-restore-active-paused-dw.md
+        - name: Restaurar um data warehouse excluído
+          href: sql-data-warehouse-restore-deleted-dw.md
+        - name: Restaurar de um backup geográfico
+          href: sql-data-warehouse-restore-from-geo-backup.md
     - name: Integração
       items:
         - name: Usar o aprendizado de máquina
@@ -295,6 +327,8 @@
           href: sql-data-warehouse-troubleshoot-connectivity.md
 - name: Referência
   items:
+    - name: Tipos de ordenação do banco de dados
+      href: sql-data-warehouse-reference-collation-types.md
     - name: T-SQL
       items:
         - name: Referência completa

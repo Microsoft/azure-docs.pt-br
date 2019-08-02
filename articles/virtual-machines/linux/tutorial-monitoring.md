@@ -4,7 +4,7 @@ description: Neste tutorial, você aprenderá a monitorar métricas de desempenh
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 921505e7f470d337d9e9e491c6db79930d487eb5
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 1c83cd869142967b358aa5d234d7d487b3c54b4c
+ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754396"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68607995"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: monitorar e atualizar uma máquina virtual do Linux no Azure
 
@@ -313,4 +313,4 @@ Neste tutorial, você configurou, examinou e gerenciou atualizações para uma V
 Avance para o próximo tutorial para saber mais sobre a Central de Segurança do Azure.
 
 > [!div class="nextstepaction"]
-> [Gerenciar a segurança da VM](./tutorial-azure-security.md)
+> [Gerenciar a segurança da VM](../../security/fundamentals/overview.md)

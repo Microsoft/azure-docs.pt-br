@@ -1,7 +1,7 @@
 ---
-title: Configurar o Azure Application Insights para modelos de ML do monitor
+title: Configurar informações de Aplicativo Azure para monitorar modelos de ML
 titleSuffix: Azure Machine Learning service
-description: Monitorar serviços web implantados com o serviço de Azure Machine Learning usando o Azure Application Insights
+description: Monitorar serviços Web implantados com o serviço de Azure Machine Learning usando o Aplicativo Azure insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 04/02/2019
+ms.date: 07/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c12f55228d77656ef57598da0fb002fdea29bd4
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60820187"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67871777"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Monitore seus modelos do Azure Machine Learning com o Application Insights
 
@@ -36,7 +36,7 @@ Neste artigo, você aprenderá como configurar o Insight do Aplicativo do Azure 
 * Um modelo de aprendizado de máquina treinado para ser implantado para o serviço de Kubernetes do Azure (AKS) ou Instância de Contêiner do Azure (ACI). Se você não tiver um, consulte o tutorial [Modelo de classificação de imagem de trem](tutorial-train-models-with-aml.md).
 
 
-## <a name="use-sdk-to-configure"></a>Use o SDK para configurar 
+## <a name="use-sdk-to-configure"></a>Usar o SDK para configurar 
 
 ### <a name="update-a-deployed-service"></a>Atualizar um serviço implantado
 1. Identificar o serviço no seu espaço de trabalho. O valor de `ws` é o nome do seu espaço de trabalho.
@@ -131,11 +131,11 @@ Para saber mais sobre como usar o Application Insights, consulte [o que é o App
 
 ## <a name="example-notebook"></a>Caderno de exemplo
 
-O bloco de anotações [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) demonstra os conceitos nesse artigo. 
+O bloco de anotações [Enable-app-Revisions-in-Production-Service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) demonstra conceitos neste artigo. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 Você também pode coletar dados em seus modelos em produção. Leia o artigo [coletar dados para modelos em produção](how-to-enable-data-collection.md). 
 
-Leia também [do Azure Monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
+Leia também [Azure monitor para contêineres](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

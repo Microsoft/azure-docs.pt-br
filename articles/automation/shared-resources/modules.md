@@ -3,18 +3,17 @@ title: Gerenciar os módulos na automação do Azure
 description: Este artigo descreve como gerenciar os módulos na automação do Azure
 services: automation
 ms.service: automation
-ms.subservice: shared-resources
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 06/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 54ebe7df9523a863ae14bc55c6ae4c9635468755
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cd085164fc9804e0c1c822df1c72d3ef94093a07
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67063461"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672799"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gerenciar os módulos na automação do Azure
 
@@ -71,7 +70,7 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 A seguir está uma lista dos cmdlets no interno `Orchestrator.AssetManagement.Cmdlets` módulo é importado para cada conta de automação. Esses cmdlets podem ser acessados em runbooks e configurações DSC e permitem que você interaja com seus ativos em sua conta de automação. Além disso, os cmdlets internos permitem que você recuperar segredos de criptografados **variável** valores, **credenciais**e criptografados **Conexão** campos. Os cmdlets do PowerShell do Azure não são capazes de recuperar esses segredos. Esses cmdlets não exigem que você implicitamente se conectar ao Azure, ao usá-los. Isso é útil para cenários nos quais você tem uma conexão, como uma conta executar como que você precisa usar a autenticação do Azure.
 
-|NOME|DESCRIÇÃO|
+|Nome|DESCRIÇÃO|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
@@ -230,7 +229,7 @@ Recomendamos que você considere o seguinte ao criar um módulo do PowerShell pa
 
 A tabela a seguir lista os módulos que são importados por padrão, quando uma conta de automação é criada. Os módulos listados abaixo podem ter versões mais recentes deles importadas, mas a versão original não pode ser removida da sua conta de automação, mesmo se você excluir uma versão mais recente deles.
 
-|nome do módulo|Version|
+|nome do módulo|Versão|
 |---|---|
 | AuditPolicyDsc | 1.1.0.0 |
 | Azure | 1.0.3 |
@@ -253,7 +252,7 @@ A tabela a seguir lista os módulos que são importados por padrão, quando uma 
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |
-| xDSCDomainjoin | 1,1 |
+| xDSCDomainjoin | 1.1 |
 | xPowerShellExecutionPolicy | 1.1.0.0 |
 | xRemoteDesktopAdmin | 1.1.0.0 |
 

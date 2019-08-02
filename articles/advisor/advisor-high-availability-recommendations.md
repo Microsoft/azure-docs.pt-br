@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: bdba3f135f852312af1692f77643095d865f1d06
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66254679"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67446784"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Melhorar a disponibilidade do aplicativo com o Assistente do Azure
 
@@ -93,6 +93,9 @@ O Azure Advisor identificará as contas do Azure Cosmos DB que estão usando ver
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Atualizar o Conector do Spark do Azure Cosmos DB para a versão mais recente do Maven
 
 O Azure Advisor identificará as contas do Azure Cosmos DB que estão usando versões antigas do conector Spark do BD Cosmos e recomendam a atualização para a versão mais recente do Maven para as correções mais recentes, melhorias de desempenho e novos recursos. [Saiba mais sobre o conector Spark do Cosmos DB](https://aka.ms/cosmosdb/spark-connector)
+
+## <a name="enable-virtual-machine-replication"></a>Habilitar replicação de máquina virtual
+As máquinas virtuais que não tem replicação habilitada para outra região não são resilientes a interrupções regionais. Replicação de máquinas virtuais reduz qualquer impacto adverso business durante o tempo de uma interrupção da região do Azure. Advisor detectará as VMs que não tem replicação habilitada e recomendam habilitar a replicação para que, caso ocorra uma interrupção, você pode rapidamente exibir a suas máquinas virtuais em uma região remota do Azure. [Saiba mais sobre a replicação da máquina virtual](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Como acessar as recomendações de alta disponibilidade no Advisor
 

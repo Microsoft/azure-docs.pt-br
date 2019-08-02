@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ca2e717e612973fa4c46c9ab4e70091d32fcf19
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 7dbf96c3480f47e5f6b292759a949c9bbf36dc07
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65902415"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091179"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secure-deliver"></a>Tutorial: Integração do Azure Active Directory com o SECURE DELIVER
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o SECURE DELIVER, execute as segu
 
     ![Informações de logon único de Domínio e URLs do SECURE DELIVER](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/jsf/login/sso`
 
     b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.i-securedeliver.jp/sd/<tenantname>/postResponse`
 
@@ -197,5 +197,5 @@ Quando clicar no bloco do SECURE DELIVER no Painel de Acesso, você deverá ser 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

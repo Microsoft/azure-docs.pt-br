@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 31c6c1258b6d20eb2d2802cf23244cb59df682c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8ad5c4cb4d17443144febd716391803064ccdad1
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428608"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67626372"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -48,7 +48,7 @@ Ele também inclui **ferramentas ML e AI** como xgboost, mxnet e Vowpal Wabbit.
 
 No momento, a DSVM está disponível nos sistemas operacionais **Windows** e **Linux CentOS**. Escolha o tamanho da sua DSVM (número de núcleos de CPU e quantidade de memória) com base nas necessidades dos projetos de ciência de dados que você planeja executar nela. 
 
-Para obter mais informações sobre a edição do Windows da DSVM, consulte [Máquina Virtual de Ciência de Dados da Microsoft](https://azure.microsoft.com/marketplace/partners/microsoft-ads/standard-data-science-vm/) no Azure Marketplace. Para a edição do Linux da DSVM, consulte [Máquina Virtual de Ciência de Dados do Linux](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+Para obter mais informações sobre a edição do Windows da DSVM, consulte [Máquina Virtual de Ciência de Dados da Microsoft](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) no Azure Marketplace. Para a edição do Linux da DSVM, consulte [Máquina Virtual de Ciência de Dados do Linux](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
 Para saber como executar algumas das tarefas comuns de ciência de dados na DSVM com eficiência, consulte [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](../data-science-virtual-machine/vm-do-ten-things.md)
 
@@ -62,7 +62,7 @@ Quando você cria um cluster do Spark no HDInsight, cria recursos de computaçã
 A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para saber mais sobre os **clusters do Azure HDInsight Spark**, confira [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
 
 O SQL Data Warehouse do Azure permite que você dimensione recursos de computação facilmente e em segundos sem excesso de provisionamento ou excesso de pagamento. Ele também oferece a opção exclusiva de fazer uma pausa nos recursos de computação, dando mais liberdade para você gerenciar melhor seus custos de nuvem. A capacidade de implantar recursos de computação escalonáveis torna possível colocar todos os seus dados no SQL Data Warehouse do Azure. Os custos de armazenamento são mínimos e você pode executar a computação somente nas partes dos conjuntos de dados que você deseja analisar. 
 

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 4/13/2017
+ms.date: 04/13/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d1580931a94b58e772f9f11cb7b9948216e9063a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cbf0e928ae05e723902d41a340aebf4f5781fde5
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509884"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654118"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>Alternar para o locatário do Azure AD B2C
 
@@ -36,7 +36,7 @@ O portal do Azure é atualizado.  Agora você está conectado ao portal do Azure
 1. Clique em **Procurar** na barra de navegação à esquerda.
 1. Clique em **Todos os serviços** e, em seguida, pesquise por `Azure AD B2C` no painel de navegação à esquerda.  (Para fixar ao seu quadro inicial à esquerda, clique na estrela à esquerda do Azure AD B2C)
 1. Clique em **Azure AD B2C** para acessar o painel de recursos do B2C.
-   
+
     ![Captura de tela de navegar até o painel de recursos do B2C](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]

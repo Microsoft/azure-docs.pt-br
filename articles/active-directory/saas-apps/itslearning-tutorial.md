@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 3f53cd80fcd17241dcecb07f631277abe795946d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 9a4a95452c11993f57674bcbd16cf3ed5ea828e4
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897968"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099543"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-itslearning"></a>Tutorial: Integração do Azure Active Directory com o itslearning
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o itslearning, execute as seguint
 
     ![Informações de logon único em domínio e URLs do itslearning](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite a URL:
+    a. Na caixa de texto **URL de Logon**, digite a URL:
     
     | |
     |--|
@@ -199,4 +199,4 @@ Ao clicar no bloco do itslearning no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

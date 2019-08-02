@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 426162d6655a107aad6fc7dd1081ca9352099449
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 41efce8eeb09e09af2473af6c16074d0fbcd45f8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-korn-ferry-alp"></a>Tutorial: Integração do Azure Active Directory ao Korn Ferry ALP
 
@@ -53,7 +53,7 @@ Para configurar a integração do Korn Ferry ALP ao Azure AD, você precisará a
 
 **Para adicionar o Korn Ferry ALP da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Korn Ferry ALP, realize as segu
 
     ![Informações de logon único de URLs e Domínio do Korn Ferry ALP](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -113,7 +113,7 @@ Para configurar o logon único do Azure AD com o Korn Ferry ALP, realize as segu
     | `https://qaassessment.kfnaqa.com/portalweb/sso/client/audience?guid=<customerguid>` |
     | `https://assessments.kornferry.com/portalweb/sso/client/audience?guid=<customerguid>` |
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão:
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão:
     
     | |
     |--|
@@ -199,5 +199,5 @@ Quando você clica no bloco Korn Ferry ALP no Painel de Acesso, deve ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

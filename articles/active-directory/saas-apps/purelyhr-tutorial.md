@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b6e004ea613d1a3dfd47a2798e0298f41eab2d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99423568de7ff6686198120fd94e9c09287b21a8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868594"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67093651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>Tutorial: Integração do Azure Active Directory com o PurelyHR
 
@@ -55,7 +55,7 @@ Para configurar a integração do PurelyHR ao Azure AD, você precisará adicion
 
 **Para adicionar o PurelyHR da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -142,7 +142,7 @@ Para configurar o logon único do Azure AD com o PurelyHR, realize as seguintes 
 
     ![Configurar o logon único](./media/purelyhr-tutorial/purelyhr-dashboard-sso-settings.png)  
 
-     a. Abra o **Certificate(Bas64)** baixado do Portal do Azure no bloco de notas e copie o valor do certificado. Cole o valor copiado na caixa **Certificado X.509**.
+    a. Abra o **Certificate(Bas64)** baixado do Portal do Azure no bloco de notas e copie o valor do certificado. Cole o valor copiado na caixa **Certificado X.509**.
 
     b. Na caixa **URL do emissor Idp**, cole o **Identificador do Azure AD** copiado do portal do Azure.
 
@@ -218,5 +218,5 @@ Ao clicar no bloco do PurelyHR no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

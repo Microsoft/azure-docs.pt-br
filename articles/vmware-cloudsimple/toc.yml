@@ -10,7 +10,7 @@
     - name: Início rápido
       expanded: true
       items:
-        - name: Inicializar e adquirir capacidade
+        - name: Inicializar e provisionar capacidade
           href: quickstart-create-cloudsimple-service.md
         - name: Configurar o ambiente de nuvem privada
           href: quickstart-create-private-cloud.md
@@ -62,24 +62,22 @@
           href: access-cloudsimple-portal.md
         - name: Gerenciar nós
           items:
-            - name: Comprar nós
+            - name: Provisionar nós
               href: create-nodes.md
         - name: Gerenciar recursos de nuvem privada
           items:
             - name: Criar uma nuvem privada
-              href: 'https://docs.azure.cloudsimple.com/create-private-cloud/'
+              href: create-private-cloud.md
             - name: Gerenciar suas nuvens privadas
-              href: 'https://docs.azure.cloudsimple.com/manage-private-cloud/'
+              href: manage-private-cloud.md
             - name: Expandir uma nuvem privada
-              href: 'https://docs.azure.cloudsimple.com/expand-private-cloud/'
+              href: expand-private-cloud.md
             - name: Reduzir uma nuvem privada
-              href: 'https://docs.azure.cloudsimple.com/shrink-private-cloud/'
-            - name: Exibir a lista de racks de nuvem privada
-              href: 'https://docs.azure.cloudsimple.com/view-cloud-racks/'
+              href: shrink-private-cloud.md
             - name: Mapear sua assinatura do Azure
-              href: 'https://docs.azure.cloudsimple.com/azure-subscription-mapping/'
+              href: azure-subscription-mapping.md
             - name: Escalonar privilégios
-              href: 'https://docs.azure.cloudsimple.com/escalate-private-cloud-privileges/'
+              href: escalate-private-cloud-privileges.md
         - name: Monitorar atividade da CloudSimple
           href: 'https://docs.azure.cloudsimple.com/activity/'
         - name: Configurar rede da nuvem privada

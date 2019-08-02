@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: d7ca566b86ed79aa773d7af2553223c79ed9944a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64701856"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68335649"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planejamento de capacidade para Aplicativos do Service Fabric
 Este documento ensina a você como estimar a quantidade de recursos (CPU, RAM, armazenamento de disco) necessários para a execução dos aplicativos Service Fabric. É comum os requisitos de recursos mudarem ao longo do tempo. Normalmente, você precisa de alguns recursos enquanto desenvolve/testa seu serviço e, posteriormente, precisa de mais recursos à medida que entra na fase de produção e a popularidade de seu aplicativo aumenta. Ao projetar o aplicativo, pense nos requisitos de longo prazo e faça escolhas que permitam a ampliação do serviço, a fim de atender à alta demanda dos clientes.
@@ -51,7 +51,7 @@ Pode ser uma boa ideia calcular o número de nós com base no tamanho de BD que 
 O ponto anterior pressupõe um único serviço com estado. Se você tiver mais de um serviço com estado, precisará adicionar o tamanho de BD associado aos outros serviços na equação. Como alternativa, você pode calcular o número de nós separadamente para cada serviço com estado.  O serviço pode ter réplicas ou partições que não são equilibradas. Tenha em mente que as partições também podem ter mais dados do que outras. Para obter mais informações sobre particionamento, consulte [Particionamento de artigo nas práticas recomendadas](service-fabric-concepts-partitioning.md). No entanto, a equação anterior independe do número de partições ou réplicas, pois o Service Fabric garante que as réplicas sejam distribuídas entre os nós de uma forma otimizada.
 
 ## <a name="use-a-spreadsheet-for-cost-calculation"></a>Use uma planilha para calcular o custo
-Agora, vamos colocar alguns números reais na fórmula. Uma [planilha de exemplo](https://servicefabricsdkstorage.blob.core.windows.net/publicrelease/SF%20VM%20Cost%20calculator-NEW.xlsx) mostra como planejar a capacidade de um aplicativo que contém três tipos de objetos de dados. Para cada objeto, podemos supor seu tamanho e quantos objetos são esperados. Também selecionamos quantas réplicas queremos de cada tipo de objeto. A planilha calcula a quantidade total de memória a ser armazenada no cluster.
+Agora, vamos colocar alguns números reais na fórmula. Uma [planilha de exemplo](https://github.com/Azure/service-fabric/raw/master/docs_resources/SF_VM_Cost_calculator-NEW.xlsx) mostra como planejar a capacidade de um aplicativo que contém três tipos de objetos de dados. Para cada objeto, podemos supor seu tamanho e quantos objetos são esperados. Também selecionamos quantas réplicas queremos de cada tipo de objeto. A planilha calcula a quantidade total de memória a ser armazenada no cluster.
 
 Em seguida, inserimos um tamanho de VM e um custo mensal. Com base no tamanho da VM, a planilha informa o número mínimo de partições que você deve usar para dividir seus dados a fim de ajustar fisicamente nos nós. Talvez você queira que um número maior de partições acomode as necessidades de tráfego de computação e de rede específico de seu aplicativo. A planilha mostra que o número de partições que estão gerenciando objetos de perfil de usuário aumentou de uma para seis.
 
@@ -60,7 +60,7 @@ Agora, com base em todas essas informações, a planilha mostra que você pode o
 ![Planilha para cálculo de custo][Image1]
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira [Particionando serviços do Service Fabric][10] para saber mais sobre como particionar o serviço.
+Confira [particionamento Service Fabric serviços][10] para saber mais sobre como particionar seu serviço.
 
 <!--Image references-->
 [Image1]: ./media/SF-Cost.png

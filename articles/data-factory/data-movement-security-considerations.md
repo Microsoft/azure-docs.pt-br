@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3dab2da2d54efe73b7b782800b190ea8aac2b5cd
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153263"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460681"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Considerações sobre segurança para movimentação de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -119,7 +119,7 @@ As credenciais dos armazenamentos de dados locais são sempre criptografadas e a
 
 
 #### <a name="ports-used-when-encrypting-linked-service-on-self-hosted-integration-runtime"></a>Portas usadas para criptografar o serviço vinculado no tempo de execução de integração auto-hospedado
-Por padrão, o PowerShell usa a porta 8050 na máquina com tempo de execução de integração auto-hospedado para oferecer comunicação segura. Se necessário, essa porta pode ser alterada.  
+Por padrão, o PowerShell usa porta 8060 no computador com tempo de execução de integração auto-hospedado para comunicação segura. Se necessário, essa porta pode ser alterada.  
 
 ![Porta HTTPS do gateway](media/data-movement-security-considerations/https-port-for-gateway.png)
 
@@ -197,7 +197,7 @@ Sim. Mais detalhes [aqui](https://azure.microsoft.com/blog/sharing-a-self-hosted
 
 **Quais são os requisitos de porta para o tempo de execução de integração auto-hospedado funcionar?**
 
-O tempo de execução de integração auto-hospedado faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o tempo de execução de integração auto-hospedado para fazer essa conexão. Abra a porta de entrada 8050 somente no nível do computador (não no nível de firewall corporativo) para o aplicativo gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
+O tempo de execução de integração auto-hospedado faz conexões com base em HTTP para acessar a internet. As portas de saída 443 devem ser abertas para o tempo de execução de integração auto-hospedado para fazer essa conexão. Abra a porta de entrada 8060 somente no nível do computador (não no nível do firewall corporativo) para o aplicativo Gerenciador de credenciais. Se o Banco de Dados SQL do Azure ou o SQL Data Warehouse do Azure for usado como a origem ou o destino, você precisará abrir a porta 1433 também. Para obter mais informações, consulte a seção [Configurações de firewall e endereços IP na lista de permissões](#firewall-configurations-and-whitelisting-ip-address-of-gateway). 
 
 
 ## <a name="next-steps"></a>Próximas etapas

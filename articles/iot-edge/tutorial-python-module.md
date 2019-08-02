@@ -10,12 +10,12 @@ ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6ec429bc7c1598e947b798c30e7992e3d357d00c
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: d75e4c3e2b6f28dfbde670406854ac87790dd090
+ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303825"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850110"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implantar um módulo do IoT Edge em Python para dispositivos Linux
 
@@ -69,25 +69,15 @@ As etapas a seguir criam um módulo Python do IoT Edge usando o Visual Studio Co
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto
 
-Use o pacote do Python **cookiecutter** para criar um modelo de solução em Python que servirá de base. 
+Use o VS Code para criar um modelo de solução do Python no qual você poderá basear suas próprias criações. 
 
 1. No Visual Studio Code, selecione **Exibir** > **Terminal** para abrir o terminal integrado do Visual Studio Code.
 
-2. No terminal, digite o seguinte comando para instalar (ou atualizar) **cookiecutter**, que você pode usar para criar o modelo de solução IoT Edge:
+1. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Verifique se o diretório onde o cookiecutter será instalado está no CAMINHO do seu ambiente para que seja possível invocá-lo em um prompt de comando. O diretório faz parte da saída do script de instalação, por exemplo `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`.
-   >
-   >Reinicie o Visual Studio Code para acompanhar as alterações no CAMINHO. 
+1. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar na conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
 
-3. Selecione **Exibir** > **Paleta de comandos** para abrir a paleta de comandos do VS Code. 
-
-4. Na paleta de comandos, insira e execute o comando **Azure: Entrar** e siga as instruções para entrar na conta do Azure. Se já tiver entrado, pode ignorar esta etapa.
-
-5. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Siga os prompts e forneça as seguintes informações para criar sua solução:
+1. Na paleta de comandos, digite e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Siga os prompts e forneça as seguintes informações para criar sua solução:
 
    | Campo | Valor |
    | ----- | ----- |
@@ -242,7 +232,7 @@ Depois que você aplica o manifesto de implantação no seu dispositivo IoT Edge
 
 Você pode ver o status do seu dispositivo IoT Edge usando a seção **Dispositivos de Hub IoT do Azure** do explorer do Visual Studio Code. Expanda os detalhes do seu dispositivo para ver uma lista de módulos implantados e em execução.
 
-1. No gerenciador do Visual Studio Code, clique com o botão direito do mouse no nome do dispositivo IoT Edge e selecione **Iniciar o Monitoramento do Ponto de Extremidade de Evento Interno**.
+1. No gerenciador do Visual Studio Code, clique com o botão direito do mouse no nome do dispositivo IoT Edge e escolha **Iniciar o monitoramento de pontos de extremidade internos de eventos**.
 
 2. Exiba as mensagens que chegam ao seu Hub IoT. Pode levar um tempo para as mensagens chegarem, porque o dispositivo IoT Edge precisa receber sua nova implantação e iniciar todos os módulos. Em seguida, as alterações que fizemos no código PythonModule aguardam até que a temperatura do computador atinja 25 graus antes de enviar mensagens. Também é adicionado o tipo de mensagem **Alerta** às mensagens que atingem esse limite de temperatura. 
 

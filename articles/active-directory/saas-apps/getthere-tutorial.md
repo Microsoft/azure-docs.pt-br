@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 0424b21c60d4ae86f7802d1b3ca2a0d7bbe35759
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 499b7f5761c97f6986ca0291af2242d694b609d2
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281617"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67101749"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: Integração do Azure Active Directory com o GetThere
 
@@ -52,7 +52,7 @@ Para configurar a integração do GetThere ao Azure AD, você precisará adicion
 
 **Para adicionar o GetThere da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o GetThere, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do GetThere](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL:
+    a. Na caixa de texto **Identificador**, digite uma URL:
 
     | |
     |--|
@@ -131,7 +131,7 @@ Para configurar o logon único do Azure AD com o GetThere, execute as seguintes 
     | Sitename | "Forneça os valores de acordo com sua organização" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Nome de Usuário |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -183,7 +183,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **BrendaFernandes**.
+    a. No campo **Nome**, insira **BrendaFernandes**.
   
     b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
     Por exemplo, BrittaSimon@contoso.com

@@ -66,10 +66,17 @@
     - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
       maintainContext: true
-    - name: Regiões e disponibilidade
-      href: ../virtual-machines/windows/regions-and-availability.md
+    - name: Regiões
+      href: ../virtual-machines/windows/regions.md
+    - name: Disponibilidade e desempenho
       maintainContext: true
       items:
+        - name: Disponibilidade
+          href: availability.md
+        - name: Colocalização
+          href: co-location.md
+        - name: Desempenho de rede
+          href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Gerenciar domínios de falha em conjuntos de dimensionamento
           href: virtual-machine-scale-sets-manage-fault-domains.md
     - name: Tamanhos e tipos de VM
@@ -156,6 +163,8 @@
           maintainContext: true
     - name: Perguntas frequentes sobre conjunto de dimensionamento
       href: virtual-machine-scale-sets-faq.md
+    - name: Atributos de segurança
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: Como
   items:
     - name: Planejar e projetar
@@ -243,6 +252,8 @@
               href: share-images-across-tenants.md
             - name: Solucionar problemas de imagens compartilhadas
               href: troubleshooting-shared-images.md
+        - name: Criar um grupo de posicionamento de proximidade
+          href: proximity-placement-groups.md
         - name: Colocação em escala vertical em um conjunto de dimensionamento
           href: virtual-machine-scale-sets-vertical-scale-reprovision.md
         - name: Usar DSC e conjuntos de dimensionamento

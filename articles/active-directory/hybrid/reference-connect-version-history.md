@@ -16,12 +16,12 @@ ms.date: 05/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fafd853250ed76b49b66b86ffda9c91240c8ce48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b13b23e59595acf8c637a2ef58c8098256920bea
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67109169"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654052"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -408,18 +408,18 @@ Bloqueie o acesso à conta do AD DS implementando as seguintes alterações de p
 *   Remova todas as ACEs no objeto especificado, exceto as ACEs específicas ao SELF. Queremos manter as permissões padrão intactas quando se trata do SELF.
 *   Atribua essas permissões específicas:
 
-Type     | NOME                          | Access               | Aplica-se A
+Tipo     | Nome                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
-PERMITIR    | SYSTEM                        | Controle Total         | Este objeto  |
-PERMITIR    | Administradores Corporativos             | Controle Total         | Este objeto  |
-PERMITIR    | Administradores de Domínio                 | Controle Total         | Este objeto  |
-PERMITIR    | Administradores                | Controle Total         | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
-PERMITIR    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
-PERMITIR    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
+Allow    | SYSTEM                        | Controle Total         | Este objeto  |
+Allow    | Administradores Corporativos             | Controle Total         | Este objeto  |
+Allow    | Administradores de Domínio                 | Controle Total         | Este objeto  |
+Allow    | Administradores                | Controle Total         | Este objeto  |
+Allow    | Controladores de Domínio Corporativo | Listar Conteúdo        | Este objeto  |
+Allow    | Controladores de Domínio Corporativo | Ler Todas as Propriedades  | Este objeto  |
+Allow    | Controladores de Domínio Corporativo | Permissões de Leitura     | Este objeto  |
+Allow    | Usuários Autenticados           | Listar Conteúdo        | Este objeto  |
+Allow    | Usuários Autenticados           | Ler Todas as Propriedades  | Este objeto  |
+Allow    | Usuários Autenticados           | Permissões de Leitura     | Este objeto  |
 
 Para reforçar as configurações para a conta do AD DS você pode executar [este script do PowerShell](https://gallery.technet.microsoft.com/Prepare-Active-Directory-ef20d978). O script do PowerShell atribuirá as permissões mencionadas acima para a conta do AD DS.
 
@@ -889,7 +889,7 @@ Sincronização do Azure AD Connect
 * No seu locatário do Azure AD, há uma configuração de serviço que indica se o recurso de Sincronização de Senha está habilitado para o seu locatário ou não. Anteriormente, era fácil que configuração de serviço fosse configurado incorretamente pelo Azure AD Connect quando havia um servidor de preparo e um ativo. Agora, o Azure AD Connect tentará manter a configuração de serviço consistente com o servidor ativo do Azure AD Connect, somente.
 * O assistente do Azure AD Connect agora detecta e retorna um aviso se o AD local não tiver Lixeira do AD ativada.
 * Anteriormente, Exportar para o Azure AD expirava e falhava se o tamanho combinado dos objetos no lote excedesse um determinado limite. Agora, o Serviço de Sincronização tentará reenviar os objetos em lotes menores se o problema for encontrado.
-* O aplicativo de Gerenciamento de Chaves de Serviço de Sincronização foi removido do Menu Iniciar do Windows. O Gerenciamento de chave de criptografia continuará a oferecer suporte por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte o artigo [Abandonando a chave de criptografia de sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-azure-ad-connect-sync-encryption-key).
+* O aplicativo de Gerenciamento de Chaves de Serviço de Sincronização foi removido do Menu Iniciar do Windows. O Gerenciamento de chave de criptografia continuará a oferecer suporte por meio da interface de linha de comando usando miiskmu.exe. Para obter informações sobre o gerenciamento de chave de criptografia, consulte o artigo [Abandonando a chave de criptografia de sincronização do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass#abandoning-the-adsync-service-account-encryption-key).
 * Anteriormente, se você alterava a senha da conta de serviço de sincronização do Azure AD Connect, o Serviço de Sincronização não poderia iniciar corretamente até que você tivesse abandonado a chave de criptografia e reinicializado a senha da conta do serviço de sincronização do Azure AD Connect. Agora, esse processo não é mais necessário.
 
 SSO da Área de Trabalho

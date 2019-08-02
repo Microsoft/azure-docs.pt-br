@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f24ad348c681609392f83af894bf774dbee226bc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60763086"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67620849"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análise de sentimento do Twitter em tempo real no Stream Analytics do Azure
 
@@ -232,9 +232,9 @@ Agora que os eventos de Tweets estão sendo transmitidos em tempo real do Twitte
 
 ## <a name="specify-the-job-query"></a>Especificar a consulta de trabalho
 
-O Stream Analytics dá suporte a um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx).  Este tutorial ajuda você a criar e testar várias consultas sobre dados do Twitter.
+O Stream Analytics dá suporte a um modelo de consulta simples e declarativo que descreve as transformações. Para saber mais sobre a linguagem, consulte a [Referência de linguagem de consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  Este tutorial ajuda você a criar e testar várias consultas sobre dados do Twitter.
 
-Para comparar o número de menções entre tópicos, você pode usar uma [Janela em Cascata](https://msdn.microsoft.com/library/azure/dn835055.aspx) para obter a contagem de menções por tópico a cada cinco segundos.
+Para comparar o número de menções entre tópicos, você pode usar uma [Janela em Cascata](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) para obter a contagem de menções por tópico a cada cinco segundos.
 
 1. Feche a folha de **entradas** se ainda não o fez.
 
@@ -266,7 +266,7 @@ Para comparar o número de menções entre tópicos, você pode usar uma [Janela
 
     Se não usar `TwitterStream` como o alias para a entrada, substitua o alias para `TwitterStream` na consulta.  
 
-    Essa consulta usa a palavra-chave **TIMESTAMP BY** para especificar um campo de carimbo de data/hora na carga a ser usada na computação temporal. Se esse campo não for especificado, a operação em janela será realizada usando a hora em que cada evento chegou ao hub de eventos. Saiba mais na seção “Hora de chegada versus tempo de aplicação” na [Referência de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx).
+    Essa consulta usa a palavra-chave **TIMESTAMP BY** para especificar um campo de carimbo de data/hora na carga a ser usada na computação temporal. Se esse campo não for especificado, a operação em janela será realizada usando a hora em que cada evento chegou ao hub de eventos. Saiba mais na seção “Hora de chegada versus tempo de aplicação” na [Referência de consulta do Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
     A consulta também acessa um carimbo de data/hora para o final de cada janela usando a propriedade **System.Timestamp**.
 
@@ -285,7 +285,7 @@ A tabela a seguir lista os campos que fazem parte do fluxo de dados JSON. Fique 
 |Tópico | O tópico que corresponde à palavra-chave especificada|
 |SentimentScore | A pontuação de sentimento do Sentiment140|
 |Autor | O identificador do Twitter que enviou o tweet|
-|Text | O corpo completo do tweet|
+|Texto | O corpo completo do tweet|
 
 
 ## <a name="create-an-output-sink"></a>Criar um coletor de saída
@@ -348,7 +348,7 @@ Use uma ferramenta como o [Azure Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="create-another-query-to-identify-trending-topics"></a>Criar outra consulta para identificar os tópicos mais populares
 
-Outra consulta que você pode usar para entender o sentimento do Twitter baseia-se em uma [Janela Deslizante](https://msdn.microsoft.com/library/azure/dn835051.aspx). Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassem um valor limite de menções em determinado período de tempo.
+Outra consulta que você pode usar para entender o sentimento do Twitter baseia-se em uma [Janela Deslizante](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). Para identificar os tópicos mais populares, procuraremos tópicos que ultrapassem um valor limite de menções em determinado período de tempo.
 
 Para as finalidades deste tutorial, verificaremos os tópicos mencionados mais de 20 vezes nos últimos 5 segundos.
 
@@ -372,12 +372,12 @@ Para as finalidades deste tutorial, verificaremos os tópicos mencionados mais d
 6. Clique em **Iniciar** para reiniciar o trabalho usando a nova consulta.
 
 
-## <a name="get-support"></a>Obter suporte
+## <a name="get-support"></a>Obtenha suporte
 Para obter mais assistência, experimente nosso [fórum do Stream Analytics do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Introdução ao Stream Analytics do Azure](stream-analytics-introduction.md)
 * [Introdução ao uso do Stream Analytics do Azure](stream-analytics-real-time-fraud-detection.md)
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
-* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

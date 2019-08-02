@@ -1,5 +1,5 @@
 ---
-title: Obtenha ajuda com o portal meus aplicativos - Azure Active Directory | Microsoft Docs
+title: Obtenha ajuda com o portal meus aplicativos-Azure Active Directory | Microsoft Docs
 description: Obtenha ajuda para entrar e executar tarefas comuns no portal meus aplicativos.
 services: active-directory
 author: eross-msft
@@ -13,73 +13,83 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e87ae0a8adf28176d9a97cbf1b78943179884a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60475020"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383067"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Solucionar problemas com o portal meus aplicativos
-Se você estiver tendo problemas ao entrar ou usando o **meus aplicativos** portal, experimente estas dicas de solução de problemas antes de contatar o suporte técnico ou o administrador para obter ajuda.
 
-## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Estou tendo problemas para instalar o segura dos meus aplicativos extensão de entrada
-Se você estiver tendo problemas ao instalar o segura dos meus aplicativos extensão de entrada:
+Se você estiver tendo problemas ao entrar no ou usando o portal **meus aplicativos** , experimente estas dicas de solução de problemas antes de entrar em contato com a assistência técnica ou com o administrador para obter ajuda.
 
-- Verifique se você estiver usando um navegador com suporte, incluindo:
+## <a name="im-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Estou tendo problemas para instalar a extensão de entrada segura de meus aplicativos
 
-    - **Microsoft Edge.** Em execução no Windows 10 Anniversary Edition ou posterior.
+Se você estiver tendo problemas ao instalar a extensão de entrada segura de meus aplicativos:
+
+- Verifique se você está usando um navegador com suporte, incluindo:
+
+    - **Microsoft Edge.** Em execução na edição de aniversário do Windows 10 ou posterior.
+
     - **Google Chrome.** Em execução no Windows 7 ou posterior e no Mac OS X ou posterior.
-    - **Mozilla Firefox 26.0 ou posterior.** Em execução no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior.
+
+    - **Mozilla Firefox 26,0 ou posterior.** Em execução no Windows XP SP2 ou posterior e no Mac OS X 10,6 ou posterior.
+
     - **Internet Explorer 11.** Em execução no Windows 7 ou posterior (suporte limitado).
 
-- Verifique se que as configurações de extensão de navegador estão ativadas.
+- Verifique se as configurações de extensão do navegador estão ativadas.
 
-- Tente reiniciar seu navegador e entrar para o **meus aplicativos** portal novamente.
+- Tente reiniciar o navegador e entrar novamente no portal **meus aplicativos** .
 
-- Tente limpar os cookies do navegador e, em seguida, reiniciar e entrar para o **meus aplicativos** portal novamente.
+- Tente limpar os cookies do navegador e reinicie e entre no portal **meus aplicativos** novamente.
 
-## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Não consigo entrar para o **meus aplicativos** portal
-Se você estiver tendo problemas para entrar na **meus aplicativos** portal, você pode tentar o seguinte:
+## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Não consigo entrar no portal **meus aplicativos**
 
-- Verifique se que você estiver usando a URL correta. Ele deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, como https://myapps.microsoft.com/contoso.com.
+Se você estiver tendo problemas para entrar no portal **meus aplicativos** , você pode tentar o seguinte:
 
-- Verifique se sua senha está correta e ainda não tiver expirado. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
+- Verifique se você está usando a URL correta. Ele deve ser https://myapps.microsoft.com ou uma página personalizada para sua organização, https://myapps.microsoft.com/contoso.com como.
 
-- Verifique se que suas informações de verificação são atuais e precisas. Para obter mais informações, consulte [o que a autenticação multifator Azure significa para mim?](multi-factor-authentication-end-user.md) ou [alterar seus métodos de informações de segurança e informações](security-info-add-update-methods-overview.md).
+- Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
 
-- Adicione a **My App** portal de URL para o **propriedades da Internet > Segurança > sites confiáveis** configuração.
+- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, consulte [o que a autenticação multifator do Azure significa para mim?](multi-factor-authentication-end-user.md) ou [alterar seus métodos e informações de informações de segurança](security-info-add-update-methods-overview.md).
+
+- Adicione a URL do meu portal do **aplicativo** à configuração **propriedades da Internet > segurança > sites confiáveis** .
 
 - Limpe o cache do navegador e tente entrar novamente.
 
 ## <a name="my-password-isnt-working"></a>Minha senha não está funcionando
-Se você esqueceu sua senha, nunca recebido uma de sua organização, está bloqueados de sua conta ou para alterar sua senha, consulte [preciso de Ajuda, esqueci minha senha do AD do Azure](active-directory-passwords-update-your-own-password.md).
 
-## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Quero ser capaz de redefinir a minha própria senha
-Para poder redefinir sua senha, o administrador deve primeiro ativar o recurso para sua organização e, em seguida, você deve atualizar e verificar seus métodos de verificação necessário. Para obter mais informações sobre como atualizar seus métodos de verificação, consulte [registro de redefinição de senha de autoatendimento de](active-directory-passwords-reset-register.md).
+Se você esqueceu sua senha, nunca recebeu uma de sua organização, está bloqueada para fora de sua conta ou deseja alterar sua senha, consulte [a ajuda, esqueci minha senha do Azure ad](active-directory-passwords-update-your-own-password.md).
+
+## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Eu quero ser capaz de redefinir minha própria senha
+
+Para poder redefinir sua própria senha, o administrador deve primeiro ativar o recurso para sua organização e, em seguida, você deve atualizar e verificar os métodos de verificação necessários. Para obter mais informações sobre como atualizar seus métodos de verificação, consulte [registrar para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
 
 ## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Estou recebendo uma mensagem de acesso negado ao iniciar um aplicativo
-Se você estiver recebendo um **acesso negado** depois de iniciar um aplicativo a partir da mensagem a **My App** portal, você pode tentar o seguinte:
 
-- Verifique se você instalou o [extensão de entrada segura dos meus aplicativos](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e que você está usando uma [navegador com suporte](my-apps-portal-end-user-access.md#supported-browsers).
+Se você estiver recebendo uma mensagem de **acesso negado** depois de iniciar um aplicativo no portal **meu aplicativo** , você pode tentar o seguinte:
 
-- Verifique se você estiver usando a URL correta para o aplicativo e que a URL está em seu **propriedades da Internet > Segurança > sites confiáveis** lista.
+- Verifique se você instalou a [extensão de entrada segura de meus aplicativos](my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension) e se está usando um [navegador com suporte](my-apps-portal-end-user-access.md#supported-browsers).
 
-- Verifique se sua senha está correta e ainda não tiver expirado. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
+- Verifique se você está usando a URL correta para o aplicativo e se a URL está em suas **Propriedades da Internet > segurança > lista de sites confiáveis** .
 
-- Verifique se que suas informações de verificação são atuais e precisas. Para obter mais informações, consulte [o que a autenticação multifator Azure significa para mim?](multi-factor-authentication-end-user.md) ou [alterar seus métodos de informações de segurança e informações](security-info-add-update-methods-overview.md).
+- Verifique se sua senha está correta e não expirou. Para obter mais informações, consulte [redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md).
+
+- Verifique se suas informações de verificação estão atualizadas e precisas. Para obter mais informações, consulte [o que a autenticação multifator do Azure significa para mim?](multi-factor-authentication-end-user.md) ou [alterar seus métodos e informações de informações de segurança](security-info-add-update-methods-overview.md).
 
 - Limpe o cache do navegador e tente entrar novamente.
 
-Se depois de tentar essas coisas que você não puder acessar seu aplicativo, você deve contatar o suporte técnico da sua organização para obter assistência.
+Se, depois de tentar essas coisas, você ainda não puder acessar seu aplicativo, deverá entrar em contato com o suporte técnico da sua organização para obter assistência.
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de entrar para o **meus aplicativos** portal, você também pode atualizar seu perfil e informações da conta, suas informações de grupo e acesso Examine informações (se você tiver permissão).
 
-- [Acessar e usar aplicativos no portal meus aplicativos](my-apps-portal-end-user-access.md).
+Depois de entrar no portal **meus aplicativos** , você também pode atualizar suas informações de perfil e conta, suas informações de grupo e informações de revisão de acesso (se você tiver permissão).
 
-- [Alterar suas informações de perfil](my-apps-portal-end-user-update-profile.md).
+- [Acesse e use aplicativos no portal meus aplicativos](my-apps-portal-end-user-access.md).
 
-- [Exibir e atualizar suas informações de grupos](my-apps-portal-end-user-groups.md).
+- [Altere as informações do seu perfil](my-apps-portal-end-user-update-profile.md).
 
-- [Executar seus próprio revisões de acesso](my-apps-portal-end-user-access-reviews.md).
+- [Exiba e atualize suas informações relacionadas a grupos](my-apps-portal-end-user-groups.md).
+
+- [Execute suas próprias revisões de acesso](my-apps-portal-end-user-access-reviews.md).

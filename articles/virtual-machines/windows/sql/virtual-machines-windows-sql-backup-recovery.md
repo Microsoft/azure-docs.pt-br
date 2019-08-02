@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: ab239d0546508d74874c6b6be03f6afc06b08fa7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c02daef31b29e9a95ddfdedea497604ad0777aa
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563403"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67442632"
 ---
 # <a name="backup-and-restore-for-sql-server-in-azure-virtual-machines"></a>Backup e restauração para o SQL Server em Máquinas Virtuais do Azure
 
@@ -35,7 +35,7 @@ A tabela a seguir fornece informações sobre várias opções de backup e resta
 | Estratégia | Versões do SQL | DESCRIÇÃO |
 |---|---|---|
 | [Backup Automatizado](#automated) | 2014<br/> 2016<br/> 2017 | O Backup Automatizado permite que você agende backups regulares de todos os bancos de dados em uma VM do SQL Server. Os backups são armazenados no armazenamento do Azure por até 30 dias. A partir do SQL Server 2016, o Backup Automatizado v2 oferece opções adicionais, como a configuração de agendamento manual e a frequência de backups de log e completos. |
-| [Backup do Azure para VMs do SQL](#azbackup) | 2012<br/> 2014<br/> 2016<br/> 2017 | O Backup do Azure fornece um recurso de backup de classe empresarial para SQL Server em execução em VMs do Azure. Com esse serviço, você pode gerenciar centralmente os backups para vários servidores e milhares de bancos de dados. Os bancos de dados podem ser restaurados para um ponto específico no tempo no portal. Ele oferece uma política de retenção personalizável que pode manter backups por anos. Esse recurso está atualmente em visualização pública. |
+| [Backup do Azure para VMs do SQL](#azbackup) | 2008<br/> 2012<br/> 2014<br/> 2016<br/> 2017 | O Backup do Azure fornece um recurso de backup de classe empresarial para SQL Server em execução em VMs do Azure. Com esse serviço, você pode gerenciar centralmente os backups para vários servidores e milhares de bancos de dados. Os bancos de dados podem ser restaurados para um ponto específico no tempo no portal. Ele oferece uma política de retenção personalizável que pode manter backups por anos. |
 | [Backup manual](#manual) | Todos | Dependendo de sua versão do SQL Server, há várias técnicas para fazer backup e restauração manuais do SQL Server em execução em uma VM do Azure. Neste cenário, você é responsável pela forma como o backup dos bancos de dados é feito e o local de armazenamento e gerenciamento desses backups. |
 
 As seções a seguir descrevem cada abordagem mais detalhadamente. A seção final deste artigo fornece um resumo na forma de uma matriz de recurso.

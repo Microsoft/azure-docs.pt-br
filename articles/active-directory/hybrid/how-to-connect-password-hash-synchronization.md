@@ -15,18 +15,18 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff1cb57bb3317adc7ab6208ebf5029361b7c54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d74eb91b5122f63088f3344836eab8decf5c57d2
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235147"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227367"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implemente a sincronização de hash de senha com a sincronização do Azure AD Connect
 Este artigo fornece as informações necessárias para sincronizar suas senhas de usuário de uma instância do AD (Active Directory) local para uma instância do Azure AD (Azure Active Directory) baseada na nuvem.
 
 ## <a name="how-password-hash-synchronization-works"></a>Como a sincronização de hash de senha funciona
-O serviço de domínio do Active Directory armazena senhas na forma de uma representação de valor de hash da senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o *algoritmo de hash*). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. Não é possível usar o hash de senha para entrar na sua rede local.
+O serviço de domínio do Active Directory armazena senhas na forma de uma representação de valor de hash da senha de usuário real. Um valor de hash é um resultado de uma função matemática unidirecional (o *algoritmo de hash*). Não há um método para reverter o resultado de uma função unidirecional para a versão de texto sem formatação de uma senha. 
 
 Para sincronizar sua senha, a sincronização do Azure AD Connect extrai o hash da senha de usuário da instância do Active Directory local. O processamento de segurança adicional é aplicado ao hash da senha antes que ele seja sincronizado com o serviço de autenticação do Azure Active Directory. As senhas são sincronizadas por usuário e em ordem cronológica.
 
@@ -125,7 +125,7 @@ Se o servidor tiver sido bloqueado de acordo com o FIPS (Federal Information Pro
 2. Abra miiserver.exe.config.
 3. Acesse o nó configuração/tempo de execução no fim do arquivo.
 4. Adicione o seguinte nó: `<enforceFIPSPolicy enabled="false"/>`
-5. Salve suas alterações.
+5. Salve as alterações.
 
 Para referência, esse snippet mostra como deve ser a aparência:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 00154ac3c94a1f43872aff3be29ddd108a4173f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e93f6d1804dd32e9e0da2c9be98aa523a6faafa
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866804"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089713"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springer-link"></a>Tutorial: Integração do Azure Active Directory ao Springer Link
 
@@ -53,7 +53,7 @@ Para configurar a integração do Springer Link ao Azure AD, você precisa adici
 
 **Para adicionar o Springer Link por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar logon único do Azure AD com Springer Link, realize as seguintes
 
     ![Informações de logon único em Domínio e URLs do Springer Link](common/idp-relay.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://fsso.springer.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://fsso.springer.com`
 
     b. Na caixa de texto **URL de Resposta**, insira uma URL: `https://fsso.springer.com/federation/Consumer/metaAlias/SpringerServiceProvider`
 
@@ -207,5 +207,5 @@ Ao clicar no bloco do Springer Link no Painel de Acesso, você deverá entrar au
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

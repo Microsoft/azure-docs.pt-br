@@ -1,18 +1,18 @@
 ---
 title: Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
 description: Este tutorial descreve como implementar o Azure Databricks em uma rede virtual com um Ponto de Extremidade de Serviço habilitado para o Cosmos DB.
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: 0d5442a63680227f3a6186330502666c92dc3129
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012710"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67054610"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>Tutorial: Implementar o Azure Databricks com um ponto de extremidade do Cosmos DB
 
@@ -69,7 +69,7 @@ Antes de começar, faça o seguinte:
 
 3. Selecione a guia **Rede** e configure sua rede virtual. 
 
-    a. Escolha a rede virtual que você criou como pré-requisito e, em seguida, selecione *public-subnet*. Observe que *private-subnet* tem a observação *O ponto de extremidade 'Microsoft AzureCosmosDB' está ausente '*. Isso ocorre porque você habilitou apenas o ponto de extremidade de serviço do Cosmos DB na *public-subnet*.
+   a. Escolha a rede virtual que você criou como pré-requisito e, em seguida, selecione *public-subnet*. Observe que *private-subnet* tem a observação *O ponto de extremidade 'Microsoft AzureCosmosDB' está ausente '* . Isso ocorre porque você habilitou apenas o ponto de extremidade de serviço do Cosmos DB na *public-subnet*.
 
    b. Verifique se você tem **Permitir acesso do portal do Azure** habilitado. Essa configuração permite que você acesse sua conta do Cosmos DB no portal do Azure. Se essa opção estiver definida como **Negar**, você receberá erros ao tentar acessar sua conta. 
 

@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: mahender,cephalin
+ms.author: cephalin
+ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: d914e3ad3043b2671e154d1616c6800f34415c11
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d925a77de20392459081e6669706da330ba7fa
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60835561"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836724"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -55,7 +56,7 @@ O módulo executa separadamente do código do aplicativo e é configurado usando
 
 ### <a name="user-claims"></a>Declarações de usuário
 
-Para todas as estruturas de linguagem, o Serviço de Aplicativo disponibiliza as declarações de usuário para o código, injetando-as nos cabeçalhos da solicitação. Para aplicativos ASP.NET 4.6, o Serviço de Aplicativo preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, de modo que seja possível seguir o padrão de código .NET Standard, incluindo o atributo `[Authorize]`. Da mesma forma, para aplicativos PHP, o Serviço de Aplicativo preenche a variável `_SERVER['REMOTE_USER']`.
+Para todas as estruturas de linguagem, o Serviço de Aplicativo disponibiliza as declarações de usuário para o código, injetando-as nos cabeçalhos da solicitação. Para aplicativos ASP.NET 4.6, o Serviço de Aplicativo preenche [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, de modo que seja possível seguir o padrão de código .NET Standard, incluindo o atributo `[Authorize]`. Da mesma forma, para aplicativos PHP, o Serviço de Aplicativo preenche a variável `_SERVER['REMOTE_USER']`. Para aplicativos Java, as declarações são [acessíveis a partir do servlet Tomcat](containers/configure-language-java.md#authenticate-users).
 
 Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` não é hidratado para código .NET, mas ainda é possível localizar as declarações de usuário nos cabeçalhos da solicitação.
 
@@ -150,7 +151,7 @@ Essa opção oferece mais flexibilidade no processamento de solicitações anôn
 
 Guias de instruções específicas do provedor:
 
-* [Como configurar seu aplicativo para usar o logon do Azure Active Directory][AAD]
+* [Como configurar seu aplicativo para usar o logon do Active Directory do Azure][AAD]
 * [Como configurar seu aplicativo para usar o logon do Facebook][Facebook]
 * [Como configurar seu aplicativo para usar o logon do Google][Google]
 * [Como configurar seu aplicativo para usar o logon da Conta da Microsoft][MSA]

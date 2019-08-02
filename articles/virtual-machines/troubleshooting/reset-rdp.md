@@ -4,7 +4,7 @@ description: Saiba como redefinir uma senha de conta ou Serviços de Área de Tr
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 45c69812-d3e4-48de-a98d-39a0f5675777
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 0a12cbabc28640283f5a28eb7a83c7d7717e0882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: caa0066f8020c19cecccaa0421f90188260c644b
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60921197"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67710620"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Redefinir os Serviços de Área de Trabalho Remota ou a senha de administrador em uma VM do Windows
 Se você não conseguir conectar-se a uma VM (máquina virtual) do Windows, poderá redefinir a senha de administrador local ou redefinir a configuração dos Serviços de Área de Trabalho Remota (sem suporte nos controladores de domínio do Windows). Para redefinir a senha, use o portal do Azure ou a extensão de acesso da VM no Azure PowerShell. Depois de entrar na VM, redefina a senha desse administrador local.  

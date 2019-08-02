@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 34b5a5901122b60c20a33e3564dca0eb5273afa3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8c951d7f5f1629447b1b5c1fc6e8a1c202246d74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711983"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099103"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory com o SSO do Kantega para o Bamboo
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Informações de logon único para domínio e URLs de SSO do Kantega para o Bamboo](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
@@ -172,7 +172,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon6.png)
 
-     a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
+    a. Copie o valor da **URI da ID do Aplicativo** e use-o como **o Identificador, a URL de Resposta e a URL de Logon** na seção **Configuração básica do SAML** do portal do Azure.
 
     b. Clique em **Próximo**.
 
@@ -180,7 +180,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon7.png)
 
-     a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
+    a. Selecione **Arquivo de metadados no meu computador** e carregue um arquivo de metadados baixado no portal do Azure.
 
     b. Clique em **Próximo**.
 
@@ -188,7 +188,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon8.png)
 
-     a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
+    a. Adicione Nome do Provedor de Identidade à caixa de texto **Nome do provedor de identidade** (por exemplo, Azure AD).
 
     b. Clique em **Próximo**.
 
@@ -200,7 +200,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon10.png)
 
-     a. Selecione **Criar usuários no Diretório interno do Bamboo, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
+    a. Selecione **Criar usuários no Diretório interno do Bamboo, se necessário** e insira o nome apropriado do grupo de usuários (podem ser vários números de grupos separados por vírgula).
 
     b. Clique em **Próximo**.
 
@@ -212,7 +212,7 @@ Para configurar o logon único do Microsoft Azure Active Directory com o SSO do 
 
     ![Configurar o logon único](./media/kantegassoforbamboo-tutorial/addon12.png)
 
-     a. Selecione **Domínios conhecidos** no painel esquerdo da página.
+    a. Selecione **Domínios conhecidos** no painel esquerdo da página.
 
     b. Insira o nome de domínio na caixa de texto **Domínios conhecidos**.
 
@@ -285,7 +285,7 @@ Para permitir que os usuários do Microsoft Azure Active Directory façam logon 
 
     ![Adicionar Funcionário](./media/kantegassoforbamboo-tutorial/user2.png)
 
-     a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
+    a. Na caixa de texto **Nome de usuário**, digite o email do usuário, como Brittasimon@contoso.com.
 
     b. Na caixa de texto **Senha**, digite a senha do usuário.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ed8e63a49702e8ba951990f8d7ff19b8f058fa74
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408008"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089400"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Azure Active Directory ao Tableau Server
 
@@ -53,7 +53,7 @@ Para configurar a integração do Tableau Server ao Azure AD, você precisa adic
 
 **Para adicionar o Tableau Server por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o Tableau Server, execute as segu
 
     ![Informações de logon único de Domínio e URLs do Tableau Server](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link`
+    a. Na caixa de texto **URL de Entrada** digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link`
 
     b. Na caixa **Identificador**, digite uma URL usando o seguinte padrão: `https://azure.<domain name>.link`
 
@@ -122,7 +122,7 @@ Para configurar o logon único do Azure AD com o Tableau Server, execute as segu
 
     | NOME | Atributo de Origem | Namespace |
     | ---------------| --------------- | ----------- |
-    | Nome de Usuário | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | Nome de Usuário | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
@@ -169,7 +169,7 @@ Para configurar o logon único do Azure AD com o Tableau Server, execute as segu
 
     ![Configurar o logon único](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
-     a. Para **Método de Autenticação**, selecione SAML.
+    a. Para **Método de Autenticação**, selecione SAML.
 
     b. Selecione a caixa de seleção **Habilitar a autenticação SAML para o servidor**.
 
@@ -260,5 +260,5 @@ Ao clicar no bloco do Tableau Server no Painel de Acesso, você deverá entrar a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

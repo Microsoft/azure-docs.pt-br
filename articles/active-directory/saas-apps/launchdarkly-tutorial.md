@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4ae2802c5f833f168385ef46d10b6a508fdf45a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: de59ce587facb94728e0652f47c7cdfce0ab4388
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838656"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-launchdarkly"></a>Tutorial: Integração do Azure Active Directory ao LaunchDarkly
 
@@ -52,9 +52,9 @@ Neste tutorial, você configurará e testará o logon único do Azure AD em um a
 
 Para configurar a integração do LaunchDarkly ao Azure AD, você precisa adicionar o LaunchDarkly da galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar o LauchDarkly da galeria, execute as seguintes etapas:**
+**Para adicionar o LaunchDarkly da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Informações de logon único de Domínio e URLs do LaunchDarkly](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `app.launchdarkly.com`
+    a. Na caixa de texto **Identificador**, digite uma URL: `app.launchdarkly.com`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://app.launchdarkly.com/trust/saml2/acs/<customers-unique-id>`
 
@@ -115,7 +115,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
 5. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de login**, digite um URL usando o seguinte padrão: `https://app.launchdarkly.com`
+    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://app.launchdarkly.com`
 
     ![Informações de logon único de Domínio e URLs do LaunchDarkly](common/metadata-upload-additional-signon.png)
 
@@ -153,7 +153,7 @@ Para configurar o logon único do AD do Azure com o [nome do aplicativo], execut
 
     ![Configuração do LaunchDarkly](./media/launchdarkly-tutorial/configure4.png)
 
-     a. Copie a **URL de serviço do consumidor do SAML** para a sua instância e cole-a na caixa de texto URL de Resposta na seção **Domínio e URLs do LaunchDarkly** no portal do Azure.
+    a. Copie a **URL de serviço do consumidor do SAML** para a sua instância e cole-a na caixa de texto URL de Resposta na seção **Domínio e URLs do LaunchDarkly** no portal do Azure.
 
     b. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** que você copiou do portal do Azure.
 
@@ -231,4 +231,4 @@ Ao clicar no bloco do LaunchDarkly no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

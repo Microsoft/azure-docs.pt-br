@@ -2,24 +2,17 @@
 title: O que é um modelo do Serviço de Nuvem e pacote | Microsoft Docs
 description: Descreve o modelo de serviço de nuvem (.csdef, .cscfg) e o pacote (.cspkg) no Azure
 services: cloud-services
-documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-ms.assetid: 4ce2feb5-0437-496c-98da-1fb6dcb7f59e
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
-ms.author: jeconnoc
-ms.openlocfilehash: 6c8833dc0db80dde96dda92c426c7840c44c1f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: gwallace
+ms.openlocfilehash: 47d031e339b3677e0bf6ddcbad9456041c53c6e2
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080751"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68359544"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>Qual é o modelo de serviço de nuvem e como empacotá-lo?
 Um serviço de nuvem é criado a partir de três componentes, a definição do serviço *(.csdef)* , configuração do serviço *(.cscfg)* e pacote do serviço *(.cspkg)* . Os arquivos **ServiceDefinition.csdef** e **ServiceConfig.cscfg** são baseados no XML, descrevem a estrutura do serviço de nuvem e como ela é configurada; coletivamente são chamados de modelo. O **ServicePackage.cspkg** é um arquivo zip gerado do **ServiceDefinition.csdef** e entre outras coisas, contém todas as dependências necessárias com base no binário. O Azure cria um serviço de nuvem para o **ServicePackage.cspkg** e o **ServiceConfig.cscfg**.
@@ -33,7 +26,7 @@ Quando o serviço de nuvem estiver em execução no Azure, você poderá reconfi
 * Estou usando o Visual Studio e desejo...
   * [Criar um serviço de nuvem][vs_create]
   * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
-  * [Implantar um projeto do serviço de nuvem][vs_deploy]
+  * [Implantar um projeto de serviço de nuvem][vs_deploy]
   * [Área de trabalho remota em uma instância de serviço de nuvem][remotedesktop]
 
 <a name="csdef"></a>
@@ -266,7 +259,7 @@ cspack [DirectoryName]\[ServiceDefinition]
 
 Onde as variáveis são definidas da seguinte maneira:
 
-| Variável | Value |
+| Variável | Valor |
 | --- | --- |
 | \[DirectoryName\] |O subdiretório no diretório do projeto raiz que contém o arquivo .csdef do projeto do Azure. |
 | \[ServiceDefinition\] |O nome do arquivo de definição de serviço. Por padrão, esse arquivo é chamado de ServiceDefinition.csdef. |
@@ -280,15 +273,15 @@ Onde as variáveis são definidas da seguinte maneira:
 ## <a name="next-steps"></a>Próximas etapas
 Estou criando um pacote de serviço de nuvem e desejo...
 
-* [Configurar área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]
-* [Implantar um projeto do serviço de nuvem][deploy]
+* [Configurar a área de trabalho remota para uma instância de serviço de nuvem][remotedesktop]
+* [Implantar um projeto de serviço de nuvem][deploy]
 
 Estou usando o Visual Studio e desejo...
 
 * [Criar um novo serviço de nuvem][vs_create]
 * [Reconfigurar um serviço de nuvem existente][vs_reconfigure]
-* [Implantar um projeto do serviço de nuvem][vs_deploy]
-* [Configurar área de trabalho remota para uma instância de serviço de nuvem][vs_remote]
+* [Implantar um projeto de serviço de nuvem][vs_deploy]
+* [Configurar a área de trabalho remota para uma instância de serviço de nuvem][vs_remote]
 
 [deploy]: cloud-services-how-to-create-deploy-portal.md
 [remotedesktop]: cloud-services-role-enable-remote-desktop-new-portal.md

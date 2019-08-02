@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d811cd69185e77f50749fc48974dee684fb7cfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bafad5d28ef25f7f7bebe3899f288d0dfa72acb
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65744736"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090274"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartdraw"></a>Tutorial: Integração do Azure Active Directory ao SmartDraw
 
@@ -55,7 +55,7 @@ Para configurar a integração do SmartDraw ao Azure AD, é necessário adiciona
 
 **Para adicionar o SmartDraw da galeria, siga estas etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -82,7 +82,7 @@ Para configurar e testar o logon único do Azure AD com SmartDraw, é necessári
 2. **[Configurar o logon único do SmartDraw](#configure-smartdraw-single-sign-on)** – para definir as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
 4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
-5. **[Criar usuário de teste do SmartDraw](#create-smartdraw-test-user)**: para ter um equivalente de Brenda Fernandes no SmartDraw que esteja vinculado à representação de usuário no Azure AD.
+5. **[Criar usuário de teste do SmartDraw](#create-smartdraw-test-user)** : para ter um equivalente de Brenda Fernandes no SmartDraw que esteja vinculado à representação de usuário no Azure AD.
 6. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
@@ -116,7 +116,7 @@ Para configurar o logon único do Azure AD com o SmartDraw, siga estas etapas:
     > [!NOTE]
     > O valor da URL de logon não é real. Você atualizará o valor da URL de Logon com a URL de Logon real, que será explicada posteriormente no tutorial. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
-6. Seu aplicativo SmartDraw espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário** .
+6. Seu aplicativo SmartDraw espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
     ![image](common/edit-attribute.png)
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o SmartDraw, siga estas etapas:
     | Email | user.mail |
     | Grupos | user.groups |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -173,15 +173,15 @@ Para configurar o logon único do Azure AD com o SmartDraw, siga estas etapas:
 
     ![Configuração do SmartDraw](./media/smartdraw-tutorial/configure02.png)
 
-     a. Na caixa de texto **Seu domínio (como acme.com)**, digite seu domínio.
+    a. Na caixa de texto **Seu domínio (como acme.com)** , digite seu domínio.
 
-    b. Copie **Sua URL de logon iniciada por SP será** da sua instância e cole-a na caixa de texto URL de logon na **Configuração Básica de SAML** no portal do Azure.
+    b. Copie **Sua URL de logon iniciada por SP será** da sua instância e cole-a na caixa de texto URL de logon na**Configuração Básica de SAML** no portal do Azure.
     
     c. Na caixa de texto **Grupo de segurança para permitir o acesso do SmartDraw**, digite **Todos**.
 
     d. Na caixa de texto **Sua URL de emissor do SAML**, cole o valor de **Identificador do Azure AD** que você copiou do portal do Azure.
 
-    e. No Bloco de notas, abra o arquivo XML de metadados que você baixou do portal do Azure, copie seu conteúdo e, em seguida, cole-o na caixa **Seus metadados do SAML** .
+    e. No Bloco de notas, abra o arquivo XML de metadados que você baixou do portal do Azure, copie seu conteúdo e, em seguida, cole-o na caixa **Seus metadados do SAML**.
 
     f. Clique em **Salvar Configuração** 
 
@@ -252,5 +252,5 @@ Ao clicar no bloco do SmartDraw no Painel de Acesso, você deverá entrar automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

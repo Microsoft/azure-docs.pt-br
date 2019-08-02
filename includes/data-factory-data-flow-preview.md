@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 02/11/2019
 ms.author: kromerm
-ms.openlocfilehash: f987b236cbec9bd4dd332213c2ec7eadcb0752e7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aaa8908f5b05ae4c4523760c3c12a077ac1a09d5
+ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66120463"
+ms.lasthandoff: 07/02/2019
+ms.locfileid: "67509802"
 ---
 > [!NOTE] 
-> Azure Data Factory de mapeamento de fluxo de dados é um recurso de visualização pública e não está sujeita às cláusulas do SLA do Azure customer.
+> Azure Data Factory de mapeamento de fluxo de dados é um recurso de visualização pública e não está sujeita às cláusulas do SLA do Azure customer. Atualmente, mapeando os dados fluem não estão disponíveis nessas regiões do Azure: Centro-Oeste dos EUA Central, Sul do Brasil, França Central, Coreia Central.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d68c8a63dd3adaee0c04f5438f91da68f3903aea
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: c2d7f3922bc3226a7871ee775718ca43757adb54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889398"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089562"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Tutorial: Integração do Azure Active Directory ao SumTotalCentral
 
@@ -53,7 +53,7 @@ Para configurar a integração do SumTotalCentral ao Azure AD, você precisará 
 
 **Para adicionar o SumTotalCentral da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o SumTotalCentral, siga estas eta
 
     ![Informações de logon único em Domínio e URLs do SumTotalCentral](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sumtotalsystems.com/sites/default`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.sumtotalsystems.com/sites/default`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite um valor: `SumTotalFederationGateway`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite um valor: `SumTotalFederationGateway`
 
     > [!NOTE]
     > O valor da URL de logon não é real. Atualize o valor com a URL de Logon real. Contate [equipe de suporte ao cliente do SumTotalCentral](http://www.sumtotalsystems.com/support/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

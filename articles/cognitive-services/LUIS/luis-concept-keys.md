@@ -1,6 +1,6 @@
 ---
-title: Chaves de assinatura
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Chaves de assinatura-LUIS
+titleSuffix: Azure Cognitive Services
 description: O LUIS usa duas chaves, a chave de criação gratuita para criar seu modelo e a chave de ponto de extremidade monitorado para consultar o ponto de extremidade de previsão com declarações de usuário.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: feb4622be14b51cfa72c33cda6c2477f799758c6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 69b4a92470b33ab6615eead16be044a88436d64e
+ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66473582"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68619766"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Chaves de ponto de extremidade de previsão de consulta e criação no LUIS
 O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](#endpoint-key). A chave de criação é criada para você automaticamente quando você cria sua conta LUIS. Quando estiver pronto para publicar seu aplicativo LUIS, será necessário [criar a chave do ponto de extremidade](luis-how-to-azure-subscription.md), [atribuí-la](luis-how-to-azure-subscription.md) ao seu aplicativo LUIS e [usá-la com a consulta de ponto de extremidade](#use-endpoint-key-in-query). 
@@ -29,6 +29,7 @@ O LUIS usa duas chaves: [criação](#programmatic-key) e [ponto de extremidade](
 É importante criar aplicativos LUIS em [regiões](luis-reference-regions.md#publishing-regions) em que você também deseje publicar e consultar.
 
 <a name="programmatic-key" ></a>
+
 ## <a name="authoring-key"></a>Chave de criação
 
 Uma chave de criação, também conhecida como uma chave de início, é criada automaticamente quando você cria uma conta LUIS e é gratuita. Você tem uma chave de autoria entre todos os seus aplicativos LUIS para cada [região](luis-reference-regions.md) de autoria. A chave de criação é fornecida para criar seu aplicativo LUIS ou para testar consultas de ponto de extremidade. 

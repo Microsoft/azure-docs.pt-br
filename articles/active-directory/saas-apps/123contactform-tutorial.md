@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 768afe007141eacbcea1560d3ec1676d9a7d2867
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 66e15d58f0c9d82d9ac73747cbd995d8de5cdf97
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65859577"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67107588"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Tutorial: Integração do Azure Active Directory ao 123ContactForm
 
@@ -54,7 +54,7 @@ Para configurar a integração do 123ContactForm ao Azure AD, você precisa adic
 
 **Para adicionar o 123ContactForm por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -106,7 +106,7 @@ Para configurar o logon único do Azure AD com o 123ContactForm, execute as segu
 
     ![Informações de logon único de Domínio e URLs do 123ContactForm](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o 123ContactForm, execute as segu
 
     ![Configurar o logon único](./media/123contactform-tutorial/submit.png) 
 
-     a. Na caixa de texto **Email**, digite o email do usuário como **BrendaFernandes\@Contoso.com**.
+    a. Na caixa de texto **Email**, digite o email do usuário como **BrendaFernandes\@Contoso.com**.
 
     b. Clique em **Carregar** e procure o arquivo XML de Metadados baixado no portal do Azure.
 
@@ -149,7 +149,7 @@ Para configurar o logon único do Azure AD com o 123ContactForm, execute as segu
 
     ![Configurar o logon único](./media/123contactform-tutorial/url3.png)
 
-     a. Se desejar configurar o aplicativo no **modo iniciado pelo IDP**, copie o valor de **IDENTIFICADOR** da instância e cole-o na caixa de texto **Identificador** da seção **Configuração Básica do SAML** no portal do Azure.
+    a. Se desejar configurar o aplicativo no **modo iniciado pelo IDP**, copie o valor de **IDENTIFICADOR** da instância e cole-o na caixa de texto **Identificador** da seção **Configuração Básica do SAML** no portal do Azure.
 
     b. Se desejar configurar o aplicativo no **modo iniciado pelo IDP**, copie o valor da **URL DE RESPOSTA** da instância e cole-o na caixa de texto **URL de Resposta** da seção **Configuração Básica do SAML** no portal do Azure.
 
@@ -222,4 +222,4 @@ Ao clicar no bloco do 123ContactForm no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

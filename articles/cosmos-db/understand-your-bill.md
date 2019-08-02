@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d30cd92456218284326263d7bd3c9c7820fa435c
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965672"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67621283"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Entendendo sua fatura do Azure Cosmos DB
 
@@ -21,6 +21,8 @@ Como um serviço de banco de dados nativo de nuvem totalmente gerenciado, o Azur
 Com o Azure Cosmos DB, você será cobrado por hora com base na taxa de transferência provisionada e no armazenamento consumido. Para a taxa de transferência provisionada, a unidade de cobrança é 100 RU/s por hora, cobrada a US$ 0,008 por hora, levando em conta o preço público padrão; consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). Para o armazenamento consumido, você é cobrado US$ 0,25 por 1 GB de armazenamento por mês. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/). 
 
 Este artigo usa alguns exemplos para ajudá-lo a entender os detalhes encontrados na fatura mensal. Os números mostrados nos exemplos podem ser diferentes se seus contêineres do Azure Cosmos têm uma taxa de transferência provisionada diferente, se eles abrangem várias regiões ou são executados em regiões diferentes por algum tempo durante o mês.
+
+>! Observação: A cobrança é para qualquer parte de uma hora do relógio de parede, não uma duração de 60 minutos.
 
 ## <a name="billing-examples"></a>Exemplos de cobrança
 
@@ -203,7 +205,7 @@ Vamos considerar outro exemplo, em que você deseja proativamente estimar sua fa
 |**Custo de armazenamento** | |
 |----|----|
 |Tamanho médio dos registros (KB) |1 |
-|Número de registros  |100\.000.000  |
+|Número de registros  |100.000.000  |
 |Armazenamento total (GB)  |100 |
 |Custo mensal por GB  |US$ 0,25  |
 |Custo mensal esperado pelo armazenamento   |US$ 25,00  |
@@ -236,7 +238,7 @@ Sua fatura total (sem capacidade reservada) seria (supondo-se 30 dias ou 720 hor
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Valor cobrado (por hora)**| **Valor cobrado (por mês)**|
 |----|----|----|----|----|
-|Leste dos EUA|US$ 0,008 |50 mil|US$ 4|US$ 2.880 |
+|East US|US$ 0,008 |50 mil|US$ 4|US$ 2.880 |
 |Leste do Japão|US$ 0,009 |50 mil| US$ 4,50 |US$ 3.240 |
 |Total|||US$ 8,50|US$ 6.120 |
 
@@ -250,7 +252,7 @@ O que você efetivamente comprou é um crédito de US$ 8 por hora, para 100 mil 
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Valor cobrado (por hora)**| **Valor cobrado (por mês)**|
 |----|----|----|----|----|
-|Leste dos EUA|US$ 0,008 |50 mil|US$ 4|US$ 2.880 |
+|East US|US$ 0,008 |50 mil|US$ 4|US$ 2.880 |
 |Leste do Japão|US$ 0,009 |50 mil| US$ 4,50 |US$ 3.240 |
 |||Pago conforme o uso|US$ 8,50|US$ 6.120|
 |Capacidade reservada comprada|US$ 0,0064 (20% de desconto) |Capacidade de 100 RU/s ou US$ 8 pré-adquirida |-US$ 8|-US$ 5.760 |

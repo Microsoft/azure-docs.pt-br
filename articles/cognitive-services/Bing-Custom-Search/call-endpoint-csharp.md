@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o C# | Microsoft Docs'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use este início rápido para começar a solicitar os resultados da pesquisa na instância da Pesquisa Personalizada do Bing em C#.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 07/15/2019
 ms.author: maheshb
-ms.openlocfilehash: 267b50e15d39fc5a0df763cea2e2b79f9b23d151
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: c1b118ec08e00705ad3eab9141d116fb9e6ef257
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595813"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405199"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-c"></a>Início Rápido: Chamar o ponto de extremidade da Pesquisa Personalizada do Bing usando o C# 
 
@@ -25,9 +25,9 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
 
 - Uma instância da Pesquisa Personalizada do Bing. Confira [Início Rápido: Criar sua primeira instância da Pesquisa Personalizada do Bing](quick-start.md) para obter mais informações.
 - Microsoft [.NET Core](https://www.microsoft.com/net/download/core)
-- Qualquer edição do [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/)
+- Qualquer edição do [Visual Studio 2019 ou posterior](https://www.visualstudio.com/downloads/)
 - Se você estiver usando Linux/MacOS, este aplicativo poderá ser executado usando [Mono](https://www.mono-project.com/).
-- O pacote [Pesquisa Personalizada do NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) instalado. 
+- O pacote NuGet [Pesquisa Personalizada do Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0). 
     - No **Gerenciador de Soluções** do Visual Studio, clique com o botão direito do mouse no seu projeto e selecione **Gerenciar Pacotes NuGet** no menu. Instale o pacote `Microsoft.Azure.CognitiveServices.Search.CustomSearch`. A instalação do pacote Pesquisa Personalizada do NuGet também instala os assemblies a seguir:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
@@ -104,7 +104,7 @@ Use este início rápido para começar a solicitar os resultados da pesquisa na 
     ```
    ## <a name="process-and-view-the-results"></a>Processar e ver os resultados
 
-1. Itere sobre o objeto de resposta para exibir informações sobre cada resultado da pesquisa, incluindo nome, URL e a data em que a página da Web foi rastreada pela última vez.
+3. Itere sobre o objeto de resposta para exibir informações sobre cada resultado da pesquisa, incluindo nome, URL e a data em que a página da Web foi rastreada pela última vez.
 
     ```csharp
     for(int i = 0; i < response.webPages.value.Length; i++) {                

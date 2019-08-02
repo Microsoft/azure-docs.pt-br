@@ -2,7 +2,7 @@
 title: Tabelas temporárias no SQL Data Warehouse | Microsoft Docs
 description: Guia essencial para usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível da sessão.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 56c15a9505b3f0e4344c9164268082da1ff7cc22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e43e52e56ec7abbf5d8eb879defef54bd7d50658
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65851563"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479822"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tabelas temporárias no SQL Data Warehouse
 Este artigo contém as diretrizes essenciais de como usar as tabelas temporárias e destaca os princípios das tabelas temporárias no nível da sessão. Usar as informações neste artigo pode ajudá-lo a modularizar seu código, melhorando a reutilização e a facilidade de manutenção do seu código.
@@ -81,19 +81,6 @@ GROUP BY
 ,        st.[filter_definition]
 ,        st.[has_filter]
 )
-SELECT
-    CASE @update_type
-    WHEN 1
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+');'
-    WHEN 2
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH FULLSCAN;'
-    WHEN 3
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH SAMPLE '+CAST(@sample_pct AS VARCHAR(20))+' PERCENT;'
-    WHEN 4
-    THEN 'UPDATE STATISTICS '+[two_part_name]+'('+[stats_name]+') WITH RESAMPLE;'
-    END AS [update_stats_ddl]
-,   [seq_nmbr]
-FROM    t1
 ;
 ``` 
 
@@ -215,7 +202,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Limitações da tabela temporária
-O SQL Data Warehouse impõe algumas limitações ao implementar a tabelas temporárias.  Atualmente, somente a sessão com o escopo das tabelas temporárias é suportada.  Não há suporte para as Tabelas Temporárias Globais.  E mais, as exibições não podem ser criadas nas tabelas temporárias.  Tabelas temporárias podem ser criadas somente com a distribuição de hash ou round robin.  Não há suporte para a distribuição da tabela temporária replicada. 
+O SQL Data Warehouse impõe algumas limitações ao implementar a tabelas temporárias.  Atualmente, somente a sessão com o escopo das tabelas temporárias é suportada.  Não há suporte para as Tabelas Temporárias Globais.  E mais, as exibições não podem ser criadas nas tabelas temporárias.  As tabelas temporárias só podem ser criadas com a distribuição hash ou round robin.  Não há suporte para a distribuição de tabela temporária replicada. 
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como desenvolver tabelas, consulte a [Visão geral da tabela](sql-data-warehouse-tables-overview.md).

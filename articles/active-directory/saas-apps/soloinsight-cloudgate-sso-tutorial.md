@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c131f034b4a8b5afaa2556c5c8d053b3e6793b4d
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: d2dc6dcbcdee8df93f34cf4d68b5e08453554bc8
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987261"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67090005"
 ---
 # <a name="tutorial-integrate-soloinsight-cloudgate-sso-with-azure-active-directory"></a>Tutorial: Integração do Soloinsight-CloudGate SSO ao Azure Active Directory
 
@@ -48,8 +48,8 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 Para configurar a integração do Soloinsight-CloudGate SSO ao Azure AD, você precisará adicionar o Soloinsight-CloudGate SSO por meio da galeria à lista de aplicativos SaaS gerenciados.
 
 1. Entre no [portal do Azure](https://portal.azure.com) usando uma conta corporativa ou de estudante ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o serviço **Azure Active Directory**.
-1. Navegue até **Aplicativos Empresariais** e, em seguida, selecione **Todos os Aplicativos**.
+1. No painel de navegação esquerdo, escolha o serviço **Azure Active Directory**.
+1. Navegue até **Aplicativos Empresariais** e, em seguida, escolha **Todos os Aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **Novo aplicativo**.
 1. Na seção **Adicionar da galeria**, digite **Soloinsight-CloudGate SSO** na caixa de pesquisa.
 1. Selecione **Soloinsight CloudGate SSO** do painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
@@ -73,7 +73,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Soloinsight-CloudGate SSO**, encontre a seção **Gerenciar** e selecione **Logon único**.
 1. Na página **Selecionar um método de logon único**, selecione **SAML**.
-1. Na página **Configurar o Logon Único com o SAML**, clique no ícone Editar/de caneta de **Configuração Básica do SAML** para editar as configurações.
+1. Na página **Configurar o Logon Único com SAML**, clique no ícone editar/de caneta da **Configuração Básica de SAML** para editar as configurações.
 
    ![Editar a Configuração Básica de SAML](common/edit-urls.png)
 
@@ -98,7 +98,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Para automatizar a configuração no Soloinsight-CloudGate SSO, é necessário instalar a **Extensão do navegador de Entrada Segura dos Meus Aplicativos**, clicando em **Instalar a extensão**.
 
-    ![Extensão dos meus aplicativos](common/install-myappssecure-extension.png)
+    ![Extensão Meus Aplicativos](common/install-myappssecure-extension.png)
 
 2. Após adicionar a extensão ao navegador, clicar em **Configurar Soloinsight-CloudGate SSO** direcionará você ao aplicativo Soloinsight-CloudGate SSO. No aplicativo, forneça as credenciais de administrador para entrar no Soloinsight-CloudGate SSO. A extensão do navegador configurará automaticamente o aplicativo e automatizará as etapas de 3 a 8.
 
@@ -150,7 +150,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 Nesta seção, você criará a usuária de teste Brenda Fernandes no portal do Azure.
 
-1. No painel esquerdo do portal do Azure, selecione **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
+1. No painel esquerdo do portal do Azure, escolha **Azure Active Directory**, **Usuários** e, em seguida, **Todos os usuários**.
 1. Selecione **Novo usuário** na parte superior da tela.
 1. Nas propriedades do **Usuário**, siga estas etapas:
    1. No campo **Nome**, insira `Britta Simon`.  
@@ -168,12 +168,12 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
    ![O link “Usuários e grupos”](common/users-groups-blade.png)
 
-1. Selecione **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
+1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 
     ![O link Adicionar Usuário](common/add-assign-user.png)
 
-1. Na caixa de diálogo **Usuários e grupos**, selecione **Brenda Fernandes** na lista de Usuários e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **Selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Usuários e grupos**, escolha **Brenda Fernandes** na lista Usuários e, em seguida, clique no botão **Escolher** na parte inferior da tela.
+1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
 ### <a name="create-soloinsight-cloudgate-sso-test-user"></a>Criar um usuário de teste do Soloinsight-CloudGate SSO
@@ -192,4 +192,4 @@ Ao selecionar o bloco do Soloinsight-CloudGate SSO no Painel de Acesso, você de
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

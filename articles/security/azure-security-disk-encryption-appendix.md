@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 675ce2de91dd4e53f4945ceef3b174c33be001f6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2872d106eea56a37c362195e7a3250058336768b
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66118478"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295050"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Apêndice para Azure Disk Encryption 
 
@@ -133,15 +133,15 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
   - [Desabilitar criptografia em uma VM do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Desabilitar criptografia somente é permitida em volumes de Dados para VMs do Linux.  
 
-### <a name="encrypt-or-decrypt-vm-scale-sets"></a>Criptografar ou descriptografar conjuntos de dimensionamento de VM
+### <a name="encrypt-or-decrypt-virtual-machine-scale-sets"></a>Criptografar ou descriptografar conjuntos de dimensionamento de máquina virtual
 
 - [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
 
 - [Habilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
 
-  - [Implantar um conjunto de dimensionamento de VMs do Linux com um jumpbox e habilitar a criptografia no VMSS do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+  - [Implantar um conjunto de dimensionamento de VMs do Linux com um jumpbox e habilita a criptografia em VMSS do Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
 
-  - [Implantar um conjunto de dimensionamento de VMs do Windows com um jumpbox e habilitar a criptografia no VMSS do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+  - [Implantar um conjunto de dimensionamento de máquinas virtuais do Windows com um jumpbox e habilita a criptografia em VMSS do Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
 
 - [Desabilitar a criptografia de disco em um conjunto de dimensionamento de máquinas virtuais do Linux em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
@@ -206,7 +206,7 @@ Use o comando [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Pré-requisitos para a criptografia de disco do sistema operacional
 
-* A VM deve estar usando uma distribuição compatível com a criptografia de disco de SO, conforme as [Perguntas frequentes sobre o Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) 
+* A VM deve estar usando uma distribuição compatível com a criptografia de disco do sistema operacional conforme listado no [sistemas operacionais com suporte do Azure Disk Encryption: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * A VM deve ser criada com base na imagem do Marketplace no Azure Resource Manager.
 * VM do Azure com, no mínimo, 4 GB de RAM (o tamanho recomendável é de 7 GB).
 * (Para RHEL e CentOS) Desabilite o SELinux. Para desabilitar SELinux, confira "4.4.2. Desabilitando o SELinux" no [Guia do Administrador e Usuário do SELinux](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) na VM.

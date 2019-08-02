@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/12/2019
+ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 2387f2546afa9d5af2cb909a1e6a2179548e3b5a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0fd605d7d502970dccd37da1f3f70fdadb1094a1
+ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053334"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67550443"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar o Gateway de aplicativo do Azure e o Firewall do aplicativo de v1 para v2 Web
 
@@ -76,7 +76,8 @@ Para executar o script:
 
 1. Executar `Get-Help AzureAppGWMigration.ps1` para examinar os parâmetros necessários:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
@@ -84,7 +85,8 @@ Para executar o script:
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
     -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -validateMigration -enableAutoScale
+   ```
 
    Parâmetros do script:
    * **resourceId: [String]: Necessário** -esta é a ID de recurso do Azure para seu v1 padrão existentes ou gateway do WAF v1. Para encontrar esse valor de cadeia de caracteres, navegue até o portal do Azure, selecione seu gateway de aplicativo ou recurso de WAF e clique no **propriedades** link para o gateway. A ID de recurso está localizada nessa página.
@@ -133,7 +135,7 @@ Para executar o script:
       -sslCertificates $Certs `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceName "MyPublicIP" `
+      -publicIpResourceId "MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 

@@ -2,22 +2,22 @@
 title: 'Tutorial: Monitorar um espaço com os Gêmeos Digitais do Azure | Microsoft Docs'
 description: Saiba como provisionar os recursos espaciais e monitorar as condições de trabalho com os Gêmeos Digitais do Azure usando as etapas deste tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 12/27/2018
-ms.author: dkshir
-ms.openlocfilehash: ad6c2625dc56dc3a3155183a04b712122a3b10f1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.date: 06/26/2019
+ms.author: alinast
+ms.openlocfilehash: 3ebfa9b54007d0b409780e6a549bdd2411b94810
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535375"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67484665"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Tutorial: Provisionar seu edifício e monitorar as condições de trabalho com os Gêmeos Digitais do Azure
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provisionar seu prédio e monitorar as condições de trabalho com a Versão prévia dos Gêmeos Digitais do Azure
 
-Este tutorial demonstra como usar os Gêmeos Digitais do Azure para monitorar as condições de temperatura e o nível de conforto desejados em seus espaços. Depois de [configurar o prédio de exemplo](tutorial-facilities-setup.md), provisione o prédio e execute funções personalizadas em seus dados de sensor usando as etapas deste tutorial.
+Este tutorial demonstra como usar a Versão prévia dos Gêmeos Digitais do Azure para monitorar as condições de temperatura e o nível de conforto desejados em seus espaços. Depois de [configurar o prédio de exemplo](tutorial-facilities-setup.md), provisione o prédio e execute funções personalizadas em seus dados de sensor usando as etapas deste tutorial.
 
 Neste tutorial, você aprenderá como:
 
@@ -43,14 +43,14 @@ Você pode definir um conjunto de condições específicas a monitorar nos dados
 
 No projeto de exemplo **occupancy-quickstart**, abra o arquivo **src\actions\provisionSample.yaml** no Visual Studio Code. Observe a seção que começa com o tipo de **matchers**. Cada entrada nesse tipo cria uma correspondência com o **Nome** especificado. A correspondência monitorará um sensor do tipo **dataTypeValue**. Observe como ela se relaciona com o espaço chamado *Sala de Foco A1*, que tem um nó **devices** contendo alguns sensores. Para provisionar uma correspondência que vai controlar um desses sensores, seu **dataTypeValue** deverá corresponder ao **dataType** do sensor. 
 
-Adicione a seguinte correspondência abaixo das correspondências existentes. Verifique se as chaves estão alinhadas e se os espaços não foram substituídos por guias.
+Adicione a seguinte correspondência abaixo das correspondências existentes. Verifique se as chaves estão alinhadas e se os espaços não foram substituídos por guias. Essas linhas também estão presentes no arquivo *provisionSample.yaml* como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Essa correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que você adicionou [no primeiro tutorial](tutorial-facilities-setup.md). Essas linhas também estão presentes no arquivo *provisionSample.yaml* como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha.
+Essa correspondência controlará o sensor SAMPLE_SENSOR_TEMPERATURE que você adicionou [no primeiro tutorial](tutorial-facilities-setup.md). 
 
 <a id="udf"></a>
 
@@ -75,7 +75,7 @@ Além disso, observe a seção denominada **roleassignments**. Ela atribui a fun
    > [!NOTE]
    > Esta seção modifica o arquivo *src\actions\userDefinedFunctions\availability.js* para que você possa saber com detalhes como escrever uma função definida pelo usuário. No entanto, você pode optar por usar diretamente o arquivo [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) em sua configuração. Esse arquivo tem todas as alterações exigidas por este tutorial. Se você usar esse arquivo, não deixe de usar o nome de arquivo correto para a chave **script** em [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
-     a. Na parte superior do arquivo, adicione as seguintes linhas para a temperatura abaixo do comentário `// Add your sensor type here`:
+    a. Na parte superior do arquivo, adicione as seguintes linhas para a temperatura abaixo do comentário `// Add your sensor type here`:
 
     ```JavaScript
         var temperatureType = "Temperature";
@@ -207,7 +207,7 @@ Nesta seção, você usará o projeto chamado *device-connectivity* no exemplo. 
 
 1. Abra o arquivo [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) no editor e edite os seguintes valores:
 
-    a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na Janela de Saída da seção anterior. Copie essa cadeia de caracteres na totalidade, entre aspas, para que o simulador possa se conectar corretamente ao hub IoT.
+   a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na Janela de Saída da seção anterior. Copie essa cadeia de caracteres na totalidade, entre aspas, para que o simulador possa se conectar corretamente ao hub IoT.
 
    b. **HardwareId** na matriz **Sensores**: Como você está simulando eventos dos sensores provisionados em sua instância dos Gêmeos Digitais do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó `sensors` do arquivo provisionSample.yaml.
 

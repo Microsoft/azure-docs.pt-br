@@ -8,17 +8,17 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
-ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 06/21/2019
+ms.openlocfilehash: 54296f0b4aed22457a5218154111a42ad01ec262
+ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65916032"
+ms.lasthandoff: 06/22/2019
+ms.locfileid: "67329332"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Streaming
 
-SUs (Unidades de Streaming) representam recursos de computação que são alocados para executar um trabalho. Quanto maior o número de SUs, mais recursos de CPU e memória são alocados para o trabalho. Esta capacidade permite que você se concentre na lógica de consulta e abstrai a necessidade de gerenciar o hardware para executar o trabalho do Stream Analytics de maneira oportuna.
+Streaming SUs (unidades) representa os recursos de computação alocados para executar um trabalho do Stream Analytics. Quanto maior o número de SUs, mais recursos de CPU e memória são alocados para o trabalho. Esta capacidade permite que você se concentre na lógica de consulta e abstrai a necessidade de gerenciar o hardware para executar o trabalho do Stream Analytics de maneira oportuna.
 
 Para obter o processamento de streaming de baixa latência, os trabalhos do Azure Stream Analytics executam todo o processamento na memória. Quando a memória está acabando, o trabalho de streaming falha. Como resultado, em um trabalho de produção, é importante monitorar o uso de recursos de um trabalho de streaming e verificar se há recursos suficientes alocados para manter os trabalhos em execução 24/7.
 
@@ -59,7 +59,7 @@ Elementos de consulta temporal (orientados ao tempo) são o conjunto principal d
 
 Observe que um trabalho com lógica de consulta complexa pode ter alta utilização de % de SU mesmo quando não estiver recebendo eventos de entrada continuamente. Isso pode acontecer após um aumento repentino nos eventos de entrada e saída. Se a consulta for complexa, o trabalho poderá continuar a manter o estado na memória.
 
-A utilização percentual da UA pode cair repentinamente para 0 por um curto período antes de voltar aos níveis esperados. Isso ocorre devido a erros transitórios ou atualizações iniciadas pelo sistema.
+A utilização percentual da UA pode cair repentinamente para 0 por um curto período antes de voltar aos níveis esperados. Isso ocorre devido a erros transitórios ou atualizações iniciadas pelo sistema. Aumentar o número de unidades de streaming para um trabalho poderá não reduzir SU % utilização se sua consulta não for [totalmente paralelo](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## <a name="stateful-query-logicin-temporal-elements"></a>Lógica de consulta com estado em elementos temporais
 Um dos recursos exclusivos do trabalho do Azure Stream Analytics é a execução do processamento com estado, como funções de análise temporal, de junções temporais e de agregações em janela. Cada um desses operadores mantém as informações de estados. O tamanho máximo da janela para esses elementos de consulta é sete dias. 
@@ -85,7 +85,7 @@ Por exemplo, na consulta a seguir, o número associado a `clusterid` é a cardin
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-Para amenizar os problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos ao Hub de Eventos particionados por `clusterid`, e escalar horizontalmente a consulta permitindo que o sistema processe cada partição de entrada separadamente usando **PARTITION BY**, conforme mostra o exemplo a seguir:
+Para atenuar os problemas causados pela alta cardinalidade na consulta anterior, você pode enviar eventos ao Hub de eventos particionados por `clusterid`e escalar horizontalmente a consulta, permitindo que o sistema processe cada partição de entrada separadamente usando **partição POR** conforme mostrado no exemplo a seguir:
 
    ```sql
    SELECT count(*) 

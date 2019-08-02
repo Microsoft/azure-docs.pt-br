@@ -6,14 +6,14 @@ manager: bruz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/13/2018
+ms.date: 06/28/2019
 ms.author: chrisgre
-ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff4e236569cc728b7011ffa26554277f281397fd
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61333627"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67485851"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Gerenciamento automático de dispositivo do IoT em escala usando o portal do Azure
 
@@ -29,7 +29,9 @@ Propriedades relatadas do dispositivo automático gerenciamento funciona atualiz
 
 * O **conteúdo de destino** define as propriedades desejadas para serem adicionadas ou atualizadas nos dispositivos gêmeos de destino. O conteúdo inclui um caminho para a seção de propriedades desejadas a ser alterado.
 
-* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. Métricas personalizadas são especificadas como consultas nas propriedades reportados do dispositivo gêmeo.  As métricas do sistema são as métricas padrão que medem o status de atualização de gêmeos, como o número de dispositivos gêmeos que são o destino e o número de gêmeos foram atualizados com êxito. 
+* As **métricas** definem as contagens de resumos de vários estados de configuração como **êxito**, **em andamento**, e **erro**. Métricas personalizadas são especificadas como consultas nas propriedades reportados do dispositivo gêmeo.  As métricas do sistema são as métricas padrão que medem o status de atualização de gêmeos, como o número de dispositivos gêmeos que são o destino e o número de gêmeos foram atualizados com êxito.
+
+Configurações de dispositivo automático executam pela primeira vez logo após a configuração é criada e, em seguida, em intervalos de cinco minutos. Consultas de métricas executada cada vez que a configuração de dispositivo automático é executado.
 
 ## <a name="implement-device-twins-to-configure-devices"></a>Implementar dispositivos gêmeos para configurar dispositivos
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 07/10/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 078c62913b903eafe9e0fcfcef4189f5ca735d0f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4b9e913363938f98999c6a769ba83efbd625b69
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002815"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67798331"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -37,21 +37,23 @@ A tabela a seguir fornece uma visão geral rápida do escopo de durabilidade e d
 
 | Cenário                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| Indisponibilidade de nó dentro de um datacenter                                                                 | Sim                             | sim                              | sim                                  | Sim                                  |
-| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | sim                              | sim                                  | Sim                                  |
-| Uma interrupção em toda a região                                                                                     | Não                              | Não                               | sim                                  | Sim                                  |
+| Indisponibilidade de nó dentro de um datacenter                                                                 | Sim                             | Sim                              | Sim                                  | Sim                                  |
+| Um data center inteiro (zonal ou não zonal) fica indisponível                                           | Não                              | Sim                              | Sim                                  | Sim                                  |
+| Uma interrupção em toda a região                                                                                     | Não                              | Não                               | Sim                                  | Sim                                  |
 | Acesso de leitura aos dados (em uma região remota e replicada geograficamente) no caso de indisponibilidade em toda a região | Não                              | Não                               | Não                                   | Sim                                  |
 | Projetado para fornecer \_\_ durabilidade de objetos em um determinado ano                                          | no mínimo 99,999999999% (11 9's) | no mínimo 99,9999999999% (12 9's) | no mínimo 99,99999999999999% (16 9's) | no mínimo 99,99999999999999% (16 9's) |
 | Tipos de conta de armazenamento suportados                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA de disponibilidade para solicitações de leitura | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,99% (99,9% para a camada de acesso estática) |
 | SLA de disponibilidade para solicitações de gravação | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) | Pelo menos 99,9% (99% para a camada de acesso esporádico) |
 
+Todos os dados da sua conta de armazenamento são replicados, incluindo blobs de blocos e blobs de página, blobs, filas, tabelas e arquivos de acréscimo. Todos os tipos de contas de armazenamento são replicados, embora o ZRS requer uma conta de armazenamento de uso geral v2.
+
 Para obter informações sobre cada opção de redundância de preços, consulte [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/). 
 
 Para obter informações sobre o armazenamento do Azure garante para durabilidade e disponibilidade, consulte o [SLA do armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> O Armazenamento Premium dá suporte apenas ao LRS (armazenamento com redundância local).
+> Armazenamento Premium do Azure dá suporte a armazenamento apenas localmente redundante (LRS).
 
 ## <a name="changing-replication-strategy"></a>Alterar estratégia de replicação
 Você pode alterar a estratégia de replicação da sua conta de armazenamento usando o [portal do Azure](https://portal.azure.com/), [do Azure Powershell](storage-powershell-guide-full.md), [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou uma da [cliente do Azure bibliotecas](https://docs.microsoft.com/azure/index#pivot=sdkstools). Alterar o tipo de replicação da sua conta de armazenamento não resulta em tempo de inatividade.

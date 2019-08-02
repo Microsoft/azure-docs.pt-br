@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f70bfbac98904752baa093076ce66f0de4993ea2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54a215701538bd95e8fddcef270d6ca6f957343f
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849934"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefithub"></a>Tutorial: Integração do Azure Active Directory com o BenefitHub
 
@@ -53,7 +53,7 @@ Para configurar a integração do BenefitHub ao Azure AD, você precisa adiciona
 
 **Para adicionar o BenefitHub por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o BenefitHub, execute as seguinte
 
     ![Informações de logon único de Domínio e URLs do BenefitHub](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite o valor: `urn:benefithub:passport`
+    a. Na caixa de texto **Identificador**, digite o valor: `urn:benefithub:passport`
 
     b. Na caixa de texto **URL de Resposta**, digite o valor: `https://passport.benefithub.info/saml/post/ac`
 
@@ -123,7 +123,7 @@ Para configurar o logon único do Azure AD com o BenefitHub, execute as seguinte
     > [!NOTE]
     > Esse valor de atributo não é real. Atualize esse valor com a organizationid real. Contate a [equipe de suporte do BenefitHub](https://www.benefithub.com/Home/ContactUs) para obter a organizationid real.
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -139,7 +139,7 @@ Para configurar o logon único do Azure AD com o BenefitHub, execute as seguinte
 
     f. Clique em **Ok**
 
-    g. Clique em **Salvar**.
+    g. Clique em **Save** (Salvar).
 
     > [!NOTE] 
     > Antes de configurar a declaração SAML, você precisa contatar o [suporte do BenefitHub](https://www.benefithub.com/Home/ContactUs) e solicitar o valor do atributo de identificador exclusivo para seu locatário. Você precisa desse valor para configurar a declaração personalizada para seu aplicativo.
@@ -180,7 +180,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -229,4 +229,4 @@ Ao clicar no bloco do BenefitHub no Painel de Acesso, você deve ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

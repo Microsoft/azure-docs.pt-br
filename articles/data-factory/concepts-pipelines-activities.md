@@ -54,7 +54,7 @@ Atividades de transformação de dados | Ambiente de computação
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Streaming do Hadoop](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | VM do Azure
+[Atividades de Machine Learning: Execução de lote e Recurso de atualização](transform-data-using-machine-learning.md) | Azure VM
 [Procedimento armazenado](transform-data-using-stored-procedure.md) | SQL Azure, Azure SQL Data Warehouse ou SQL Server
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Código Personalizado](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
@@ -96,10 +96,10 @@ Veja como um pipeline é definido no formato JSON:
 
 Marca | DESCRIÇÃO | Type | Obrigatório
 --- | ----------- | ---- | --------
-name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | Cadeia de caracteres | Sim
-description | Especifique o texto descrevendo para que o pipeline é usado. | Cadeia de caracteres | Não
+name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
+description | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
 activities | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Matriz | Sim
-parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | Listar | Não
+parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | List | Não
 
 ## <a name="activity-json"></a>Atividade JSON
 A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois principais tipos de atividades: atividades de execução e controle.
@@ -171,7 +171,7 @@ Políticas afetam o comportamento de tempo de execução de uma atividade, ofere
 Nome JSON | DESCRIÇÃO | Valores Permitidos | Obrigatório
 --------- | ----------- | -------------- | --------
 timeout | Especifica o tempo limite para a atividade ser executada. | Timespan | Não. O tempo limite padrão é 7 dias.
-retry novamente | Número máximo de novas tentativas | Número inteiro | Não. O padrão é 0
+retry | Número máximo de novas tentativas | Número inteiro | Não. O padrão é 0
 retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Número inteiro | Não. O padrão é de 30 segundos
 secureOutput | Quando definido como true, a saída da atividade é considerada segura e não será registrada em log para monitoramento. | Boolean | Não. O padrão é falso.
 

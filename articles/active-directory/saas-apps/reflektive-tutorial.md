@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: b8d7b6fee973379516e7dbf58b27cfafe1e1edc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d26e8a21865304b2065a28da5e241f58cb5ab34c
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65868536"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68383227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reflektive"></a>Tutorial: Integração do Azure Active Directory com o Reflektive
 
@@ -53,7 +53,7 @@ Para configurar a integração do Reflektive com o Azure AD, você precisará ad
 
 **Para adicionar o Reflektive por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -138,7 +138,7 @@ Para configurar o logon único do Azure AD com o Reflektive, execute as seguinte
 
 ### <a name="configure-reflektive-single-sign-on"></a>Configurar o logon único do Reflektive
 
-Para configurar o logon único no lado do **Reflektive**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs corretas copiadas do portal do Azure para a [equipe de suporte do Reflektive](mailto:https://support@reflektive.com/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Reflektive**, é necessário enviar o **XML de Metadados de Federação** baixado e as URLs corretas copiadas do portal do Azure para a [equipe de suporte do Reflektive](mailto:support@reflektive.com/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -192,7 +192,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 ### <a name="create-reflektive-test-user"></a>Criar um usuário de teste do Reflektive
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Reflektive. Trabalhe com a [equipe de suporte o Reflektive](mailto:https://support@reflektive.com/) para adicionar os usuários na plataforma do Reflektive. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Reflektive. Trabalhe com a [equipe de suporte o Reflektive](mailto:support@reflektive.com/) para adicionar os usuários na plataforma do Reflektive. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

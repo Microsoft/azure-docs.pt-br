@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 446ac54d84f7b2b3bf3aaf6eaf5536f0dfb804fe
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65987481"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095763"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Azure Active Directory ao OpsGenie
 
@@ -141,7 +141,7 @@ Para configurar o logon único do Azure AD com o OpsGenie, execute as seguintes 
    
     ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_09.png)
     
-     a. Na caixa de texto **Ponto de Extremidade do SAML 2.0**, cole o valor da **URL de Logon**copiado do portal do Azure.
+    a. Na caixa de texto **Ponto de Extremidade do SAML 2.0**, cole o valor da **URL de Logon**copiado do portal do Azure.
     
     b. Na caixa de texto **URL de Metadados:** , cole o valor da **URL de metadados de federação do aplicativo** que você copiou do Portal do Azure.
     
@@ -163,7 +163,7 @@ O objetivo desta seção é criar um usuário de teste no portal do Azure chamad
 
     ![A caixa de diálogo Usuário](common/user-properties.png)
 
-     a. No campo **Nome**, insira **B. Fernandes**.
+    a. No campo **Nome**, insira **B. Fernandes**.
   
     b. No campo **Nome de usuário**, digite **bsimon@yourcompanydomain.extension**  
     Por exemplo, BSimon@contoso.com
@@ -214,7 +214,7 @@ O objetivo desta seção é criar um usuário chamado B. Fernandes no OpsGenie.
    
     ![Configurações do OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-     a. Na caixa de texto **Email**, digite o endereço de email de B. Fernandes endereçado no Azure Active Directory.
+    a. Na caixa de texto **Email**, digite o endereço de email de B. Fernandes endereçado no Azure Active Directory.
    
     b. Na caixa de texto **Nome Completo**, digite **B. Fernandes**.
    
@@ -235,5 +235,5 @@ Ao clicar no bloco do OpsGenie no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,23 +6,23 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: dfc04397b1d7e9f3256810cbe469067ae52c99bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: HT
+ms.openlocfilehash: df60429a8b3d6fbdc504a7605d1502b4e084d386
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66238967"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67165312"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Compartilhar uma exibição personalizada usando uma URL parametrizada
 
 Para compartilhar uma exibição personalizada no Explorer do Time Series Insights, você pode criar programaticamente uma URL parametrizada da exibição personalizada.
 
-O Explorer do Time Series Insights dá suporte a parâmetros de consulta de URL para especificar os modos de exibição na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário clica na URL personalizada, a interface fornece um link diretamente para esse ativo no portal do Time Series Insights. Aplicam-se políticas de acesso a dados.
+O Explorer do Time Series Insights dá suporte a parâmetros de consulta de URL para especificar os modos de exibição na experiência diretamente da URL. Por exemplo, usando apenas a URL, você pode especificar um ambiente de destino, um predicado de pesquisa e um período de tempo desejado. Quando um usuário seleciona o URL personalizado, a interface fornece um link diretamente para esse ativo no portal do Time Series Insights. Aplicam-se políticas de acesso a dados.
 
 > [!TIP]
 > * Exibir a versão gratuita [Time Series Insights de demonstração](https://insights.timeseries.azure.com/samples).

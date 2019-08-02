@@ -1,21 +1,21 @@
 ---
 title: Dicionário Dinâmico - API de Texto do Tradutor
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Como usar o recurso de dicionário dinâmico da API de Tradução de Texto.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: v-pawal
-ms.openlocfilehash: d3a77ee9273e9f587b6157bb6ed2294865b1fca5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: swmachan
+ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
+ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514253"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68595297"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>Como usar um dicionário dinâmico
 
@@ -24,6 +24,11 @@ Se você já souber a tradução que deseja aplicar a uma palavra ou frase, pode
 **Sintaxe:**
 
 <mstrans:dictionary translation=”translation of phrase”>frase</mstrans:dictionary>
+
+**Requirement**
+
+* Os `From` idiomas `To` e devem ser diferentes. 
+* Você deve incluir o `From` parâmetro em sua solicitação de tradução de API em vez de usar o recurso de detecção automática. 
 
 **Exemplo: en-de:**
 

@@ -2,18 +2,18 @@
 title: Criar um novo relatório de um conjunto de dados em Coleções de Workspaces do Power BI | Microsoft Docs
 description: Os relatórios de Coleção de Workspaces do Power BI agora podem ser criados de um conjunto de dados em seu próprio aplicativo.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
+ms.service: power-bi-embedded
 author: rkarlin
 ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.openlocfilehash: e7499345f03e3deedb8972b0d51e8e676cb6c982
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2034c62a17b71b92b43a7afd794c2c172288d58c
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683449"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672457"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório de um conjunto de dados em Coleções de Workspaces do Power BI
 

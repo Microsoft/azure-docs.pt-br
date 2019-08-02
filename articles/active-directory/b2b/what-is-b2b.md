@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab73b501fc9dbe6209a92fff6f6e19de03fcdc1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5c5c133fe728126ea07834c8ff5b02b1203ec326
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65768072"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67112681"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?
 
@@ -46,7 +46,7 @@ Os usuários convidados entram nos aplicativos e serviços com as próprias iden
 ![Captura de tela mostrando a página Analisar as permissões](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Usar políticas para compartilhar aplicativos e serviços com segurança
-É possível usar as políticas de autorização para proteger seu conteúdo corporativo. Políticas de acesso condicional, como autenticação multifator, podem ser aplicadas:
+É possível usar as políticas de autorização para proteger seu conteúdo corporativo. Políticas de Acesso Condicional, como a autenticação multifator, podem ser aplicadas:
 - No nível do locatário.
 - No nível do aplicativo.
 - Para que usuários convidados específicos protejam dados e aplicativos corporativos.

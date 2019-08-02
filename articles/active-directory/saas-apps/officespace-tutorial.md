@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: cf40686adcee757db065fa6f68f990ea122b9747
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65904780"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67095857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Integração do Active Directory do Azure ao OfficeSpace Software
 
@@ -55,7 +55,7 @@ Para configurar a integração do OfficeSpace Software no Azure AD, é necessár
 
 **Para adicionar o OfficeSpace Software por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,9 +107,9 @@ Para configurar o logon único do Azure AD com o OfficeSpace Software, execute a
 
     ![Informações de logon único de Domínio e URLs do OfficeSpace Software](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<company name>.officespacesoftware.com/users/sign_in/saml`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `<company name>.officespacesoftware.com`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `<company name>.officespacesoftware.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do OfficeSpace Software](mailto:support@officespacesoftware.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
@@ -127,7 +127,7 @@ Para configurar o logon único do Azure AD com o OfficeSpace Software, execute a
     | first_name | user.givenname |
     | last_name | user.surname |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -179,7 +179,7 @@ Para configurar o logon único do Azure AD com o OfficeSpace Software, execute a
 
     ![Configurar o logon único no lado do aplicativo](./media/officespace-tutorial/tutorial_officespace_004.png)
 
-     a. Na caixa de texto **URL do provedor de logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
+    a. Na caixa de texto **URL do provedor de logoff**, cole o valor da **URL de Logoff** copiado do portal do Azure.
 
     b. Na caixa de texto **URL de destino do idp do cliente**, cole o valor da **URL de Logon** copiado do portal do Azure.
 

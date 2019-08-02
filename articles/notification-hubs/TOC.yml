@@ -7,6 +7,7 @@
     - name: Integração com Aplicativos Móveis do Serviço de Aplicativo
       href: notification-hubs-app-service.md
 - name: Guia de início rápido
+  expanded: true
   items:
     - name: Criar um hub de notificação – Portal do Azure
       href: create-notification-hub-portal.md
@@ -34,10 +35,6 @@
               href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
             - name: Notificações por push para usuários específicos
               href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-    - name: Baidu
-      items:
-        - name: Notificações por push usando o push da nuvem Baidu
-          href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: iOS
       items:
         - name: Notificações por push para aplicativos iOS
@@ -54,10 +51,6 @@
           href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md
         - name: Notificações por push localizadas para dispositivos iOS
           href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Kindle
-      items:
-        - name: Notificações por push usando o Amazon Device Messaging
-          href: notification-hubs-kindle-amazon-adm-push-notification.md
     - name: Windows Phone
       items:
         - name: Notificações por push para aplicativos
@@ -133,8 +126,6 @@
           href: configure-windows-push-notification-service.md
         - name: Configurar o Serviço de Notificação por Push da Microsoft
           href: configure-microsoft-push-notification-service.md
-        - name: Configurar o Android Device Messaging
-          href: configure-android-device-messaging.md
         - name: Configurar o push da nuvem Baidu
           href: configure-baidu-cloud-push.md
     - name: Registrar com o back-end de aplicativo
@@ -143,6 +134,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: Solucionar problemas de notificações descartadas
       href: notification-hubs-push-notification-fixer.md
+    - name: Notificações por push usando o push da nuvem Baidu
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: Referência
   items:
     - name: .NET

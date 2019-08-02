@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 00492ba379a4b4d8ae7437d18f9b2880dae03e44
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 50f6762c8046850da1e4541f2ccb7688542f7d54
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917464"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67098484"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>Tutorial: Integração do Azure Active Directory com o Kudos
 
@@ -136,7 +136,7 @@ Para configurar o logon único do Azure AD com o Kudos, execute as seguintes eta
 
     ![SSO](./media/kudos-tutorial/ic787807.png "SSO")
 
-     a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado no portal do Azure.
+    a. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado no portal do Azure.
 
     b. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado X.509**
 
@@ -219,7 +219,7 @@ Para permitir que os usuários do Azure AD entrem no Kudos, eles devem ser provi
 
     ![Adicionar um Usuário](./media/kudos-tutorial/ic787810.png "Adicionar um Usuário")
 
-     a. Digite o **Nome**, o **Sobrenome** e o **Email** e outros detalhes de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
+    a. Digite o **Nome**, o **Sobrenome** e o **Email** e outros detalhes de uma conta válida do Azure Active Directory que você deseja provisionar nas caixas de texto relacionadas.
 
     b. Clique em **Criar Usuário**.
 
@@ -238,4 +238,4 @@ Ao clicar no bloco do Kudos no Painel de Acesso, você deverá ser conectado aut
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

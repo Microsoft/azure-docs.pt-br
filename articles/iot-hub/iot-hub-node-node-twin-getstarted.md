@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8dd5269532e9eb6139d8debb0ee9b503cd2e4354
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65597425"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68403944"
 ---
 # <a name="get-started-with-device-twins-node"></a>Introdução aos dispositivos gêmeos (Node)
 
@@ -31,7 +31,7 @@ No fim deste tutorial, você terá dois aplicativos de console do Node.js:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Versão do Node. js 10.0.x ou posterior.
+* Node. js versão 10.0. x ou posterior.
 
 * Uma conta ativa do Azure. (Se você não tiver uma conta, poderá criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
@@ -39,11 +39,13 @@ Para concluir este tutorial, você precisará do seguinte:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Recuperar a cadeia conexão para o hub IoT
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>Obter a cadeia de conexão do Hub IoT
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>Criar o aplicativo do serviço
 
@@ -63,7 +65,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que adiciona metad
 
 3. Usando um editor de texto, crie um novo arquivo **AddTagsAndQuery.js** na pasta **addtagsandqueryapp**.
 
-4. Adicione o seguinte código ao arquivo **AddTagsAndQuery.js** e substitua o espaço reservado **{iot hub connection string}** pela cadeia de conexão do Hub IoT que você copiou quando criou seu hub:
+4. Adicione o código a seguir ao arquivo **AddTagsAndQuery. js** e substitua o valor de espaço reservado **{do Hub IOT cadeia de conexão}** pela cadeia de conexão do Hub IOT que você copiou anteriormente em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string):
 
    ``` javascript
         'use strict';
@@ -136,7 +138,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que adiciona metad
 
    Você deve ver um dispositivo nos resultados da consulta que pergunta sobre todos os dispositivos localizados em **Redmond43**, e nenhum para a consulta que restringe os resultados para dispositivos que usam uma rede de celular.
    
-    ![Ver um dispositivo nos resultados da consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
+    ![Veja um dispositivo nos resultados da consulta](media/iot-hub-node-node-twin-getstarted/service1.png)
 
 Na seção seguinte, você cria um aplicativo de dispositivo que reporta as informações de conectividade e altera o resultado da consulta na seção anterior.
 
@@ -216,7 +218,7 @@ Nesta seção, você cria um aplicativo de console do Node.js que se conecta ao 
 
     Desta vez, **myDeviceId** deve aparecer em ambos os resultados da consulta.
 
-    ![Mostrar myDeviceId em ambos os resultados da consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
+    ![Mostrar DeviceID nos dois resultados da consulta](media/iot-hub-node-node-twin-getstarted/service2.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -224,8 +226,8 @@ Neste tutorial, você configurou um novo hub IoT no portal do Azure e depois cri
 
 Veja os recursos a seguir para saber como:
 
-* Enviar telemetria de dispositivos com o [Introdução ao IoT Hub](quickstart-send-telemetry-node.md) tutorial,
+* Enviar telemetria de dispositivos com o tutorial introdução [ao Hub IOT](quickstart-send-telemetry-node.md) ,
 
 * configurar dispositivos usando as propriedades desejadas do dispositivo gêmeo com o tutorial [Usar propriedades desejadas para configurar dispositivos](tutorial-device-twins.md),
 
-* Controlar dispositivos interativamente (como ativar uma ventoinha de um aplicativo controlado pelo usuário), com o [usar métodos diretos](quickstart-control-device-node.md) tutorial.
+* controlar dispositivos interativamente (como ativar um ventilador de um aplicativo controlado pelo usuário), com o tutorial [usar métodos diretos](quickstart-control-device-node.md) .

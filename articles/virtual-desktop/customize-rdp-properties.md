@@ -4,15 +4,15 @@ description: Como personalizar o RDP propriedades para Windows Desktop Virtual c
 services: virtual-desktop
 author: v-hevem
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: v-hevem
-ms.openlocfilehash: 21d0b45b974f4bc806b26423b7deaef96e4bf350
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ce14f990272fa1e70d07c0f4a1f18025b536eccc
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67082645"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67618876"
 ---
 # <a name="customize-remote-desktop-protocol-properties-for-a-host-pool"></a>Personalizar as propriedades de protocolo de área de trabalho remota para um pool de host
 

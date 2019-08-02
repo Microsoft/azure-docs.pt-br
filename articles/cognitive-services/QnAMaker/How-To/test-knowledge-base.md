@@ -1,22 +1,22 @@
 ---
 title: Como testar uma base de dados de conhecimento – QnA Maker
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Testar a base de conhecimento do QnA Maker é uma parte importante de um processo iterativo para melhorar a precisão das respostas que estão sendo retornadas. É possível testar a base de dados de conhecimento por meio de uma interface de chat avançada que também permite fazer edições.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 05/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a512098d5dfda47b7755e24b286aabf83aa7e69
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472074"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68563069"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Teste sua base de dados de conhecimento interativamente no QnA Maker
 
@@ -63,18 +63,18 @@ Se a resposta de pontuação mais alta estiver incorreta, selecione a resposta c
 
 Você poderá adicionar uma nova resposta, se alguma das respostas existentes que foram correspondidas estiver incorreta ou a resposta não existir na base de dados de conhecimento (nenhuma boa correspondência encontrada na base de dados de conhecimento). 
 
-Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione enter para adicioná-lo. 
+Na parte inferior da lista de respostas, use a caixa de texto para inserir uma nova resposta e pressione ENTER para adicioná-la. 
 
 Selecione **Salvar e Treinar** para persistir essa resposta. Um novo par de perguntas e respostas foi adicionado à base de dados de conhecimento. 
 
 > [!NOTE]
 > Todas as edições da base de dados de conhecimento somente serão salvas quando você pressionar o botão **Salvar e Treinar**.
 
-## <a name="test-the-published-knowledge-base"></a>Testar a base de Conhecimento publicada
+## <a name="test-the-published-knowledge-base"></a>Testar a base de dados de conhecimento publicada
 
-Você pode testar a versão publicada da base de Conhecimento no painel de teste. Depois que você publicou o KB, selecione a **publicados KB** caixa e enviar uma consulta para obter os resultados do conhecimento publicados.
+Você pode testar a versão publicada da base de dados de conhecimento no painel de teste. Depois de publicar a KB, selecione a caixa **KB publicados** e envie uma consulta para obter os resultados da KB publicada.
 
-![Testar um conhecimento publicados](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
+![Teste em relação a uma base de conhecimento publicada](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

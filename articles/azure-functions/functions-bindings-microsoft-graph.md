@@ -3,18 +3,18 @@ title: Associações do Microsoft Graph do Azure Functions
 description: Entenda como usar gatilhos e associações do Microsoft Graph no Azure Functions.
 services: functions
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: f112bdf9eacf51852659ab49a5673b0c8bfb0e46
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae376343103d68df226d30d1d76133a3f055f5c2
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64511811"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67480381"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associações do Microsoft Graph do Azure Functions
 
@@ -674,7 +674,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -822,7 +822,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - byte[]
 - Fluxo
-- cadeia de caracteres
+- string
 - Microsoft.Graph.DriveItem
 
 
@@ -972,7 +972,7 @@ Esta associação exige as seguintes permissões do Azure AD:
 A associação expõe os seguintes tipos a funções .NET:
 - Microsoft.Graph.Message
 - Newtonsoft.Json.Linq.JObject
-- cadeia de caracteres
+- string
 - Tipos de objetos personalizados (usando o model binding estrutural)
 
 
@@ -980,7 +980,7 @@ A associação expõe os seguintes tipos a funções .NET:
 
 
 
-## <a name="webhooks"></a>Webhooks
+## <a name="webhooks"></a>webhooks
 
 Webhooks permitem reagir a eventos no Microsoft Graph. Para dar suporte a webhooks, são necessárias funções para criar, atualizar e reagir a _assinaturas de webhook_. Uma solução completa de webhook exige uma combinação das seguintes associações:
 - Um [gatilho de webhook do Microsoft Graph](#webhook-trigger) permite reagir a um webhook de entrada.
@@ -1402,7 +1402,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 ### <a name="webhook-output---usage"></a>Saída de webhook - uso
 
 A associação expõe os seguintes tipos a funções .NET:
-- cadeia de caracteres
+- string
 - Microsoft.Graph.Subscription
 
 

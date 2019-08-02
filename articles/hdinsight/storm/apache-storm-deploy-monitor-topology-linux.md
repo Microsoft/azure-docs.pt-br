@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: c8b05886ae338bb73b0f4ddce4d02a1f1a926a45
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac1a4c77589f4ef88c9ee862cb871b376ca8a0fe
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078239"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483844"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>Implantar e gerenciar topologias Apache Storm no Microsoft Azure HDInsight 
 
@@ -21,11 +21,12 @@ Neste documento, conheça as noções básicas de gerenciamento e monitoramento 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Storm baseado em Linux no cluster HDInsight**: consulte [Introdução com o Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md) para etapas para criar um cluster
+* Um cluster do Apache Storm no HDInsight. Ver [criar Apache clusters Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** para **tipo de Cluster**.
 
-* (Opcional) **Familiaridade com SSH e SCP**: Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-* (Opcional) **Visual Studio**: SDK do Azure 2.5.1 ou mais recente e as Ferramentas do Data Lake para Visual Studio. Para obter mais informações, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+* (Opcional) Familiaridade com SSH e SCP: Para obter mais informações, confira [Usar SSH com HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* (Opcional) Visual Studio: SDK do Azure 2.5.1 ou mais recente e as Ferramentas do Data Lake para Visual Studio. Para obter mais informações, consulte [Introdução ao uso das Ferramentas do Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
     Uma das seguintes versões do Visual Studio:
 

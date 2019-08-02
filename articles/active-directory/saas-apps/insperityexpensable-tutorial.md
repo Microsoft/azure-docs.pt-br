@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: b049b6526b0053c79b313d3d51a94a7706d5f93c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 43b24bec557d1cc879be9568bea451f1a8b0b310
+ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565726"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67625312"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insperity-expensable"></a>Tutorial: Integração do Azure Active Directory ao Insperity ExpensAble
 
@@ -53,7 +53,7 @@ Para configurar a integração do Insperity ExpensAble com o Azure AD, você pre
 
 **Para adicionar o Insperity ExpensAble a partir da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -108,7 +108,7 @@ Para configurar o logon único do Azure AD com o Insperity ExpensAble, execute a
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://server.expensable.com/esapp/Authenticate?companyId=<company ID>`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Insperity ExpensAble](http://expensable.com/support/support-overview) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > O valor não é real. Atualize o valor com a URL de Logon real. Contate a [equipe de suporte ao cliente do Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 5. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -126,7 +126,7 @@ Para configurar o logon único do Azure AD com o Insperity ExpensAble, execute a
 
 ### <a name="configure-insperity-expensable-single-sign-on"></a>Configurar o logon único do Insperity ExpensAble
 
-Para configurar o logon único no lado do **Insperity ExpensAble**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Insperity ExpensAble](http://expensable.com/support/support-overview). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Insperity ExpensAble**, é necessário enviar o **Certificado (Base64)** baixado e as URLs apropriadas copiadas do portal do Azure para a [equipe de suporte do Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -181,7 +181,7 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 ### <a name="create-insperity-expensable-test-user"></a>Criar um usuário de teste do Insperity ExpensAble
 
-Nesta seção, você criará um usuário chamado Brenda Fernandes no Insperity ExpensAble. Trabalhe com a [equipe de suporte do Insperity ExpensAble](http://expensable.com/support/support-overview) para adicionar os usuários à plataforma Insperity ExpensAble. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado Brenda Fernandes no Insperity ExpensAble. Trabalhe com a [equipe de suporte do Insperity ExpensAble](https://www.insperity.com/products/expense-management/support/express/) para adicionar os usuários à plataforma Insperity ExpensAble. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ### <a name="test-single-sign-on"></a>Testar logon único
 
@@ -195,4 +195,4 @@ Ao clicar no bloco do Insperity ExpensAble no Painel de Acesso, você deverá se
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

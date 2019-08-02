@@ -19,6 +19,8 @@
               href: service-bus-quickstart-powershell.md
             - name: CLI do Azure
               href: service-bus-quickstart-cli.md
+            - name: Modelo do Azure Resource Manager
+              href: service-bus-resource-manager-namespace-queue.md
         - name: Enviar e receber mensagens
           items:
             - name: .NET
@@ -40,7 +42,11 @@
     - name: Tópicos e assinaturas do Barramento de Serviços
       items:
         - name: Criar tópicos e assinaturas
-          href: service-bus-quickstart-topics-subscriptions-portal.md
+          items:
+            - name: Portal do Azure
+              href: service-bus-quickstart-topics-subscriptions-portal.md
+            - name: Modelo do Azure Resource Manager
+              href: service-bus-resource-manager-namespace-topic.md
         - name: Publicar e assinar mensagens
           items:
             - name: .NET
@@ -134,7 +140,7 @@
               href: service-bus-amqp-overview.md
             - name: .NET
               href: service-bus-amqp-dotnet.md
-            - name: Serviço de Mensagens Java e AMQP
+            - name: JMS (Serviço de Mensagens Java) e AMQP
               href: service-bus-java-how-to-use-jms-api-amqp.md
             - name: Guia do protocolo AMQP
               href: service-bus-amqp-protocol-guide.md
@@ -187,10 +193,6 @@
           items:
             - name: Criar um namespace
               href: service-bus-resource-manager-namespace.md
-            - name: Criar um namespace e uma fila
-              href: service-bus-resource-manager-namespace-queue.md
-            - name: Criar um namespace com tópico e assinatura
-              href: service-bus-resource-manager-namespace-topic.md
             - name: Criar uma regra de autorização do namespace e da fila
               href: service-bus-resource-manager-namespace-auth-rule.md
             - name: 'Criar um namespace com tópico, assinatura e regra'

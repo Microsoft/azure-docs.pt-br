@@ -4,7 +4,7 @@ description: Criar uma VM Linux no Azure usando a CLI clássica do Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: facb1115-2b4e-4ef3-9905-330e42beb686
 ms.service: virtual-machines-linux
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2016
-ms.author: v-livech
-ms.openlocfilehash: 569e90c7908ce435689a80f7917b20275703f537
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: gwallace
+ms.openlocfilehash: b36f6e2ace02324a63616f31fcdccfa666856699
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61473732"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67875228"
 ---
 # <a name="create-a-linux-vm-using-the-azure-classic-cli"></a>Criar uma VM Linux usando a CLI do Azure clássica
 
@@ -50,14 +50,14 @@ A instrução a seguir tem uma VM UbuntuLTS sendo implantada, passo a passo, com
 
 Uma maneira rápida de escolher uma distribuição é usar os aliases da CLI do Azure mapeados para as distribuições do SO mais comuns. A tabela a seguir lista os aliases (a partir da CLI do Azure versão 0.10). Todas as implantações que usam `quick-create` são por padrão VMs com suporte de armazenamento SSD (unidade de estado sólido), que oferecem provisionamento mais rápido e acesso a disco de alto desempenho. (Esses aliases do representam uma pequena parte das distribuições disponíveis no Azure. Veja mais imagens no Azure Marketplace [pesquisando uma imagem no PowerShell](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), [na Web](https://azure.microsoft.com/marketplace/virtual-machines/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) ou [carregando sua própria imagem personalizada](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).)
 
-| Alias | Publicador | Oferta | SKU | Version |
+| Alias | Publicador | Oferta | SKU | Versão |
 |:--- |:--- |:--- |:--- |:--- |
-| CentOS |OpenLogic |CentOS |7,2 |mais recente |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |
-| Debian |credativ |Debian |8 |mais recente |
-| openSUSE |SUSE |openSUSE |13.2 |mais recente |
-| RHEL |Red Hat |RHEL |7,2 |mais recente |
-| UbuntuLTS |Canônico |Ubuntu Server |14.04.4-LTS |mais recente |
+| CentOS |OpenLogic |CentOS |7,2 |latest |
+| CoreOS |CoreOS |CoreOS |Estável |latest |
+| Debian |credativ |Debian |8 |latest |
+| openSUSE |SUSE |openSUSE |13.2 |latest |
+| RHEL |Red Hat |RHEL |7,2 |latest |
+| UbuntuLTS |Canônico |Ubuntu Server |14.04.4-LTS |latest |
 
 As seções a seguir usam o alias `UbuntuLTS` para a opção **ImageURN ()** (`-Q`) a fim de implantar um servidor Ubuntu LTS 14.04.4.
 
@@ -67,7 +67,7 @@ O exemplo de `quick-create` anterior somente chamou o sinalizador `-M` para iden
 * Nome da VM
 * local (`westus` ou `westeurope` são bons padrões)
 * Linux (para permitir que o Azure saiba qual é o sistema operacional desejado)
-* username
+* Nome de Usuário
 
 O exemplo a seguir especifica todos os valores para que nenhuma outra notificação seja necessária. Enquanto houver um `~/.ssh/id_rsa.pub` como arquivo de chave pública de formato ssh-rsa, ele funcionará como está:
 

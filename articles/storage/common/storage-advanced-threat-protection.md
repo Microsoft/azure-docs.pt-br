@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: ed263fec271801ac9c46bbc3125c71ca15b9a330
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d0b41344f4a77f3205799be7c30526e2a150523
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65153966"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68479908"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Proteção Avançada contra Ameaças do Armazenamento do Azure
 
 A Proteção Avançada contra Ameaças do Armazenamento do Azure oferece uma camada adicional de inteligência de segurança que detecta tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Essa camada de proteção permite que você resolva as ameaças sem precisar ser um especialista em segurança ou gerenciar sistemas de monitoramento de segurança. 
 
-Alertas de segurança são disparados quando ocorrem de anomalias na atividade.  Esses alertas de segurança são integradas [Central de segurança do Azure](https://azure.microsoft.com/services/security-center/)e também são enviados por email para os administradores de assinatura, com detalhes da atividade suspeita e recomendações sobre como investigar e corrigir ameaças.
+Os alertas de segurança são disparados quando ocorrem anomalias na atividade.  Esses alertas de segurança são integrados à [central de segurança do Azure](https://azure.microsoft.com/services/security-center/)e também são enviados por email para administradores de assinatura, com detalhes de atividades suspeitas e recomendações sobre como investigar e corrigir ameaças.
 
 > [!NOTE]
-> * Proteção avançada contra ameaças do armazenamento do Azure está disponível atualmente apenas para o armazenamento de BLOBs.
-> * Para obter detalhes, incluindo uma avaliação gratuita de 30 dias, preço, consulte o [página de preços do Azure Security Center]( https://azure.microsoft.com/pricing/details/security-center/).
-> * ATP para o recurso de armazenamento do Azure atualmente não está disponível nas regiões de nuvem soberana e o Azure governamental.
+> * A proteção avançada contra ameaças para o armazenamento do Azure está disponível no momento apenas para o armazenamento de BLOBs.
+> * Para obter detalhes de preços, incluindo uma avaliação gratuita de 30 dias, consulte a [página de preços da central de segurança do Azure]( https://azure.microsoft.com/pricing/details/security-center/).
+> * O recurso ATP para armazenamento do Azure não está disponível atualmente nas regiões Azure governamental e soberanas Cloud.
 
-Proteção avançada contra ameaças do armazenamento do Azure ingere os logs de diagnóstico de leitura, gravação e solicitações de exclusão para o armazenamento de Blob para detecção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, você pode exibir a atividade de armazenamento relacionados usando o log de análise de armazenamento. Para obter mais informações, consulte como [configurar o log de análise de armazenamento](storage-monitor-storage-account.md#configure-logging).
+A proteção avançada contra ameaças para o armazenamento do Azure ingere logs de diagnóstico de solicitações de leitura, gravação e exclusão para o armazenamento de BLOB para detecção de ameaças. Para investigar os alertas da proteção avançada contra ameaças, você pode exibir a atividade de armazenamento relacionada usando o log de Análise de Armazenamento. Para obter mais informações, consulte como [Configurar o log de análise de armazenamento](storage-monitor-storage-account.md#configure-logging).
 
 ## <a name="set-up-advanced-threat-protection"></a>Configurar a proteção avançada contra ameaças 
 
@@ -38,43 +38,53 @@ Proteção avançada contra ameaças do armazenamento do Azure ingere os logs de
 
 3. Na folha de configuração **Proteção avançada contra ameaças**
     * **ATIVAR** *Proteção avançada* contra ameaças
-    * Clique em **Salvar** para salvar a política de Proteção avançada contra ameaças nova ou atualizada. (Os preços na imagem por exemplo são apenas para fins de).
+    * Clique em **Salvar** para salvar a política de Proteção avançada contra ameaças nova ou atualizada. (Os preços na imagem são apenas para fins de exemplo.)
 
 ![Ativar a proteção avançada contra ameaças do Armazenamento do Azure](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### <a name="using-azure-security-center"></a>Como usar a Central de Segurança do Azure
-Quando você se inscreve para a camada Standard na Central de segurança do Azure, proteção avançada contra ameaças é definida em suas contas de armazenamento. Para obter mais informações, consulte [atualizar para a camada Standard da Central de segurança para melhorar a segurança](https://docs.microsoft.com/azure/security-center/security-center-pricing). (Os preços na imagem por exemplo são apenas para fins de).
 
-![Camada Standard no ASC](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing.png)
+Quando você assina a camada Standard na central de segurança do Azure, a proteção avançada contra ameaças é configurada automaticamente em todas as suas contas de armazenamento. Você pode habilitar ou desabilitar a proteção avançada contra ameaças para suas contas de armazenamento em uma assinatura específica da seguinte maneira:
+
+1. Inicie a **central de segurança do Azure** no [portal do Azure]([https://portal.azure.com).
+1. No menu principal, clique em **preços & configurações**.
+1. Clique na assinatura que você deseja habilitar ou desabilitar a proteção contra ameaças para suas contas de armazenamento.
+
+    ![Selecionar assinatura](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+
+1. Clique em **Tipo de preço**.
+1. Na seção **selecionar camada de preços por tipo de recurso** , na **linha contas de armazenamento** , clique em **habilitado** ou **desabilitado**.
+
+    ![Habilitar ATP na central de segurança](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. Clique em **Salvar**.
 
 ### <a name="using-azure-resource-manager-templates"></a>Usando modelos do Gerenciador de Recursos do Azure
 
-Use um modelo do Azure Resource Manager para implantar uma conta de armazenamento do Azure com proteção avançada contra ameaças habilitada.
-Para obter mais informações, consulte [conta de armazenamento com proteção avançada contra ameaças](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+Use um modelo de Azure Resource Manager para implantar uma conta de armazenamento do Azure com a proteção avançada contra ameaças habilitada. Para obter mais informações, consulte [conta de armazenamento com proteção avançada contra ameaças](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### <a name="using-azure-policy"></a>Usando a política do Azure
+### <a name="using-azure-policy"></a>Usando Azure Policy
 
-Use uma política do Azure para habilitar a proteção avançada contra ameaças em contas de armazenamento em um grupo específico de recursos ou assinatura.
+Use um Azure Policy para habilitar a proteção avançada contra ameaças em contas de armazenamento em uma assinatura ou grupo de recursos específico.
 
-1. O Azure de almoço **política - definições** página.
+1. Inicie a página de **definições de política** do Azure.
 
-1. Pesquise o **implantar proteção avançada contra ameaças em contas de armazenamento** política.
+1. Procure a política **implantar proteção avançada contra ameaças em contas de armazenamento** .
 
      ![Política de pesquisa](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
   
-1. Selecione um grupo de recursos ou assinatura do Azure.
+1. Selecione uma assinatura do Azure ou um grupo de recursos.
 
-    ![Selecione a assinatura ou grupo](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+    ![Selecionar assinatura ou grupo](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
 
 1. Atribua a política.
 
-    ![Página de definições de política](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+    ![Página Definições de política](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>Usando a API REST
-Use os comandos de API Rest para criar, atualizar ou obter a configuração de proteção avançada contra ameaças para uma conta de armazenamento específico.
+Use comandos da API REST para criar, atualizar ou obter a configuração de proteção avançada contra ameaças para uma conta de armazenamento específica.
 
-* [Proteção avançada contra ameaças - criar](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-* [Proteção avançada contra ameaças – Introdução](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+* [Proteção avançada contra ameaças – criar](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Proteção avançada contra ameaças-obter](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### <a name="using-azure-powershell"></a>Usando o PowerShell do Azure
 
@@ -84,7 +94,7 @@ Use os seguintes cmdlets do PowerShell:
   * [Obtenha proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Desabilitar a proteção avançada contra ameaças](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
-## <a name="explore-security-anomalies"></a>Explore anomalias de segurança
+## <a name="explore-security-anomalies"></a>Explorar anomalias de segurança
 
 Quando ocorrerem anomalias na atividade de armazenamento, você receberá uma notificação por email com informações sobre o evento de segurança suspeito. Os detalhes do evento incluem:
 
@@ -109,49 +119,55 @@ O email também inclui detalhes sobre possíveis causas e ações recomendadas p
 
 Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar contas de armazenamento. Esses eventos podem disparar os alertas a seguir:
 
-### <a name="anomalous-access-pattern-alerts"></a>Alertas de padrão de acesso anormais
+### <a name="anomalous-access-pattern-alerts"></a>Alertas de padrão de acesso anormal
 
-* **Acesso a partir de um local incomum**: Este alerta é disparado quando há uma alteração no padrão de acesso para uma conta de armazenamento. Por exemplo, quando alguém acessou uma conta de armazenamento de um local geográfico incomum.
+* **Acesso de local incomum**: Esse alerta é disparado quando alguém acessa uma conta de armazenamento a partir de uma localização geográfica incomum.
 Possíveis causas:
-   * Um invasor tem acesso à sua conta de armazenamento
-   * Um usuário legítimo acessou sua conta de armazenamento de um novo local
+   * Um invasor acessou sua conta de armazenamento
+   * Um usuário legítimo acessou sua conta de armazenamento a partir de um novo local
  
-* **Aplicativo anomalias**: Esse alerta indica que um aplicativo incomum acessou esta conta de armazenamento. Possíveis causas:
+* **Anomalia do aplicativo**: Esse alerta indica que um aplicativo incomum acessou essa conta de armazenamento. Possíveis causas:
    * Um invasor acessou sua conta de armazenamento usando um novo aplicativo.
    * Um usuário legítimo usou um novo aplicativo/navegador para acessar sua conta de armazenamento.
 
-* **Acesso anônimo**: Esse alerta indica que há uma alteração no padrão de acesso para uma conta de armazenamento. Por exemplo, essa conta tiver sido acessado anonimamente (ou seja, sem qualquer autenticação), que é esperado em comparação com o padrão de acesso recente nessa conta.
+* **Acesso anônimo**: Esse alerta indica que essa conta foi acessada anonimamente (ou seja, sem nenhuma autenticação), o que é inesperado em comparação com o padrão de acesso recente nessa conta.
 Possíveis causas:
-   * Um invasor explorar com acesso de leitura público para um contêiner.
-   * Um usuário legítimo ou aplicativo tem usado o acesso de leitura público para um contêiner.
+   * Um invasor explorou o acesso de leitura público a um contêiner.
+   * Um usuário ou aplicativo legítimo usou acesso de leitura público a um contêiner.
 
-### <a name="anomalous-extractupload-alerts"></a>Alertas de extração/upload anormais
+* **Anomalia de Tor**: Esse alerta indica que essa conta foi acessada com êxito de um endereço IP que é conhecido como um nó de saída ativo de Tor (um proxy de anonimato). A severidade desse alerta considera o tipo de autenticação usado (se houver) e se este é o primeiro caso desse acesso.
+Possíveis causas:
+   * Um invasor acessou sua conta de armazenamento usando o Tor.
+   * Um usuário legítimo acessou sua conta de armazenamento usando o Tor.
 
-* **Extração de dados**: Esse alerta indica que uma quantidade excepcionalmente grande de dados foram extraída em comparação com a atividade recente neste contêiner de armazenamento. Possíveis causas:
-   * Um invasor tem extraído uma grande quantidade de dados de um contêiner. (Por exemplo: violação/vazamento de dados, a transferência não autorizada de dados)
-   * Um usuário legítimo ou o aplicativo tenha extraído uma quantidade incomum de dados de um contêiner. (Por exemplo: atividade de manutenção)
 
-* **Excluir inesperado**: Esse alerta indica que uma ou mais operações de exclusão inesperado ocorreu em uma conta de armazenamento, em comparação com a atividade recente nessa conta. Possíveis causas:
+### <a name="anomalous-extractupload-alerts"></a>Alertas de extração/carregamento anormais
+
+* **Vazamento de dados**: Esse alerta indica que uma quantidade incomum de dados muito grande foi extraída em comparação com a atividade recente neste contêiner de armazenamento. Possíveis causas:
+   * Um invasor extraiu uma grande quantidade de dados de um contêiner. (Por exemplo: vazamento/violação de dados, transferência não autorizada de dados)
+   * Um usuário ou aplicativo legítimo extraiu uma quantidade incomum de dados de um contêiner. (Por exemplo: atividade de manutenção)
+
+* **Exclusão inesperada**: Esse alerta indica que uma ou mais operações de exclusão inesperadas ocorreram em uma conta de armazenamento, em comparação com a atividade recente nessa conta. Possíveis causas:
    * Um invasor excluiu dados de sua conta de armazenamento.
-   * Um usuário legítimo executou uma exclusão incomuns.
+   * Um usuário legítimo executou uma exclusão incomum.
 
-* **Carregar pacote de serviço de nuvem do Azure**: Esse alerta indica que um pacote de serviço de nuvem do Azure (arquivo. cspkg) foi carregado para uma conta de armazenamento de maneira incomum, em comparação comparada a atividade recente nessa conta. Possíveis causas: 
-   * Um invasor Preparando-se para implantar um código mal-intencionado da sua conta de armazenamento para um serviço de nuvem do Azure.
-   * Um usuário legítimo Preparando-se para uma implantação de serviço legítimos.
+* **Carregar o pacote de serviço de nuvem do Azure**: Esse alerta indica que um pacote de serviço de nuvem do Azure (arquivo. cspkg) foi carregado em uma conta de armazenamento de maneira incomum, em comparação com a atividade recente nessa conta. Possíveis causas: 
+   * Um invasor está se preparando para implantar código mal-intencionado de sua conta de armazenamento em um serviço de nuvem do Azure.
+   * Um usuário legítimo está se preparando para uma implantação de serviço legítima.
 
-### <a name="suspicious-storage-activities-alerts"></a>Alertas de atividades suspeitas de armazenamento
+### <a name="suspicious-storage-activities-alerts"></a>Alertas de atividades de armazenamento suspeitas
 
-* **Alteração de permissão de acesso**: Esse alerta indica que as permissões de acesso desse contêiner de armazenamento foram alteradas de maneira incomum. Possíveis causas: 
-   * Um invasor mudou permissões de contêiner para diminuir o nível de sua segurança.
-   * Um usuário legítimo mudou as permissões do contêiner.
+* **Alteração de permissão de acesso**: Esse alerta indica que as permissões de acesso deste contêiner de armazenamento foram alteradas de maneira incomum. Possíveis causas: 
+   * Um invasor alterou as permissões de contêiner para enfraquecer sua segurança.
+   * Um usuário legítimo alterou as permissões de contêiner.
 
-* **Acessar inspeção**: Esse alerta indica que as permissões de acesso de uma conta de armazenamento tem sido inspecionadas de maneira incomum, em comparação comparada a atividade recente nessa conta. Possíveis causas: 
-   * O invasor executou o reconhecimento de um ataque futuro.
-   * Um usuário legítimo executou a manutenção na conta de armazenamento.
+* **Inspeção de acesso**: Esse alerta indica que as permissões de acesso de uma conta de armazenamento foram inspecionadas de forma incomum, em comparação com a atividade recente nessa conta. Possíveis causas: 
+   * Um invasor executou o reconhecimento para um ataque futuro.
+   * Um usuário legítimo realizou a manutenção na conta de armazenamento.
 
-* **Exploração de dados**: Esse alerta indica que blobs ou contêineres em uma conta de armazenamento foram enumerados de maneira incomum, em comparação comparada a atividade recente nessa conta. Possíveis causas: 
-   * O invasor executou o reconhecimento de um ataque futuro.
-   * Um usuário legítimo ou lógica do aplicativo explorou os dados na conta de armazenamento.
+* **Exploração de dados**: Esse alerta indica que os BLOBs ou contêineres em uma conta de armazenamento foram enumerados de forma incomum, em comparação com a atividade recente nessa conta. Possíveis causas: 
+   * Um invasor executou o reconhecimento para um ataque futuro.
+   * Uma lógica de usuário ou aplicativo legítima explorou dados na conta de armazenamento.
 
 
 
@@ -160,6 +176,6 @@ Possíveis causas:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [registra em log nas contas de armazenamento do Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* Saiba mais sobre [logs em contas de armazenamento do Azure](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * Saiba mais sobre a [Central de Segurança do Azure](../../security-center/security-center-intro.md)

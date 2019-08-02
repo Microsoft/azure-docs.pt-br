@@ -1,21 +1,24 @@
 ---
 title: Como configurar vários mestres no Azure Cosmos DB
 description: Saiba como configurar vários mestres nos aplicativos no Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
-ms.openlocfilehash: 1d9fa7380f62165d360888fd8cb03919f1736297
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.date: 07/03/2019
+ms.author: mjbrown
+ms.openlocfilehash: a5232101d4e5d13fb4c95268311e06b56fa81e65
+ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244760"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68356225"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Configurar vários mestres nos aplicativos que usam o Azure Cosmos DB
 
-Para usar o recurso de vários mestres em seu aplicativo, você precisará habilitar gravações em várias regiões e configurar a capacidade de hospedagem múltipla no Azure Cosmos DB. Para configurar a hospedagem múltipla, defina a região em que o aplicativo está implantado.
+Quando uma conta tiver sido criada com várias regiões de gravação habilitadas, faça duas alterações em seu aplicativo em ConnectionPolicy para DocumentClient a fim de habilitar os recursos de vários mestres e a hospedagem múltipla no Azure Cosmos DB. Em ConnectionPolicy, defina UseMultipleWriteLocations como true e passe o nome da região em que o aplicativo é implantado em SetCurrentLocation. Isso preencherá a propriedade PreferredLocations com base na proximidade geográfica do local passado. Se uma nova região posteriormente é adicionada à conta, o aplicativo não precisa ser atualizado ou reimplantado, ele detectará automaticamente a região mais próxima e será automaticamente iniciado em caso de evento regional.
+
+> [!Note]
+> Contas do Cosmos configuradas inicialmente com uma região de gravação podem ser configuradas para várias regiões de gravação (ou seja, vários mestres) sem nenhum tempo de inatividade. Para saber mais, consulte [Configurar a gravação de várias regiões](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>SDK do .NET v2
 
@@ -31,14 +34,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>SDK do .NET v3 (versão prévia)
+## <a id="netv3"></a>SDK do .NET v3
 
-Para habilitar vários mestres no seu aplicativo, defina `UseCurrentRegion` como a região na qual o aplicativo está sendo implantado e o Cosmos DB está replicado:
+Para habilitar vários mestres no seu aplicativo, defina `ApplicationRegion` como a região na qual o aplicativo está sendo implantado e o Cosmos DB está replicado:
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Opcionalmente, você pode usar o `CosmosClientBuilder` e o `WithApplicationRegion` para obter o mesmo resultado:
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>SDK de Java Assíncrono
@@ -84,7 +98,8 @@ connection_policy = documents.ConnectionPolicy()
 connection_policy.UseMultipleWriteLocations = True
 connection_policy.PreferredLocations = [region]
 
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -9,15 +9,15 @@ ms.author: johndeu
 ms.date: 03/20/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 373ce1d10af87603b1bdd6339c94891187c35d8c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fc481129e652c6dacd15a5a6d039a9118393e8f1
+ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332645"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67854239"
 ---
 # <a name="recommended-on-premises-encoders"></a>Codificadores locais recomendados
-Ao fazer uma transmissão ao vivo com os Serviços de Mídia do Azure, você pode especificar como deseja que o canal receba o fluxo de entrada. Se você optar por usar um codificador local diante com um canal de codificação ao vivo, o codificador deve enviar por push um fluxo de taxa única de alta qualidade como saída. Se você optar por usar um codificador local diante com um canal de passagem, o codificador deve enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejada. Para obter mais informações, consulte [transmissão ao vivo com no local codificadores](media-services-live-streaming-with-onprem-encoders.md).
+Ao fazer uma transmissão ao vivo com os Serviços de Mídia do Azure, você pode especificar como deseja que o canal receba o fluxo de entrada. Se você optar por usar um codificador local com um canal de codificação ativa, o codificador deverá enviar por push um fluxo de taxa de bits única de alta qualidade como saída. Se você optar por usar um codificador local com um canal de passagem, o codificador deverá enviar por push um fluxo de múltiplas taxas de bits como saída com todas as qualidades de saída desejadas. Para obter mais informações, consulte [transmissão ao vivo com codificadores locais](media-services-live-streaming-with-onprem-encoders.md).
 
 Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificadores dinâmicos que têm RTMP como saída:
 - Adobe Flash Media Live Encoder 3.2
@@ -44,8 +44,8 @@ Os Serviços de Mídia do Azure recomendam o uso de um dos seguintes codificador
 > [!NOTE]
 > Um codificador dinâmico pode enviar um fluxo de taxa de bits única para um canal de passagem, mas essa configuração não é recomendada porque não permite um streaming de taxa de bits adaptável para o cliente.
 
-## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como se tornar um parceiro de codificador local no
-Como um serviços de mídia do Azure no parceiro de codificador local, os serviços de mídia promovem seu produto recomendando seu codificador para clientes empresariais. Para se tornar um parceiro de codificador no local, você deve verificar a compatibilidade de seu codificador local em serviços de mídia. Para fazer isso, conclua as seguintes verificações:
+## <a name="how-to-become-an-on-premises-encoder-partner"></a>Como se tornar um parceiro de codificador local
+Como um parceiro de codificador local dos serviços de mídia do Azure, os serviços de mídia promovem seu produto, recomendando o codificador para clientes corporativos. Para se tornar um parceiro de codificador local, você deve verificar a compatibilidade do codificador local com os serviços de mídia. Para fazer isso, conclua as seguintes verificações:
 
 Verificação de canal de passagem
 1. Criar ou acessar sua conta dos Serviços de Mídia do Azure
@@ -54,7 +54,7 @@ Verificação de canal de passagem
 4. Criar um evento ao vivo publicado
 5. Executar o codificador dinâmico por aproximadamente 10 minutos
 6. Parar o evento ao vivo
-7. Crie, inicie um ponto de extremidade Streaming, use um player como o [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao recurso arquivado para garantir que a reprodução não tenha falhas visíveis em todos os níveis de qualidade (Ou, alternativamente, assista e valide por meio do URL de visualização durante o sessão ao vivo antes do passo 6)
+7. Crie, inicie um ponto de extremidade Streaming, use um player como o [Azure Media Player](https://aka.ms/azuremediaplayer) para assistir ao recurso arquivado para garantir que a reprodução não tenha falhas visíveis em todos os níveis de qualidade (Ou, alternativamente, assista e valide por meio do URL de visualização durante o sessão ao vivo antes do passo 6)
 8. Registrar a ID do Ativo, a URL de streaming publicada para o arquivo morto dinâmico e as configurações e a versão usada do codificador dinâmico
 9. Redefinir o estado do canal depois de criar cada amostra
 10. Repita os passos 3 a 9 para todas as configurações suportadas pelo seu codificador (com e sem sinalização de anúncios / legendas / diferentes velocidades de codificação)
@@ -66,7 +66,7 @@ Verificação de canal de codificação ativa
 4. Criar um evento ao vivo publicado
 5. Executar o codificador dinâmico por aproximadamente 10 minutos
 6. Parar o evento ao vivo
-7. Crie, inicie um ponto de extremidade Streaming, use um player como o [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao recurso arquivado para garantir que a reprodução não tenha falhas visíveis em todos os níveis de qualidade (Ou, alternativamente, assista e valide por meio do URL de visualização durante o sessão ao vivo antes do passo 6)
+7. Crie, inicie um ponto de extremidade Streaming, use um player como o [Azure Media Player](https://aka.ms/azuremediaplayer) para assistir ao recurso arquivado para garantir que a reprodução não tenha falhas visíveis em todos os níveis de qualidade (Ou, alternativamente, assista e valide por meio do URL de visualização durante o sessão ao vivo antes do passo 6)
 8. Registrar a ID do Ativo, a URL de streaming publicada para o arquivo morto dinâmico e as configurações e a versão usada do codificador dinâmico
 9. Redefinir o estado do canal depois de criar cada amostra
 10. Repita os passos 3 a 9 para todas as configurações suportadas pelo seu codificador (com e sem sinalização de anúncios / legendas / várias velocidades de codificação)
@@ -77,7 +77,7 @@ Verificação de longevidade
 3. Configure seu codificador para enviar por push um fluxo ao vivo de múltiplas taxas de bits.
 4. Criar um evento ao vivo publicado
 5. Executar o codificador dinâmico por uma semana ou mais
-6. Use um player como o [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) para assistir ao streaming ao vivo de tempos em tempos (ou recurso arquivado) para garantir que a reprodução não tenha falhas visíveis
+6. Use um player como o [Azure Media Player](https://aka.ms/azuremediaplayer) para assistir ao streaming ao vivo de tempos em tempos (ou recurso arquivado) para garantir que a reprodução não tenha falhas visíveis
 7. Parar o evento ao vivo
 8. Registrar a ID do Ativo, a URL de streaming publicada para o arquivo morto dinâmico e as configurações e a versão usada do codificador dinâmico
 

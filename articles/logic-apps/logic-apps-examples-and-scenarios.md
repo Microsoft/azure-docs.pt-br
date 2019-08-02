@@ -10,16 +10,16 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/2018
-ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 95eca4c7f3e8170f6559799fc4c706e95df70e9e
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303682"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385512"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
 
-[Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam você a orquestrar e integrar diferentes serviços, fornecendo [mais de 100 conectores prontos para uso](../connectors/apis-list.md), variando do SQL Server local ou SAP a Serviços Cognitivos da Microsoft. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os Aplicativos Lógicos são especialmente úteis para casos de uso e cenários em que você precise coordenar várias ações em diversos sistemas.
+Os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) ajudam a orquestrar e integrar serviços diferentes fornecendo [centenas de conectores prontos para uso](../connectors/apis-list.md), desde o SQL Server local ou o SAP para serviços cognitivas do Azure. O serviço de Aplicativos Lógicos é "sem servidor", portanto, você não precisa se preocupar sobre escala ou instâncias. Tudo o que você precisa fazer é definir o fluxo de trabalho com um gatilho e as ações que o fluxo de trabalho executa. A plataforma subjacente lida com a escala, disponibilidade e desempenho. Os Aplicativos Lógicos são especialmente úteis para casos de uso e cenários em que você precise coordenar várias ações em diversos sistemas.
 
 Para ajudar você a conhecer mais sobre os vários padrões e recursos aos quais os [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-overview.md) dão suporte, confira aqui exemplos e cenários comuns.
 
@@ -27,9 +27,9 @@ Para ajudar você a conhecer mais sobre os vários padrões e recursos aos quais
 
 Cada aplicativo lógico começa com um [*gatilho*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e apenas um gatilho, que inicia o fluxo de trabalho do aplicativo lógico e passa todos os dados como parte do que o gatilho. Alguns conectores fornecem gatilhos, que são fornecidos nestes tipos:
 
-* *Gatilhos de sondagem*: Verifica regularmente um ponto de extremidade de serviço para os novos dados. Quando novos dados existirem, o gatilho cria e executa uma nova instância de fluxo de trabalho com os dados como entrada.
+* *Gatilhos*de sondagem: Verifica regularmente se há novos dados em um ponto de extremidade de serviço. Quando novos dados existirem, o gatilho cria e executa uma nova instância de fluxo de trabalho com os dados como entrada.
 
-* *Gatilhos de push*: Escutam dados em um ponto de extremidade de serviço e aguarda até que ocorra um evento específico. Quando o evento ocorrer, o gatilho é acionado imediatamente, criando e executando uma nova instância de fluxo de trabalho que usa todos os dados disponíveis como entrada.
+* *Gatilhos por push*: Escuta dados em um ponto de extremidade de serviço e aguarda até que ocorra um evento específico. Quando o evento ocorrer, o gatilho é acionado imediatamente, criando e executando uma nova instância de fluxo de trabalho que usa todos os dados disponíveis como entrada.
 
 Aqui estão alguns exemplos de gatilho populares:
 
@@ -59,8 +59,8 @@ Para sistemas e serviços que talvez não tenham conectores publicados, também 
 * [Configurar ações de longa execução para execução de fluxo de trabalho](../logic-apps/logic-apps-create-api-app.md)
 * [Responder a eventos e ações externas com webhooks](../logic-apps/logic-apps-create-api-app.md)
 * [Chamar, disparar ou aninhar fluxos de trabalho com respostas síncronas a solicitações HTTP](../logic-apps/logic-apps-http-endpoint.md)
-* [Tutorial: Crie um painel social IA em minutos com aplicativos lógicos e o Power BI](https://aka.ms/logicappsdemo)
-* [Vídeo: Responder a webhooks de SMS do Twilio e enviar uma resposta de texto](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
+* [Tutorial: Crie um painel social com alimentação de ia em minutos com aplicativos lógicos e Power BI](https://aka.ms/logicappsdemo)
+* [Vídeo: Responder a WebHooks do SMS do twilio e enviar uma resposta de texto](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Recursos de tratamento de erro, registro em log e fluxo de controle
 
@@ -70,7 +70,7 @@ Os aplicativos lógicos incluem recursos avançados para o fluxo de controle ava
 * [Repetir as etapas ou processar itens em matrizes e coleções com loops](../logic-apps/logic-apps-control-flow-loops.md)
 * [Agrupar ações com os escopos](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Manipulação de erro e exceções do autor em um fluxo de trabalho](../logic-apps/logic-apps-exception-handling.md)
-* [Caso de uso: Como uma empresa de saúde usa lógica aplicativo tratamento de exceção para fluxos de trabalho HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Caso de uso: Como uma empresa de saúde usa a manipulação de exceções de aplicativos lógicos para fluxos de trabalho do HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Ativar o monitoramento, o registro em log e alertas para aplicativos lógicos existentes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Ativar o monitoramento e o registro em log de diagnóstico durante a criação de aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -80,7 +80,7 @@ Você pode desenvolver e implantar totalmente aplicativos lógicos com o Visual 
 
 * [Criar e implantar aplicativos lógicos no Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Ativar o monitoramento, o registro em log e alertas para aplicativos lógicos existentes](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Criar modelos um modelo de implantação automatizado](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automatizar a implantação do aplicativo lógico](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## <a name="content-types-conversions-and-transformations-within-a-run"></a>Tipos de conteúdo, conversões e transformações em uma execução
 
@@ -97,14 +97,14 @@ Os aplicativos lógicos também oferecem integração com muitos serviços, como
 * [Criar um painel social em tempo real com o Azure sem servidor](../logic-apps/logic-apps-scenario-social-serverless.md)
 * [Chamar o Azure Functions de aplicativos lógicos](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Disparar aplicativos lógicos com Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [Tutorial: Monitorar alterações de máquina virtual com a grade de eventos do Azure e os aplicativos lógicos](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [Tutorial: Criar uma função que se integra com aplicativos lógicos do Azure e serviços Cognitivos da Microsoft para analisar o sentimento de postagem do Twitter](../azure-functions/functions-twitter-email.md)
-* [Tutorial: Monitoramento remoto IoT e notificações com aplicativos de lógicos do Azure conectando o hub IoT e a caixa de correio](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Tutorial: Monitorar alterações de máquina virtual com a grade de eventos do Azure e aplicativos lógicos](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Tutorial: Criar uma função que se integre com os aplicativos lógicos do Azure e os serviços cognitivas do Azure para analisar as opiniões de postagem no Twitter](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Monitoramento remoto de IoT e notificações com aplicativos lógicos do Azure conectando seu hub IoT e caixa de correio](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Chamar pontos de extremidade SOAP de aplicativos lógicos](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Cenários de ponta a ponta
 
-* [White paper: Integração de gerenciamento de casos de ponta a ponta com os serviços do Azure, como os aplicativos lógicos](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
+* [Artigos Integração de gerenciamento de casos de ponta a ponta com serviços do Azure, como aplicativos lógicos](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>Relatos de clientes
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: 67faf268d265fd045c21b75b6f64840511a371d3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86f22864c416ad2a90bea09c02675d6eb3322308
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067281"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385631"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configurar políticas e configurações de uso
 Este artigo descreve como adicionar usuários ao laboratório, registrá-los no laboratório, controlar o número de horas que eles podem usar a VM, entre outros. 
@@ -38,13 +38,13 @@ Se você tiver o **Restringir acesso** habilitado, adicione usuários (endereço
 
     ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="share-registration-link-with-students"></a>Compartilhar o link de registro com os alunos
-Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para os alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
+## <a name="share-registration-link-with-students"></a>Compartilhar link de registro com alunos
+Para enviar o link de registro para os alunos, use um dos métodos a seguir. O primeiro método mostra como enviar emails para alunos com o link de registro e uma mensagem opcional. O segundo método mostra como obter o link de registro que você pode compartilhar com outras pessoas como desejar. 
 
 Se a opção **Restringir o acesso** estiver habilitada para o laboratório, somente os usuários na lista de usuários poderão usar o link de registro para se registrar no laboratório. Essa opção é habilitada por padrão. 
 
-### <a name="send-email-to-users"></a>Enviar email para usuários
-O Azure Lab Services permite que os professores convites de laboratório para todos os de email ou alunos escolhidos sem precisar usar outro cliente de email. Professores passar o mouse sobre estudantes individuais na lista para ver o ícone de email para cada aluno ou selecione os alunos de um ou mais e usar **Enviar convite** na barra de ferramentas. Esse recurso envia um email com um link de registro e uma mensagem (se houver) adicionados com o professor. Depois que o convite é enviado, o estado de convite muda para **convite enviado** para que os professores podem manter o controle de que os alunos já receberam o link de registro e a data em que ele foi enviado.
+### <a name="send-email-to-users"></a>Enviar email aos usuários
+Azure Lab Services permite que os professores enviem convites por email a todos ou a alunos selecionados sem precisar usar outro cliente de email. Os professores podem focalizar um aluno individual na lista para ver o ícone de email de cada aluno ou selecionar um ou mais alunos e usar **Enviar convite** na barra de ferramentas. Esse recurso envia um email com um link de registro e uma mensagem (se houver) adicionado pelo professor. Depois que o convite for enviado, o estado do convite será alterado para **convite enviado** para que os professores possam controlar quais alunos já receberam o link de registro e a data em que ele foi enviado.
 
 1. Alterne para a exibição de **Usuários** se ainda não estiver na página. 
 2. Selecione usuário específico ou todos os usuários na lista. Para selecionar usuários específicos, selecione as caixas de seleção na primeira coluna da lista. Para selecionar todos os usuários, marque a caixa de seleção na frente o título da primeira coluna (**Nome**) ou marque todas as caixas de seleção para todos os usuários na lista. Você pode ver o status do **estado de convite** nessa lista.  Na imagem a seguir, o estado de convite para todos os alunos é definido como **Convite não enviado**. 
@@ -68,7 +68,7 @@ O Azure Lab Services permite que os professores convites de laboratório para to
 
     ![Link de registro do aluno](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. Na caixa de diálogo **Registro de usuário**, selecione **Fechar**. 
-4. Compartilhamento de **link de registro** com um aluno para que o aluno pode se registrar para a classe. 
+4. Compartilhe o **link de registro** com um aluno para que o aluno possa se registrar para a classe. 
 
 ## <a name="view-users-registered-with-the-lab"></a>Exibir usuários registrados no laboratório
 
@@ -76,18 +76,18 @@ Selecione **usuários** no menu à esquerda para ver a lista de usuários regist
 
 ![Lista de usuários registrados no laboratório](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="set-quotas-per-user"></a>Definir cotas por usuário
+## <a name="set-quotas-for-users"></a>Definir cotas para usuários
 Defina cotas por usuário usando as seguintes etapas: 
 
-1. Selecione **Usuários** no menu à esquerda.
-2. Selecione **cota por usuário:** na barra de ferramentas. 
-3. Sobre o **cota por usuário** , especifique o número de horas que você deseja dar a cada usuário (aluno): 
-    1. **0 horas (agenda)** . Os usuários podem usar suas VMs somente durante o horário agendado ou quando você, como o proprietário de laboratório são transformados em máquinas virtuais para eles.
+1. Selecione **Usuários** no menu à esquerda se a página não estiver ativa. 
+2. Selecionar **cota por usuário: 10 horas** na barra de ferramentas. 
+3. Na página **Cota por usuário**, especifique o número de horas que você deseja conceder a cada usuário (aluno): 
+    1. **Número total de horas por usuário**. Os usuários podem usar suas VMs durante o número definido de horas (especificado para este campo), **além do horário agendado**. Se você selecionar essa opção, insira o **número de horas** na caixa de texto. 
+
+        ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 horas (somente agenda)** . Os usuários podem usar suas VMs somente durante o horário agendado ou quando você, como o proprietário de laboratório, ativa as máquinas virtuais para eles.
 
         ![Horas de zero - somente horário agendado](../media/how-to-configure-student-usage/zero-hours.png)
-    1. **Número total de horas de laboratório por usuário**. Os usuários podem usar suas VMs para o número de horas (especificado para esse campo) **além da hora agendada**. Se você selecionar essa opção, insira o **número de horas** na caixa de texto. 
-
-        ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
     4. Clique em **Salvar**. 
 5. Agora você vê os valores alterados na barra de ferramentas: **Cota por usuário: &lt;número de horas&gt;** . 
 
@@ -96,7 +96,7 @@ Defina cotas por usuário usando as seguintes etapas:
 
 
 > [!IMPORTANT]
-> Antes de enviar o link de registro para os alunos, professores devem definir a agenda para a classe se eles escolher 0 horas de cota ou especificam as horas de cota para o laboratório.
+> Antes de enviar o link de registro para os alunos, os professores deverão definir o agendamento da classe se escolherem 0 horas de cota ou especificar as horas de cota para o laboratório.
 >
 > O [tempo de execução agendado de VMs](how-to-create-schedules.md) não conta com a cota alocada a um usuário. A cota é para o tempo fora dos horários agendados que um aluno passa em VMs. 
 

@@ -15,12 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: victorh
-ms.openlocfilehash: 2b9c8f1bb7407dd36623fd8ad68f9489172a1caf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a62a4d5f06856ca0fe6356ca388047679097e3f
+ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64712229"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68004468"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -59,7 +59,7 @@ Para criar um conjunto de registros curinga, use o nome do conjunto de registros
 ### <a name="caa-records"></a>Registros CAA
 
 Os registros CAA permitem aos proprietários do domínio especificar quais ACs (Autoridades de Certificação) estão autorizadas a emitir certificados para seus domínios. Isso permite que as ACs evitem emitir certificados incorretamente em algumas circunstâncias. Os registros CAA têm três propriedades:
-* **Sinalizadores de**: Esse é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial pelo [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Sinalizadores**: Este é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial de acordo com a [RFC](https://tools.ietf.org/html/rfc6844#section-3)
 * **Marcação**: uma string ASCII que pode ser uma das seguintes:
     * **issue**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (todos os tipos)
     * **issuewild**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (somente certificados curinga)
@@ -88,6 +88,8 @@ Um conjunto de registros SOA é criado automaticamente no ápice de cada zona (n
 
 Você pode modificar todas as propriedades do registro SOA, exceto a propriedade 'host', que é pré-configurada para se referir ao nome do servidor de nomes primário fornecido pelo DNS do Azure.
 
+O número de série da zona no registro SOA não é atualizado automaticamente quando são feitas alterações nos registros na zona. Ele pode ser atualizado manualmente editando o registro SOA, se necessário.
+
 ### <a name="spf-records"></a>Registros SPF
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
@@ -111,7 +113,7 @@ As várias cadeias de caracteres em um registro DNS não devem ser confundidas c
 
 ## <a name="tags-and-metadata"></a>Marcas e metadados
 
-### <a name="tags"></a>tags
+### <a name="tags"></a>Marcas
 
 As marcas consistem em uma lista de pares de nome/valor e são usadas pelo Azure Resource Manager na rotulagem de recursos.  O Azure Resource Manager usa marcas para habilitar exibições filtradas de sua fatura do Azure e também permite que você defina uma política sobre as marcas que são obrigatórias. Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](../azure-resource-manager/resource-group-using-tags.md).
 

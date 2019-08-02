@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: bf4d11a18932d20e7dcc7580ebe5aa4e060c5a88
+ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630695"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67606772"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Início Rápido: Detectar faces em uma imagem usando o SDK do .NET de Detecção Facial
 
@@ -60,13 +60,13 @@ Em seguida, adicione o método **Main** da classe **Program** com o código a se
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-Além disso, no método **Main**, adicione o seguinte código para usar o cliente de Detecção Facial recém-criado para detectar faces em uma imagem local e remota. Os métodos de detecção serão definidos a seguir. 
+Além disso, no método **Main**, adicione o código a seguir para usar o cliente de Detecção Facial recém-criado para detectar rostos em uma imagem local e remota. Os métodos de detecção serão definidos a seguir. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Detectar faces
 
-Adicione o seguinte método à classe **Programa**. Ele usa o cliente do serviço de Detecção Facial para detectar faces em uma imagem remota, referenciada por uma URL. Observe que ele usa o campo `faceAttributes`. &mdash;Os objetos **DetectedFace** adicionados ao `faceList` terão os atributos especificados (nesse caso, idade e gênero).
+Adicione o seguinte método à classe **Programa**. Ele usa o cliente do serviço de Detecção Facial para detectar faces em uma imagem remota, referenciada por uma URL. Ele usa o campo `faceAttributes` – os objetos **DetectedFace** adicionados ao `faceList` terão os atributos especificados (nesse caso, idade e sexo).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 

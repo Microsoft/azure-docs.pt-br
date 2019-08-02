@@ -1,19 +1,18 @@
 ---
 title: Atualizar o pacote do conteúdo de relatório central do Backup do Azure
 description: Informações sobre atualizações do pacote de conteúdo do Backup do Azure no Power BI
-services: backup
 author: kasinh
 manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: kasinh
-ms.openlocfilehash: 87bc7ed3bb59266484858f534080fa87a7230981
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 984f87a514aa55fc18a92c6912145bc65cf21f4c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60641849"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68466594"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>Atualizar o pacote do conteúdo de relatório central do Backup do Azure 
 
@@ -50,16 +49,16 @@ Os relatórios pré-configurados que vêm com o pacote de conteúdo do Backup do
 
 ![Armazenamento](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
-### <a name="backup-items"></a>Itens de Backup
-![Itens de Backup](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
+### <a name="backup-items"></a>Itens de backup
+![Itens de backup](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>Alertas
 
 ![Alertas](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
-### <a name="jobs"></a>Trabalhos
+### <a name="jobs"></a>Tarefas (Jobs)
 
-![Trabalhos](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
+![Tarefas (Jobs)](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>Próximas etapas

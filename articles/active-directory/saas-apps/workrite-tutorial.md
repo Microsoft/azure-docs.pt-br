@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 7b4f3e8d0f20d2e4b78c83b935d3e3340c9dcec4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 026ad76fa82a28ca3e7f29de2e656994b9cad634
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920282"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67086766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workrite"></a>Tutorial: Integração do Azure Active Directory com o Workrite
 
@@ -198,7 +198,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Workri
    
     ![Caixa de diálogo Criar Usuário][402]
     
-     a. Na caixa de texto **Email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
+    a. Na caixa de texto **Email**, digite o endereço de email do usuário, como Brittasimon@contoso.com.
 
     b. Na caixa de texto **Nome**, digite o nome do usuário como Brenda.
 
@@ -220,7 +220,7 @@ Ao clicar no bloco do Workrite no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

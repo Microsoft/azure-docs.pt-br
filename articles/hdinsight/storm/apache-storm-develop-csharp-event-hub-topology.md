@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7f4db76fe2a302dd5acce01b456ef3b676b187c6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd1a46ea008ce5f8fb02dd468b27494d231717f0
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078278"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67483925"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de Eventos do Azure com o Apache Storm no HDInsight (C#)
 
@@ -103,11 +103,11 @@ topologyBuilder.SetJavaBolt(
 
 ## <a name="download-the-completed-project"></a>Baixar o projeto completo
 
-Você pode baixar uma versão completa do projeto criado neste tutorial do [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). No entanto, você ainda precisa fornecer definições de configuração seguindo as etapas neste tutorial.
+Você pode baixar uma versão completa do projeto criado neste artigo [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). No entanto, você ainda precisa fornecer definições de configuração seguindo as etapas neste artigo.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Um [Apache Storm no cluster HDInsight versão 3.5 ou 3.6](apache-storm-tutorial-get-started-linux.md).
+* Um cluster do Apache Storm no HDInsight. Ver [criar Apache clusters Hadoop usando o portal do Azure](../hdinsight-hadoop-create-linux-clusters-portal.md) e selecione **Storm** para **tipo de Cluster**.
 
     > [!WARNING]  
     > O exemplo usado neste documento requer o Storm no HDInsight versão 3.5 ou 3.6. Isso não funciona com versões mais antigas do HDInsight devido a alterações de nome de classe significativas. Para obter uma versão desse exemplo que funcione com clusters mais antigos, consulte [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).

@@ -6,7 +6,7 @@ metadata:
   title: 'Personalizador – Tutoriais, Inícios Rápidos e referência da API'
   description: 'Saiba como usar o serviço Personalizador para permitir que seu aplicativo escolha a melhor experiência a ser mostrada aos usuários, aprendendo com o comportamento deles em tempo real.'
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

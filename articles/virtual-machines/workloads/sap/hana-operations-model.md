@@ -4,7 +4,7 @@ description: Modelo de operações do SAP HANA no Azure (Instâncias Grandes).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 36a648e2d46cce96a8ff663f45ccf45326898a84
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: da033232209c304e82f3fbe7dac164bd7222f557
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60477862"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67707363"
 ---
 # <a name="operations-model-and-responsibilities"></a>Responsabilidades e modelo de operações
 
@@ -58,7 +58,7 @@ A infraestrutura subjacente do HANA em Instâncias Grandes fornece a funcionalid
 
 **Middleware**: instância do SAP HANA, principalmente. Administração, operações e monitoramento são de sua responsabilidade. Você pode usar a funcionalidade fornecida para usar instantâneos de armazenamento para fins de backup, restauração e recuperação de desastre. Essas funcionalidades são fornecidas pela infraestrutura. Suas responsabilidades também incluem o projeto de alta disponibilidade ou recuperação de desastre com essas funcionalidade, aproveitando-as e monitorando para determinar se os instantâneos de armazenamento foram executados com êxito.
 
-**Dados**: seus dados gerenciados pelo SAP HANA e outros dados, como arquivos de backups localizados em volumes ou compartilhamentos de arquivos. Suas responsabilidades incluem monitorar o espaço livre em disco e gerenciar o conteúdo nos volumes. Você também é responsável por monitorar a execução com êxito de backups de volumes de disco e instantâneos de armazenamento. A execução com êxito da replicação de dados em sites de recuperação de desastre é de responsabilidade da Microsoft.
+**Data**: seus dados gerenciados pelo SAP HANA e outros dados, como arquivos de backups localizados em volumes ou compartilhamentos de arquivos. Suas responsabilidades incluem monitorar o espaço livre em disco e gerenciar o conteúdo nos volumes. Você também é responsável por monitorar a execução com êxito de backups de volumes de disco e instantâneos de armazenamento. A execução com êxito da replicação de dados em sites de recuperação de desastre é de responsabilidade da Microsoft.
 
 **Aplicativos:** as instâncias de aplicativos do SAP ou, no caso de aplicativos não SAP, a camada de aplicativos desses aplicativos. Suas responsabilidades incluem implantação, administração, operações e monitoramento desses aplicativos. Você é responsável pelo planejamento da capacidade de consumo de recursos de CPU, consumo de memória, consumo de armazenamento do Azure e consumo de largura de banda de rede dentro de redes virtuais. Além disso, você é responsável pelo planejamento da capacidade para consumo de recursos de redes virtuais para o SAP HANA no Azure (Instâncias Grandes).
 

@@ -9,11 +9,11 @@ ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: 8d7ac457041474f4e774414b1d5e6f9ed09dc856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66146518"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172019"
 ---
 <!-- this tells how to get the connection string for your hub -->
 <!-- This assumes the user is looking at his hub in the portal. -->

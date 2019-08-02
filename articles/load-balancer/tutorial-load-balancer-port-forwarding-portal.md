@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Este tutorial mostra como configurar o encaminhamento de porta usando o Azure Load Balancer para criar conexões às VMs em uma rede virtual do Azure.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: kumud
+ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007501"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68273441"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: configurar o encaminhamento de porta no Azure Load Balancer usando o portal
 
@@ -49,8 +49,8 @@ Primeiro, crie um Standard Load Balancer público que pode balancear a carga do 
 
     | Configuração                 | Valor                                              |
     | ---                     | ---                                                |
-    | Assinatura               | Selecione sua assinatura.    |    
-    | Grupo de recursos         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
+    | Subscription               | Selecione sua assinatura.    |    
+    | Resource group         | Selecione **Criar** e digite *MyResourceGroupLB* na caixa de texto.|
     | NOME                   | *myLoadBalancer*                                   |
     | Região         | Selecione **Europa Ocidental**.                                        |
     | Type          | Selecione **Público**.                                        |
@@ -111,7 +111,7 @@ Crie uma rede virtual com duas máquinas virtuais e adicione as VMs ao pool de b
    
 1. Adicione a VM a um pool de back-end do balanceador de carga que você criar:
    
-   1. Em **BALANCEAMENTO DE CARGA** > **Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?**, selecione **Sim**. 
+   1. Em **BALANCEAMENTO DE CARGA** > **Colocar esta máquina virtual por trás de uma solução de balanceamento de carga existente?** , selecione **Sim**. 
    1. Para **Opções de balanceamento de carga**, abra a lista suspensa e selecione **Azure Load Balancer**. 
    1. Para **Selecionar um balanceador de carga**, abra a lista suspensa e selecione **MyLoadBalancer**. 
    1. Em **Selecionar um pool de back-end**, selecione **Criar novo**, em seguida digite *MyBackendPool*e selecione **Criar**. 

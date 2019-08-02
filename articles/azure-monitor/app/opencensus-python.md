@@ -1,30 +1,30 @@
 ---
-title: Rastreamento Python do OpenCensus com Azure Application Insights | Microsoft Docs
-description: Fornece instruções para conectar o rastreamento do OpenCensus Python com o encaminhador local e o Application Insights
+title: Monitorar aplicativos do Python com o Azure Application Insights | Microsoft Docs
+description: Fornece instruções para conectar OpenCensus Python com o Application Insights
 services: application-insights
 keywords: ''
-author: mrbullwinkle
-ms.author: mbullwin
-ms.date: 09/18/2018
+author: reyang
+ms.author: reyang
+ms.date: 07/02/2019
 ms.service: application-insights
 ms.topic: conceptual
+ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: ae9db483e15197e6cdaaaa5981410630184cc6ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2c043ad793dcf5e59eaf460d1ec4aa7a3b48810d
+ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957235"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67541445"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>Coletar rastreamentos distribuídos do Python (Versão Prévia)
 
-Agora o Application Insights dá suporte ao rastreamento distribuído de aplicativos Python por meio da integração com o [OpenCensus](https://opencensus.io) e nosso novo [encaminhador local](./../../azure-monitor/app/opencensus-local-forwarder.md). Este artigo orientará você passo a passo durante o processo de configuração do OpenCensus para Python e obtenção dos dados de rastreamento para o Application Insights.
+Application Insights agora dá suporte a distribuídas o rastreamento de aplicativos do Python por meio da integração com [OpenCensus](https://opencensus.io). Este artigo orientará você passo a passo durante o processo de configuração OpenCensus para Python e obtendo os dados de monitoramento para o Application Insights.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - É necessária uma assinatura do Azure.
 - O Python deve ser instalado; este artigo usa [Python 3.7.0](https://www.python.org/downloads/), embora versões anteriores provavelmente funcionem com um pequeno ajuste.
-- Siga as instruções para instalar o [encaminhador local como um serviço Windows](./../../azure-monitor/app/opencensus-local-forwarder.md)
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -34,7 +34,7 @@ Entre no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-application-insights-resource"></a>Criar recurso do Application Insights
 
-Primeiro, você precisa criar um recurso do Application Insights que vai gerar uma chave de instrumentação (ikey). O ikey é usado para configurar o encaminhador local para enviar os rastreamentos distribuídos do seu aplicativo OpenCensus instrumentado para o Application Insights.   
+Primeiro você precisa criar um recurso do Application Insights, que irá gerar um key(ikey) de instrumentação. O ikey é usado para configurar o OpenCensus SDK para enviar dados de telemetria ao Application Insights.
 
 1. Selecione **Criar um recurso** > **Ferramentas para Desenvolvedores** > **Application Insights**.
 
@@ -44,128 +44,86 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
     | Configurações        | Value           | DESCRIÇÃO  |
    | ------------- |:-------------|:-----|
-   | **Nome**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
-   | **Tipo de Aplicativo** | Geral | O tipo do aplicativo que você está monitorando |
+   | **Name**      | Valor Globalmente Exclusivo | Nome que identifica o aplicativo que você está monitorando |
    | **Grupo de recursos**     | myResourceGroup      | Nome para o novo grupo de recursos no qual hospedar dados do Application Insights |
-   | **Localidade** | Leste dos EUA | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
+   | **Localidade** | East US | Escolher uma localização perto de você ou perto onde seu aplicativo está hospedado |
 
 2. Clique em **Criar**.
 
-## <a name="configure-local-forwarder"></a>Configurar o encaminhador local
+## <a name="install-opencensus-azure-monitor-exporters"></a>Instalar o Azure OpenCensus Exportadores de Monitor
 
-1. Selecione **Visão Geral** > **Essentials** > Copiar a **Chave de Instrumentação** do aplicativo.
-
-   ![Captura de tela da chave de instrumentação](./media/opencensus-python/0003-instrumentation-key.png)
-
-2. Edite o arquivo `LocalForwarder.config` e adicione a chave de instrumentação. Se você tiver seguido as instruções de [pré-requisito](./../../azure-monitor/app/opencensus-local-forwarder.md), o arquivo estará localizado em `C:\LF-WindowsServiceHost`
-
-    ```xml
-      <OpenCensusToApplicationInsights>
-        <!--
-          Instrumentation key to track telemetry to.
-          -->
-        <InstrumentationKey>{enter-instrumentation-key}</InstrumentationKey>
-      </OpenCensusToApplicationInsights>
-    
-      <!-- Describes aspects of processing Application Insights telemetry-->
-      <ApplicationInsights>
-        <LiveMetricsStreamInstrumentationKey>{enter-instrumentation-key}</LiveMetricsStreamInstrumentationKey>
-      </ApplicationInsights>
-    </LocalForwarderConfiguration>
-    ```
-
-3. Reinicie o aplicativo serviço de **Encaminhador Local**.
-
-## <a name="opencensus-python-package"></a>Pacote do OpenCensus Python
-
-1. Instale o pacote de censo aberta para o Python e exportador com pip ou pipenv da linha de comando:
+1. Instale os Azure OpenCensus Monitor Exportadores:
 
     ```console
-    python -m pip install opencensus
-    python -m pip install opencensus-ext-ocagent
-
-    # pip env install opencensus
+    python -m pip install opencensus-ext-azure
     ```
 
     > [!NOTE]
-    > `python -m pip install opencensus` pressupõe que você tenha uma variável de ambiente PATH definida para sua instalação do Python. Se você não tiver configurado isso, precisará fornecer o caminho completo para o local em que o executável do Python está localizado, o que resultará em um comando como: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus`.
+    > `python -m pip install opencensus-ext-azure` pressupõe que você tenha uma variável de ambiente PATH definida para sua instalação do Python. Se você não tiver configurado isso, precisará fornecer o caminho completo para o local em que o executável do Python está localizado, o que resultará em um comando como: `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`.
 
 2. Primeiro vamos gerar alguns dados de rastreamento localmente. No Python IDLE, ou seu editor preferencial, digite o seguinte código:
 
     ```python
+    from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
+
+    tracer = Tracer(sampler=ProbabilitySampler(1.0))
+
+    def valuePrompt():
+        with tracer.span(name="test") as span:
+            line = input("Enter a value: ")
+            print(line)
 
     def main():
         while True:
             valuePrompt()
 
-    def valuePrompt():
-        tracer = Tracer()
-        with tracer.span(name="test") as span:
-            line = input("Enter a value: ")
-            print(line)
-
     if __name__ == "__main__":
         main()
-
     ```
 
 3. Executar o código solicitará repetidamente que você insira um valor. A cada entrada, o valor será impresso no shell, e uma parte correspondente do **SpanData** será gerada pelo módulo OpenCensus Python. O projeto OpenCensus define um [_rastreamento como uma árvore de spans_](https://opencensus.io/core-concepts/tracing/).
     
-    ```python
+    ```
     Enter a value: 4
     4
-    [SpanData(name='test', context=SpanContext(trace_id=1f07f062ac394c50925f2ae61e635e14, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='5c17a4ad6ba14299', parent_span_id=None, attributes={}, start_time='2018-09-15T20:42:15.847292Z', end_time='2018-09-15T20:42:17.615664Z', child_span_count=0, stack_trace=None, time_events=[], links=[], status=None, same_process_as_parent_span=None, span_kind=0)]
+    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='15ac5123ac1f6847', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:22.805429Z', end_time='2019-06-27T18:21:44.933405Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     Enter a value: 25
     25
-    [SpanData(name='test', context=SpanContext(trace_id=c71b4e88a22a495da61df52ce3eee3e1, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='51547c0af5f046eb', parent_span_id=None, attributes={}, start_time='2018-09-15T20:42:17.615664Z', end_time='2018-09-15T20:48:11.160314Z', child_span_count=0, stack_trace=None, time_events=[], links=[], status=None, same_process_as_parent_span=None, span_kind=0)]
+    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='2e512f846ba342de', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:44.933405Z', end_time='2019-06-27T18:21:46.156787Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     Enter a value: 100
     100
-    [SpanData(name='test', context=SpanContext(trace_id=b4cdcc9e6df44a8fbb6e8ddeccc1351c, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f2caacf7892744d1', parent_span_id=None, attributes={}, start_time='2018-09-15T20:48:11.175931Z', end_time='2018-09-15T20:48:12.629178Z', child_span_count=0, stack_trace=None, time_events=[], links=[], status=None, same_process_as_parent_span=None, span_kind=0)]
+    [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-4. Embora isso seja útil para fins de demonstração, queremos emitir o SpanData de modo que ele possa ser selecionado pelo nosso **serviço do encaminhador local** e enviado ao Application Insights. Modifique seu código da etapa anterior para o seguinte:
+4. Embora seja útil para fins de demonstração, por fim, queremos emitir o SpanData ao Application Insights. Modifique seu código da etapa anterior com base no seguinte exemplo de código:
 
     ```python
+    from opencensus.ext.azure.trace_exporter import AzureExporter
+    from opencensus.trace.samplers import ProbabilitySampler
     from opencensus.trace.tracer import Tracer
-    from opencensus.trace import config_integration
-    from opencensus.ext.ocagent.trace_exporter import TraceExporter
-    from opencensus.trace import tracer as tracer_module
+    
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    tracer = Tracer(
+        exporter=AzureExporter(
+            instrumentation_key='00000000-0000-0000-0000-000000000000',
+        ),
+        sampler=ProbabilitySampler(1.0),
+    )
 
-    import os
+    def valuePrompt():
+        with tracer.span(name="test") as span:
+            line = input("Enter a value: ")
+            print(line)
 
     def main():
         while True:
             valuePrompt()
 
-    def valuePrompt():
-        export_LocalForwarder = TraceExporter(
-        service_name=os.getenv('SERVICE_NAME', 'python-service'),
-        endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
-
-        tracer = Tracer(exporter=export_LocalForwarder)
-        with tracer.span(name="test") as span:
-            line = input("Enter a value: ")
-            print(line)
-
     if __name__ == "__main__":
         main()
-
     ```
-
-5. Se você salvar e tentar executar o módulo acima, poderá receber um `ModuleNotFoundError` para `grpc`. Se isso ocorrer, execute o seguinte para instalar o [pacote grpcio](https://pypi.org/project/grpcio/) com:
-
-    ```console
-    python -m pip install grpcio
-    ```
-
-6. Agora, quando você executa o script Python acima, ainda deve ser solicitado a inserir valores, mas agora apenas o valor que está sendo impresso no shell.
-
-7. Para confirmar que o **local encaminhador** está capturando os rastreamentos, verifique o arquivo `LocalForwarder.config`. Se você tiver seguido as etapas em [pré-requisito](https://docs.microsoft.com/azure/application-insights/local-forwarder), ele estará localizado em `C:\LF-WindowsServiceHost`.
-
-    Na imagem abaixo do arquivo de log, você pode ver que, antes de executar o segundo script em que adicionamos um exportador, `OpenCensus input BatchesReceived` era 0. Depois que começamos a executar o script atualizado, `BatchesReceived` foi incrementado do mesmo modo que o número de valores que inserimos:
-    
-    ![Formulário de recursos do Application Insights novo](./media/opencensus-python/0004-batches-received.png)
+5. Agora, ao executar o script de Python, você ainda deverá ser solicitado a inserir valores, mas agora apenas o valor está sendo impressa no shell.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Iniciar o monitoramento no Portal do Azure
 
@@ -173,11 +131,7 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
    ![Captura de tela do painel de visão geral com Live Metrics Stream selecionado na caixa vermelha](./media/opencensus-python/0005-overview-live-metrics-stream.png)
 
-2. Se você executar o segundo script do Python novamente e começar a inserir valores, verá os dados de rastreamento ao vivo conforme eles chegam no Application Insights do serviço do encaminhador local.
-
-   ![Captura de tela do Live Metrics Stream com os dados de desempenho exibidos](./media/opencensus-python/0006-stream.png)
-
-3. Navegue de volta para a página **Visão Geral** e selecione **Mapa do Aplicativo** para um layout visual das relações de dependência e tempo da chamada entre os componentes do aplicativo.
+2. Navegue de volta para a página **Visão Geral** e selecione **Mapa do Aplicativo** para um layout visual das relações de dependência e tempo da chamada entre os componentes do aplicativo.
 
     ![Captura de tela do mapa do aplicativo básico](./media/opencensus-python/0007-application-map.png)
 
@@ -185,26 +139,24 @@ Primeiro, você precisa criar um recurso do Application Insights que vai gerar u
 
    ![Mapa de aplicativo](media/opencensus-python/application-map.png)
 
-4. Selecione **Investigar Desempenho** para executar uma análise de desempenho detalhada e determinar a causa raiz da lentidão no desempenho.
+3. Selecione **Investigar Desempenho** para executar uma análise de desempenho detalhada e determinar a causa raiz da lentidão no desempenho.
 
     ![Captura de tela do painel de desempenho](./media/opencensus-python/0008-performance.png)
 
-5. Selecionar **Exemplos** e, em seguida, clicar em qualquer um dos exemplos que aparecem no painel à direita inicializará a experiência de detalhes de transação de ponta a ponta. Embora nosso aplicativo de exemplo apenas nos mostre um único evento, um aplicativo mais complexo permitiria explorar a transação de ponta a ponta até o nível da pilha de chamadas do evento individual.
+4. Selecionar **Exemplos** e, em seguida, clicar em qualquer um dos exemplos que aparecem no painel à direita inicializará a experiência de detalhes de transação de ponta a ponta. Embora nosso aplicativo de exemplo apenas nos mostre um único evento, um aplicativo mais complexo permitiria explorar a transação de ponta a ponta até o nível da pilha de chamadas do evento individual.
 
      ![Captura de tela da interface de transação de ponta a ponta](./media/opencensus-python/0009-end-to-end-transaction.png)
 
-## <a name="opencensus-trace-for-python"></a>Rastreamento do OpenCensus para Python
+## <a name="opencensus-for-python"></a>OpenCensus para Python
 
-Abordamos apenas as noções básicas da conexão do OpenCensus para Python com o encaminhador de local e o Application Insights. A diretriz de uso oficial cobre tópicos mais avançados, como:
+* [Personalização](https://github.com/census-instrumentation/opencensus-python/blob/master/README.rst#customization)
+* [Integração do Flask](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-flask)
+* [Integração do Django](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-django)
+* [Integração do MySQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-mysql)
+* [PostgreSQL](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-postgresql)
 
-* [Amostradores](https://opencensus.io/api/python/trace/usage.html#samplers)
-* [Integração do Flask](https://opencensus.io/api/python/trace/usage.html#flask)
-* [Integração do Django](https://opencensus.io/api/python/trace/usage.html#django)
-* [Integração do MySQL](https://opencensus.io/api/python/trace/usage.html#service-integration)
-* [PostgreSQL](https://opencensus.io/api/python/trace/usage.html#postgresql)
-  
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Guia de uso do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
+* [OpenCensus Python no GitHub](https://github.com/census-instrumentation/opencensus-python)
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

@@ -1,8 +1,8 @@
-- name: Documentação do Analysis Services
+- name: Documentação do Azure Analysis Services
   href: index.md
 - name: Visão geral
   items:
-    - name: O que é Analysis Services?
+    - name: O que é o Azure Analysis Services?
       href: analysis-services-overview.md
 - name: Guia de início rápido
   items:

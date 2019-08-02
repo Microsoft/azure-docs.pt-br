@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do v2 de Monitor de Status do Azure: Desabilitar o mecanismo de instrumentação | Microsoft Docs'
-description: Referência de API v2 de Monitor de status. Disable-InstrumentationEngine. Monitorar o desempenho do site sem reimplantar o site. Funciona com aplicativos web do ASP.NET hospedados no local, em máquinas virtuais ou no Azure.
+title: 'Referência da API do Azure Status Monitor v2: Desabilitar mecanismo de instrumentação | Microsoft Docs'
+description: Referência da API do Status Monitor v2. Disable-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: MS-TimothyMothra
@@ -12,28 +12,23 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: b5ff218ce7bc7593d38f496b22d2a03402a00cdc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 827f8555718a22979617c9b0794dce3bd92207f4
+ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514424"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68326399"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>API de v2 do Monitor de status: Disable-InstrumentationEngine (v0.2.1-alpha)
+# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>API Status Monitor v2: Desabilitar-InstrumentationEngine
 
-Este artigo descreve um cmdlet que é um membro do [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
-
-> [!IMPORTANT]
-> Status Monitor v2 está atualmente em visualização pública.
-> Esta versão de visualização é fornecida sem um contrato de nível de serviço, e não é recomendável para cargas de trabalho de produção. Alguns recursos podem não ter suporte e alguns podem ter recursos restritos.
-> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
 ## <a name="description"></a>DESCRIÇÃO
-Desabilita o mecanismo de instrumentação, removendo algumas chaves do registro.
+Desabilita o mecanismo de instrumentação removendo algumas chaves do registro.
 Reinicie o IIS para que as alterações entrem em vigor.
 
 > [!IMPORTANT] 
-> Esse cmdlet requer uma sessão do PowerShell com permissões de administrador.
+> Este cmdlet requer uma sessão do PowerShell com permissões de administrador.
 
 ## <a name="examples"></a>Exemplos
 
@@ -44,12 +39,12 @@ PS C:\> Disable-InstrumentationEngine
 ## <a name="parameters"></a>parâmetros 
 
 ### <a name="-verbose"></a>-Verbose
-**Parâmetro comum.** Use esta opção para gerar logs detalhados.
+**Parâmetro comum.** Use essa opção para gerar logs detalhados.
 
 ## <a name="output"></a>Saída
 
 
-#### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Exemplo de saída com êxito, desabilite o mecanismo de instrumentação
+#### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Exemplo de saída de desabilitar o mecanismo de instrumentação com êxito
 
 ```
 Configuring IIS Environment for instrumentation engine...
@@ -62,5 +57,5 @@ Configuring registry for instrumentation engine...
 
 ## <a name="next-steps"></a>Próximas etapas
 
- Faça mais com v2 de Monitor de Status:
- - Use nosso guia para [solucionar problemas de](status-monitor-v2-troubleshoot.md) v2 do Monitor de Status.
+ Faça mais com Status Monitor v2:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.

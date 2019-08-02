@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc60cb221b167f6157dbc767e780cd912cbfd7d8
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: 147ce4c898d29f08593019073d69bba78edb75b7
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66481902"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106880"
 ---
 # <a name="tutorial-integrate-anaqua-with-azure-active-directory"></a>Tutorial: Integrar o ANAQUA ao Azure Active Directory
 
@@ -147,4 +147,4 @@ Ao selecionar o bloco do ANAQUA no Painel de Acesso, você deverá entrar automa
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

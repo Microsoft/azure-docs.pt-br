@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62e800a5ac1e1e001e5d4ef328a80c554d007182
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65770144"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67102361"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Azure Active Directory ao FM:Systems
 
@@ -52,7 +52,7 @@ Para configurar a integração do FM:Systems ao Azure AD, você precisará adici
 
 **Para adicionar o FM:Systems da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -193,7 +193,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
    
     ![Criar usuário](./media/fm-systems-tutorial/ic795907.png "Criar usuário")
    
-     a. Digite o **Nome de Usuário**, a **Senha**, **Confirmar Senha**, o **Email** e a **ID do Funcionário** de uma conta válida do Azure Active Directory que você deseje provisionar nas caixas de texto relacionadas.
+    a. Digite o **Nome de Usuário**, a **Senha**, **Confirmar Senha**, o **Email** e a **ID do Funcionário** de uma conta válida do Azure Active Directory que você deseje provisionar nas caixas de texto relacionadas.
    
     b. Clique em **Próximo**.
 
@@ -209,5 +209,5 @@ Ao clicar no bloco do FM:Systems no Painel de Acesso, você deverá ser conectad
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aac1ed82a01477b081f4bc146f199eba87d97859
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309126"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839604"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados do Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -52,7 +52,7 @@ Você pode criar um pipeline com uma atividade de cópia que mova dados do Sales
 
 A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
 
-Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+Você também pode usar as ferramentas abaixo para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo do Resource Manager**, **.NET API**, e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -72,7 +72,7 @@ A tabela a seguir fornece descrições dos elementos JSON específicos para o se
 | type |A propriedade type deve ser definida como: **Salesforce**. |Sim |
 | environmentUrl | Especifica a URL da instância do Salesforce. <br><br> – O padrão é "https:\//login.salesforce.com". <br> – Para copiar dados da área restrita, especifique “https://test.salesforce.com”. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio].my.salesforce.com". |Não |
 | username |Especifique um nome de usuário para a conta de usuário. |Sim |
-| Senha |Especifique um senha para a conta de usuário. |Sim |
+| password |Especifique um senha para a conta de usuário. |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API). |Sim |
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
@@ -124,7 +124,7 @@ Para consultar os registros excluídos pelo software da lixeira do Salesforce, v
 * Para consultar todos os registros, incluindo existentes e excluídos, especifique "select * from MyTable__c **m que IsDeleted = 0 ou IsDeleted = 1**"
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Exemplo JSON: copiar dados do Salesforce para o Blob do Azure
-O exemplo a seguir fornece as definições JSON de exemplo que você pode utilizar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Salesforce para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Salesforce para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 Aqui estão os artefatos Data Factory que você precisará criar para implementar o cenário. As seções depois da lista fornecem detalhes sobre essas etapas.
 
@@ -286,25 +286,25 @@ Veja [Propriedades do tipo RelationalSource](#copy-activity-properties) para obt
 
 | Tipo Salesforce | Tipo baseado no .NET |
 | --- | --- |
-| Numeração automática |Cadeia de caracteres |
-| Caixa de seleção |Boolean |
-| Moeda |Decimal |
-| Data |Datetime |
-| Data/hora |Datetime |
-| Email |Cadeia de caracteres |
-| ID |Cadeia de caracteres |
-| Relação de pesquisa |Cadeia de caracteres |
-| Lista de seleção múltipla |Cadeia de caracteres |
-| Número |Decimal |
-| Porcentagem |Decimal |
-| Telefone |Cadeia de caracteres |
-| Lista de seleção |Cadeia de caracteres |
-| Text |Cadeia de caracteres |
-| Área de texto |Cadeia de caracteres |
-| Área de texto (longo) |Cadeia de caracteres |
-| Área de texto (Rich) |Cadeia de caracteres |
-| Texto (criptografado) |Cadeia de caracteres |
-| URL |Cadeia de caracteres |
+| Numeração automática |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
+| Date |DateTime |
+| Date/Time |DateTime |
+| Email |String |
+| Id |String |
+| Relação de pesquisa |String |
+| Lista de seleção múltipla |String |
+| Number |Decimal |
+| Percent |Decimal |
+| Telefone |String |
+| Lista de seleção |String |
+| Texto |String |
+| Área de texto |String |
+| Área de texto (longo) |String |
+| Área de texto (Rich) |String |
+| Texto (criptografado) |String |
+| URL |string |
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas do conjunto de dados de coletor, confira [Mapeando colunas de conjunto de dados no Azure Data Factory](data-factory-map-columns.md).

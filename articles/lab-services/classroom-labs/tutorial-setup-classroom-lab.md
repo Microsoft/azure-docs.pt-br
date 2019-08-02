@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ms.author: spelluru
-ms.openlocfilehash: bdcc4349f84a35b312ecb3ad6205273b62c2e989
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0c50a321cbeb0d07a5039038ff796df00463ac8a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722721"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68385673"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configurar um laboratório de sala de aula 
 Neste tutorial, você configura um laboratório de sala de aula com máquinas virtuais que são usadas por alunos na sala de aula.  
@@ -48,7 +48,7 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
         ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Na página **Selecionar especificações da máquina virtual**, siga estas etapas:
-    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. No momento, os tamanhos **pequeno**, **médio**, **grande** e **GPU** são permitidos.
+    1. Selecione um **tamanho** para as VMs (máquinas virtuais) criadas no laboratório. No momento, os tamanhos **pequeno**, **médio**, **médio (virtualização)** , **grande** e **GPU** são permitidos.
     3. Selecione a **imagem da VM** a ser usada para criar as VMs no laboratório. Se você selecionar uma imagem do Linux, verá uma opção para habilitar a conexão de área de trabalho remota para ela. Para obter detalhes, veja [Habilitar conexão de área de trabalho remota para Linux](how-to-enable-remote-desktop-linux.md).
     4. Selecione **Avançar**.
 
@@ -69,9 +69,11 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
     ![Página de configuração do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Na página **Configurar modelo**, execute as seguintes etapas: Essas etapas são **opcionais** para o tutorial.
-    1. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou RDP (se RDP estiver habilitado).
-    2. Instale e configure software em sua VM modelo.     
-    3. Insira uma **descrição** do modelo
+    2. Conecte-se à VM modelo selecionando **Conectar**. Se for uma VM de modelo do Linux, você escolherá se deseja se conectar usando SSH ou RDP (se RDP estiver habilitado).
+    1. Selecione **Redefinição de senha** para redefinir a senha da VM. 
+    1. Instale e configure software em sua VM modelo. 
+    1. **Pare** a VM.  
+    1. Insira uma **descrição** do modelo
 9. Selecione **Avançar** na página do modelo. 
 10. Na página **Publicar o modelo**, execute as seguintes ações. 
     1. Para publicar o modelo imediatamente, selecione **Publicar**.  
@@ -107,6 +109,40 @@ Um proprietário de laboratório pode adicionar outros usuários à função **C
 
     ![Lista de usuários](../media/how-to-configure-student-usage/users-list-new.png)
 
+## <a name="set-quotas-for-users"></a>Definir cotas para usuários
+Defina cotas por usuário usando as seguintes etapas: 
+
+1. Selecione **Usuários** no menu à esquerda se a página não estiver ativa. 
+2. Selecione **Cota por usuário: 10 horas** na barra de ferramentas. 
+3. Na página **Cota por usuário**, especifique o número de horas que você deseja conceder a cada usuário (aluno): 
+    1. **Número total de horas por usuário**. Os usuários podem usar suas VMs durante o número definido de horas (especificado para este campo), **além do horário agendado**. Se você selecionar essa opção, insira o **número de horas** na caixa de texto. 
+
+        ![Número de horas por usuário](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 horas (somente agenda)** . Os usuários podem usar suas VMs somente durante o horário agendado ou quando você, como o proprietário de laboratório, ativa as máquinas virtuais para eles.
+
+        ![Horas de zero - somente horário agendado](../media/how-to-configure-student-usage/zero-hours.png)
+    4. Clique em **Salvar**. 
+5. Agora você vê os valores alterados na barra de ferramentas: **Cota por usuário: &lt;número de horas&gt;** . 
+
+    ![Cota por usuário](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## <a name="set-a-schedule-for-the-lab"></a>Definir uma agenda para o laboratório
+Se tiver configurado para a configuração de cota como **0 horas (somente agenda)** , você deve definir uma agenda para o laboratório. Neste tutorial, você define o agendamento para que seja uma agenda semanal recorrente.
+
+1. Alterne para a página **Agendamentos** e selecione **Adicionar agendamento** na barra de ferramentas. 
+
+    ![Botão Adicionar agendamento na página Agendamentos](../media/how-to-create-schedules/add-schedule-button.png)
+2. Na página **Adicionar agendamento**, alterne para **Semanal** na parte superior. 
+3. Para **Dias do agendamento (obrigatório)** , selecione os dias em que você deseja que o agendamento entre em vigor. No exemplo abaixo, a marca Segunda-Sexta foi selecionada. 
+4. No campo **De**, insira a **data de início do agendamento** ou escolha uma data, selecionando o botão **calendário**. Esse campo é obrigatório. 
+5. Para **data de término do agendamento**, insira ou selecione uma data de término em que as VMs devem ser desligadas. 
+6. Para **Hora de início**, selecione a hora em que você deseja que as VMs sejam iniciadas. A hora de início é necessária se a hora de término não está definida. Selecione **Remover evento de início** se você quiser especificar apenas a hora de término. Se a **Hora de início** é desabilitada, selecione **Adicionar evento de início** ao lado da lista suspensa para habilitá-lo. 
+7. Para **Hora de término**, selecione a hora em que você deseja que as VMs sejam desligadas. A hora de término é necessária se a hora de início não está definida. Selecione **Remover evento de interrupção** se você quiser especificar apenas a hora de início. Se a **Hora de término** é desabilitada, selecione **Adicionar evento de interrupção** ao lado da lista suspensa para habilitá-lo.
+8. Para **Fuso horário (obrigatório)** , selecione o fuso horário das horas de início e de término especificadas por você.  
+9. Para **Anotações**, insira qualquer descrição ou anotações para o agendamento. 
+10. Clique em **Salvar**. 
+
+    ![Agendamento semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="send-an-email-with-the-registration-link"></a>Envie um email com o link de registro
 

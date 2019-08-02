@@ -33,11 +33,17 @@
     - name: Trabalhar com grandes conjuntos de dados
       displayName: 'page, first, skip, token'
       href: ./concepts/work-with-data.md
+    - name: Diretrizes para solicitações limitadas
+      displayName: 'pagination, batching, throttling, parallel'
+      href: ./concepts/guidance-for-throttled-requests.md
 - name: Guias de instruções
   items:
     - name: Obter alterações de recurso
       displayName: 'resource, change, history, snapshot, details'
       href: ./how-to/get-resource-changes.md
+- name: Solucionar problemas
+  displayName: 'errors, violation'
+  href: ./troubleshoot/general.md
 - name: Referência
   items:
     - name: CLI do Azure

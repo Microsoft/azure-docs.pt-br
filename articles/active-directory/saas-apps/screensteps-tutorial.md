@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 570f789d0f399c5ffa7535101136ab65ba58ccd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 864a9243a9f737506fd4d8cbc3940d7a86711f20
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65867716"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67091657"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Tutorial: integração do Azure Active Directory com o ScreenSteps
 
@@ -53,7 +53,7 @@ Para configurar a integração do ScreenSteps ao Azure AD, é necessário adicio
 
 **Para adicionar o ScreenSteps por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -144,7 +144,7 @@ Para configurar o logon único do Azure AD com o ScreenSteps, execute as seguint
 
     ![Criar um Ponto de Extremidade de Autenticação](./media/screensteps-tutorial/ic778526.png "Criar um Ponto de Extremidade de Autenticação")
 
-     a. Na caixa de texto **Título** , digite um título.
+    a. Na caixa de texto **Título** , digite um título.
 
     b. Na lista **Modo**, selecione **SAML**.
 
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o ScreenSteps, execute as seguint
 
     ![Ponto de Extremidade de Autenticação Remota](./media/screensteps-tutorial/ic778527.png "Ponto de Extremidade de Autenticação Remota")
 
-     a. Clique em **Carregar novo arquivo de Certificado SAML** e carregue o certificado que você baixou do Portal do Azure.
+    a. Clique em **Carregar novo arquivo de Certificado SAML** e carregue o certificado que você baixou do Portal do Azure.
 
     b. Cole o valor da **URL de Logon**, que você copiou do portal do Azure, na caixa de texto **URL de Logon Remoto**.
 
@@ -241,4 +241,4 @@ Ao clicar no bloco do ScreenSteps no Painel de Acesso, você deverá ser conecta
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

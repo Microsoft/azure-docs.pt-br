@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: 7f793741638db5196bbf8bcd97e7f42d79548f0b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 44cbad443cb1341ea080f517bbe614ec6fc46b13
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65897383"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097808"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-manabi-pocket"></a>Tutorial: Integração do Azure Active Directory com o Manabi Pocket
 
@@ -53,7 +53,7 @@ Para configurar a integração do Manabi Pocket ao Microsoft Azure AD, você pre
 
 **Para adicionar o Manabi Pocket por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Manabi Pocket, execute as segui
 
     ![Informações de logon único de Domínio e URLs do Manabi Pocket](common/sp-identifier.png)
 
-     a. Na caixa de texto **URL de logon**, digite uma URL: `https://ed-cl.com/`
+    a. Na caixa de texto **URL de logon**, digite uma URL: `https://ed-cl.com/`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<SERVER-NAME>.ed-cl.com/<TENANT-ID>/idp/provider`
 
     > [!NOTE]
     > O valor do Identificador não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte ao cliente do Manabi Pocket](mailto:info-ed-cl@ntt.com) para obter o valor. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.

@@ -1,48 +1,47 @@
 ---
-title: Gerenciar e monitorar bancos de dados do SQL Server em uma VM do Azure que é feito backup pelo Backup do Azure | Microsoft Docs
-description: Este artigo descreve como gerenciar e monitorar bancos de dados do SQL Server em execução em uma VM do Azure.
-services: backup
+title: Gerenciar e monitorar bancos de dados SQL Server em uma VM do Azure que é submetida a backup pelo backup do Azure | Microsoft Docs
+description: Este artigo descreve como gerenciar e monitorar SQL Server bancos de dados que estão em execução em uma VM do Azure.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: d850cb222b0028f862cdba302140ce12af8576db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a864382e54f5c8641aa6da2369eb914011c712c
+ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66492736"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68464861"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerenciar e monitorar backup de bancos de dados do SQL Server
 
-Este artigo descreve as tarefas comuns para gerenciamento e monitoramento de bancos de dados do SQL Server que estiver executando em uma máquina virtual do Azure (VM) e que passam por backup nos serviços de recuperação de Backup do Azure do cofre o [Backup do Azure](backup-overview.md) service. Você aprenderá a monitorar trabalhos e alertas, interromper e retomar a proteção do banco de dados, executar trabalhos de backup e cancelar o registro de uma VM a partir de backups.
+Este artigo descreve as tarefas comuns para gerenciar e monitorar SQL Server bancos de dados que estão em execução em uma VM (máquina virtual) do Azure e cujo backup é feito em um cofre dos serviços de recuperação de backup do Azure pelo serviço de [backup do Azure](backup-overview.md) . Você aprenderá como monitorar trabalhos e alertas, parar e retomar a proteção de banco de dados, executar trabalhos de backup e cancelar o registro de uma VM de backups.
 
-Se você ainda não tiver configurado a backups para seus bancos de dados do SQL Server, consulte [fazer backup de bancos de dados do SQL Server em VMs do Azure](backup-azure-sql-database.md)
+Se você ainda não tiver configurado backups para seus bancos de dados SQL Server, consulte [fazer backup de bancos de dados SQL Server em VMs do Azure](backup-azure-sql-database.md)
 
 ## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorar trabalhos de backup manuais no portal
 
-O Backup do Azure mostra todos os trabalhos disparados manualmente na **trabalhos de Backup** portal. Os trabalhos que você vê nessa descoberta de banco de dados do portal de inclusão e registrando e backup e restaurar operações.
+O backup do Azure mostra todos os trabalhos disparados manualmente no portal de **trabalhos de backup** . Os trabalhos que você vê nesse portal incluem descoberta de banco de dados e registro e operações de backup e restauração.
 
-![O portal de trabalhos de Backup](./media/backup-azure-sql-database/jobs-list.png)
+![O portal de trabalhos de backup](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> O **trabalhos de Backup** portal não mostra os trabalhos de backup agendados. Use o SQL Server Management Studio para monitorar trabalhos de backup agendados, conforme descrito na próxima seção.
+> O portal de **trabalhos de backup** não mostra os trabalhos de backup agendados. Use o SQL Server Management Studio para monitorar trabalhos de backup agendados, conforme descrito na próxima seção.
 >
 
-Para obter detalhes sobre cenários de monitoramento, acesse [de monitoramento no portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoramento usando o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+Para obter detalhes sobre cenários de monitoramento, acesse [monitoramento na portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoramento usando Azure monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## <a name="view-backup-alerts"></a>Exibir alertas de backup
 
-Uma vez que os backups de log ocorrem a cada 15 minutos, monitorar os trabalhos de backup pode ser entediante. O Backup do Azure facilita o monitoramento por meio do envio de alertas por email. Alertas de email são:
+Uma vez que os backups de log ocorrem a cada 15 minutos, monitorar os trabalhos de backup pode ser entediante. O backup do Azure facilita o monitoramento enviando alertas de email. Os alertas de email são:
 
-- Acionado para todas as falhas de backup.
-- Consolidados no nível do banco de dados por código de erro.
-- Enviadas somente para a primeira falha de backup do banco de dados.
+- Disparado para todas as falhas de backup.
+- Consolidado no nível do banco de dados por código de erro.
+- Enviado somente para a primeira falha de backup de um banco de dados.
 
-Para monitorar alertas de backup do banco de dados:
+Para monitorar alertas de backup de banco de dados:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 
@@ -59,19 +58,19 @@ Para monitorar alertas de backup do banco de dados:
 Você pode interromper o backup de um banco de dados do SQL Server de duas maneiras:
 
 * Interromper todos os trabalhos de backup futuros e excluir todos os pontos de recuperação.
-* Interrompa todos os trabalhos de backup futuros e deixar os pontos de recuperação intacto.
+* Pare todos os trabalhos de backup futuros e deixe os pontos de recuperação intactos.
 
-Se você optar por deixar os pontos de recuperação, lembre-se esses detalhes:
+Se você optar por deixar os pontos de recuperação, tenha em mente estes detalhes:
 
-* Todos os pontos de recuperação permanecerão intactos para sempre, remoção de todos os deverá parar em Parar proteção com reter dados.
-* Você será cobrado para a instância protegida e o armazenamento consumido. Para obter mais informações, consulte [preços de Backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
-* Se você excluir uma fonte de dados sem interromper os backups, novos backups falhará.
+* Todos os pontos de recuperação permanecerão intactos para sempre, toda a remoção será interrompida em parar proteção com manter dados.
+* Você será cobrado pela instância protegida e pelo armazenamento consumido. Para obter mais informações, consulte [preços do backup do Azure](https://azure.microsoft.com/pricing/details/backup/).
+* Se você excluir uma fonte de dados sem interromper os backups, novos backups falharão.
 
 Para interromper a proteção para um banco de dados:
 
-1. No painel do cofre, selecione **itens de Backup**.
+1. No painel do cofre, selecione **itens de backup**.
 
-2. Sob **tipo de gerenciamento de Backup**, selecione **SQL em VM do Azure**.
+2. Em **tipo de gerenciamento de backup**, selecione **SQL na VM do Azure**.
 
     ![Selecionar SQL na VM do Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
@@ -84,26 +83,27 @@ Para interromper a proteção para um banco de dados:
     ![Selecionar Parar Backup](./media/backup-azure-sql-database/stop-db-button.png)
 
 
-5. Sobre o **parar Backup** menu, selecione se deseja reter ou excluir dados. Se você desejar, forneça um motivo e o comentário.
+5. No menu **parar backup** , selecione se deseja reter ou excluir dados. Se desejar, forneça um motivo e um comentário.
 
-    ![Reter ou excluir os dados no menu parar Backup](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Reter ou excluir dados no menu parar backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. Selecione **parar backup**.
 
->
+
 > [!NOTE]
-Consulte o abaixo de perguntas Frequentes para obter mais informações sobre a opção de exclusão de dados: <br/>
-* [Se eu excluir um banco de dados de uma instância de autoprotected, o que acontecerá com os backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
-* [Se parar a operação de backup de um banco de dados autoprotected qual será seu comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+Consulte as perguntas frequentes abaixo para obter mais informações sobre a opção excluir dados:
+* [Se eu excluir um banco de dados de uma instância autoprotegida, o que acontecerá com os backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+* [Se eu parar a operação de backup de um banco de dados autoprotegido, qual será seu comportamento?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
 
 ## <a name="resume-protection-for-a-sql-database"></a>Retomar a proteção para um banco de dados SQL
 
-Quando você interromper a proteção para o banco de dados SQL, se você selecionar o **reter dados de Backup** opção, você pode retomar a proteção mais tarde. Se você não mantiver os dados de backup, não é possível retomar a proteção.
+Ao interromper a proteção para o banco de dados SQL, se você selecionar a opção **reter backup data** , poderá posteriormente continuar a proteção. Se você não mantiver os dados de backup, não poderá retomar a proteção.
 
-Para retomar a proteção para um banco de dados SQL:
+Para retomar a proteção de um banco de dados SQL:
 
 1. Abra o item de backup e selecione **retomar backup**.
 
@@ -120,14 +120,14 @@ Você pode executar diferentes tipos de backups sob demanda:
 * Backup diferencial
 * Backup de log
 
-Enquanto você precisa especificar a duração de retenção de backup completo somente cópia, o período de retenção para outros tipos de backup é automaticamente definido como 30 dias da hora atual. <br/>
-Para obter mais informações, consulte [tipos de backup do SQL Server](backup-architecture.md#sql-server-backup-types).
+Embora você precise especificar a duração da retenção para backup completo somente cópia, o período de retenção para outros tipos de backup é definido automaticamente como 30 dias a partir da hora atual. <br/>
+Para obter mais informações, consulte [SQL Server tipos de backup](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Cancelar o registro de uma instância do SQL Server
 
-Cancelar o registro de uma instância do SQL Server depois de desabilitar a proteção, mas antes de excluir o cofre:
+Cancele o registro de uma instância de SQL Server depois de desabilitar a proteção, mas antes de excluir o cofre:
 
-1. No painel do cofre, sob **Manage**, selecione **infraestrutura de Backup**.  
+1. No painel do cofre, em **gerenciar**, selecione **infraestrutura de backup**.  
 
    ![Selecionar Infraestrutura de Backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -137,16 +137,16 @@ Cancelar o registro de uma instância do SQL Server depois de desabilitar a prot
 
 3. Em **Servidores Protegidos**, selecione o servidor para cancelar o registro. Para excluir o cofre, você deve cancelar o registro de todos os servidores.
 
-4. O servidor protegido com o botão direito e selecione **Unregister**.
+4. Clique com o botão direito do mouse no servidor protegido e selecione **Cancelar registro**.
 
    ![Selecione Excluir](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrar novamente a extensão de VM do SQL Server
+## <a name="re-register-extension-on-the-sql-server-vm"></a>Registrar novamente a extensão na VM SQL Server
 
-Às vezes, a extensão de carga de trabalho na VM pode ser afetada por um motivo ou outro. Nesses casos, todas as operações acionadas na VM começam a falhar. Em seguida, você talvez precise registrar novamente a extensão na VM. **Registrar novamente** operação reinstalará a extensão de backup de carga de trabalho na VM para a continuidade das operações.  <br>
+Às vezes, a extensão de carga de trabalho na VM pode ser afetada por um motivo ou pela outra. Nesses casos, todas as operações disparadas na VM começarão a falhar. Você pode precisar registrar novamente a extensão na VM. A operação de **novo registro** reinstala a extensão de backup de carga de trabalho na VM para que as operações continuem.  <br>
 
-É recomendável usar essa opção com cuidado; Quando disparado em uma VM com uma extensão já íntegra, esta operação fará com que a extensão para obter reiniciado. Isso pode resultar em todos os trabalhos em andamento falhe. . Verifique para um ou mais dos [sintomas](backup-sql-server-azure-troubleshoot.md#symptoms) antes de disparar a operação registrar novamente.
+É aconselhável usar essa opção com cuidado; Quando disparado em uma VM com uma extensão já íntegra, essa operação fará com que a extensão seja reiniciada. Isso pode resultar na falha de todos os trabalhos em andamento. Por outro, verifique um ou mais [sintomas](backup-sql-server-azure-troubleshoot.md#re-registration-failures) antes de disparar a operação de novo registro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte [solucionar problemas de backups em um banco de dados do SQL Server](backup-sql-server-azure-troubleshoot.md).
+Para obter mais informações, consulte [solucionar problemas de backups em um banco de dados SQL Server](backup-sql-server-azure-troubleshoot.md).

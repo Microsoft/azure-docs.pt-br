@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad55656ba91c2f344024700344550849a36ed9b6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: f80c48d1fb9cb32fc438eea3c29fc281ac8d65a6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59263988"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67099454"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobbadmin"></a>Tutorial: Integração do Azure Active Directory com o Jobbadmin
 
@@ -53,7 +53,7 @@ Para configurar a integração do Jobbadmin ao Azure AD, você precisará adicio
 
 **Para adicionar o Jobbadmin da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o Jobbadmin, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do Jobbadmin](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
-    b. Na caixa de texto **Identificador (ID da Entidade)**, digite uma URL usando o seguinte padrão: `https://<instancename>.jobnorge.no`
+    b. Na caixa de texto **Identificador (ID da Entidade)** , digite uma URL usando o seguinte padrão: `https://<instancename>.jobnorge.no`
 
     c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<instancename>.jobbnorge.no/auth/saml2/login.ashx`
 
@@ -199,4 +199,4 @@ Ao clicar no bloco do Jobbadmin no Painel de Acesso, você deverá ser conectado
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 816f9bfe022b4a00c01c3ee1bc243f87ef56817b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e7a6dc16eef1bb36a5bd6cbf0502a83481230bc0
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565930"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087091"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Tutorial: Integração do Azure Active Directory com o Work.com
 
@@ -54,7 +54,7 @@ Para configurar a integração do Work.com ao Azure AD, você precisará adicion
 
 **Para adicionar o Work.com da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -158,7 +158,7 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
     
     ![SAML habilitado](./media/work-com-tutorial/ic781026.png "SAML habilitado")
     
-     a. Selecione **SAML Habilitado**.
+    a. Selecione **SAML Habilitado**.
     
     b. Clique em **Novo**.
 
@@ -166,7 +166,7 @@ Para configurar o logon único do Azure AD com o Work.com, execute as seguintes 
     
     ![Configurações de Logon Único do SAML](./media/work-com-tutorial/ic794114.png "Configurações de Logon Único do SAML")
     
-     a. Na caixa de texto **Nome** , digite um nome para a sua configuração.  
+    a. Na caixa de texto **Nome** , digite um nome para a sua configuração.  
        
     > [!NOTE]
     > Fornecer um valor para **Nome** popula automaticamente a caixa de texto **Nome da API**.
@@ -275,7 +275,7 @@ Para que os usuários do Active Directory do Azure possam entrar, eles devem ser
    
     ![Editar Usuário](./media/work-com-tutorial/ic794118.png "Editar Usuário")
    
-     a. Na caixa de texto **Nome**, digite o **nome** do usuário, **Brenda**.
+    a. Na caixa de texto **Nome**, digite o **nome** do usuário, **Brenda**.
     
     b. Na caixa de texto **Sobrenome**, digite o **sobrenome** do usuário, **Fernandes**.
     
@@ -307,5 +307,5 @@ Ao clicar no bloco do Work.com no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 35a056fbe01633dd93bd71ac2af16cba8a21344a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 12a97e9f355ca1c71e926433e5eafd8b960a87da
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235720"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67203212"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento 
 
@@ -21,17 +21,17 @@ ms.locfileid: "65235720"
 
 No Data Factory, use a linguagem de expressão do recurso de mapeamento de fluxo de dados para configurar as transformações de dados.
 
-*********************************
+---
 ### <code>abs</code>
 <code><b>abs(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Módulo positivo de par de números.
 * ``abs(-20) -> 20``
 * ``abs(10) -> 10``
-*********************************
+---
 ### <code>acos</code>
 <code><b>acos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula o valor inverso consine * ``acos(1) -> 0.0``
-*********************************
+---
 ### <code>add</code>
 <code><b>add(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um número de dias. Acrescenta uma matriz de tipo semelhante a outra. Mesmo que o operador + * ``add(10, 20) -> 30``
@@ -41,41 +41,41 @@ Adiciona um par de cadeias de caracteres ou números. Adiciona uma data a um nú
 * ``add(toDate('2012-12-12'), 3) -> 2012-12-15 (date value)``
 * ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``
 * ``[10, 20] + [30, 40] => [10, 20, 30, 40]``
-*********************************
+---
 ### <code>addDays</code>
 <code><b>addDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to add&gt;</i> : integral) => datetime</b></code><br/><br/>
 Adiciona dias a uma data ou carimbo de data/hora. Mesmo que o operador para data + * ``addDays(toDate('2016-08-08'), 1) -> 2016-08-09``
-*********************************
+---
 ### <code>addMonths</code>
 <code><b>addMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to add&gt;</i> : integral) => datetime</b></code><br/><br/>
 Adicionar meses para uma data ou carimbo de hora * ``addMonths(toDate('2016-08-31'), 1) -> 2016-09-30``
 * ``addMonths(toTimestamp('2016-09-30 10:10:10'), -1) -> 2016-08-31 10:10:10``
-*********************************
+---
 ### <code>and</code>
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Operador lógico AND. Mesmo que & & * ``and(true, false) -> false``
 * ``true && false -> false``
-*********************************
+---
 ### <code>asin</code>
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor do seno inverso * ``asin(0) -> 0.0``
-*********************************
+---
 ### <code>atan</code>
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula o valor da tangente inverso * ``atan(0) -> 0.0``
-*********************************
+---
 ### <code>atan2</code>
 <code><b>atan2(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Retorna o ângulo em radianos entre o eixo x positivo de um plano e o ponto fornecido pelas coordenadas * ``atan2(0, 0) -> 0.0``
-*********************************
+---
 ### <code>avg</code>
 <code><b>avg(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Obtém a média dos valores de uma coluna * ``avg(sales) -> 7523420.234``
-*********************************
+---
 ### <code>avgIf</code>
 <code><b>avgIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Com base em um critério obtém a média dos valores de uma coluna * ``avgIf(region == 'West', sales) -> 7523420.234``
-*********************************
+---
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
 Seleciona um valor de coluna por nome no fluxo. Se houver várias correspondências, a primeira correspondência é retornada. Se nenhuma correspondência, ele retorna um valor nulo. O valor retornado deve ser do tipo convertido por uma das funções de conversão de tipo (TO_DATE, TO_STRING...).  Nomes de coluna conhecidos em tempo de design devem ser resolvidos apenas por seu nome. Não há suporte para entradas computadas mas você pode usar substituições de parâmetro * ``toString(byName('parent')) -> appa``
@@ -84,7 +84,7 @@ Seleciona um valor de coluna por nome no fluxo. Se houver várias correspondênc
 * ``toLong(byName($debtCol)) -> 123456890``
 * ``birthDate -> 12/31/2050``
 * ``toString(byName('Bogus Column')) -> NULL``
-*********************************
+---
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
 Seleciona um valor de coluna por sua posição relativa (com base em 1) no fluxo. Se a posição está fora dos limites, que ele retorna um valor nulo. O valor retornado tem que ser convertida por uma das funções de conversão de tipo (TO_DATE, TO_STRING...) Não há suporte para entradas computadas mas você pode usar substituições de parâmetro * ``toString(byPosition(1)) -> amma``
@@ -92,126 +92,126 @@ Seleciona um valor de coluna por sua posição relativa (com base em 1) no fluxo
 * ``toBoolean(byName(4)) -> false``
 * ``toString(byName($colName)) -> family``
 * ``toString(byPosition(1234)) -> NULL``
-*********************************
+---
 ### <code>case</code>
 <code><b>case(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, <i>&lt;false_expression&gt;</i> : any, ...) => any</b></code><br/><br/>
 Com base em condições alternadas, aplica-se um valor ou o outro. Se o número de entradas é até mesmo, o outro é NULL para a última condição * ``case(custType == 'Premium', 10, 4.5)``
 * ``case(custType == 'Premium', price*0.95, custType == 'Elite',   price*0.9, price*2)``
 * ``case(dayOfWeek(saleDate) == 1, 'Sunday', dayOfWeek(saleDate) == 6, 'Saturday')``
-*********************************
+---
 ### <code>cbrt</code>
 <code><b>cbrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcule a raiz cúbica de um número * ``cbrt(8) -> 2.0``
-*********************************
+---
 ### <code>ceil</code>
 <code><b>ceil(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Retorna o menor número inteiro não menor do que o número * ``ceil(-0.1) -> 0``
-*********************************
+---
 ### <code>concat</code>
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
 Concatena um número variável de cadeias de caracteres juntas. Mesmo que o operador com cadeias de caracteres + * ``concat('Awesome', 'Cool', 'Product') -> 'AwesomeCoolProduct'``
 * ``'Awesome' + 'Cool' + 'Product' -> 'AwesomeCoolProduct'``
 * ``concat(addrLine1, ' ', addrLine2, ' ', city, ' ', state, ' ', zip)``
 * ``addrLine1 + ' ' + addrLine2 + ' ' + city + ' ' + state + ' ' + zip``
-*********************************
+---
 ### <code>concatWS</code>
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
 Concatena um número variável de cadeias de caracteres juntamente com um separador. O primeiro parâmetro é o separador * ``concatWS(' ', 'Awesome', 'Cool', 'Product') -> 'Awesome Cool Product'``
-* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) -> ``
+* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) ->``
 * ``concatWS(',' , toString(order_total), toString(order_discount))``
-*********************************
+---
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor do cosseno * ``cos(10) -> -0.83907152907``
-*********************************
+---
 ### <code>cosh</code>
 <code><b>cosh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um cosseno hiperbólico de um valor * ``cosh(0) -> 1.0``
-*********************************
+---
 ### <code>count</code>
 <code><b>count([<i>&lt;value1&gt;</i> : any]) => long</b></code><br/><br/>
 Obtém a contagem agregada de valores. Se a coluna opcional (s) for especificado, ele ignora valores nulos na contagem * ``count(custId) -> 100``
 * ``count(custId, custName) -> 50``
 * ``count() -> 125``
 * ``count(iif(isNull(custId), 1, NULL)) -> 5``
-*********************************
+---
 ### <code>countDistinct</code>
 <code><b>countDistinct(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : any], ...) => long</b></code><br/><br/>
 Obtém a contagem de agregação de valores distintos de um conjunto de colunas * ``countDistinct(custId, custName) -> 60``
-*********************************
+---
 ### <code>countIf</code>
 <code><b>countIf(<i>&lt;value1&gt;</i> : boolean, [<i>&lt;value2&gt;</i> : any]) => long</b></code><br/><br/>
 Com base em um critério, obtém a contagem agregada de valores. Se a coluna opcional for especificada, ele ignora valores nulos na contagem * ``countIf(state == 'CA' && commission < 10000, name) -> 100``
-*********************************
+---
 ### <code>covariancePopulation</code>
 <code><b>covariancePopulation(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a covariância de população entre duas colunas * ``covariancePopulation(sales, profit) -> 122.12``
-*********************************
+---
 ### <code>covariancePopulationIf</code>
 <code><b>covariancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, ele obterá a covariância de população de duas colunas * ``covariancePopulationIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>covarianceSample</code>
 <code><b>covarianceSample(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a covariância de duas colunas de amostra * ``covarianceSample(sales, profit) -> 122.12``
-*********************************
+---
 ### <code>covarianceSampleIf</code>
 <code><b>covarianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number, <i>&lt;value3&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, ele obterá a covariância de duas colunas de amostra * ``covarianceSampleIf(region == 'West', sales, profit) -> 122.12``
-*********************************
+---
 ### <code>crc32</code>
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
 Calcula o hash CRC32 do conjunto de colunas de diferentes tipos de dados primitivos dado um comprimento de bits, que pode ser apenas de valores 0 (256), 224, 256, 384, 512. Ele pode ser usado para calcular uma impressão digital para uma linha * ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689``
-*********************************
+---
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
 A função CumeDist calcula a posição de um valor relativo a todos os valores na partição. O resultado é o número de linhas anteriores ou iguais à linha atual na ordenação da partição, dividido pelo número total de linhas na partição de janela. Quaisquer valores de empate na ordenação serão avaliada para a mesma posição.
 * ``cumeDist() -> 1``
-*********************************
+---
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
 Obtém a data atual quando este trabalho começa a ser executado. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como padrão.
 * ``currentDate() -> 12-12-2030``
 * ``currentDate('PST') -> 12-31-2050``
-*********************************
+---
 ### <code>currentTimestamp</code>
 <code><b>currentTimestamp() => timestamp</b></code><br/><br/>
 Obtém o carimbo de hora atual quando o trabalho começa a executar com o fuso horário local * ``currentTimestamp() -> 12-12-2030T12:12:12``
-*********************************
+---
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Obtém o carimbo de data/hora atual como UTC. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. Ele assume o padrão para o fuso horário atual * ``currentUTC() -> 12-12-2030T19:18:12``
 * ``currentUTC('Asia/Seoul') -> 12-13-2030T11:18:12``
-*********************************
+---
 ### <code>dayOfMonth</code>
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o dia do mês, considerando uma data * ``dayOfMonth(toDate('2018-06-08')) -> 08``
-*********************************
+---
 ### <code>dayOfWeek</code>
 <code><b>dayOfWeek(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o dia da semana de uma determinada data. 1 - domingo, 2 -... segunda-feira, 7 - Sábado * ``dayOfWeek(toDate('2018-06-08')) -> 7``
-*********************************
+---
 ### <code>dayOfYear</code>
 <code><b>dayOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o dia do ano a partir de uma data * ``dayOfYear(toDate('2016-04-09')) -> 100``
-*********************************
+---
 ### <code>degrees</code>
 <code><b>degrees(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Converte radianos em graus * ``degrees(3.141592653589793) -> 180``
-*********************************
+---
 ### <code>denseRank</code>
 <code><b>denseRank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
 Calcula a classificação de um valor em um grupo de valores. O resultado é 1 mais o número de linhas anteriores ou iguais à linha atual na ordenação da partição. Os valores não produzirão lacunas na sequência. Dense Rank funciona mesmo quando dados não estão classificados e procura por alteração nos valores * ``denseRank(salesQtr, salesAmt) -> 1``
-*********************************
+---
 ### <code>divide</code>
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Divide o par de números. Mesmo que o / operador * ``divide(20, 10) -> 2``
 * ``20 / 10 -> 2``
-*********************************
+---
 ### <code>endsWith</code>
 <code><b>endsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
 Verifica se a cadeia de caracteres termina com a cadeia de caracteres fornecida * ``endsWith('great', 'eat') -> true``
-*********************************
+---
 ### <code>equals</code>
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Operador de comparação equals. Mesmo que o operador = = * ``equals(12, 24) -> false``
@@ -219,290 +219,290 @@ Operador de comparação equals. Mesmo que o operador = = * ``equals(12, 24) -> 
 * ``'bad'=='bad' -> true``
 * ``'good'== NULL -> false``
 * ``NULL===NULL -> false``
-*********************************
+---
 ### <code>equalsIgnoreCase</code>
 <code><b>equalsIgnoreCase(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => boolean</b></code><br/><br/>
 Operador de comparação equals ignorando maiúsculas e minúsculas. Mesmo que <> = operador * ``'abc'<==>'abc' -> true``
 * ``equalsIgnoreCase('abc', 'Abc') -> true``
-*********************************
+---
 ### <code>factorial</code>
 <code><b>factorial(<i>&lt;value1&gt;</i> : number) => long</b></code><br/><br/>
 Calcular o fatorial de um número * ``factorial(5) -> 120``
-*********************************
+---
 ### <code>false</code>
 <code><b>false() => boolean</b></code><br/><br/>
 Sempre retorna um valor false. Use a função syntax(false()) se não houver uma coluna chamada 'false' * ``isDiscounted == false()``
 * ``isDiscounted() == false``
-*********************************
+---
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Obtém o primeiro valor de um grupo de colunas. Se o segundo ignorar de parâmetro for omitido, supõe-se FALSO * ``first(sales) -> 12233.23``
 * ``first(sales, false) -> NULL``
-*********************************
+---
 ### <code>floor</code>
 <code><b>floor(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Retorna o maior inteiro não maior que o número * ``floor(-0.1) -> -1``
-*********************************
+---
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Converte o carimbo de hora do UTC. Opcionalmente, você pode passar o fuso horário na forma de 'GMT', 'PST', 'UTC', ' América/Cayman'. Ele assume o padrão para o fuso horário atual * ``fromUTC(currentTimeStamp()) -> 12-12-2030T19:18:12``
 * ``fromUTC(currentTimeStamp(), 'Asia/Seoul') -> 12-13-2030T11:18:12``
-*********************************
+---
 ### <code>greater</code>
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Operador de comparação greater. Mesmo que > operador * ``greater(12, 24) -> false``
 * ``'abcd' > 'abc' -> true``
-*********************************
+---
 ### <code>greaterOrEqual</code>
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Operador de comparação greater than or equal. Mesmo que > = operador * ``greaterOrEqual(12, 12) -> false``
 * ``'abcd' >= 'abc' -> true``
-*********************************
+---
 ### <code>greatest</code>
 <code><b>greatest(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
 Retorna o maior valor entre a lista de valores como entrada. Retorna nulo se todas as entradas são nulas * ``greatest(10, 30, 15, 20) -> 30``
 * ``greatest(toDate('12/12/2010'), toDate('12/12/2011'), toDate('12/12/2000')) -> '12/12/2011'``
-*********************************
+---
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Obtém o valor da hora de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como padrão.
 * ``hour(toTimestamp('2009-07-30T12:58:59')) -> 12``
 * ``hour(toTimestamp('2009-07-30T12:58:59'), 'PST') -> 12``
-*********************************
+---
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
 Com base em uma condição, aplica-se um valor ou o outro. Se outro for especificado, ele será considerado NULL. Os valores devem ser compatíveis (numeric, string...) * ``iif(custType == 'Premium', 10, 4.5)``
 * ``iif(amount > 100, 'High')``
 * ``iif(dayOfWeek(saleDate) == 6, 'Weekend', 'Weekday')``
-*********************************
+---
 ### <code>in</code>
 <code><b>in(<i>&lt;array of items&gt;</i> : array, <i>&lt;item to find&gt;</i> : any) => boolean</b></code><br/><br/>
 Verifica se um item na matriz * ``in([10, 20, 30], 10) -> true``
 * ``in(['good', 'kid'], 'bad') -> false``
-*********************************
+---
 ### <code>initCap</code>
 <code><b>initCap(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Converte a primeira letra de cada palavra em maiúscula. Palavras são identificadas como separados por espaços em branco * ``initCap('cool iceCREAM') -> 'Cool IceCREAM'``
-*********************************
+---
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
 Localiza a posição (baseada em 1) da subcadeia de caracteres dentro de uma cadeia de caracteres. 0 é retornado se não for encontrado * ``instr('great', 'eat') -> 3``
 * ``instr('microsoft', 'o') -> 7``
 * ``instr('good', 'bad') -> 0``
-*********************************
+---
 ### <code>isDelete</code>
 <code><b>isDelete([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Verifica se a linha está marcada para exclusão. Para transformações demorando mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O valor padrão para o índice de fluxo é 1 * ``isDelete() -> true``
 * ``isDelete(1) -> false``
-*********************************
+---
 ### <code>isError</code>
 <code><b>isError([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Verifica se a linha está marcada como erro. Para transformações demorando mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O valor padrão para o índice de fluxo é 1 * ``isError() -> true``
 * ``isError(1) -> false``
-*********************************
+---
 ### <code>isIgnore</code>
 <code><b>isIgnore([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Verifica se a linha está marcada para ser ignorada. Para transformações demorando mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O valor padrão para o índice de fluxo é 1 * ``isIgnore() -> true``
 * ``isIgnore(1) -> false``
-*********************************
+---
 ### <code>isInsert</code>
 <code><b>isInsert([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Verifica se a linha está marcada para inserção. Para transformações demorando mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O valor padrão para o índice de fluxo é 1 * ``isInsert() -> true``
 * ``isInsert(1) -> false``
-*********************************
+---
 ### <code>isMatch</code>
 <code><b>isMatch([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Verifica se a linha é correspondida na pesquisa. Para transformações demorando mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O valor padrão para o índice de fluxo é 1 * ``isMatch() -> true``
 * ``isMatch(1) -> false``
-*********************************
+---
 ### <code>isNull</code>
 <code><b>isNull(<i>&lt;value1&gt;</i> : any) => boolean</b></code><br/><br/>
 Verifica se o valor é NULL * ``isNull(NULL()) -> true``
 * ``isNull('') -> false'``
-*********************************
+---
 ### <code>isUpdate</code>
 <code><b>isUpdate([<i>&lt;value1&gt;</i> : integer]) => boolean</b></code><br/><br/>
 Verifica se a linha está marcada para atualização. Para transformações demorando mais de um fluxo de entrada, você pode passar o índice (baseado em 1) do fluxo. O valor padrão para o índice de fluxo é 1 * ``isUpdate() -> true``
 * ``isUpdate(1) -> false``
-*********************************
+---
 ### <code>kurtosis</code>
 <code><b>kurtosis(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a curtose de uma coluna * ``kurtosis(sales) -> 122.12``
-*********************************
+---
 ### <code>kurtosisIf</code>
 <code><b>kurtosisIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, ele obterá a curtose de uma coluna * ``kurtosisIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>lag</code>
 <code><b>lag(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look before&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
 Obtém o valor do primeiro parâmetro avaliado n linhas antes da linha atual. O segundo parâmetro é o número de linhas para examinar novamente e o valor padrão é 1. Se não há tantas linhas de que um valor null é retornado, a menos que um valor padrão é especificado. * ``lag(amount, 2) -> 60``
 * ``lag(amount, 2000, 100) -> 100``
-*********************************
+---
 ### <code>last</code>
 <code><b>last(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Obtém o último valor de um grupo de colunas. Se o segundo ignorar de parâmetro for omitido, supõe-se FALSO * ``last(sales) -> 523.12``
 * ``last(sales, false) -> NULL``
-*********************************
+---
 ### <code>lastDayOfMonth</code>
 <code><b>lastDayOfMonth(<i>&lt;value1&gt;</i> : datetime) => date</b></code><br/><br/>
 Obtém a última data do mês fornecido uma data * ``lastDayOfMonth(toDate('2009-01-12')) -> 2009-01-31``
-*********************************
+---
 ### <code>lead</code>
 <code><b>lead(<i>&lt;value&gt;</i> : any, [<i>&lt;number of rows to look after&gt;</i> : number], [<i>&lt;default value&gt;</i> : any]) => any</b></code><br/><br/>
 Obtém o valor do primeiro parâmetro avaliado n linhas depois da linha atual. O segundo parâmetro é o número de linhas a serem ansiosos e o valor padrão é 1. Se não há tantas linhas de que um valor null é retornado, a menos que um valor padrão é especificado. * ``lead(amount, 2) -> 60``
 * ``lead(amount, 2000, 100) -> 100``
-*********************************
+---
 ### <code>least</code>
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
 Operador de comparação lesser than or equal. Mesmo que < operador = * ``least(10, 30, 15, 20) -> 10``
 * ``least(toDate('12/12/2010'), toDate('12/12/2011'), toDate('12/12/2000')) -> '12/12/2000'``
-*********************************
+---
 ### <code>left</code>
 <code><b>left(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
 Extrai um início de subcadeia de caracteres no índice 1 com o número de caracteres. Mesmo que a subcadeia de caracteres (str, 1, n) * ``left('bojjus', 2) -> 'bo'``
 * ``left('bojjus', 20) -> 'bojjus'``
-*********************************
+---
 ### <code>length</code>
 <code><b>length(<i>&lt;value1&gt;</i> : string) => integer</b></code><br/><br/>
 Retorna o comprimento da cadeia de caracteres * ``length('kiddo') -> 5``
-*********************************
+---
 ### <code>lesser</code>
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Operador de comparação less. Mesmo que < operador * ``lesser(12 < 24) -> true``
 * ``'abcd' < 'abc' -> false``
-*********************************
+---
 ### <code>lesserOrEqual</code>
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Operador de comparação lesser than or equal. Mesmo que < operador = * ``lesserOrEqual(12, 12) -> true``
 * ``'abcd' <= 'abc' -> false``
-*********************************
+---
 ### <code>levenshtein</code>
 <code><b>levenshtein(<i>&lt;from string&gt;</i> : string, <i>&lt;to string&gt;</i> : string) => integer</b></code><br/><br/>
 Obtém a distância de levenshtein entre duas cadeias de caracteres * ``levenshtein('boys', 'girls') -> 4``
-*********************************
+---
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 O padrão é uma cadeia de caracteres que é correspondida literalmente. As exceções são os seguintes símbolos especiais: _ corresponde a qualquer caractere na entrada (semelhante a. em expressões regulares do posix) % corresponde a zero ou mais caracteres na entrada (semelhante a .* em expressões regulares do posix).
 O caractere de escape é ''. Se um caractere de escape precede um símbolo especial ou outro caractere de escape, o caractere seguinte será correspondido literalmente. Não é válido para escape de qualquer outro caractere.
 * ``like('icecream', 'ice%') -> true``
-*********************************
+---
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
 Localiza a posição (baseada em 1) da subcadeia de caracteres dentro de uma cadeia de caracteres começando de uma certa posição. Se a posição for omitida, será considerada desde o começo da cadeia de caracteres. 0 é retornado se não for encontrado * ``locate('eat', 'great') -> 3``
 * ``locate('o', 'microsoft', 6) -> 7``
 * ``locate('bad', 'good') -> 0``
-*********************************
+---
 ### <code>log</code>
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
 Calcula o valor de log. Uma base opcional pode ser fornecido um número de euler else, se usado * ``log(100, 10) -> 2``
-*********************************
+---
 ### <code>log10</code>
 <code><b>log10(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula o valor de log com base em 10 de base * ``log10(100) -> 2``
-*********************************
+---
 ### <code>lower</code>
 <code><b>lower(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Lowercases uma cadeia de caracteres * ``lower('GunChus') -> 'gunchus'``
-*********************************
+---
 ### <code>lpad</code>
 <code><b>lpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
 Preenche à esquerda a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres é igual ou maior que o comprimento, então ele será considerado inoperante * ``lpad('great', 10, '-') -> '-----great'`` 
 * ``lpad('great', 4, '-') -> 'great'`` 
 * ' lpad (8 'ótima', ' <>') -> ' <><great'``
-*********************************
+---
 ### <code>ltrim</code>
 <code><b>ltrim(<i>&lt;string to trim&gt;</i> : string, <i>&lt;trim characters&gt;</i> : string) => string</b></code><br/><br/>
 Corta uma cadeia de caracteres inicial à esquerda. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário ele corta a qualquer caractere especificado no segundo parâmetro * ``ltrim('!--!wor!ld!', '-!') -> 'wor!ld!'``
-*********************************
+---
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Obtém o valor máximo de uma coluna * ``MAX(sales) -> 12312131.12``
-*********************************
+---
 ### <code>maxIf</code>
 <code><b>maxIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Com base em critérios, obtém o valor máximo de uma coluna * ``maxIf(region == 'West', sales) -> 99999.56``
-*********************************
+---
 ### <code>md5</code>
 <code><b>md5(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
 Calcula o digest MD5 do conjunto de colunas de diferentes tipos de dados primitivos e retorna uma cadeia hexadecimal de 32 caracteres. Ele pode ser usado para calcular uma impressão digital para uma linha * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'c1527622a922c83665e49835e46350fe'``
-*********************************
+---
 ### <code>mean</code>
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Obtém a média dos valores de uma coluna. Mesmo que a média * ``mean(sales) -> 7523420.234``
-*********************************
+---
 ### <code>meanIf</code>
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Com base em um critério, obtém a média dos valores de uma coluna. Mesmo que avgIf * ``meanIf(region == 'West', sales) -> 7523420.234``
-*********************************
+---
 ### <code>min</code>
 <code><b>min(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Obtém o valor mínimo de uma coluna * ``min(sales) -> 00.01``
 * ``min(orderDate) -> 12/12/2000``
-*********************************
+---
 ### <code>minIf</code>
 <code><b>minIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Com base em critérios, obtém o valor mínimo de uma coluna * ``minIf(region == 'West', sales) -> 00.01``
-*********************************
+---
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Subtrai números. Subtrai a partir de um número de data de dias. Mesmo que o operador - * ``minus(20, 10) -> 10``
 * ``20 - 10 -> 10``
 * ``minus(toDate('2012-12-15'), 3) -> 2012-12-12 (date value)``
 * ``toDate('2012-12-15') - 3 -> 2012-12-13 (date value)``
-*********************************
+---
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Obtém o valor do minuto de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como padrão.
 * ``minute(toTimestamp('2009-07-30T12:58:59')) -> 58``
 * ``minute(toTimestamp('2009-07-30T12:58:59', 'PST')) -> 58``
-*********************************
+---
 ### <code>mod</code>
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Módulo de par de números. Mesmo que o operador % * ``mod(20, 8) -> 4``
 * ``20 % 8 -> 4``
-*********************************
+---
 ### <code>month</code>
 <code><b>month(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o valor de mês de uma data ou carimbo de hora * ``month(toDate('2012-8-8')) -> 8``
-*********************************
+---
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;time zone&gt;</i> : boolean], [<i>&lt;value4&gt;</i> : string]) => double</b></code><br/><br/>
 Obtém o número de meses entre duas datesYou pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', ' América/Cayman'. O fuso horário local é usado como padrão.
 * ``monthsBetween(toDate('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
-*********************************
+---
 ### <code>multiply</code>
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Multiplica o par de números. Mesmo que o * operador * ``multiply(20, 10) -> 200``
 * ``20 * 10 -> 200``
-*********************************
+---
 ### <code>nTile</code>
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
 A função NTile divide as linhas de cada partição de janela em `n` buckets que variam de 1 a no máximo `n`. Os valores de bucket vão diferir em no máximo 1. Se o número de linhas na partição não se dividir uniformemente em um número de buckets, os valores restantes serão distribuídos um por bucket, começando com o primeiro bucket. A função NTile é útil para o cálculo de tertiles, Quartis, decis e outras estatísticas de resumidas comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um bucket regular terá uma linha extra adicionada a ele. As duas variáveis são com base no tamanho da partição atual. Durante o processo de cálculo, a função acompanha o número da linha atual, o número do bucket atual e o número da linha em que o bucket será alterado (bucketThreshold). Quando o número da linha atual atinge o limite do bucket, o valor do bucket é aumentado em um e o limite é aumentado pelo tamanho do bucket (mais um extra se o bucket atual for preenchido).
 * ``nTile() -> 1``
 * ``nTile(numOfBuckets) -> 1``
-*********************************
+---
 ### <code>negate</code>
 <code><b>negate(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Torna um número negativo. Ativa a números positivos, negativos e vice-versa * ``negate(13) -> -13``
-*********************************
+---
 ### <code>nextSequence</code>
 <code><b>nextSequence() => long</b></code><br/><br/>
 Retorna a próxima sequência exclusiva. O número é consecutivo dentro de uma partição e é prefixado pelo partitionId * ``nextSequence() -> 12313112``
-*********************************
+---
 ### <code>normalize</code>
 <code><b>normalize(<i>&lt;String to normalize&gt;</i> : string) => string</b></code><br/><br/>
 Normalizar o valor de cadeia de caracteres para separar os caracteres acentuados unicode * ``normalize('boys') -> 'boys'``
-*********************************
+---
 ### <code>not</code>
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Operador de negação lógica * ``not(true) -> false``
 * ``not(premium)``
-*********************************
+---
 ### <code>notEquals</code>
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
 Operador de comparação not equals. Mesmo que! = operador * ``12!=24 -> true``
 * ``'abc'!='abc' -> false``
-*********************************
+---
 ### <code>null</code>
 <code><b>null() => null</b></code><br/><br/>
 Retorna um valor NULL. Use a função syntax(null()) se houver uma coluna chamada 'null'. Qualquer operação que usa resultará em um valor nulo * ``custId = NULL (for derived field)``
@@ -510,114 +510,113 @@ Retorna um valor NULL. Use a função syntax(null()) se houver uma coluna chamad
 * ``'nothing' + NULL -> NULL``
 * ``10 * NULL -> NULL'``
 * ``NULL == '' -> NULL'``
-*********************************
+---
 ### <code>or</code>
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Operador lógico OR. Mesmo que | | * ``or(true, false) -> true``
-* ``true || false -> true``
-*********************************
+* ' true || false -> true ' ---
 ### <code>pMod</code>
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
 Módulo positivo de par de números.
 * ``pmod(-20, 8) -> 4``
-*********************************
+---
 ### <code>power</code>
 <code><b>power(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Eleva um número à potência de outro * ``power(10, 2) -> 100``
-*********************************
+---
 ### <code>rank</code>
 <code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
 Calcula a classificação de um valor em um grupo de valores. O resultado é 1 mais o número de linhas anteriores ou iguais à linha atual na ordenação da partição. Os valores produzirão lacunas na sequência. Classificação funciona até mesmo quando dados não estão classificados e procura por alteração nos valores * ``rank(salesQtr, salesAmt) -> 1``
-*********************************
+---
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
 Extrai uma subcadeia de caracteres correspondente a um determinado padrão regex. O último parâmetro identifica o grupo de correspondências e será padronizado como 1 se omitido. Use '<regex>'(back quote) para corresponder uma cadeia de caracteres sem escape * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 * ``regexExtract('Cost is between 600 and 800 dollars', `(\d+) and (\d+)`, 2) -> '800'``
-*********************************
+---
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
 Verifica se a cadeia de caracteres corresponde ao determinado padrão regex. Use '<regex>'(back quote) para corresponder uma cadeia de caracteres sem escape * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 * ``regexMatch('200.50', `(\d+).(\d+)`) -> true``
-*********************************
+---
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
 Substitua todas as ocorrências de um padrão de regex por outra subcadeia de caracteres na cadeia de caracteres determinada Use '<regex>'(back quote) para corresponder uma cadeia de caracteres sem escape * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 * ``regexReplace('100 and 200', `(\d+)`, 'gunchus') -> 'gunchus and gunchus'``
-*********************************
+---
 ### <code>regexSplit</code>
 <code><b>regexSplit(<i>&lt;string to split&gt;</i> : string, <i>&lt;regex expression&gt;</i> : string) => array</b></code><br/><br/>
 Divide uma cadeia de caracteres com base em um delimitador com base no regex e retorna uma matriz de cadeias de caracteres * ``regexSplit('oneAtwoBthreeC', '[CAB]') -> ['one', 'two', 'three']``
 * ``regexSplit('oneAtwoBthreeC', '[CAB]')[1] -> 'one'``
 * ``regexSplit('oneAtwoBthreeC', '[CAB]')[0] -> NULL``
 * ``regexSplit('oneAtwoBthreeC', '[CAB]')[20] -> NULL``
-*********************************
+---
 ### <code>replace</code>
 <code><b>replace(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
 Substitua todas as ocorrências de uma subcadeia de caracteres por outra subcadeia de caracteres na cadeia de caracteres especificada * ``replace('doggie dog', 'dog', 'cat') -> 'catgie cat'``
 * ``replace('doggie dog', 'dog', '') -> 'gie'``
-*********************************
+---
 ### <code>reverse</code>
 <code><b>reverse(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Inverte uma cadeia de caracteres * ``reverse('gunchus') -> 'suhcnug'``
-*********************************
+---
 ### <code>right</code>
 <code><b>right(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
 Extrai uma subcadeia de caracteres com o número de caracteres à direita. Mesmo que a subcadeia de caracteres (str, LENGTH(str) - n, n) * ``right('bojjus', 2) -> 'us'``
 * ``right('bojjus', 20) -> 'bojjus'``
-*********************************
+---
 ### <code>rlike</code>
 <code><b>rlike(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 Verifica se a cadeia de caracteres corresponde ao padrão de regex fornecido * ``rlike('200.50', '(\d+).(\d+)') -> true``
-*********************************
+---
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
 Arredonda um número dado um dimensionamento opcional e um modo de arredondamento opcional. Se a escala for omitida, ele é padronizado como 0.  Se o modo for omitido, ele é padronizado para ROUND_HALF_UP(5). Os valores de arredondamento incluem 1 - ROUND_UP 2 - ROUND_DOWN 3 a 4 ROUND_CEILING - ROUND_FLOOR 5 - 6 ROUND_HALF_UP - ROUND_HALF_DOWN 7 - ROUND_HALF_EVEN 8 - ROUND_UNNECESSARY * ``round(100.123) -> 100.0``
 * ``round(2.5, 0) -> 3.0``
 * ``round(5.3999999999999995, 2, 7) -> 5.40``
-*********************************
+---
 ### <code>rowNumber</code>
 <code><b>rowNumber() => integer</b></code><br/><br/>
 Atribui uma linha sequencial a numeração de linhas em uma janela começando com 1 * ``rowNumber() -> 1``
-*********************************
+---
 ### <code>rpad</code>
 <code><b>rpad(<i>&lt;string to pad&gt;</i> : string, <i>&lt;final padded length&gt;</i> : integral, <i>&lt;padding&gt;</i> : string) => string</b></code><br/><br/>
 Preenche à direita a cadeia de caracteres com o preenchimento fornecido até que esta alcance um determinado comprimento. Se a cadeia de caracteres é igual ou maior que o comprimento, então ele será considerado inoperante * ``rpad('great', 10, '-') -> 'great-----'`` 
 * ``rpad('great', 4, '-') -> 'great'`` 
 * ``rpad('great', 8, '<>') -> 'great<><'`` 
-*********************************
+---
 ### <code>rtrim</code>rtrim</code>
 <code><b>rtrim(<i>&lt;string to trim&gt;</i> : string, <i>&lt;trim characters&gt;</i> : string) => string</b></code><br/><br/>
 Corta uma cadeia de caracteres final à direita. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário ele corta a qualquer caractere especificado no segundo parâmetro * ``rtrim('!--!wor!ld!', '-!') -> '!--!wor!ld'``
-*********************************
+---
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
 Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O fuso horário local é usado como padrão.
 * ``second(toTimestamp('2009-07-30T12:58:59')) -> 59``
-*********************************
+---
 ### <code>sha1</code>
 <code><b>sha1(<i>&lt;value1&gt;</i> : any, ...) => string</b></code><br/><br/>
 Calcula o digest SHA-1 do conjunto de colunas de diferentes tipos de dados primitivos e retorna uma cadeia hexadecimal de 40 caracteres. Ele pode ser usado para calcular uma impressão digital para uma linha * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '63849fd2abb65fbc626c60b1f827bd05573f0cea'``
-*********************************
+---
 ### <code>sha2</code>
 <code><b>sha2(<i>&lt;value1&gt;</i> : integer, <i>&lt;value2&gt;</i> : any, ...) => string</b></code><br/><br/>
 Calcula o resumo de SHA-2 de conjunto de coluna de variados tipos de dados primitivos, dado um comprimento de bit que pode ser apenas de valores 0(256), 224, 256, 384, 512. Ele pode ser usado para calcular uma impressão digital para uma linha * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'd3b2bff62c3a00e9370b1ac85e428e661a7df73959fa1a96ae136599e9ee20fd'``
-*********************************
+---
 ### <code>sin</code>
 <code><b>sin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor do seno * ``sin(2) -> 0.90929742682``
-*********************************
+---
 ### <code>sinh</code>
 <code><b>sinh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor do seno hiperbólico * ``sinh(0) -> 0.0``
-*********************************
+---
 ### <code>skewness</code>
 <code><b>skewness(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a distorção de uma coluna * ``skewness(sales) -> 122.12``
-*********************************
+---
 ### <code>skewnessIf</code>
 <code><b>skewnessIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, ele obterá a distorção de uma coluna * ``skewnessIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>slice</code>
 <code><b>slice(<i>&lt;array to slice&gt;</i> : array, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of items&gt;</i> : integral]) => array</b></code><br/><br/>
 Extrai um subconjunto de uma matriz a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, ele assume o padrão ao final da cadeia de caracteres * ``slice([10, 20, 30, 40], 1, 2) -> [10, 20]``
@@ -626,11 +625,11 @@ Extrai um subconjunto de uma matriz a partir de uma posição. A posição é ba
 * ``slice([10, 20, 30, 40], 2)[0] -> NULL``
 * ``slice([10, 20, 30, 40], 2)[20] -> NULL``
 * ``slice([10, 20, 30, 40], 8) -> []``
-*********************************
+---
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Obtém o código soundex para a cadeia de caracteres * ``soundex('genius') -> 'G520'``
-*********************************
+---
 ### <code>split</code>
 <code><b>split(<i>&lt;string to split&gt;</i> : string, <i>&lt;split characters&gt;</i> : string) => array</b></code><br/><br/>
 Divide uma cadeia de caracteres com base em um delimitador e retorna uma matriz de cadeias de caracteres * ``split('100,200,300', ',') -> ['100', '200', '300']``
@@ -640,129 +639,129 @@ Divide uma cadeia de caracteres com base em um delimitador e retorna uma matriz 
 * ``split('100, 200, 300', ', ')[0] -> NULL``
 * ``split('100, 200, 300', ', ')[20] -> NULL``
 * ``split('100200300', ',') -> ['100200300']``
-*********************************
+---
 ### <code>sqrt</code>
 <code><b>sqrt(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula a raiz quadrada de um número * ``sqrt(9) -> 3``
-*********************************
+---
 ### <code>startsWith</code>
 <code><b>startsWith(<i>&lt;string&gt;</i> : string, <i>&lt;substring to check&gt;</i> : string) => boolean</b></code><br/><br/>
 Verifica se a cadeia de caracteres começa com a cadeia de caracteres fornecida * ``startsWith('great', 'gr') -> true``
-*********************************
+---
 ### <code>stddev</code>
 <code><b>stddev(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém o desvio padrão de uma coluna * ``stdDev(sales) -> 122.12``
-*********************************
+---
 ### <code>stddevIf</code>
 <code><b>stddevIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, obtém o desvio padrão de uma coluna * ``stddevIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>stddevPopulation</code>
 <code><b>stddevPopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém o desvio padrão da população de uma coluna * ``stddevPopulation(sales) -> 122.12``
-*********************************
+---
 ### <code>stddevPopulationIf</code>
 <code><b>stddevPopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, obtém o desvio padrão da população de uma coluna * ``stddevPopulationIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>stddevSample</code>
 <code><b>stddevSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém o desvio padrão de uma coluna * ``stddevSample(sales) -> 122.12``
-*********************************
+---
 ### <code>stddevSampleIf</code>
 <code><b>stddevSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, obtém o desvio padrão de uma coluna * ``stddevSampleIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>subDays</code>
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
 Subtrai meses a partir de uma data. Mesmo que o operador - data * ``subDays(toDate('2016-08-08'), 1) -> 2016-08-09``
-*********************************
+---
 ### <code>subMonths</code>
 <code><b>subMonths(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;months to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
 Subtrair meses a partir de uma data ou carimbo de hora * ``subMonths(toDate('2016-09-30'), 1) -> 2016-08-31``
-*********************************
+---
 ### <code>substring</code>
 <code><b>substring(<i>&lt;string to subset&gt;</i> : string, <i>&lt;from 1-based index&gt;</i> : integral, [<i>&lt;number of characters&gt;</i> : integral]) => string</b></code><br/><br/>
 Extrai uma subcadeia de caracteres de um determinado comprimento a partir de uma posição. A posição é baseada em 1. Se o comprimento for omitido, ele assume o padrão ao final da cadeia de caracteres * ``substring('Cat in the hat', 5, 2) -> 'in'``
 * ``substring('Cat in the hat', 5, 100) -> 'in the hat'``
 * ``substring('Cat in the hat', 5) -> 'in the hat'``
 * ``substring('Cat in the hat', 100, 100) -> ''``
-*********************************
+---
 ### <code>sum</code>
 <code><b>sum(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Obtém a soma de agregação de uma coluna numérica * ``sum(col) -> value``
-*********************************
+---
 ### <code>sumDistinct</code>
 <code><b>sumDistinct(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
 Obtém a soma de agregação de valores distintos de uma coluna numérica * ``sumDistinct(col) -> value``
-*********************************
+---
 ### <code>sumDistinctIf</code>
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Com base em um critério, obtém a soma agregada de uma coluna numérica. A condição pode ser baseada em qualquer coluna * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumDistinctIf(true, sales) -> SUM(sales) ``
+* ``sumDistinctIf(true, sales) -> SUM(sales)``
 *********************************
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Com base em um critério, obtém a soma agregada de uma coluna numérica. A condição pode ser baseada em qualquer coluna * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumIf(true, sales) -> SUM(sales) ``
+* ``sumIf(true, sales) -> SUM(sales)``
 *********************************
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula o valor da tangente * ``tan(0) -> 0.0``
-*********************************
+---
 ### <code>tanh</code>
 <code><b>tanh(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calcula um valor de tangente hiperbólico * ``tanh(0) -> 0.0``
-*********************************
+---
 ### <code>toBoolean</code>
 <code><b>toBoolean(<i>&lt;value1&gt;</i> : string) => boolean</b></code><br/><br/>
 Converte um valor de (T' ', 'true', 'y', 'Sim', '1') como true e ('f', 'false', ' n ', 'Nenhum', '0') como false e NULL para qualquer outro valor * ``toBoolean('true') -> true``
 * ``toBoolean('n') -> false``
 * ``toBoolean('truthy') -> NULL``
-*********************************
+---
 ### <code>toDate</code>
 <code><b>toDate(<i>&lt;string&gt;</i> : any, [<i>&lt;date format&gt;</i> : string]) => date</b></code><br/><br/>
 Converte uma cadeia de caracteres em uma data, considerando um formato de data opcional. Consulte Java SimpleDateFormat para todos os formatos possíveis. Se o formato de data for omitido, combinações dos itens a seguir serão aceitas. [ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]d, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ] * ``toDate('2012-8-8') -> 2012-8-8``
 * ``toDate('12/12/2012', 'MM/dd/yyyy') -> 2012-12-12``
-*********************************
+---
 ### <code>toDecimal</code>
 <code><b>toDecimal(<i>&lt;value&gt;</i> : any, [<i>&lt;precision&gt;</i> : integral], [<i>&lt;scale&gt;</i> : integral], [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => decimal(10,0)</b></code><br/><br/>
 Converte qualquer numérico ou cadeia de caracteres em um valor decimal. Se a precisão e escala não forem especificados, ele é padronizado para (10,2). Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47 como en-US, de, zh-CN * ``toDecimal(123.45) -> 123.45``
 * ``toDecimal('123.45', 8, 4) -> 123.4500``
 * ``toDecimal('$123.45', 8, 4,'$###.00') -> 123.4500``
 * ``toDecimal('Ç123,45', 10, 2, 'Ç###,##', 'de') -> 123.45``
-*********************************
+---
 ### <code>toDouble</code>
 <code><b>toDouble(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => double</b></code><br/><br/>
 Converte qualquer numérico ou cadeia de caracteres em um valor duplo. Um formato decimal opcional do Java pode ser usado para a conversão. Um formato de localidade opcional na forma de linguagem BCP47 como en-US, de, zh-CN * ``toDouble(123.45) -> 123.45``
 * ``toDouble('123.45') -> 123.45``
 * ``toDouble('$123.45', '$###.00') -> 123.45``
 * ``toDouble('Ç123,45', 'Ç###,##', 'de') -> 123.45``
-*********************************
+---
 ### <code>toFloat</code>
 <code><b>toFloat(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => float</b></code><br/><br/>
 Converte qualquer numérico ou cadeia de caracteres em um valor flutuante. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer dupla * ``toFloat(123.45) -> 123.45``
 * ``toFloat('123.45') -> 123.45``
 * ``toFloat('$123.45', '$###.00') -> 123.45``
-*********************************
+---
 ### <code>toInteger</code>
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => integer</b></code><br/><br/>
 Converte qualquer numérico ou cadeia de caracteres em um valor inteiro. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer long, float, double * ``toInteger(123) -> 123``
 * ``toInteger('123') -> 123``
 * ``toInteger('$123', '$###') -> 123``
-*********************************
+---
 ### <code>toLong</code>
 <code><b>toLong(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => long</b></code><br/><br/>
 Converte qualquer numérico ou cadeia de caracteres em um valor longo. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer float, double * ``toLong(123) -> 123``
 * ``toLong('123') -> 123``
 * ``toLong('$123', '$###') -> 123``
-*********************************
+---
 ### <code>toShort</code>
 <code><b>toShort(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string], [<i>&lt;locale&gt;</i> : string]) => short</b></code><br/><br/>
 Converte qualquer numérico ou cadeia de caracteres em um valor resumido. Um formato decimal opcional do Java pode ser usado para a conversão. Trunca qualquer integer, long, float, double * ``toShort(123) -> 123``
 * ``toShort('123') -> 123``
 * ``toShort('$123', '$###') -> 123``
-*********************************
+---
 ### <code>toString</code>
 <code><b>toString(<i>&lt;value&gt;</i> : any, [<i>&lt;number format/date format&gt;</i> : string]) => string</b></code><br/><br/>
 Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e data, um formato pode ser especificado. Se não for especificado, o padrão do sistema será selecionado. O formato decimal Java é usado para números. Consulte Java SimpleDateFormat para todos os formatos de data possível; o formato padrão é AAAA-MM-dd * ``toString(10) -> '10'``
@@ -773,74 +772,74 @@ Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e
 * ``toString(toDate('2018-12-31')) -> '2018-12-31'``
 * ``toString(toDate('2018-12-31'), 'MM/dd/yy') -> '12/31/18'``
 * ``toString(4 == 20) -> 'false'``
-*********************************
+---
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Converte uma cadeia de caracteres em uma data com um determinado formato de carimbo de data/hora opcional. Consulte Java SimpleDateFormat para todos os formatos possíveis. Se o carimbo de hora é omitido do padrão padrão aaaa-[M] M-[d] d hh: mm ss [. f...] é usado * ``toTimestamp('2016-12-31 00:12:00') -> 2012-8-8T00:12:00``
 * ``toTimestamp('2016/12/31T00:12:00', 'MM/dd/yyyyThh:mm:ss') -> 2012-12-12T00:12:00``
-*********************************
+---
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
 Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. Ele assume o padrão para o fuso horário atual * ``toUTC(currentTimeStamp()) -> 12-12-2030T19:18:12``
 * ``toUTC(currentTimeStamp(), 'Asia/Seoul') -> 12-13-2030T11:18:12``
-*********************************
+---
 ### <code>translate</code>
 <code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
 Substitui um conjunto de caracteres por outro conjunto de caracteres na cadeia de caracteres. Caracteres têm a substituição de 1 para 1 * ``translate('(Hello)', '()', '[]') -> '[Hello]'``
 * ``translate('(Hello)', '()', '[') -> '[Hello'``
-*********************************
+---
 ### <code>trim</code>
 <code><b>trim(<i>&lt;string to trim&gt;</i> : string, [<i>&lt;trim characters&gt;</i> : string]) => string</b></code><br/><br/>
 Apara uma cadeia de caracteres inicial e final. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário ele corta a qualquer caractere especificado no segundo parâmetro * ``trim('!--!wor!ld!', '-!') -> 'wor!ld'``
-*********************************
+---
 ### <code>true</code>
 <code><b>true() => boolean</b></code><br/><br/>
 Sempre retorna um valor true. Use a função syntax(true()) se não houver uma coluna chamada 'true' * ``isDiscounted == true()``
 * ``isDiscounted() == true``
-*********************************
+---
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
 Corresponde ao tipo da coluna. Só pode ser usado no padrão expressions.number corresponde short, integer, long, double, float ou decimal, integral corresponde ao resumo, inteiro, longo, fração correspondências double, float, decimal e datetime correspondências date ou timestamp tipo de * ``typeMatch(type, 'number') -> true``
 * ``typeMatch('date', 'number') -> false``
-*********************************
+---
 ### <code>upper</code>
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Uppercases uma cadeia de caracteres * ``upper('bojjus') -> 'BOJJUS'``
-*********************************
+---
 ### <code>variance</code>
 <code><b>variance(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a variância de uma coluna * ``variance(sales) -> 122.12``
-*********************************
+---
 ### <code>varianceIf</code>
 <code><b>varianceIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, obtém a variância de uma coluna * ``varianceIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>variancePopulation</code>
 <code><b>variancePopulation(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a variância da população de uma coluna * ``variancePopulation(sales) -> 122.12``
-*********************************
+---
 ### <code>variancePopulationIf</code>
 <code><b>variancePopulationIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, obtém a variância da população de uma coluna * ``variancePopulationIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>varianceSample</code>
 <code><b>varianceSample(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Obtém a variância não polarizada de uma coluna * ``varianceSample(sales) -> 122.12``
-*********************************
+---
 ### <code>varianceSampleIf</code>
 <code><b>varianceSampleIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Com base em critérios, obtém a variância não polarizada de uma coluna * ``varianceSampleIf(region == 'West', sales) -> 122.12``
-*********************************
+---
 ### <code>weekOfYear</code>
 <code><b>weekOfYear(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém a semana do ano a partir de uma data * ``weekOfYear(toDate('2008-02-20')) -> 8``
-*********************************
+---
 ### <code>xor</code>
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
 Operador lógico XOR. Mesmo que ^ operador * ``xor(true, false) -> true``
 * ``xor(true, true) -> false``
 * ``true ^ false -> true``
-*********************************
+---
 ### <code>year</code>
 <code><b>year(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o valor de ano de uma data * ``year(toDate('2012-8-8')) -> 2012``

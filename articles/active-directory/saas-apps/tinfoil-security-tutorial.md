@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 135b5719422d1b28a82ac2eda06f76d6dd746800
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 627a324c580661220712a0598a996844fac0c169
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813726"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088597"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: integração do Azure Active Directory com o TINFOIL SECURITY
 
@@ -53,7 +53,7 @@ Para configurar a integração do TINFOIL SECURITY com o Azure AD, é necessári
 
 **Para adicionar o TINFOIL SECURITY da galeria, siga as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,9 +105,9 @@ Para configurar o logon único do Azure AD com o TINFOIL SECURITY, siga as segui
 
     ![Informações de logon único de Domínio e URLs do TINFOIL SECURITY](common/preintegrated.png)
 
-5. O aplicativo TINFOIL SECURITY espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado de acordo com a configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário** .
+5. O aplicativo TINFOIL SECURITY espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizado de acordo com a configuração de atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique no ícone **Editar** para abrir a caixa de diálogo **Atributos de Usuário**.
 
-        ![image](common/edit-attribute.png)
+        ![image](common/edit-attribute.png)
 
 6. Além do indicado acima, o aplicativo TINFOIL SECURITY espera que mais alguns atributos sejam passados novamente na resposta SAML. Na seção **Declarações de Usuário** da caixa de diálogo **Atributos de Usuário**, execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
 
@@ -115,7 +115,7 @@ Para configurar o logon único do Azure AD com o TINFOIL SECURITY, siga as segui
     | ------------------- | -------------|
     | accountid | UXXXXXXXXXXXXX |
 
-     a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
+    a. Clique em **Adicionar nova reivindicação** para abrir a caixa de diálogo **Gerenciar declarações de usuários**.
 
     ![image](common/new-save-attribute.png)
 
@@ -167,7 +167,7 @@ Para configurar o logon único do Azure AD com o TINFOIL SECURITY, siga as segui
    
     ![Logon Único](./media/tinfoil-security-tutorial/ic798973.png "Logon Único")
    
-     a. Selecione **Habilitar SAML**.
+    a. Selecione **Habilitar SAML**.
    
     b. Clique em **Configuração Manual**.
    
@@ -255,5 +255,5 @@ Ao clicar no bloco do TINFOIL SECURITY no Painel de Acesso, você deverá ser co
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: mhopkins
 ms.reviewer: seguler
-ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e2deda6bc9a5d13a631e9917f3020cfa68ee1e10
+ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149444"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67536167"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Início Rápido: Carregar, baixar, listar e excluir blobs usando o SDK do Armazenamento do Azure v10 para JavaScript
 
-Neste início rápido, você aprenderá a usar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-storage-js) no Node.js para carregar, baixar, listar e excluir blobs e gerenciar contêineres.
+Neste início rápido, você aprenderá a usar o [SDK do Armazenamento do Azure v10 para JavaScript](https://github.com/Azure/azure-sdk-for-js) no Node.js para carregar, baixar, listar e excluir blobs e gerenciar contêineres.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -99,7 +99,7 @@ As credenciais são lidas de variáveis de ambiente com base no contexto apropri
 
 ```javascript
 if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').load();
+    require('dotenv').config();
 }
 ```
 
@@ -238,7 +238,7 @@ Para criar um contêiner, o método *create* de *ContainerURL* é usado.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
-Uma vez que o nome do contêiner é definido chamando *ContainerURL.fromServiceURL (serviceURL, containerName)*, basta chamar o método *create* para criar o contêiner.
+Uma vez que o nome do contêiner é definido chamando *ContainerURL.fromServiceURL (serviceURL, containerName)* , basta chamar o método *create* para criar o contêiner.
 
 ### <a name="upload-text"></a>Carregar texto
 Para carregar o texto para o blob, use o método *upload*.

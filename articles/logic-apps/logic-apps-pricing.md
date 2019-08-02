@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 05/22/2019
-ms.openlocfilehash: 776f79d7f32cf23943ecab4133e055993d30c7cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04b1d0eda85972517155f80488ad590fb56619ab
+ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075054"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67190674"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços para os Aplicativos Lógicos do Azure
 
@@ -53,7 +53,7 @@ Para informações específico sobre preços, consulte [preços de aplicativos l
 
 ## <a name="connectors"></a>Conectores
 
-Conectores de aplicativos lógicos do Azure ajudam seus aplicativos de acesso do aplicativo lógico, serviços e sistemas na nuvem ou no local, fornecendo [disparadores](#triggers), [ações](#actions), ou ambos. Conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). As seções a seguir fornecem mais informações sobre como a cobrança por gatilhos e ações funcionam.
+Conectores de aplicativos lógicos do Azure ajudam seus aplicativos de acesso do aplicativo lógico, serviços e sistemas na nuvem ou no local, fornecendo [disparadores](#triggers), [ações](#actions), ou ambos. Conectores são classificados como Standard ou Enterprise. Para obter uma visão geral sobre esses conectores, consulte [conectores para aplicativos lógicos do Azure](../connectors/apis-list.md). Se não há conectores pré-compilados estão disponíveis para as APIs REST que você deseja usar em seus aplicativos lógicos, você pode criar [conectores personalizados](https://docs.microsoft.com/connectors/custom-connectors), que são apenas wrappers em torno de as APIs REST. Conectores personalizados são cobrados como conectores Standard. As seções a seguir fornecem mais informações sobre como a cobrança por gatilhos e ações funcionam.
 
 <a name="triggers"></a>
 

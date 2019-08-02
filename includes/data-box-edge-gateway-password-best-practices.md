@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
 ms.openlocfilehash: 86d1cf5e103bcbb13782aa7a2a84092aa426d670
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "67120514"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67172561"
 ---
 Tenha estas práticas recomendadas em mente:
 

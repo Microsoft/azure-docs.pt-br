@@ -8,19 +8,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5492f4865e464cf8bedaee6e9b0ab25532e21459
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64728929"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67448751"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analise logs do site usando uma biblioteca Python personalizada com cluster do Apache Spark no HDInsight
 
 Este notebook demonstra como analisar dados de log usando uma biblioteca personalizada com o Apache Spark no HDInsight. A biblioteca personalizada que usamos é uma biblioteca Python chamada **iislogparser.py**.
 
 > [!TIP]  
-> Este tutorial também está disponível como um notebook Jupyter em um cluster do Spark (Linux) que você pode criar no HDInsight. A experiência de bloco de anotações permite executar os snippets de código Python no próprio bloco de anotações. Para executar o tutorial de dentro de um notebook, crie um cluster Spark, inicie um notebook do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`) e, em seguida, execute o notebook **Analisar logs com o Spark usando uma library.ipynb** personalizada na pasta **PySpark**.
+> Este artigo também está disponível como um notebook Jupyter em um cluster Spark (Linux) que você criar no HDInsight. A experiência de bloco de anotações permite executar os snippets de código Python no próprio bloco de anotações. Para executar o artigo de dentro de um bloco de anotações, crie um cluster Spark, inicie um bloco de anotações do Jupyter (`https://CLUSTERNAME.azurehdinsight.net/jupyter`), e, em seguida, execute o notebook **analisar logs com o Spark usando um personalizado ipynb** sob o **PySpark** pasta.
 >
 >
 

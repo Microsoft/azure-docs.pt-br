@@ -4,25 +4,22 @@ description: Use modelos do Resource Manager com o Gerenciador de Implantação 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: aa58d0405176a63ff9d1cc25b572f3f3754dbbdc
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
+ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66238846"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67205714"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Usar o Gerenciador de Implantação do Azure com modelos do Resource Manager (versão prévia pública)
 
-Saiba como usar [Gerenciador de Implantação do Azure](./deployment-manager-overview.md) para implantar seus aplicativos em várias regiões. Para usar o Gerenciador de Implantação, você precisa criar dois modelos:
+Saiba como usar [Gerenciador de Implantação do Azure](./deployment-manager-overview.md) para implantar seus aplicativos em várias regiões. Se preferir uma abordagem mais rápida, o [início rápido do Gerenciador de Implantação do Azure](https://github.com/Azure-Samples/adm-quickstart) cria as configurações necessárias em sua assinatura e personaliza os artefatos para implantar um aplicativo em várias regiões. O guia de início rápido executa as mesmas tarefas, como neste tutorial.
+
+Para usar o Gerenciador de Implantação, você precisa criar dois modelos:
 
 * **Um modelo de topologia**: descreve os recursos do Azure que compõem seus aplicativos e em que lugar implantá-lo.
 * **Um modelo de distribuição**: descreve as etapas a serem seguidas ao implantar seus aplicativos.
@@ -44,7 +41,10 @@ Este tutorial cobre as seguintes tarefas:
 > * Implantar a versão mais recente
 > * Limpar recursos
 
-A referência à API REST do Gerenciador de Implantação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
+Recursos adicionais:
+
+* A [referência à API REST do Gerenciador de Implantação do Azure](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Tutorial: Usar a verificação de integridade no Gerenciador de Implantação do Azure](./deployment-manager-tutorial-health-check.md).
 
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 

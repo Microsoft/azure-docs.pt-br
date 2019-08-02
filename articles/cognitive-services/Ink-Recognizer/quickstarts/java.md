@@ -1,6 +1,7 @@
 ---
-title: 'Início Rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta e o Java'
-description: Use a API de reconhecimento de tinta para iniciar a reconhecer traços de tinta digital.
+title: 'Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Java'
+titleSuffix: Azure Cognitive Services
+description: Use a API de Reconhecimento de Tinta Digital para começar a reconhecer traços de tinta digital.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,34 +10,34 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 04f2ac17871bbaf0506fe18122507167b23869a7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
-ms.translationtype: MT
+ms.openlocfilehash: b1c739b6355d3b32063e5289720ed1d191611e65
+ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060946"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67721234"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Início Rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta e o Java
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Início Rápido: Reconhecer tinta digital com a API REST de Reconhecimento de Tinta Digital e o Java
 
-Use este guia de início rápido para começar a usar a API de reconhecimento de tinta em traços de tinta digital. Esse aplicativo Java envia uma solicitação de API que contém dados do traço de tinta formatada em JSON e obtém a resposta.
+Use este início rápido para começar a usar a API de Reconhecimento de Tinta Digital em traços de tinta digital. Esse aplicativo Java envia uma solicitação de API que contém dados de traço de tinta formatados em JSON e obtém a resposta.
 
 Embora esse aplicativo seja escrito em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação.
 
-Normalmente, você chamaria a API de um aplicativo de tinta digital. Neste início rápido envia dados do traço de tinta para o exemplo a seguir manuscrito em um arquivo JSON.
+Normalmente, você chamará a API em um aplicativo de escrita à tinta digital. Este início rápido envia dados de traço de tinta para a amostra manuscrita a seguir de um arquivo JSON.
 
-![uma imagem de texto manuscrito](../media/handwriting-sample.jpg)
+![uma imagem de um texto manuscrito](../media/handwriting-sample.jpg)
 
 O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O [Java&trade; desenvolvimento Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
+- O JDK ([Java&trade; Development Kit) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 
-- Essas bibliotecas de importação do repositório do Maven
-    - [JSON em Java](https://mvnrepository.com/artifact/org.json/json) pacote
-    - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pacote
+- Importar essas bibliotecas do repositório do Maven
+    - Pacote [JSON em Java](https://mvnrepository.com/artifact/org.json/json)
+    - Pacote [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient)
 
-- Os dados de traço de tinta de exemplo para este início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
+- Os dados de traço de tinta de exemplo deste início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -57,7 +58,7 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
     import java.nio.file.Paths;
     ```
 
-2. Crie variáveis para sua chave de assinatura e seu ponto de extremidade. Abaixo está o URI que você pode usar para o reconhecimento de tinta. Ele será acrescentado ao seu ponto de extremidade de serviço mais tarde para criar a URL de solicitação de API.
+2. Crie variáveis para a chave de assinatura e o ponto de extremidade. Veja abaixo o URI que você pode usar para o reconhecimento de tinta. Ele será acrescentado ao ponto de extremidade de serviço posteriormente para criar a URL de solicitação da API.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -71,17 +72,17 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
 
 ## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
 
-1. Criar uma nova função chamada `sendRequest()` que usa as variáveis criadas acima. Em seguida, siga estas etapas.
+1. Crie uma função chamada `sendRequest()` que usa as variáveis criadas acima. Em seguida, siga estas etapas.
 
-2. Criar um `CloseableHttpClient` objeto que pode enviar solicitações para a API. Enviar a solicitação para um `HttpPut` objeto de solicitação, combinando o ponto de extremidade e a URL do reconhecedor de tinta.
+2. Crie um objeto `CloseableHttpClient` que pode enviar solicitações à API. Envie a solicitação para um objeto de solicitação `HttpPut` combinando o ponto de extremidade e a URL de Reconhecimento de Tinta Digital.
 
-3. Use a solicitação `setHeader()` função para definir o `Content-Type` cabeçalho `application/json`e adicione sua chave de assinatura para o `Ocp-Apim-Subscription-Key` cabeçalho.
+3. Use a função `setHeader()` da solicitação para definir o cabeçalho `Content-Type` como `application/json` e adicione a chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`.
 
-4. Use a solicitação `setEntity()` função aos dados a serem enviados.   
+4. Use a função `setEntity()` da solicitação para os dados a serem enviados.   
 
-5. Usar o cliente `execute()` função para enviar a solicitação e salve-o em um `CloseableHttpResponse` objeto. 
+5. Use a função `execute()` do cliente para enviar a solicitação e salve-a em um objeto `CloseableHttpResponse`. 
 
-6. Criar um `HttpEntity` objeto para armazenar o conteúdo da resposta. Obter o conteúdo com `getEntity()`. Se a resposta não estiver vazia, retorná-lo.
+6. Crie um objeto `HttpEntity` para armazenar o conteúdo da resposta. Obtenha o conteúdo com `getEntity()`. Se a resposta não estiver vazia, retorne-a.
     
     ```java
     static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
@@ -109,7 +110,7 @@ O código-fonte deste Início Rápido pode ser encontrado no [GitHub](https://go
 
 ## <a name="send-an-ink-recognition-request"></a>Enviar uma solicitação de reconhecimento de tinta
 
-Criar um método chamado `recognizeInk()` reconhecer os dados do traço de tinta. Chamar o `sendRequest()` método criado acima com seu ponto de extremidade, url, a chave de assinatura e dados json. Obter o resultado e imprimi-lo no console.
+Crie um método chamado `recognizeInk()` para reconhecer os dados de traço de tinta. Chame o método `sendRequest()` criado acima com o ponto de extremidade, a URL, a chave de assinatura e os dados JSON. Obtenha o resultado e imprima-o no console.
 
 ```java
 static void recognizeInk(String requestData) {
@@ -121,7 +122,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="load-your-digital-ink-data-and-send-the-request"></a>Carregar os dados de tinta digital e enviar a solicitação
 
-1. No método principal do seu aplicativo, no arquivo JSON que contém os dados que serão adicionados às solicitações de leitura.
+1. No método principal do aplicativo, leia o arquivo JSON que contém os dados que serão adicionados às solicitações.
 
 2. Chame a função de reconhecimento de tinta criada acima.
     
@@ -132,9 +133,9 @@ static void recognizeInk(String requestData) {
     }
     ```
 
-## <a name="run-the-application-and-view-the-response"></a>Execute o aplicativo e exibir a resposta
+## <a name="run-the-application-and-view-the-response"></a>Executar o aplicativo e exibir a resposta
 
-Execute o aplicativo. Uma resposta bem-sucedida é retornada no formato JSON. Você também pode encontrar a resposta JSON na [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
+Execute o aplicativo. Uma resposta bem-sucedida é retornada no formato JSON. Você também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Próximas etapas
 

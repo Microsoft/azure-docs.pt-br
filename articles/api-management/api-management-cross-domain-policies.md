@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 871294703a4be36e274df1e34b9cc9bee7d19783
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 86c61679a73f03f7e54bba746107685796ec07c9
+ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071949"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68442307"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -46,15 +46,15 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
 ### <a name="elements"></a>Elementos
 
-|NOME|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Necessário|
 |----------|-----------------|--------------|
 |cross-domain|Elemento raiz. Elementos filho devem estar de acordo com a [Especificação de arquivo de política entre domínios do Adobe](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).|Sim|
 
@@ -62,7 +62,7 @@ Use a política `cross-domain` para tornar a API acessível por clientes baseado
 Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 - **Seções de política:** de entrada
-- **Escopos de política:** global
+- **Escopos da política:** todos os escopos
 
 ## <a name="CORS"></a> CORS
 A política `cors` adiciona suporte do CORS (compartilhamento de recurso entre origens) a uma operação ou API para permitir chamadas entre domínios de clientes baseados em navegador.
@@ -123,7 +123,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="elements"></a>Elementos
 
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Necessário|Padrão|
 |----------|-----------------|--------------|-------------|
 |cors|Elemento raiz.|Sim|N/D|
 |allowed-origins|Contém elementos `origin` que descrevem as origens permitidas para solicitações entre domínios. `allowed-origins` pode conter um único elemento `origin` que especifica `*` para permitir qualquer origem, ou um ou mais elementos `origin` que contêm uma URI.|Sim|N/D|
@@ -136,16 +136,16 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="attributes"></a>Atributos
 
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Necessário|Padrão|
 |----------|-----------------|--------------|-------------|
-|allow-credentials|O cabeçalho `Access-Control-Allow-Credentials` na resposta preliminar será definido com o valor desse atributo e afetará a capacidade do cliente para enviar credenciais nas solicitações entre domínios.|Não|falso|
+|allow-credentials|O cabeçalho `Access-Control-Allow-Credentials` na resposta preliminar será definido com o valor desse atributo e afetará a capacidade do cliente para enviar credenciais nas solicitações entre domínios.|Não|false|
 |preflight-result-max-age|O cabeçalho `Access-Control-Max-Age` na resposta preliminar será definido com o valor desse atributo e afetará a capacidade do agente do usuário para colocar em cache a resposta preliminar.|Não|0|
 
 ### <a name="usage"></a>Uso
 Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 - **Seções de política:** de entrada
-- **Escopos de política:** global, produto, API, operação
+- **Escopos da política:** todos os escopos
 
 ## <a name="JSONP"></a> JSONP
 A política `jsonp` adiciona suporte a JSONP com padding (JSONP) a uma operação ou API para permitir chamadas entre domínios de clientes JavaScript baseados em navegador. O JSONP é um método usado em programas JavaScript para solicitar dados de um servidor em um domínio diferente. O JSONP ignora a limitação aplicada pela maioria dos navegadores da Web quando o acesso às páginas da Web precisa ser do mesmo domínio.
@@ -168,13 +168,13 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="elements"></a>Elementos
 
-|NOME|DESCRIÇÃO|Obrigatório|
+|Nome|Descrição|Necessário|
 |----------|-----------------|--------------|
 |jsonp|Elemento raiz.|Sim|
 
 ### <a name="attributes"></a>Atributos
 
-|NOME|DESCRIÇÃO|Obrigatório|Padrão|
+|Nome|Descrição|Necessário|Padrão|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
 
@@ -182,7 +182,7 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 Essa política pode ser usada nas [seções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.
 
 - **Seções de política:** saída
-- **Escopos de política:** global, produto, API, operação
+- **Escopos da política:** todos os escopos
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -191,4 +191,4 @@ Para obter mais informações sobre como trabalhar com políticas, consulte:
 + [Políticas no Gerenciamento de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
-+ [Exemplos de política](policy-samples.md)   
++ [Exemplos de política](policy-samples.md)

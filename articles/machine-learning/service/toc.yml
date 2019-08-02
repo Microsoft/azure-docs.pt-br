@@ -24,15 +24,16 @@
         - name: Executar o teste localmente
           displayName: 'workspace, install, sdk'
           href: quickstart-run-local-notebook.md
-    - name: Interface visual
-      items:
-        - name: Preparar e visualizar dados
-          displayName: experiment drag-and-drop
-          href: ui-quickstart-run-experiment.md
 - name: Tutoriais
   items:
     - name: SDK do Python
       items:
+        - name: Criar primeiro experimento do ML
+          items:
+            - name: 1. Workspace de instalação e ambiente de desenvolvimento
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Treinar seu primeiro modelo
+              href: tutorial-1st-experiment-sdk-train.md
         - name: Classificação de imagem (dados MNIST)
           items:
             - name: 1. Treinar um modelo
@@ -56,6 +57,11 @@
         - name: Implantar o modelo de regressão
           displayName: experiment drag-and-drop visual interface Tutorial 2
           href: ui-tutorial-automobile-price-deploy.md
+    - name: Machine Learning automatizado
+      items:
+        - name: Classificação (dados bancários)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-first-experiment-automated-ml.md
 - name: Exemplos
   items:
     - name: Notebooks
@@ -78,10 +84,16 @@
         - name: Prever a rotatividade
           displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
+        - name: Prever atrasos nos voos
+          displayName: 'Basic Sample, training, classification, sample 6'
+          href: ui-sample-classification-predict-flight-delay.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Conceitos
   items:
+    - name: Aprendizado
+      displayName: 'deep learning vs machine learning, deep learning, vs, versus'
+      href: concept-deep-learning-vs-machine-learning.md
     - name: Workspace
       displayName: concept definitions architecture
       href: concept-workspace.md
@@ -151,12 +163,6 @@
         - name: Explorar dados
           displayName: 'data, eda, exploratory, analysis, etl, dataset, summary statistics, profile, explore, data preparation, dataprep'
           href: how-to-explore-prepare-data.md
-        - name: Controlar a versão e gerenciar definições de dados
-          displayName: 'data, etl, dataset, data preparation, dataprep, version'
-          href: how-to-manage-dataset-definitions.md
-        - name: Tirar um instantâneo de seus dados
-          displayName: 'snapshots, profile, summary statistics, data copy'
-          href: how-to-create-dataset-snapshots.md
         - name: Obter dados de um armazenamento de dados
           displayName: blob get fileshare access storage
           href: how-to-access-data.md
@@ -178,12 +184,16 @@
           href: how-to-set-up-training-targets.md
         - name: Criar estimadores no treinamento
           href: how-to-train-ml-models.md
+        - name: Usar o Scikit-learn
+          href: how-to-train-scikit-learn.md
         - name: Usar TensorFlow
           href: how-to-train-tensorflow.md
         - name: Usar o Keras
           href: how-to-train-keras.md
         - name: Usar PyTorch
           href: how-to-train-pytorch.md
+        - name: Usar Chainer
+          href: how-to-train-chainer.md
         - name: Ajustar hiperparâmetros
           displayName: parameter
           href: how-to-tune-hyperparameters.md
@@ -197,6 +207,9 @@
         - name: Acompanhar experimentos com o MLflow
           displayName: 'log, monitor, metrics'
           href: how-to-use-mlflow.md
+        - name: Visualizar execuções com o TensorBoard
+          displayName: 'log, monitor, metrics'
+          href: how-to-monitor-tensorboard.md
     - name: Automatizar o aprendizado de máquina
       displayName: 'automl, auto ml'
       items:
@@ -211,20 +224,32 @@
         - name: Autotreinar um modelo de previsão
           displayName: time series
           href: how-to-auto-train-forecast.md
+        - name: Entender os gráficos e as métricas
+          href: how-to-understand-automated-ml.md
     - name: Implantar e fornecer modelos
       items:
         - name: Onde e como implantar
-          displayName: publish azure kubernetes azure container instances
+          displayName: publish web service
           href: how-to-deploy-and-where.md
-        - name: GPUs
+        - name: Instâncias de Contêiner do Azure
+          href: how-to-deploy-azure-container-instance.md
+        - name: Serviço de Kubernetes do Azure
+          href: how-to-deploy-azure-kubernetes-service.md
+        - name: Inferência de GPU
           href: how-to-deploy-inferencing-gpus.md
-        - name: FPGAs
+        - name: Inferência de FPGAs
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
           href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+        - name: Serviço de aplicativo do Azure
+          displayName: web app
+          href: how-to-deploy-app-service.md
         - name: Imagem do Docker personalizada
           href: how-to-deploy-custom-docker-image.md
-        - name: Solucionar problemas
+        - name: Implantar modelos existentes
+          displayName: publish existing model
+          href: how-to-deploy-existing-model.md
+        - name: Solucionar problemas e depurar
           href: how-to-troubleshoot-deployment.md
     - name: Consumir serviços Web
       items:
@@ -234,11 +259,13 @@
         - name: Executar previsões em lotes
           displayName: score scoring asynchronous consume pipeline
           href: how-to-run-batch-predictions.md
-    - name: Monitorar serviços Web
+    - name: Monitorar modelos
       items:
         - name: Coletar e avaliar dados de modelo
           displayName: track production
           href: how-to-enable-data-collection.md
+        - name: Detectar descompasso de dados
+          href: how-to-monitor-data-drift.md
         - name: Monitorar com Application Insights
           href: how-to-enable-app-insights.md
     - name: Criar fluxos de trabalho reutilizáveis
@@ -260,9 +287,6 @@
     - name: SDK do aprendizado de máquina
       displayName: api core package python data prep
       href: 'https://aka.ms/aml-sdk'
-    - name: Monitoramento do SDK
-      displayName: api package python monitor
-      href: 'https://aka.ms/aml-monitoring-sdk'
     - name: CLI do Machine Learning
       displayName: 'cli, extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
@@ -297,6 +321,8 @@
               href: ../algorithm-module-reference/add-rows.md
             - name: Remover Linhas Duplicadas
               href: ../algorithm-module-reference/remove-duplicate-rows.md
+            - name: Unir dados
+              href: ../algorithm-module-reference/join-data.md
             - name: Dividir Dados
               href: ../algorithm-module-reference/split-data.md
             - name: Normalizar Dados
@@ -345,12 +371,14 @@
               href: ../algorithm-module-reference/two-class-support-vector-machine.md
             - name: Cluster K-means
               href: ../algorithm-module-reference/k-means-clustering.md
-        - name: Módulos da linguagem Python
+        - name: Módulos de linguagem Python e R
           items:
             - name: Executar Script do Python
               href: ../algorithm-module-reference/execute-python-script.md
             - name: Criar Modelo do Python
               href: ../algorithm-module-reference/create-python-model.md
+            - name: Executar script R
+              href: ../algorithm-module-reference/execute-r-script.md
         - name: Mensagens de erro e códigos
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Recursos

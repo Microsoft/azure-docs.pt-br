@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/11/2019
+ms.date: 06/16/2019
 ms.author: juliako
-ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0abc3eec380cccae2672d0e9aa4a3a4c7199362f
+ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65556218"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67295671"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão ao vivo com os Serviços de Mídia do Azure v3
 
@@ -31,7 +31,7 @@ O Azure Media Services permite entregar eventos ao vivo para seus clientes na nu
 - Componentes nos Serviços de Mídia, que permitem a você ingerir, visualizar, empacotar, gravar, criptografar e transmitir o evento ao vivo para seus clientes ou para um CDN para distribuição posterior.
 
 Este artigo fornece uma visão geral e a orientação da transmissão ao vivo com os serviços de mídia e links para outros artigos pertinentes.
-
+ 
 > [!NOTE]
 > Atualmente, você não pode usar o portal do Azure para gerenciar recursos da v3. Use a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) com suporte.
 
@@ -49,27 +49,27 @@ Filtragem dinâmica é usado para controlar o número de faixas, formatos, taxas
 
 ## <a name="live-event-types"></a>Tipos de eventos ao vivo
 
-Um evento ao vivo pode ser um dos dois tipos: codificação ao vivo e passagem. Para obter detalhes sobre a transmissão ao vivo nos serviços de mídia v3, consulte [eventos ao vivo e ao vivo saídas](live-events-outputs-concept.md).
+[Eventos ao Vivo](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Um evento ao vivo pode ser um dos dois tipos: codificação ao vivo e passagem. Para obter detalhes sobre a transmissão ao vivo nos serviços de mídia v3, consulte [eventos ao vivo e ao vivo saídas](live-events-outputs-concept.md).
 
 ### <a name="pass-through"></a>Passagem
 
 ![passagem](./media/live-streaming/pass-through.svg)
 
-Ao usar o **Evento ao vivo** de passagem, você depende de seu codificador dinâmico local para gerar um fluxo de vídeo com várias taxas de bits e enviá-lo como o feed de contribuição para o Evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). A seguir, o Evento ao vivo executa os fluxos de vídeo de entrada sem qualquer processamento adicional. Tal uma passagem evento ao vivo é otimizado para eventos ao vivo de longa execução ou 24 x 365 linear à transmissão ao vivo. 
+Ao usar a passagem **evento ao vivo**, dependem de seu codificador ao vivo do local para gerar um fluxo de vídeo de taxa de bits múltiplos e enviar que como a contribuição de feed para o evento ao vivo (usando o protocolo de entrada de RTMP ou MP4 fragmentado). O evento ao vivo, em seguida, executa por meio das transmissões de vídeo de entrada para o empacotador dinâmico (ponto de extremidade de Streaming) sem qualquer transcodificação adicional. Tal uma passagem evento ao vivo é otimizado para eventos ao vivo de longa execução ou 24 x 365 linear à transmissão ao vivo. 
 
 ### <a name="live-encoding"></a>Codificação ativa  
 
 ![Codificação ativa](./media/live-streaming/live-encoding.svg)
 
-Usando a codificação dinâmica com os Serviços de Mídia, você configuraria seu codificador dinâmico local para enviar um vídeo de taxa de bits única como o feed de contribuição para o Evento ao vivo (usando o protocolo RTMP ou MP4 fragmentado). O Evento ao vivo codifica esse fluxo de entrada de taxa de bits única para um [fluxo de vídeo de taxa de bits múltipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), tornando-o disponível para entrega para reproduzir dispositivos através de protocolos como MPEG-DASH, HLS e Smooth Streaming. 
+Ao usar a codificação de nuvem com serviços de mídia, você poderia configurar o codificador dinâmico local para enviar uma taxa de bits única vídeo como a contribuição de feed (até 32Mbps agregado) para o evento ao vivo (usando o protocolo de entrada de RTMP ou MP4 fragmentado). Realiza a transcodificação o evento ao vivo de taxa de bits única entrada transmitir para [vários fluxos de vídeo de taxa de bits](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) em diferentes resoluções para melhorar a entrega e o torna disponível para entrega em dispositivos de reprodução através de protocolos padrão do setor como MPEG-DASH, Apple HTTP Live Streaming (HLS) e Microsoft Smooth Streaming. 
 
 ## <a name="live-streaming-workflow"></a>Fluxo de trabalho de streaming ao vivo
 
 Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v3, você precisa primeiro revisar e entende os conceitos a seguir: 
 
-- [Pontos de extremidade de API de streaming](streaming-endpoint-concept.md)
-- [Eventos e ao vivo de saídas API do Live](live-events-outputs-concept.md)
-- [API de localizadores de streaming](streaming-locators-concept.md)
+- [Pontos de Extremidade de Streaming](streaming-endpoint-concept.md)
+- [Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)
+- [Localizadores de Streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Etapas gerais
 
@@ -79,7 +79,7 @@ Para entender o fluxo de trabalho de streaming ao vivo nos serviços de mídia v
 4. Obtenha a URL de visualização e use-a para verificar se a entrada do codificador está sendo realmente recebida.
 5. Crie um novo objeto de **ativo**.
 6. Crie um **LiveOutput** e use o nome do ativo que você criou.<br/>A **Saída Dinâmica** arquivará o fluxo no **Ativo**.
-7. Crie um **Localizador de Streaming** com os tipos internos da **Política de Streaming**.<br/>Se você pretende criptografar seu conteúdo, reveja a [Visão geral da proteção de conteúdo](content-protection-overview.md).
+7. Criar uma **localizador de Streaming** com o [tipos internos de política de Streaming](streaming-policy-concept.md)
 8. Liste os caminhos no **Localizador de Streaming** para retornar as URLs a serem usadas (elas são determinísticas).
 9. Obter o nome do host para o **ponto de extremidade de Streaming** (origem) que você deseja transmitir do.
 10. Combine a URL da etapa 8 com o nome do host na etapa 9 para obter a URL completa.

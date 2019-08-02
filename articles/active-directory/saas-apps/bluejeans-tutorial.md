@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 0308fbb103fb06bd2dffe0a442346a3fc4f7db62
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901122"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67106167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integração do Azure Active Directory ao BlueJeans
 
@@ -56,7 +56,7 @@ Para configurar a integração do BlueJeans ao Azure AD, você precisa adicionar
 
 **Para adicionar o BlueJeans por meio da galeria, realize as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -140,7 +140,7 @@ Para configurar o logon único do Azure AD com o BlueJeans, execute as seguintes
 
     ![Logon Único do SAML](./media/bluejeans-tutorial/ic785869.png "Logon Único do SAML")
 
-     a. Selecione **Logon Único do SAML**.
+    a. Selecione **Logon Único do SAML**.
 
     b. Selecione **Habilitar provisionamento automático**.
 
@@ -148,7 +148,7 @@ Para configurar o logon único do Azure AD com o BlueJeans, execute as seguintes
 
     ![Caminho de Certificado](./media/bluejeans-tutorial/ic785870.png "Caminho de Certificado")
 
-     a. Clique em **Escolher um Arquivo** para carregar o certificado codificado em base 64 que você baixou do portal do Azure.
+    a. Clique em **Escolher um Arquivo** para carregar o certificado codificado em base 64 que você baixou do portal do Azure.
 
     b. Na caixa de texto **URL de Logon**, cole o valor da **URL de Logon** copiado do portal do Azure.
 
@@ -160,7 +160,7 @@ Para configurar o logon único do Azure AD com o BlueJeans, execute as seguintes
 
     ![Salvar Alterações](./media/bluejeans-tutorial/ic785874.png "Salvar Alterações")
 
-     a. Na caixa de texto **ID de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. Na caixa de texto **ID de usuário**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     b. Na caixa de texto **Email**, digite `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -235,7 +235,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no BlueJe
 
     ![Adicionar Usuário](./media/bluejeans-tutorial/ic785886.png "Adicionar Usuário")
 
-     a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
+    a. Na caixa de texto **Nome**, insira o nome do usuário como **Brenda**.
 
     b. Na caixa de texto **Sobrenome**, insira o nome do usuário como **Fernandes**.
 

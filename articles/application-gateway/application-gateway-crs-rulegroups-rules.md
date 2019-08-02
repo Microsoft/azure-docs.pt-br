@@ -6,12 +6,13 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+ms.openlocfilehash: e56301e98ca773369631e2f7ae137c63d0b9ddef
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832907"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67613308"
 ---
 # <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Regras e grupos de regras CRS do firewall de aplicativo web
 

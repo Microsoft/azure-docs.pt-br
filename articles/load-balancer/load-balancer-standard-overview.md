@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Visão geral dos recursos do Azure Load Balancer Standard
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.custom: seodec18
 ms.service: load-balancer
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
-ms.author: kumud
-ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: 8eb8134452685add53b9dc339437ac262ecc8a9f
+ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65957475"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68274391"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Visão geral do Azure Standard Load Balancer
 
@@ -75,7 +75,7 @@ Revise as [investigações de integridade do Azure Load Balancer](load-balancer-
 ### <a name="az"></a> Zonas de Disponibilidades
 
 >[!IMPORTANT]
->Revisão [zonas de disponibilidade](../availability-zones/az-overview.md) para tópicos relacionados, incluindo quaisquer informações específicas da região.
+>Examine [zonas de disponibilidade](../availability-zones/az-overview.md) para obter tópicos relacionados, incluindo qualquer informação específica da região.
 
 O Load Balancer Standard oferece suporte a recursos adicionais em regiões em que as Zonas de Disponibilidade estão disponíveis.  Esses recursos são incrementais aos fornecimentos do Load Balancer Standard.  As configurações de Zonas de Disponibilidade estão disponíveis para o Load Balancer Standard interno.
 

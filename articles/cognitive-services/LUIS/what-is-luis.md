@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
-ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 569b33d299f52f0da50d8a8992420754aa85b533
+ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522000"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67062161"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é Reconhecimento Vocal (LUIS)?
 
@@ -55,7 +55,7 @@ Um aplicativo LUIS contém um modelo de linguagem natural de domínio específic
 ## <a name="build-the-luis-model"></a>Criar o modelo LUIS
 Criar o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087) ou com o portal do LUIS.
 
-O modelo LUIS começa com categorias de intenções de usuário chamadas **[intenções](luis-concept-intent.md)**. Cada intenção precisa de exemplos de **[expressões](luis-concept-utterance.md)** do usuário. Cada expressão pode fornecer vários dados que precisam ser extraídos com **[entidades](luis-concept-entity-types.md)**. 
+O modelo LUIS começa com categorias de intenções de usuário chamadas **[intenções](luis-concept-intent.md)** . Cada intenção precisa de exemplos de **[expressões](luis-concept-utterance.md)** do usuário. Cada expressão pode fornecer vários dados que precisam ser extraídos com **[entidades](luis-concept-entity-types.md)** . 
 
 |Expressão de usuário de exemplo|Intenção|Entidades|
 |-----------|-----------|-----------|
@@ -101,7 +101,7 @@ O LUIS fornece ferramentas, controle de versão e colaboração com outros autor
 O LUIS, como uma API REST, pode ser usado com qualquer produto, serviço ou estrutura que faz uma solicitação HTTP. A lista a seguir contém os principais produtos e serviços da Microsoft usados com o LUIS.
 
 O principal aplicativo cliente para o LUIS é:
-* [Bot de aplicativo Web](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) que cria rapidamente um chatbot habilitado para LUIS para conversar com um usuário por meio de entrada de texto. Usa o [Bot Framework][bot-framework] versão [3.x](https://github.com/Microsoft/BotBuilder) ou [4.x](https://github.com/Microsoft/botbuilder-dotnet) para uma experiência completa de bot.
+* [Bot de aplicativo Web](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) que cria rapidamente um chatbot habilitado para LUIS para conversar com um usuário por meio de entrada de texto. Usa o [Bot Framework][bot-framework] versão [4.x](https://github.com/Microsoft/botbuilder-dotnet) para uma experiência completa de bot.
 
 Ferramentas para usar o LUIS com um bot de modo rápido e fácil:
 * [CLI do LUIS](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) O pacote NPM fornece criação e previsão como uma ferramenta de linha de comando autônoma ou como uma importação. 

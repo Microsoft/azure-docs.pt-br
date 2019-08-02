@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 587d6f8ecdc447672c14ce400ebc64609e4d472d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: bb78b014ffe2d40b9a61da8e47893056e435ddc6
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59273899"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67088652"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thousandeyes"></a>Tutorial: Integração do Azure Active Directory com o ThousandEyes
 
@@ -55,7 +55,7 @@ Para configurar a integração do ThousandEyes com o Azure AD, é necessário ad
 
 **Para adicionar o ThousandEyes da galeria, siga as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -143,7 +143,7 @@ Para configurar o logon único do Azure AD com o ThousandEyes, siga estas etapas
 
     ![Configurar o logon único](./media/thousandeyes-tutorial/ic790069.png "Configurar o logon único")
 
-     a. Selecione **Habilitar Logon Único**.
+    a. Selecione **Habilitar Logon Único**.
 
     b. Na caixa de texto **URL da Página de Logon**, cole a **URL de Logon** copiada do portal do Azure.
 
@@ -229,7 +229,7 @@ O objetivo desta seção é criar um usuário chamado Brenda Fernandes no Thousa
 
     ![Adicionar contas de usuário](./media/thousandeyes-tutorial/IC790074.png "Adicionar contas de usuário")
 
-     a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
+    a. Na caixa de texto **Nome**, digite o nome do usuário como **Brenda Fernandes**.
 
     b. Na caixa de texto **Email**, digite o email do usuário como brittasimon@contoso.com.
 
@@ -253,6 +253,6 @@ Ao clicar no bloco do ThousandEyes no Painel de Acesso, você deverá ser conect
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configurar Provisionamento de Usuário](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d22318f4d9e233a57d521fe36f0827b9fc3af3e0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e7fcff6fa4dcea1af15efa2cb4ed3a743c9c402
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60610734"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67836124"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados do Teradata usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -47,7 +47,7 @@ Para o Gateway de Gerenciamento de Dados se conectar ao banco de dados Teradata,
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs.
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados.
-- Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+- Você também pode usar as ferramentas abaixo para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo do Resource Manager**, **.NET API**, e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -88,7 +88,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui o Teradata), as segui
 | query |Utiliza a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: select * from MyTable. |Sim |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Exemplo JSON: Copiar dados do Teradata para Blob do Azure
-O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Teradata para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+O exemplo a seguir fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Eles mostram como copiar dados do Teradata para o Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 O exemplo tem as seguintes entidades de data factory:
 
@@ -285,45 +285,45 @@ Ao mover os dados para o Teradata, os seguintes mapeamentos são usados do tipo 
 
 | Tipo de banco de dados Teradata | Tipo .NET Framework |
 | --- | --- |
-| Char |Cadeia de caracteres |
-| Clob |Cadeia de caracteres |
-| Graphic |Cadeia de caracteres |
-| VarChar |Cadeia de caracteres |
-| VarGraphic |Cadeia de caracteres |
+| Char |String |
+| Clob |string |
+| Graphic |string |
+| VarChar |String |
+| VarGraphic |string |
 | Blob |Byte[] |
 | Byte |Byte[] |
 | VarByte |Byte[] |
 | BigInt |Int64 |
 | ByteInt |Int16 |
 | Decimal |Decimal |
-| Double |Double |
-| Número inteiro |Int32 |
-| Número |Double |
+| Duplo |Duplo |
+| Inteiro |Int32 |
+| Number |Duplo |
 | SmallInt |Int16 |
-| Data |DateTime |
-| Hora |TimeSpan |
-| Hora com fuso horário |Cadeia de caracteres |
+| Date |DateTime |
+| Time |TimeSpan |
+| Hora com fuso horário |String |
 | Timestamp |DateTime |
 | Timestamp With Time Zone |DateTimeOffset |
 | Intervalo - dia |TimeSpan |
-| Intervalo - dia para hora |TimeSpan |
-| Intervalo - dia para minuto |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
 | Interval Day To Second |TimeSpan |
-| Intervalo - hora |TimeSpan |
-| Intervalo - hora para minuto |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
 | Interval Hour To Second |TimeSpan |
 | Interval Minute |TimeSpan |
 | Interval Minute To Second |TimeSpan |
 | Interval Second |TimeSpan |
-| Interval Year |Cadeia de caracteres |
-| Interval Year To Month |Cadeia de caracteres |
-| Interval Month |Cadeia de caracteres |
-| Period(Date) |Cadeia de caracteres |
-| Period(Time) |Cadeia de caracteres |
-| Period(Time With Time Zone) |Cadeia de caracteres |
-| Period(Timestamp) |Cadeia de caracteres |
-| Period(Timestamp With Time Zone) |Cadeia de caracteres |
-| Xml |Cadeia de caracteres |
+| Interval Year |String |
+| Interval Year To Month |string |
+| Interval Month |string |
+| Period(Date) |String |
+| Period(Time) |String |
+| Period(Time With Time Zone) |String |
+| Period(Timestamp) |String |
+| Period(Timestamp With Time Zone) |string |
+| xml |string |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

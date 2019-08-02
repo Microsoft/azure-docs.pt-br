@@ -12,14 +12,15 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 720aafac79a67f64b0974dba0dd60c6aa24a8c54
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ec93574a8da051b5cf77a37af1030d0c22dfc4a9
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60480550"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382906"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>Configurar informações de segurança (versão prévia) para usar seu endereço de email
+
 Você pode seguir estas etapas para adicionar seu método de redefinição de senha. Depois da primeira configuração, você pode retornar para a página **Informações de segurança** a fim de adicionar, atualizar ou excluir suas informações de segurança.
 
 Depois de configurar o método de redefinição de senha, também deverá configurar o método de verificação de dois fatores usando um [aplicativo autenticador](security-info-setup-auth-app.md), [mensagens de texto](security-info-setup-text-msg.md) ou uma [chamada telefônica](security-info-setup-phone-number.md).
@@ -27,6 +28,7 @@ Depois de configurar o método de redefinição de senha, também deverá config
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurar o endereço de email na página Informações de segurança
+
 Dependendo das configurações de sua organização, você poderá usar seu endereço de email como um dos métodos de informações de segurança.
 
 >[!Note]
@@ -60,6 +62,7 @@ Dependendo das configurações de sua organização, você poderá usar seu ende
     As informações de segurança são atualizadas e você pode usar seu endereço de email para verificar a identidade ao usar a redefinição de senha.
 
 ## <a name="delete-your-email-address-from-your-security-info-methods"></a>Excluir o endereço de email de seus métodos de informações de segurança
+
 Se você não quer mais usar seu endereço de email como um método de informações de segurança, poderá excluí-lo na página **Informações de segurança**.
 
 >[!Important]
@@ -74,6 +77,7 @@ Se você não quer mais usar seu endereço de email como um método de informaç
 2. Escolha **Sim** na caixa de confirmação para excluir a conta de **Email**. Depois que a conta de email for excluída, ela será removida das informações de segurança e desaparecerá da página **Informações de segurança**.
 
 ## <a name="additional-security-info-methods"></a>Métodos de informações de segurança adicionais
+
 Você tem opções adicionais de como sua organização entra em contato com você para confirmar sua identidade, com base no que você está tentando fazer. As opções incluem:
 
 - **Aplicativo autenticador.** Faça o download e use um aplicativo autenticador para receber uma notificação de aprovação ou um código de aprovação gerado aleatoriamente para verificação em duas etapas ou redefinição de senha. Para obter instruções passo a passo sobre como configurar e usar o aplicativo Microsoft Authenticator, consulte [Configurar informações de segurança para usar um aplicativo autenticador](security-info-setup-auth-app.md).
@@ -82,8 +86,10 @@ Você tem opções adicionais de como sua organização entra em contato com voc
 
 - **Chamada de telefone do dispositivo móvel ou trabalho.** Insira seu número de dispositivos móveis e receber um telefonema para a redefinição de senha ou a verificação em duas etapas. Para obter instruções passo a passo sobre como verificar sua identidade com um número de telefone, consulte [configurar informações de segurança para usar chamadas telefônicas](security-info-setup-phone-number.md).
 
+- **Chave de segurança.** Registre sua chave de segurança compatível com a Microsoft e use-a junto com um PIN para verificação em duas etapas ou redefinição de senha. Para obter instruções detalhadas sobre como verificar sua identidade com uma chave de segurança, consulte [configurar informações de segurança para usar uma chave de segurança](security-info-setup-security-key.md).
+
 - **Perguntas de segurança.** Responder a algumas perguntas de segurança criadas pelo seu administrador para sua organização. Essa opção só está disponível para a redefinição de senha e não para verificação em duas etapas. Para obter instruções passo a passo sobre como configurar suas perguntas de segurança, consulte o artigo [Configurar informações de segurança para usar perguntas de segurança](security-info-setup-questions.md).
-    
+
     >[!Note]
     >Se algumas dessas opções estiverem ausentes, é mais provável que sua organização não permita esses métodos. Se esse for o caso, você precisará escolher um método disponível ou entrar em contato com o administrador para obter mais ajuda.
 

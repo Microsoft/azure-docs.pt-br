@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 19b14b060cc37f94e51ceb902f8b4158120d4d02
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57889515"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67105289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Tutorial: Integração do Azure Active Directory com o ClickTime
 
@@ -53,7 +53,7 @@ Para configurar a integração do ClickTime com o Azure AD, você precisará adi
 
 **Para adicionar o ClickTime por meio da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o ClickTime, execute as seguintes
 
     ![Informações de logon único de Domínio e URLs do ClickTime](common/idp-intiated.png)
 
-     a. Na caixa de texto **Identificador**, digite uma URL: `https://app.clicktime.com/sp/`
+    a. Na caixa de texto **Identificador**, digite uma URL: `https://app.clicktime.com/sp/`
 
     b. Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão:
     
@@ -138,13 +138,13 @@ Para configurar o logon único do Azure AD com o ClickTime, execute as seguintes
    
     ![Configurações de segurança](./media/clicktime-tutorial/tic777280.png "as configurações de segurança")
    
-     a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
+    a.  Selecione **Permitir** a entrada usando o SSO (Logon Único) com **Azure AD**.
    
     b. Na caixa de texto **Ponto de Extremidade do Provedor de Identidade**, cole a **URL de Logon** que você copiou do portal do Azure.
    
     c.  Abra o **certificado codificado em Base 64** baixado no Portal do Azure no **Bloco de notas**, copie o conteúdo e cole-o na caixa de texto **Certificado X.509**.
    
-    d.  Clique em **Salvar**.
+    d.  Clique em **Save** (Salvar).
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
@@ -164,7 +164,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     a. No campo **Nome**, insira **BrendaFernandes**.
   
-    b. No campo **Nome de usuário**, digite **brendafernandes\@domíniodaempresa.extensão**  
+    b. No campo **Nome de usuário**, digite **brendafernandes\@dominiodaempresa.extensao**  
     Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa Senha.
@@ -221,14 +221,14 @@ No caso do ClickTime, o provisionamento é uma tarefa manual.
    
     ![Pessoas](./media/clicktime-tutorial/tic777284.png "Pessoas")
    
-     a.  Na caixa de texto **nome completo**, digite o nome completo do usuário, por exemplo, **Brenda Fernandes**. 
+    a.  Na caixa de texto **nome completo**, digite o nome completo do usuário, por exemplo, **Brenda Fernandes**. 
   
     b.  Na caixa de texto **Endereço de email**, insira o email do usuário como **brendafernandes\@contoso.com**.
        
     > [!NOTE]
     > Se quiser, defina propriedades adicionais do novo objeto pessoa.
    
-    c.  Clique em **Salvar**.
+    c.  Clique em **Save** (Salvar).
 
 ### <a name="test-single-sign-on"></a>Testar logon único 
 

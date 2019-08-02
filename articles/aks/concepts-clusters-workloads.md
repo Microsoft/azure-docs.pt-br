@@ -2,17 +2,17 @@
 title: Conceitos - Princípios básicos do Kubernetes para o Azure Kubernetes Services (AKS)
 description: Conheça os cluster básico e os componentes de carga de trabalho do Kubernetes e como elas se relacionam aos recursos no serviço de Kubernetes do Azure (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: iainfou
-ms.openlocfilehash: ab818c0bded71b4566173f4a6a720fce9bc539c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: mlearned
+ms.openlocfilehash: 5f387310e737982b824d0ac9662822d9a74f39e9
+ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66514522"
+ms.lasthandoff: 07/07/2019
+ms.locfileid: "67616011"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos de Kubernetes para o serviço de Kubernetes do Azure (AKS)
 
@@ -28,7 +28,7 @@ Você pode criar e executar aplicativos modernos, portáteis e baseados em micro
 
 Como uma plataforma aberta, o Kubernetes permite que você construa seus aplicativos com sua linguagem de programação, sistema operacional, bibliotecas ou barramento de mensagens preferido. As ferramentas existentes de integração contínua e entrega contínua (CI/CD) podem ser integradas ao Kubernetes para agendar e implantar versões.
 
-O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenciado que reduz a complexidade das tarefas de implantação e gerenciamento principal, incluindo a coordenação de atualizações. Os mestres de cluster do AKS são gerenciados pela plataforma do Azure e você paga apenas pelos nós do AKS que executam seus aplicativos. AKS é criado sobre o mecanismo do serviço do código-fonte aberto Azure Kubernetes ([aks-engine][aks-engine]).
+O Serviço de Kubernetes do Azure (AKS) fornece um serviço de Kubernetes gerenciado que reduz a complexidade das tarefas de implantação e gerenciamento principal, incluindo a coordenação de atualizações. Os mestres de cluster do AKS são gerenciados pela plataforma do Azure e você paga apenas pelos nós do AKS que executam seus aplicativos. AKS é criado sobre o mecanismo do serviço do código-fonte aberto Azure Kubernetes ([aks-mecanismo][aks-engine]).
 
 ## <a name="kubernetes-cluster-architecture"></a>Arquitetura de cluster do Kubernetes
 
@@ -54,7 +54,7 @@ O AKS fornece um mestre de cluster de locatário único, com um servidor de API 
 
 Este mestre do cluster gerenciado significa que você não precisa configurar os componentes como altamente disponível *etcd* store, mas isso também significa que você não pode acessar diretamente o mestre do cluster. Os upgrades para o Kubernetes são orquestrados por meio do CLI do Azure ou do portal do Azure, que atualiza o mestre do cluster e, em seguida, os nós. Para solucionar possíveis problemas, você pode examinar os logs de mestre do cluster por meio do Logs do Azure Monitor.
 
-Se você precisar configurar o mestre do cluster de uma maneira específica ou precisar de acesso direto a eles, poderá implantar seu próprio cluster do Kubernetes usando [aks-engine][aks-engine].
+Se você precisar configurar o mestre do cluster de uma maneira específica ou precisar de acesso direto a elas, você pode implantar seu próprio cluster Kubernetes usando [aks-mecanismo][aks-engine].
 
 Para práticas recomendadas associadas, consulte [práticas recomendadas para segurança de cluster e as atualizações no AKS][operator-best-practices-cluster-security].
 
@@ -70,9 +70,9 @@ Para executar seus aplicativos e serviços de suporte, é necessário um Kuberne
 
 O tamanho da VM do Azure para seus nós define quantas CPUs, quanto de memória e tamanho e tipo de armazenamento disponível (como SSD de alto desempenho ou HDD normal). Se você antecipar a necessidade de aplicativos que exijam grandes quantidades de CPU e memória ou armazenamento de alto desempenho, planeje o tamanho do nó de acordo. Você também pode aumentar o número de nós em seu cluster AKS para atender à demanda.
 
-No AKS, a imagem da VM para os nós no cluster no momento, com base no Ubuntu Linux ou Windows Server 2019. Quando você cria um cluster AKS ou aumenta o número de nós, a plataforma do Azure cria o número solicitado de VMs e as configura. Não há nenhuma configuração manual para executar. Nós de agente são cobrados como máquinas virtuais standard, portanto, quaisquer descontos ter no tamanho da VM que você está usando (incluindo [do Azure reservas][reservation-discounts]) são aplicadas automaticamente.
+No AKS, a imagem da VM para os nós no cluster no momento, com base no Ubuntu Linux ou Windows Server 2019. Quando você cria um cluster AKS ou aumenta o número de nós, a plataforma do Azure cria o número solicitado de VMs e as configura. Não há nenhuma configuração manual para executar. Nós de agente são cobrados como máquinas virtuais standard, portanto, quaisquer descontos ter no tamanho da VM que você está usando (incluindo [reservas Azure][reservation-discounts]) são aplicadas automaticamente.
 
-Se você precisar usar um SO de host diferente, um tempo de execução do contêiner ou incluir pacotes personalizados, poderá implantar seu próprio cluster do Kubernetes usando o [aks-engine][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar um tempo de execução do contêiner que não seja Moby, você pode usar `aks-engine` para configurar e implantar um cluster do Kubernetes que atenda às suas necessidades atuais.
+Se você precisar usar um host diferente do sistema operacional, o tempo de execução do contêiner, ou incluir pacotes personalizados, você pode implantar seu próprio cluster Kubernetes usando [aks-mecanismo][aks-engine]. O `aks-engine` upstream libera recursos e fornece opções de configuração antes que eles tenham suporte oficial nos clusters do AKS. Por exemplo, se você quiser usar um tempo de execução do contêiner que não seja Moby, você pode usar `aks-engine` para configurar e implantar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -132,7 +132,7 @@ O Kubernetes usa *pods* para executar uma instância do seu aplicativo. Um pod r
 
 Quando você cria um pod, você pode definir *limites de recursos* para solicitar uma determinada quantidade de recursos de CPU ou memória. O Kubernetes Scheduler tenta programar os pods para serem executados em um nó com recursos disponíveis para atender à solicitação. Você também pode especificar limites máximos de recursos que impedem que um determinado pod consuma muito recurso de computação do nó subjacente. Uma prática recomendada é incluir limites de recursos para todos os pods a fim de ajudar o Agendador do Kubernetes a entender quais recursos são necessários e permitidos.
 
-Para obter mais informações, consulte [pods Kubernetes] [ kubernetes-pods] e [ciclo de vida de pod Kubernetes][kubernetes-pod-lifecycle].
+Para obter mais informações, consulte [pods Kubernetes][kubernetes-pods] and [Kubernetes pod lifecycle][kubernetes-pod-lifecycle].
 
 Um pod é um recurso lógico, mas o (s) contêiner (es) é onde as cargas de trabalho do aplicativo são executadas. Pods são recursos descartáveis, normalmente efêmeros e pods programados individualmente perderem alguns dos recursos de redundância e disponibilidade alta que kubernetes fornece. Em vez disso, os pods geralmente são implementados e gerenciados pelos *Controladores* do Kubernetes, como o Deployment Controller.
 
@@ -183,13 +183,13 @@ Para obter mais informações, consulte [implantações de Kubernetes][kubernete
 
 ### <a name="package-management-with-helm"></a>Gerenciamento de pacotes com Helm
 
-Uma abordagem comum para gerenciar aplicativos no Kubernetes é com [Helm][helm]. Você pode criar e usar o Helm público existente *gráficos* que contêm uma versão empacotada do código do aplicativo e manifestos do Kubernetes YAML para implantar recursos. Esses gráficos do Helm podem ser armazenados localmente ou, com freqüência, em um repositório remoto, como um [repositório de gráficos do Helm Container Registry Helm][acr-helm].
+Uma abordagem comum para gerenciamento de aplicativos no Kubernetes é com [Helm][helm]. Você pode criar e usar o Helm público existente *gráficos* que contêm uma versão empacotada do código do aplicativo e manifestos do Kubernetes YAML para implantar recursos. Esses gráficos Helm podem ser armazenados localmente ou com frequência em um repositório remoto, como um [repositório de gráfico do Helm de registro de contêiner do Azure][acr-helm].
 
 Para usar o Helm, um componente de servidor chamado *Tiller* está instalado em seu cluster Kubernetes. O Tiller gerencia a instalação de gráficos dentro do cluster. O cliente do Helm em si é instalado localmente em seu computador, ou pode ser usado dentro de [Azure Cloud Shell][azure-cloud-shell]. Você pode procurar ou criar gráficos de Helm com o cliente e instalá-los em seu cluster do Kubernetes.
 
 ![O Helm inclui um componente cliente e um componente Tiller do lado do servidor que cria recursos dentro do cluster do Kubernetes](media/concepts-clusters-workloads/use-helm.png)
 
-Para obter mais informações, consulte [Instalar aplicativos com o Helm no Serviço de Kubernetes do Azure (AKS) ][aks-helm].
+Para obter mais informações, consulte [instalar aplicativos com Helm no serviço de Kubernetes do Azure (AKS)][aks-helm].
 
 ## <a name="statefulsets-and-daemonsets"></a>StatefulSets e DaemonSets
 

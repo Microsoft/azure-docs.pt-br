@@ -11,36 +11,37 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 07/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 9e1b1953520c5502668fbbae70a37a140253b035
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46f4e1b3df5f1c77a57d432297685d6d1a0a14a8
+ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241685"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68405805"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Como usar Valores Nomeados nas políticas de Gerenciamento de API do Azure
-As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados. 
 
-Cada instância de serviço do Gerenciamento de API tem uma coleção de propriedades de pares de chave/valor, chamada Valores Nomeados, que são globais à instância do serviço. Esses Valores Nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes em todas as configurações e as políticas de API. Cada propriedade pode ter os seguintes atributos:
+As políticas de gerenciamento de API são um recurso poderoso do sistema que permitem que o portal do Azure altere o comportamento da API por meio da configuração. As políticas são um conjunto de instruções executadas em sequência, na solicitação ou na resposta de uma API. É possível construir declarações de política usando valores de texto literais, expressões de política e valores nomeados.
 
-| Atributo | Type | DESCRIÇÃO |
-| --- | --- | --- |
-| `Display name` |cadeia de caracteres |Cadeia de caracteres alfanuméricos usada para referenciar a propriedade nas políticas. |
-| `Value`        |cadeia de caracteres |O valor da propriedade. Ele não pode ficar vazio ou conter apenas espaços em branco. |
-| `Secret`       |boolean|Determina se o valor é um segredo e se deve ser criptografado ou não.|
-| `Tags`         |matriz de cadeias de caracteres |Marcas opcionais que, quando fornecidas, podem ser usadas para filtrar a lista de propriedades. |
+Cada instância de serviço do Gerenciamento de API tem uma coleção de propriedades de pares de chave/valor, chamada Valores Nomeados, que são globais à instância do serviço. Não há limite imposto sobre o número de itens na coleção. Valores nomeados podem ser usados para gerenciar valores de cadeia de caracteres constantes em todas as políticas e configuração de API. Cada valor nomeado pode ter os seguintes atributos:
+
+| Atributo      | Tipo            | Descrição                                                                                                                         |
+| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `Display name` | cadeia de caracteres          | Usado para referenciar a propriedade em políticas. Uma cadeia de uma a 256 caracteres. Somente letras, números, ponto e traço são permitidos. |
+| `Value`        | cadeia de caracteres          | Valor real. Não deve estar vazio nem consistir apenas em espaços em branco. Máximo de 4096 caracteres de comprimento.                                     |
+| `Secret`       | boolean         | Determina se o valor é um segredo e se deve ser criptografado ou não.                                                            |
+| `Tags`         | matriz de cadeias de caracteres | Usado para filtrar a lista de propriedades. Até 32 marcas.                                                                                    |
 
 ![Valores nomeados](./media/api-management-howto-properties/named-values.png)
 
-Os valores de propriedade podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `ExpressionProperty` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. A propriedade `ContosoHeaderValue` é marcada como um segredo e, portanto, seu valor não é exibido.
+Os valores nomeados podem conter cadeias de caracteres literais e [expressões de política](/azure/api-management/api-management-policy-expressions). Por exemplo, o valor de `Expression` é uma expressão de política que retorna uma cadeia de caracteres que contém a data e hora atuais. O valor `Credential` nomeado é marcado como um segredo, portanto, seu valor não é exibido por padrão.
 
-| NOME | Value | Secret | tags |
-| --- | --- | --- | --- |
-| ContosoHeader |TrackingId |Falso |Contoso |
-| ContosoHeaderValue |•••••••••••••••••••••• |True |Contoso |
-| ExpressionProperty |@(DateTime.Now.ToString()) |Falso | |
+| Nome       | Valor                      | Secret | Marcas          |
+| ---------- | -------------------------- | ------ | ------------- |
+| Valor      | 42                         | False  | números vitais |
+| Credencial | ••••••••••••••••••••••     | verdadeiro   | segurança      |
+| Expressão | @(DateTime.Now.ToString()) | False  |               |
 
 ## <a name="to-add-and-edit-a-property"></a>Para adicionar e editar uma propriedade
 
@@ -50,7 +51,8 @@ Os valores de propriedade podem conter cadeias de caracteres literais e [express
 2. Selecione **Valores nomeados**.
 3. Pressione **+Adicionar**.
 
-   Nome e Valor são valores obrigatórios. Se o valor dessa propriedade for confidencial, marque a caixa de seleção Valor confidencial. Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
+    Nome e Valor são valores obrigatórios. Se o valor dessa propriedade for confidencial, marque a caixa de seleção Valor confidencial. Insira uma ou mais marcas opcionais para ajudar a organizar seus valores nomeados e, em seguida, clique em Salvar.
+
 4. Clique em **Criar**.
 
 Quando a propriedade é criada, você pode editá-la clicando na propriedade. Se você alterar o nome da propriedade, todas as políticas que fizerem referência a essa propriedade serão automaticamente atualizadas para usar o novo nome.
@@ -63,8 +65,6 @@ Para excluir uma propriedade, clique em **Excluir** ao lado da propriedade que v
 
 > [!IMPORTANT]
 > Se a propriedade for consultada por quaisquer políticas, não será possível excluí-la até que você remova a propriedade de todas as políticas que a utilizam.
-> 
-> 
 
 Para saber mais sobre como excluir uma propriedade usando a API REST, confira [Excluir uma propriedade usando a API REST](/rest/api/apimanagement/2019-01-01/property/delete).
 
@@ -109,12 +109,12 @@ Se você analisar o [rastreamento do Inspetor de API](api-management-howto-api-i
 Enquanto os valores de propriedade podem conter expressões de política, os valores de propriedade não podem conter outros valores nomeados. Se um texto contendo uma referência de propriedade for usado para um valor de propriedade, por exemplo, `Property value text {{MyProperty}}`, essa referência de propriedade não será substituída e será incluída como parte do valor da propriedade.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre como trabalhar com políticas
-  * [Políticas no Gerenciamento de API](api-management-howto-policies.md)
-  * [Referência de política](/azure/api-management/api-management-policies)
-  * [Expressões de política](/azure/api-management/api-management-policy-expressions)
+
+-   Saiba mais sobre como trabalhar com políticas
+    -   [Políticas no Gerenciamento de API](api-management-howto-policies.md)
+    -   [Referência de política](/azure/api-management/api-management-policies)
+    -   [Expressões de política](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png
 [api-management-api-inspector-trace]: ./media/api-management-howto-properties/api-management-api-inspector-trace.png
-

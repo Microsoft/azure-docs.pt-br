@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: monitoring-and-diagnostics
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
-ms.author: ajaycode
-ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: agummadi
+ms.openlocfilehash: 2912488286745bf8d2e567d09e445b0a44dc7c39
+ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65620422"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67672176"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitoramento de rede 
 
@@ -70,7 +70,7 @@ NPM para o ExpressRoute oferece monitoramento abrangente do ExpressRoute para co
 
 ![Mapa geográfico mostrando o tráfego entre as regiões](./media/network-monitoring-overview/expressroute-topology-map.png) 
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 * [Configurar o Monitor de Desempenho de Rede para ExpressRoute](../expressroute/how-to-npm.md)
 * [Postagem no blog](https://aka.ms/NPMExRmonitorGA)
@@ -86,7 +86,7 @@ Com o monitoramento da Conectividade de Serviço, você pode testar a acessibili
 * Determinar os pontos de acesso na rede, que podem estar causando o desempenho insatisfatório do aplicativo
 * Monitorar o alcance a aplicativos do Office 365, usando testes internos para o Microsoft Office 365, Dynamics 365, Skype for Business e outros serviços da Microsoft
 
-Para obter mais informações, consulte os seguintes artigos:
+Para obter mais informações, confira os seguintes artigos:
 
 * [Configurar o Monitor de Desempenho de Rede para monitorar pontos de extremidade do serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Postagem no blog](https://aka.ms/svcendptmonitor)

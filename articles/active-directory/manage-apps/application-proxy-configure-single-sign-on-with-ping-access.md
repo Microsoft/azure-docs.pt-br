@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab08c93662988655154cf300ac4ee3758fbc7872
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54a99d001f8cb59af3042ce8b6849a2cd9480e99
+ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66472809"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67724003"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -53,10 +53,11 @@ Se você tiver habilitado o Proxy de aplicativo habilitada e já instalado um co
 O conector de Proxy de aplicativo é um serviço do Windows Server que direciona o tráfego de seus funcionários remotos para seus aplicativos publicados. Para obter instruções de instalação mais detalhadas, consulte [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 1. Entrar para o [portal do Azure Active Directory](https://aad.portal.azure.com/) como um administrador do aplicativo. O **Centro de administração do Azure Active Directory** página será exibida.
-2. Selecione **Azure Active Directory** > **proxy de aplicativo** > **baixar conector de serviço**. O **Download do conector do Proxy de aplicativo** página será exibida.
+1. Selecione **Azure Active Directory** > **proxy de aplicativo** > **baixar conector de serviço**. O **Download do conector do Proxy de aplicativo** página será exibida.
 
    ![Download do conector de proxy de aplicativo](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
-3. Siga as instruções de instalação.
+
+1. Siga as instruções de instalação.
 
 Baixar o conector deve habilitar automaticamente o Proxy de aplicativo para seu diretório, mas se não estiver, você pode selecionar **habilitar o Proxy de aplicativo**.
 
@@ -76,10 +77,10 @@ Primeiro, você terá de publicar seu aplicativo. Essa ação envolve:
 Para publicar seu próprio aplicativo no local:
 
 1. Se você não fez isso na última seção, entrar para o [portal do Azure Active Directory](https://aad.portal.azure.com/) como um administrador do aplicativo.
-2. Selecione **aplicativos empresariais** > **novo aplicativo** > **aplicativo local**. O **adicionar seu próprio aplicativo local** página será exibida.
+1. Selecione **aplicativos empresariais** > **novo aplicativo** > **aplicativo local**. O **adicionar seu próprio aplicativo local** página será exibida.
 
    ![Adicionar seu próprio aplicativo local](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
-3. Preencha os campos obrigatórios com informações sobre seu novo aplicativo. Use as diretrizes abaixo para as configurações.
+1. Preencha os campos obrigatórios com informações sobre seu novo aplicativo. Use as diretrizes abaixo para as configurações.
 
    > [!NOTE]
    > Para obter uma explicação mais detalhada dessa etapa, consulte [adicionar um aplicativo local ao Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
@@ -89,46 +90,48 @@ Para publicar seu próprio aplicativo no local:
       > [!WARNING]
       > Para esse tipo de logon único, a URL interna deve usar `https` e não é possível usar `http`.
 
-   2. **Método de pré-autenticação**: Escolher **do Azure Active Directory**.
-   3. **Traduzir URL nos cabeçalhos**: Escolher **não**.
+   1. **Método de pré-autenticação**: Escolher **do Azure Active Directory**.
+   1. **Traduzir URL nos cabeçalhos**: Escolher **não**.
 
    > [!NOTE]
    > Se este for seu primeiro aplicativo, use a porta 3000 para iniciar e retorne para atualizar essa configuração se alterar a configuração de PingAccess. Para aplicativos subsequentes, a porta será necessário combinar o ouvinte configurado no PingAccess. Saiba mais sobre [ouvintes no PingAccess](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html).
-4. Selecione **Adicionar**. A página de visão geral para o novo aplicativo aparece.
+
+1. Selecione **Adicionar**. A página de visão geral para o novo aplicativo aparece.
 
 Agora, atribuir um usuário de teste de aplicativos e escolher com base no cabeçalho de logon único:
 
 1. Na barra lateral do aplicativo, selecione **usuários e grupos** > **adicionar usuário** > **usuários e grupos (\<número > selecionados)** . Aparece uma lista de usuários e grupos para sua escolha.
 
-   ![Usuários e grupos](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
-2. Selecione um usuário de teste de aplicativos e, em seguida, selecione **selecionar**. Verifique se essa conta de teste tem acesso ao aplicativo local.
-3. Selecione **Atribuir**.
-4. Na barra lateral do aplicativo, selecione **logon único** > **baseada em cabeçalho**.
+   ![Mostra a lista de usuários e grupos](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
+
+1. Selecione um usuário de teste de aplicativos e, em seguida, selecione **selecionar**. Verifique se essa conta de teste tem acesso ao aplicativo local.
+1. Selecione **Atribuir**.
+1. Na barra lateral do aplicativo, selecione **logon único** > **baseada em cabeçalho**.
 
    > [!TIP]
    > Se esta for a primeira vez que você usa o logon único com base em cabeçalhos, será necessário instalar o PingAccess. Para certificar-se de que sua assinatura do Azure seja automaticamente associada à sua instalação do PingAccess, use o link nesta página de logon único para baixar o PingAccess. Você pode abrir o site de download agora ou voltar a esta página mais tarde.
 
-   ![Logon baseado em cabeçalho](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
-5. Clique em **Salvar**.
+   ![Mostra a tela de entrada baseada em cabeçalho e o PingAccess](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
+
+1. Clique em **Salvar**.
 
 Em seguida, verifique se o redirecionamento de que URL é definida como a URL externa:
 
 1. Dos **Centro de administração do Azure Active Directory** barra lateral, selecione **Azure Active Directory** > **registros do aplicativo**. É exibida uma lista de aplicativos.
-
-   ![Registros de aplicativo](./media/application-proxy-configure-single-sign-on-with-ping-access/app-registrations.png)
-2. Selecione seu aplicativo.
-3. Selecione o link próximo a **URIs de redirecionamento**, mostrando o número de redirecionamento de URIs definido para a web e clientes públicos. O  **\<nome do aplicativo >-autenticação** página será exibida.
-4. Verifique se a URL externa que você atribuiu ao seu aplicativo anteriormente está no **URIs de redirecionamento** lista. Se não estiver, adicione a URL externa agora, usando um tipo URI de redirecionamento de **Web**e selecione **salvar**.
+1. Selecione seu aplicativo.
+1. Selecione o link próximo a **URIs de redirecionamento**, mostrando o número de redirecionamento de URIs definido para a web e clientes públicos. O  **\<nome do aplicativo >-autenticação** página será exibida.
+1. Verifique se a URL externa que você atribuiu ao seu aplicativo anteriormente está no **URIs de redirecionamento** lista. Se não estiver, adicione a URL externa agora, usando um tipo URI de redirecionamento de **Web**e selecione **salvar**.
 
 Finalmente, configure seu aplicativo local para que os usuários têm acesso de leitura e outros aplicativos têm acesso de leitura/gravação:
 
 1. Dos **registros de aplicativo** barra lateral para seu aplicativo, selecione **permissões de API** > **adicionar uma permissão**  >   **As APIs da Microsoft** > **o Microsoft Graph**. O **permissões de API de solicitação** página **Microsoft Graph** for exibida, que contém as APIs para o Windows Azure Active Directory.
 
-   ![Solicitar permissões de API](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
-2. Selecione **permissões delegadas** > **usuário** > **Read**.
-3. Selecione **permissões de aplicativo** > **aplicativo** > **Application.ReadWrite.All**.
-4. Selecione **adicionar permissões**.
-5. No **permissões de API** página, selecione **conceder consentimento do administrador para \<seu nome do diretório >** .
+   ![Mostra a página de permissões de API de solicitação](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
+
+1. Selecione **permissões delegadas** > **usuário** > **Read**.
+1. Selecione **permissões de aplicativo** > **aplicativo** > **Application.ReadWrite.All**.
+1. Selecione **adicionar permissões**.
+1. No **permissões de API** página, selecione **conceder consentimento do administrador para \<seu nome do diretório >** .
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>Coletar informações sobre as etapas do PingAccess
 
@@ -143,18 +146,20 @@ Você precisa coletar esses três partes de informações (todos os GUIDs) para 
 Para coletar essas informações:
 
 1. Dos **Centro de administração do Azure Active Directory** barra lateral, selecione **Azure Active Directory** > **registros do aplicativo**. É exibida uma lista de aplicativos.
-2. Selecione seu aplicativo. O **registros de aplicativo** página de seu aplicativo é exibida.
+1. Selecione seu aplicativo. O **registros de aplicativo** página de seu aplicativo é exibida.
 
    ![Visão geral do registro para um aplicativo](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
-3. Lado a **ID do aplicativo (cliente)** valor, selecione o **copiar para área de transferência** ícone, em seguida, copie e salve-o. Especifique esse valor posteriormente como ID do cliente. do PingAccess
-4. Próximo a **ID de diretório (Locatário)** de valor, selecione também **copiar para área de transferência**, em seguida, copie e salve-o. Especifique esse valor posteriormente como o emissor do PingAccess.
-5. Na barra lateral do **registros de aplicativo** para seu aplicativo, selecione **certificados e segredos** > **novo segredo do cliente**. O **adicionar um segredo do cliente** página será exibida.
 
-   ![Adicionar um segredo do cliente](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
-6. Na **descrição**, tipo `PingAccess key`.
-7. Sob **Expires**, escolha como definir a chave do PingAccess: **Em 1 ano**, **em 2 anos**, ou **nunca**.
-8. Selecione **Adicionar**. Os PingAccess chave aparece na tabela de segredos do cliente, com um aleatório de cadeia de caracteres que é automaticamente preenchida na **valor** campo.
-9. Ao lado da chave de PingAccess **valor** campo, selecione o **copiar para área de transferência** ícone, em seguida, copie e salve-o. Especifique esse valor posteriormente como o segredo do cliente do PingAccess.
+1. Lado a **ID do aplicativo (cliente)** valor, selecione o **copiar para área de transferência** ícone, em seguida, copie e salve-o. Especifique esse valor posteriormente como ID do cliente. do PingAccess
+1. Próximo a **ID de diretório (Locatário)** de valor, selecione também **copiar para área de transferência**, em seguida, copie e salve-o. Especifique esse valor posteriormente como o emissor do PingAccess.
+1. Na barra lateral do **registros de aplicativo** para seu aplicativo, selecione **certificados e segredos** > **novo segredo do cliente**. O **adicionar um segredo do cliente** página será exibida.
+
+   ![Mostra a adicionar uma página de segredo do cliente](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
+
+1. Na **descrição**, tipo `PingAccess key`.
+1. Sob **Expires**, escolha como definir a chave do PingAccess: **Em 1 ano**, **em 2 anos**, ou **nunca**.
+1. Selecione **Adicionar**. Os PingAccess chave aparece na tabela de segredos do cliente, com um aleatório de cadeia de caracteres que é automaticamente preenchida na **valor** campo.
+1. Ao lado da chave de PingAccess **valor** campo, selecione o **copiar para área de transferência** ícone, em seguida, copie e salve-o. Especifique esse valor posteriormente como o segredo do cliente do PingAccess.
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>Atualizar a API do Graph para enviar campos personalizados (opcional)
 
@@ -173,14 +178,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 **Este exemplo usa o [portal do Azure Active Directory](https://aad.portal.azure.com/) para atualizar o `acceptMappedClaims` campo:**
 
 1. Entrar para o [portal do Azure Active Directory](https://aad.portal.azure.com/) como um administrador do aplicativo.
-2. Selecione **Azure Active Directory** > **Registros de aplicativo**. É exibida uma lista de aplicativos.
-3. Selecione seu aplicativo.
-4. Na barra lateral do **registros de aplicativo** página do seu aplicativo, selecione **manifesto**. O código JSON de manifesto para o registro do seu aplicativo é exibida.
-5. Pesquise o `acceptMappedClaims` do campo e altere o valor para `True`.
-6. Clique em **Salvar**.
-
+1. Selecione **Azure Active Directory** > **Registros de aplicativo**. É exibida uma lista de aplicativos.
+1. Selecione seu aplicativo.
+1. Na barra lateral do **registros de aplicativo** página do seu aplicativo, selecione **manifesto**. O código JSON de manifesto para o registro do seu aplicativo é exibida.
+1. Pesquise o `acceptMappedClaims` do campo e altere o valor para `True`.
+1. Clique em **Salvar**.
 
 ### <a name="use-of-optional-claims-optional"></a>Uso de declarações opcionais (opcionais)
+
 Declarações opcionais permite que você adicione declarações standard-but-not-included-by-default que cada usuário e locatário tem. Você pode configurar declarações opcionais para o seu aplicativo modificando o manifesto do aplicativo. Para obter mais informações, consulte o [Noções básicas sobre o artigo de manifesto de aplicativo do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/)
 
 Exemplo para incluir o endereço de email para o access_token que consumirá o PingAccess:
@@ -200,7 +205,8 @@ Exemplo para incluir o endereço de email para o access_token que consumirá o P
 ```
 
 ### <a name="use-of-claims-mapping-policy-optional"></a>Uso da política (opcional) de mapeamento de declarações
-[Declarações de política de mapeamento (visualização)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties/) para atributos que não existem no Azure AD. Mapeamento de declarações lhe permite migrar aplicativos de locais antigos para a nuvem, adicionando declarações personalizadas extras que são apoiadas por seus objetos de usuário ou o ADFS
+
+[Declarações de política de mapeamento (visualização)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-claims-mapping#claims-mapping-policy-properties) para atributos que não existem no Azure AD. Mapeamento de declarações lhe permite migrar aplicativos de locais antigos para a nuvem, adicionando declarações personalizadas extras que são apoiadas por seus objetos de usuário ou o ADFS
 
 Para tornar seu aplicativo usar uma declaração personalizada e incluir campos adicionais, não se esqueça de que você também [criou uma política de mapeamento de declarações personalizadas e atribuída ao aplicativo](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
@@ -213,10 +219,13 @@ Exemplo:
 ```powershell
 $pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 
-Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id 
+Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Application you published in the previous step, which requires this claim>>" -RefObjectId $pol.Id
 ```
 
-### <a name="enable-pingaccess-to-use-custom-claims-optional-but-required-if-you-expect-the-application-to-consume-additional-claims"></a>Habilitar o PingAccess usar declarações personalizadas (opcional, mas necessário se você espera que o aplicativo consuma declarações adicionais)
+### <a name="enable-pingaccess-to-use-custom-claims"></a>Habilitar o PingAccess usar declarações personalizadas
+
+Habilitar o PingAccess usar declarações personalizadas é opcional, mas é obrigatória se você espera que o aplicativo consuma declarações adicionais.
+
 Quando você configura o PingAccess na etapa a seguir, a sessão da Web que você irá criar (Configurações -> acesso -> sessões da Web) deve ter **solicitação de perfil** desmarcada e **atualizar atributos de usuário** definido como **não**
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>Baixar o PingAccess e configurar seu aplicativo

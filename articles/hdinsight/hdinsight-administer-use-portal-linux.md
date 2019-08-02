@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: hrasheed
-ms.openlocfilehash: 44de565b8c94369c5751938b5df939f0af6e7f36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c745fceca5efa66b1b23661001d93ddb287fe37b
+ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67068911"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67460641"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters do Apache Hadoop no HDInsight usando o portal do Azure
 
@@ -107,7 +107,7 @@ Na [página inicial do cluster](#homePage), em **Configurações**, selecione **
 |DATA DE CRIAÇÃO|A data em que o cluster foi implantado.|
 |SISTEMA OPERACIONAL|**Windows** ou **Linux**.|
 |TYPE|Hadoop, HBase, Storm, Spark.|
-|Version|Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).|
+|Versão|Consulte [HDInsight versions](hdinsight-component-versioning.md) (Versões do HDInsight).|
 |ASSINATURA|Nome da assinatura.|
 |FONTE DE DADOS PADRÃO|O sistema de arquivos padrão do cluster.|
 |Tamanhos de nós de trabalho|O tamanho selecionado da VM dos nós de trabalho.|
@@ -152,7 +152,7 @@ Você também é cobrado por um cluster HDInsight, mesmo quando ele não está e
 Há várias maneiras de programar o processo:
 
 * Use o Azure Data Factory. Consulte [Criar clusters Apache Hadoop baseados em Linux sob demanda no HDInsight usando o Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) para criar serviços vinculados HDInsight sob demanda.
-* Use o Azure PowerShell.  Consulte [Analisar dados de atraso de voo](hdinsight-analyze-flight-delay-data-linux.md).
+* Use o Azure PowerShell.  Consulte [Analisar dados de atraso de voo](./interactive-query/interactive-query-tutorial-analyze-flight-data.md).
 * Use a CLI do Azure. Ver [gerenciar o Azure HDInsight clusters usando a CLI do Azure](hdinsight-administer-use-command-line.md).
 * Use o SDK .NET do HDInsight. Ver [trabalhos de envio do Apache Hadoop](hadoop/submit-apache-hadoop-jobs-programmatically.md).
 

@@ -1,6 +1,6 @@
 ---
-title: Gerenciar versões
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Gerenciar versões-LUIS
+titleSuffix: Azure Cognitive Services
 description: As versões permitem que você crie e publique modelos diferentes. É uma boa prática clonar o modelo ativo atual para uma versão diferente do aplicativo antes de fazer alterações no modelo.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: f919651cf39d1f2c48fca87da935e49e3affa79f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dd3cd13b14f58e1ece0b91f924ebefb25682bbf7
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60198833"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68638105"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usar versões para editar e testar sem afetar aplicativos de preparo ou produção
 
@@ -24,7 +24,7 @@ As versões permitem que você crie e publique modelos diferentes. É uma boa pr
 
 Para trabalhar com versões, abra o aplicativo selecionando o nome dele na página **Meus Aplicativos** e, em seguida, selecione **Gerenciar** na barra superior e selecione **Versões**. 
 
-A lista de versões mostra quais versões são publicadas, onde eles são publicados e qual versão está ativa no momento. 
+A lista de versões mostra quais versões são publicadas, onde elas são publicadas e qual versão está ativa no momento. 
 
 [![Gerenciar seção, página de versões](./media/luis-how-to-manage-versions/versions-import.png "Gerenciar seção, página de versões")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
@@ -59,7 +59,7 @@ Selecione uma versão na lista e selecione **Tornar Ativa** na barra de ferramen
 
 ### <a name="import-errors"></a>Erros de importação
 
-* Erros de criador de token: Se você receber um **erro tokenizer** durante a importação, você está tentando importar uma versão que usa outro [tokenizer](luis-language-support.md#custom-tokenizer-versions) que o aplicativo usa atualmente. Para corrigir esse problema, consulte [migrar entre as versões do tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
+* Erros de Criador: Se você receber um **erro criador** ao importar, você está tentando importar uma versão que usa um [criador](luis-language-support.md#custom-tokenizer-versions) diferente do que o aplicativo usa atualmente. Para corrigir isso, consulte [migrando entre versões do criador](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
@@ -67,5 +67,5 @@ Selecione uma versão na lista e selecione **Tornar Ativa** na barra de ferramen
 
 * Para **excluir** uma versão, selecione-a na lista e selecione **Excluir** na barra de ferramentas. Selecione **Okey**. 
 * Para **renomear** uma versão, selecione-a na lista e selecione **Renomear** na barra de ferramentas. Insira o novo nome e selecione **Concluído**. 
-* Para **exporta** uma versão, selecione-a na lista e selecione **Exportar aplicativo** na barra de ferramentas. Escolha o JSON para exportar para o backup, escolha **exportar para o contêiner** ao [usar este aplicativo em um contêiner de LUIS](luis-container-howto.md).  
+* Para **exporta** uma versão, selecione-a na lista e selecione **Exportar aplicativo** na barra de ferramentas. Escolha JSON para exportar para backup, escolha **exportar para contêiner** para [usar esse aplicativo em um contêiner Luis](luis-container-howto.md).  
 

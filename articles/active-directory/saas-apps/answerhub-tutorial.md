@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52c49bdd51bda7876d19a681bde79c9dbeeb4ea7
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: ccf3894daf71be0defe4271a08ec5e8d963e0d34
+ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901288"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "68227490"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-answerhub"></a>Tutorial: Integração do Azure Active Directory ao AnswerHub
 
@@ -105,7 +105,7 @@ Nesta seção, você configura o logon único do Azure AD no portal do Azure.
 
     ![Seção Configuração Básica do SAML](common/sp-identifier.png)
 
-     a. Na caixa **URL de Logon**, insira uma URL que tenha este padrão: `https://<company>.answerhub.com`
+    a. Na caixa **URL de Logon**, insira uma URL que tenha este padrão: `https://<company>.answerhub.com`
 
     b. Na caixa **Identificador (ID da Entidade)** , insira uma URL que tenha este padrão: `https://<company>.answerhub.com`
 
@@ -146,7 +146,7 @@ Nesta seção, você configurará o logon único do AnswerHub.
 
     ![Guia Usuários e Grupos](./media/answerhub-tutorial/ic785172.png "Configuração do SAML")  
   
-     a. Na caixa **URL de Logon do IdP**, cole a **URL de Logon** copiada do portal do Azure.
+    a. Na caixa **URL de Logon do IdP**, cole a **URL de Logon** copiada do portal do Azure.
   
     b. Na caixa **URL de Logoff do IdP**, cole a **URL de Logoff** copiada do portal do Azure.
 
@@ -158,7 +158,7 @@ Nesta seção, você configurará o logon único do AnswerHub.
 
     ![Seção Chaves e Certificados](./media/answerhub-tutorial/ic785173.png "Chaves e Certificados")  
 
-     a. Abra o certificado codificado em Base64 baixado no portal do Azure no Bloco de notas, copie o conteúdo e, em seguida, cole o conteúdo na caixa **Chave Pública do IdP (Formato x509)** .
+    a. Abra o certificado codificado em Base64 baixado no portal do Azure no Bloco de notas, copie o conteúdo e, em seguida, cole o conteúdo na caixa **Chave Pública do IdP (Formato x509)** .
   
     b. Clique em **Salvar**.
 
@@ -182,7 +182,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
 
     ![Propriedades do usuário](common/user-properties.png)
 
-     a. Na caixa **Nome**, insira **BrendaFernandes**.
+    a. Na caixa **Nome**, insira **BrendaFernandes**.
   
     b. Na caixa **Nome de usuário**, insira **brendafernandes\@<domíniodaempresa.extensão>** .  
     Por exemplo, BrittaSimon@contoso.com.
@@ -193,7 +193,7 @@ Nesta seção, você criará uma usuária de teste no portal do Azure chamada Br
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você configurará Brenda Fernandes para que ela use o logon único do Azure AD concedendo a ela acesso ao AnswerHub.
+Nesta seção, você configurará o usuário Brenda Fernandes para que use o logon único do Azure AD, concedendo a esse usuário acesso ao AnswerHub.
 
 **Para atribuir o usuário de teste do Azure AD:**
 

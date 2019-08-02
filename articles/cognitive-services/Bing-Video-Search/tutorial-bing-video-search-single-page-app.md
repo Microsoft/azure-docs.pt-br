@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Criar um aplicativo de página única da Pesquisa de Vídeo do Bing'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explica como usar a API de Pesquisa de Vídeo do Bing em um aplicativo Web de página única.
 services: cognitive-services
 author: aahill
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 07/12/2019
 ms.author: aahi
-ms.openlocfilehash: 6ba777754990560526d7981ef497ea7f0441e1b0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2cd3d37801fc1a42a9bcbd5f70a6a55e78aaf08
+ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798470"
+ms.lasthandoff: 07/25/2019
+ms.locfileid: "68500070"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: Aplicativo de Pesquisa de Vídeo de página única
 A API de Pesquisa de Vídeo do Bing permite que você faça pesquisas na Web e obtenha resultados de vídeo relevantes para uma consulta de pesquisa. Neste tutorial, criaremos um aplicativo Web de página única que usa a API de Pesquisa do Bing para exibir os resultados da pesquisa na página. O aplicativo inclui componentes HTML, CSS e JavaScript.
@@ -373,9 +373,9 @@ A função do renderizador:
 > * Cria as marcas HTML `<a>` que fornecem links para a imagem e a página que a contém.
 > * Cria a descrição que exibe informações sobre a imagem e o site no qual ela está localizada.
 
-O tamanho da miniatura é usado na marcação `<img>` e nos campos `h` e `w` na URL da miniatura. Em seguida, o [serviço em miniatura do Bing](resize-and-crop-thumbnails.md) fornece uma miniatura exatamente desse tamanho.
+O tamanho da miniatura é usado na marcação `<img>` e nos campos `h` e `w` na URL da miniatura. O Bing retornará uma [miniatura](../bing-web-search/resize-and-crop-thumbnails.md) exatamente desse tamanho.
 
-## <a name="persisting-client-id"></a>Persistindo a ID do cliente
+## <a name="persisting-client-id"></a>Persistir ID do cliente
 As respostas das APIs de Pesquisa do Bing podem incluir um cabeçalho `X-MSEdge-ClientID` que deve ser enviado novamente para a API com solicitações sucessivas. Se várias APIs de Pesquisa do Bing estiverem sendo usadas, a mesma ID do cliente deverá ser usada com todas elas, se possível.
 
 Fornecer o cabeçalho `X-MSEdge-ClientID` permite que as APIs do Bing associem todas as pesquisas do usuário, o que oferece dois benefícios importantes.
@@ -389,7 +389,7 @@ As políticas de segurança do navegador (CORS) podem impedir que o cabeçalho `
 > [!NOTE]
 > Em um aplicativo Web de produção, você deve executar a solicitação do servidor. Caso contrário, a chave de API de Pesquisa do Bing precisará ser incluída na página da Web, na qual ela estará disponível para qualquer pessoa que exiba a origem. Você é cobrado por todos os usos em sua chave de assinatura de API, até mesmo por solicitações feitas por partes não autorizadas. Portanto, é importante não expor sua chave.
 
-Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que inclui os cabeçalhos de resposta na lista de permissões e disponibiliza-os para o JavaScript.
+Para fins de desenvolvimento, você pode fazer a solicitação da API de Pesquisa na Web do Bing por meio de um proxy CORS. A resposta desse proxy tem um cabeçalho `Access-Control-Expose-Headers` que permite cabeçalhos de resposta e disponibiliza-os para o JavaScript.
 
 É fácil instalar um proxy CORS para permitir que o aplicativo de tutorial acesse o cabeçalho da ID do cliente. Primeiro, caso ainda não tenha, [instale o Node.js](https://nodejs.org/en/download/). Em seguida, emita o seguinte comando em uma janela de comando:
 

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b7e59e39adbb485738ca66b7ad8e5ba8293ddc
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: dae3f9f2f4a9f6966d3453123773887c244cf4e2
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784987"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68334063"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar a API do Microsoft Graph de um aplicativo da Plataforma Universal do Windows (XAML)
 
@@ -60,8 +60,8 @@ Este guia cria um aplicativo que exibe um botão usado para consultar a API do G
 ### <a name="create-your-application"></a>Criar o aplicativo
 
 1. No Visual Studio, selecione **Arquivo** > **Novo** > **Projeto**.
-2. Em **Modelos**, selecione **Visual C#**.
-3. Selecione **Aplicativo em Branco (Universal do Windows)**.
+2. Em **Modelos**, selecione **Visual C#** .
+3. Selecione **Aplicativo em Branco (Universal do Windows)** .
 4. Nomeie o aplicativo e selecione **OK**.
 5. Se solicitado, selecione qualquer versão para **Destino** e **Mínima** e selecione **OK**.
 
@@ -147,7 +147,7 @@ Esta seção mostra como usar a MSAL para obter um token para a API do Microsoft
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -329,12 +329,12 @@ Agora você precisa registrar seu aplicativo no Portal de Registro de Aplicativo
 1. Navegue até a página [Registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) da plataforma de identidade da Microsoft para desenvolvedores.
 1. Selecione **Novo registro**.
    - Na seção **Nome**, insira um nome de aplicativo relevante que será exibido aos usuários do aplicativo, por exemplo, `UWP-App-calling-MSGraph`.
-   - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**.
+   - Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
    - Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Volte para o Visual Studio, abra **MainPage.xaml.cs** e substitua o valor de ClientId pela ID do Aplicativo que você acabou de registrar:
 1. Na lista de páginas para o aplicativo, selecione **Autenticação**.
    1. Na seção **URIs de Redirecionamento** na lista de URIs de Redirecionamento:
-   1. Na coluna **TIPO**, selecione **Cliente público (dispositivo móvel e desktop)**.
+   1. Na coluna **TIPO**, selecione **Cliente público (dispositivo móvel e desktop)** .
    1. Insira `urn:ietf:wg:oauth:2.0:oob` na coluna **URI DE REDIRECIONAMENTO**.
 1. Clique em **Salvar**.
 1. Na lista de páginas para o aplicativo, selecione **Permissões da API**
@@ -419,3 +419,8 @@ Você habilitar a [autenticação integrada em domínios federados](#enable-inte
 **Solução alternativa:** Selecione **Entrar com outras opções**. Depois selecione **Entrar com nome de usuário e senha**. Selecione **Forneça sua senha**. Depois passe pelo processo de autenticação de telefone.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Ajude-nos a melhorar a plataforma de identidade da Microsoft. Deixe sua opinião respondendo a uma breve pesquisa de duas perguntas.
+
+> [!div class="nextstepaction"]
+> [Pesquisa da plataforma de identidade da Microsoft](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

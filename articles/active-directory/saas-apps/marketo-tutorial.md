@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 810d19a697e32f2d8e389bf58d52e82529bdd66b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 28dd21bac2c1fb1602fd66ca237b230cdb12bdac
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917431"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67097647"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Azure Active Directory ao Marketo
 
@@ -52,7 +52,7 @@ Para configurar a integração do Marketo ao Azure AD, você precisará adiciona
 
 **Para adicionar o Marketo da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -104,7 +104,7 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
 
     ![Informações de logon único de Domínio e URLs do Marketo](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://saml.marketo.com/sp`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://saml.marketo.com/sp`
 
     b. No **URL de resposta** caixa de texto, digite uma URL usando o seguinte padrão: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
 
@@ -129,7 +129,7 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
 
 1. Para obter a Id do Munchkin do aplicativo, faça logon no Marketo usando credenciais de administrador e execute as seguintes ações:
    
-     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
+    a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
     b. Clique no botão **Admin** no painel de navegação superior.
    
@@ -145,7 +145,7 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
 
 2. Para configurar o SSO no aplicativo, siga estas etapas:
    
-     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
+    a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
     b. Clique no botão **Admin** no painel de navegação superior.
    
@@ -186,7 +186,7 @@ Para configurar o logon único do Azure AD com o Marketo, execute as seguintes e
 
 3. Para habilitar o SSO para usuários, conclua as seguintes ações:
    
-     a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
+    a. Faça logon usando credenciais de administrador de aplicativo do Marketo.
    
     b. Clique no botão **Admin** no painel de navegação superior.
    
@@ -271,7 +271,7 @@ Nesta seção, você criará uma usuária chamada Brenda Fernandes no Marketo. s
 
 5. No assistente para Convidar Novo Usuário, preencha as informações a seguir
    
-     a. Insira o endereço de **Email** do usuário na caixa de texto
+    a. Insira o endereço de **Email** do usuário na caixa de texto
    
     ![Configurar o logon único](./media/marketo-tutorial/tutorial_marketo_16.png)
    
@@ -302,5 +302,5 @@ Ao clicar no bloco do Marketo no Painel de Acesso, você deverá ser conectado a
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

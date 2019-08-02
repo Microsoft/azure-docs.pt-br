@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 03/10/2019
-ms.openlocfilehash: e9002b96467d6fa3a5c4fb03fb20bde4e1bf87a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 07/10/2019
+ms.openlocfilehash: 8682baa961ca3270e76614702b51ac50f197e847
+ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059346"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67795482"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança corporativa para o serviço Azure Machine Learning
 
@@ -23,7 +23,7 @@ Neste artigo, você aprenderá sobre os recursos de segurança disponíveis com 
 
 Ao usar um serviço de nuvem, é uma prática recomendada para restringir o acesso somente aos usuários que precisam dela. Isso começa com a compreensão do modelo de autenticação e autorização usado pelo serviço. Você talvez também queira restringir o acesso à rede ou ingressar com segurança recursos em sua rede local com aqueles na nuvem. Criptografia de dados também é essencial em repouso e enquanto os dados se movem entre os serviços. Por fim, você precisa ser capaz de monitorar o serviço e produzir um log de auditoria de todas as atividades.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Autenticação multifator é suportada se o Azure Active Directory (Azure AD) está configurado para o mesmo.
 * Cliente faz logon no Azure AD e obtém o token do Azure Resource Manager.  Os usuários e entidades de serviço são totalmente compatíveis.
 * Cliente apresenta o token para o Azure Resource Manager e todos os serviços do Azure Machine Learning
@@ -83,7 +83,7 @@ Cada espaço de trabalho também tem um atribuído pelo sistema gerenciado ident
 
 Para obter mais informações sobre identidades gerenciadas, consulte [identidades para recursos do Azure gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| Resource | Permissões |
+| Recurso | Permissões |
 | ----- | ----- |
 | Workspace | Colaborador | 
 | Conta de armazenamento | Colaborador de dados de Blob de armazenamento | 

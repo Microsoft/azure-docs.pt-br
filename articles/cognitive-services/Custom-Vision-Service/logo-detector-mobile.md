@@ -1,25 +1,25 @@
 ---
 title: 'Tutorial: Usar o detector de logotipo personalizado para reconhecer serviços do Azure – Visão Personalizada'
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Neste tutorial, você acompanhará as etapas de um aplicativo de exemplo que usa a Visão Personalizada do Azure como parte de um cenário de detecção de logotipo. Saiba como a Visão Personalizada é usada com outros componentes para entregar um aplicativo completo.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 51b2cd42fabe6406f88388e99459a6f3dd3e69f5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: b0a5b110951d7b13110fab935d5ca1333f7f8c1e
+ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827644"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68564202"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviços do Azure em imagens da câmera
 
-Neste tutorial, você explorará um aplicativo de exemplo que usa a Visão Personalizada do Azure como parte de um cenário maior. O aplicativo de Provisionamento Visual e IA, um aplicativo Xamarin.Forms para plataformas móveis, analisa imagens da câmera de logotipos de serviços do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa a Visão Personalizada em coordenação com outros componentes para entregar um aplicativo útil de ponta a ponta. Execute todo o cenário do aplicativo por conta própria ou apenas conclua a parte da Visão Personalizada da instalação e explore como o aplicativo a utiliza.
+Neste tutorial, você explorará um aplicativo de exemplo que usa a Visão Personalizada do Azure como parte de um cenário maior. O aplicativo de Provisionamento Visual e IA, um aplicativo Xamarin.Forms para plataformas móveis, analisa imagens da câmera de logotipos de serviços do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa a Visão Personalizada em coordenação com outros componentes para entregar um aplicativo útil de ponta a ponta. Você pode executar todo o cenário do aplicativo por conta própria ou apenas concluir a parte da Visão Personalizada da instalação e explorar como o aplicativo a utiliza.
 
 Este tutorial mostrará como:
 
@@ -51,7 +51,7 @@ Entre no [site da Visão Personalizada](https://customvision.ai/) e crie um proj
 
 Em seguida, treine o algoritmo de detecção de logotipo carregando imagens de logotipos de serviços do Azure e marcando-os manualmente. O repositório de AIVisualProvision inclui um conjunto de imagens de treinamento que pode ser usado. No site, selecione o botão **Adicionar imagens** na guia **Imagens de Treinamento**. Em seguida, acesse a pasta **Documents/Images/Training_DataSet** do repositório. Deve-se marcar manualmente os logotipos em cada imagem. Portanto, se estiver apenas testando este projeto, carregue apenas um subconjunto das imagens. Carregue pelo menos 15 instâncias de cada tag que você planeja usar.
 
-Depois de carregar as imagens de treinamento, selecione a primeira na exibição. Isso abrirá a janela de marcação. Desenhe caixas e atribua marcas a cada logotipo em cada imagem. 
+Depois de carregar as imagens de treinamento, selecione a primeira na exibição. A janela de marcação será exibida. Desenhe caixas e atribua marcas a cada logotipo em cada imagem. 
 
 ![Marcação de logotipo no site da Visão Personalizada](media/azure-logo-tutorial/tag-logos.png)
 
@@ -63,13 +63,13 @@ Depois de marcar uma imagem, vá para a direita para marcar a próxima. Feche a 
 
 ## <a name="train-the-object-detector"></a>Treinar o detector de objeto
 
-No painel esquerdo, defina a opção **Marcações** como **Marcadas** para exibir suas imagens. Em seguida, selecione o botão verde na parte superior da página para treinar o modelo. Isso ensinará o algoritmo a reconhecer as mesmas marcas nas novas imagens. Também testará o modelo em algumas das imagens existentes para gerar pontuações de precisão.
+No painel esquerdo, defina a opção **Marcações** como **Marcadas** para exibir suas imagens. Em seguida, selecione o botão verde na parte superior da página para treinar o modelo. O algoritmo fará o treinamento para reconhecer as mesmas marcas em novas imagens. Também testará o modelo em algumas das imagens existentes para gerar pontuações de precisão.
 
 ![O site da Visão Personalizada, na guia Imagens de Treinamento. Nesta captura de tela, o botão Treinar está contornado](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Obter a URL de previsão
 
-Depois que o modelo for treinado, você estará pronto para integrá-lo ao aplicativo. Para fazer isso, você precisará obter a URL do ponto de extremidade (o endereço do modelo que será consultado pelo aplicativo) e a chave de previsão (para permitir acesso ao aplicativo às solicitações de previsão). Na guia **Desempenho**, selecione o botão **URL de Previsão** na parte superior da página.
+Depois que o modelo for treinado, você estará pronto para integrá-lo ao aplicativo. Você precisará obter a URL do ponto de extremidade (o endereço do modelo que será consultado pelo aplicativo) e a chave de previsão (para permitir acesso ao aplicativo às solicitações de previsão). Na guia **Desempenho**, selecione o botão **URL de Previsão** na parte superior da página.
 
 ![O site da Visão Personalizada, mostrando uma janela de API de Previsão que exibe um endereço de URL e uma chave de API](media/azure-logo-tutorial/cusvis-endpoint.png)
 
@@ -95,7 +95,7 @@ A parte da Visão Personalizada do tutorial foi concluída. Se você quiser exec
 
 Assine o serviço de Pesquisa Visual Computacional para obter uma chave e uma URL do ponto de extremidade. Para obter ajuda nesta etapa, consulte [Como obter chaves de assinatura](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
 
-![O serviço da Pesquisa Visual Computacional no portal do Azure, com o menu de Início Rápido selecionado. Um link para as chaves está contornado, bem como a URL de ponto de extremidade da API](media/azure-logo-tutorial/comvis-keys.png)
+![O serviço de Pesquisa Visual Computacional no portal do Azure, com o menu Início Rápido selecionado. Um link para as chaves está contornado, bem como a URL de ponto de extremidade da API](media/azure-logo-tutorial/comvis-keys.png)
 
 Em seguida, abra o arquivo *Source\VisualProvision\AppSettings.cs* e preencha as variáveis `ComputerVisionEndpoint` e `ComputerVisionKey` com os valores corretos.
 

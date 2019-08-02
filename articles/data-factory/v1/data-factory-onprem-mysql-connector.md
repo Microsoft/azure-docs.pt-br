@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: de1263d68e96a23bd6b5eca4297e74b56ba22e40
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20dd86a46ac1b50f5ce20da6ecf9dff251a8c0b0
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823939"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839017"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -51,7 +51,7 @@ Para que o Data Management Gateway - Gerenciamento de Dados se conecte ao banco 
 Você pode criar um pipeline com atividade de cópia que mova dados de um armazenamento de dados local Cassandra usando diferentes ferramentas/APIs. 
 
 - A maneira mais fácil de criar um pipeline é usar o **Assistente de Cópia**. Consulte [Tutorial: criar um pipeline usando o Assistente de Cópia](data-factory-copy-data-wizard-tutorial.md) para ver um breve passo a passo sobre como criar um pipeline usando o Assistente de cópia de dados. 
-- Você também pode usar as ferramentas abaixo para criar um pipeline: **Portal do Azure**, **Visual Studio**, **Azure PowerShell**, **Modelo do Azure Resource Manager**, **API .NET** e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
+- Você também pode usar as ferramentas abaixo para criar um pipeline: **Visual Studio**, **Azure PowerShell**, **modelo do Resource Manager**, **.NET API**, e **API REST**. Confira o [Tutorial de atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia. 
 
 Ao usar as ferramentas ou APIs, você executa as seguintes etapas para criar um pipeline que move dados de um armazenamento de dados de origem para um armazenamento de dados de coletor:
 
@@ -73,7 +73,7 @@ A tabela a seguir fornece a descrição para elementos JSON específicos para o 
 | database |Nome do banco de dados MySQL. |Sim |
 | schema |Nome do esquema no banco de dados. |Não |
 | authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
-| Nome de Usuário |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
+| userName |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
 | password |Especifique a senha da conta de usuário que você especificou. |Sim |
 | gatewayName |O nome do gateway que o serviço Data Factory deve usar para se conectar ao banco de dados MySQL local. |Sim |
 
@@ -99,7 +99,7 @@ Quando a fonte na atividade de cópia for do tipo **RelationalSource** (que incl
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemplo JSON: copiar dados do MySQL para o Blob do Azure
-Este exemplo fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de um banco de dados MySQL local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
+Este exemplo fornece as definições de JSON de exemplo que você pode usar para criar um pipeline usando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [do Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Ele mostra como copiar dados de um banco de dados MySQL local para um Armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados para qualquer um dos coletores declarados [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia no Azure Data Factory.
 
 > [!IMPORTANT]
 > Este exemplo fornece snippets de JSON. Ele não inclui instruções passo a passo para criar o data factory. Confira o artigo [Mover dados entre fontes locais e a nuvem](data-factory-move-data-between-onprem-and-cloud.md) para obter instruções passo a passo.
@@ -306,40 +306,40 @@ Ao mover dados para o MySQL os seguintes mapeamentos serão usados dos tipos do 
 | bit |Decimal |
 | blob |Byte[] |
 | bool |Boolean |
-| char |Cadeia de caracteres |
+| char |string |
 | date |DateTime |
 | Datetime |DateTime |
 | decimal |Decimal |
-| double precision |Double |
-| Duplo |Double |
-| enum |Cadeia de caracteres |
-| flutuante |Single |
+| double precision |Duplo |
+| Duplo |Duplo |
+| enum |string |
+| float |Simples |
 | int unsigned |Int64 |
 | int |Int32 |
 | integer unsigned |Int64 |
-| inteiro |Int32 |
+| integer |Int32 |
 | long varbinary |Byte[] |
-| long varchar |Cadeia de caracteres |
+| long varchar |string |
 | longblob |Byte[] |
-| longtext |Cadeia de caracteres |
+| longtext |string |
 | mediumblob |Byte[] |
 | mediumint unsigned |Int64 |
 | mediumint |Int32 |
-| mediumtext |Cadeia de caracteres |
+| mediumtext |string |
 | numérico |Decimal |
-| real |Double |
-| set |Cadeia de caracteres |
+| real |Duplo |
+| set |string |
 | smallint unsigned |Int32 |
 | smallint |Int16 |
-| text |Cadeia de caracteres |
+| text |string |
 | time |TimeSpan |
 | timestamp |DateTime |
 | tinyblob |Byte[] |
 | tinyint unsigned |Int16 |
 | tinyint |Int16 |
-| tinytext |Cadeia de caracteres |
-| varchar |Cadeia de caracteres |
-| year |Int |
+| tinytext |string |
+| varchar |string |
+| year |int |
 
 ## <a name="map-source-to-sink-columns"></a>Mapear origem para colunas de coletor
 Para saber mais sobre mapeamento de colunas no conjunto de dados de origem para colunas no conjunto de dados de coletor, confira [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Mapeamento de colunas de conjunto de dados no Azure Data Factory).

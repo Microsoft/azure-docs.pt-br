@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72d01d6927ee421d01a831244acf65c44a084354
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1938164e957daa84b22fa83e9cb9fa8d51ffeb15
+ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508657"
+ms.lasthandoff: 07/08/2019
+ms.locfileid: "67654092"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a entrada para o Azure Active Directory multilocatário usando políticas personalizadas no Azure Active Directory B2C
 
@@ -38,14 +38,14 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 2. Verifique se você está usando o diretório que contém o inquilino organizacional do Azure AD (contoso.com) clicando no **Diretório e no filtro de inscrição** no menu superior e escolhendo o diretório que contém seu inquilino.
 3. Escolha **Todos os serviços** no canto superior esquerdo do portal do Azure e pesquise e selecione **Registros de aplicativo**.
 4. Selecione **Novo registro de aplicativo**.
-5. Insira um nome para seu aplicativo. Por exemplo: `Azure AD B2C App`.
+5. Insira um nome para seu aplicativo. Por exemplo, `Azure AD B2C App`.
 6. Para o **Tipo de aplicativo**, selecione `Web app / API`.
 7. Para a **URL de logon**, digite a seguinte URL em letras minúsculas, em que `your-tenant` é substituído pelo nome do seu locatário do Azure AD B2C (fabrikamb2c.onmicrosoft.com):
 
     ```
     https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
     ```
-    
+
 8. Clique em **Criar**. Copie a **ID do aplicativo** a ser usada posteriormente.
 9. Selecione o aplicativo e, em seguida, selecione **Configurações**.
 10. Selecione **Chaves**, insira a descrição da chave, selecione uma duração e, em seguida, clique em **Salvar**. Copie o valor da chave exibido para ser usado mais tarde.
@@ -57,17 +57,17 @@ Você precisa armazenar a chave do aplicativo que criou em seu locatário do Azu
 
 1. Verifique se você está usando o diretório que contém o locatário do Azure AD B2C clicando no **filtro Diretório e assinatura** no menu superior e escolhendo o diretório que contém seu locatário.
 2. Escolha **Todos os serviços** no canto superior esquerdo do Portal do Azure, pesquise **Azure AD B2C** e selecione-o.
-3. Na página Visão Geral, selecione **Identity Experience Framework – VERSÃO PRÉVIA**.
+3. Na página de Visão Geral, selecione **Estrutura de Experiência de Identidade**.
 4. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
 5. Para **Opções**, escolha `Manual`.
-6. Insira um **Nome** para a chave de política. Por exemplo: `ContosoAppSecret`.  O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
+6. Insira um **Nome** para a chave de política. Por exemplo, `ContosoAppSecret`.  O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
 7. Em**segredo**, insira a chave do aplicativo que você registrou anteriormente.
 8. Para **Uso de chave**, selecione `Signature`.
 9. Clique em **Criar**.
 
 ## <a name="add-a-claims-provider"></a>Adicionar um provedor de declarações
 
-Se você quiser que os usuários entrem usando o Azure AD, precisará definir o Azure AD como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um endpoint. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado. 
+Se você quiser que os usuários entrem usando o Azure AD, precisará definir o Azure AD como um provedor de declarações com o qual o Azure AD B2C pode se comunicar por meio de um endpoint. O ponto de extremidade fornece um conjunto de declarações que são usadas pelo Azure AD B2C para verificar se um usuário específico foi autenticado.
 
 Você pode definir o Azure AD como um provedor de declarações adicionando o Azure AD ao elemento **ClaimsProvider** no arquivo de extensão de sua política.
 
@@ -93,7 +93,7 @@ Você pode definir o Azure AD como um provedor de declarações adicionando o Az
             <Item Key="response_mode">form_post</Item>
             <Item Key="HttpBinding">POST</Item>
             <Item Key="DiscoverMetadataByTokenIssuer">true</Item>
-        
+
             <!-- The key below allows you to specify each of the Azure AD tenants that can be used to sign in. Update the GUIDs below for each tenant. -->
             <Item Key="ValidTokenIssuerPrefixes">https://sts.windows.net/00000000-0000-0000-0000-000000000000,https://sts.windows.net/11111111-1111-1111-1111-111111111111</Item>
 
@@ -155,7 +155,7 @@ Neste ponto, o provedor de identidade foi definido, mas não está disponível e
 2. Localize e copie todo o conteúdo do elemento **UserJourney** que inclui `Id="SignUpOrSignIn"`.
 3. Abra o *TrustFrameworkExtensions.xml* e localize o elemento **UserJourneys**. Se o elemento não existir, adicione um.
 4. Cole todo o conteúdo do elemento **UserJourney** que você copiou como filho do elemento **UserJourneys**.
-5. Renomeie a ID do percurso do usuário. Por exemplo: `SignUpSignInContoso`.
+5. Renomeie a ID do percurso do usuário. Por exemplo, `SignUpSignInContoso`.
 
 ### <a name="display-the-button"></a>Exibir o botão
 
@@ -178,8 +178,8 @@ Agora que implementou um botão, você precisará vinculá-lo a uma ação. Ness
     ```XML
     <ClaimsExchange Id="AzureADExchange" TechnicalProfileReferenceId="Common-AAD" />
     ```
-    
-    Atualize o valor de **TechnicalProfileReferenceId** para a **ID** do perfil técnico você já criou. Por exemplo: `Common-AAD`.
+
+    Atualize o valor de **TechnicalProfileReferenceId** para a **ID** do perfil técnico você já criou. Por exemplo, `Common-AAD`.
 
 3. Salve o arquivo *TrustFrameworkExtensions.xml* e carregue-o novamente para verificação.
 
@@ -200,7 +200,7 @@ A comunicação com o Azure AD B2C ocorre por meio de um aplicativo que você cr
 Atualize o arquivo de RP (terceira parte confiável) que iniciará o percurso do usuário que você criou.
 
 1. Faça uma cópia do *SignUpOrSignIn.xml* no diretório de trabalho e renomeie-a. Por exemplo, renomeie-o para *SignUpSignContoso.xml*.
-2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo: `SignUpSignInContoso`.
+2. Abra o novo arquivo e atualize o valor do atributo **PolicyId** para **TrustFrameworkPolicy** com um valor exclusivo. Por exemplo, `SignUpSignInContoso`.
 3. Atualize o valor de **PublicPolicyUri** com o URI da política. Por exemplo, `http://contoso.com/B2C_1A_signup_signin_contoso`
 4. Atualize o valor do atributo **ReferenceId** em **DefaultUserJourney** para corresponder à ID do novo percurso do usuário que você criou (SignUpSignContoso).
 5. Salve suas alterações, faça upload do arquivo e, em seguida, selecione a nova política na lista.

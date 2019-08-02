@@ -1,6 +1,6 @@
 ---
-title: Recursos
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Recursos-LUIS
+titleSuffix: Azure Cognitive Services
 description: Adicione recursos a um modelo de linguagem para fornecer dicas sobre como reconhecer a entrada que você deseja identificar ou classificar.
 services: cognitive-services
 author: diberry
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e85f9a90af778a7e68bf761d8d2159e808cf122d
+ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812931"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68639215"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Recurso de lista de frases em seu aplicativo LUIS
 
@@ -35,7 +35,7 @@ Listas de frase não estão vinculadas a uma intenção ou entidade específico,
 
 ## <a name="how-to-use-phrase-lists"></a>Como usar as listas de frase
 
-Crie uma lista de frases quando seu aplicativo tiver palavras ou frases importantes para o aplicativo, como:
+[Crie uma lista de frases](luis-how-to-add-features.md) quando seu aplicativo tiver palavras ou frases que são importantes para o aplicativo, como:
 
 * termos do setor
 * gírias
@@ -88,12 +88,12 @@ Uma lista de frases não é uma instrução para o LUIS executar uma correspond�
 Adicionar uma lista de frases é uma alternativa à adição de mais declarações de exemplo para uma intenção. 
 
 ## <a name="when-to-use-phrase-lists-versus-list-entities"></a>Quando usar listas de frase versus entidades de lista
-Embora uma lista de frases e as entidades de lista possam afetar as declarações em todas as intenções, cada uma faz isso de maneira diferente. Use uma lista de frases para afetar a pontuação de previsão da intenção. Use uma entidade de lista para afetar a extração de entidade de uma correspondência exata do texto. 
+Embora uma lista de frases e as [entidades de lista](reference-entity-list.md) possam afetar o declarações em todas as intenções, cada uma faz isso de uma maneira diferente. Use uma lista de frases para afetar a pontuação de previsão da intenção. Use uma entidade de lista para afetar a extração de entidade de uma correspondência exata do texto. 
 
 ### <a name="use-a-phrase-list"></a>Usar uma lista de frases
 Com uma lista de frases, o LUIS ainda pode levar o contexto em consideração e generalizar para identificar os itens que são semelhantes, mas que não são uma correspondência exata, como itens em uma lista. Se você precisar que o seu aplicativo LUIS generalize e identifique novos itens em uma categoria, use uma lista de frases. 
 
-Quando você deseja ser capaz de reconhecer novas instâncias de uma entidade, como um agendador de reunião deve reconhecer os nomes dos novos contatos ou um aplicativo de estoque que deve reconhecer novos produtos, use outro tipo de entidade de computador aprendeu como uma entidade simples. Em seguida, crie uma lista de palavras e frases que ajuda o LUIS a encontrar outras palavras semelhantes para a entidade. Essa lista orienta o LUIS a reconhecer exemplos da entidade adicionando outro significado ao valor dessas palavras. 
+Quando você quiser ser capaz de reconhecer novas instâncias de uma entidade, como um Agendador de reunião que deve reconhecer os nomes de novos contatos ou um aplicativo de inventário que deve reconhecer novos produtos, use outro tipo de entidade aprendida por máquina, como uma entidade simples. Em seguida, crie uma lista de palavras e frases que ajuda o LUIS a encontrar outras palavras semelhantes para a entidade. Essa lista orienta o LUIS a reconhecer exemplos da entidade adicionando outro significado ao valor dessas palavras. 
 
 Listas de frase são como um vocabulário específico ao domínio que ajudam a melhorar a qualidade da compreensão de intenções e entidades. Um uso comum de uma lista de frases é para substantivos, como nomes de cidades. Um nome de cidade pode ter várias palavras, incluindo hifens ou apóstrofos.
  

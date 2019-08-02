@@ -4,7 +4,7 @@ description: Extensão do Microsoft Azure para instalar os Drivers NVIDIA GPU em
 services: virtual-machines-linux
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 5a184c72da8af0d451902a164c8b71a94a01883f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c15948fd9e9acc1e1efeb536939002f179402d5a
+ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683167"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67706710"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensão de Driver NVIDIA GPU para Linux
 
@@ -27,6 +27,8 @@ ms.locfileid: "64683167"
 
 Essa extensão instala drivers de GPU NVIDIA em VMs série N do Linux. Dependendo da família VM, a extensão instala drivers CUDA ou grade. Quando você instalar drivers NVIDIA usando esta extensão, estará aceitando e concordando com os termos do [Contrato de Licença de Usuário Final da NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante o processo de instalação, a VM pode ser reinicializada para concluir a configuração do driver.
 
+Instruções sobre a instalação manual dos drivers e as versões com suporte atuais estão disponíveis [aqui](
+https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup).
 Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs da série N do Windows](hpccompute-gpu-windows.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -35,7 +37,7 @@ Uma extensão também está disponível para instalar drivers NVIDIA GPU em [VMs
 
 Esta extensão é compartível com as seguintes distribuições do sistema operacional, dependendo do suporte do driver para uma versão específica do sistema operacional.
 
-| Distribuição | Version |
+| Distribuição | Versão |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
@@ -69,12 +71,12 @@ O JSON a seguir mostra o esquema para a extensão.
 }
 ```
 
-### <a name="properties"></a>propriedades
+### <a name="properties"></a>Propriedades
 
-| NOME | Valor/Exemplo | Tipo de Dados |
+| Nome | Valor/Exemplo | Tipo de dados |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publicador | Microsoft.HpcCompute | string |
+| publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
@@ -82,11 +84,11 @@ O JSON a seguir mostra o esquema para a extensão.
 
 Todas as configurações são opcionais. O comportamento padrão é não atualizar o kernel se não for necessário para a instalação do driver, instale o driver mais recente com suporte e o CUDA toolkit (conforme aplicável).
 
-| NOME | DESCRIÇÃO | Valor Padrão | Valores Válidos | Tipo de Dados |
+| Nome | DESCRIÇÃO | Default Value | Valores Válidos | Tipo de dados |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | Atualize o kernel, mesmo que não seja necessário para instalação do driver | false | true, false | boolean |
-| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | mais recente | GRID: "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
-| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | verdadeiro | true, false | boolean |
+| driverVersion | NV: versão do driver GRID<br> NC/ND: versão do Kit de ferramentas CUDA. Os drivers mais recentes para o CUDA escolhido são instalados automaticamente. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| installCUDA | Instale o kit de ferramentas CUDA. Só é relevante para as VMs da série NC/ND. | true | true, false | boolean |
 
 
 ## <a name="deployment"></a>Implantação

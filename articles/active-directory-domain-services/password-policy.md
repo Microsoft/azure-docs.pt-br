@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Política de senha | Microsoft D
 description: Entender as políticas de senha em domínios gerenciados
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2019
-ms.author: mstephen
-ms.openlocfilehash: 71511fd83f9c00f768f5f7bedb3516fef8599e70
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: iainfou
+ms.openlocfilehash: ecf38543b2c4e5187aa5c6593c3bccf6668b8a8a
+ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66246833"
+ms.lasthandoff: 06/29/2019
+ms.locfileid: "67472757"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Políticas de senha e de bloqueio de conta em domínios gerenciados
 Este artigo explica as políticas de senha padrão em domínios gerenciados. Ele também aborda como configurar essas políticas.

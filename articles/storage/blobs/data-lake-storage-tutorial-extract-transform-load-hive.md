@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: be7ce4d96b7c1bd17853447448f06070637c7855
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: f28cae7ed56b694f4194adf78c288ffa87eb71d8
+ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939200"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67447739"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extrair, transformar e carregar dados usando o Apache Hive no Azure HDInsight
 
@@ -43,10 +43,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 * **CLI do Azure**: Se você ainda não instalou a CLI do Azure, confira [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-* **Um cliente do Secure Shell (SSH)**: Para obter mais informações, confira [Conectar-se ao HDInsight (Hadoop) usando SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> As etapas neste artigo exigem um cluster do HDInsight que use o Linux. O Linux é o único sistema operacional que é usado no Azure HDInsight versão 3.4 ou posterior. Para obter mais informações, confira [baixa do HDInsight no Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* **Um cliente do Secure Shell (SSH)** : Para obter mais informações, confira [Conectar-se ao HDInsight (Hadoop) usando SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="download-the-flight-data"></a>Baixar os dados de voos
 
@@ -240,7 +237,7 @@ Como parte do trabalho do Apache Hive, importe os dados do arquivo .csv para uma
 
     ![Obter detalhes do Azure SQL Server](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Obter detalhes do Azure SQL Server")
 
-    Há várias maneiras de se conectar ao Banco de Dados SQL e criar uma tabela. As seguintes etapas usam [FreeTDS](http://www.freetds.org/) do cluster HDInsight.
+    Há várias maneiras de se conectar ao Banco de Dados SQL e criar uma tabela. As seguintes etapas usam [FreeTDS](https://www.freetds.org/) do cluster HDInsight.
 
 5. Para instalar FreeTDS, utilize o seguinte comando de uma conexão SSH para o cluster:
 

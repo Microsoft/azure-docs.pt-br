@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/26/2019
 ms.author: manayar
 ms.openlocfilehash: c41beda6c9d6bb4b63a45944126421dd22799904
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66171771"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171947"
 ---
 É possível implantar o modelo anterior seguindo a [documentação do Azure Resource Manager](../articles/azure-resource-manager/resource-group-template-deploy.md).
 

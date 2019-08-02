@@ -3,22 +3,22 @@ title: 'Tutorial: Implantar um modelo de machine learning com a interface visual
 titleSuffix: Azure Machine Learning service
 description: Saiba como criar uma solução de análise preditiva na interface visual do Serviço do Azure Machine Learning. Treine, pontue e implante um modelo de machine learning usando módulos do tipo "arrastar e soltar". Este tutorial é a segunda parte de uma série de duas partes sobre a previsão de preços de automóveis usando a regressão linear.
 author: peterclu
-ms.author: peterclu
+ms.author: peterlu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/06/2019
-ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
-ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
+ms.date: 07/11/2019
+ms.openlocfilehash: dd28fb51a4fc3fbf3dfc893f2f5f159ccafdb4b3
+ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66389212"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67839299"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implantar um modelo de machine learning com a interface visual
 
-Neste tutorial, você analisará de maneira aprofundada o desenvolvimento de uma solução preditiva na interface visual do Serviço do Azure Machine Learning. Este tutorial é **parte dois de uma série de tutoriais de duas partes**. Na [primeira parte do tutorial](ui-tutorial-automobile-price-train-score.md), você treinou, pontuou e avaliou um modelo para prever preços de carros. Nesta parte do tutorial, você:
+Para que outras pessoas possam usar o modelo preditivo desenvolvido na [parte um do tutorial](ui-tutorial-automobile-price-train-score.md), implante-o como um serviço Web do Azure. Até agora, você fez experiências de treinamento do modelo. Agora é hora de gerar novas previsões com base na entrada do usuário. Nesta parte do tutorial, você:
 
 > [!div class="checklist"]
 > * Preparará o modelo para implantação
@@ -29,56 +29,40 @@ Neste tutorial, você analisará de maneira aprofundada o desenvolvimento de uma
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclusão da [primeira parte do tutorial](ui-tutorial-automobile-price-train-score.md).
+Conclua a [parte um do tutorial](ui-tutorial-automobile-price-train-score.md) para aprender a treinar e pontuar um modelo de machine learning na interface visual.
 
 ## <a name="prepare-for-deployment"></a>Preparar para a implantação
 
-Para que outras pessoas possam usar o modelo preditivo desenvolvido neste tutorial, implante-o como um serviço Web do Azure.
+Antes de implantar seu experimento como um serviço Web, primeiro você precisa converter seu *teste de treinamento* em um *teste de previsão*.
 
-Até agora, você fez experiências de treinamento do modelo. Agora é hora de gerar novas previsões com base na entrada do usuário.
+1. Selecione **Criar Teste de Previsão*** na parte inferior da tela do teste.
 
-A preparação para a implantação é um processo de duas etapas:  
+    ![GIF animado mostrando a conversão automática de um teste de treinamento em um teste preditivo](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
 
-1. Converter o *teste de treinamento* criado em um *teste preditivo*
-1. Implantar o teste preditivo como um serviço Web
+    Quando você seleciona **Criar Teste de Previsão**, várias coisas acontecem:
+    
+    * O modelo treinado é armazenado como um módulo de **Modelo Treinado** na paleta de módulos. Você pode encontrá-lo em **Modelos Treinados**.
+    * Os módulos que foram usados para o treinamento são removidos; especificamente:
+      * Treinar Modelo
+      * Dividir Dados
+      * Avaliar Modelo
+    * O modelo treinado salvo é adicionado de volta ao teste.
+    * Os módulos **Entrada de serviço Web** e **Saída de serviço Web** são adicionados. Esses módulos identificam o local em que os dados do usuário serão inseridos no modelo e o local em que os dados são retornados.
 
-O ideal é fazer uma cópia do teste primeiro selecionando **Salvar como** na parte inferior da tela do teste.
+    O **teste de treinamento** ainda é salvo nas novas guias na parte superior da tela do teste.
 
-### <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Converter o teste de treinamento em um teste preditivo
+1. **Execute** o teste.
 
-Para preparar esse modelo para implantação, converta esse teste de treinamento em um teste preditivo. Isso normalmente envolve três etapas:
-
-1. Salvar o modelo treinados e substituir os módulos de treinamento
-1. Cortar o teste para remover os módulos necessários somente para treinamento
-1. Definir o local em que o serviço Web aceitará os dados de entrada e o local em que ele gerará a saída
-
-Você pode executar essas etapas manualmente ou selecionar **Configurar Serviço Web** na parte inferior da tela do teste para fazer isso automaticamente.
-
-![GIF animado mostrando a conversão automática de um teste de treinamento em um teste preditivo](./media/ui-tutorial-automobile-price-deploy/deploy-web-service.gif)
-
-Quando você seleciona **Configurar Serviço Web**, várias coisas acontecem:
-
-* O modelo treinado é convertido em um único módulo **Modelo Treinado**. Ele é armazenado na paleta de módulos à esquerda da tela do teste. Você pode encontrá-lo em **Modelos Treinados**.
-* Os módulos que foram usados para o treinamento são removidos; especificamente:
-  * Treinar Modelo
-  * Dividir Dados
-  * Avaliar Modelo
-* O modelo treinado salvo é adicionado de volta ao teste
-* Os módulos **Entrada de serviço Web** e **Saída de serviço Web** são adicionados. Esses módulos identificam o local em que os dados do usuário serão inseridos no modelo e o local em que os dados são retornados.
-
-Você pode ver que o teste é salvo em duas partes nas novas guias na parte superior da tela do teste. O teste de treinamento original está na guia **Teste de treinamento**, e o teste de previsão recém-criado está em **Teste de previsão**. O teste preditivo é o que será implantado como um serviço Web.
+1. Selecione a saída do módulo **Pontuar Modelo** e selecione **Exibir Resultados** para verificar se o modelo ainda está funcionando. Você pode ver que os dados originais são exibidos, juntamente com o preço previsto ("Rótulos Pontuados").
 
 Agora, o teste deverá ser semelhante ao seguinte:  
 
 ![Captura de tela mostrando a configuração esperada do teste após sua preparação para implantação](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
 
-Execute o teste uma última vez (selecione **Executar**). Escolha o destino de computação no qual você deseja executar o teste na caixa de diálogo pop-up. Para verificar se o modelo ainda está funcionando, selecione a saída do módulo Pontuar Modelo e selecione **Exibir Resultados**. Você pode ver que os dados originais são exibidos, juntamente com o preço previsto ("Rótulos Pontuados").
-
 ## <a name="deploy-the-web-service"></a>Implantar o serviço Web
 
-Para implantar um novo serviço Web derivado do teste:
-
 1. Selecione **Implantar Serviço Web** abaixo da tela.
+
 1. Selecione o **Destino de Computação** no qual deseja executar o serviço Web.
 
     Atualmente, a interface visual só dá suporte à implantação em destinos de computação do AKS (Serviço de Kubernetes do Azure). Escolha um dos destinos de computação do AKS disponíveis em seu workspace do serviço do Machine Learning ou configure um novo ambiente do AKS usando as etapas da caixa de diálogo exibida.
@@ -91,9 +75,7 @@ Para implantar um novo serviço Web derivado do teste:
 
 ## <a name="test-the-web-service"></a>Testar o serviço Web
 
-Os dados de entrada do usuário são inseridos no modelo implantado por meio do módulo **Entrada do serviço Web**. A entrada é então pontuada no módulo **Pontuar Modelo**. Da forma como você configurou o teste preditivo, o modelo espera os dados no mesmo formato do conjunto de dados original de preços de automóveis. Por fim, os resultados são retornados ao usuário por meio do módulo **Saída do serviço Web**.
-
-Você pode testar um serviço Web na guia do serviço Web na interface visual.
+Você pode testar e gerenciar seus serviços Web da interface visual navegando até a guia **Serviços Web**.
 
 1. Acesse a seção do serviço Web. Você verá o serviço Web implantado com o nome **Tutorial – Prever o Preço de Automóveis [Teste Preditivo]** .
 
@@ -107,19 +89,13 @@ Você pode testar um serviço Web na guia do serviço Web na interface visual.
 
     ![Captura de tela mostrando a página de teste do serviço Web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Insira os dados de teste ou use os dados de exemplo preenchidos automaticamente e selecione **Testar** na parte inferior. A solicitação de teste é enviada para o serviço Web e os resultados são mostrados na página. Embora um valor seja gerado para os dados de entrada, ele não é usado para gerar o valor da previsão.
+1. Insira os dados de teste ou use os dados de exemplo preenchidos automaticamente e selecione **Testar**.
 
-## <a name="manage-the-web-service"></a>Gerenciar o serviço Web
-
-Depois de implantar o serviço Web, será possível gerenciá-lo na guia **Serviços Web** da interface visual.
-
-Você pode excluir um serviço Web selecionando **Excluir** na página de detalhes do serviço Web.
-
-   ![Captura de tela mostrando a localização do botão Excluir serviço Web na parte inferior da janela](./media/ui-tutorial-automobile-price-deploy/web-service-delete.png)
+    A solicitação de teste é enviada para o serviço Web e os resultados são mostrados na página. Embora um valor seja gerado para os dados de entrada, ele não é usado para gerar o valor da previsão.
 
 ## <a name="consume-the-web-service"></a>Consumir o serviço Web
 
-Nas etapas anteriores deste tutorial, você implantou um modelo de previsão de automóveis como um serviço Web do Azure. Agora os usuários podem enviar dados para ele e receber os resultados por meio da API REST.
+Agora, os usuários podem enviar solicitações à API para seu serviço Web do Azure e receber resultados para prever o preço de seus novos automóveis.
 
 **Solicitação/resposta** -o usuário envia uma ou mais linhas de dados de automóveis para o serviço usando um protocolo HTTP. O serviço responde com um ou mais conjuntos de resultados.
 
@@ -131,9 +107,9 @@ Navegue até a guia **Documentação da API** para encontrar mais detalhes sobre
 
   ![Captura de tela mostrando mais detalhes da API que os usuários podem encontrar na guia Documentação da API](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
 
-## <a name="manage-models-and-deployments-in-azure-machine-learning-service-workspace"></a>Gerenciar modelos e implantações no workspace do Serviço do Azure Machine Learning
+## <a name="manage-models-and-deployments"></a>Gerenciar modelos e implantações
 
-Os modelos e as implantações de serviço Web criados na interface visual podem ser gerenciados no workspace do Serviço do Azure Machine Learning.
+Os modelos e as implantações de serviço Web criados na interface visual também podem ser gerenciados no workspace do Serviço do Azure Machine Learning.
 
 1. Abra seu workspace na [portal do Azure](https://portal.azure.com/).  
 
@@ -155,7 +131,7 @@ Os modelos e as implantações de serviço Web criados na interface visual podem
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu as principais etapas na criação, na implantação e no consumo de um modelo de machine learning na interface visual. Para saber mais sobre como você pode usar a interface visual para resolver outros tipos de problemas, confira os testes de exemplo.
+Neste tutorial, você aprendeu as principais etapas na criação, na implantação e no consumo de um modelo de machine learning na interface visual. Para saber mais sobre como você pode usar a interface visual para resolver outros tipos de problemas, confira os outros testes de exemplo.
 
 > [!div class="nextstepaction"]
 > [Amostra de classificação de risco de crédito](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

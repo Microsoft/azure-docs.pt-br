@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20ed2bcf793ab5c3913ccf66d338e71c1a99a003
+ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64702616"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68478928"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automação de reserva do Azure
 
@@ -30,9 +30,9 @@ Você também pode analisar o uso de recursos usando os Detalhes de Uso de API d
 
 ## <a name="buy-a-reservation"></a>Comprar uma reserva
 
-Você pode comprar reservas do Azure e os planos de software por meio de programação usando APIs REST. Para obter mais informações, consulte [pedido de reserva - API de compra](/rest/api/reserved-vm-instances/reservationorder/purchase).
+Você pode comprar reservas do Azure e planos de software programaticamente usando APIs REST. Para saber mais, consulte [ordem de reserva-API de compra](/rest/api/reserved-vm-instances/reservationorder/purchase).
 
-Aqui está um exemplo de solicitação de compra, usando a API REST:
+Aqui está uma solicitação de exemplo para comprar usando a API REST:
 
 ```
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
@@ -61,7 +61,7 @@ Corpo da solicitação:
 }
 ```
 
-Você também pode comprar uma reserva no portal do Azure. Para obter mais informações, consulte os seguintes artigos:
+Você também pode comprar uma reserva no portal do Azure. Para obter mais informações, confira os seguintes artigos:
 
 Planos de serviço:
 - [Máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
@@ -104,7 +104,7 @@ Para mesclar duas reservas em uma reserva, use a API [Reserva – Mesclagem](/re
 
 ## <a name="change-scope-for-a-reservation"></a>Alterar o escopo de uma reserva
 
-O escopo de uma reserva pode ser a única assinatura ou todas as assinaturas de seu contexto de cobrança. Se você definir o escopo como assinatura única, a reserva será correspondida à execução de recursos na assinatura selecionada. Se você definir o escopo compartilhado, o Azure corresponderá a reserva de recursos que são executados em todas as assinaturas no contexto de cobrança. O contexto de cobrança depende da assinatura usada para comprar a reserva. Para obter mais informações, confira [Gerenciar Reservas – Alterar o escopo](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+O escopo de uma reserva pode ser assinatura única, grupo de recursos único ou todas as assinaturas em seu contexto de cobrança. Se você definir o escopo como assinatura única ou grupo de recursos único, a reserva será correspondida à execução de recursos na assinatura selecionada. Se você excluir ou mover a assinatura ou o grupo de recursos, a reserva não será utilizada.  Se você definir o escopo compartilhado, o Azure corresponderá a reserva de recursos que são executados em todas as assinaturas no contexto de cobrança. O contexto de cobrança depende da assinatura usada para comprar a reserva. Você pode selecionar o escopo na compra ou alterá-lo a qualquer momento após a compra. Para obter mais informações, confira [Gerenciar Reservas – Alterar o escopo](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 Para alterar o escopo de modo programático, use a API [Reserva – Atualização](/rest/api/reserved-vm-instances/reservation/update).
 

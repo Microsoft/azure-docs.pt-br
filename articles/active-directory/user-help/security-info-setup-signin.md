@@ -12,14 +12,15 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9c6faff10f68d720bc3c86a191e4cd1b1f9abdc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c20256fb712d9381ba2adc90e2e68ce4fdc8911a
+ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123599"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68382785"
 ---
 # <a name="set-up-your-security-info-preview-from-the-sign-in-page-prompt"></a>Configure suas informações de segurança (versão prévia) no aviso na página de entrada
+
 Você poderá seguir estas etapas se for solicitado a você que configure suas informações de segurança imediatamente após entrar na sua conta corporativa ou de estudante.
 
 Você verá esse prompt apenas se não tiver configurado as informações de segurança exigidas pela sua organização. Se já tiver configurado suas informações de segurança mas quiser fazer alterações, você poderá seguir as etapas nos diversos artigos explicativos baseados em método. Para obter mais informações, confira [Adicionar ou atualizar sua visão de geral de informações de segurança](security-info-add-update-methods-overview.md).
@@ -27,11 +28,13 @@ Você verá esse prompt apenas se não tiver configurado as informações de seg
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Entrar em sua conta corporativa ou de estudante
+
 Depois de entrar na sua conta corporativa ou de estudante, você verá um aviso solicitando que você forneça mais informações antes de permitir seu acesso à conta.
 
 ![Aviso solicitando mais informações](media/security-info/securityinfo-prompt.png)
 
 ## <a name="set-up-your-security-info-using-the-wizard"></a>Configurar suas informações de segurança usando o assistente
+
 Siga estas etapas para configurar suas informações de segurança para sua conta corporativa ou de estudante por meio do aviso.
 
 >[!Important]
@@ -41,7 +44,7 @@ Siga estas etapas para configurar suas informações de segurança para sua cont
 
    > [!Note]
    > Se você não quiser usar o aplicativo Microsoft Authenticator, selecione o link **Desejo usar um aplicativo autenticador diferente**.
-   > 
+   >
    > Se a sua organização permitir que você escolha um método que não seja o aplicativo autenticador, você poderá selecionar o link **Desejo configurar um método diferente**.
 
     ![Assistente Mantenha sua conta segura, mostrando a página de download do aplicativo de autenticação](media/security-info/securityinfo-prompt-get-auth-app.png)

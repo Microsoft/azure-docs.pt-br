@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d067d36ea41f80648fcb06fe3b0e51e4f5b3a1a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 43ade2035e6f831f9d665d2b53dabb3afb96f41d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865246"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67087367"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: Integração do Azure Active Directory com o Weekdone
 
@@ -55,7 +55,7 @@ Para configurar a integração do Weekdone ao Azure AD, você precisa adicionar 
 
 **Para adicionar o Weekdone da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -107,7 +107,7 @@ Para configurar o logon único do Azure AD com o Weekdone, execute as seguintes 
 
     ![Informações de logon único de Domínio e URLs do Weekdone](common/idp-intiated.png)
 
-     a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
+    a. No **identificador** caixa de texto, digite uma URL usando o seguinte padrão: `https://weekdone.com/a/<tenant>/metadata`
 
     > [!NOTE]
     > O arquivo de metadados de weekdone pode ser recuperado usando a mesma URL.
@@ -210,5 +210,5 @@ Ao clicar no bloco do Weekdone no Painel de Acesso, você deverá ser conectado 
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

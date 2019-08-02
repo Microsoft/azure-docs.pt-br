@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 06/03/2019
 ms.author: mbullwin
-ms.openlocfilehash: cdaae4e539d5216cf4950c15349f01b54ae8acd2
-ms.sourcegitcommit: 600d5b140dae979f029c43c033757652cddc2029
+ms.openlocfilehash: 5e42c36e6a321775e6017a2318857e20b7dcaf0d
+ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66496384"
+ms.lasthandoff: 07/15/2019
+ms.locfileid: "67876456"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights é um serviço de gerenciamento de desempenho de aplicativo (APM) extensível para desenvolvedores da Web em várias plataformas. Use-o para monitorar seu aplicativo Web online. Ele detectará anomalias de desempenho automaticamente. Ele inclui ferramentas de análise avançadas para ajudar você a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo.  Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Ele funciona com aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node.js e Java EE, hospedadas localmente, de maneira híbrida ou em qualquer nuvem pública. Ele integra-se ao seu processo DevOps e tem pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento. Ele pode monitorar e analisar a telemetria de aplicativos móveis integrando-se ao Visual Studio App Center.
@@ -103,8 +103,9 @@ Application Insights é um dos muitos serviços hospedados no Microsoft Azure e 
 Existem várias maneiras de começar. Comece com o que funciona melhor para você. Você pode adicionar outras posteriormente.
 
 * **Em tempo de execução: instrumente seu aplicativo Web no servidor.** Ideal para aplicativos já implantados. Evita qualquer atualização no código.
-  * [**Aplicativos ASP.NET hospedados no IIS no local ou em uma VM**](../../azure-monitor/app/monitor-performance-live-website-now.md)
   * [**Aplicativos ASP.NET ou ASP.NET Core hospedados nos Aplicativos Web do Azure**](../../azure-monitor/app/azure-web-apps.md)
+  * [**Aplicativos ASP.NET hospedados no IIS na VM do Azure ou no conjunto de dimensionamento de máquinas virtuais do Azure**](../../azure-monitor/app/azure-vm-vmss-apps.md)
+  * [**Aplicativos ASP.NET hospedados na VM local do IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * **Em tempo de desenvolvimento: adicione o Application Insights ao seu código.** Permite personalizar a coleta de telemetria e enviar telemetria adicional.
   * [Aplicativos ASP.NET](../../azure-monitor/app/asp-net.md)
   * [Aplicativo ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
@@ -119,6 +120,7 @@ Existem várias maneiras de começar. Comece com o que funciona melhor para voc�
 ## <a name="next-steps"></a>Próximas etapas
 Introdução ao tempo de execução com:
 
+* [Aplicativos hospedados no IIS na VM do Azure e no conjunto de dimensionamento de máquinas virtuais do Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
 * [Servidor IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
 * [Aplicativos Web do Azure](../../azure-monitor/app/azure-web-apps.md)
 

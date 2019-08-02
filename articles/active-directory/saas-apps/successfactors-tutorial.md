@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a9526cde92fe2f504207de188fa8f0567ffa580d
+ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65866640"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67089820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Tutorial: Integração do Azure Active Directory com o SuccessFactors
 
@@ -53,7 +53,7 @@ Para configurar a integração do SuccessFactors ao Azure AD, você precisará a
 
 **Para adicionar o SuccessFactors da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
+1. No **[Portal do Azure](https://portal.azure.com)** , no painel navegação à esquerda, clique no ícone **Azure Active Directory**.
 
     ![O botão Azure Active Directory](common/select-azuread.png)
 
@@ -105,7 +105,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
 
     ![Informações de logon único de Domínio e URLs do SuccessFactors](common/sp-identifier-reply.png)
 
-     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
 
     | |
     |--|
@@ -177,7 +177,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
 
     ![Configurar o logon único no lado do aplicativo][12]
   
-     a. Selecione o botão de opção **SSO do SAML v2**
+    a. Selecione o botão de opção **SSO do SAML v2**
   
     b. Defina o **Nome da Parte de Declaração SAML** (por exemplo, emissor SAML + nome da empresa).
 
@@ -187,7 +187,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
 
     e. Selecione **Habilitado** como **Habilitar Sinalizador SAML**.
 
-    f. Selecione **Não** como **Assinatura da Solicitação de Logon (Gerado por SF/SP/RP)**.
+    f. Selecione **Não** como **Assinatura da Solicitação de Logon (Gerado por SF/SP/RP)** .
 
     g. Selecione **Perfil de Navegador/Postagem** como **Perfil SAML**.
 
@@ -202,15 +202,15 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
 
     ![Configurar o logon único no lado do aplicativo][13]
 
-     a. Selecione **Sim** como **Logoff Global iniciado por SP de suporte**.
+    a. Selecione **Sim** como **Logoff Global iniciado por SP de suporte**.
 
-    b. Na caixa de texto **URL do Global Logout Service (destino LogoutRequest)**, cole o valor **URL de logout** que você copiou do portal do Azure.
+    b. Na caixa de texto **URL do Global Logout Service (destino LogoutRequest)** , cole o valor **URL de logout** que você copiou do portal do Azure.
 
     c. Selecione **Não** como **Exigir que sp criptografe todos os elementos NameID**.
 
     d. Selecione **não especificado** como **Formato de NameID**.
 
-    e. Selecione **Sim** como **Habilitar logon iniciado por sp (AuthnRequest)**.
+    e. Selecione **Sim** como **Habilitar logon iniciado por sp (AuthnRequest)** .
 
     f. Na caixa de texto **Enviar solicitação como emissor de toda a empresa**, cole o valor da **URL de Logon** copiada do portal do Azure.
 
@@ -218,7 +218,7 @@ Para configurar o logon único do Azure AD com o SuccessFactors, execute as segu
 
     ![Configurar o logon único][29]
 
-     a. Visite **Configurações da Empresa**(próximo à parte inferior).
+    a. Visite **Configurações da Empresa**(próximo à parte inferior).
 
     b. Marque a caixa de seleção ao lado de **Habilitar Nome de Usuário que Não Diferencia Maiúsculas de Minúsculas**.
 
@@ -296,7 +296,7 @@ Ao clicar no bloco do SuccessFactors no Painel de Acesso, você deverá ser cone
 
 - [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [O que é o Acesso Condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

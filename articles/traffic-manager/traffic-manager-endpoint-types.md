@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: allensu
-ms.openlocfilehash: 469b6543b380cb6b3b10c3def8484bed944f8556
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1b72fc510543ff57f5fac1b03e76df7ffed3fbfe
+ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071199"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68333834"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos de extremidade do Gerenciador de Tráfego
 
@@ -26,7 +26,7 @@ O Gerenciador de Tráfego do Microsoft Azure permite controlar como o tráfego d
 Há três tipos de ponto de extremidade suportados pelo Gerenciador de Tráfego:
 
 * **pontos de extremidade do Azure** são usados para os serviços hospedados no Azure.
-* **Pontos de extremidade externos** são usados para endereços IPv4/IPv6, FQDNs, ou para serviços hospedados fora do Azure que pode ser local ou com um provedor de hospedagem diferente.
+* Os **pontos de extremidade externos** são usados para endereços IPv4/IPv6, FQDNs ou para serviços hospedados fora do Azure que podem ser locais ou com um provedor de hospedagem diferente.
 * **pontos de extremidade aninhados** são usados para combinar os perfis do Gerenciador de Tráfego para criar esquemas de roteamento de tráfego mais flexíveis para suportar as necessidades de implantações maiores e mais complexas.
 
 Não há nenhuma restrição sobre como os pontos de extremidade de diferentes tipos são combinados em um único perfil do Gerenciador de Tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto de extremidade.
@@ -44,11 +44,11 @@ Os pontos de extremidade do Azure são usados para serviços baseados no Azure n
 
 Os recursos de PublicIPAddress são recursos do Azure Resource Manager. Eles não existem no modelo de implantação clássico. Assim, eles têm suporte apenas em experiências do Azure Resource Manager do Gerenciador de Tráfego. Os outros tipos de ponto de extremidade têm suporte por meio do Gerenciador de Recursos e o modelo de implantação clássico.
 
-Ao usar pontos de extremidade do Azure, o Gerenciador de tráfego detecta quando um aplicativo Web é interrompido e iniciado. Esse status é refletido no status de ponto de extremidade. Consulte detalhes em [Monitoramento do ponto de extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md#endpoint-and-profile-status). Quando o serviço subjacente é interrompido, o Gerenciador de Tráfego não executa verificações de integridade do ponto de extremidade nem direciona o tráfego para o ponto de extremidade. Nenhum evento de cobrança do Gerenciador de Tráfego ocorre para a instância parada. Quando o serviço é reiniciado, a cobrança é retomada e o ponto de extremidade está qualificado para receber tráfego. Essa detecção não se aplica aos pontos de extremidade PublicIpAddress.
+Ao usar os pontos de extremidade do Azure, o Gerenciador de tráfego detecta quando um aplicativo Web é interrompido e iniciado. Esse status é refletido no status de ponto de extremidade. Consulte detalhes em [Monitoramento do ponto de extremidade do Gerenciador de Tráfego](traffic-manager-monitoring.md#endpoint-and-profile-status). Quando o serviço subjacente é interrompido, o Gerenciador de Tráfego não executa verificações de integridade do ponto de extremidade nem direciona o tráfego para o ponto de extremidade. Nenhum evento de cobrança do Gerenciador de Tráfego ocorre para a instância parada. Quando o serviço é reiniciado, a cobrança é retomada e o ponto de extremidade está qualificado para receber tráfego. Essa detecção não se aplica aos pontos de extremidade PublicIpAddress.
 
 ## <a name="external-endpoints"></a>pontos de extremidade externos
 
-Pontos de extremidade externos são usados para qualquer um dos endereços IPv4/IPv6, FQDNs, ou para serviços fora do Azure. O uso dos pontos de extremidade nos endereços IPv4/IPv6 permite que o gerenciador de tráfego verifique a integridade dos pontos de extremidade, sem exigir um nome DNS para eles. Como resultado, o Gerenciador de Tráfego pode responder a consultas com registros A/AAAA ao retornar o ponto de extremidade em uma resposta. Os serviços fora do Azure podem incluir um serviço hospedado localmente ou em um provedor diferente. Os pontos de extremidade externos podem ser usados individualmente ou combinados com os Pontos de Extremidade do Azure no mesmo perfil do Gerenciador de Tráfego, exceto para os pontos de extremidade especificados como endereços IPv4 ou IPv6, que só podem ser pontos de extremidade externos. Combinar pontos de extremidade do Azure com pontos de extremidade Externos permite vários cenários:
+Os pontos de extremidade externos são usados para endereços IPv4/IPv6, FQDNs ou para serviços fora do Azure. O uso dos pontos de extremidade nos endereços IPv4/IPv6 permite que o gerenciador de tráfego verifique a integridade dos pontos de extremidade, sem exigir um nome DNS para eles. Como resultado, o Gerenciador de Tráfego pode responder a consultas com registros A/AAAA ao retornar o ponto de extremidade em uma resposta. Os serviços fora do Azure podem incluir um serviço hospedado localmente ou em um provedor diferente. Os pontos de extremidade externos podem ser usados individualmente ou combinados com os Pontos de Extremidade do Azure no mesmo perfil do Gerenciador de Tráfego, exceto para os pontos de extremidade especificados como endereços IPv4 ou IPv6, que só podem ser pontos de extremidade externos. Combinar pontos de extremidade do Azure com pontos de extremidade Externos permite vários cenários:
 
 * Fornecer redundância aumentada para um aplicativo local existente, em um modelo de failover ativo-ativo ou ativo-passivo usando o Azure. 
 * Rotear o tráfego para os pontos de extremidade que não tenham um nome DNS associado a eles. Além disso, diminuir a latência geral da pesquisa de DNS, removendo a necessidade de executar uma segunda consulta DNS para obter um endereço IP de um nome DNS retornado.
@@ -91,6 +91,17 @@ Para obter detalhes, consulte [Monitoramento do ponto de extremidade do Gerencia
 
 Se todos os pontos de extremidade em um perfil estiverem desabilitados ou se o próprio perfil estiver desabilitado, o Gerenciador de Tráfego enviará uma resposta “NXDOMAIN” para uma nova consulta DNS.
 
+## <a name="faqs"></a>Perguntas Frequentes
+
+* [Posso usar o Gerenciador de tráfego com pontos de extremidade de várias assinaturas?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions)
+
+* [Posso usar o Gerenciador de tráfego com slots de ' preparo ' do serviço de nuvem?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-cloud-service-staging-slots)
+
+* [O Gerenciador de tráfego dá suporte a pontos de extremidade IPv6?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#does-traffic-manager-support-ipv6-endpoints)
+
+* [Posso usar o Gerenciador de tráfego com mais de um aplicativo Web na mesma região?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region)
+
+* [Como fazer mover os pontos de extremidade do Azure do meu perfil do Gerenciador de tráfego para um grupo de recursos diferente?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group)
 
 ## <a name="next-steps"></a>Próximas etapas
 

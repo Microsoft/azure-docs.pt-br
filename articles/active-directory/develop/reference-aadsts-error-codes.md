@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10ac2f4ac83240acf644fc1529c9c14f5e9631a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d6ed5c80d5c3241a9a328a2427ed8b920790635
+ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111298"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67482480"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de erro de autenticação e autorização
 
@@ -215,6 +215,7 @@ Procurando informações sobre os códigos de erro AADSTS que são retornados do
 | AADSTS90093 | GraphUserUnauthorized - Gráfico retornado com um código de erro proibido para a solicitação. |
 | AADSTS90094 | AdminConsentRequired - É necessário o consentimento do administrador. |
 | AADSTS90100 | InvalidRequestParameter - O parâmetro está vazio ou não é válido. |
+| AADSTS901002 | AADSTS901002: Não há suporte para o parâmetro de solicitação 'resource'. |
 | AADSTS90101 | InvalidEmailAddress - Os dados fornecidos não são um endereço de e-mail válido. O endereço de e-mail deve estar no formato `someone@example.com`. |
 | AADSTS90102 | InvalidUriParameter - O valor deve ser um URI absoluto válido. |
 | AADSTS90107 | InvalidXml - A solicitação não é válida. Certifique-se de que seus dados não tenham caracteres inválidos.|
