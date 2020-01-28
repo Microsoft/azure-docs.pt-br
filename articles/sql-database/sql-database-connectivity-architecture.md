@@ -62,7 +62,7 @@ Se você estiver se conectando de fora do Azure, as conexões terão uma políti
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> Além disso, abra as portas 14000-14999 para habilitar a [conexão com o DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
+> Além disso, abra as portas 11000-11999 para habilitar a [conexão com o DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Endereços IP de gateway do Banco de Dados SQL do Azure
