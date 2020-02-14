@@ -20,7 +20,7 @@ Neste início rápido, você aprenderá a gerenciar blobs usando o Node.js. Os b
 
 [Documentação de referência da API](/javascript/api/@azure/storage-blob) | [Código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Pacote (Gerenciador de pacotes de nós)](https://www.npmjs.com/package/@azure/storage-blob) | [Exemplos](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - Uma conta de armazenamento do Azure. [Criar uma conta de armazenamento](../common/storage-account-create.md).
@@ -31,7 +31,24 @@ Neste início rápido, você aprenderá a gerenciar blobs usando o Node.js. Os b
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="setting-up"></a>Configurando
+
+## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo (opcional)
+
+O [aplicativo de exemplo](https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-upload-download) deste início rápido é um aplicativo de console Node.js básico. Para começar, clone o repositório para seu computador usando o comando a seguir:
+
+```bash
+git clone https://github.com/Azure-Samples/azure-sdk-for-js-storage-blob-upload-download.git
+```
+
+Em seguida, altere as pastas para o aplicativo:
+
+```bash
+cd azure-sdk-for-js-storage-blob-upload-download/v12
+```
+
+Agora, abra a pasta em seu ambiente de edição de código favorito.
+
+## <a name="setting-up"></a>Configurando o projeto do zero
 
 Esta seção o orienta na preparação de um projeto para trabalhar com a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para JavaScript.
 
