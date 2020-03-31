@@ -49,7 +49,7 @@ Ambas as implementações usam *IPTables Linux* para aplicar as políticas espec
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e da Calico e suas capacidades
 
-| Recurso                               | Azure                      | Chita                      |
+| Recurso                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas compatíveis                      | Linux                      | Linux                       |
 | Opções de rede suportadas             | Azure CNI                  | Azure CNI e kubenet       |
