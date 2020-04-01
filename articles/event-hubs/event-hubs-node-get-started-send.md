@@ -58,7 +58,7 @@ Esta seção mostra como criar um aplicativo JavaScript que envia eventos a um h
 2. Crie um arquivo chamado `send.js` e cole nele o código abaixo. Obtenha a cadeia de conexão para o namespace do hub de eventos seguindo as instruções do artigo: [Obter a cadeia de conexão](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs@2");
+    const { EventHubClient } = require("@azure/event-hubs");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -96,7 +96,7 @@ Esta seção mostra como criar um aplicativo JavaScript que recebe eventos de um
 1. Abra seu editor favorito, como o [Visual Studio Code](https://code.visualstudio.com). 
 2. Crie um arquivo chamado `receive.js` e cole nele o código abaixo.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs@2");
+    const { EventHubClient, delay } = require("@azure/event-hubs");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
