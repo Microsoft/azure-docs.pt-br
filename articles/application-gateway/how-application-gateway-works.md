@@ -38,31 +38,31 @@ Os gateways internos de aplicativos usam apenas endereços IP privados. Se você
 
 Se uma solicitação for válida e não for bloqueada pelo WAF, o gateway de aplicativo avaliará a regra de roteamento de solicitação associada ao ouvinte. Esta ação determina para qual pool de backend encaminhará a solicitação.
 
-Com base na regra de roteamento de solicitações, o gateway de aplicativo determina se deve encaminhar todas as solicitações no ouvinte para um pool de backend específico, solicitações de rota para diferentes pools de back-end com base no caminho da URL ou redirecionar solicitações para outra porta ou site externo.
+Com base na regra de roteamento de solicitações, o gateway de aplicativo determina se deve encaminhar todas as solicitações no ouvinte para um pool de backend específico, solicitações de rota para diferentes pools de backend com base no caminho da URL ou redirecionar solicitações para outra porta ou site externo.
 >[!NOTE]
 >As regras são processadas na ordem em que estão listadas no portal para v1 SKU. 
 
-When the application gateway selects the backend pool, it sends the request to one of the healthy backend servers in the pool (y.y.y.y). A saúde do servidor é determinada por uma sonda de saúde. Se o pool de back-end contiver vários servidores, o gateway de aplicativo usará um algoritmo round-robin para encaminhar as solicitações entre servidores saudáveis. Essa carga equilibra as solicitações nos servidores.
+Quando o gateway de aplicativo seleciona o pool de backend, ele envia a solicitação para um dos servidores saudáveis no pool de backend (y.y.y.y). A saúde do servidor é determinada por uma sonda de saúde. Se o pool de backend contiver vários servidores, o gateway de aplicativo usará um algoritmo round-robin para encaminhar as solicitações entre servidores saudáveis. Essa carga equilibra as solicitações nos servidores.
 
-Depois que o gateway de aplicativo determina o servidor backend, ele abre uma nova sessão TCP com o servidor back-end com base nas configurações HTTP. As configurações HTTP especificam as configurações de protocolo, porta e outras configurações relacionadas ao roteamento que são necessárias para estabelecer uma nova sessão com o servidor backend.
+Depois que o gateway de aplicativo determina o servidor backend, ele abre uma nova sessão TCP com o servidor backend com base nas configurações HTTP. As configurações HTTP especificam as configurações de protocolo, porta e outras configurações relacionadas ao roteamento que são necessárias para estabelecer uma nova sessão com o servidor backend.
 
-A porta e o protocolo usados nas configurações HTTP determinam se o tráfego entre o gateway de aplicativo e os servidores back-end é criptografado (realizando assim TLS de ponta a ponta) ou não é criptografado.
+A porta e o protocolo usados nas configurações HTTP determinam se o tráfego entre o gateway de aplicativo e os servidores backend é criptografado (realizando assim TLS de ponta a ponta) ou não é criptografado.
 
 Quando um gateway de aplicativo envia a solicitação original para o servidor backend, ele honra qualquer configuração personalizada feita nas configurações HTTP relacionadas à substituição do nome do host, do caminho e do protocolo. Essa ação mantém a afinidade de sessão baseada em cookies, a drenagem de conexões, a seleção de nomes de host a partir do backend e assim por diante.
 
  >[!NOTE]
->Se a piscina de backend:
-> - **É um ponto final público**, o gateway de aplicativo usa seu IP público frontend para chegar ao servidor. Se não houver um endereço IP público frontend, um deles será atribuído para a conectividade externa de saída.
-> - **Contém um FQDN resoluta internamente ou um endereço IP privado,** o gateway de aplicativo encaminha a solicitação para o servidor backend usando sua instância endereços IP privados.
-> - **Contém um ponto final externo ou um FQDN externamente solucionável,** o gateway de aplicativo encaminha a solicitação para o servidor backend usando seu endereço IP público frontend. A resolução DNS é baseada em uma zona DNS privada ou servidor DNS personalizado, se configurado, ou usa o DNS fornecido pelo Azure padrão. Se não houver um endereço IP público frontend, um deles será atribuído para a conectividade externa de saída.
+>Se o pool de backend:
+> - **É um endpoint público**, o gateway de aplicativo usa seu IP público frontend para chegar ao servidor. Se não houver um endereço IP público frontend, um deles será atribuído para a conectividade externa de saída.
+> - **Contém um FQDN resolvido internamente ou um endereço IP privado,** o gateway de aplicativo encaminha a solicitação para o servidor backend usando seu endereço IP Privado reservado da instância.
+> - **Contém um endpoint externo ou um FQDN resolvido externamente,** o gateway de aplicativo encaminha a solicitação para o servidor backend usando seu endereço IP público frontend. A resolução DNS é baseada em uma zona DNS privada ou servidor DNS personalizado, se configurado, ou usa o DNS fornecido pelo Azure padrão. Se não houver um endereço IP público frontend, um deles será atribuído para a conectividade externa de saída.
 
 ### <a name="modifications-to-the-request"></a>Modificações na solicitação
 
-Um gateway de aplicativo insere quatro cabeçalhos adicionais em todas as solicitações antes de encaminhar as solicitações para o backend. Esses cabeçalhos são x-encaminhados para, x-forwarded-proto, x-forwarded-port e x-original-host. O formato para cabeçalho x-encaminhado para é uma lista separada por comuma de IP:port.
+Um gateway de aplicativo insere quatro cabeçalhos adicionais em todas as solicitações antes de encaminhar as solicitações para o backend. Esses cabeçalhos são x-forwarded-for, x-forwarded-proto, x-forwarded-port, e x-original-host. O formato para cabeçalho x-forwarded-for é uma lista separada por vírgula de IP:port.
 
-Os valores válidos para x-forwarded-proto são HTTP ou HTTPS. A porta x-encaminhada especifica a porta onde a solicitação chegou ao gateway do aplicativo. O cabeçalho x-original-host contém o cabeçalho de host original com o qual a solicitação chegou. Este cabeçalho é útil na integração do site do Azure, onde o cabeçalho do host de entrada é modificado antes que o tráfego seja roteado para o backend. Se a afinidade de sessão estiver habilitada como uma opção, ela adicionará um cookie de afinidade gerenciado por gateway.
+Os valores válidos para x-forwarded-proto são HTTP ou HTTPS. O cabeçalho x-forwarded-port especifica a porta onde a solicitação chegou ao gateway do aplicativo. O valor x-original-host contém o cabeçalho de host original com o qual a solicitação chegou. Este cabeçalho é útil na integração do site do Azure, onde o cabeçalho do host de entrada é modificado antes que o tráfego seja roteado para o backend. Se a afinidade de sessão estiver habilitada como uma opção, ela adicionará um cookie de afinidade gerenciado por gateway.
 
-Você pode configurar o gateway de aplicativo para modificar cabeçalhos usando [cabeçalhos HTTP de regravação](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou para modificar o caminho URI usando uma configuração de substituição de caminho. No entanto, a menos que configurado para fazê-lo, todas as solicitações recebidas são proxidas para o backend.
+Você pode configurar o gateway de aplicativo para modificar cabeçalhos usando [Reescrever cabeçalhos HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) ou para modificar o caminho URI usando uma configuração de substituição de caminho. No entanto, a menos que configurado para fazê-lo, todas as solicitações recebidas são enviadas em proxy para o backend.
 
 ## <a name="next-steps"></a>Próximas etapas
 
