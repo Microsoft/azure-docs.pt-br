@@ -22,9 +22,9 @@ Um ponto de extremidade privado é uma interface de rede que conecta você de fo
 Para obter mais informações, confira [O que é o Link Privado do Azure?](../private-link/private-link-overview.md)
 
 > [!IMPORTANT]
-> Esse recurso tem suporte apenas com a camada **dedicada** . Para obter mais informações sobre a camada dedicada, consulte [visão geral do hubs de eventos dedicados](event-hubs-dedicated-overview.md). 
+> Esse recurso tem suporte apenas nas a camadas **standard** e **dedicada** . Para obter mais informações sobre a camada dedicada, consulte [visão geral do hubs de eventos dedicados](event-hubs-dedicated-overview.md). 
 >
-> Este recurso está atualmente em **Visualização**. 
+> Este recurso está atualmente em **Preview**. 
 
 >[!WARNING]
 > A habilitação de pontos de extremidade privados pode impedir que outros serviços do Azure interajam com os hubs de eventos.
