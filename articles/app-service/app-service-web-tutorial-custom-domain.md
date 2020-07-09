@@ -192,11 +192,12 @@ Na página **domínios personalizados**, copie o endereço IP do aplicativo.
 
 #### <a name="create-the-a-record"></a>Criar um conjunto A de registros
 
-Para mapear um registro A para um aplicativo, geralmente para o domínio raiz, crie dois registros:
+Para mapear um registro A para 
+aplicativo, geralmente para o domínio raiz, crie dois registros:
 
 | Tipo de registro | Host | Valor | Comentários |
 | - | - | - |
-| Um | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) | O mapeamento de domínio em si (`@` normalmente representa o domínio raiz). |
+| A | `@` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) | O mapeamento de domínio em si (`@` normalmente representa o domínio raiz). |
 | TXT | `asuid` | [A ID de verificação que você obteve anteriormente](#get-domain-verification-id) | O Serviço de Aplicativo acessa o registro TXT `asuid.<subdomain>` para verificar sua propriedade do domínio personalizado. Para o domínio raiz, use `asuid`. |
 
 > [!NOTE]
@@ -204,7 +205,7 @@ Para mapear um registro A para um aplicativo, geralmente para o domínio raiz, c
 >
 > | Tipo de registro | Host | Valor |
 > | - | - | - |
-> | Um | `www` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
+> | A | `www` | Endereço IP de [Copiar o endereço IP do aplicativo](#info) |
 > | TXT | `asuid.www` | `<app_name>.azurewebsites.net` |
 >
 
