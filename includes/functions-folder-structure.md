@@ -31,7 +31,7 @@ FunctionApp
 
 Na versão 2. x e superior do tempo de execução do functions, todas as funções no aplicativo de funções devem compartilhar a mesma pilha de idiomas.  
 
-O [host.jsno](../articles/azure-functions/functions-host-json.md) arquivo contém configurações específicas de tempo de execução e está na pasta raiz do aplicativo de funções. Uma pasta *bin* contém pacotes e outros arquivos de biblioteca que o aplicativo de funções requer. Consulte os requisitos específicos a um idioma para um projeto de aplicativo de função:
+O arquivo [host.json](../articles/azure-functions/functions-host-json.md) contém configurações específicas de tempo de execução e está na pasta raiz do aplicativo de funções. Uma pasta *bin* contém pacotes e outros arquivos de biblioteca que o aplicativo de funções requer. Consulte os requisitos específicos a um idioma para um projeto de aplicativo de função:
 
 * [Biblioteca de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
 * [Script do C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
