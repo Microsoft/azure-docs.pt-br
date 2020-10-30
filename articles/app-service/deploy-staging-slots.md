@@ -1,6 +1,6 @@
 ---
-title: Configurar ambientes de preparo
-description: Saiba como implantar aplicativos em um slot que não seja de produção e o AutoSwap para produção. Aumente a confiabilidade e elimine o tempo de inatividade do aplicativo de implantações.
+title: Configurar ambientes de staging
+description: Saiba como implantar aplicativos em um slot que não seja de produção e o AutoSwap para produção. Aumente a confiabilidade e elimine o downtime do aplicativo de implantações.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
@@ -12,70 +12,70 @@ ms.contentlocale: pt-BR
 ms.lasthandoff: 10/17/2020
 ms.locfileid: "92150331"
 ---
-# <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de preparo no Serviço de Aplicativo do Azure
+# <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de staging no Azure App Service
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo Web, aplicativo Web no Linux, back-end móvel ou aplicativo de API para [Azure app serviço](./overview.md), você pode usar um slot de implantação separado em vez do slot de produção padrão quando estiver executando na camada de plano do serviço de aplicativo **padrão**, **Premium**ou **isolado** . Os slots de implantação são aplicativos ao vivo com seus próprios nomes de host. Os elementos de configurações e conteúdo de aplicativo podem ser trocados entre dois slots de implantação, incluindo o slot de produção. 
+Ao implantar seu aplicativo web, aplicativo web no Linux, back-end para mobile ou aplicativo de API no [Azure App Service](./overview.md), você pode usar um slot de implantação apartado, em vez do slot padrão de produção, quando estiver executando no plano **Standard**, **Premium** ou **Isolado** do App Service. Os slots de implantação são aplicativos que possuem seus próprios host names. Os elementos de configurações e o conteúdo dos aplicativos podem ser alternados entre dois slots de implantação, incluindo o slot de produção.
 
 A implantação do aplicativo em um slot de não produção traz os seguintes benefícios:
 
-* É possível validar as alterações no aplicativo em um slot de implantação de preparo antes de permutá-lo pelo slot de produção.
-* Implantar um aplicativo em um slot primeiro e alterná-lo para produção garantem que todas as instâncias do slot estejam aquecidas antes de alterná-lo para produção. Isso elimina o tempo de inatividade quando você for implantar seu aplicativo. O redirecionamento de tráfego é contínuo, e nenhuma solicitação é removida devido a operações de alternância. Você pode automatizar todo esse fluxo de trabalho configurando a [troca automática](#Auto-Swap) quando a validação de pré-atualização não for necessária.
-* Após a troca, o slot com o aplicativo de preparo anterior terá o aplicativo de produção anterior. Se as alterações alternadas para o slot de produção não correspondem às suas expectativas, você pode realizar a mesma alternância imediatamente para ter o "último site válido conhecido" de volta.
+* É possível validar as alterações no aplicativo em um slot de implantação de staging antes de fazer o swapp com o slot de produção.
+* Implantar um aplicativo primeiro em um slot e depois promovê-lo para produção garante que todas as instâncias do slot estejam aquecidas antes de promovê-lo para produção. Isso elimina o downtime quando você for fazer deploy do seu aplicativo. O redirecionamento de tráfego é ininterrupto, e nenhuma requests é perdida devido a operação de swap. Você pode automatizar todo esse fluxo configurando o [auto swap](#Auto-Swap) quando uma validação antes de realizar o swap não for necessária.
+* Após o swap, o slot anteriormente contendo o aplicativo de staging passará então a conter o aplicativo de produção. Se as alterações promovidas para o slot de produção não corresponderem às suas expectativas, você pode realizar a mesma troca imediatamente para obter o "último site válido conhecido" de volta.
 
-Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir o número de Slots com suporte na camada do aplicativo, consulte [limites do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits). 
+Cada tipo de plano do Serviço de Aplicativo dá suporte a um número diferente de slots de implantação. Não há nenhum custo adicional para usar os slots de implantação. Para descobrir a quantidade de Slots que a camada do seu aplicativo suporta, consulte [limites do serviço de aplicativo](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
-Para dimensionar seu aplicativo para uma camada diferente, verifique se a camada de destino dá suporte ao número de slots que seu aplicativo já usa. Por exemplo, se seu aplicativo tiver mais de cinco slots, você não poderá dimensioná-lo para a camada **Standard** , pois a camada **Standard** oferece suporte a apenas cinco slots de implantação. 
+Para escalar seu aplicativo para uma camada diferente, verifique se a camada de destino dá suporte ao número de slots que seu aplicativo já utiliza. Por exemplo, se seu aplicativo tiver mais de cinco slots, você não poderá dimensioná-lo para a camada **Standard**, pois a camada **Standard** oferece suporte a apenas cinco slots de implantação.
 
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Adicionar um slot
-O aplicativo deve estar em execução na camada **Standard**, **Premium**ou **Isolated** para que você habilite vários slots de implantação.
+O aplicativo deve estar em execução na camada **Standard**, **Premium** ou **Isolado** para que você possa habilitar multiplos slots de implantação.
 
 
-1. na [portal do Azure](https://portal.azure.com/), procure e selecione serviços de **aplicativos** e selecione seu aplicativo. 
+1. no [portal do Azure](https://portal.azure.com/), pesquise e selecione **Serviços de Aplicativos** então selecione o seu aplicativo.
    
     ![Pesquisar serviços de aplicativos](./media/web-sites-staged-publishing/search-for-app-services.png)
    
 
-2. No painel esquerdo, selecione **Slots de implantação**  >  **Adicionar slot**.
+2. No painel do lado esquerdo, selecione **Slots de implantação**  >  **Adicionar Slot**.
    
     ![Adicionar um novo slot de implantação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Se o aplicativo ainda não estiver na camada **Standard**, **Premium**ou **Isolated** , você receberá uma mensagem que indica as camadas com suporte para habilitar a publicação em etapas. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **escala** do seu aplicativo antes de continuar.
+   > Se o aplicativo ainda não estiver na camada **Standard**, **Premium** ou **Isolado**, você receberá uma mensagem indicando quais as camadas dão suporte para habilitar a publicação em stage. Neste ponto, você tem a opção de selecionar **Atualizar** e ir para a guia **Escalar** do seu aplicativo, antes de continuar.
    > 
 
-3. Na caixa de diálogo **Adicionar um slot** , dê um nome ao slot e selecione se deseja clonar uma configuração de aplicativo de outro slot de implantação. Selecione **Adicionar** para continuar.
+3. Na caixa de diálogo **Adicionar um slot**, dê um nome ao slot e selecione se deseja clonar uma configuração de aplicativo de outro slot de implantação. Selecione **Adicionar** para continuar.
    
     ![Fonte de configuração](./media/web-sites-staged-publishing/ConfigurationSource1.png)
    
-    Você pode clonar uma configuração de qualquer slot existente. As configurações que podem ser clonadas incluem configurações de aplicativo, cadeias de conexão, versões da estrutura de linguagem, soquetes da Web, versão HTTP e número de bits da plataforma.
+    Você pode clonar uma configuração de qualquer outro slot existente. As configurações que podem ser clonadas incluem configurações de aplicativo, strings de conexão, versões do framework da linguagem, web sockets, versão do HTTP e número de bits da plataforma.
 
-4. Depois que o slot for adicionado, selecione **fechar** para fechar a caixa de diálogo. O novo slot agora é mostrado na página **Slots de implantação** . Por padrão, o **tráfego%** é definido como 0 para o novo slot, com todo o tráfego do cliente roteado para o slot de produção.
+4. Depois que o slot for adicionado, selecione **Fechar** para fechar a caixa de diálogo. O novo slot agora é exibido na página **Slots de implantação**. Por padrão, o **Tráfego %** é definido como 0 para o novo slot, com todo o tráfego do cliente sendo roteado para o slot de produção.
 
 5. Selecione o novo slot de implantação para abrir a página de recursos do slot.
    
     ![Título do slot de implantação](./media/web-sites-staged-publishing/StagingTitle.png)
 
-    O slot de preparo tem uma página de gerenciamento como qualquer outro aplicativo do Serviço de Aplicativo. É possível alterar a configuração do slot. Para lembrá-lo de que você está exibindo o slot de implantação, o nome do aplicativo é mostrado como **\<app-name>/\<slot-name>** e o tipo de aplicativo é **serviço de aplicativo (slot)**. Você também pode ver o slot como um aplicativo separado em seu grupo de recursos, com as mesmas designações.
+    O slot de staging tem uma página de gerenciamento como qualquer outro aplicativo do Serviço de Aplicativo. É possível alterar a configuração do slot. Para lembrá-lo de que você está visualizando o slot de implantação, o nome do aplicativo é exibido como **\<app-name>/\<slot-name>** e o tipo de aplicativo é **App Service (Slot)**. Você também pode ver o slot como um aplicativo separado em seu grupo de recursos, com as mesmas designações.
 
-6. Selecione a URL do aplicativo na página de recursos do slot. O slot de implantação tem seu próprio nome de host e também é um aplicativo ativo. Para limitar o acesso público ao slot de implantação, consulte [Azure app restrições de IP do serviço](app-service-ip-restrictions.md).
+6. Selecione a URL do aplicativo na página de recursos do slot. O slot de implantação tem seu próprio host name e também é um aplicativo ativo. Para limitar o acesso público ao slot de implantação, consulte [Restrições de IP no Azure App Service](app-service-ip-restrictions.md).
 
-O novo slot de implantação não tem nenhum conteúdo, mesmo se as configurações são clonadas de outro slot. Por exemplo, você pode [publicar neste slot com o Git](./deploy-local-git.md). É possível fazer uma implantação no slot de outro branch do repositório ou de outro repositório.
+O novo slot de implantação não tem nenhum conteúdo, mesmo que você clone as configurações de outro slot. Por exemplo, você pode [publicar neste slot com o Git](./deploy-local-git.md). É possível fazer deploy no slot a partir de outra branch ou de outro repositório.
 
 <a name="AboutConfiguration"></a>
 
-## <a name="what-happens-during-a-swap"></a>O que acontece durante uma permuta
+## <a name="what-happens-during-a-swap"></a>O que acontece durante um swap
 
-### <a name="swap-operation-steps"></a>Etapas da operação de permuta
+### <a name="swap-operation-steps"></a>Etapas da operação de swap
 
-Quando você troca dois slots (geralmente de um slot de preparo no slot de produção), o serviço de aplicativo faz o seguinte para garantir que o slot de destino não experimente tempo de inatividade:
+Quando você troca dois slots (geralmente de um slot de staging para o slot de produção), o App Service faz o seguinte para garantir que o slot de destino não enfrente downtime:
 
-1. Aplique as seguintes configurações do slot de destino (por exemplo, o slot de produção) a todas as instâncias do slot de origem: 
-    - Configurações do aplicativo e cadeias [de conexão específicas do slot](#which-settings-are-swapped) , se aplicável.
-    - Configurações de [implantação contínua](deploy-continuous-deployment.md) , se habilitadas.
-    - Configurações de [autenticação do serviço de aplicativo](overview-authentication-authorization.md) , se habilitadas.
+1. Aplica as seguintes configurações do slot de destino (por exemplo, o slot de produção) a todas as instâncias do slot de origem:
+    - [Configurações específicas do slot](#which-settings-are-swapped) do aplicativo e strings de conexão, se aplicável.
+    - Configurações de [continuous deployment](deploy-continuous-deployment.md), se habilitadas.
+    - Configurações de [autenticação do App Service](overview-authentication-authorization.md) , se habilitadas.
     
     Qualquer um desses casos disparará todas as instâncias no slot de origem para reiniciar. Durante a [troca com visualização](#Multi-Phase), isso marca o final da primeira fase. A operação de permuta está pausada e você pode validar que o slot de origem funciona corretamente com as configurações do slot de destino.
 
