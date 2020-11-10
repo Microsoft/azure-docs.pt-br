@@ -54,7 +54,7 @@ Algumas das APIs de serviço meteorológico permitem que o usuário especifique 
 
 Algumas das APIs de serviço meteorológico retornam o `iconCode` na resposta. O `iconCode` é um valor numérico usado para definir o ícone. Não vincule diretamente a essas imagens de seus aplicativos, as URLs podem e serão alteradas.
 
-| Número do ícone |ícone| Dia | Jogo | Texto |
+| Número do ícone |ícone| Dia | Noite | Texto |
 |-------------|:----:|-----|-------|------|
 | 1           | :::image type="icon" source="./media/weather-services-concepts/sunny-i.png"::: | Sim |  Não    | Ensolarado|
 | 2           | :::image type="icon" source="./media/weather-services-concepts/mostly-sunny.png"::: | Sim |  Não    | Quase que ensolarado|
