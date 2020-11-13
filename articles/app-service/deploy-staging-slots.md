@@ -15,7 +15,7 @@ ms.locfileid: "92150331"
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de staging no Azure App Service
 <a name="Overview"></a>
 
-Ao implantar seu aplicativo web, aplicativo web no Linux, back-end para mobile ou aplicativo de API no [Azure App Service](./overview.md), você pode usar um slot de implantação apartado, em vez do slot padrão de produção ao utilizar o plano **Standard**, **Premium** ou **Isolado** do Serviço de Aplicativo. Os slots de implantação são aplicativos funcionais que possuem seus próprios host names. Os elementos de configurações e o conteúdo dos aplicativos podem ser alternados entre dois slots de implantação, incluindo o slot de produção.
+Ao implantar seu aplicativo web, aplicativo web no Linux, back-end para mobile ou aplicativo de API no [Azure App Service](./overview.md), você pode usar um slot de implantação apartado, ao invés do slot padrão de produção ao utilizar o plano **Standard**, **Premium** ou **Isolado** do Serviço de Aplicativo. Os slots de implantação são aplicativos funcionais que possuem seus próprios host names. Os elementos de configurações e o conteúdo dos aplicativos podem ser alternados entre dois slots de implantação, incluindo o slot de produção.
 
 A implantação do aplicativo em um slot não produtivo traz os seguintes benefícios:
 
