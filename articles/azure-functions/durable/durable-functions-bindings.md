@@ -73,7 +73,7 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 }
 ```
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Durable Functions 2.x. Para Durable Functions 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 #### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
@@ -108,7 +108,7 @@ public static async Task<string> Run(
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Durable Functions 2.x. Para Durable Functions 1.x, você deve usar `DurableOrchestrationContext` em vez de `IDurableOrchestrationContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 #### <a name="javascript-functions-20-only"></a>JavaScript (somente funções 2.0)
 
@@ -179,7 +179,7 @@ public static string SayHello([ActivityTrigger] IDurableActivityContext helloCon
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `DurableActivityContext` em vez de `IDurableActivityContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Durable Functions 2.x. Para Durable Functions 1.x, você deve usar `DurableActivityContext` em vez de `IDurableActivityContext` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 O tipo de parâmetro padrão para a associação `ActivityTriggerAttribute` .NET é `IDurableActivityContext`. No entanto, os gatilhos de atividade .NET também dão suporte à associação direta com tipos serializáveis em JSON (incluindo tipos primitivos), de modo que a mesma função poderia ser simplificada da seguinte forma:
 
@@ -247,7 +247,7 @@ A associação de cliente de orquestração permite que você grave funções qu
 * Enviar eventos a elas durante sua execução.
 * Limpar o histórico de instância.
 
-Se você estiver usando o Visual Studio, poderá associar ao cliente Orchestration usando o `OrchestrationClientAttribute` atributo .net para Durable Functions 1,0. A partir do Durable Functions 2,0, você pode associar ao cliente Orchestration usando o `DurableClientAttribute` atributo .net.
+Se você estiver usando o Visual Studio, poderá associar ao cliente Orchestration usando o `OrchestrationClientAttribute` atributo .net para Durable Functions 1.0. A partir do Durable Functions 2.0, você pode associar ao cliente Orchestration usando o `DurableClientAttribute` atributo .net.
 
 Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *. js* ) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte objeto JSON na `bindings` matriz de *function.jsem*:
 
@@ -269,7 +269,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *. CSX* ou *
 
 ### <a name="client-usage"></a>Uso do cliente
 
-Em funções do .NET, você normalmente se associa a `IDurableOrchestrationClient` , que fornece acesso completo a todas as APIs de cliente de orquestração com suporte pelo Durable functions. Nas versões mais antigas Durable Functions 2. x, em vez disso, você faz a ligação com a `DurableOrchestrationClient` classe. No JavaScript, as mesmas APIs são expostas pelo objeto retornado de `getClient` . APIs no objeto cliente incluem:
+Em funções do .NET, você normalmente se associa a `IDurableOrchestrationClient` , que fornece acesso completo a todas as APIs de cliente de orquestração com suporte pelo Durable functions. Nas versões mais antigas Durable Functions 2.x, em vez disso, você faz a ligação com a `DurableOrchestrationClient` classe. No JavaScript, as mesmas APIs são expostas pelo objeto retornado de `getClient` . APIs no objeto cliente incluem:
 
 * `StartNewAsync`
 * `GetStatusAsync`
@@ -299,7 +299,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> O código C# anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `OrchestrationClient` o atributo em vez do `DurableClient` atributo, e deve usar o `DurableOrchestrationClient` tipo de parâmetro em vez de `IDurableOrchestrationClient` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código C# anterior é para Durable Functions 2.x. Para Durable Functions 1.x, você deve usar `OrchestrationClient` o atributo em vez do `DurableClient` atributo, e deve usar o `DurableOrchestrationClient` tipo de parâmetro em vez de `IDurableOrchestrationClient` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 ### <a name="client-sample-not-visual-studio"></a>Exemplo de cliente (fora do Visual Studio)
 
@@ -324,7 +324,7 @@ Se você não estiver usando o Visual Studio para desenvolvimento, poderá criar
 ```
 
 > [!NOTE]
-> O JSON anterior é para o Durable Functions 2. x. Para Durable Functions 1. x, você deve usar `orchestrationClient` em vez de `durableClient` como o tipo de gatilho. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O JSON anterior é para o Durable Functions 2.x. Para Durable Functions 1.x, você deve usar `orchestrationClient` em vez de `durableClient` como o tipo de gatilho. Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 A seguir, temos exemplos específico a um idioma que iniciam novas instâncias de função do orquestrador.
 
@@ -344,7 +344,7 @@ public static Task Run(string input, IDurableOrchestrationClient starter)
 ```
 
 > [!NOTE]
-> O código anterior é para Durable Functions 2. x. Para Durable Functions 1. x, você deve usar o `DurableOrchestrationClient` tipo de parâmetro em vez de `IDurableOrchestrationClient` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
+> O código anterior é para Durable Functions 2.x. Para Durable Functions 1.x, você deve usar o `DurableOrchestrationClient` tipo de parâmetro em vez de `IDurableOrchestrationClient` . Para obter mais informações sobre as diferenças entre versões, consulte o artigo [Durable Functions versões](durable-functions-versions.md) .
 
 #### <a name="javascript-sample"></a>Exemplo de JavaScript
 
@@ -368,7 +368,7 @@ Os gatilhos de entidade permitem que você crie [funções de entidade](durable-
 Quando você usa as ferramentas do Visual Studio para Azure Functions, o gatilho de entidade é configurado usando o `EntityTriggerAttribute` atributo .net.
 
 > [!NOTE]
-> Os gatilhos de entidade estão disponíveis a partir do Durable Functions 2. x.
+> Os gatilhos de entidade estão disponíveis a partir do Durable Functions 2.x.
 
 Internamente, essa associação de gatilho sonda uma série de filas na conta de armazenamento padrão do aplicativo de funções. Essas filas são detalhes da implementação interna da extensão e, por isso, elas não são configuradas explicitamente nas propriedades de associação.
 
