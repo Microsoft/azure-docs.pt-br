@@ -15,7 +15,7 @@ ms.locfileid: "96296107"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versões do Kubernetes com suporte no AKS (Serviço de Kubernetes do Azure)
 
-A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Recentemente, a Comunidade kubernetes [aumentou a janela de suporte para cada versão, de 9 meses a 12 meses, a partir da](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/)versão 1,19. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes semanais) e destinam-se a correções de bugs críticos em uma versão secundária. Essas versões de patch incluem correções para vulnerabilidades de segurança ou principais bugs.
+A comunidade Kubernetes libera versões secundárias aproximadamente a cada três meses. Recentemente, a Comunidade kubernetes [aumentou a janela de suporte para cada versão, de 9 meses a 12 meses](https://kubernetes.io/blog/2020/08/31/kubernetes-1-19-feature-one-year-support/), a partir da versão 1,19. Essas versões incluem novos recursos e melhorias. As versões de patch são mais frequentes (às vezes semanais) e destinam-se a correções de bugs críticos em uma versão secundária. Essas versões de patch incluem correções para vulnerabilidades de segurança ou principais bugs.
 
 ## <a name="kubernetes-versions"></a>Versões do Kubernetes
 
